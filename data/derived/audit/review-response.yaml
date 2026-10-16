@@ -1,0 +1,640 @@
+# Generated once by an S036 scratch script from the judgements below, then kept as the ledger.
+# Edit lines here, not records: `tmk-bulk restructure --ledger` checks and applies them.
+note: 'S036''s worklist from the review response (docs/ONTOLOGY-REVIEW-RESPONSE.md, F05, F13, F15, F16, F18), on
+  the owner''s instruction of 2026-10-16 to implement its Packages 1 and 2 as agent work, under the standing instruction
+  of 2026-10-09 to represent the information correctly and accurately (CHAT-0073). Every machine-written relationship
+  the response named, and every S029 re-read never judged in its current form, read beside its sentence: re-read
+  (to), re-qualified (a modality or an applies_when on the same triple), withdrawn, or checked and kept. Machine-written
+  by an agent session, unreviewed: a judgement per line for an examiner to disagree with. Applied by `tmk-bulk restructure
+  --ledger data/derived/audit/review-response.yaml --write`.'
+session: S036
+authored_by: claude-code-agent-S036
+date: '2026-10-16'
+ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml
+ruling_item: CHAT-0073
+review: the review response's worklist (S036)
+report: data/derived/reports/review-response-edges.md
+title: The review response's worklist (S036)
+intro: 'ChatGPT''s review of 15 October found machine-written relationships that say more than their sentence (F05),
+  and S035''s response turned that into a worklist: the seven edges named, the fourteen the audit judged wrong that
+  still served, the thirty re-reads carrying a modality from their earlier reading, the edges resting only on a
+  heading, and then every S029 re-read nobody had judged in its current form. Every line below is an agent session''s
+  judgement (`claude-code-agent-S036`), machine-written and unreviewed. ''Only as qualified'' is the sentence''s
+  own condition or hedge, which now travels with the edge (F14).'
+edges:
+- edge: GR-0432
+  to:
+  - GC-0086
+  - requiresConsentOf
+  - GC-0133
+  applies_when: an application to record assignment is received after the documentation required under reg 16.2
+    has been sent to the Commission but before the trade mark has been registered
+  why: The consent is needed only for an assignment recorded after the reg 16.2 documents have gone to the Commission
+    and before registration; the paragraph before says an assignment before referral needs none. The condition now
+    travels with the edge.
+- edge: GR-0167
+  withdraw: 'A negative sentence: the regulations do not provide for cessation of protection to be followed by revocation
+    of acceptance and re-examination. It states no order of steps, and read the way precedes reads it said examination
+    cannot happen until acceptance is revoked.'
+- edge: GR-0521
+  withdraw: The sentence is about disclaimers on the old register becoming particulars on the new Register, which
+    GR-0536, GR-0624 and GR-0625 state; it does not say the old register became the Register.
+- edge: GR-0140
+  withdraw: owns contradicts its own counter-example (an authorised user does not own the domain name), and the
+    sentence's proposition, that the section 43 ground applies if the applicant is not the registrant or authorised
+    user of the domain name the mark connotes, is GR-0142's.
+- edge: GR-0437
+  withdraw: The sentence holds no 'must' and is about the ground being reconsidered; its proposition is GR-0440's
+    (the ground) and GR-0702's (the exception).
+- edge: GR-0495
+  withdraw: 'Subsection 44(3) gives the Registrar a discretion to accept subject to conditions; read as ''acceptance
+    results in a condition of registration'' the discretion became an outcome. What a condition does is GR-0112,
+    GR-0684 and GR-0685: a ground overcome by one.'
+- edge: GR-0454
+  withdraw: '''The Registrar may consider that it is not reasonable to revoke acceptance if the applicant agrees
+    to conditions'' is a discretion on whether revoking is reasonable (s 38(1)(b)); a condition does not prevent
+    revocation.'
+- edge: GR-0138
+  to:
+  - GC-0001
+  - excludesBasis
+  - GC-0130
+  why: 'The sentence says the connotation must come from the mark itself and not from a reputation in another mark:
+    its subject is connotation, not implied endorsement (the audit''s reading).'
+- edge: GR-0199
+  to:
+  - GC-0055
+  - mayGiveRiseTo
+  - GC-0182
+  modality: null
+  applies_when: the prescribed sign forms a reasonably large component of the trade mark and deleting it would substantially
+    affect the identity of the trade mark
+  why: Part 31 is section 39's Part, so the ground the sentence names is section 39's; the audit read the bare words.
+    The 'should' is the raising's, not the giving rise's, and the sentence's condition now travels with the edge.
+- edge: GR-0211
+  withdraw: The sentence says how ordinary signification is determined (by the target audience), not that it applies
+    to a sign; GR-0208, GR-0210, GR-0212 and GR-0213 carry what it does.
+- edge: GR-0240
+  withdraw: The sentence says series of non-traditional signs are assessed on their merits like traditional ones;
+    it does not say that what is said of a series extends to non-traditional signs, which is what extendsTo reads
+    (the response's sample).
+- edge: GR-0340
+  withdraw: A section heading (s 29's title). Restated from the body sentence in Part 11.1.4 as a new record.
+- edge: GR-0488
+  keep: 'Part 20.5.4 is the section 42(a) guidance on scandalous matter, and ''the ground for rejection'' there
+    is that ground: the presumption must be taken into account in applying it, which qualifies reads. The audit
+    read the sentence without its Part.'
+- edge: GR-0490
+  keep: A ground governs the application it is raised against; the dictionary admits a ground as appliesTo's subject
+    (ADR-0131), against the audit's narrower reading of the predicate.
+- edge: GR-0538
+  keep: A disclaimer governs the registration it is entered on, and only that one; appliesTo admits a record as
+    its subject (ADR-0131).
+- edge: GR-0618
+  keep: The sentence presupposes the presumption applies during examination (and opposition and appeal); appliesTo
+    with a principle as its subject reads that.
+- edge: GR-0655
+  keep: In Part 46 the delegate who decides after the hearing is the Hearing Officer; the audit's correction only
+    widens the subject to the delegate, which the record already entails (edge-audit.md).
+- edge: GR-0678
+  keep: Serves in place of a signed record corrected on the owner's ruling (ADR-0122); the audit's verdict on it
+    is one of the four disputed signed readings waiting on the owner (edge-audit.md). An agent does not overrule
+    that reading either.
+- edge: GR-0680
+  keep: Serves in place of a signed record corrected on the owner's ruling (ADR-0122); the audit's verdict on it
+    is one of the four disputed signed readings waiting on the owner (edge-audit.md). An agent does not overrule
+    that reading either.
+- edge: GR-0682
+  keep: Serves in place of a signed record corrected on the owner's ruling (ADR-0122); the audit's verdict on it
+    is one of the four disputed signed readings waiting on the owner (edge-audit.md). An agent does not overrule
+    that reading either.
+- edge: GR-0683
+  keep: Serves in place of a signed record corrected on the owner's ruling (ADR-0122); the audit's verdict on it
+    is one of the four disputed signed readings waiting on the owner (edge-audit.md). An agent does not overrule
+    that reading either.
+- edge: GR-0118
+  to:
+  - GC-0043
+  - precedes
+  - GC-0015
+  applies_when: submissions are received requesting the deletion of certain goods/services from an application that
+    also state that a divisional application is to be filed from that application
+  why: The 'should' is the delay's, which is the ordering precedes reads; the sentence's condition now travels with
+    it.
+- edge: GR-0175
+  to:
+  - GC-0046
+  - performs
+  - GC-0040
+  modality: null
+  why: The 'may' is the Registrar's discretion to take an undefended opposition to have succeeded, not whether the
+    Registrar decides oppositions.
+- edge: GR-0177
+  to:
+  - GC-0046
+  - performs
+  - GC-0128
+  modality: null
+  why: The discretion is over the hearing's form, oral or written, not whether the Registrar conducts it.
+- edge: GR-0218
+  withdraw: The sentence gives two alternative grounds, reg 4.15 or s 42(b), for signs notified by WIPO that also
+    fall within either; it does not say a prescribed sign gives rise to the contrary-to-law ground. Its 'must' was
+    its earlier reading's.
+- edge: GR-0262
+  to:
+  - GC-0097
+  - mayGiveRiseTo
+  - GC-0128
+  modality: null
+  why: '''Can object ... by requesting a hearing'' is the objector''s option; mayGiveRiseTo already says may.'
+- edge: GR-0271
+  withdraw: The sentence says a claimed interest is entered in the Register only if the mark is renewed; it does
+    not say the renewal is recorded, and its 'must' was its earlier reading's.
+- edge: GR-0272
+  keep: '''Any person may effect the renewal ... not restricted to the owner'': the owner may file it; the ''may''
+    is the filing''s.'
+- edge: GR-0275
+  to:
+  - GC-0084
+  - owns
+  - GC-0107
+  modality: null
+  why: The 'can' is the owner's use of the mark, not the owning.
+- edge: GR-0307
+  to:
+  - GC-0046
+  - performs
+  - GC-0122
+  applies_when: he or she reasonably believes that expedited examination is warranted
+  why: The 'may' is the expediting's; the condition now travels with it.
+- edge: GR-0310
+  keep: '''The decision may be made after hearing one or both parties or on the written record'': the ''may'' is
+    whether a hearing precedes the decision, which is this edge.'
+- edge: GR-0319
+  to:
+  - GC-0103
+  - precedes
+  - GC-0158
+  modality: null
+  why: The 'must' is the applicant's duty to file the notice of intention to defend if it wishes to continue, not
+    the order of the two notices.
+- edge: GR-0320
+  to:
+  - GC-0153
+  - isPartOf
+  - GC-0103
+  modality: null
+  why: A definition ('A notice of opposition means ...'); the 'can' was the opposing's.
+- edge: GR-0345
+  keep: '''May be served ... by leaving it with ... the Deputy Registrar'': the ''may'' is the service''s.'
+- edge: GR-0362
+  to:
+  - GC-0108
+  - isExcludedFrom
+  - GC-0162
+  modality: null
+  why: '''It is not possible to change the ownership'' is the exclusion isExcludedFrom states; ''must'' is not the
+    source''s word.'
+- edge: GR-0370
+  to:
+  - GC-0150
+  - isRecordedIn
+  - GC-0165
+  applies_when: an international registration that has designated Australia ceases or is limited
+  why: The 'must' is IP Australia's duty to amend the Record, which is the recording; the condition now travels
+    with it.
+- edge: GR-0435
+  keep: '''Where permission is provided, this should be made clear by way of an endorsement'': the ''should'' is
+    the recording''s.'
+- edge: GR-0452
+  to:
+  - GC-0148
+  - files
+  - GC-0041
+  applies_when: someone you have authorised to make the declaration on your behalf
+  why: A lawyer makes the declaration only as someone the applicant has authorised; the condition now travels with
+    it.
+- edge: GR-0460
+  to:
+  - GC-0044
+  - performs
+  - GC-0092
+  modality: null
+  why: The 'should' is 'a citation should be raised', not the examiner's examining (the response's sample).
+- edge: GR-0537
+  keep: '''The Registrar is only required to enter in the Register the particulars of the disclaimer'': the ''must''
+    is the entering''s.'
+- edge: GR-0539
+  keep: '''The request ... may be made at any time by ... a registered owner'': the ''may'' is the filing''s.'
+- edge: GR-0589
+  to:
+  - GC-0046
+  - performs
+  - GC-0092
+  modality: null
+  why: The 'must' is the Registrar's duty to report on the application, not the examining.
+- edge: GR-0617
+  to:
+  - GC-0092
+  - precedes
+  - GC-0093
+  modality: null
+  why: The 'must' is 'must be accepted if ...', the acceptance's, not the order of examination and acceptance.
+- edge: GR-0119
+  to:
+  - GC-0044
+  - performs
+  - GC-0015
+  applies_when: the divisional application is valid and complete
+  why: The 'must' is the examiner's processing of the amendment; the condition now travels with it.
+- edge: GR-0269
+  to:
+  - GC-0106
+  - runsFrom
+  - GC-0091
+  modality: null
+  why: The 'may' is 'may be renewed'; the intervals run from the filing date without one.
+- edge: GR-0529
+  to:
+  - GC-0046
+  - performs
+  - GC-0095
+  applies_when: in circumstances in which it appears that the registration should not have occurred
+  why: '''Allow the Registrar to revoke'' is the revoking''s ''may''; the condition now travels with it.'
+- edge: GR-0665
+  to:
+  - GC-0173
+  - performs
+  - GC-0042
+  modality: null
+  why: The 'must' is the notifying of the proposed revocation, not the revoking.
+- edge: GR-0666
+  to:
+  - GC-0159
+  - performs
+  - GC-0042
+  modality: null
+  why: The 'must' is the notifying of the proposed revocation, not the revoking.
+- edge: GR-0239
+  keep: 'The record''s sentence is a heading, but the Manual states the same in body text: ''Scent is one of the
+    most difficult non-traditional signs to represent graphically'' (Part 21.7). Recognition does not match that
+    wording to this concept''s name, so a record cannot be re-cited onto it by the checked path; the sentence is
+    named here for a reviewer.'
+- edge: GR-0504
+  keep: 'The record''s sentence is a heading, but the Manual states the same in body text: ''non-traditional signs
+    such as shape and colour trade marks'' (Part 19A.8). Recognition does not match that wording to this concept''s
+    name, so a record cannot be re-cited onto it by the checked path; the sentence is named here for a reviewer.'
+- edge: GR-0505
+  keep: 'The record''s sentence is a heading, but the Manual states the same in body text: ''non-traditional signs
+    such as shape and colour trade marks'' (Part 19A.8). Recognition does not match that wording to this concept''s
+    name, so a record cannot be re-cited onto it by the checked path; the sentence is named here for a reviewer.'
+- edge: GR-0248
+  withdraw: 'An all-capitals heading, and ''establishes'' overstated it: no sentence here says evidence of use establishes
+    use (the response, F18).'
+- edge: GR-0249
+  withdraw: 'A heading, and the Part''s own sentence says the opposite: ''A collective trade mark may not be assigned
+    or transmitted'' (Part 33.5). GR-0277 states the exclusion from assignment.'
+- edge: GR-0552
+  withdraw: A heading (Madrid Protocol Article 7's title). Restated from the body sentence in Part 60.1.9 as a new
+    record.
+- edge: GR-0598
+  withdraw: A heading (reg 17A.48D's title). Restated from the body sentence in Part 49.1.1 as a new record.
+- edge: GR-0087
+  keep: The sentence places the ground in examination, while saying it may only emerge later, at opposition.
+- edge: GR-0105
+  keep: '''These include ... the character of the probable acquirers of the goods'': the probable acquirers'' character
+    is one of the surrounding circumstances.'
+- edge: GR-0106
+  keep: A deletion or amendment to the specification is an amendment of the application acting on it.
+- edge: GR-0116
+  keep: Deleting goods from the specification is the limitation acting on it.
+- edge: GR-0159
+  keep: An opposition ends in the Registrar's decision on it, or its dismissal.
+- edge: GR-0169
+  keep: A divisional application takes its parent's filing date as its priority date; the exception the sentence
+    names is a convention date, also earlier.
+- edge: GR-0176
+  keep: The Registrar refuses, and so grants, extensions of time (s 224).
+- edge: GR-0243
+  keep: '''A divisional application may be made in respect of a series application.'''
+- edge: GR-0250
+  keep: The transmission of a certification trade mark, registered or applied for, is a step acting on it.
+- edge: GR-0254
+  keep: 'A priority date is set by a filing date: here, for a divisional application, the parent''s.'
+- edge: GR-0273
+  keep: The assignment of a certification trade mark is a step acting on it, with further requirements.
+- edge: GR-0276
+  keep: The grounds for rectification apply to certification trade marks.
+- edge: GR-0277
+  keep: Section 163(1) treats a collective trade mark as an ordinary one except for Part 10, assignment.
+- edge: GR-0282
+  keep: IRDAs are applications filed through the Madrid Protocol, which governs them.
+- edge: GR-0283
+  keep: '''It is possible to oppose extension of protection to an IRDA.'''
+- edge: GR-0289
+  keep: The Registrar's decision not to extend time is the Registrar's to issue.
+- edge: GR-0311
+  keep: A hearing of the opposition is part of it.
+- edge: GR-0321
+  keep: 'An opposition is dismissed if its statement of grounds and particulars is inadequate: an adequate one is
+    required.'
+- edge: GR-0344
+  keep: The Deputy Registrar's decisions issue as decisions of the Registrar.
+- edge: GR-0347
+  keep: A Deputy Registrar deciding a point in an opposition is conducting it.
+- edge: GR-0350
+  keep: The international registration number is a particular of the international registration.
+- edge: GR-0351
+  keep: The number is allocated when the registration is placed on the International Register, as its entry's.
+- edge: GR-0353
+  keep: '''The international registration is recorded in the International Register by the IB.'''
+- edge: GR-0354
+  keep: The applicant becomes the holder of the international registration.
+- edge: GR-0355
+  keep: Australia protects IRDAs as they are recorded on the International Register.
+- edge: GR-0357
+  keep: A change in ownership of a protected international trade mark acts on it.
+- edge: GR-0359
+  keep: A change in ownership of an IRDA acts on it.
+- edge: GR-0368
+  keep: Claims against a protected international trade mark are recorded where it is, in the Record of International
+    Registrations.
+- edge: GR-0371
+  keep: Claims against an IRDA are recorded where it is, in the Record of International Registrations.
+- edge: GR-0372
+  keep: The international registration number is included in the Record.
+- edge: GR-0393
+  keep: 'The mark''s denotation is as the applicant''s trade mark despite descriptive matter within it: the sentence
+    sets the two apart.'
+- edge: GR-0394
+  keep: 'A ground for rejection is the matter impeding acceptance: it blocks the step, which prevents now reads
+    alone (F13).'
+- edge: GR-0406
+  keep: The description entered as an endorsement defines the scope of the shape mark's registration.
+- edge: GR-0450
+  keep: '''It is possible to oppose extension of protection to an IRDA.'''
+- edge: GR-0456
+  keep: Section 6 gives a divisional application its parent's filing date.
+- edge: GR-0457
+  keep: A registration from a divisional application takes its parent's filing date as its date of registration.
+- edge: GR-0475
+  keep: '''Research during normal examination'': the research is part of examination.'
+- edge: GR-0484
+  keep: A mark inherently adapted to distinguish is, under s 41, capable of distinguishing, so no s 41 ground is
+    appropriate.
+- edge: GR-0497
+  keep: 'Section 44 asks whether goods are similar or closely related: two alternatives, set apart.'
+- edge: GR-0512
+  keep: The registered owner of the registered trade mark.
+- edge: GR-0514
+  keep: 'In a partial assignment the original owner keeps some goods and assigns the rest: a party to it.'
+- edge: GR-0517
+  keep: A registered trade mark, with claims to interests in it, is on the Register.
+- edge: GR-0536
+  keep: A disclaimer made in the old register under the 1955 Act.
+- edge: GR-0541
+  keep: An opposition begins with a notice of opposition.
+- edge: GR-0545
+  keep: The opponent prepares and files the notice of opposition.
+- edge: GR-0547
+  keep: 'The notice of opposition to the non-use application: an opposition acting on it.'
+- edge: GR-0548
+  keep: Removal for non-use begins with an application for removal.
+- edge: GR-0551
+  keep: A rectification application to a prescribed court is the court's to decide.
+- edge: GR-0557
+  keep: The registered owner of a defensive trade mark may obtain relief (s 20(2)).
+- edge: GR-0563
+  keep: The IRDA holder.
+- edge: GR-0566
+  keep: The holder of a protected international trade mark.
+- edge: GR-0575
+  keep: Every mark falls into one of three categories; these two are among them, set apart.
+- edge: GR-0579
+  keep: Withdrawal differs from lapsing in finalising the application from the notice.
+- edge: GR-0580
+  keep: An opposition may be ended by a party's withdrawal.
+- edge: GR-0587
+  keep: Acceptance of a trade mark application.
+- edge: GR-0603
+  keep: '''All rights in the trade mark accrue from the date of registration.'''
+- edge: GR-0607
+  keep: An IRDA is a request for extension of protection in Australia.
+- edge: GR-0615
+  keep: The Madrid Protocol has no provision for non-use actions against the international registration itself.
+- edge: GR-0619
+  keep: Examination of an application under section 31.
+- edge: GR-0624
+  keep: Trade marks on the old register, with their disclaimers as particulars.
+- edge: GR-0625
+  keep: The old register was kept under the repealed Act.
+- edge: GR-0668
+  keep: '''A trade mark attorney would be able to assist you'' to prepare and supply evidence of use: the attorney
+    may supply it on the applicant''s behalf. Kept as trade mark attorney''s only edge, and weak.'
+- edge: GR-0348
+  keep: A hearing is conducted by the Deputy Registrar or a Hearing Officer.
+- edge: GR-0642
+  keep: A hearing is conducted by a Hearing Officer acting under delegation.
+- edge: GR-0602
+  keep: A convention application's effective date of registration follows its priority claims.
+- edge: GR-0122
+  to:
+  - GC-0016
+  - mayGiveRiseTo
+  - GC-0122
+  applies_when: IRDAs with a convention claim
+  why: IP Australia expedites only IRDAs with a convention claim; the condition now travels with the edge.
+- edge: GR-0163
+  withdraw: The sentence says honesty is the first issue when examining evidence of honest concurrent use; it does
+    not say evidence of use establishes honest concurrent use (the response, F18).
+- edge: GR-0206
+  to:
+  - GC-0041
+  - mayShow
+  - GC-0058
+  why: '''Shown through evidence of use to be capable of distinguishing'' is almost the predicate''s own example,
+    read as ''may show'', which is all the sentence and the law allow (the response, F18).'
+- edge: GR-0252
+  to:
+  - GC-0111
+  - keepsEarlierDate
+  - GC-0016
+  applies_when: The earlier priority date will only apply to goods and/or services in common with both applications
+  why: The earlier date holds only for goods in common; that limit now travels with the edge.
+- edge: GR-0259
+  to:
+  - GC-0096
+  - suspendsTimeFor
+  - GC-0093
+  why: 'Deferment sets in abeyance the period an application has to gain acceptance: the clock stops, and acceptance
+    is not blocked (F13).'
+- edge: GR-0260
+  to:
+  - GC-0040
+  - operatesOn
+  - GC-0097
+  applies_when: extensions of time of more than three months
+  why: Only extensions of more than three months are opposed this way; that limit now travels with the edge.
+- edge: GR-0286
+  to:
+  - GC-0113
+  - becomes
+  - GC-0114
+  applies_when: an IRDA has successfully gone through IP Australia's examination and opposition processes
+  why: An IRDA becomes a protected international trade mark only once through examination and opposition.
+- edge: GR-0379
+  to:
+  - GC-0167
+  - isPartOf
+  - GC-0111
+  applies_when: if the application is in a non-English language
+  why: A certificate of verification accompanies only a translation of a non-English earlier application (the response's
+    sample).
+- edge: GR-0410
+  to:
+  - GC-0017
+  - indicates
+  - GC-0019
+  applies_when: will often connote the geographical origin or some other attribute of goods or services
+  why: '''Will often connote'': a tendency, not a rule; the hedge now travels with the edge.'
+- edge: GR-0449
+  to:
+  - GC-0040
+  - operatesOn
+  - GC-0135
+  applies_when: cessation of protection for non-use
+  why: Oppositions to cessation of protection are those for non-use; the limit now travels with the edge.
+- edge: GR-0509
+  to:
+  - GC-0082
+  - isAttributedTo
+  - GC-0085
+  applies_when: a predecessor in title had authorised another person to use the trade mark
+  why: Authorised use is the predecessor's only where the predecessor authorised it; the condition now travels with
+    it.
+- edge: GR-0520
+  to:
+  - GC-0081
+  - qualifies
+  - GC-0109
+  why: '''A primary consideration in deciding whether the trade mark qualifies for registration as a defensive trade
+    mark ... is the extent to which the registered trade mark ... has been used'': use bears on the assessment;
+    the sentence does not make it a required element.'
+- edge: GR-0526
+  to:
+  - GC-0141
+  - isFixedBy
+  - GC-0091
+  applies_when: In most cases
+  why: '''In most cases'' the filing date is the registration date (the response''s sample).'
+- edge: GR-0534
+  to:
+  - GC-0096
+  - suspendsTimeFor
+  - GC-0098
+  why: 'Deferring acceptance holds the period after which an application lapses: the clock stops (F13).'
+- edge: GR-0565
+  to:
+  - GC-0113
+  - keepsEarlierDate
+  - GC-0091
+  applies_when: usually
+  why: '''Usually'': the hedge now travels with the edge.'
+- edge: GR-0574
+  to:
+  - GC-0031
+  - qualifies
+  - GC-0059
+  applies_when: in a composite trade mark containing additional distinctive elements will usually have sufficient
+    inherent adaptation to distinguish
+  why: Only phonewords in a composite mark with other distinctive elements, and then usually; the condition now
+    travels with the edge.
+- edge: GR-0608
+  to:
+  - GC-0144
+  - isServedOn
+  - GC-0046
+  applies_when: usually the person named in a subpoena
+  why: The Registrar is usually the person named; a subpoena to 'the proper officer' is also acceptable.
+- edge: GR-0621
+  to:
+  - GC-0093
+  - prevents
+  - GC-0098
+  applies_when: within the prescribed period or within that period as extended in accordance with the regulations
+  why: Acceptance blocks lapsing only within the prescribed period or its extension; that now travels with the edge.
+- edge: GR-0627
+  to:
+  - GC-0116
+  - files
+  - GC-0158
+  modality: must
+  applies_when: if they wish to contest the opposition and maintain their rights
+  why: '''Must file a notice of intention to defend if they wish to contest the opposition'': the obligation and
+    its condition now travel with the edge.'
+- edge: GR-0637
+  to:
+  - GC-0107
+  - indicates
+  - GC-0019
+  applies_when: geographical origin or some other characteristic
+  why: A certification trade mark indicates certification of geographical origin as one of several characteristics
+    it may certify; that qualification now travels with the edge.
+- edge: GR-0699
+  to:
+  - GC-0020
+  - isAnExceptionTo
+  - GC-0006
+  applies_when: A ground for rejection will rarely apply in these cases
+  why: 'A business identifier indicates a business rather than the goods, so a ground will rarely apply: a hedged
+    exception, not insufficiency (F15).'
+- edge: GR-0700
+  to:
+  - GC-0027
+  - isAnExceptionTo
+  - GC-0168
+  applies_when: Generally, a section 43 ground for rejection will not arise in respect of long deceased historical
+    figures
+  why: '''Generally, a section 43 ground ... will not arise in respect of long deceased historical figures'': a
+    hedged exception, not insufficiency (F15).'
+- edge: GR-0701
+  to:
+  - GC-0048
+  - isAnExceptionTo
+  - GC-0002
+  applies_when: if the geographic reference is ambiguous or fanciful
+  why: 'Deception or confusion is not likely where the geographic reference is ambiguous or fanciful: a case the
+    test does not reach (F15).'
+- edge: GR-0702
+  to:
+  - GC-0035
+  - isAnExceptionTo
+  - GC-0168
+  applies_when: if an applicant provides information confirming that they are the owner or authorised user of the
+    phoneword
+  why: 'The ground applies to a phoneword only if the applicant is not its owner or authorised user (the sentence
+    before, GR-0440), and is reconsidered once that is confirmed: an exception with its condition (F15). Kept, as
+    the only edge left on GC-0035 once GR-0140 and GR-0437 go.'
+new_edges:
+- subject: GC-0111
+  predicate: requiresElement
+  object: GC-0157
+  ref: TMM/Part11/1/1/4
+  quote: A convention application should be filed within six months after the day on which the application was made
+    in the Convention country (subsection 29(1)).
+  why: A convention application rests on an application made in a Convention country, and is filed within six months
+    of it. In place of GR-0340, whose only evidence was s 29's heading.
+- subject: GC-0106
+  predicate: operatesOn
+  object: GC-0150
+  ref: TMM/Part60/1/1/9
+  quote: Renewal of an international registration is due 10 years from the date of the international registration.
+  why: Renewal acts on an international registration. In place of GR-0552, whose only evidence was a heading.
+- subject: GC-0135
+  predicate: operatesOn
+  object: GC-0114
+  ref: TMM/Part49/1/1/1
+  quote: all references in this Manual part to the removal of a trade mark from the Register also apply to the cessation
+    of protection of a protected international trade mark.
+  why: Cessation of protection acts on a protected international trade mark. In place of GR-0598, whose only evidence
+    was a heading.

@@ -2418,3 +2418,134 @@
     GR-0457 already states. As GR-0457.'
   replaced_by: GR-0457
   ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0167
+  record_type: gold_relationship
+  retired_on: '2026-10-16'
+  reason: 'The review response''s worklist (S036): A negative sentence: the regulations do
+    not provide for cessation of protection to be followed by revocation of acceptance and
+    re-examination. It states no order of steps, and read the way precedes reads it said examination
+    cannot happen until acceptance is revoked.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+- id: GR-0521
+  record_type: gold_relationship
+  retired_on: '2026-10-16'
+  reason: 'The review response''s worklist (S036): The sentence is about disclaimers on the
+    old register becoming particulars on the new Register, which GR-0536, GR-0624 and GR-0625
+    state; it does not say the old register became the Register.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+- id: GR-0140
+  record_type: gold_relationship
+  retired_on: '2026-10-16'
+  reason: 'The review response''s worklist (S036): owns contradicts its own counter-example
+    (an authorised user does not own the domain name), and the sentence''s proposition, that
+    the section 43 ground applies if the applicant is not the registrant or authorised user
+    of the domain name the mark connotes, is GR-0142''s.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+- id: GR-0437
+  record_type: gold_relationship
+  retired_on: '2026-10-16'
+  reason: 'The review response''s worklist (S036): The sentence holds no ''must'' and is about
+    the ground being reconsidered; its proposition is GR-0440''s (the ground) and GR-0702''s
+    (the exception).'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+- id: GR-0495
+  record_type: gold_relationship
+  retired_on: '2026-10-16'
+  reason: 'The review response''s worklist (S036): Subsection 44(3) gives the Registrar a
+    discretion to accept subject to conditions; read as ''acceptance results in a condition
+    of registration'' the discretion became an outcome. What a condition does is GR-0112,
+    GR-0684 and GR-0685: a ground overcome by one.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+- id: GR-0454
+  record_type: gold_relationship
+  retired_on: '2026-10-16'
+  reason: 'The review response''s worklist (S036): ''The Registrar may consider that it is
+    not reasonable to revoke acceptance if the applicant agrees to conditions'' is a discretion
+    on whether revoking is reasonable (s 38(1)(b)); a condition does not prevent revocation.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+- id: GR-0138
+  record_type: gold_relationship
+  retired_on: '2026-10-16'
+  reason: 'The review response''s worklist (S036): Re-read as GC-0001 excludesBasis GC-0130,
+    which GR-0689 already states. The sentence says the connotation must come from the mark
+    itself and not from a reputation in another mark: its subject is connotation, not implied
+    endorsement (the audit''s reading).'
+  replaced_by: GR-0689
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+- id: GR-0199
+  record_type: gold_relationship
+  retired_on: '2026-10-16'
+  reason: 'The review response''s worklist (S036): Re-read as GC-0055 mayGiveRiseTo GC-0182,
+    which GR-0198 already states. Part 31 is section 39''s Part, so the ground the sentence
+    names is section 39''s; the audit read the bare words. The ''should'' is the raising''s,
+    not the giving rise''s, and the sentence''s condition now travels with the edge.'
+  replaced_by: GR-0198
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+- id: GR-0211
+  record_type: gold_relationship
+  retired_on: '2026-10-16'
+  reason: 'The review response''s worklist (S036): The sentence says how ordinary signification
+    is determined (by the target audience), not that it applies to a sign; GR-0208, GR-0210,
+    GR-0212 and GR-0213 carry what it does.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+- id: GR-0240
+  record_type: gold_relationship
+  retired_on: '2026-10-16'
+  reason: 'The review response''s worklist (S036): The sentence says series of non-traditional
+    signs are assessed on their merits like traditional ones; it does not say that what is
+    said of a series extends to non-traditional signs, which is what extendsTo reads (the
+    response''s sample).'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+- id: GR-0340
+  record_type: gold_relationship
+  retired_on: '2026-10-16'
+  reason: 'The review response''s worklist (S036): A section heading (s 29''s title). Restated
+    from the body sentence in Part 11.1.4 as a new record.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+- id: GR-0218
+  record_type: gold_relationship
+  retired_on: '2026-10-16'
+  reason: 'The review response''s worklist (S036): The sentence gives two alternative grounds,
+    reg 4.15 or s 42(b), for signs notified by WIPO that also fall within either; it does
+    not say a prescribed sign gives rise to the contrary-to-law ground. Its ''must'' was its
+    earlier reading''s.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+- id: GR-0271
+  record_type: gold_relationship
+  retired_on: '2026-10-16'
+  reason: 'The review response''s worklist (S036): The sentence says a claimed interest is
+    entered in the Register only if the mark is renewed; it does not say the renewal is recorded,
+    and its ''must'' was its earlier reading''s.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+- id: GR-0248
+  record_type: gold_relationship
+  retired_on: '2026-10-16'
+  reason: 'The review response''s worklist (S036): An all-capitals heading, and ''establishes''
+    overstated it: no sentence here says evidence of use establishes use (the response, F18).'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+- id: GR-0249
+  record_type: gold_relationship
+  retired_on: '2026-10-16'
+  reason: 'The review response''s worklist (S036): A heading, and the Part''s own sentence
+    says the opposite: ''A collective trade mark may not be assigned or transmitted'' (Part
+    33.5). GR-0277 states the exclusion from assignment.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+- id: GR-0552
+  record_type: gold_relationship
+  retired_on: '2026-10-16'
+  reason: 'The review response''s worklist (S036): A heading (Madrid Protocol Article 7''s
+    title). Restated from the body sentence in Part 60.1.9 as a new record.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+- id: GR-0598
+  record_type: gold_relationship
+  retired_on: '2026-10-16'
+  reason: 'The review response''s worklist (S036): A heading (reg 17A.48D''s title). Restated
+    from the body sentence in Part 49.1.1 as a new record.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+- id: GR-0163
+  record_type: gold_relationship
+  retired_on: '2026-10-16'
+  reason: 'The review response''s worklist (S036): The sentence says honesty is the first
+    issue when examining evidence of honest concurrent use; it does not say evidence of use
+    establishes honest concurrent use (the response, F18).'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073

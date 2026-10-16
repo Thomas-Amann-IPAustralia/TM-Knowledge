@@ -1342,14 +1342,15 @@ tmka:GR-0116 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0118 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-pointed on 2026-10-08 by S026: object GC-0110 -> GC-0043 — an authored duplicate withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and evidence are the original author's. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0015 related GC-0043."@en-AU ;
+    rdfs:comment "Re-pointed on 2026-10-08 by S026: object GC-0110 -> GC-0043 — an authored duplicate withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and evidence are the original author's. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0015 related GC-0043. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "submissions are received requesting the deletion of certain goods/services from an application that also state that a divisional application is to be filed from that application"@en-AU ;
     tmk:assertionObject tmkc:GC-0015 ;
     tmk:assertionPredicate tmk:precedes ;
     tmk:assertionSubject tmkc:GC-0043 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Where both are asked for, the deletion waits until the divisional application has been filed."@en-AU ;
+    tmk:authoringReasoning "The 'should' is the delay's, which is the ordering precedes reads; the sentence's condition now travels with it."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -1366,14 +1367,15 @@ tmka:GR-0118 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0119 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0015 allocatesTo GC-0044."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0015 allocatesTo GC-0044. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "the divisional application is valid and complete"@en-AU ;
     tmk:assertionObject tmkc:GC-0015 ;
     tmk:assertionPredicate tmk:performs ;
     tmk:assertionSubject tmkc:GC-0044 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The examiner processes the amendment that excludes the divisional application's goods from the parent's specification."@en-AU ;
+    tmk:authoringReasoning "The 'must' is the examiner's processing of the amendment; the condition now travels with it."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -1390,14 +1392,15 @@ tmka:GR-0119 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0122 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0016 related GC-0122."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0016 related GC-0122. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "IRDAs with a convention claim"@en-AU ;
     tmk:assertionObject tmkc:GC-0122 ;
     tmk:assertionPredicate tmk:mayGiveRiseTo ;
     tmk:assertionSubject tmkc:GC-0016 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "A convention claim (an earlier priority date) leads IP Australia to expedite an IRDA as routine."@en-AU ;
+    tmk:authoringReasoning "IP Australia expedites only IRDAs with a convention claim; the condition now travels with the edge."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -1588,29 +1591,6 @@ tmka:GR-0137 a tmk:AuthoredAssertion ;
     tmk:supportingText "Some INN stems consist of simple two or three letter combinations and their presence in a larger word may not be meaningful and as a result would not lead to deception or confusion." ;
     tmk:tier 3 .
 
-tmka:GR-0138 a tmk:AuthoredAssertion ;
-    tmk:assertionObject tmkc:GC-0130 ;
-    tmk:assertionPredicate tmk:excludesBasis ;
-    tmk:assertionSubject tmkc:GC-0028 ;
-    tmk:authoredBy "gpt-6.1-sol" ;
-    tmk:authoredDate "2026-10-07"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Manual expressly excludes reputation in another trade mark as the source of the endorsement connotation. This is a statement of examination practice, not a legislative provision."@en-AU ;
-    tmk:confidence 0.94 ;
-    tmk:expertShouldCheck "Whether GC-0130 covers the specific reputation in another trade mark excluded here, rather than reputation more broadly."@en-AU ;
-    tmk:extractionMethod "agent_authoring" ;
-    tmk:goldRecord "GR-0138" ;
-    tmk:isStale false ;
-    tmk:modality "must" ;
-    tmk:origin "authored" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:4a152ff8e285012f7bc44941664602f7d5ebbe7775f61faa73472e1827a6bc60" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> ;
-    tmk:spanEnd 649 ;
-    tmk:spanStart 436 ;
-    tmk:supportingText "When faced with this type of reference it is important to remember that the connotation must be from the trade mark itself and not from any other external considerations such as a reputation in another trade mark." ;
-    tmk:tier 3 .
-
 tmka:GR-0139 a tmk:AuthoredAssertion ;
     tmk:assertionObject tmkc:GC-0028 ;
     tmk:assertionPredicate tmk:qualifies ;
@@ -1631,29 +1611,6 @@ tmka:GR-0139 a tmk:AuthoredAssertion ;
     tmk:spanEnd 797 ;
     tmk:spanStart 650 ;
     tmk:supportingText "The particular currency (or relevance) that the reference currently has and the extent to which it is well known are also important considerations." ;
-    tmk:tier 3 .
-
-tmka:GR-0140 a tmk:AuthoredAssertion ;
-    rdfs:comment "Subject re-pointed on 2026-10-08 by S026 from GC-0083 to GC-0035: the sentence is about the registrant or authorised user of a domain name — the s 43 factor, not the trade mark's authorised user (ruling A4). The judgement and evidence are the original author's. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0035 related GC-0032."@en-AU ;
-    tmk:assertionObject tmkc:GC-0032 ;
-    tmk:assertionPredicate tmk:owns ;
-    tmk:assertionSubject tmkc:GC-0035 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The ground turns on whether the applicant is the registrant (owner) or authorised user of the domain name the mark connotes."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
-    tmk:extractionMethod "agent_authoring" ;
-    tmk:goldRecord "GR-0140" ;
-    tmk:isStale false ;
-    tmk:origin "authored" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:28b2041b2264b20d3625c71417f49e1bc0602a1dccf3909b8f6ea9a1e3e1076d" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/2> ;
-    tmk:spanEnd 668 ;
-    tmk:spanStart 434 ;
-    tmk:supportingText "A section 43 ground for rejection will apply if the applicant for a trade mark, which connotes an Internet domain name (including a 2ND level domain / sub domain), is not the registrant or authorised user of that Internet domain name." ;
     tmk:tier 3 .
 
 tmka:GR-0142 a tmk:AuthoredAssertion ;
@@ -1795,52 +1752,6 @@ tmka:GR-0161 a tmk:AuthoredAssertion ;
     tmk:supportingText "There is a mandatory provision (section 84B) relating to revocation of registration within one month of a component of a notice of opposition being filed, or an application for extension of time to file a notice being made, if the Registrar has inadvertently registered a trade mark in the face of a properly filed component of a notice of opposition to registration, or an application for extension of time to file." ;
     tmk:tier 3 .
 
-tmka:GR-0163 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0041 related GC-0066."@en-AU ;
-    tmk:assertionObject tmkc:GC-0066 ;
-    tmk:assertionPredicate tmk:establishes ;
-    tmk:assertionSubject tmkc:GC-0041 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Evidence of use is what an examiner examines to find honest concurrent use."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
-    tmk:extractionMethod "agent_authoring" ;
-    tmk:goldRecord "GR-0163" ;
-    tmk:isStale false ;
-    tmk:origin "authored" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:f1d1059bb19f8214c0e88fbe202d93f672c09e6192752a99af64e680a41571cf" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/3%231> ;
-    tmk:spanEnd 154 ;
-    tmk:spanStart 49 ;
-    tmk:supportingText "When examining evidence of honest concurrent use, the first issue that needs to be considered is honesty." ;
-    tmk:tier 3 .
-
-tmka:GR-0167 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0042 related GC-0092."@en-AU ;
-    tmk:assertionObject tmkc:GC-0092 ;
-    tmk:assertionPredicate tmk:precedes ;
-    tmk:assertionSubject tmkc:GC-0042 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Revocation of acceptance is followed by re-examination; the sentence says the regulations make no such provision after cessation of protection."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
-    tmk:extractionMethod "agent_authoring" ;
-    tmk:goldRecord "GR-0167" ;
-    tmk:isStale false ;
-    tmk:origin "authored" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:90818aa05d6d03964738bc94e92c26f52abdcc4b7fa4efec32f5082ddfc19f8b" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part62/8%231> ;
-    tmk:spanEnd 694 ;
-    tmk:spanStart 550 ;
-    tmk:supportingText "The regulations do not provide for cessation of protection to be followed by possible opposition or revocation of acceptance and re-examination." ;
-    tmk:tier 3 .
-
 tmka:GR-0169 a tmk:AuthoredAssertion ;
     rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0043 related GC-0016."@en-AU ;
     tmk:assertionObject tmkc:GC-0016 ;
@@ -1889,20 +1800,19 @@ tmka:GR-0171 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0175 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0046 related GC-0040."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0046 related GC-0040. Checked on 2026-10-16 in the review response's worklist (S036): modality may → none."@en-AU ;
     tmk:assertionObject tmkc:GC-0040 ;
     tmk:assertionPredicate tmk:performs ;
     tmk:assertionSubject tmkc:GC-0046 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Registrar decides the opposition, including taking it to have succeeded."@en-AU ;
+    tmk:authoringReasoning "The 'may' is the Registrar's discretion to take an undefended opposition to have succeeded, not whether the Registrar decides oppositions."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
     tmk:goldRecord "GR-0175" ;
     tmk:isStale false ;
-    tmk:modality "may" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourceContentHash "sha256:a3c76221ded6ca23a7d5908070520ff2cbd0eca86e3489dc0053d37628648348" ;
@@ -1936,20 +1846,19 @@ tmka:GR-0176 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0177 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0046 related GC-0128."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0046 related GC-0128. Checked on 2026-10-16 in the review response's worklist (S036): modality may → none."@en-AU ;
     tmk:assertionObject tmkc:GC-0128 ;
     tmk:assertionPredicate tmk:performs ;
     tmk:assertionSubject tmkc:GC-0046 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Registrar decides whether a hearing is oral or on written submissions."@en-AU ;
+    tmk:authoringReasoning "The discretion is over the hearing's form, oral or written, not whether the Registrar conducts it."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
     tmk:goldRecord "GR-0177" ;
     tmk:isStale false ;
-    tmk:modality "may" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourceContentHash "sha256:61fd8af24e5ac9e3e9545086eed96b42c6e9ac91c35ea23297c88ee64bc827f1" ;
@@ -2142,30 +2051,6 @@ tmka:GR-0198 a tmk:AuthoredAssertion ;
     tmk:supportingText "Paragraph 39(2)(a) of the Trade Marks Act states that a trade mark may be rejected if it contains or consists of a sign that is prescribed in the regulations for the purposes of section 39(2), OR is a sign so nearly resembling the prescribed sign as to be likely to be taken for it (subparagraph 39(2)(b)(i))." ;
     tmk:tier 3 .
 
-tmka:GR-0199 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by whether the sentence is about section 43 (ruling A2). The judgement and evidence are the original author's. Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0182 — ground-for-rejection edges whose sentence is about section 39 point at that section's ground (ruling B4). The judgement and evidence are the original author's."@en-AU ;
-    tmk:assertionObject tmkc:GC-0182 ;
-    tmk:assertionPredicate tmk:mayGiveRiseTo ;
-    tmk:assertionSubject tmkc:GC-0055 ;
-    tmk:authoredBy "gpt-6.1-sol" ;
-    tmk:authoredDate "2026-10-07"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Manual expressly links a prescribed sign to a ground for rejection under the stated size and deletion conditions. The direction to raise that ground is Manual practice, not an independent legislative command."@en-AU ;
-    tmk:confidence 0.94 ;
-    tmk:expertShouldCheck "Whether this relationship needs an explicit restriction to the signs prescribed in regulation 4.15(a) and (b), which frame the paragraph."@en-AU ;
-    tmk:extractionMethod "agent_authoring" ;
-    tmk:goldRecord "GR-0199" ;
-    tmk:isStale false ;
-    tmk:modality "should" ;
-    tmk:origin "authored" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:d500c141157868b0250f4c1b2e33ab6de637536e8121bc57afe1f18d5cb62222" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/4/4/1> ;
-    tmk:spanEnd 568 ;
-    tmk:spanStart 359 ;
-    tmk:supportingText "Where the prescribed sign forms a reasonably large component of the trade mark and deleting it would substantially affect the identity of the trade mark then a ground for rejection exists and should be raised." ;
-    tmk:tier 3 .
-
 tmka:GR-0201 a tmk:AuthoredAssertion ;
     rdfs:comment "Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by whether the sentence is about section 43 (ruling A2). The judgement and evidence are the original author's. Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0182 — ground-for-rejection edges whose sentence is about section 39 point at that section's ground (ruling B4). The judgement and evidence are the original author's."@en-AU ;
     tmk:assertionObject tmkc:GC-0182 ;
@@ -2213,14 +2098,14 @@ tmka:GR-0204 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0206 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-pointed on 2026-10-08 by S026: subject GC-0101 -> GC-0041 — an authored duplicate withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and evidence are the original author's. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0041 related GC-0058."@en-AU ;
+    rdfs:comment "Re-pointed on 2026-10-08 by S026: subject GC-0101 -> GC-0041 — an authored duplicate withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and evidence are the original author's. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0041 related GC-0058. Re-read on 2026-10-16 in the review response's worklist (S036): was GC-0041 establishes GC-0058."@en-AU ;
     tmk:assertionObject tmkc:GC-0058 ;
-    tmk:assertionPredicate tmk:establishes ;
+    tmk:assertionPredicate tmk:mayShow ;
     tmk:assertionSubject tmkc:GC-0041 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "A mark lacking inherent adaptation may be shown through evidence of use to be capable of distinguishing."@en-AU ;
+    tmk:authoringReasoning "'Shown through evidence of use to be capable of distinguishing' is almost the predicate's own example, read as 'may show', which is all the sentence and the law allow (the response, F18)."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -2301,29 +2186,6 @@ tmka:GR-0210 a tmk:AuthoredAssertion ;
     tmk:spanEnd 410 ;
     tmk:spanStart 166 ;
     tmk:supportingText "For example, the ordinary signification of picture of a wheelbarrow is “this is a wheelbarrow”. Hence an imageof a wheelbarrow for wheelbarrows would not be prima facie capable of distinguishing any one trader's wheelbarrows in the marketplace." ;
-    tmk:tier 3 .
-
-tmka:GR-0211 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0060 appliesTo GC-0073. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0060 related GC-0073."@en-AU ;
-    tmk:assertionObject tmkc:GC-0073 ;
-    tmk:assertionPredicate tmk:appliesTo ;
-    tmk:assertionSubject tmkc:GC-0060 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Ordinary signification is a question asked of a sign."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
-    tmk:extractionMethod "agent_authoring" ;
-    tmk:goldRecord "GR-0211" ;
-    tmk:isStale false ;
-    tmk:origin "authored" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:081b45d6a3bf620d41577222325905dc7b22e29e23052acec1fbb9f4cdd94d56" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/7/22/7/3> ;
-    tmk:spanEnd 346 ;
-    tmk:spanStart 0 ;
-    tmk:supportingText "The ordinary signification of a sign is determined by reference to those ‘persons who will purchase, consume or trade in the goods’ (Cantarella at [59], see also at [75]) or ‘any person in Australia concerned with the goods’ (Cantarella at [70]), which the High Court also referred to as the ‘target audience’ (Cantarella at [28], [30] and [71])." ;
     tmk:tier 3 .
 
 tmka:GR-0212 a tmk:AuthoredAssertion ;
@@ -2414,30 +2276,6 @@ tmka:GR-0215 a tmk:AuthoredAssertion ;
     tmk:spanStart 298 ;
     tmk:supportingText "The examiner must consider whether a trade mark is or contains a term protected under the Wine Australia Act and whether a contrary to law ground for rejection applies under s 42 of the Trade Marks Act 1995." ;
     tmk:tier 2 .
-
-tmka:GR-0218 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0063 related GC-0055."@en-AU ;
-    tmk:assertionObject tmkc:GC-0063 ;
-    tmk:assertionPredicate tmk:mayGiveRiseTo ;
-    tmk:assertionSubject tmkc:GC-0055 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "A ground for a prescribed sign may be taken under section 42(b), use contrary to law."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
-    tmk:extractionMethod "agent_authoring" ;
-    tmk:goldRecord "GR-0218" ;
-    tmk:isStale false ;
-    tmk:modality "must" ;
-    tmk:origin "authored" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:894f4ceac432b05806d9ced8e192a315885f05b2fc70d24bb85d38e03db46bef" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/5/5/3> ;
-    tmk:spanEnd 373 ;
-    tmk:spanStart 161 ;
-    tmk:supportingText "Grounds for rejection for signs falling into this category will be taken under reg 4.15 (prescribed signs) or subsection 42(b) (contrary to law), as appropriate, rather than on the basis of the WIPO notification." ;
-    tmk:tier 3 .
 
 tmka:GR-0219 a tmk:AuthoredAssertion ;
     tmk:assertionObject tmkc:GC-0067 ;
@@ -2732,29 +2570,6 @@ tmka:GR-0239 a tmk:AuthoredAssertion ;
     tmk:supportingText "Part 21 Non-traditional signs - 7.1. Representations and descriptions of scent trade marks" ;
     tmk:tier 2 .
 
-tmka:GR-0240 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0079 extendsTo GC-0074. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0079 related GC-0074."@en-AU ;
-    tmk:assertionObject tmkc:GC-0074 ;
-    tmk:assertionPredicate tmk:extendsTo ;
-    tmk:assertionSubject tmkc:GC-0079 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The series rules apply to non-traditional signs as to traditional ones."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
-    tmk:extractionMethod "agent_authoring" ;
-    tmk:goldRecord "GR-0240" ;
-    tmk:isStale false ;
-    tmk:origin "authored" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:9ac5acfd3aa75773918789261da297b3505d9e44b3600f1471d0f4d80ee346e6" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part13/4%231~1> ;
-    tmk:spanEnd 1539 ;
-    tmk:spanStart 1367 ;
-    tmk:supportingText "Applications for a series of trade marks that consist of non-traditional signs must be assessed on their merits, and should not be treated differently to traditional signs." ;
-    tmk:tier 3 .
-
 tmka:GR-0241 a tmk:AuthoredAssertion ;
     tmk:assertionObject tmkc:GC-0073 ;
     tmk:assertionPredicate skos:broader ;
@@ -2847,52 +2662,6 @@ tmka:GR-0247 a tmk:AuthoredAssertion ;
     tmk:supportingText "Authorised use of a trade mark is taken, for the purposes of the Act, to be use of the trade mark by the owner of the trade mark (s 7(3))." ;
     tmk:tier 2 .
 
-tmka:GR-0248 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0041 related GC-0081."@en-AU ;
-    tmk:assertionObject tmkc:GC-0081 ;
-    tmk:assertionPredicate tmk:establishes ;
-    tmk:assertionSubject tmkc:GC-0041 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Evidence of use is supplied to show use of the trade mark (s 41(4))."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
-    tmk:extractionMethod "agent_authoring" ;
-    tmk:goldRecord "GR-0248" ;
-    tmk:isStale false ;
-    tmk:origin "authored" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:c5e4d6de6a7920c1dee1ad4128ffbc6d990e7d7862783e84bb466e52a1ca8108" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/x-annex-a6---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-414---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013%231~1> ;
-    tmk:spanEnd 96 ;
-    tmk:spanStart 0 ;
-    tmk:supportingText "HOW TO SUPPLY EVIDENCE OF USE OF A TRADE MARK Under subsection 41(4) of the Trade Marks Act 1995" ;
-    tmk:tier 3 .
-
-tmka:GR-0249 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0087 appliesTo GC-0108. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0087 related GC-0108."@en-AU ;
-    tmk:assertionObject tmkc:GC-0108 ;
-    tmk:assertionPredicate tmk:operatesOn ;
-    tmk:assertionSubject tmkc:GC-0087 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Manual's section on transmission of collective trade marks."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
-    tmk:extractionMethod "agent_authoring" ;
-    tmk:goldRecord "GR-0249" ;
-    tmk:isStale false ;
-    tmk:origin "authored" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:607de7644ff00eca7f8bf539f4c4d32716088ae480f5600ece89f4417367e074" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part43/1%231~3> ;
-    tmk:spanEnd 484 ;
-    tmk:spanStart 396 ;
-    tmk:supportingText "Part 33 Collective Trade Marks - 5. Assignment or transmission of collective trade marks" ;
-    tmk:tier 3 .
-
 tmka:GR-0250 a tmk:AuthoredAssertion ;
     rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0087 appliesTo GC-0107. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0087 related GC-0107."@en-AU ;
     tmk:assertionObject tmkc:GC-0107 ;
@@ -2917,14 +2686,15 @@ tmka:GR-0250 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0252 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-pointed on 2026-10-08 by S026: subject GC-0090 -> GC-0016 — an authored duplicate withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and evidence are the original author's. Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0016 appliesTo GC-0111. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0016 related GC-0111."@en-AU ;
+    rdfs:comment "Re-pointed on 2026-10-08 by S026: subject GC-0090 -> GC-0016 — an authored duplicate withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and evidence are the original author's. Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0016 appliesTo GC-0111. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0016 related GC-0111. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "The earlier priority date will only apply to goods and/or services in common with both applications"@en-AU ;
     tmk:assertionObject tmkc:GC-0016 ;
     tmk:assertionPredicate tmk:keepsEarlierDate ;
     tmk:assertionSubject tmkc:GC-0111 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "A convention application takes the priority date of the earlier application for the goods in common."@en-AU ;
+    tmk:authoringReasoning "The earlier date holds only for goods in common; that limit now travels with the edge."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -2986,14 +2756,14 @@ tmka:GR-0254 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0259 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0096 related GC-0093."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0096 related GC-0093. Re-read on 2026-10-16 in the review response's worklist (S036): was GC-0096 prevents GC-0093."@en-AU ;
     tmk:assertionObject tmkc:GC-0093 ;
-    tmk:assertionPredicate tmk:prevents ;
+    tmk:assertionPredicate tmk:suspendsTimeFor ;
     tmk:assertionSubject tmkc:GC-0096 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "While deferred, the period for gaining acceptance is set in abeyance."@en-AU ;
+    tmk:authoringReasoning "Deferment sets in abeyance the period an application has to gain acceptance: the clock stops, and acceptance is not blocked (F13)."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -3009,14 +2779,15 @@ tmka:GR-0259 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0260 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0040 appliesTo GC-0097. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0040 related GC-0097."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0040 appliesTo GC-0097. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0040 related GC-0097. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "extensions of time of more than three months"@en-AU ;
     tmk:assertionObject tmkc:GC-0097 ;
     tmk:assertionPredicate tmk:operatesOn ;
     tmk:assertionSubject tmkc:GC-0040 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "An extension of time of more than three months can be opposed."@en-AU ;
+    tmk:authoringReasoning "Only extensions of more than three months are opposed this way; that limit now travels with the edge."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -3032,20 +2803,19 @@ tmka:GR-0260 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0262 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0097 related GC-0128."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0097 related GC-0128. Checked on 2026-10-16 in the review response's worklist (S036): modality may → none."@en-AU ;
     tmk:assertionObject tmkc:GC-0128 ;
     tmk:assertionPredicate tmk:mayGiveRiseTo ;
     tmk:assertionSubject tmkc:GC-0097 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "An objection to an extension may be heard at a hearing."@en-AU ;
+    tmk:authoringReasoning "'Can object ... by requesting a hearing' is the objector's option; mayGiveRiseTo already says may."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
     tmk:goldRecord "GR-0262" ;
     tmk:isStale false ;
-    tmk:modality "may" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourceContentHash "sha256:fb7064dcfe88164d1f3a2c285b0c581788d39cd4022811705d2b8fd635a62ac0" ;
@@ -3078,20 +2848,19 @@ tmka:GR-0267 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0269 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0091 qualifies GC-0106."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0091 qualifies GC-0106. Checked on 2026-10-16 in the review response's worklist (S036): modality may → none."@en-AU ;
     tmk:assertionObject tmkc:GC-0091 ;
     tmk:assertionPredicate tmk:runsFrom ;
     tmk:assertionSubject tmkc:GC-0106 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "A registration may be renewed at ten-year intervals dating from the filing date."@en-AU ;
+    tmk:authoringReasoning "The 'may' is 'may be renewed'; the intervals run from the filing date without one."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
     tmk:goldRecord "GR-0269" ;
     tmk:isStale false ;
-    tmk:modality "may" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourceContentHash "sha256:7ac8c71bcd48304b149e6c8244923f7644c5b1c1d2cbb3259994c58fa1dddadd" ;
@@ -3121,30 +2890,6 @@ tmka:GR-0270 a tmk:AuthoredAssertion ;
     tmk:spanEnd 63 ;
     tmk:spanStart 0 ;
     tmk:supportingText "Madrid Protocol Article 7 Renewal of International Registration" ;
-    tmk:tier 3 .
-
-tmka:GR-0271 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0106 related GC-0089."@en-AU ;
-    tmk:assertionObject tmkc:GC-0089 ;
-    tmk:assertionPredicate tmk:isRecordedIn ;
-    tmk:assertionSubject tmkc:GC-0106 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "A renewal is entered in the Register, and a claimed interest only with it."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
-    tmk:extractionMethod "agent_authoring" ;
-    tmk:goldRecord "GR-0271" ;
-    tmk:isStale false ;
-    tmk:modality "must" ;
-    tmk:origin "authored" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:a3fe678828273b6d53c17e7e2dd471f6307f30c8b50a94b42c60f34b28649194" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part44/3%231> ;
-    tmk:spanEnd 730 ;
-    tmk:spanStart 456 ;
-    tmk:supportingText "If a trade mark is within its 6 month grace period (as per section 79) in which the registration has expired however renewal may be requested, a claimed interest may be recorded in the database, however this will only be entered in the Register if the trade mark is renewed." ;
     tmk:tier 3 .
 
 tmka:GR-0272 a tmk:AuthoredAssertion ;
@@ -3195,20 +2940,19 @@ tmka:GR-0273 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0275 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0084 related GC-0107."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0084 related GC-0107. Checked on 2026-10-16 in the review response's worklist (S036): modality may → none."@en-AU ;
     tmk:assertionObject tmkc:GC-0107 ;
     tmk:assertionPredicate tmk:owns ;
     tmk:assertionSubject tmkc:GC-0084 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The owner of the certification trade mark."@en-AU ;
+    tmk:authoringReasoning "The 'can' is the owner's use of the mark, not the owning."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
     tmk:goldRecord "GR-0275" ;
     tmk:isStale false ;
-    tmk:modality "may" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourceContentHash "sha256:c21d9dfb1e224697c42be3a1662c98ae941753d1ee350592c24c136985d16637" ;
@@ -3333,14 +3077,15 @@ tmka:GR-0285 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0286 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0040 mayGiveRiseTo GC-0114. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0040 related GC-0114."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0040 mayGiveRiseTo GC-0114. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0040 related GC-0114. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "an IRDA has successfully gone through IP Australia's examination and opposition processes"@en-AU ;
     tmk:assertionObject tmkc:GC-0114 ;
     tmk:assertionPredicate tmk:becomes ;
     tmk:assertionSubject tmkc:GC-0113 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "An IRDA through examination and opposition is known as a protected international trade mark."@en-AU ;
+    tmk:authoringReasoning "An IRDA becomes a protected international trade mark only once through examination and opposition."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -3449,14 +3194,15 @@ tmka:GR-0301 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0307 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0046 related GC-0122."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0046 related GC-0122. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "he or she reasonably believes that expedited examination is warranted"@en-AU ;
     tmk:assertionObject tmkc:GC-0122 ;
     tmk:assertionPredicate tmk:performs ;
     tmk:assertionSubject tmkc:GC-0046 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Registrar may expedite examination (reg 4.19)."@en-AU ;
+    tmk:authoringReasoning "The 'may' is the expediting's; the condition now travels with it."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -3610,20 +3356,19 @@ tmka:GR-0318 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0319 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0153 related GC-0158."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0153 related GC-0158. Checked on 2026-10-16 in the review response's worklist (S036): modality must → none."@en-AU ;
     tmk:assertionObject tmkc:GC-0158 ;
     tmk:assertionPredicate tmk:precedes ;
     tmk:assertionSubject tmkc:GC-0103 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Once a complete notice of opposition is filed, the applicant must file a notice of intention to defend."@en-AU ;
+    tmk:authoringReasoning "The 'must' is the applicant's duty to file the notice of intention to defend if it wishes to continue, not the order of the two notices."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
     tmk:goldRecord "GR-0319" ;
     tmk:isStale false ;
-    tmk:modality "must" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourceContentHash "sha256:11a56bd149f712fa77bc2188fa341aad8239ea4709668516aa3a0c6222e32c91" ;
@@ -3634,20 +3379,19 @@ tmka:GR-0319 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0320 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0153 related GC-0143."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0153 related GC-0143. Checked on 2026-10-16 in the review response's worklist (S036): modality may → none."@en-AU ;
     tmk:assertionObject tmkc:GC-0103 ;
     tmk:assertionPredicate tmk:isPartOf ;
     tmk:assertionSubject tmkc:GC-0153 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "A notice of opposition means a notice of intention to oppose and a statement of grounds and particulars."@en-AU ;
+    tmk:authoringReasoning "A definition ('A notice of opposition means ...'); the 'can' was the opposing's."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
     tmk:goldRecord "GR-0320" ;
     tmk:isStale false ;
-    tmk:modality "may" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourceContentHash "sha256:4bd0c392125a44efe33f5387504c7fe3b910cfdeeda0899638dac525b854e100" ;
@@ -3908,29 +3652,6 @@ tmka:GR-0339 a tmk:AuthoredAssertion ;
     tmk:spanEnd 114 ;
     tmk:spanStart 50 ;
     tmk:supportingText "A non-use application needs to be in an approved form (reg 9.5)." ;
-    tmk:tier 3 .
-
-tmka:GR-0340 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0111 requiresElement GC-0157. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0111 related GC-0157."@en-AU ;
-    tmk:assertionObject tmkc:GC-0157 ;
-    tmk:assertionPredicate tmk:requiresElement ;
-    tmk:assertionSubject tmkc:GC-0111 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A convention application claims priority from an application made in a Convention country (s 29)."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
-    tmk:extractionMethod "agent_authoring" ;
-    tmk:goldRecord "GR-0340" ;
-    tmk:isStale false ;
-    tmk:origin "authored" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:93a7834e88f5df31f90a8725877144a99fe1e742a52b5b9afa4a47a59d030295" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part39/x-relevant-legislation17%231> ;
-    tmk:spanEnd 216 ;
-    tmk:spanStart 83 ;
-    tmk:supportingText "Section 29 Application for registration of a trade mark whose registration has been sought in a Convention country—claim for priority" ;
     tmk:tier 3 .
 
 tmka:GR-0343 a tmk:AuthoredAssertion ;
@@ -4257,20 +3978,19 @@ tmka:GR-0359 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0362 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0162 related GC-0108."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0162 related GC-0108. Checked on 2026-10-16 in the review response's worklist (S036): modality must → none."@en-AU ;
     tmk:assertionObject tmkc:GC-0162 ;
     tmk:assertionPredicate tmk:isExcludedFrom ;
     tmk:assertionSubject tmkc:GC-0108 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The ownership of a collective trade mark cannot be changed."@en-AU ;
+    tmk:authoringReasoning "'It is not possible to change the ownership' is the exclusion isExcludedFrom states; 'must' is not the source's word."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
     tmk:goldRecord "GR-0362" ;
     tmk:isStale false ;
-    tmk:modality "must" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourceContentHash "sha256:ec5a91f4ffef77a620dd5452bd7908b6e397688c216493a6dbec2912acb6e33a" ;
@@ -4304,14 +4024,15 @@ tmka:GR-0368 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0370 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0165 related GC-0150."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0165 related GC-0150. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "an international registration that has designated Australia ceases or is limited"@en-AU ;
     tmk:assertionObject tmkc:GC-0165 ;
     tmk:assertionPredicate tmk:isRecordedIn ;
     tmk:assertionSubject tmkc:GC-0150 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "IP Australia amends the Record when an international registration designating Australia ceases or is limited."@en-AU ;
+    tmk:authoringReasoning "The 'must' is IP Australia's duty to amend the Record, which is the recording; the condition now travels with it."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -4374,14 +4095,15 @@ tmka:GR-0372 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0379 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0167 related GC-0111."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0167 related GC-0111. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "if the application is in a non-English language"@en-AU ;
     tmk:assertionObject tmkc:GC-0111 ;
     tmk:assertionPredicate tmk:isPartOf ;
     tmk:assertionSubject tmkc:GC-0167 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "A translation's certificate of verification is among the documents supporting a convention application."@en-AU ;
+    tmk:authoringReasoning "A certificate of verification accompanies only a translation of a non-English earlier application (the response's sample)."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -4693,14 +4415,15 @@ tmka:GR-0406 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0410 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0017 mayGiveRiseTo GC-0145. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0017 related GC-0019."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0017 mayGiveRiseTo GC-0145. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0017 related GC-0019. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "will often connote the geographical origin or some other attribute of goods or services"@en-AU ;
     tmk:assertionObject tmkc:GC-0019 ;
     tmk:assertionPredicate tmk:indicates ;
     tmk:assertionSubject tmkc:GC-0017 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A geographical reference will often connote the geographical origin of the goods."@en-AU ;
+    tmk:authoringReasoning "'Will often connote': a tendency, not a rule; the hedge now travels with the edge."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -4918,15 +4641,17 @@ tmka:GR-0425 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0432 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-judged on 2026-10-08 by S026 under the owner's ruling D5 (review/rulings/2026-10-08-chat-ontology-review.yaml). The evidence is the original author's. Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0107 requiresConsentOf GC-0133."@en-AU ;
+    rdfs:comment "Re-judged on 2026-10-08 by S026 under the owner's ruling D5 (review/rulings/2026-10-08-chat-ontology-review.yaml). The evidence is the original author's. Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0107 requiresConsentOf GC-0133. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "an application to record assignment is received after the documentation required under reg 16.2 has been sent to the Commission but before the trade mark has been registered"@en-AU ;
     tmk:assertionObject tmkc:GC-0133 ;
     tmk:assertionPredicate tmk:requiresConsentOf ;
     tmk:assertionSubject tmkc:GC-0086 ;
-    tmk:authoredBy "gemini-3.1-pro-preview" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The sentence states that the assignment (or transfer of ownership) requires the consent of the Commission, not the trade mark itself."@en-AU ;
-    tmk:expertShouldCheck "Whether the second model's reading is right where the first model's was judged wrong; both read the same sentence."@en-AU ;
+    tmk:authoringReasoning "The consent is needed only for an assignment recorded after the reg 16.2 documents have gone to the Commission and before registration; the paragraph before says an assignment before referral needs none. The condition now travels with the edge."@en-AU ;
+    tmk:confidence 0.8 ;
+    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
     tmk:goldRecord "GR-0432" ;
     tmk:isStale false ;
@@ -4962,30 +4687,6 @@ tmka:GR-0435 a tmk:AuthoredAssertion ;
     tmk:spanEnd 463 ;
     tmk:spanStart 201 ;
     tmk:supportingText "An applicant may overcome a section 43 ground for rejection in relation to such an image by providing the well-known person’s written permission to use their image as a trade mark. Where permission is provided, this should be made clear by way of an endorsement." ;
-    tmk:tier 3 .
-
-tmka:GR-0437 a tmk:AuthoredAssertion ;
-    rdfs:comment "Object re-pointed on 2026-10-08 by S026 from GC-0083 to GC-0035: the sentence is about the owner or authorised user of the phoneword — the s 43 factor, not the trade mark's authorised user (ruling A4). The judgement and evidence are the original author's. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0031 related GC-0035."@en-AU ;
-    tmk:assertionObject tmkc:GC-0031 ;
-    tmk:assertionPredicate tmk:owns ;
-    tmk:assertionSubject tmkc:GC-0035 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The ground is reconsidered if the applicant is the owner or authorised user of the phoneword."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
-    tmk:extractionMethod "agent_authoring" ;
-    tmk:goldRecord "GR-0437" ;
-    tmk:isStale false ;
-    tmk:modality "must" ;
-    tmk:origin "authored" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231> ;
-    tmk:spanEnd 1160 ;
-    tmk:spanStart 995 ;
-    tmk:supportingText "The section 43 ground for rejection will be reconsidered if an applicant provides information confirming that they are the owner or authorised user of the phoneword." ;
     tmk:tier 3 .
 
 tmka:GR-0440 a tmk:AuthoredAssertion ;
@@ -5103,14 +4804,15 @@ tmka:GR-0448 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0449 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0040 appliesTo GC-0135. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0040 related GC-0135."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0040 appliesTo GC-0135. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0040 related GC-0135. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "cessation of protection for non-use"@en-AU ;
     tmk:assertionObject tmkc:GC-0135 ;
     tmk:assertionPredicate tmk:operatesOn ;
     tmk:assertionSubject tmkc:GC-0040 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Oppositions to cessation of protection for non-use."@en-AU ;
+    tmk:authoringReasoning "Oppositions to cessation of protection are those for non-use; the limit now travels with the edge."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -5149,14 +4851,15 @@ tmka:GR-0450 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0452 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0041 related GC-0148."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0041 related GC-0148. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "someone you have authorised to make the declaration on your behalf"@en-AU ;
     tmk:assertionObject tmkc:GC-0041 ;
     tmk:assertionPredicate tmk:files ;
     tmk:assertionSubject tmkc:GC-0148 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "A lawyer may make the declaration of use on the applicant's behalf."@en-AU ;
+    tmk:authoringReasoning "A lawyer makes the declaration only as someone the applicant has authorised; the condition now travels with it."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -5193,30 +4896,6 @@ tmka:GR-0453 a tmk:AuthoredAssertion ;
     tmk:spanEnd 141 ;
     tmk:spanStart 49 ;
     tmk:supportingText "An application for a defensive registration must be supported by evidence (Regulation 17.1)." ;
-    tmk:tier 3 .
-
-tmka:GR-0454 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-pointed on 2026-10-08 by S026: subject GC-0069 -> GC-0013 — an authored duplicate withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and evidence are the original author's. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0013 qualifies GC-0042."@en-AU ;
-    tmk:assertionObject tmkc:GC-0042 ;
-    tmk:assertionPredicate tmk:prevents ;
-    tmk:assertionSubject tmkc:GC-0013 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Revoking acceptance may not be reasonable if the applicant agrees to conditions and limitations."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
-    tmk:extractionMethod "agent_authoring" ;
-    tmk:goldRecord "GR-0454" ;
-    tmk:isStale false ;
-    tmk:modality "may" ;
-    tmk:origin "authored" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:1e68ddbb103428e50ca34aa2aa6c219108d907440b7ae310c1c038c1da2816d8" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part38/1/1/1> ;
-    tmk:spanEnd 1093 ;
-    tmk:spanStart 883 ;
-    tmk:supportingText "For example, the Registrar may consider that it is not reasonable to revoke acceptance if the applicant agrees to amend the application so that certain conditions and limitations are placed upon the trade mark." ;
     tmk:tier 3 .
 
 tmka:GR-0456 a tmk:AuthoredAssertion ;
@@ -5312,20 +4991,19 @@ tmka:GR-0459 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0460 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0044 related GC-0092."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0044 related GC-0092. Checked on 2026-10-16 in the review response's worklist (S036): modality should → none."@en-AU ;
     tmk:assertionObject tmkc:GC-0092 ;
     tmk:assertionPredicate tmk:performs ;
     tmk:assertionSubject tmkc:GC-0044 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The examiner, during the course of examination."@en-AU ;
+    tmk:authoringReasoning "The 'should' is 'a citation should be raised', not the examiner's examining (the response's sample)."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
     tmk:goldRecord "GR-0460" ;
     tmk:isStale false ;
-    tmk:modality "should" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourceContentHash "sha256:d19d38732b579e97392e879ee35dc9890e1801ec113d65a7b6eb62a3fe968c30" ;
@@ -5681,30 +5359,6 @@ tmka:GR-0490 a tmk:AuthoredAssertion ;
     tmk:supportingText "Under paragraph 42(a) a trade mark application must be rejected if the subject trade mark contains or consists of scandalous matter." ;
     tmk:tier 3 .
 
-tmka:GR-0495 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-pointed on 2026-10-08 by S026: subject GC-0069 -> GC-0013 — an authored duplicate withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and evidence are the original author's. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0013 qualifies GC-0093."@en-AU ;
-    tmk:assertionObject tmkc:GC-0013 ;
-    tmk:assertionPredicate tmk:resultsIn ;
-    tmk:assertionSubject tmkc:GC-0093 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Registrar may accept an application subject to conditions or limitations (s 44(3))."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
-    tmk:extractionMethod "agent_authoring" ;
-    tmk:goldRecord "GR-0495" ;
-    tmk:isStale false ;
-    tmk:modality "may" ;
-    tmk:origin "authored" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:621fe2d59a785be545be6240d9d4607a3f93f51fc5d05a5f1ec3d7b889744397" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/5%231> ;
-    tmk:spanEnd 164 ;
-    tmk:spanStart 0 ;
-    tmk:supportingText "Subsection 44(3) specifies that the Registrar may accept the application for registration subject to any conditions or limitations that he/she thinks fit to impose." ;
-    tmk:tier 3 .
-
 tmka:GR-0497 a tmk:AuthoredAssertion ;
     rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0070 related GC-0071."@en-AU ;
     tmk:assertionObject tmkc:GC-0071 ;
@@ -5840,14 +5494,15 @@ tmka:GR-0507 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0509 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0082 allocatesTo GC-0085. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0082 related GC-0085."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0082 allocatesTo GC-0085. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0082 related GC-0085. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "a predecessor in title had authorised another person to use the trade mark"@en-AU ;
     tmk:assertionObject tmkc:GC-0085 ;
     tmk:assertionPredicate tmk:isAttributedTo ;
     tmk:assertionSubject tmkc:GC-0082 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Authorised use is taken to be use by the predecessor in title (ss 7(3), 8)."@en-AU ;
+    tmk:authoringReasoning "Authorised use is the predecessor's only where the predecessor authorised it; the condition now travels with it."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -5956,14 +5611,14 @@ tmka:GR-0517 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0520 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-judged on 2026-10-08 by S026 under the owner's ruling D5 (review/rulings/2026-10-08-chat-ontology-review.yaml). The evidence is the original author's. Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0081 qualifies GC-0109. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0081 related GC-0109."@en-AU ;
-    tmk:assertionObject tmkc:GC-0081 ;
-    tmk:assertionPredicate tmk:requiresElement ;
-    tmk:assertionSubject tmkc:GC-0109 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    rdfs:comment "Re-judged on 2026-10-08 by S026 under the owner's ruling D5 (review/rulings/2026-10-08-chat-ontology-review.yaml). The evidence is the original author's. Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0081 qualifies GC-0109. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0081 related GC-0109. Re-read on 2026-10-16 in the review response's worklist (S036): was GC-0109 requiresElement GC-0081."@en-AU ;
+    tmk:assertionObject tmkc:GC-0109 ;
+    tmk:assertionPredicate tmk:qualifies ;
+    tmk:assertionSubject tmkc:GC-0081 ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Defensive registration turns on the extent of use of the registered mark it is based on (s 185(1))."@en-AU ;
+    tmk:authoringReasoning "'A primary consideration in deciding whether the trade mark qualifies for registration as a defensive trade mark ... is the extent to which the registered trade mark ... has been used': use bears on the assessment; the sentence does not make it a required element."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -5976,29 +5631,6 @@ tmka:GR-0520 a tmk:AuthoredAssertion ;
     tmk:spanEnd 306 ;
     tmk:spanStart 0 ;
     tmk:supportingText "A primary consideration in deciding whether the trade mark qualifies for registration as a defensive trade mark in terms of subsection 185(1) is the extent to which the registered trade mark upon which the application is based has been used in respect of any or all of the goods for which it is registered." ;
-    tmk:tier 3 .
-
-tmka:GR-0521 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0151 related GC-0089."@en-AU ;
-    tmk:assertionObject tmkc:GC-0089 ;
-    tmk:assertionPredicate tmk:becomes ;
-    tmk:assertionSubject tmkc:GC-0151 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "At commencement the old register's particulars became particulars on the new Register."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
-    tmk:extractionMethod "agent_authoring" ;
-    tmk:goldRecord "GR-0521" ;
-    tmk:isStale false ;
-    tmk:origin "authored" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:8a682b936fdc274b90ccd4c9141e862c24b2d977351d1e8e62015590250d64c0" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part24/3%231> ;
-    tmk:spanEnd 1331 ;
-    tmk:spanStart 1149 ;
-    tmk:supportingText "Disclaimers on the old register, kept under the repealed Act, became particulars on the new Register at commencement, and have the same effect as voluntary disclaimers (section 238)." ;
     tmk:tier 3 .
 
 tmka:GR-0522 a tmk:AuthoredAssertion ;
@@ -6025,14 +5657,15 @@ tmka:GR-0522 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0526 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0091 related GC-0141."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0091 related GC-0141. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "In most cases"@en-AU ;
     tmk:assertionObject tmkc:GC-0091 ;
     tmk:assertionPredicate tmk:isFixedBy ;
     tmk:assertionSubject tmkc:GC-0141 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "In most cases the filing date is the date of registration (s 72)."@en-AU ;
+    tmk:authoringReasoning "'In most cases' the filing date is the registration date (the response's sample)."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -6048,14 +5681,15 @@ tmka:GR-0526 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0529 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0095 allocatesTo GC-0046."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0095 allocatesTo GC-0046. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "in circumstances in which it appears that the registration should not have occurred"@en-AU ;
     tmk:assertionObject tmkc:GC-0095 ;
     tmk:assertionPredicate tmk:performs ;
     tmk:assertionSubject tmkc:GC-0046 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Sections 84A to 84D allow the Registrar to revoke a registration."@en-AU ;
+    tmk:authoringReasoning "'Allow the Registrar to revoke' is the revoking's 'may'; the condition now travels with it."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -6072,14 +5706,14 @@ tmka:GR-0529 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0534 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0098 related GC-0096."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0098 related GC-0096. Re-read on 2026-10-16 in the review response's worklist (S036): was GC-0096 prevents GC-0098."@en-AU ;
     tmk:assertionObject tmkc:GC-0098 ;
-    tmk:assertionPredicate tmk:prevents ;
+    tmk:assertionPredicate tmk:suspendsTimeFor ;
     tmk:assertionSubject tmkc:GC-0096 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Deferment holds the period within which an application must be accepted, so it does not lapse."@en-AU ;
+    tmk:authoringReasoning "Deferring acceptance holds the period after which an application lapses: the clock stops (F13)."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -6303,29 +5937,6 @@ tmka:GR-0551 a tmk:AuthoredAssertion ;
     tmk:supportingText "The Registrar must be notified by the applicant for rectification of any rectification application to a prescribed court." ;
     tmk:tier 3 .
 
-tmka:GR-0552 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0106 appliesTo GC-0150. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0106 related GC-0150."@en-AU ;
-    tmk:assertionObject tmkc:GC-0150 ;
-    tmk:assertionPredicate tmk:operatesOn ;
-    tmk:assertionSubject tmkc:GC-0106 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Renewal of an international registration (Madrid Protocol Article 7)."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
-    tmk:extractionMethod "agent_authoring" ;
-    tmk:goldRecord "GR-0552" ;
-    tmk:isStale false ;
-    tmk:origin "authored" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:996548a5f07808ac8800e4dade300092a171d8d8ffbc21eedbd5820ca3462f79" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/2/6/2/6/1> ;
-    tmk:spanEnd 63 ;
-    tmk:spanStart 0 ;
-    tmk:supportingText "Madrid Protocol Article 7 Renewal of International Registration" ;
-    tmk:tier 3 .
-
 tmka:GR-0555 a tmk:AuthoredAssertion ;
     tmk:assertionObject tmkc:GC-0109 ;
     tmk:assertionPredicate tmk:qualifies ;
@@ -6418,14 +6029,15 @@ tmka:GR-0564 a tmk:AuthoredAssertion ;
     tmk:tier 2 .
 
 tmka:GR-0565 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0113 related GC-0136."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0113 related GC-0136. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "usually"@en-AU ;
     tmk:assertionObject tmkc:GC-0091 ;
     tmk:assertionPredicate tmk:keepsEarlierDate ;
     tmk:assertionSubject tmkc:GC-0113 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The filing date of an IRDA is the date the international registration was filed with the Office of origin."@en-AU ;
+    tmk:authoringReasoning "'Usually': the hedge now travels with the edge."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -6511,14 +6123,15 @@ tmka:GR-0573 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0574 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0119 appliesTo GC-0031. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0031 related GC-0119."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0119 appliesTo GC-0031. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0031 related GC-0119. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "in a composite trade mark containing additional distinctive elements will usually have sufficient inherent adaptation to distinguish"@en-AU ;
     tmk:assertionObject tmkc:GC-0059 ;
     tmk:assertionPredicate tmk:qualifies ;
     tmk:assertionSubject tmkc:GC-0031 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A phoneword in a composite mark with other distinctive elements will usually be inherently adapted enough."@en-AU ;
+    tmk:authoringReasoning "Only phonewords in a composite mark with other distinctive elements, and then usually; the condition now travels with the edge."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -6648,20 +6261,19 @@ tmka:GR-0587 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0589 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-pointed on 2026-10-08 by S026: subject GC-0115 -> GC-0046 — an authored duplicate withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and evidence are the original author's. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0046 related GC-0131."@en-AU ;
+    rdfs:comment "Re-pointed on 2026-10-08 by S026: subject GC-0115 -> GC-0046 — an authored duplicate withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and evidence are the original author's. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0046 related GC-0131. Checked on 2026-10-16 in the review response's worklist (S036): modality must → none."@en-AU ;
     tmk:assertionObject tmkc:GC-0092 ;
     tmk:assertionPredicate tmk:performs ;
     tmk:assertionSubject tmkc:GC-0046 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Registrar examines the application (s 31)."@en-AU ;
+    tmk:authoringReasoning "The 'must' is the Registrar's duty to report on the application, not the examining."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
     tmk:goldRecord "GR-0589" ;
     tmk:isStale false ;
-    tmk:modality "must" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourceContentHash "sha256:52689ba4ba521ede128afc7e830693aca9f3b2fddc5c2815d98736bea000f161" ;
@@ -6716,29 +6328,6 @@ tmka:GR-0594 a tmk:AuthoredAssertion ;
     tmk:spanEnd 882 ;
     tmk:spanStart 405 ;
     tmk:supportingText "A decision by the Australian Competition and Consumer Commission in relation to a certification trade mark: not to give a certificate as to the competence of the certifying body, or the appropriateness of the rules (section 175(5)), or to approve, or not to approve, a subsequent variation of the rules governing the use of a registered certification trade mark (section 178(5)), or to refuse consent to the assignment of a registered certification trade mark (section 180(4))." ;
-    tmk:tier 3 .
-
-tmka:GR-0598 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0135 appliesTo GC-0114. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0135 related GC-0114."@en-AU ;
-    tmk:assertionObject tmkc:GC-0114 ;
-    tmk:assertionPredicate tmk:operatesOn ;
-    tmk:assertionSubject tmkc:GC-0135 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Cessation of protection of a protected international trade mark."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
-    tmk:extractionMethod "agent_authoring" ;
-    tmk:goldRecord "GR-0598" ;
-    tmk:isStale false ;
-    tmk:origin "authored" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:a29a84090d166036719f5bed9d50980b03548c0d9154cb29d1cf3b4b5733931d" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part55/2%231> ;
-    tmk:spanEnd 607 ;
-    tmk:spanStart 518 ;
-    tmk:supportingText "Cessation of protection of a Protected International Trade Mark for non-use (reg 17A.48D)" ;
     tmk:tier 3 .
 
 tmka:GR-0601 a tmk:AuthoredAssertion ;
@@ -6834,14 +6423,15 @@ tmka:GR-0607 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0608 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0144 related GC-0046."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0144 related GC-0046. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "usually the person named in a subpoena"@en-AU ;
     tmk:assertionObject tmkc:GC-0046 ;
     tmk:assertionPredicate tmk:isServedOn ;
     tmk:assertionSubject tmkc:GC-0144 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Registrar is usually the person named in a subpoena."@en-AU ;
+    tmk:authoringReasoning "The Registrar is usually the person named; a subpoena to 'the proper officer' is also acceptable."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -6902,20 +6492,19 @@ tmka:GR-0615 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0617 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0092 related GC-0093."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0092 related GC-0093. Checked on 2026-10-16 in the review response's worklist (S036): modality must → none."@en-AU ;
     tmk:assertionObject tmkc:GC-0093 ;
     tmk:assertionPredicate tmk:precedes ;
     tmk:assertionSubject tmkc:GC-0092 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "An application must be accepted if, after examination, there are no grounds for rejecting it."@en-AU ;
+    tmk:authoringReasoning "The 'must' is 'must be accepted if ...', the acceptance's, not the order of examination and acceptance."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
     tmk:goldRecord "GR-0617" ;
     tmk:isStale false ;
-    tmk:modality "must" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourceContentHash "sha256:a430d99ef295ceb2406b4160cd3bb1dc86b06fabaeab1f3922f7e204481aa7b5" ;
@@ -6995,14 +6584,15 @@ tmka:GR-0620 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0621 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0093 qualifies GC-0098. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0093 related GC-0098."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0093 qualifies GC-0098. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0093 related GC-0098. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "within the prescribed period or within that period as extended in accordance with the regulations"@en-AU ;
     tmk:assertionObject tmkc:GC-0098 ;
     tmk:assertionPredicate tmk:prevents ;
     tmk:assertionSubject tmkc:GC-0093 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "An application lapses if it is not accepted within the prescribed period (s 37)."@en-AU ;
+    tmk:authoringReasoning "Acceptance blocks lapsing only within the prescribed period or its extension; that now travels with the edge."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -7064,19 +6654,21 @@ tmka:GR-0625 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0627 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-pointed on 2026-10-08 by S026: subject GC-0102 -> GC-0040 — an authored duplicate withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and evidence are the original author's. Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0040 requiresElement GC-0158. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0040 related GC-0158."@en-AU ;
+    rdfs:comment "Re-pointed on 2026-10-08 by S026: subject GC-0102 -> GC-0040 — an authored duplicate withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and evidence are the original author's. Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0040 requiresElement GC-0158. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0040 related GC-0158. Checked on 2026-10-16 in the review response's worklist (S036): modality none → must; its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "if they wish to contest the opposition and maintain their rights"@en-AU ;
     tmk:assertionObject tmkc:GC-0158 ;
     tmk:assertionPredicate tmk:files ;
     tmk:assertionSubject tmkc:GC-0116 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The trade mark applicant or IRDA holder must file a notice of intention to defend to contest an opposition."@en-AU ;
+    tmk:authoringReasoning "'Must file a notice of intention to defend if they wish to contest the opposition': the obligation and its condition now travel with the edge."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
     tmk:goldRecord "GR-0627" ;
     tmk:isStale false ;
+    tmk:modality "must" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourceContentHash "sha256:1174f0c870bd9dc53e31817668968307cad112de4c1a05bceb33e13913542ef2" ;
@@ -7110,14 +6702,15 @@ tmka:GR-0636 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0637 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0018 isProtectedThrough GC-0107. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0019 related GC-0107."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0018 isProtectedThrough GC-0107. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0019 related GC-0107. Checked on 2026-10-16 in the review response's worklist (S036): its sentence's condition added."@en-AU ;
+    tmk:appliesWhen "geographical origin or some other characteristic"@en-AU ;
     tmk:assertionObject tmkc:GC-0019 ;
     tmk:assertionPredicate tmk:indicates ;
     tmk:assertionSubject tmkc:GC-0107 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A certification trade mark may indicate that goods are certified as having a particular geographical origin."@en-AU ;
+    tmk:authoringReasoning "A certification trade mark indicates certification of geographical origin as one of several characteristics it may certify; that qualification now travels with the edge."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -7577,20 +7170,19 @@ tmka:GR-0664 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0665 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0042 allocatesTo GC-0173."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0042 allocatesTo GC-0173. Checked on 2026-10-16 in the review response's worklist (S036): modality must → none."@en-AU ;
     tmk:assertionObject tmkc:GC-0042 ;
     tmk:assertionPredicate tmk:performs ;
     tmk:assertionSubject tmkc:GC-0173 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Examination team leader notifies the applicant of a proposed revocation of acceptance."@en-AU ;
+    tmk:authoringReasoning "The 'must' is the notifying of the proposed revocation, not the revoking."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
     tmk:goldRecord "GR-0665" ;
     tmk:isStale false ;
-    tmk:modality "must" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourceContentHash "sha256:6cc3b98270dba439a22e7b6765ea12f73936349b4cf5106d94a015d334fc84f6" ;
@@ -7601,20 +7193,19 @@ tmka:GR-0665 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0666 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0042 allocatesTo GC-0159."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0042 allocatesTo GC-0159. Checked on 2026-10-16 in the review response's worklist (S036): modality must → none."@en-AU ;
     tmk:assertionObject tmkc:GC-0042 ;
     tmk:assertionPredicate tmk:performs ;
     tmk:assertionSubject tmkc:GC-0159 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Or the Deputy Registrar."@en-AU ;
+    tmk:authoringReasoning "The 'must' is the notifying of the proposed revocation, not the revoking."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
     tmk:goldRecord "GR-0666" ;
     tmk:isStale false ;
-    tmk:modality "must" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourceContentHash "sha256:6cc3b98270dba439a22e7b6765ea12f73936349b4cf5106d94a015d334fc84f6" ;
@@ -7956,14 +7547,15 @@ tmka:GR-0698 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0699 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0020 doesNotGiveRiseTo GC-0168. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0020 related GC-0006."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 from a second model's audit (gemini-3.1-pro-preview, audit-v1): was GC-0020 doesNotGiveRiseTo GC-0168. Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0020 related GC-0006. Re-read on 2026-10-16 in the review response's worklist (S036): was GC-0020 doesNotGiveRiseTo GC-0006."@en-AU ;
+    tmk:appliesWhen "A ground for rejection will rarely apply in these cases"@en-AU ;
     tmk:assertionObject tmkc:GC-0006 ;
-    tmk:assertionPredicate tmk:doesNotGiveRiseTo ;
+    tmk:assertionPredicate tmk:isAnExceptionTo ;
     tmk:assertionSubject tmkc:GC-0020 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "A business identifier indicates a business, not the goods; a ground for rejection will rarely apply."@en-AU ;
+    tmk:authoringReasoning "A business identifier indicates a business rather than the goods, so a ground will rarely apply: a hedged exception, not insufficiency (F15)."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -7979,15 +7571,17 @@ tmka:GR-0699 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0700 a tmk:AuthoredAssertion ;
+    rdfs:comment "Re-read on 2026-10-16 in the review response's worklist (S036): was GC-0027 doesNotGiveRiseTo GC-0168."@en-AU ;
+    tmk:appliesWhen "Generally, a section 43 ground for rejection will not arise in respect of long deceased historical figures"@en-AU ;
     tmk:assertionObject tmkc:GC-0168 ;
-    tmk:assertionPredicate tmk:doesNotGiveRiseTo ;
+    tmk:assertionPredicate tmk:isAnExceptionTo ;
     tmk:assertionSubject tmkc:GC-0027 ;
-    tmk:authoredBy "claude-code-agent-S027" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Manual says a section 43 ground will generally not arise for a long deceased historical figure, even one well known in the field. Written on the owner's ruling B1 (ADR-0126): what a concept does is an edge naming the ground or test it acts on."@en-AU ;
-    tmk:confidence 0.9 ;
-    tmk:expertShouldCheck "Whether 'long deceased' has a working threshold in practice."@en-AU ;
+    tmk:authoringReasoning "'Generally, a section 43 ground ... will not arise in respect of long deceased historical figures': a hedged exception, not insufficiency (F15)."@en-AU ;
+    tmk:confidence 0.8 ;
+    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
     tmk:goldRecord "GR-0700" ;
     tmk:isStale false ;
@@ -8001,15 +7595,17 @@ tmka:GR-0700 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0701 a tmk:AuthoredAssertion ;
+    rdfs:comment "Re-read on 2026-10-16 in the review response's worklist (S036): was GC-0048 doesNotGiveRiseTo GC-0002."@en-AU ;
+    tmk:appliesWhen "if the geographic reference is ambiguous or fanciful"@en-AU ;
     tmk:assertionObject tmkc:GC-0002 ;
-    tmk:assertionPredicate tmk:doesNotGiveRiseTo ;
+    tmk:assertionPredicate tmk:isAnExceptionTo ;
     tmk:assertionSubject tmkc:GC-0048 ;
-    tmk:authoredBy "claude-code-agent-S027" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Manual says deception or confusion is not likely where the geographical reference is ambiguous or fanciful — the test is not met. Written on the owner's ruling B1 (ADR-0126): what a concept does is an edge naming the ground or test it acts on."@en-AU ;
-    tmk:confidence 0.85 ;
-    tmk:expertShouldCheck "Whether a fanciful reference never meets the test or only usually does not."@en-AU ;
+    tmk:authoringReasoning "Deception or confusion is not likely where the geographic reference is ambiguous or fanciful: a case the test does not reach (F15)."@en-AU ;
+    tmk:confidence 0.8 ;
+    tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
     tmk:goldRecord "GR-0701" ;
     tmk:isStale false ;
@@ -8023,14 +7619,15 @@ tmka:GR-0701 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0702 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0035 qualifies GC-0168."@en-AU ;
+    rdfs:comment "Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0035 qualifies GC-0168. Re-read on 2026-10-16 in the review response's worklist (S036): was GC-0035 doesNotGiveRiseTo GC-0168."@en-AU ;
+    tmk:appliesWhen "if an applicant provides information confirming that they are the owner or authorised user of the phoneword"@en-AU ;
     tmk:assertionObject tmkc:GC-0168 ;
-    tmk:assertionPredicate tmk:doesNotGiveRiseTo ;
+    tmk:assertionPredicate tmk:isAnExceptionTo ;
     tmk:assertionSubject tmkc:GC-0035 ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "An application by the owner or authorised user of the phoneword takes the case out of the section 43 ground; the ground is reconsidered once that is confirmed."@en-AU ;
+    tmk:authoringReasoning "The ground applies to a phoneword only if the applicant is not its owner or authorised user (the sentence before, GR-0440), and is reconsidered once that is confirmed: an exception with its condition (F15). Kept, as the only edge left on GC-0035 once GR-0140 and GR-0437 go."@en-AU ;
     tmk:confidence 0.8 ;
     tmk:expertShouldCheck "Whether the sentence states this relationship, read the way the predicate reads."@en-AU ;
     tmk:extractionMethod "agent_authoring" ;
@@ -8307,6 +7904,72 @@ tmka:GR-0714 a tmk:AuthoredAssertion ;
     tmk:spanEnd 2014 ;
     tmk:spanStart 1889 ;
     tmk:supportingText "Certification and Signature of the International Application by the Office of origin This is to be completed by IP Australia." ;
+    tmk:tier 3 .
+
+tmka:GR-0715 a tmk:AuthoredAssertion ;
+    tmk:assertionObject tmkc:GC-0157 ;
+    tmk:assertionPredicate tmk:requiresElement ;
+    tmk:assertionSubject tmkc:GC-0111 ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "A convention application rests on an application made in a Convention country, and is filed within six months of it. In place of GR-0340, whose only evidence was s 29's heading."@en-AU ;
+    tmk:confidence 0.8 ;
+    tmk:expertShouldCheck "Whether the passage states this relationship."@en-AU ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GR-0715" ;
+    tmk:isStale false ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourceContentHash "sha256:755f78fffb8fe495136ac30d28eb8cb15ccb61b09c6ae0778ca3fae35697f2ba" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/1/1/4> ;
+    tmk:spanEnd 152 ;
+    tmk:spanStart 0 ;
+    tmk:supportingText "A convention application should be filed within six months after the day on which the application was made in the Convention country (subsection 29(1))." ;
+    tmk:tier 3 .
+
+tmka:GR-0716 a tmk:AuthoredAssertion ;
+    tmk:assertionObject tmkc:GC-0150 ;
+    tmk:assertionPredicate tmk:operatesOn ;
+    tmk:assertionSubject tmkc:GC-0106 ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Renewal acts on an international registration. In place of GR-0552, whose only evidence was a heading."@en-AU ;
+    tmk:confidence 0.8 ;
+    tmk:expertShouldCheck "Whether the passage states this relationship."@en-AU ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GR-0716" ;
+    tmk:isStale false ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourceContentHash "sha256:ac12201fb0d8d12b99b1df48c5fe2bf861775a334a16ff7f72aece794f12d1c2" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/1/1/9> ;
+    tmk:spanEnd 105 ;
+    tmk:spanStart 0 ;
+    tmk:supportingText "Renewal of an international registration is due 10 years from the date of the international registration." ;
+    tmk:tier 3 .
+
+tmka:GR-0717 a tmk:AuthoredAssertion ;
+    tmk:assertionObject tmkc:GC-0114 ;
+    tmk:assertionPredicate tmk:operatesOn ;
+    tmk:assertionSubject tmkc:GC-0135 ;
+    tmk:authoredBy "claude-code-agent-S036" ;
+    tmk:authoredDate "2026-10-16"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Cessation of protection acts on a protected international trade mark. In place of GR-0598, whose only evidence was a heading."@en-AU ;
+    tmk:confidence 0.8 ;
+    tmk:expertShouldCheck "Whether the passage states this relationship."@en-AU ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GR-0717" ;
+    tmk:isStale false ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourceContentHash "sha256:5e5c8fdef3f8164d5afa5725c91c4f3547c9e392ec3de770afd2f2a1b24ea8b2" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part49/1/1/1> ;
+    tmk:spanEnd 307 ;
+    tmk:spanStart 141 ;
+    tmk:supportingText "all references in this Manual part to the removal of a trade mark from the Register also apply to the cessation of protection of a protected international trade mark." ;
     tmk:tier 3 .
 
 tmkc:GC-0039 a tmk:SignContent ;
@@ -10659,7 +10322,7 @@ tmka:GT-0182 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> .
 
 tmkc:GC-0020 a tmk:SignContent ;
-    tmk:doesNotGiveRiseTo tmkc:GC-0006 ;
+    tmk:isAnExceptionTo tmkc:GC-0006 ;
     tmk:typedBy tmka:GT-0020 .
 
 tmkc:GC-0021 a tmk:SignContent ;
@@ -10667,7 +10330,7 @@ tmkc:GC-0021 a tmk:SignContent ;
     tmk:typedBy tmka:GT-0021 .
 
 tmkc:GC-0027 a tmk:Context ;
-    tmk:doesNotGiveRiseTo tmkc:GC-0168 ;
+    tmk:isAnExceptionTo tmkc:GC-0168 ;
     tmk:typedBy tmka:GT-0027 .
 
 tmkc:GC-0034 a tmk:SignContent ;
@@ -11109,10 +10772,57 @@ tmkc:GC-0022 a tmk:SignContent ;
         tmkc:GC-0003 ;
     tmk:typedBy tmka:GT-0022 .
 
+tmkc:GC-0028 a tmk:SignContent ;
+    tmk:typedBy tmka:GT-0028 .
+
 tmkc:GC-0030 a tmk:SignContent ;
     tmk:doesNotGiveRiseTo tmkc:GC-0168 ;
     tmk:mayGiveRiseTo tmkc:GC-0001 ;
     tmk:typedBy tmka:GT-0030 .
+
+tmkc:GC-0031 a tmk:SignContent ;
+    tmk:mayGiveRiseTo tmkc:GC-0168 ;
+    tmk:qualifies tmkc:GC-0059 ;
+    tmk:typedBy tmka:GT-0031 .
+
+tmkc:GC-0035 a tmk:ProcessRole ;
+    tmk:isAnExceptionTo tmkc:GC-0168 ;
+    tmk:notLabel "authorised user"@en-AU ;
+    tmk:notLabelKey "authorised user" ;
+    tmk:typedBy tmka:GT-0035 .
+
+tmkc:GC-0055 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:SignContent ;
+    rdfs:comment "Unlike s 39(1) this ground is live: the Manual records six types of prescribed sign in the regulations. Note the modality — subsection 39(2) says an application 'may' be rejected, where s 39(1) says 'must'."@en-AU ;
+    skos:altLabel "prescribed signs"@en-AU,
+        "sign prescribed for the purposes of subsection 39(2)"@en-AU ;
+    skos:broader tmkc:GC-0073 ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "prescribed sign"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Both the Act and the Manual state the class in terms, and the Manual adds that six types are prescribed. The record keeps the 'may' visible because the difference between may and must across two subsections of one section is exactly the kind of thing a reader loses in a summary."@en-AU ;
+    tmk:confidence 0.85 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/2%231> ;
+    tmk:expertShouldCheck "Whether the six prescribed types should each be a narrower concept. The Manual lists them at Part 31.4 and an examiner reasons about them individually."@en-AU ;
+    tmk:goldRecord "GC-0055" ;
+    tmk:labelKey "prescribed sign",
+        "sign prescribed for the purpose of subsection 39 2" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39(2)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39(2)(a)> ;
+    tmk:mayGiveRiseTo tmkc:GC-0182 ;
+    tmk:notLabel "prohibited sign"@en-AU,
+        "scandalous matter"@en-AU ;
+    tmk:notLabelKey "prohibited sign",
+        "scandalous matter" ;
+    tmk:origin "authored" ;
+    tmk:prefLabelKey "prescribed sign" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/2%231> ;
+    tmk:typedBy tmka:GT-0055 .
 
 tmkc:GC-0056 a skos:Concept,
         tmk:LegalConcept,
@@ -11144,6 +10854,40 @@ tmkc:GC-0056 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/2%231> ;
     tmk:statesThresholdFor tmkc:GC-0182 ;
     tmk:typedBy tmka:GT-0056 .
+
+tmkc:GC-0066 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:UseInTrade ;
+    rdfs:comment "The Manual sets out five criteria and makes honesty a threshold requirement without which paragraph 44(3)(a) cannot be satisfied. Note the modality: if satisfied, the Registrar *may* accept — this is a discretion, not an entitlement."@en-AU ;
+    skos:altLabel "concurrent use"@en-AU,
+        "honest concurrent use of the 2 trade marks"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "honest concurrent use"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states what the doctrine is for, how it is established and that honesty is a threshold. Held as an exception rather than as a ground because it takes a case out of a ground that would otherwise apply."@en-AU ;
+    tmk:confidence 0.85 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/2%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/3%231> ;
+    tmk:expertShouldCheck "Whether the five criteria should each be a narrower concept. The Manual lists them at 28.2 and says no single criterion is determinative, which is the sort of structure a knowledge graph is good at and a flat concept is not."@en-AU ;
+    tmk:goldRecord "GC-0066" ;
+    tmk:labelKey "concurrent use",
+        "honest concurrent use",
+        "honest concurrent use of the 2 trade mark" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(3)(a)> ;
+    tmk:notLabel "evidence of use"@en-AU,
+        "other circumstances"@en-AU,
+        "prior use"@en-AU ;
+    tmk:notLabelKey "evidence of use",
+        "other circumstance",
+        "prior use" ;
+    tmk:origin "authored" ;
+    tmk:prefLabelKey "honest concurrent use" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/2%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/3%231> ;
+    tmk:typedBy tmka:GT-0066 .
 
 tmkc:GC-0082 a skos:Concept,
         tmk:LegalConcept,
@@ -11620,10 +11364,6 @@ tmkc:GC-0026 a tmk:Context ;
         tmkc:GC-0004 ;
     tmk:typedBy tmka:GT-0026 .
 
-tmkc:GC-0028 a tmk:SignContent ;
-    tmk:excludesBasis tmkc:GC-0130 ;
-    tmk:typedBy tmka:GT-0028 .
-
 tmkc:GC-0033 a tmk:SignContent ;
     tmk:isPartOf tmkc:GC-0032 ;
     tmk:mayGiveRiseTo tmkc:GC-0168 ;
@@ -11780,6 +11520,39 @@ tmkc:GC-0076 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/4%231> ;
     tmk:typedBy tmka:GT-0076 .
 
+tmkc:GC-0079 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
+    rdfs:comment "A single application for two or more marks that resemble each other in material particulars and differ only in the ways section 51 lists. The 'material particulars' requirement is what does the work and the Manual gives it its own numbered section."@en-AU ;
+    skos:altLabel "series"@en-AU,
+        "series application"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "series of trade marks"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Both the Act and the Manual state it in terms."@en-AU ;
+    tmk:confidence 0.85 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part13/1%231> ;
+    tmk:expertShouldCheck "Whether the allowable differences in section 51(1)(a)–(c) should be narrower concepts. The Manual gives them their own section."@en-AU ;
+    tmk:goldRecord "GC-0079" ;
+    tmk:labelKey "sery",
+        "sery application",
+        "sery of trade mark" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51(1)> ;
+    tmk:notLabel "composite trade mark"@en-AU,
+        "divisional application"@en-AU ;
+    tmk:notLabelKey "composite trade mark",
+        "divisional application" ;
+    tmk:origin "authored" ;
+    tmk:prefLabelKey "sery of trade mark" ;
+    tmk:requiresElement tmkc:GC-0080 ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part13/1%231> ;
+    tmk:typedBy tmka:GT-0079 .
+
 tmkc:GC-0080 a skos:Concept,
         tmk:LegalConcept,
         tmk:LegalTest ;
@@ -11808,6 +11581,73 @@ tmkc:GC-0080 a skos:Concept,
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51> ;
     tmk:typedBy tmka:GT-0080 .
+
+tmkc:GC-0081 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:UseInTrade ;
+    rdfs:comment "The Manual calls use a concept fundamental to trade mark law and lists the questions it bears on: capability to distinguish, honest concurrent or prior use, ownership. Section 6 says its meaning is 'affected by' subsections 7(1), (2) and (3) — which is not the same as being defined by them."@en-AU ;
+    skos:altLabel "trade mark use"@en-AU,
+        "use"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "use of a trade mark"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states the concept's place in the scheme and the Act tells us where its meaning is affected. Held as one concept with the specialised uses — authorised, prior, honest concurrent — as separate records beside it, because each answers a different question under a different provision."@en-AU ;
+    tmk:confidence 0.8 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/1%231> ;
+    tmk:expertShouldCheck "Whether 'use in the course of trade' should be the preferred label. Section 17 makes the course of trade part of what a trade mark is, and the bare word 'use' may be too wide for a vocabulary that also holds authorised use and prior use."@en-AU ;
+    tmk:goldRecord "GC-0081" ;
+    tmk:labelKey "trade mark use",
+        "use",
+        "use of a trade mark" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s17>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/use-of-a-trade-mark>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s7> ;
+    tmk:notLabel "authorised use"@en-AU,
+        "evidence of use"@en-AU,
+        "honest concurrent use"@en-AU,
+        "prior use"@en-AU ;
+    tmk:notLabelKey "authorised use",
+        "evidence of use",
+        "honest concurrent use",
+        "prior use" ;
+    tmk:origin "authored" ;
+    tmk:prefLabelKey "use of a trade mark" ;
+    tmk:qualifies tmkc:GC-0109 ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/use-of-a-trade-mark>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/1%231> ;
+    tmk:typedBy tmka:GT-0081 .
+
+tmkc:GC-0087 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
+    rdfs:comment "The section 6 definition is a stub continuing into a list, so this record's evidence comes from the Manual rather than from the definition itself."@en-AU ;
+    skos:broader tmkc:GC-0162 ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "transmission"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The Act defines the term but its text is a stub. The Manual's Part 43 treats assignment and transmission together, so the evidence available is weak — and the record says so with a low confidence rather than borrowing certainty from the pair."@en-AU ;
+    tmk:confidence 0.55 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part43/1%231~1> ;
+    tmk:expertShouldCheck "The Manual passage this rests on defines assignment and transmission together and never separates them, so the record is evidenced for the pair and not for this half of it. Either the section 6 subparagraphs supply the difference or the two should be one concept."@en-AU ;
+    tmk:goldRecord "GC-0087" ;
+    tmk:labelKey "transmission" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/transmission> ;
+    tmk:notLabel "assignment"@en-AU,
+        "change of ownership"@en-AU ;
+    tmk:notLabelKey "assignment",
+        "change of ownership" ;
+    tmk:operatesOn tmkc:GC-0107 ;
+    tmk:origin "authored" ;
+    tmk:prefLabelKey "transmission" ;
+    tmk:requiresElement tmkc:GC-0156 ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part43/1%231~1> ;
+    tmk:typedBy tmka:GT-0087 .
 
 tmkc:GC-0104 a skos:Concept,
         tmk:LegalConcept,
@@ -11842,6 +11682,39 @@ tmkc:GC-0104 a skos:Concept,
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part48/1%231> ;
     tmk:typedBy tmka:GT-0104 .
+
+tmkc:GC-0108 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
+    rdfs:comment "Distinguishes the goods or services of members of an association from those of non-members. The Manual's own contrast is the useful part: unlike a certification mark, use of a collective mark need not be subject to approved rules."@en-AU ;
+    skos:altLabel "collective trade marks"@en-AU,
+        "collective trademark"@en-AU ;
+    skos:broader tmkc:GC-0073 ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "collective trade mark"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Defined in terms by the Manual. The near-miss against certification marks is drawn from the same passage."@en-AU ;
+    tmk:confidence 0.8 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part33/1%231> ;
+    tmk:expertShouldCheck "The spelling. The Manual's own heading writes 'collective trademark' as one word and the body writes two; this record prefers the two-word form and keeps the other as an alt_label."@en-AU ;
+    tmk:goldRecord "GC-0108" ;
+    tmk:isExcludedFrom tmkc:GC-0086,
+        tmkc:GC-0162 ;
+    tmk:labelKey "collective trade mark",
+        "collective trademark" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s162>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/collective-trade-mark> ;
+    tmk:notLabel "certification trade mark"@en-AU,
+        "defensive trade mark"@en-AU ;
+    tmk:notLabelKey "certification trade mark",
+        "defensive trade mark" ;
+    tmk:origin "authored" ;
+    tmk:prefLabelKey "collective trade mark" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part33/1%231> ;
+    tmk:typedBy tmka:GT-0108 .
 
 tmkc:GC-0132 a skos:Concept,
         tmk:LegalConcept,
@@ -12022,19 +11895,6 @@ tmkc:GC-0018 a tmk:SignContent ;
         tmkc:GC-0168 ;
     tmk:typedBy tmka:GT-0018 .
 
-tmkc:GC-0031 a tmk:SignContent ;
-    tmk:mayGiveRiseTo tmkc:GC-0168 ;
-    tmk:qualifies tmkc:GC-0059 ;
-    tmk:typedBy tmka:GT-0031 .
-
-tmkc:GC-0035 a tmk:ProcessRole ;
-    tmk:doesNotGiveRiseTo tmkc:GC-0168 ;
-    tmk:notLabel "authorised user"@en-AU ;
-    tmk:notLabelKey "authorised user" ;
-    tmk:owns tmkc:GC-0031,
-        tmkc:GC-0032 ;
-    tmk:typedBy tmka:GT-0035 .
-
 tmkc:GC-0036 a tmk:SignContent ;
     skos:altLabel "name of a plant variety"@en-AU,
         "plant varietal name"@en-AU,
@@ -12046,7 +11906,7 @@ tmkc:GC-0036 a tmk:SignContent ;
     tmk:typedBy tmka:GT-0036 .
 
 tmkc:GC-0048 a tmk:SignContent ;
-    tmk:doesNotGiveRiseTo tmkc:GC-0002 ;
+    tmk:isAnExceptionTo tmkc:GC-0002 ;
     tmk:qualifies tmkc:GC-0001 ;
     tmk:typedBy tmka:GT-0048 .
 
@@ -12055,40 +11915,6 @@ tmkc:GC-0052 a tmk:ProceduralStep ;
     tmk:mayGiveRiseTo tmkc:GC-0181 ;
     tmk:qualifies tmkc:GC-0058 ;
     tmk:typedBy tmka:GT-0052 .
-
-tmkc:GC-0055 a skos:Concept,
-        tmk:LegalConcept,
-        tmk:SignContent ;
-    rdfs:comment "Unlike s 39(1) this ground is live: the Manual records six types of prescribed sign in the regulations. Note the modality — subsection 39(2) says an application 'may' be rejected, where s 39(1) says 'must'."@en-AU ;
-    skos:altLabel "prescribed signs"@en-AU,
-        "sign prescribed for the purposes of subsection 39(2)"@en-AU ;
-    skos:broader tmkc:GC-0073 ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "prescribed sign"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Both the Act and the Manual state the class in terms, and the Manual adds that six types are prescribed. The record keeps the 'may' visible because the difference between may and must across two subsections of one section is exactly the kind of thing a reader loses in a summary."@en-AU ;
-    tmk:confidence 0.85 ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/2%231> ;
-    tmk:expertShouldCheck "Whether the six prescribed types should each be a narrower concept. The Manual lists them at Part 31.4 and an examiner reasons about them individually."@en-AU ;
-    tmk:goldRecord "GC-0055" ;
-    tmk:labelKey "prescribed sign",
-        "sign prescribed for the purpose of subsection 39 2" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39(2)>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39(2)(a)> ;
-    tmk:mayGiveRiseTo tmkc:GC-0063,
-        tmkc:GC-0182 ;
-    tmk:notLabel "prohibited sign"@en-AU,
-        "scandalous matter"@en-AU ;
-    tmk:notLabelKey "prohibited sign",
-        "scandalous matter" ;
-    tmk:origin "authored" ;
-    tmk:prefLabelKey "prescribed sign" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/2%231> ;
-    tmk:typedBy tmka:GT-0055 .
 
 tmkc:GC-0062 a skos:Concept,
         tmk:GroundOfRefusal,
@@ -12124,40 +11950,6 @@ tmkc:GC-0062 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part30/2%231> ;
     tmk:typedBy tmka:GT-0062 .
-
-tmkc:GC-0066 a skos:Concept,
-        tmk:LegalConcept,
-        tmk:UseInTrade ;
-    rdfs:comment "The Manual sets out five criteria and makes honesty a threshold requirement without which paragraph 44(3)(a) cannot be satisfied. Note the modality: if satisfied, the Registrar *may* accept — this is a discretion, not an entitlement."@en-AU ;
-    skos:altLabel "concurrent use"@en-AU,
-        "honest concurrent use of the 2 trade marks"@en-AU ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "honest concurrent use"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Manual states what the doctrine is for, how it is established and that honesty is a threshold. Held as an exception rather than as a ground because it takes a case out of a ground that would otherwise apply."@en-AU ;
-    tmk:confidence 0.85 ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/2%231>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/3%231> ;
-    tmk:expertShouldCheck "Whether the five criteria should each be a narrower concept. The Manual lists them at 28.2 and says no single criterion is determinative, which is the sort of structure a knowledge graph is good at and a flat concept is not."@en-AU ;
-    tmk:goldRecord "GC-0066" ;
-    tmk:labelKey "concurrent use",
-        "honest concurrent use",
-        "honest concurrent use of the 2 trade mark" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(3)(a)> ;
-    tmk:notLabel "evidence of use"@en-AU,
-        "other circumstances"@en-AU,
-        "prior use"@en-AU ;
-    tmk:notLabelKey "evidence of use",
-        "other circumstance",
-        "prior use" ;
-    tmk:origin "authored" ;
-    tmk:prefLabelKey "honest concurrent use" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/2%231>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/3%231> ;
-    tmk:typedBy tmka:GT-0066 .
 
 tmkc:GC-0067 a skos:Concept,
         tmk:LegalConcept,
@@ -12327,70 +12119,6 @@ tmkc:GC-0078 a skos:Concept,
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/7%231> ;
     tmk:typedBy tmka:GT-0078 .
-
-tmkc:GC-0079 a skos:Concept,
-        tmk:LegalConcept,
-        tmk:SubjectMatter ;
-    rdfs:comment "A single application for two or more marks that resemble each other in material particulars and differ only in the ways section 51 lists. The 'material particulars' requirement is what does the work and the Manual gives it its own numbered section."@en-AU ;
-    skos:altLabel "series"@en-AU,
-        "series application"@en-AU ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "series of trade marks"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Both the Act and the Manual state it in terms."@en-AU ;
-    tmk:confidence 0.85 ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part13/1%231> ;
-    tmk:expertShouldCheck "Whether the allowable differences in section 51(1)(a)–(c) should be narrower concepts. The Manual gives them their own section."@en-AU ;
-    tmk:extendsTo tmkc:GC-0074 ;
-    tmk:goldRecord "GC-0079" ;
-    tmk:labelKey "sery",
-        "sery application",
-        "sery of trade mark" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51(1)> ;
-    tmk:notLabel "composite trade mark"@en-AU,
-        "divisional application"@en-AU ;
-    tmk:notLabelKey "composite trade mark",
-        "divisional application" ;
-    tmk:origin "authored" ;
-    tmk:prefLabelKey "sery of trade mark" ;
-    tmk:requiresElement tmkc:GC-0080 ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part13/1%231> ;
-    tmk:typedBy tmka:GT-0079 .
-
-tmkc:GC-0087 a skos:Concept,
-        tmk:LegalConcept,
-        tmk:ProceduralStep ;
-    rdfs:comment "The section 6 definition is a stub continuing into a list, so this record's evidence comes from the Manual rather than from the definition itself."@en-AU ;
-    skos:broader tmkc:GC-0162 ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "transmission"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The Act defines the term but its text is a stub. The Manual's Part 43 treats assignment and transmission together, so the evidence available is weak — and the record says so with a low confidence rather than borrowing certainty from the pair."@en-AU ;
-    tmk:confidence 0.55 ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part43/1%231~1> ;
-    tmk:expertShouldCheck "The Manual passage this rests on defines assignment and transmission together and never separates them, so the record is evidenced for the pair and not for this half of it. Either the section 6 subparagraphs supply the difference or the two should be one concept."@en-AU ;
-    tmk:goldRecord "GC-0087" ;
-    tmk:labelKey "transmission" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/transmission> ;
-    tmk:notLabel "assignment"@en-AU,
-        "change of ownership"@en-AU ;
-    tmk:notLabelKey "assignment",
-        "change of ownership" ;
-    tmk:operatesOn tmkc:GC-0107,
-        tmkc:GC-0108 ;
-    tmk:origin "authored" ;
-    tmk:prefLabelKey "transmission" ;
-    tmk:requiresElement tmkc:GC-0156 ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part43/1%231~1> ;
-    tmk:typedBy tmka:GT-0087 .
 
 tmkc:GC-0095 a skos:Concept,
         tmk:LegalConcept,
@@ -12594,6 +12322,44 @@ tmkc:GC-0029 a tmk:InstrumentOrRecord ;
     tmk:isRecordedIn tmkc:GC-0014 ;
     tmk:typedBy tmka:GT-0029 .
 
+tmkc:GC-0032 a tmk:SignContent ;
+    skos:broader tmkc:GC-0073 ;
+    tmk:mayGiveRiseTo tmkc:GC-0168 ;
+    tmk:typedBy tmka:GT-0032 .
+
+tmkc:GC-0063 a skos:Concept,
+        tmk:GroundOfRefusal,
+        tmk:LegalConcept ;
+    rdfs:comment "The second limb of section 42. The Manual's Annex A1 lists the other legislation that may trigger it, which is what makes this ground unusual: its content lives outside the Trade Marks Act entirely."@en-AU ;
+    skos:altLabel "contrary to law"@en-AU,
+        "use would be contrary to law"@en-AU ;
+    skos:broader tmkc:GC-0006 ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "use contrary to law"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Stated in terms by both the Act and the Manual. Held separately from scandalous matter for the reason given on that record."@en-AU ;
+    tmk:confidence 0.85 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part30/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part30/3%231> ;
+    tmk:expertShouldCheck "Whether the ground reaches use that would be contrary to law only in some circumstances. The Manual's annexes suggest practice draws that line, and this record does not carry it."@en-AU ;
+    tmk:goldRecord "GC-0063" ;
+    tmk:labelKey "contrary to law",
+        "use contrary to law",
+        "use would be contrary to law" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42(b)> ;
+    tmk:notLabel "prohibited sign"@en-AU,
+        "scandalous matter"@en-AU ;
+    tmk:notLabelKey "prohibited sign",
+        "scandalous matter" ;
+    tmk:origin "authored" ;
+    tmk:prefLabelKey "use contrary to law" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part30/3%231> ;
+    tmk:typedBy tmka:GT-0063 .
+
 tmkc:GC-0099 a skos:Concept,
         tmk:InstrumentOrRecord,
         tmk:LegalConcept ;
@@ -12624,39 +12390,6 @@ tmkc:GC-0099 a skos:Concept,
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part24/1%231> ;
     tmk:typedBy tmka:GT-0099 .
-
-tmkc:GC-0108 a skos:Concept,
-        tmk:LegalConcept,
-        tmk:SubjectMatter ;
-    rdfs:comment "Distinguishes the goods or services of members of an association from those of non-members. The Manual's own contrast is the useful part: unlike a certification mark, use of a collective mark need not be subject to approved rules."@en-AU ;
-    skos:altLabel "collective trade marks"@en-AU,
-        "collective trademark"@en-AU ;
-    skos:broader tmkc:GC-0073 ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "collective trade mark"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Defined in terms by the Manual. The near-miss against certification marks is drawn from the same passage."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part33/1%231> ;
-    tmk:expertShouldCheck "The spelling. The Manual's own heading writes 'collective trademark' as one word and the body writes two; this record prefers the two-word form and keeps the other as an alt_label."@en-AU ;
-    tmk:goldRecord "GC-0108" ;
-    tmk:isExcludedFrom tmkc:GC-0086,
-        tmkc:GC-0162 ;
-    tmk:labelKey "collective trade mark",
-        "collective trademark" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s162>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/collective-trade-mark> ;
-    tmk:notLabel "certification trade mark"@en-AU,
-        "defensive trade mark"@en-AU ;
-    tmk:notLabelKey "certification trade mark",
-        "defensive trade mark" ;
-    tmk:origin "authored" ;
-    tmk:prefLabelKey "collective trade mark" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part33/1%231> ;
-    tmk:typedBy tmka:GT-0108 .
 
 tmkc:GC-0111 a skos:Concept,
         tmk:InstrumentOrRecord,
@@ -12694,6 +12427,40 @@ tmkc:GC-0111 a skos:Concept,
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/1/1/2> ;
     tmk:typedBy tmka:GT-0111 .
+
+tmkc:GC-0130 a skos:Concept,
+        tmk:Context,
+        tmk:LegalConcept ;
+    rdfs:comment "The reputation a trade mark has acquired — the basis of the section 60 opposition ground and of a defensive registration (section 185). Not the reputation of a place or person, which is the signed GC-0050 and which excludes 'reputation in another trade mark' (owner's ruling A3: two separate concepts)."@en-AU ;
+    skos:altLabel "reputation in Australia"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "reputation of a trade mark"@en-AU ;
+    tmk:allocatesTo tmkc:GC-0117 ;
+    tmk:authoredBy "claude-code-agent-S026" ;
+    tmk:authoredDate "2026-10-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Relabelled on the owner's ruling A3 — reputation of a trade mark and reputation of a place are two separate concepts. This record's evidence (Part 34, sections 60 and 185) is about a trade mark's reputation, the sense the signed GC-0050 excludes."@en-AU ;
+    tmk:confidence 0.85 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> ;
+    tmk:expertShouldCheck "Whether reputation under section 60 and under section 185 is one idea; this record still holds both."@en-AU ;
+    tmk:goldRecord "GC-0130" ;
+    tmk:labelKey "reputation in australia",
+        "reputation of a trade mark" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s185>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s60> ;
+    tmk:mayGiveRiseTo tmkc:GC-0003 ;
+    tmk:notLabel "connotation"@en-AU,
+        "evidence of use"@en-AU,
+        "use of a trade mark"@en-AU ;
+    tmk:notLabelKey "connotation",
+        "evidence of use",
+        "use of a trade mark" ;
+    tmk:origin "authored" ;
+    tmk:prefLabelKey "reputation of a trade mark" ;
+    tmk:qualifies tmkc:GC-0109 ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> ;
+    tmk:typedBy tmka:GT-0130 .
 
 tmkc:GC-0142 a skos:Concept,
         tmk:LegalConcept,
@@ -12771,6 +12538,13 @@ tmkc:GC-0012 a tmk:InstrumentOrRecord ;
         <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.4> ;
     tmk:typedBy tmka:GT-0012 .
 
+tmkc:GC-0013 a tmk:InstrumentOrRecord ;
+    skos:altLabel "conditions and limitations"@en-AU ;
+    tmk:appliesTo tmkc:GC-0025 ;
+    tmk:labelKey "condition and limitation" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(2)> ;
+    tmk:typedBy tmka:GT-0013 .
+
 tmkc:GC-0023 a tmk:SignContent ;
     tmk:mayGiveRiseTo tmkc:GC-0001,
         tmkc:GC-0002,
@@ -12800,6 +12574,39 @@ tmkc:GC-0050 a tmk:Context ;
         tmkc:GC-0028,
         tmkc:GC-0059 ;
     tmk:typedBy tmka:GT-0050 .
+
+tmkc:GC-0060 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:LegalTest ;
+    rdfs:comment "The first half of the Manual's two-part inherent-adaptation process. It is assessed 'in the light of the applied for goods and/or services', so it is not the word's meaning in the abstract."@en-AU ;
+    skos:altLabel "ordinary signification of the trade mark"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "ordinary signification"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual names it as the first step of a two-part process and ties it to the goods and services applied for. It is held apart from 'connotation' — a section 43 concept this repository already holds — because the two ask different questions of the same mark and share no statutory text."@en-AU ;
+    tmk:confidence 0.8 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
+    tmk:expertShouldCheck "The relationship to connotation. An expert may see them as two names for one underlying idea applied under different sections, which would make this a 'related' rather than a distinct concept."@en-AU ;
+    tmk:goldRecord "GC-0060" ;
+    tmk:labelKey "ordinary signification",
+        "ordinary signification of the trade mark" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)> ;
+    tmk:notLabel "connotation"@en-AU,
+        "denotation"@en-AU,
+        "dictionary meaning"@en-AU ;
+    tmk:notLabelKey "connotation",
+        "denotation",
+        "dictionary meaning" ;
+    tmk:origin "authored" ;
+    tmk:prefLabelKey "ordinary signification" ;
+    tmk:qualifies tmkc:GC-0061,
+        tmkc:GC-0119 ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
+    tmk:typedBy tmka:GT-0060 .
 
 tmkc:GC-0061 a skos:Concept,
         tmk:LegalConcept,
@@ -12832,42 +12639,35 @@ tmkc:GC-0061 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
     tmk:typedBy tmka:GT-0061 .
 
-tmkc:GC-0081 a skos:Concept,
-        tmk:LegalConcept,
-        tmk:UseInTrade ;
-    rdfs:comment "The Manual calls use a concept fundamental to trade mark law and lists the questions it bears on: capability to distinguish, honest concurrent or prior use, ownership. Section 6 says its meaning is 'affected by' subsections 7(1), (2) and (3) — which is not the same as being defined by them."@en-AU ;
-    skos:altLabel "trade mark use"@en-AU,
-        "use"@en-AU ;
+tmkc:GC-0089 a skos:Concept,
+        tmk:InstrumentOrRecord,
+        tmk:LegalConcept ;
+    rdfs:comment "Kept under section 207. The Act also defines 'old register' and the Regulations define a 'Record of International Registrations', and the three must not be merged — an entry in one is not an entry in another."@en-AU ;
+    skos:altLabel "Register"@en-AU,
+        "the Register"@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "use of a trade mark"@en-AU ;
+    skos:prefLabel "Register of Trade Marks"@en-AU ;
     tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Manual states the concept's place in the scheme and the Act tells us where its meaning is affected. Held as one concept with the specialised uses — authorised, prior, honest concurrent — as separate records beside it, because each answers a different question under a different provision."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/1%231> ;
-    tmk:expertShouldCheck "Whether 'use in the course of trade' should be the preferred label. Section 17 makes the course of trade part of what a trade mark is, and the bare word 'use' may be too wide for a vocabulary that also holds authorised use and prior use."@en-AU ;
-    tmk:goldRecord "GC-0081" ;
-    tmk:labelKey "trade mark use",
-        "use",
-        "use of a trade mark" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s17>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/use-of-a-trade-mark>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s7> ;
-    tmk:notLabel "authorised use"@en-AU,
-        "evidence of use"@en-AU,
-        "honest concurrent use"@en-AU,
-        "prior use"@en-AU ;
-    tmk:notLabelKey "authorised use",
-        "evidence of use",
-        "honest concurrent use",
-        "prior use" ;
+    tmk:authoringReasoning "Defined in terms. Held with the near-misses named because the corpus contains three registers and the Madrid Part turns on the distinction."@en-AU ;
+    tmk:confidence 0.85 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part39/1%231> ;
+    tmk:expertShouldCheck "Whether the preferred label should be 'Register' as the Act has it. This record uses the fuller form because 'Register' alone collides with the other two registers."@en-AU ;
+    tmk:goldRecord "GC-0089" ;
+    tmk:labelKey "register",
+        "register of trade mark" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s207>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/register> ;
+    tmk:notLabel "Record of International Registrations"@en-AU,
+        "old register"@en-AU ;
+    tmk:notLabelKey "old register",
+        "record of international registration" ;
     tmk:origin "authored" ;
-    tmk:prefLabelKey "use of a trade mark" ;
+    tmk:prefLabelKey "register of trade mark" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/use-of-a-trade-mark>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/1%231> ;
-    tmk:typedBy tmka:GT-0081 .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/register> ;
+    tmk:typedBy tmka:GT-0089 .
 
 tmkc:GC-0097 a skos:Concept,
         tmk:LegalConcept,
@@ -12931,6 +12731,37 @@ tmkc:GC-0098 a skos:Concept,
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part16/1/1/1> ;
     tmk:typedBy tmka:GT-0098 .
+
+tmkc:GC-0106 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
+    rdfs:comment "Renewable indefinitely at ten-year intervals from the filing date, and — unusually — any person may effect it, not only the owner."@en-AU ;
+    skos:altLabel "renewal"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "renewal of registration"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Both propositions are stated in terms in the one passage."@en-AU ;
+    tmk:confidence 0.85 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part40/1%231> ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GC-0106" ;
+    tmk:labelKey "renewal",
+        "renewal of registration" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s75>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s77> ;
+    tmk:notLabel "registration"@en-AU,
+        "restoration"@en-AU ;
+    tmk:notLabelKey "registration",
+        "restoration" ;
+    tmk:operatesOn tmkc:GC-0150 ;
+    tmk:origin "authored" ;
+    tmk:prefLabelKey "renewal of registration" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:runsFrom tmkc:GC-0091 ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part40/1%231> ;
+    tmk:typedBy tmka:GT-0106 .
 
 tmkc:GC-0117 a skos:Concept,
         tmk:LegalConcept,
@@ -13052,6 +12883,72 @@ tmkc:GC-0133 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/commission> ;
     tmk:typedBy tmka:GT-0133 .
 
+tmkc:GC-0151 a skos:Concept,
+        tmk:InstrumentOrRecord,
+        tmk:LegalConcept ;
+    rdfs:comment "Summary, not a definition: Summary: The old register is the register kept under the repealed trade marks legislation, distinguished from the Register kept under the 1995 Act."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "old register"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 6 expressly defines the term. The Manual distinguishes the old register under the 1955 Act from the Register under the 1995 Act and describes the transfer of disclaimer particulars between them. This supports a distinct historical record concept, rather than a duplicate of the general Register of Trade Marks concept. The cited sections 207 and 238 concern that transition as described by the Manual; the other supplied provision references concern disclaimers or examination rather than defining the old register."@en-AU ;
+    tmk:confidence 0.97 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/old-register> ;
+    tmk:expertShouldCheck "Confirm the relationship to GC-0089 and verify sections 207 and 238 directly; their transitional effects are described here only through the Manual passages."@en-AU ;
+    tmk:goldRecord "GC-0151" ;
+    tmk:labelKey "old register" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s207>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s238> ;
+    tmk:notLabel "Register kept under the 1995 Act"@en-AU,
+        "new Register"@en-AU ;
+    tmk:notLabelKey "new register",
+        "register kept under the 1995 act" ;
+    tmk:origin "authored" ;
+    tmk:prefLabelKey "old register" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/old-register> ;
+    tmk:typedBy tmka:GT-0151 .
+
+tmkc:GC-0182 a skos:Concept,
+        tmk:GroundOfRefusal,
+        tmk:LegalConcept ;
+    rdfs:comment "The ground section 39 creates: a trade mark that contains or consists of a prohibited sign (s 39(1), 'must') or a prescribed sign or one so nearly resembling it (s 39(2), 'may'). Until 2026-10-09 the two signs themselves were filed as the ground and as kinds of sign at once; on the owner's ruling B4 they are signs and this is the ground they give rise to."@en-AU ;
+    skos:altLabel "ground for rejection under section 39"@en-AU,
+        "ground for rejection under section 39(2)"@en-AU,
+        "grounds for rejection under s 39(1)"@en-AU ;
+    skos:broader tmkc:GC-0006 ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "section 39 ground for rejection"@en-AU ;
+    tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 39 states reasons an application must or may be rejected, and the Manual speaks of 'a section 39 ground for rejection' (Part 31). A prohibited sign and a prescribed sign are what the ground is about — each is 'a sign that ...' in the Act's own words — not the ground."@en-AU ;
+    tmk:confidence 0.9 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/1%231> ;
+    tmk:expertShouldCheck "Whether practice treats subsections 39(1) and 39(2) as one ground or two."@en-AU ;
+    tmk:goldRecord "GC-0182" ;
+    tmk:isOvercomeBy tmkc:GC-0029 ;
+    tmk:labelKey "ground for rejection under s 39 1",
+        "ground for rejection under section 39",
+        "ground for rejection under section 39 2",
+        "section 39 ground for rejection" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> ;
+    tmk:notLabel "prescribed sign"@en-AU,
+        "prohibited sign"@en-AU,
+        "section 43 ground for rejection"@en-AU ;
+    tmk:notLabelKey "prescribed sign",
+        "prohibited sign",
+        "section 43 ground for rejection" ;
+    tmk:origin "authored" ;
+    tmk:prefLabelKey "section 39 ground for rejection" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/4/4/4/2> ;
+    tmk:typedBy tmka:GT-0182 .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> tmk:appliesTo tmkc:GC-0168 .
 
 tmkc:GC-0007 a tmk:Principle ;
@@ -13091,77 +12988,9 @@ tmkc:GC-0024 a tmk:LegalTest ;
     tmk:mayGiveRiseTo tmkc:GC-0004 ;
     tmk:typedBy tmka:GT-0024 .
 
-tmkc:GC-0032 a tmk:SignContent ;
-    skos:broader tmkc:GC-0073 ;
-    tmk:mayGiveRiseTo tmkc:GC-0168 ;
-    tmk:typedBy tmka:GT-0032 .
-
-tmkc:GC-0060 a skos:Concept,
-        tmk:LegalConcept,
-        tmk:LegalTest ;
-    rdfs:comment "The first half of the Manual's two-part inherent-adaptation process. It is assessed 'in the light of the applied for goods and/or services', so it is not the word's meaning in the abstract."@en-AU ;
-    skos:altLabel "ordinary signification of the trade mark"@en-AU ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "ordinary signification"@en-AU ;
-    tmk:appliesTo tmkc:GC-0073 ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Manual names it as the first step of a two-part process and ties it to the goods and services applied for. It is held apart from 'connotation' — a section 43 concept this repository already holds — because the two ask different questions of the same mark and share no statutory text."@en-AU ;
-    tmk:confidence 0.8 ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
-    tmk:expertShouldCheck "The relationship to connotation. An expert may see them as two names for one underlying idea applied under different sections, which would make this a 'related' rather than a distinct concept."@en-AU ;
-    tmk:goldRecord "GC-0060" ;
-    tmk:labelKey "ordinary signification",
-        "ordinary signification of the trade mark" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)> ;
-    tmk:notLabel "connotation"@en-AU,
-        "denotation"@en-AU,
-        "dictionary meaning"@en-AU ;
-    tmk:notLabelKey "connotation",
-        "denotation",
-        "dictionary meaning" ;
-    tmk:origin "authored" ;
-    tmk:prefLabelKey "ordinary signification" ;
-    tmk:qualifies tmkc:GC-0061,
-        tmkc:GC-0119 ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
-    tmk:typedBy tmka:GT-0060 .
-
-tmkc:GC-0063 a skos:Concept,
-        tmk:GroundOfRefusal,
-        tmk:LegalConcept ;
-    rdfs:comment "The second limb of section 42. The Manual's Annex A1 lists the other legislation that may trigger it, which is what makes this ground unusual: its content lives outside the Trade Marks Act entirely."@en-AU ;
-    skos:altLabel "contrary to law"@en-AU,
-        "use would be contrary to law"@en-AU ;
-    skos:broader tmkc:GC-0006 ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "use contrary to law"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Stated in terms by both the Act and the Manual. Held separately from scandalous matter for the reason given on that record."@en-AU ;
-    tmk:confidence 0.85 ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part30/1%231>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part30/3%231> ;
-    tmk:expertShouldCheck "Whether the ground reaches use that would be contrary to law only in some circumstances. The Manual's annexes suggest practice draws that line, and this record does not carry it."@en-AU ;
-    tmk:goldRecord "GC-0063" ;
-    tmk:labelKey "contrary to law",
-        "use contrary to law",
-        "use would be contrary to law" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42(b)> ;
-    tmk:notLabel "prohibited sign"@en-AU,
-        "scandalous matter"@en-AU ;
-    tmk:notLabelKey "prohibited sign",
-        "scandalous matter" ;
-    tmk:origin "authored" ;
-    tmk:prefLabelKey "use contrary to law" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part30/3%231> ;
-    tmk:typedBy tmka:GT-0063 .
+tmkc:GC-0042 a tmk:ProceduralStep ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s38> ;
+    tmk:typedBy tmka:GT-0042 .
 
 tmkc:GC-0086 a skos:Concept,
         tmk:LegalConcept,
@@ -13197,72 +13026,6 @@ tmkc:GC-0086 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/assignment> ;
     tmk:typedBy tmka:GT-0086 .
 
-tmkc:GC-0106 a skos:Concept,
-        tmk:LegalConcept,
-        tmk:ProceduralStep ;
-    rdfs:comment "Renewable indefinitely at ten-year intervals from the filing date, and — unusually — any person may effect it, not only the owner."@en-AU ;
-    skos:altLabel "renewal"@en-AU ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "renewal of registration"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Both propositions are stated in terms in the one passage."@en-AU ;
-    tmk:confidence 0.85 ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part40/1%231> ;
-    tmk:expertShouldCheck "Nothing specific."@en-AU ;
-    tmk:goldRecord "GC-0106" ;
-    tmk:isRecordedIn tmkc:GC-0089 ;
-    tmk:labelKey "renewal",
-        "renewal of registration" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s75>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s77> ;
-    tmk:notLabel "registration"@en-AU,
-        "restoration"@en-AU ;
-    tmk:notLabelKey "registration",
-        "restoration" ;
-    tmk:operatesOn tmkc:GC-0150 ;
-    tmk:origin "authored" ;
-    tmk:prefLabelKey "renewal of registration" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:runsFrom tmkc:GC-0091 ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part40/1%231> ;
-    tmk:typedBy tmka:GT-0106 .
-
-tmkc:GC-0130 a skos:Concept,
-        tmk:Context,
-        tmk:LegalConcept ;
-    rdfs:comment "The reputation a trade mark has acquired — the basis of the section 60 opposition ground and of a defensive registration (section 185). Not the reputation of a place or person, which is the signed GC-0050 and which excludes 'reputation in another trade mark' (owner's ruling A3: two separate concepts)."@en-AU ;
-    skos:altLabel "reputation in Australia"@en-AU ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "reputation of a trade mark"@en-AU ;
-    tmk:allocatesTo tmkc:GC-0117 ;
-    tmk:authoredBy "claude-code-agent-S026" ;
-    tmk:authoredDate "2026-10-08"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Relabelled on the owner's ruling A3 — reputation of a trade mark and reputation of a place are two separate concepts. This record's evidence (Part 34, sections 60 and 185) is about a trade mark's reputation, the sense the signed GC-0050 excludes."@en-AU ;
-    tmk:confidence 0.85 ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> ;
-    tmk:expertShouldCheck "Whether reputation under section 60 and under section 185 is one idea; this record still holds both."@en-AU ;
-    tmk:goldRecord "GC-0130" ;
-    tmk:labelKey "reputation in australia",
-        "reputation of a trade mark" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s185>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s60> ;
-    tmk:mayGiveRiseTo tmkc:GC-0003 ;
-    tmk:notLabel "connotation"@en-AU,
-        "evidence of use"@en-AU,
-        "use of a trade mark"@en-AU ;
-    tmk:notLabelKey "connotation",
-        "evidence of use",
-        "use of a trade mark" ;
-    tmk:origin "authored" ;
-    tmk:prefLabelKey "reputation of a trade mark" ;
-    tmk:qualifies tmkc:GC-0109 ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> ;
-    tmk:typedBy tmka:GT-0130 .
-
 tmkc:GC-0141 a skos:Concept,
         tmk:Context,
         tmk:LegalConcept ;
@@ -13290,34 +13053,6 @@ tmkc:GC-0141 a skos:Concept,
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7/7/2> ;
     tmk:typedBy tmka:GT-0141 .
-
-tmkc:GC-0151 a skos:Concept,
-        tmk:InstrumentOrRecord,
-        tmk:LegalConcept ;
-    rdfs:comment "Summary, not a definition: Summary: The old register is the register kept under the repealed trade marks legislation, distinguished from the Register kept under the 1995 Act."@en-AU ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "old register"@en-AU ;
-    tmk:authoredBy "gpt-6.1-sol" ;
-    tmk:authoredDate "2026-10-07"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Section 6 expressly defines the term. The Manual distinguishes the old register under the 1955 Act from the Register under the 1995 Act and describes the transfer of disclaimer particulars between them. This supports a distinct historical record concept, rather than a duplicate of the general Register of Trade Marks concept. The cited sections 207 and 238 concern that transition as described by the Manual; the other supplied provision references concern disclaimers or examination rather than defining the old register."@en-AU ;
-    tmk:becomes tmkc:GC-0089 ;
-    tmk:confidence 0.97 ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/old-register> ;
-    tmk:expertShouldCheck "Confirm the relationship to GC-0089 and verify sections 207 and 238 directly; their transitional effects are described here only through the Manual passages."@en-AU ;
-    tmk:goldRecord "GC-0151" ;
-    tmk:labelKey "old register" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s207>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s238> ;
-    tmk:notLabel "Register kept under the 1995 Act"@en-AU,
-        "new Register"@en-AU ;
-    tmk:notLabelKey "new register",
-        "register kept under the 1995 act" ;
-    tmk:origin "authored" ;
-    tmk:prefLabelKey "old register" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/old-register> ;
-    tmk:typedBy tmka:GT-0151 .
 
 tmkc:GC-0153 a skos:Concept,
         tmk:InstrumentOrRecord,
@@ -13420,45 +13155,6 @@ tmkc:GC-0173 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part9/4/4/7/1> ;
     tmk:typedBy tmka:GT-0173 .
 
-tmkc:GC-0182 a skos:Concept,
-        tmk:GroundOfRefusal,
-        tmk:LegalConcept ;
-    rdfs:comment "The ground section 39 creates: a trade mark that contains or consists of a prohibited sign (s 39(1), 'must') or a prescribed sign or one so nearly resembling it (s 39(2), 'may'). Until 2026-10-09 the two signs themselves were filed as the ground and as kinds of sign at once; on the owner's ruling B4 they are signs and this is the ground they give rise to."@en-AU ;
-    skos:altLabel "ground for rejection under section 39"@en-AU,
-        "ground for rejection under section 39(2)"@en-AU,
-        "grounds for rejection under s 39(1)"@en-AU ;
-    skos:broader tmkc:GC-0006 ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "section 39 ground for rejection"@en-AU ;
-    tmk:authoredBy "claude-code-agent-S027" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Section 39 states reasons an application must or may be rejected, and the Manual speaks of 'a section 39 ground for rejection' (Part 31). A prohibited sign and a prescribed sign are what the ground is about — each is 'a sign that ...' in the Act's own words — not the ground."@en-AU ;
-    tmk:confidence 0.9 ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/1%231> ;
-    tmk:expertShouldCheck "Whether practice treats subsections 39(1) and 39(2) as one ground or two."@en-AU ;
-    tmk:goldRecord "GC-0182" ;
-    tmk:isOvercomeBy tmkc:GC-0029 ;
-    tmk:labelKey "ground for rejection under s 39 1",
-        "ground for rejection under section 39",
-        "ground for rejection under section 39 2",
-        "section 39 ground for rejection" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> ;
-    tmk:notLabel "prescribed sign"@en-AU,
-        "prohibited sign"@en-AU,
-        "section 43 ground for rejection"@en-AU ;
-    tmk:notLabelKey "prescribed sign",
-        "prohibited sign",
-        "section 43 ground for rejection" ;
-    tmk:origin "authored" ;
-    tmk:prefLabelKey "section 39 ground for rejection" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/1%231>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/4/4/4/2> ;
-    tmk:typedBy tmka:GT-0182 .
-
 tmkc:GC-0008 a tmk:LegalTest ;
     tmk:statesThresholdFor tmkc:GC-0004,
         tmkc:GC-0168 ;
@@ -13545,10 +13241,10 @@ tmkc:GC-0096 a skos:Concept,
         "lapsing" ;
     tmk:origin "authored" ;
     tmk:prefLabelKey "deferment of acceptance" ;
-    tmk:prevents tmkc:GC-0093,
-        tmkc:GC-0098 ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/1%231> ;
+    tmk:suspendsTimeFor tmkc:GC-0093,
+        tmkc:GC-0098 ;
     tmk:typedBy tmka:GT-0096 .
 
 tmkc:GC-0127 a skos:Concept,
@@ -13751,14 +13447,6 @@ tmkc:GC-0010 a tmk:Context ;
         tmkc:GC-0057 ;
     tmk:typedBy tmka:GT-0010 .
 
-tmkc:GC-0013 a tmk:InstrumentOrRecord ;
-    skos:altLabel "conditions and limitations"@en-AU ;
-    tmk:appliesTo tmkc:GC-0025 ;
-    tmk:labelKey "condition and limitation" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(2)> ;
-    tmk:prevents tmkc:GC-0042 ;
-    tmk:typedBy tmka:GT-0013 .
-
 tmkc:GC-0016 a tmk:Context ;
     tmk:isFixedBy tmkc:GC-0091 ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s12>,
@@ -13767,6 +13455,43 @@ tmkc:GC-0016 a tmk:Context ;
     tmk:qualifies tmkc:GC-0064,
         tmkc:GC-0067 ;
     tmk:typedBy tmka:GT-0016 .
+
+tmkc:GC-0041 a tmk:InstrumentOrRecord ;
+    tmk:mayShow tmkc:GC-0058 ;
+    tmk:typedBy tmka:GT-0041 .
+
+tmkc:GC-0074 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
+    rdfs:comment "Not a statutory category. The Manual groups shapes, colours, sounds, scents, moving images, holograms and gestures under this heading because the 1995 Act broadened the definition of a trade mark to reach them."@en-AU ;
+    skos:altLabel "non-traditional signs"@en-AU,
+        "non-traditional trade mark"@en-AU ;
+    skos:broader tmkc:GC-0073 ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "non-traditional sign"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The Manual devotes a Part to the category and names it in the Part title, but never defines it — so the record is corpus_inferred and says so. It is held because the grouping drives practice: these are the signs where section 40 and the representation requirements bite hardest."@en-AU ;
+    tmk:confidence 0.7 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/1%231> ;
+    tmk:expertShouldCheck "Which signs are inside the category. This record takes the Manual's Part 21 contents as the extension, and an expert may draw it differently."@en-AU ;
+    tmk:goldRecord "GC-0074" ;
+    tmk:labelKey "non traditional sign",
+        "non traditional trade mark" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s40>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/sign> ;
+    tmk:notLabel "composite trade mark"@en-AU,
+        "device"@en-AU,
+        "sign"@en-AU ;
+    tmk:notLabelKey "composite trade mark",
+        "device",
+        "sign" ;
+    tmk:origin "authored" ;
+    tmk:prefLabelKey "non traditional sign" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/1%231> ;
+    tmk:typedBy tmka:GT-0074 .
 
 tmkc:GC-0103 a skos:Concept,
         tmk:InstrumentOrRecord,
@@ -13800,41 +13525,6 @@ tmkc:GC-0103 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part47/1%231> ;
     tmk:typedBy tmka:GT-0103 .
 
-tmkc:GC-0109 a skos:Concept,
-        tmk:LegalConcept,
-        tmk:SubjectMatter ;
-    rdfs:comment "Requires an existing registration and a reputation extensive enough that use on other goods would be taken to indicate a connection. It is the one registration in the Act that does not require an intention to use."@en-AU ;
-    skos:altLabel "defensive registration"@en-AU,
-        "defensive trade marks"@en-AU ;
-    skos:broader tmkc:GC-0088 ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "defensive trade mark"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The passage states the qualifying condition, though in the past tense about the 1955 Act. The record is honest about that: the evidence is historical framing of a requirement the Manual carries forward, which is weaker than a current statement."@en-AU ;
-    tmk:confidence 0.7 ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> ;
-    tmk:expertShouldCheck "The evidence is a sentence about the 1955 Act. If Part 34 states the current requirement elsewhere, that passage should replace this one."@en-AU ;
-    tmk:goldRecord "GC-0109" ;
-    tmk:labelKey "defensive registration",
-        "defensive trade mark" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s185>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/defensive-trade-mark> ;
-    tmk:notLabel "certification trade mark"@en-AU,
-        "collective trade mark"@en-AU,
-        "registered trade mark"@en-AU ;
-    tmk:notLabelKey "certification trade mark",
-        "collective trade mark",
-        "registered trade mark" ;
-    tmk:origin "authored" ;
-    tmk:prefLabelKey "defensive trade mark" ;
-    tmk:requiresElement tmkc:GC-0041,
-        tmkc:GC-0081 ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> ;
-    tmk:typedBy tmka:GT-0109 .
-
 tmkc:GC-0119 a skos:Concept,
         tmk:LegalConcept,
         tmk:LegalTest ;
@@ -13867,11 +13557,6 @@ tmkc:GC-0119 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/4%231> ;
     tmk:statesThresholdFor tmkc:GC-0181 ;
     tmk:typedBy tmka:GT-0119 .
-
-tmkc:GC-0042 a tmk:ProceduralStep ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s38> ;
-    tmk:precedes tmkc:GC-0092 ;
-    tmk:typedBy tmka:GT-0042 .
 
 tmkc:GC-0045 a tmk:ProcessRole ;
     tmk:typedBy tmka:GT-0045 .
@@ -13949,36 +13634,6 @@ tmkc:GC-0088 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19B/1%231> ;
     tmk:typedBy tmka:GT-0088 .
 
-tmkc:GC-0089 a skos:Concept,
-        tmk:InstrumentOrRecord,
-        tmk:LegalConcept ;
-    rdfs:comment "Kept under section 207. The Act also defines 'old register' and the Regulations define a 'Record of International Registrations', and the three must not be merged — an entry in one is not an entry in another."@en-AU ;
-    skos:altLabel "Register"@en-AU,
-        "the Register"@en-AU ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "Register of Trade Marks"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Defined in terms. Held with the near-misses named because the corpus contains three registers and the Madrid Part turns on the distinction."@en-AU ;
-    tmk:confidence 0.85 ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part39/1%231> ;
-    tmk:expertShouldCheck "Whether the preferred label should be 'Register' as the Act has it. This record uses the fuller form because 'Register' alone collides with the other two registers."@en-AU ;
-    tmk:goldRecord "GC-0089" ;
-    tmk:labelKey "register",
-        "register of trade mark" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s207>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/register> ;
-    tmk:notLabel "Record of International Registrations"@en-AU,
-        "old register"@en-AU ;
-    tmk:notLabelKey "old register",
-        "record of international registration" ;
-    tmk:origin "authored" ;
-    tmk:prefLabelKey "register of trade mark" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/register> ;
-    tmk:typedBy tmka:GT-0089 .
-
 tmkc:GC-0091 a skos:Concept,
         tmk:Context,
         tmk:LegalConcept ;
@@ -14005,6 +13660,40 @@ tmkc:GC-0091 a skos:Concept,
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
     tmk:typedBy tmka:GT-0091 .
+
+tmkc:GC-0109 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
+    rdfs:comment "Requires an existing registration and a reputation extensive enough that use on other goods would be taken to indicate a connection. It is the one registration in the Act that does not require an intention to use."@en-AU ;
+    skos:altLabel "defensive registration"@en-AU,
+        "defensive trade marks"@en-AU ;
+    skos:broader tmkc:GC-0088 ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "defensive trade mark"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The passage states the qualifying condition, though in the past tense about the 1955 Act. The record is honest about that: the evidence is historical framing of a requirement the Manual carries forward, which is weaker than a current statement."@en-AU ;
+    tmk:confidence 0.7 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> ;
+    tmk:expertShouldCheck "The evidence is a sentence about the 1955 Act. If Part 34 states the current requirement elsewhere, that passage should replace this one."@en-AU ;
+    tmk:goldRecord "GC-0109" ;
+    tmk:labelKey "defensive registration",
+        "defensive trade mark" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s185>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/defensive-trade-mark> ;
+    tmk:notLabel "certification trade mark"@en-AU,
+        "collective trade mark"@en-AU,
+        "registered trade mark"@en-AU ;
+    tmk:notLabelKey "certification trade mark",
+        "collective trade mark",
+        "registered trade mark" ;
+    tmk:origin "authored" ;
+    tmk:prefLabelKey "defensive trade mark" ;
+    tmk:requiresElement tmkc:GC-0041 ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> ;
+    tmk:typedBy tmka:GT-0109 .
 
 tmkc:GC-0128 a skos:Concept,
         tmk:LegalConcept,
@@ -14101,45 +13790,6 @@ tmkc:GC-0165 a skos:Concept,
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.66> ;
     tmk:typedBy tmka:GT-0165 .
-
-tmkc:GC-0041 a tmk:InstrumentOrRecord ;
-    tmk:establishes tmkc:GC-0058,
-        tmkc:GC-0066,
-        tmkc:GC-0081 ;
-    tmk:typedBy tmka:GT-0041 .
-
-tmkc:GC-0074 a skos:Concept,
-        tmk:LegalConcept,
-        tmk:SubjectMatter ;
-    rdfs:comment "Not a statutory category. The Manual groups shapes, colours, sounds, scents, moving images, holograms and gestures under this heading because the 1995 Act broadened the definition of a trade mark to reach them."@en-AU ;
-    skos:altLabel "non-traditional signs"@en-AU,
-        "non-traditional trade mark"@en-AU ;
-    skos:broader tmkc:GC-0073 ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "non-traditional sign"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The Manual devotes a Part to the category and names it in the Part title, but never defines it — so the record is corpus_inferred and says so. It is held because the grouping drives practice: these are the signs where section 40 and the representation requirements bite hardest."@en-AU ;
-    tmk:confidence 0.7 ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/1%231> ;
-    tmk:expertShouldCheck "Which signs are inside the category. This record takes the Manual's Part 21 contents as the extension, and an expert may draw it differently."@en-AU ;
-    tmk:goldRecord "GC-0074" ;
-    tmk:labelKey "non traditional sign",
-        "non traditional trade mark" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s40>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/sign> ;
-    tmk:notLabel "composite trade mark"@en-AU,
-        "device"@en-AU,
-        "sign"@en-AU ;
-    tmk:notLabelKey "composite trade mark",
-        "device",
-        "sign" ;
-    tmk:origin "authored" ;
-    tmk:prefLabelKey "non traditional sign" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/1%231> ;
-    tmk:typedBy tmka:GT-0074 .
 
 tmkc:GC-0114 a skos:Concept,
         tmk:LegalConcept,
@@ -14416,6 +14066,39 @@ tmkc:GC-0150 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-registration> ;
     tmk:typedBy tmka:GT-0150 .
 
+tmkc:GC-0092 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
+    rdfs:comment "Section 31 gives examination two subjects and only two: whether the application was made in accordance with the Act, and whether there are grounds for rejecting it. Section 33 then makes acceptance the default unless the Registrar is satisfied of one of those."@en-AU ;
+    skos:altLabel "examine and report"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "examination"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 31 states the duty and its two subjects in one sentence. Held because the whole corpus is an examination manual and the vocabulary had no word for the activity it describes."@en-AU ;
+    tmk:confidence 0.85 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5%231> ;
+    tmk:expertShouldCheck "Whether the definition source should be a Part 5 or Part 6 passage about the examination process rather than Part 20.5 on grounds."@en-AU ;
+    tmk:goldRecord "GC-0092" ;
+    tmk:labelKey "examination",
+        "examine and report" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s31>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33> ;
+    tmk:notLabel "expedited examination"@en-AU,
+        "hearing"@en-AU,
+        "opposition"@en-AU ;
+    tmk:notLabelKey "expedited examination",
+        "hearing",
+        "opposition" ;
+    tmk:operatesOn tmkc:GC-0131 ;
+    tmk:origin "authored" ;
+    tmk:precedes tmkc:GC-0093 ;
+    tmk:prefLabelKey "examination" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s31> ;
+    tmk:typedBy tmka:GT-0092 .
+
 tmkc:GC-0093 a skos:Concept,
         tmk:LegalConcept,
         tmk:ProceduralStep ;
@@ -14448,7 +14131,6 @@ tmkc:GC-0093 a skos:Concept,
     tmk:origin "authored" ;
     tmk:prefLabelKey "acceptance" ;
     tmk:prevents tmkc:GC-0098 ;
-    tmk:resultsIn tmkc:GC-0013 ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/4%231~1> ;
@@ -14493,39 +14175,6 @@ tmkc:GC-0113 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r2.1/irda> ;
     tmk:typedBy tmka:GT-0113 .
 
-tmkc:GC-0092 a skos:Concept,
-        tmk:LegalConcept,
-        tmk:ProceduralStep ;
-    rdfs:comment "Section 31 gives examination two subjects and only two: whether the application was made in accordance with the Act, and whether there are grounds for rejecting it. Section 33 then makes acceptance the default unless the Registrar is satisfied of one of those."@en-AU ;
-    skos:altLabel "examine and report"@en-AU ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "examination"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Section 31 states the duty and its two subjects in one sentence. Held because the whole corpus is an examination manual and the vocabulary had no word for the activity it describes."@en-AU ;
-    tmk:confidence 0.85 ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5%231> ;
-    tmk:expertShouldCheck "Whether the definition source should be a Part 5 or Part 6 passage about the examination process rather than Part 20.5 on grounds."@en-AU ;
-    tmk:goldRecord "GC-0092" ;
-    tmk:labelKey "examination",
-        "examine and report" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s31>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33> ;
-    tmk:notLabel "expedited examination"@en-AU,
-        "hearing"@en-AU,
-        "opposition"@en-AU ;
-    tmk:notLabelKey "expedited examination",
-        "hearing",
-        "opposition" ;
-    tmk:operatesOn tmkc:GC-0131 ;
-    tmk:origin "authored" ;
-    tmk:precedes tmkc:GC-0093 ;
-    tmk:prefLabelKey "examination" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s31> ;
-    tmk:typedBy tmka:GT-0092 .
-
 tmkc:GC-0040 a tmk:ProceduralStep ;
     skos:altLabel "opposition to registration"@en-AU ;
     tmk:isCommencedBy tmkc:GC-0103 ;
@@ -14554,12 +14203,6 @@ tmkc:GC-0001 a tmk:LegalTest ;
     tmk:mayGiveRiseTo tmkc:GC-0002,
         tmkc:GC-0003 ;
     tmk:typedBy tmka:GT-0001 .
-
-tmkc:GC-0002 a tmk:LegalTest ;
-    tmk:mayGiveRiseTo tmkc:GC-0168 ;
-    tmk:requiresElement tmkc:GC-0024,
-        tmkc:GC-0050 ;
-    tmk:typedBy tmka:GT-0002 .
 
 tmkc:GC-0073 a skos:Concept,
         tmk:LegalConcept,
@@ -14590,6 +14233,12 @@ tmkc:GC-0073 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/sign>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/3%231> ;
     tmk:typedBy tmka:GT-0073 .
+
+tmkc:GC-0002 a tmk:LegalTest ;
+    tmk:mayGiveRiseTo tmkc:GC-0168 ;
+    tmk:requiresElement tmkc:GC-0024,
+        tmkc:GC-0050 ;
+    tmk:typedBy tmka:GT-0002 .
 
 tmkc:GC-0003 a tmk:LegalTest ;
     tmk:requiresElement tmkc:GC-0024 ;
