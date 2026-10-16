@@ -414,19 +414,31 @@ PREDICATES: dict[str, Predicate] = {p.name: p for p in (
        "opposition it starts.",
        None, "owner-2026-10-09"),
     _p("precedes",
-       "In the process, the subject comes before the object, which cannot happen until the "
-       "subject has.",
-       "<step> comes before <step>",
+       "In the process, the subject must happen before the object can: the object cannot "
+       "happen until the subject has. An order of steps, never a cause.",
+       "<step> must come before <step>",
        "An application must be accepted if, after examination, there are no grounds for "
        "rejecting it (s 33(1)).",
-       "Not for a cause; use mayGiveRiseTo or resultsIn.",
+       "Not for steps a sentence only lists in that order, nor for a sentence saying one step "
+       "is not followed by another (GR-0167 was that mistake). Not for a cause; use "
+       "mayGiveRiseTo or resultsIn.",
        None, "owner-2026-10-09"),
+    # `prevents` meant two things until S036 — the step cannot happen, or its time stops
+    # running — and its records used both (the review response, F13). Split in two.
     _p("prevents",
-       "While the subject stands, the object — a step — cannot happen, or its time stops "
-       "running.",
+       "While the subject stands, the object — a step — cannot happen.",
        "<subject> prevents <step>",
        "A ground for rejection that is made out prevents acceptance (s 33).",
-       "Not for something that only weighs against; use qualifies.",
+       "Not for stopping the time a step must happen within; use suspendsTimeFor. Not for "
+       "something that only weighs against; use qualifies.",
+       None, "owner-2026-10-09"),
+    _p("suspendsTimeFor",
+       "While the subject stands, the time within which the object — a step — must happen, or "
+       "after which it happens, stops running; the step itself is not blocked.",
+       "<subject> suspends the time for <step>",
+       "A deferment of acceptance sets in abeyance the period an application has to gain "
+       "acceptance (reg 4.13), so the application does not lapse while it is deferred.",
+       "Not for something that stops the step happening at all; use prevents.",
        None, "owner-2026-10-09"),
     _p("isExcludedFrom",
        "A step or scheme does not apply to the subject at all.",
@@ -568,6 +580,7 @@ _JOINS: dict[str, tuple[tuple[str, ...], tuple[str, ...], bool]] = {
     "precedes": (("procedural_step", "instrument_or_record"), ("procedural_step", "instrument_or_record"), False),
     "prevents": (("ground_of_refusal", "procedural_step", "instrument_or_record", "context",
                   "use_in_trade", "subject_matter", "principle"), _STEP, False),
+    "suspendsTimeFor": (("procedural_step", "instrument_or_record", "context"), _STEP, False),
     "isExcludedFrom": (("subject_matter", "instrument_or_record", "sign_content"),
                        ("procedural_step", "external_instrument"), False),
     "isRecordedIn": (("instrument_or_record", "subject_matter", "procedural_step", "sign_content"),

@@ -34547,18 +34547,18 @@
 <https://data.ipaustralia.gov.au/tmk/ns/precedes> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/LegalMatter>  .
 <https://data.ipaustralia.gov.au/tmk/ns/precedes> <http://www.w3.org/2000/01/rdf-schema#label> "precedes"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/precedes> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.ipaustralia.gov.au/tmk/ns/LegalMatter>  .
-<https://data.ipaustralia.gov.au/tmk/ns/precedes> <http://www.w3.org/2004/02/skos/core#definition> "In the process, the subject comes before the object, which cannot happen until the subject has."@en-AU  .
+<https://data.ipaustralia.gov.au/tmk/ns/precedes> <http://www.w3.org/2004/02/skos/core#definition> "In the process, the subject must happen before the object can: the object cannot happen until the subject has. An order of steps, never a cause."@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/precedes> <http://www.w3.org/2004/02/skos/core#example> "An application must be accepted if, after examination, there are no grounds for rejecting it (s 33(1))."@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/precedes> <https://data.ipaustralia.gov.au/tmk/ns/admittedBy> "owner-2026-10-09"  .
 <https://data.ipaustralia.gov.au/tmk/ns/precedes> <https://data.ipaustralia.gov.au/tmk/ns/authoredUsageCount> "4"^^<http://www.w3.org/2001/XMLSchema#integer>  .
-<https://data.ipaustralia.gov.au/tmk/ns/precedes> <https://data.ipaustralia.gov.au/tmk/ns/counterExample> "Not for a cause; use mayGiveRiseTo or resultsIn."@en-AU  .
+<https://data.ipaustralia.gov.au/tmk/ns/precedes> <https://data.ipaustralia.gov.au/tmk/ns/counterExample> "Not for steps a sentence only lists in that order, nor for a sentence saying one step is not followed by another (GR-0167 was that mistake). Not for a cause; use mayGiveRiseTo or resultsIn."@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/precedes> <https://data.ipaustralia.gov.au/tmk/ns/expectedObjectKind> <https://data.ipaustralia.gov.au/tmk/ns/InstrumentOrRecord>  .
 <https://data.ipaustralia.gov.au/tmk/ns/precedes> <https://data.ipaustralia.gov.au/tmk/ns/expectedObjectKind> <https://data.ipaustralia.gov.au/tmk/ns/ProceduralStep>  .
 <https://data.ipaustralia.gov.au/tmk/ns/precedes> <https://data.ipaustralia.gov.au/tmk/ns/expectedSubjectKind> <https://data.ipaustralia.gov.au/tmk/ns/InstrumentOrRecord>  .
 <https://data.ipaustralia.gov.au/tmk/ns/precedes> <https://data.ipaustralia.gov.au/tmk/ns/expectedSubjectKind> <https://data.ipaustralia.gov.au/tmk/ns/ProceduralStep>  .
 <https://data.ipaustralia.gov.au/tmk/ns/precedes> <https://data.ipaustralia.gov.au/tmk/ns/observedObjectType> <https://data.ipaustralia.gov.au/tmk/ns/LegalConcept>  .
 <https://data.ipaustralia.gov.au/tmk/ns/precedes> <https://data.ipaustralia.gov.au/tmk/ns/observedSubjectType> <https://data.ipaustralia.gov.au/tmk/ns/LegalConcept>  .
-<https://data.ipaustralia.gov.au/tmk/ns/precedes> <https://data.ipaustralia.gov.au/tmk/ns/reading> "<step> comes before <step>"@en-AU  .
+<https://data.ipaustralia.gov.au/tmk/ns/precedes> <https://data.ipaustralia.gov.au/tmk/ns/reading> "<step> must come before <step>"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/precedes> <https://data.ipaustralia.gov.au/tmk/ns/usageCount> "0"^^<http://www.w3.org/2001/XMLSchema#integer>  .
 <https://data.ipaustralia.gov.au/tmk/ns/predicateAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/predicateAuthority> <http://www.w3.org/2000/01/rdf-schema#comment> "`law` where the relation exists because legislation says so — a delegation, an appeal, a consent — and `practice` where it is office practice the Manual records, such as consulting or escalating. CLAUDE.md rule 5 keeps the two apart at every point, including on an edge. Absent on structural and vocabulary predicates."@en-AU  .
@@ -34591,11 +34591,11 @@
 <https://data.ipaustralia.gov.au/tmk/ns/prevents> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/LegalMatter>  .
 <https://data.ipaustralia.gov.au/tmk/ns/prevents> <http://www.w3.org/2000/01/rdf-schema#label> "prevents"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/prevents> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.ipaustralia.gov.au/tmk/ns/LegalMatter>  .
-<https://data.ipaustralia.gov.au/tmk/ns/prevents> <http://www.w3.org/2004/02/skos/core#definition> "While the subject stands, the object — a step — cannot happen, or its time stops running."@en-AU  .
+<https://data.ipaustralia.gov.au/tmk/ns/prevents> <http://www.w3.org/2004/02/skos/core#definition> "While the subject stands, the object — a step — cannot happen."@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/prevents> <http://www.w3.org/2004/02/skos/core#example> "A ground for rejection that is made out prevents acceptance (s 33)."@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/prevents> <https://data.ipaustralia.gov.au/tmk/ns/admittedBy> "owner-2026-10-09"  .
 <https://data.ipaustralia.gov.au/tmk/ns/prevents> <https://data.ipaustralia.gov.au/tmk/ns/authoredUsageCount> "5"^^<http://www.w3.org/2001/XMLSchema#integer>  .
-<https://data.ipaustralia.gov.au/tmk/ns/prevents> <https://data.ipaustralia.gov.au/tmk/ns/counterExample> "Not for something that only weighs against; use qualifies."@en-AU  .
+<https://data.ipaustralia.gov.au/tmk/ns/prevents> <https://data.ipaustralia.gov.au/tmk/ns/counterExample> "Not for stopping the time a step must happen within; use suspendsTimeFor. Not for something that only weighs against; use qualifies."@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/prevents> <https://data.ipaustralia.gov.au/tmk/ns/expectedObjectKind> <https://data.ipaustralia.gov.au/tmk/ns/ProceduralStep>  .
 <https://data.ipaustralia.gov.au/tmk/ns/prevents> <https://data.ipaustralia.gov.au/tmk/ns/expectedSubjectKind> <https://data.ipaustralia.gov.au/tmk/ns/Context>  .
 <https://data.ipaustralia.gov.au/tmk/ns/prevents> <https://data.ipaustralia.gov.au/tmk/ns/expectedSubjectKind> <https://data.ipaustralia.gov.au/tmk/ns/GroundOfRefusal>  .
@@ -34682,7 +34682,7 @@
 <https://data.ipaustralia.gov.au/tmk/ns/reading> <http://www.w3.org/2000/01/rdf-schema#comment> "How a triple with this predicate is read aloud, subject first. A record whose triple does not read this way is recorded the wrong way round (review D1). Machine-written and unreviewed."@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/reading> <http://www.w3.org/2000/01/rdf-schema#label> "reading"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/relations> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology>  .
-<https://data.ipaustralia.gov.au/tmk/ns/relations> <http://www.w3.org/2000/01/rdf-schema#comment> "The closed list of predicates a relationship may use, each defined.\n\n51 predicates besides SKOS broader: 14 used by the\n35 signed relationships in `eval/gold/relationships.yaml`, of which\n6 are used exactly once, and 37 admitted by the owner (on\n2026-10-08 and 2026-10-09) and used by no signed record yet. Machine-written\nrelationships use 49 of them, 323 times — counted apart, never\nadded in. skos:related is retired as a relationship (ADR-0131).\n\nEvery definition, reading, example and counter-example here was written by an\nagent and is unreviewed (ADR-0121, ADR-0123). A record whose triple does not read\nthe way its predicate's tmk:reading says is a defect in the record.\n\nDomain and range are `tmk:LegalMatter` throughout. The narrow types each\npredicate has actually been seen with are annotations and infer nothing; see\ntmk:LegalMatter in the legal-concepts module for why. The kinds each predicate may\njoin (tmk:expectedSubjectKind, tmk:expectedObjectKind) are annotations too: what\nsays how the ontology's kinds fit together, checked by the harness, not inferred."@en-AU  .
+<https://data.ipaustralia.gov.au/tmk/ns/relations> <http://www.w3.org/2000/01/rdf-schema#comment> "The closed list of predicates a relationship may use, each defined.\n\n52 predicates besides SKOS broader: 14 used by the\n35 signed relationships in `eval/gold/relationships.yaml`, of which\n6 are used exactly once, and 38 admitted by the owner (on\n2026-10-08 and 2026-10-09) and used by no signed record yet. Machine-written\nrelationships use 49 of them, 323 times — counted apart, never\nadded in. skos:related is retired as a relationship (ADR-0131).\n\nEvery definition, reading, example and counter-example here was written by an\nagent and is unreviewed (ADR-0121, ADR-0123). A record whose triple does not read\nthe way its predicate's tmk:reading says is a defect in the record.\n\nDomain and range are `tmk:LegalMatter` throughout. The narrow types each\npredicate has actually been seen with are annotations and infer nothing; see\ntmk:LegalMatter in the legal-concepts module for why. The kinds each predicate may\njoin (tmk:expectedSubjectKind, tmk:expectedObjectKind) are annotations too: what\nsays how the ontology's kinds fit together, checked by the harness, not inferred."@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/relations> <http://www.w3.org/2000/01/rdf-schema#label> "TM-Knowledge — relation dictionary"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/relations> <http://www.w3.org/2002/07/owl#imports> <https://data.ipaustralia.gov.au/tmk/ns/legal-concepts>  .
 <https://data.ipaustralia.gov.au/tmk/ns/relations> <http://www.w3.org/2002/07/owl#versionInfo> "draft — generated, not approved"  .
@@ -34913,6 +34913,23 @@
 <https://data.ipaustralia.gov.au/tmk/ns/surface> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/EntityMention>  .
 <https://data.ipaustralia.gov.au/tmk/ns/surface> <http://www.w3.org/2000/01/rdf-schema#label> "surface"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/surface> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>  .
+<https://data.ipaustralia.gov.au/tmk/ns/suspendsTimeFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty>  .
+<https://data.ipaustralia.gov.au/tmk/ns/suspendsTimeFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://data.ipaustralia.gov.au/tmk/ns/AdmittedRelation>  .
+<https://data.ipaustralia.gov.au/tmk/ns/suspendsTimeFor> <http://www.w3.org/2000/01/rdf-schema#comment> "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 0, unreviewed."@en-AU  .
+<https://data.ipaustralia.gov.au/tmk/ns/suspendsTimeFor> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/LegalMatter>  .
+<https://data.ipaustralia.gov.au/tmk/ns/suspendsTimeFor> <http://www.w3.org/2000/01/rdf-schema#label> "suspends time for"@en-AU  .
+<https://data.ipaustralia.gov.au/tmk/ns/suspendsTimeFor> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.ipaustralia.gov.au/tmk/ns/LegalMatter>  .
+<https://data.ipaustralia.gov.au/tmk/ns/suspendsTimeFor> <http://www.w3.org/2004/02/skos/core#definition> "While the subject stands, the time within which the object — a step — must happen, or after which it happens, stops running; the step itself is not blocked."@en-AU  .
+<https://data.ipaustralia.gov.au/tmk/ns/suspendsTimeFor> <http://www.w3.org/2004/02/skos/core#example> "A deferment of acceptance sets in abeyance the period an application has to gain acceptance (reg 4.13), so the application does not lapse while it is deferred."@en-AU  .
+<https://data.ipaustralia.gov.au/tmk/ns/suspendsTimeFor> <https://data.ipaustralia.gov.au/tmk/ns/admittedBy> "owner-2026-10-09"  .
+<https://data.ipaustralia.gov.au/tmk/ns/suspendsTimeFor> <https://data.ipaustralia.gov.au/tmk/ns/authoredUsageCount> "0"^^<http://www.w3.org/2001/XMLSchema#integer>  .
+<https://data.ipaustralia.gov.au/tmk/ns/suspendsTimeFor> <https://data.ipaustralia.gov.au/tmk/ns/counterExample> "Not for something that stops the step happening at all; use prevents."@en-AU  .
+<https://data.ipaustralia.gov.au/tmk/ns/suspendsTimeFor> <https://data.ipaustralia.gov.au/tmk/ns/expectedObjectKind> <https://data.ipaustralia.gov.au/tmk/ns/ProceduralStep>  .
+<https://data.ipaustralia.gov.au/tmk/ns/suspendsTimeFor> <https://data.ipaustralia.gov.au/tmk/ns/expectedSubjectKind> <https://data.ipaustralia.gov.au/tmk/ns/Context>  .
+<https://data.ipaustralia.gov.au/tmk/ns/suspendsTimeFor> <https://data.ipaustralia.gov.au/tmk/ns/expectedSubjectKind> <https://data.ipaustralia.gov.au/tmk/ns/InstrumentOrRecord>  .
+<https://data.ipaustralia.gov.au/tmk/ns/suspendsTimeFor> <https://data.ipaustralia.gov.au/tmk/ns/expectedSubjectKind> <https://data.ipaustralia.gov.au/tmk/ns/ProceduralStep>  .
+<https://data.ipaustralia.gov.au/tmk/ns/suspendsTimeFor> <https://data.ipaustralia.gov.au/tmk/ns/reading> "<subject> suspends the time for <step>"@en-AU  .
+<https://data.ipaustralia.gov.au/tmk/ns/suspendsTimeFor> <https://data.ipaustralia.gov.au/tmk/ns/usageCount> "0"^^<http://www.w3.org/2001/XMLSchema#integer>  .
 <https://data.ipaustralia.gov.au/tmk/ns/temptingButIrrelevant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/temptingButIrrelevant> <http://www.w3.org/2000/01/rdf-schema#comment> "A passage a naive matcher will surface and that is wrong. The most valuable field on a search record — it is what separates a retrieval score from a retrieval result."@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/temptingButIrrelevant> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/SearchQuestion>  .

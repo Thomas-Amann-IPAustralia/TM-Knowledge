@@ -18,9 +18,9 @@
     rdfs:label "TM-Knowledge — relation dictionary"@en-AU ;
     rdfs:comment """The closed list of predicates a relationship may use, each defined.
 
-51 predicates besides SKOS broader: 14 used by the
+52 predicates besides SKOS broader: 14 used by the
 35 signed relationships in `eval/gold/relationships.yaml`, of which
-6 are used exactly once, and 37 admitted by the owner (on
+6 are used exactly once, and 38 admitted by the owner (on
 2026-10-08 and 2026-10-09) and used by no signed record yet. Machine-written
 relationships use 49 of them, 323 times — counted apart, never
 added in. skos:related is retired as a relationship (ADR-0131).
@@ -954,10 +954,10 @@ tmk:precedes a owl:ObjectProperty ;
     rdfs:label "precedes"@en-AU ;
     rdfs:domain tmk:LegalMatter ;
     rdfs:range tmk:LegalMatter ;
-    skos:definition "In the process, the subject comes before the object, which cannot happen until the subject has."@en-AU ;
-    tmk:reading "<step> comes before <step>"@en-AU ;
+    skos:definition "In the process, the subject must happen before the object can: the object cannot happen until the subject has. An order of steps, never a cause."@en-AU ;
+    tmk:reading "<step> must come before <step>"@en-AU ;
     skos:example "An application must be accepted if, after examination, there are no grounds for rejecting it (s 33(1))."@en-AU ;
-    tmk:counterExample "Not for a cause; use mayGiveRiseTo or resultsIn."@en-AU ;
+    tmk:counterExample "Not for steps a sentence only lists in that order, nor for a sentence saying one step is not followed by another (GR-0167 was that mistake). Not for a cause; use mayGiveRiseTo or resultsIn."@en-AU ;
     tmk:admittedBy "owner-2026-10-09" ;
     tmk:expectedSubjectKind tmk:ProceduralStep ;
     tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
@@ -993,10 +993,10 @@ tmk:prevents a owl:ObjectProperty ;
     rdfs:label "prevents"@en-AU ;
     rdfs:domain tmk:LegalMatter ;
     rdfs:range tmk:LegalMatter ;
-    skos:definition "While the subject stands, the object — a step — cannot happen, or its time stops running."@en-AU ;
+    skos:definition "While the subject stands, the object — a step — cannot happen."@en-AU ;
     tmk:reading "<subject> prevents <step>"@en-AU ;
     skos:example "A ground for rejection that is made out prevents acceptance (s 33)."@en-AU ;
-    tmk:counterExample "Not for something that only weighs against; use qualifies."@en-AU ;
+    tmk:counterExample "Not for stopping the time a step must happen within; use suspendsTimeFor. Not for something that only weighs against; use qualifies."@en-AU ;
     tmk:admittedBy "owner-2026-10-09" ;
     tmk:expectedSubjectKind tmk:GroundOfRefusal ;
     tmk:expectedSubjectKind tmk:ProceduralStep ;
@@ -1186,3 +1186,21 @@ tmk:statesThresholdFor a owl:ObjectProperty ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:usedBy "GR-0018" ;
     rdfs:comment "Signed usage: 1 relationship (GR-0018). Machine-written usage: 5, unreviewed."@en-AU .
+
+tmk:suspendsTimeFor a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "suspends time for"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "While the subject stands, the time within which the object — a step — must happen, or after which it happens, stops running; the step itself is not blocked."@en-AU ;
+    tmk:reading "<subject> suspends the time for <step>"@en-AU ;
+    skos:example "A deferment of acceptance sets in abeyance the period an application has to gain acceptance (reg 4.13), so the application does not lapse while it is deferred."@en-AU ;
+    tmk:counterExample "Not for something that stops the step happening at all; use prevents."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:ProceduralStep ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedSubjectKind tmk:Context ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 0 ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 0, unreviewed."@en-AU .

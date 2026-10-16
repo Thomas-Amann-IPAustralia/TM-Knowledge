@@ -180,3 +180,22 @@ def test_relations_ttl_says_which_kinds_each_predicate_joins():
     assert "tmk:expectedSubjectKind tmk:ProcessRole" in block
     assert "tmk:expectedObjectKind tmk:ProceduralStep" in block
     assert "tmk:related a owl:ObjectProperty" not in text
+
+
+def test_blocking_a_step_and_stopping_its_clock_are_two_predicates():
+    """`prevents` meant both, and its records used both: GR-0394, a ground for rejection
+    that blocks acceptance, and GR-0534, a deferment that stops the time that would make
+    an application lapse (the review response, F13). A reader cannot tell which a
+    `prevents` edge asserts, and the two have opposite consequences for the step."""
+    assert "time" not in PREDICATES["prevents"].definition
+    clock = PREDICATES["suspendsTimeFor"]
+    assert "time" in clock.definition and clock.objects == ("procedural_step",)
+    assert "suspendsTimeFor" in PREDICATES["prevents"].counter_example
+
+
+def test_precedes_says_the_first_step_must_happen_first():
+    """An ordering of steps, not a sequence the sentence happens to mention: all its
+    sound records mean that the second cannot happen until the first has (F13)."""
+    entry = PREDICATES["precedes"]
+    assert entry.reading == "<step> must come before <step>"
+    assert "GR-0167" in entry.counter_example
