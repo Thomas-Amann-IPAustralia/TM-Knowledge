@@ -951,6 +951,21 @@ def _term(value: str) -> URIRef:
 SKOS_PREDICATES = {"broader": SKOS.broader, "narrower": SKOS.narrower, "related": SKOS.related}
 
 
+def _qualifiers(graph: Graph, node: URIRef, record: dict[str, Any]) -> None:
+    """What a relationship's sentence qualifies it with, on the reified record.
+
+    The modality, and since S036 the condition or hedge the sentence states it under
+    (`applies_when`, the review response F14). Absent means not supplied, and stays
+    absent. Never inferred from the sentence's grammar — that is a legal reading
+    (guide §5.4). The direct triple carries neither: it is a navigation edge, and a
+    reader who needs the qualification reads the assertion.
+    """
+    if record.get("modality"):
+        graph.add((node, TMK.modality, _lit(record["modality"])))
+    if record.get("applies_when"):
+        graph.add((node, TMK.appliesWhen, _en(" ".join(str(record["applies_when"]).split()))))
+
+
 def _build_relationships(
     graph: Graph, store: Store, corpus: Corpus, counts: StoreReport
 ) -> None:
@@ -989,10 +1004,7 @@ def _build_relationships(
         affirmed = store.affirmed.get((str(record["subject"]), str(record["object"])))
         if affirmed and record["predicate"] == "broader":
             graph.add((node, TMK.kindOfAffirmed, _en(" ".join(str(affirmed.get("why", "")).split()))))
-        # Absent means not supplied, and stays absent. Never inferred from the
-        # sentence's grammar — that is a legal reading (guide §5.4).
-        if record.get("modality"):
-            graph.add((node, TMK.modality, _lit(record["modality"])))
+        _qualifiers(graph, node, record)
         _provenance(graph, node, record, store, corpus, counts)
     counts.relationships = store.records.count("gold_relationship")
 

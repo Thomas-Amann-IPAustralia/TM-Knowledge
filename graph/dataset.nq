@@ -19716,6 +19716,10 @@
 <https://data.ipaustralia.gov.au/tmk/ns/appliesTo> <https://data.ipaustralia.gov.au/tmk/ns/reading> "<provision or rule> applies to <thing it governs>"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/appliesTo> <https://data.ipaustralia.gov.au/tmk/ns/usageCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer>  .
 <https://data.ipaustralia.gov.au/tmk/ns/appliesTo> <https://data.ipaustralia.gov.au/tmk/ns/usedBy> "GR-0001"  .
+<https://data.ipaustralia.gov.au/tmk/ns/appliesWhen> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
+<https://data.ipaustralia.gov.au/tmk/ns/appliesWhen> <http://www.w3.org/2000/01/rdf-schema#comment> "The condition or hedge under which the supporting sentence states the relationship, in that sentence's own words: 'an application to record assignment is received after the documentation required under reg 16.2 has been sent to the Commission', 'In most cases'.\n\nOn the reified assertion only. The direct triple is a navigation edge and says nothing of when it holds, so a reader who relies on an edge reads its assertion (ADR-0058). Absent means the sentence states the relationship without a condition, not that none exists in the law (the review response, F14 and F19)."@en-AU  .
+<https://data.ipaustralia.gov.au/tmk/ns/appliesWhen> <http://www.w3.org/2000/01/rdf-schema#label> "applies when"@en-AU  .
+<https://data.ipaustralia.gov.au/tmk/ns/appliesWhen> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/1999/02/22-rdf-syntax-ns#langString>  .
 <https://data.ipaustralia.gov.au/tmk/ns/approvedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/approvedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "The name of the person who approved it. A name and a date are the approval artefact, and there is no separate register (ADR-0039)."@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/approvedBy> <http://www.w3.org/2000/01/rdf-schema#label> "approved by"@en-AU  .

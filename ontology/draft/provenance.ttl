@@ -164,6 +164,13 @@ from the sentence's grammar: whether a 'may' is possibility or permission is a
 legal reading. Five approved relationships carry no modality today and the graph
 carries none for them."""@en-AU .
 
+tmk:appliesWhen a owl:DatatypeProperty ;
+    rdfs:range rdf:langString ;
+    rdfs:label "applies when"@en-AU ;
+    rdfs:comment """The condition or hedge under which the supporting sentence states the relationship, in that sentence's own words: 'an application to record assignment is received after the documentation required under reg 16.2 has been sent to the Commission', 'In most cases'.
+
+On the reified assertion only. The direct triple is a navigation edge and says nothing of when it holds, so a reader who relies on an edge reads its assertion (ADR-0058). Absent means the sentence states the relationship without a condition, not that none exists in the law (the review response, F14 and F19)."""@en-AU .
+
 # --- inference --------------------------------------------------------------
 
 tmk:producedByRule a owl:ObjectProperty ;

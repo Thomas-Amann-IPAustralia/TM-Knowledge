@@ -459,6 +459,7 @@ def network(gold: Any, authored: Any) -> dict[str, Any]:
                     record=str(record["id"]),
                     predicate=str(record["predicate"]),
                     modality=record.get("modality"),
+                    applies_when=record.get("applies_when"),
                     tier=record.get("tier"),
                     text=record.get("supporting_text"),
                     passage=record.get("source_ref"),

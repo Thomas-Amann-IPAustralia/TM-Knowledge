@@ -1013,6 +1013,27 @@ def _authored_predicates(authored: AuthoredSet) -> Iterator[Finding]:
             )
 
 
+def _authored_conditions(authored: AuthoredSet) -> Iterator[Finding]:
+    """A relationship's `applies_when` is its supporting sentence's own words.
+
+    The field holds the condition or hedge a sentence attaches to the relationship it
+    states (the review response, F14), and it is evidence in the same sense the quote
+    is: copied, not retyped (ADR-0045). Compared with whitespace folded, since a quote
+    may be rewrapped.
+    """
+    for entry in authored.of("gold_relationship"):
+        condition = entry.record.get("applies_when")
+        if not entry.sound or not condition:
+            continue
+        sentence = " ".join(str(entry.record.get("supporting_text") or "").split())
+        if " ".join(str(condition).split()) not in sentence:
+            yield Finding(
+                Severity.DEFECT, "authored-conditions", entry.record_id,
+                f"applies_when {condition!r} is not in the supporting sentence. A condition is "
+                "copied from the sentence that states the relationship, never retyped",
+            )
+
+
 def _authored_kinds(authored: AuthoredSet) -> Iterator[Finding]:
     """Every machine-written relationship joins kinds its predicate joins (ADR-0131).
 
@@ -1187,6 +1208,7 @@ def _authored(authored: AuthoredSet, gold: GoldSet) -> Iterator[Finding]:
     yield from _authored_corrections(authored, gold)
     yield from _authored_predicates(authored)
     yield from _authored_kinds(authored)
+    yield from _authored_conditions(authored)
     yield from _authored_basis(authored)
     yield from _authored_cross_references(authored, gold)
     yield from _vocabulary(authored, gold)

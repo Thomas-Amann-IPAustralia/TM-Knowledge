@@ -24,6 +24,11 @@
       "description": "must | may | should, where the relation is normative. Null means not yet supplied, and is reported as a gap — never inferred from the sentence's grammar, because whether a 'may' is possibility or permission is a legal reading (guide §5.4, P8).",
       "enum": ["must", "may", "should", null]
     },
+    "applies_when": {
+      "type": ["string", "null"],
+      "minLength": 1,
+      "description": "The condition or hedge under which the supporting sentence states the relationship, copied from that sentence and never retyped: 'an application to record assignment is received after …', 'In most cases'. Optional; absent means the sentence states the relationship without one. Shown wherever the edge is shown, so an edge never reads as more than its sentence says (the review response, F14)."
+    },
     "notes": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/notes" },
     "approved_by": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_by" },
     "approved_date": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_date" }

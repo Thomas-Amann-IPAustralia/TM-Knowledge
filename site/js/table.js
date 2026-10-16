@@ -83,6 +83,7 @@ function provenance(x) {
 /** The sentence a connection rests on, with who wrote it — shown when a row is opened. */
 function relationDetail(ctx, r) {
   return `
+    ${r.when ? `<p class="small"><b>Only as the source qualifies it:</b> “${esc(r.when)}”</p>` : ""}
     ${quoteBlock(r.ref, r.quote)}
     <div class="meta">${refChip(r.ref)}${r.modality ? `<span class="chip">${esc(r.modality)}</span>` : ""}<span class="tiny">${esc(r.id)}</span></div>
     ${r.replaces ? `<p class="tiny">A corrected reading of ${esc(r.replaces)}, which is kept unchanged.</p>` : ""}
@@ -392,8 +393,8 @@ function connectionsTab(body, ctx, fromKind, toKind) {
 
 function connectionsCsv(ctx) {
   const { ontology } = ctx;
-  const head = ["id", "from_id", "from", "says", "to_id", "to", "modality", "rests_on", "rests_on_text", "quote",
+  const head = ["id", "from_id", "from", "says", "to_id", "to", "modality", "applies_when", "rests_on", "rests_on_text", "quote",
     "record", "review_status", "machine_author", "date", "replaces"];
   return [head, ...ontology.relations.map((r) => [r.id, r.s, endName(ctx, r.s), predLabel(ontology, r.p), r.o, endName(ctx, r.o),
-    r.modality || "", r.ref, sourceText(r.ref), r.quote, ...whoColumns(r), r.replaces || ""])];
+    r.modality || "", r.when || "", r.ref, sourceText(r.ref), r.quote, ...whoColumns(r), r.replaces || ""])];
 }
