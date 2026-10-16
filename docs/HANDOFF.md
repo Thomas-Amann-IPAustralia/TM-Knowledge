@@ -1,131 +1,143 @@
 # HANDOFF
 
-**Last updated:** 2026-10-12 · S034 (end) · branch `claude/keen-clarke-o43tnq`
+**Last updated:** 2026-10-16 · S035 (end) · branch `claude/blissful-gauss-f2ygfe`
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
 
 ## Where things stand
 
-**S034: a typed question now drives the graph the way a prepared one does** (ADR-0132).
-The owner's screenshot: "Can I trade mark a smell?" drew only a grey "trade mark" and a fan of
-keyword passages. Live answers work. Recognition is by names only, and people do not use
-the map's names: 5 of 20 typed questions found a specific idea, against 76 of 129 benchmark
-questions. Feeding keyword hits back into recognition, with no model, picked noise.
-- **The reading**: before the search, the live model reads the question against the ontology
-  map (`jobs._READING_INSTRUCTIONS`, `reading-v1`; published in `chat.json` as `reading`) and
-  names up to four ideas, each with its words and a reason. `Engine.reading` keeps a pick only
-  if it is on the map, specific, new, and its words are in the question; kept ideas start the
-  search exactly as names do (`trace`/`ontology`/`prepare` take `read`, default empty, so the
-  measured path and the parity test are unchanged).
-- **The page**: the question appears, then a column of faint dots "reading the question…",
-  then the hop diagram as before. Read ideas carry a dashed ring and "“smell” · read by the
-  model"; "How it chose" explains the reading, lists what it set aside, and says the prepared
-  answers used names alone; the footnote gives the reading's share of the cost. A failed
-  reading falls back to names and says so. Checked in Chromium with stand-in replies (Q-90).
-- **The proxy** counts readings apart from answers (`text.format.name`), output capped at
-  2,000. An old proxy still works; it just counts a question twice against its limits.
-- **Smoke run on the real model**: 10 questions, US$0.12 (`data/llm/cache/live-reading/`), about
-  1.2¢ and 6 s each; 7 of 10 found an idea. **Spent from the cap's remainder without asking**
-  (approved for nothing); told the owner.
+**S035 checked ChatGPT's ontology review and answered it** in `docs/ONTOLOGY-REVIEW-RESPONSE.md`
+(the review: `docs/Trade Mark Ontology Review-15.10.md`). Nothing else changed: no record, graph,
+prompt, query or page, and no spend. Every probe was re-run independently, with ChatGPT's library
+versions. The review is accurate: 16 of 19 findings agreed outright, 3 in part, none rejected; of
+its 20 fixes, 3 agreed, 14 in part, 3 not (sized for production, or sent to an expert whom
+ADR-0120 puts at the end). Verified, most urgent first:
+- **Machine-written edges that overstate their sentence**, which the explorer shows: GR-0432,
+  GR-0167, GR-0521, GR-0140, GR-0437, GR-0495, GR-0454. 124 of the 130 S029 re-reads have never
+  been judged in their current form; 30 carry a modality inherited from their earlier reading
+  (`restructure` copies every field but the triple); 5 rest on a heading; 14 audit "wrong"
+  verdicts still serve. A sample of 24 re-reads: 16 sound, 4 material problems, 4 smaller.
+- **The workbench map draws 14 of the 15 corrected signed relationships as reviewed**
+  (`dashboard/build.py` passes `goldset.load()` to `views.network`), and 6 of the 8 SPARQL
+  competency queries that read signed assertions return corrected records. The explorer and
+  search use `served_gold()` and are not affected.
+- **Declared logic**: the functional `tmk:sourcePassage` makes Manual and Act sources
+  `owl:sameAs` (25 subjects); the provenance domains type every concept as a `tmk:Assertion`; 647
+  confidences are `xsd:double` against `xsd:decimal`; 12 `xsd:string` ranges hold `@en-AU` text;
+  GC-0017 and GC-0018 are both related and broader (signed); "OWL 2 RL" is claimed and untrue; and
+  `Exception ≡ ∃doesNotGiveRiseTo` turns "not on its own" into "exception", live in the workbench's
+  decision tree (Q-92).
+- **Gates**: `validate._flatten` omits the inferred graph (adding it still gives 0 defects, 259
+  notes); placement is invisible after flattening; Pages deploys without waiting for the harness;
+  `main` is unprotected; an evidence item needs only a `ref`.
+- **Currency**: the pinned Act is compilation 47 (`C2024C00545`, from 14 Oct 2024); the Federal
+  Register's current one is 48 (`C2026C00421`, from 19 Sep 2026; Regulatory Reform Omnibus Act
+  2026, Sch 1 items 1 and 8 to 12). What changed is not yet known.
+- **Measurement**: `tmk-bulk measure` now gives 0.702 / 0.812 / 0.773 against `measure.md`'s
+  0.725 / 0.844 / 0.803, because the grade file grew; the comparisons stand (Q-91).
 
-**S034, after the owner's answers (ADR-0133, CHAT-0074 to 0076):** "read by the model" stands, the
-cost per question is approved, and US$1.60 was approved to measure the reading on all 129
-benchmark questions. Spent US$1.13 of it (reading US$0.79, judging 551 new passages US$0.33), held
-by `TMK_SPEND_CAP_USD`. Measured the page's own configuration (no vectors), report
-`data/derived/reports/measure-reading.md`:
-- **The reading helps**: nDCG@10 reading − names **+0.040 [+0.009, +0.070]**; +0.051 on the 101
-  questions it changed. No pick failed a check.
-- **The page's ontology search by names is below plain keyword search**: −0.041 [−0.067, −0.014];
-  with the reading it is level (−0.001). Same pattern as the measured system against hybrid.
-- New: `tmk-bulk run reading`, `reading-pools`, `run judge --pools`, `measure --reading`;
-  `Systems.reading` and `find_words` (Python twins of the page's), parity-tested.
-- **Recorded spend US$9.63, above the US$9.49 cap**: every paid call is refused until the owner
-  names an amount.
-
-**S033 built `live-proxy/`** (Render, holds the key) and the build publishes no key when
-`TMK_LIVE_ENDPOINT` is set. **S031** labelled every line on the map's text level. **S030**
-added "As a table". **S029 restructured the ontology** (ADR-0131): three families as classes, 23
-predicates, "is related to" retired, `principle` added, 164 of 164 concepts connected. Counts:
-52 signed + 112 authored concepts; 20 signed + 352 authored relationships. Harness 0 defects;
-SHACL 0 defects.
+**S034 (still current).** Before searching, the live model reads a typed question against the map
+(`reading-v1`) and names up to four ideas, each checked and marked "read by the model" (ADR-0132);
+the owner approved it and its cost (ADR-0133). On the page's configuration: reading against names
++0.040 [+0.009, +0.070]; names against keyword -0.041; reading level with keyword. Recorded spend
+US$9.63 against the US$9.49 cap, so every paid call is refused until the owner names an amount.
+**S033** built `live-proxy/`; **S029** restructured the ontology (ADR-0131). Counts: 52 signed +
+112 authored concepts; 35 signed relationships (20 current, 15 corrected) + 352 authored. Harness 0
+defects; SHACL 0 defects (but see the gates above).
 
 ## Waiting on the owner
 
-1. **Merge this branch** to publish the reading; the Pages workflow rebuilds `chat.json`. If the
-   proxy is on Render with auto-deploy, it picks up the separate counting on merge.
-2. **OQ-0029 — which results the pitch claims**, now with ADR-0133's two findings: the reading
-   helps, and the page's ontology search alone does not beat keyword search on these questions.
-3. **Whether to change the page's blend** (next action 1) — a design change, so the owner's to
-   order; then it needs re-measuring, which needs an amount (the cap is spent).
-4. **Is the restructure what you meant?** (ADR-0131, agent-proposed inside your instruction.)
-5. **The four disputed signed readings** (`edge-audit.md`) — a person's call; unchanged.
-6. **Proxy deployment** (S033): if not done, `live-proxy/README.md` has the steps; revoke the
-   old key once the proxy serves.
+1. **The nine decisions in the response** (its "Decisions for the owner"): re-pin upstream to the
+   Act's compilation 48; lift the deferrals on definitions (F4) and stale documents (F5); approve
+   two live-chatbot changes (modality and conditions on its graph path; never conclude absence);
+   remove the masked-key fallback once the proxy serves; confirm D2 covers the GC-0017/GC-0018
+   correction; branch protection on `main`; the pitch's claims (OQ-0029); an amount for
+   re-measurement.
+2. **Merge this branch**: documents only, so nothing deploys.
+3. From S034: whether to change the page's blend (next action 3); is the restructure what you
+   meant (ADR-0131); the four disputed signed readings (`edge-audit.md`); deploy the proxy and
+   revoke the old key (`live-proxy/README.md`).
 
 ## Next actions
 
-1. **The blend**: concept-linked passages crowd out good keyword and vector hits (ADR-0133 c4,
-   ADR-0127). Candidates: weight the linked list below keyword, or drop it when the expansion
-   already holds the ideas. Any change must be fixed before re-measuring, never tuned on these
-   questions; `engine.js` and `search/index.py` change together.
-2. **Re-measure search** (`tmk-bulk pools --keep-previous`, judge new passages, `measure`):
-   S029 withdrew 96 edges and re-typed 130. Needs a quote.
-3. **The prepared answers** (`answers.yaml`) predate S029; their "followed connections" text may
-   name `related`. Re-run only with a quote.
-4. Ideas the reading could not find: the map has nothing for a personal name or surname, a
-   slogan, or how long registration lasts. Candidates for `define`, if the owner wants them.
-5. Show each relationship's audit verdict on its explorer card; type the signed `related` lists
-   if the owner wants them (77 links).
-6. `map.js`'s `showConcept` draws a `CASE/…` ref as a Manual chip; `table.js` draws it grey.
-7. Small: live answers off, step 5 of a typed question still says "Wrote an answer…"; and
-   "Gathered 0 passages linked to those ideas" reads oddly when nothing was recognised.
-8. B2, B3, B6 postponed; F4, F5 deferred.
+1. **Package 1 of the response** (agent, no spend, about a session): the workbench's map and
+   decision tree on `served_gold()`; `FILTER NOT EXISTS { ?a tmk:isCorrected true }` in the eight
+   competency queries, and a test that no query returns a corrected record; drop the functional
+   declaration and the `tmk:Assertion` domains, with a test of the data against the ontology's own
+   declarations; the inferred graph in `_flatten`, a placement check, tests through
+   `validate.run`; Pages after the harness (`workflow_run`); `Decimal` confidence, `rdf:langString`
+   ranges, the OWL 2 RL claim dropped by ADR, S27 and two-way cycle checks; span, hash and quote
+   required in evidence; report headers carrying the commit and grade hash. Then
+   `tmk-graph --write --rules`.
+2. **Package 2** (agent, no spend; it changes what examiners see, so first if time is short): the
+   F05 worklist through the restructure ledger (the seven edges; the 14 standing audit verdicts;
+   the 30 inherited modalities, with `restructure` fixed to clear them; five heading-only edges;
+   then the unjudged re-reads); split `prevents`, narrow `precedes`; `isExceptionTo` and the
+   tree's "not on its own"; `establishes` read as "may show"; an `applies_when` field. Rebuild.
+3. **The blend** (S034): concept-linked passages crowd out good hits (ADR-0133 c4). A candidate
+   from the response: generic hubs ("trade mark", "applicant") enter as neighbours in 15 of 76
+   questions, and without vectors the linked list breaks ties by ref order. Fix it before
+   re-measuring, never tuned on these questions; `engine.js` and `search/index.py` together.
+4. **Re-measure** after packages 1 and 2 (needs an amount).
+5. The prepared answers (`answers.yaml`) predate S029; re-run them only with a quote.
+6. Ideas the reading could not find (a personal name, a slogan, how long registration lasts):
+   candidates for `define`, if the owner wants them.
+7. Small: `map.js` draws a `CASE/…` ref as a Manual chip; "Wrote an answer…" shows with live
+   answers off; "Gathered 0 passages linked to those ideas" when nothing was recognised.
+8. B2, B3, B6 postponed; F4, F5 deferred (the response recommends lifting F4 and F5).
 
 ## What to distrust
 
-- **The reading is a model's judgement per question, unreviewed.** Measured once on model-written
-  questions with a model judge (ADR-0133); each question read once. BN-0015's three passages are
-  ungraded, scored 0 (the judge's answer was refused); it moves nothing.
-- **A live answer is no longer what the measured system would have produced** when the reading
-  found an idea: different starting ideas, different passages. The footnote says so.
-- **Every S029 judgement is one agent's reading of one sentence**, unreviewed. Weakest:
-  GR-0122, GR-0167, GR-0521, GR-0495. `owns` from "owner or authorised user" (GR-0140, GR-0437).
+- **The response is one agent's re-run and reading**, unreviewed; its record verdicts (GR-0206
+  kept, GR-0140 "in part") and its 24-edge sample are judgements.
+- **The workbench map** shows corrected signed relationships as reviewed, until package 1.
+- **An OWL reasoner over `graph/`** reports contradictions that are declaration bugs (Q-92).
+- **The pinned Act is one compilation behind the law.**
+- **The reading is a model's judgement per question**, measured once on model-written questions
+  with a model judge; a live answer differs from the measured system when the reading finds an
+  idea.
+- **Every S029 judgement is one agent's reading of one sentence**, unreviewed, and most were never
+  audited in their current form.
 - **The published `site/data/ontology.json` still carries the reviewer's initials** (S028).
-- **Neither key is tested by a session** (Q-88); the proxy was tested against a stand-in.
-- **22 legislative bases are unverified** (harness note). The benchmark is model-written.
+- **Neither key is tested by a session** (Q-88). **22 legislative bases are unverified.**
 
 ## Things a session will trip on
 
 - **`python3 -m pytest`, not `pytest`** (Q-29); install with `pip install -e ".[rdf,test]"`;
-  about ten minutes.
+  about ten minutes. owlrl is not a dependency; install it only to probe (Q-92).
+- **`tmk-bulk measure` does not reproduce `measure.md`** (Q-91).
 - **Test the page after `tmk-explorer --write`**, then restore a stand-in `live.json` (Q-90).
 - **`engine.js` and `search/index.py` change together**, as do `links.find_mentions` and
   `Recogniser`, and `search.authority` and `authorityFlags`. The reading (`read`) is the one
-  live-only input; leave its default empty.
-- **The reading's prompt lives in `bulk/jobs.py`**, its input is built twice
-  (`jobs.reading_input`, `live.readingInput`); `test_explorer.py` holds them equal.
-- **Re-scoring the reading**: `tmk-bulk measure --reading --allow-ungraded 3 --write` (BN-0015's three
-  passages are ungraded); `reading-pools` needs `bench/readings.yaml`, which is spend to rebuild.
+  live-only input; leave its default empty. Its prompt is in `bulk/jobs.py`; its input is built
+  twice (`jobs.reading_input`, `live.readingInput`), held equal by `test_explorer.py`.
+- **Re-scoring the reading**: `tmk-bulk measure --reading --allow-ungraded 3 --write`.
 - **Off-kind edge? Check the kinds first** (Q-86). **Relabelled in a ledger?** Q-87.
-- **`tmk-bulk restructure` is idempotent.** **Edit record files block by block** (Q-76).
-- **Gemini ignores its schema** (Q-83); **price from completed calls** (Q-85);
-  **hold a paid run to the owner's amount** with `TMK_SPEND_CAP_USD` (ADR-0128).
+- **`tmk-bulk restructure` is idempotent**, and a re-read keeps every field but the triple,
+  modality included. **Edit record files block by block** (Q-76).
+- **Gemini ignores its schema** (Q-83); **price from completed calls** (Q-85); **hold a paid run
+  to the owner's amount** with `TMK_SPEND_CAP_USD` (ADR-0128).
 - **`tmk-graph --check` needs `--rules`.** Pass `authored.root` to `corrections.load` (Q-77).
-- **`served_gold()` for what serves; `goldset.load()` for what measures.**
+- **`served_gold()` for what serves; `goldset.load()` for what measures.** The workbench's map
+  breaks this today.
 - **The explorer needs the snapshot**: `tmk-fetch-upstream`, then `tmk-explorer --write`.
 - **`site/data/live.json` can hold a key.** Git-ignored; keep it that way.
 - **Playwright against a local proxy**: Q-89. **Count kinds with `kindCount()`** in `app.js`.
+- **Probing by hand**: `validate_envelope` takes `record_id` as a keyword only; build a
+  `jobs.Context` with `bulk.cli._context()`.
 
 ## Open items (agent-proposed, provisional)
 
-- ADR-0133's measurement choices: the page's configuration without vectors, flex tier, one reading
-  per question, BN-0015 scored 0.
-- ADR-0132's engineering: the reading's prompt and its four-idea cap, the checks, running it on every
-  live question (not only when names find nothing), the dashed ring, the proxy's separate counting and 2,000-token cap.
+- The response's recommendations: none acted on; each is the agent's judgement until done or ruled.
+- ADR-0133's measurement choices: the page's configuration without vectors, flex tier, one
+  reading per question, BN-0015 scored 0.
+- ADR-0132's engineering: the reading's prompt and four-idea cap, the checks, running it on every
+  live question, the dashed ring, the proxy's separate counting and 2,000-token cap.
 - S033's proxy limits (30 an hour per address, 300 a day, 10,000 output tokens).
 - S030's table view: its name, tab order, hidden hierarchy, the CSV's columns.
 - ADR-0131's agent parts; ADR-0130's ("Reviewed" in grey; the plum hexagon; "At a glance").
-- ADR-0127 entire; the agent parts of ADR-0125, ADR-0126, ADR-0128, ADR-0129.
+- ADR-0127 entire; the agent parts of ADR-0125, ADR-0126 (including the `Exception` mapping the
+  response says to revise), ADR-0128, ADR-0129.
 - ADR-0122; the agent parts of ADR-0120, ADR-0123, ADR-0124.
 - "Too general" labels (E1); ADR-0113, ADR-0115, ADR-0117; agent parts of ADR-0118, ADR-0119.
