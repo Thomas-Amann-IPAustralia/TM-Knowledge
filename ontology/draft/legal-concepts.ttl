@@ -23,10 +23,13 @@ What a concept *does* is not a kind. On the owner's ruling B1 of 2026-10-09
 (ADR-0126) — "the ontology should describe what a thing 'is' (as a node) and what
 it 'does' as an edge" — relevant factor, exception and remedy stopped being groups
 a concept is filed in and became what an edge says: a factor `qualifies` the test
-it bears on, an exception `doesNotGiveRiseTo` the ground it takes a case out of, a
+it bears on, an exception `isAnExceptionTo` the ground it takes a case out of, a
 ground `isOvercomeBy` its remedy. `tmk:RelevantFactor`, `tmk:Exception` and
-`tmk:Remedy` remain, defined by those edges, so a concept is one because of what
-it does to a named thing and never because a dropdown said so.
+`tmk:Remedy` remain, said by those edges, so a concept is one because of what
+it does to a named thing and never because a dropdown said so. Until S036 an
+exception was whatever `doesNotGiveRiseTo` a ground, which made "not on its own"
+an exception; that equivalence is gone (ADR-0135), and no OWL inference is
+licensed over these classes (ADR-0134).
 
 Until a concept has a type record it stays a bare `tmk:LegalConcept`, and the count
 of unsorted concepts is reported by every build rather than defaulted away."""@en-AU ;
@@ -118,10 +121,9 @@ tmk:QualifiesAConcept a owl:Restriction ;
     owl:someValuesFrom tmk:LegalConcept ;
     rdfs:comment "Whatever qualifies some concept — the definition of tmk:RelevantFactor."@en-AU .
 
-tmk:GivesRiseToNoConceptByItself a owl:Restriction ;
-    owl:onProperty tmk:doesNotGiveRiseTo ;
-    owl:someValuesFrom tmk:LegalConcept ;
-    rdfs:comment "Whatever does not by itself give rise to some concept — the definition of tmk:Exception."@en-AU .
+# tmk:GivesRiseToNoConceptByItself (∃doesNotGiveRiseTo) defined tmk:Exception until
+# S036. "Does not by itself give rise to" leaves the ground open; an exception takes
+# the case out of it. Removed with the equivalence (ADR-0135).
 
 tmk:overcomes a owl:ObjectProperty ;
     owl:inverseOf tmk:isOvercomeBy ;
@@ -141,9 +143,8 @@ tmk:RelevantFactor a owl:Class ;
 
 tmk:Exception a owl:Class ;
     rdfs:subClassOf tmk:LegalConcept ;
-    owl:equivalentClass tmk:GivesRiseToNoConceptByItself ;
     rdfs:label "Exception"@en-AU ;
-    rdfs:comment "A case a ground or test does not reach. A function, not a kind (ruling B1, ADR-0126): a concept is an exception because an edge says it does not give rise to a named ground or test, and the build never asserts this class from a typing record."@en-AU .
+    rdfs:comment "A case a ground or test does not reach. A function, not a kind (ruling B1, ADR-0126): a concept is an exception because a tmk:isAnExceptionTo edge says so of a named ground or test, and the build never asserts this class from a typing record. Not defined by an OWL axiom since S036: its old definition, ∃doesNotGiveRiseTo, made 'not on its own' an exception (ADR-0135)."@en-AU .
 
 tmk:Remedy a owl:Class ;
     rdfs:subClassOf tmk:LegalConcept ;

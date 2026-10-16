@@ -5980,3 +5980,44 @@ revises by its own ADR.
    the `xsd:double` confidences, and the S27 and two-way cycle checks joined the gate.
 3. A reader who runs an OWL reasoner over `graph/` does so outside anything this project promises.
    Provisional, as every agent-proposed ADR is; name it in the handoff's open items.
+
+## ADR-0135 — an exception is its own edge; "not on its own" is not an exception
+
+**Date** 2026-10-16 · **Authority** agent-proposed · **Status** accepted · supersedes the
+`doesNotGiveRiseTo` mapping in ADR-0126's agent decision 2, and nothing of the owner's
+decision there
+
+**Context.** ADR-0126 decided, on the owner's word, that being an exception is an edge. Its
+agent part chose `doesNotGiveRiseTo` to be that edge and declared `tmk:Exception ≡
+∃doesNotGiveRiseTo`. But the predicate means "does not *by itself* give rise to": the ground
+may still arise. ChatGPT's review of 15 October (F15) showed that a reasoner turns every
+subject of such an edge into an exception, and S035 found the reading live: the workbench's
+decision tree (`views.FUNCTION_EDGES`) and `typing.FUNCTIONS` filed every subject as
+"something that takes a case out of a ground or test". Of its six edges then, two stated
+insufficiency (GR-0015, signed, "the mere presence"; GR-0688, "merely because"), three
+hedged exceptions (GR-0699 "rarely", GR-0700 "Generally", GR-0701) and one cited a
+procedural sentence (GR-0702).
+
+**Decision (the agent's).** A new predicate, `isAnExceptionTo` (*"⟨case⟩ is an exception to
+⟨ground or test⟩"*: a case the ground or test does not reach, qualified as the source
+qualifies it), carries the exception function, joining any concept to a ground or a test.
+`doesNotGiveRiseTo` keeps its meaning, insufficiency, and its counter-example now points to
+the new predicate. The tree reads `isAnExceptionTo` as an exception and `doesNotGiveRiseTo`
+as **not on its own**, beside the factors on the section gate, never as an exception. The
+equivalence and its restriction are removed from `legal-concepts.ttl`; `tmk:Exception`
+stays as a class, said by the edge, with no OWL axiom (ADR-0134). The three hedged
+exceptions and GR-0702 are re-read in S036's ledger, each hedge or condition in
+`applies_when`; GR-0015 and GR-0688 stay as they are.
+
+**What it does not decide.** Conjunctions, alternatives or completeness markers for
+exceptions, which the review lists and which are outside the demonstrator; a list of
+exceptions is never complete in this project (the response's answer to the review's
+"decisions to record"). Whether the live chatbot is told this distinction, which changes
+what it may say and is the owner's (the response's decision 4).
+
+**Consequences.**
+1. "Not on its own" no longer reads as "takes the case out" in the workbench, the typing
+   table or any reasoner; `test_views.py` and `test_predicates.py` hold it.
+2. `RelevantFactor` and `Remedy` keep their equivalences as vocabulary; nothing infers from
+   them (ADR-0134).
+3. Provisional, as every agent-proposed ADR is; name it in the handoff's open items.

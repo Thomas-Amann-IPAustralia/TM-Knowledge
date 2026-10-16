@@ -852,8 +852,8 @@ def _build_concepts(graph: Graph, store: Store, counts: StoreReport) -> None:
 #:
 #: A kind says what a concept is (ruling B1, ADR-0126). `tmk:RelevantFactor`,
 #: `tmk:Exception` and `tmk:Remedy` are no longer asserted from a typing: they are
-#: what a concept does, defined in the TBox by the edge that says so
-#: (`qualifies`, `doesNotGiveRiseTo`, `isOvercomeBy`). Every kind here is a
+#: what a concept does, said by the edge that does so (`qualifies`,
+#: `isAnExceptionTo`, `isOvercomeBy`; ADR-0135). Every kind here is a
 #: subclass of `tmk:LegalConcept` on the same footing, so a query that walks the
 #: concept hierarchy reaches every kind without knowing which family it is in.
 #:

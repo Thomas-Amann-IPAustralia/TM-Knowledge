@@ -199,3 +199,11 @@ def test_precedes_says_the_first_step_must_happen_first():
     entry = PREDICATES["precedes"]
     assert entry.reading == "<step> must come before <step>"
     assert "GR-0167" in entry.counter_example
+
+
+def test_an_exception_is_its_own_predicate_and_not_insufficiency():
+    """F15: a case a ground does not reach, against a thing not enough on its own."""
+    exception = PREDICATES["isAnExceptionTo"]
+    assert exception.objects == ("ground_of_refusal", "legal_test")
+    assert exception.reading == "<case> is an exception to <ground or test>"
+    assert "isAnExceptionTo" in PREDICATES["doesNotGiveRiseTo"].counter_example

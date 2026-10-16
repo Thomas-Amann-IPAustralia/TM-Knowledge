@@ -174,8 +174,21 @@ PREDICATES: dict[str, Predicate] = {p.name: p for p in (
        "The subject does not, by itself, give rise to the object.",
        "<subject> does not by itself give rise to <object>",
        "GR-0042: an image of a person does not by itself give rise to a section 43 ground.",
-       "Not for something that can never be relevant; the subject may still contribute.",
+       "Not for something that can never be relevant; the subject may still contribute. Not "
+       "for a case the ground or test does not reach at all; use isAnExceptionTo.",
        None, "signed"),
+    # Until S036 an exception was whatever `doesNotGiveRiseTo` a ground, which turned
+    # "not on its own" into "takes the case out" (the review response, F15; ADR-0135).
+    _p("isAnExceptionTo",
+       "The subject is a case the object — a ground or test — does not reach: where the subject "
+       "is present, the ground or test does not apply, as far as the source says and qualified "
+       "as it qualifies it.",
+       "<case> is an exception to <ground or test>",
+       "Generally, a section 43 ground for rejection will not arise in respect of long deceased "
+       "historical figures.",
+       "Not for something that is only not enough on its own, which leaves the ground open; use "
+       "doesNotGiveRiseTo.",
+       None, "owner-2026-10-09"),
     _p("excludesBasis",
        "The object may not be used as a basis for the subject.",
        "<subject> excludes <object> as its basis",
@@ -548,6 +561,7 @@ _JOINS: dict[str, tuple[tuple[str, ...], tuple[str, ...], bool]] = {
     "dependsOnExternalSource": (_ANY, ("external_instrument", "sign_content", "process_role",
                                        "instrument_or_record"), False),
     "doesNotGiveRiseTo": (_CONCEPTS, ("ground_of_refusal", "legal_test", "procedural_step", "provision"), False),
+    "isAnExceptionTo": (_CONCEPTS, ("ground_of_refusal", "legal_test"), False),
     "mayGiveRiseTo": (_CONCEPTS, ("ground_of_refusal", "legal_test", "procedural_step", "provision"), False),
     "qualifies": (("context", "sign_content", "use_in_trade", "legal_test", "subject_matter",
                    "instrument_or_record", "principle", "procedural_step"),

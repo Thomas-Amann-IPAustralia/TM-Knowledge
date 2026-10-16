@@ -18,9 +18,9 @@
     rdfs:label "TM-Knowledge — relation dictionary"@en-AU ;
     rdfs:comment """The closed list of predicates a relationship may use, each defined.
 
-52 predicates besides SKOS broader: 14 used by the
+53 predicates besides SKOS broader: 14 used by the
 35 signed relationships in `eval/gold/relationships.yaml`, of which
-6 are used exactly once, and 38 admitted by the owner (on
+6 are used exactly once, and 39 admitted by the owner (on
 2026-10-08 and 2026-10-09) and used by no signed record yet. Machine-written
 relationships use 49 of them, 323 times — counted apart, never
 added in. skos:related is retired as a relationship (ADR-0131).
@@ -296,7 +296,7 @@ tmk:doesNotGiveRiseTo a owl:ObjectProperty ;
     skos:definition "The subject does not, by itself, give rise to the object."@en-AU ;
     tmk:reading "<subject> does not by itself give rise to <object>"@en-AU ;
     skos:example "GR-0042: an image of a person does not by itself give rise to a section 43 ground."@en-AU ;
-    tmk:counterExample "Not for something that can never be relevant; the subject may still contribute."@en-AU ;
+    tmk:counterExample "Not for something that can never be relevant; the subject may still contribute. Not for a case the ground or test does not reach at all; use isAnExceptionTo."@en-AU ;
     tmk:admittedBy "signed" ;
     tmk:expectedSubjectKind tmk:GroundOfRefusal ;
     tmk:expectedSubjectKind tmk:LegalTest ;
@@ -511,6 +511,33 @@ tmk:interprets a owl:ObjectProperty ;
     tmk:observedObjectType tmk:LegislativeProvision ;
     tmk:usedBy "GR-0012" ;
     rdfs:comment "Signed usage: 1 relationship (GR-0012). Machine-written usage: 0, unreviewed."@en-AU .
+
+tmk:isAnExceptionTo a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "is an exception to"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The subject is a case the object — a ground or test — does not reach: where the subject is present, the ground or test does not apply, as far as the source says and qualified as it qualifies it."@en-AU ;
+    tmk:reading "<case> is an exception to <ground or test>"@en-AU ;
+    skos:example "Generally, a section 43 ground for rejection will not arise in respect of long deceased historical figures."@en-AU ;
+    tmk:counterExample "Not for something that is only not enough on its own, which leaves the ground open; use doesNotGiveRiseTo."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:GroundOfRefusal ;
+    tmk:expectedSubjectKind tmk:LegalTest ;
+    tmk:expectedSubjectKind tmk:Principle ;
+    tmk:expectedSubjectKind tmk:SubjectMatter ;
+    tmk:expectedSubjectKind tmk:SignContent ;
+    tmk:expectedSubjectKind tmk:Context ;
+    tmk:expectedSubjectKind tmk:UseInTrade ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedSubjectKind tmk:ProceduralStep ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedSubjectKind tmk:ExternalInstrument ;
+    tmk:expectedObjectKind tmk:GroundOfRefusal ;
+    tmk:expectedObjectKind tmk:LegalTest ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 0 ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 0, unreviewed."@en-AU .
 
 tmk:isAssessedIn a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;

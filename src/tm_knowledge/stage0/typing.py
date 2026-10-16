@@ -150,11 +150,15 @@ GROUPS: tuple[tuple[str, str], ...] = (
 
 #: What a concept *does*, as an edge rather than a kind (ruling B1, ADR-0126):
 #: (the old group, the predicate that now says it, which end the concept is on,
-#: what it means). `qualifies` and `doesNotGiveRiseTo` read from the concept to the
+#: what it means). `qualifies` and `isAnExceptionTo` read from the concept to the
 #: ground or test it acts on; `isOvercomeBy` reads from the ground to the remedy.
+#: Until S036 an exception was a `doesNotGiveRiseTo` edge, which also says "not on
+#: its own" (the review response, F15); that is `not_on_its_own` now, and no exception.
 FUNCTIONS: tuple[tuple[str, str, str, str], ...] = (
     ("relevant_factor", "qualifies", "subject", "something that feeds into the answer to a test or ground"),
-    ("exception", "doesNotGiveRiseTo", "subject", "something that takes a case out of a ground or test"),
+    ("exception", "isAnExceptionTo", "subject", "something that takes a case out of a ground or test"),
+    ("not_on_its_own", "doesNotGiveRiseTo", "subject",
+     "something not enough on its own to give rise to a ground or test, which may still arise"),
     ("remedy", "isOvercomeBy", "object", "a step, record or consent that overcomes a ground already made out"),
 )
 

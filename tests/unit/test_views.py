@@ -375,3 +375,51 @@ def test_neither_view_carries_a_definition(graph, tree):
         blob = json.dumps(payload)
         assert '"definition"' not in blob
         assert '"approved_by"' not in blob
+
+
+# ------------------------------------------- "not on its own" is not an exception
+
+
+def _considerations(node):
+    for item in node.get("considerations") or ():
+        yield item
+    for child in node.get("children") or ():
+        yield from _considerations(child)
+    for key in ("yes", "no"):
+        if isinstance(node.get(key), dict):
+            yield from _considerations(node[key])
+
+
+def test_not_on_its_own_is_never_drawn_as_an_exception(tree, stores):
+    """`doesNotGiveRiseTo` says a thing is not enough on its own — the ground may still
+    arise — and until S036 the tree filed every subject of one as an exception, "something
+    that takes a case out of a ground or test" (the review response, F15). An exception is
+    now only what an `isAnExceptionTo` edge says is one."""
+    assert views.FUNCTION_EDGES["doesNotGiveRiseTo"] == ("not_on_its_own", True)
+    assert views.FUNCTION_EDGES["isAnExceptionTo"] == ("exception", True)
+    said: dict[str, set[str]] = {"isAnExceptionTo": set(), "doesNotGiveRiseTo": set()}
+    for rows in (stores[0]["gold_relationship"], stores[1]["gold_relationship"]):
+        for r in rows:
+            if str(r["predicate"]) in said:
+                said[str(r["predicate"])].add(str(r["subject"]))
+    seen = set()
+    for item in _considerations(tree["spines"][0]["root"]):
+        if item.get("group") in ("exception", "not_on_its_own"):
+            expected = "isAnExceptionTo" if item["group"] == "exception" else "doesNotGiveRiseTo"
+            assert item["record"] in said[expected], (item["record"], item["group"])
+            seen.add(item["group"])
+    assert "not_on_its_own" in seen, "the signed GR-0015 should be read at its section, as not on its own"
+
+
+def test_the_ontology_no_longer_defines_an_exception_by_insufficiency():
+    """`tmk:Exception ≡ ∃doesNotGiveRiseTo` turned "not on its own" into "an exception" in
+    any reasoner (F15). No OWL inference is licensed (ADR-0134); the class stays, and an
+    edge says which concepts it holds."""
+    from rdflib.namespace import OWL
+
+    from tm_knowledge.ontology import tbox
+    from tm_knowledge.ontology.namespaces import TMK
+
+    schema = tbox.load()
+    assert (TMK.Exception, OWL.equivalentClass, None) not in schema
+    assert (None, OWL.onProperty, TMK.doesNotGiveRiseTo) not in schema
