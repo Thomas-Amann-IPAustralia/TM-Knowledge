@@ -120,6 +120,12 @@ RETIRED: dict[str, str] = {
         "get'); each edge was re-read as the relationship its sentence states or withdrawn "
         "(ADR-0131)."
     ),
+    "establishes": (
+        "Read '<evidence> establishes <what it shows>' while its own example said 'may show', and "
+        "each of its three records overstated its sentence (the review response, F18): whether "
+        "evidence establishes anything is the decision maker's evaluative judgement. Replaced by "
+        "mayShow on 2026-10-16; GR-0206 re-read onto it, GR-0163 and GR-0248 withdrawn."
+    ),
 }
 
 #: The predicates that state who holds power over whom (review item C3). The
@@ -520,13 +526,6 @@ PREDICATES: dict[str, Predicate] = {p.name: p for p in (
        "origin of the goods.",
        "Not for a cause of a ground or test; use mayGiveRiseTo.",
        None, "owner-2026-10-09"),
-    _p("establishes",
-       "The subject — evidence — is what shows the object: a use, a circumstance or a test's "
-       "being met.",
-       "<evidence> establishes <what it shows>",
-       "Evidence of use may show a trade mark to be capable of distinguishing.",
-       "Not for a step that overcomes a ground; use isOvercomeBy from the ground.",
-       None, "owner-2026-10-09"),
     # `establishes` overstated what evidence does: its reading said "establishes", its
     # example "may show" (the review response, F18). Renamed, so its label says it too.
     _p("mayShow",
@@ -618,7 +617,6 @@ _JOINS: dict[str, tuple[tuple[str, ...], tuple[str, ...], bool]] = {
     "keepsEarlierDate": (("procedural_step", "instrument_or_record", "subject_matter"), ("context",), False),
     "runsFrom": (("subject_matter", "procedural_step", "instrument_or_record", "use_in_trade"), ("context",), False),
     "indicates": (("sign_content", "subject_matter"), ("context", "sign_content", "process_role"), False),
-    "establishes": (_RECORD, ("use_in_trade", "legal_test", "context", "ground_of_refusal"), False),
     "mayShow": (_RECORD, ("use_in_trade", "legal_test", "context", "ground_of_refusal"), False),
     "isAttributedTo": (("use_in_trade", "procedural_step", "instrument_or_record"), _ROLE, False),
     "isDistinguishedFrom": (_CONCEPTS, _CONCEPTS, False),

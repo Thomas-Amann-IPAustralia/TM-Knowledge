@@ -18,11 +18,11 @@
     rdfs:label "TM-Knowledge — relation dictionary"@en-AU ;
     rdfs:comment """The closed list of predicates a relationship may use, each defined.
 
-54 predicates besides SKOS broader: 14 used by the
+53 predicates besides SKOS broader: 14 used by the
 35 signed relationships in `eval/gold/relationships.yaml`, of which
-6 are used exactly once, and 40 admitted by the owner (on
+6 are used exactly once, and 39 admitted by the owner (on
 2026-10-08 and 2026-10-09) and used by no signed record yet. Machine-written
-relationships use 49 of them, 323 times — counted apart, never
+relationships use 51 of them, 308 times — counted apart, never
 added in. skos:related is retired as a relationship (ADR-0131).
 
 Every definition, reading, example and counter-example here was written by an
@@ -156,12 +156,12 @@ tmk:appliesTo a owl:ObjectProperty ;
     tmk:expectedObjectKind tmk:InstrumentOrRecord ;
     tmk:expectedObjectKind tmk:ExternalInstrument ;
     tmk:usageCount 1 ;
-    tmk:authoredUsageCount 16 ;
+    tmk:authoredUsageCount 15 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedSubjectType tmk:LegislativeProvision ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:usedBy "GR-0001" ;
-    rdfs:comment "Signed usage: 1 relationship (GR-0001). Machine-written usage: 16, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 1 relationship (GR-0001). Machine-written usage: 15, unreviewed."@en-AU .
 
 tmk:becomes a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -178,10 +178,10 @@ tmk:becomes a owl:ObjectProperty ;
     tmk:expectedObjectKind tmk:SubjectMatter ;
     tmk:expectedObjectKind tmk:InstrumentOrRecord ;
     tmk:usageCount 0 ;
-    tmk:authoredUsageCount 2 ;
+    tmk:authoredUsageCount 1 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
-    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 2, unreviewed."@en-AU .
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 1, unreviewed."@en-AU .
 
 tmk:citesAuthorityFor a owl:ObjectProperty ;
     a tmk:ApprovedRelation ;
@@ -314,12 +314,12 @@ tmk:doesNotGiveRiseTo a owl:ObjectProperty ;
     tmk:expectedObjectKind tmk:ProceduralStep ;
     tmk:expectedObjectKind tmk:LegislativeProvision ;
     tmk:usageCount 2 ;
-    tmk:authoredUsageCount 5 ;
+    tmk:authoredUsageCount 1 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:usedBy "GR-0015" ;
     tmk:usedBy "GR-0042" ;
-    rdfs:comment "Signed usage: 2 relationships (GR-0015, GR-0042). Machine-written usage: 5, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 2 relationships (GR-0015, GR-0042). Machine-written usage: 1, unreviewed."@en-AU .
 
 tmk:escalatesTo a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -340,27 +340,6 @@ tmk:escalatesTo a owl:ObjectProperty ;
     tmk:observedObjectType tmk:LegalConcept ;
     rdfs:comment "Admitted by the owner's ruling (owner-2026-10-08); no signed record uses it yet. Machine-written usage: 1, unreviewed."@en-AU .
 
-tmk:establishes a owl:ObjectProperty ;
-    a tmk:AdmittedRelation ;
-    rdfs:label "establishes"@en-AU ;
-    rdfs:domain tmk:LegalMatter ;
-    rdfs:range tmk:LegalMatter ;
-    skos:definition "The subject — evidence — is what shows the object: a use, a circumstance or a test's being met."@en-AU ;
-    tmk:reading "<evidence> establishes <what it shows>"@en-AU ;
-    skos:example "Evidence of use may show a trade mark to be capable of distinguishing."@en-AU ;
-    tmk:counterExample "Not for a step that overcomes a ground; use isOvercomeBy from the ground."@en-AU ;
-    tmk:admittedBy "owner-2026-10-09" ;
-    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
-    tmk:expectedObjectKind tmk:UseInTrade ;
-    tmk:expectedObjectKind tmk:LegalTest ;
-    tmk:expectedObjectKind tmk:Context ;
-    tmk:expectedObjectKind tmk:GroundOfRefusal ;
-    tmk:usageCount 0 ;
-    tmk:authoredUsageCount 3 ;
-    tmk:observedSubjectType tmk:LegalConcept ;
-    tmk:observedObjectType tmk:LegalConcept ;
-    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 3, unreviewed."@en-AU .
-
 tmk:excludesBasis a owl:ObjectProperty ;
     a tmk:ApprovedRelation ;
     rdfs:label "excludes basis"@en-AU ;
@@ -372,13 +351,13 @@ tmk:excludesBasis a owl:ObjectProperty ;
     tmk:counterExample "Not for something that merely weighs against the subject; use qualifies."@en-AU ;
     tmk:admittedBy "signed" ;
     tmk:usageCount 2 ;
-    tmk:authoredUsageCount 2 ;
+    tmk:authoredUsageCount 1 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegislativeProvision ;
     tmk:usedBy "GR-0005" ;
     tmk:usedBy "GR-0056" ;
-    rdfs:comment "Signed usage: 2 relationships (GR-0005, GR-0056). Machine-written usage: 2, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 2 relationships (GR-0005, GR-0056). Machine-written usage: 1, unreviewed."@en-AU .
 
 tmk:exercisesPowersOf a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -410,11 +389,11 @@ tmk:extendsTo a owl:ObjectProperty ;
     tmk:counterExample "Not for one thing being a kind of another; use broader."@en-AU ;
     tmk:admittedBy "signed" ;
     tmk:usageCount 1 ;
-    tmk:authoredUsageCount 2 ;
+    tmk:authoredUsageCount 1 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:usedBy "GR-0052" ;
-    rdfs:comment "Signed usage: 1 relationship (GR-0052). Machine-written usage: 2, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 1 relationship (GR-0052). Machine-written usage: 1, unreviewed."@en-AU .
 
 tmk:files a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -536,8 +515,10 @@ tmk:isAnExceptionTo a owl:ObjectProperty ;
     tmk:expectedObjectKind tmk:GroundOfRefusal ;
     tmk:expectedObjectKind tmk:LegalTest ;
     tmk:usageCount 0 ;
-    tmk:authoredUsageCount 0 ;
-    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 0, unreviewed."@en-AU .
+    tmk:authoredUsageCount 4 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 4, unreviewed."@en-AU .
 
 tmk:isAssessedIn a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -801,10 +782,10 @@ tmk:isRecordedIn a owl:ObjectProperty ;
     tmk:expectedSubjectKind tmk:SignContent ;
     tmk:expectedObjectKind tmk:InstrumentOrRecord ;
     tmk:usageCount 0 ;
-    tmk:authoredUsageCount 13 ;
+    tmk:authoredUsageCount 12 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
-    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 13, unreviewed."@en-AU .
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 12, unreviewed."@en-AU .
 
 tmk:isServedOn a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -906,7 +887,7 @@ tmk:mayGiveRiseTo a owl:ObjectProperty ;
     tmk:expectedObjectKind tmk:ProceduralStep ;
     tmk:expectedObjectKind tmk:LegislativeProvision ;
     tmk:usageCount 6 ;
-    tmk:authoredUsageCount 52 ;
+    tmk:authoredUsageCount 50 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegislativeProvision ;
@@ -916,7 +897,7 @@ tmk:mayGiveRiseTo a owl:ObjectProperty ;
     tmk:usedBy "GR-0044" ;
     tmk:usedBy "GR-0048" ;
     tmk:usedBy "GR-0057" ;
-    rdfs:comment "Signed usage: 6 relationships (GR-0007, GR-0024, GR-0037, GR-0044, GR-0048, GR-0057). Machine-written usage: 52, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 6 relationships (GR-0007, GR-0024, GR-0037, GR-0044, GR-0048, GR-0057). Machine-written usage: 50, unreviewed."@en-AU .
 
 tmk:mayShow a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -934,8 +915,10 @@ tmk:mayShow a owl:ObjectProperty ;
     tmk:expectedObjectKind tmk:Context ;
     tmk:expectedObjectKind tmk:GroundOfRefusal ;
     tmk:usageCount 0 ;
-    tmk:authoredUsageCount 0 ;
-    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 0, unreviewed."@en-AU .
+    tmk:authoredUsageCount 1 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 1, unreviewed."@en-AU .
 
 tmk:operatesOn a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -952,10 +935,10 @@ tmk:operatesOn a owl:ObjectProperty ;
     tmk:expectedObjectKind tmk:InstrumentOrRecord ;
     tmk:expectedObjectKind tmk:ProceduralStep ;
     tmk:usageCount 0 ;
-    tmk:authoredUsageCount 19 ;
+    tmk:authoredUsageCount 18 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
-    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 19, unreviewed."@en-AU .
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 18, unreviewed."@en-AU .
 
 tmk:owns a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -972,10 +955,10 @@ tmk:owns a owl:ObjectProperty ;
     tmk:expectedObjectKind tmk:InstrumentOrRecord ;
     tmk:expectedObjectKind tmk:SignContent ;
     tmk:usageCount 0 ;
-    tmk:authoredUsageCount 8 ;
+    tmk:authoredUsageCount 6 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
-    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 8, unreviewed."@en-AU .
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 6, unreviewed."@en-AU .
 
 tmk:performs a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -1010,10 +993,10 @@ tmk:precedes a owl:ObjectProperty ;
     tmk:expectedObjectKind tmk:ProceduralStep ;
     tmk:expectedObjectKind tmk:InstrumentOrRecord ;
     tmk:usageCount 0 ;
-    tmk:authoredUsageCount 4 ;
+    tmk:authoredUsageCount 3 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
-    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 4, unreviewed."@en-AU .
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 3, unreviewed."@en-AU .
 
 tmk:prevailsOver a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -1053,10 +1036,10 @@ tmk:prevents a owl:ObjectProperty ;
     tmk:expectedSubjectKind tmk:Principle ;
     tmk:expectedObjectKind tmk:ProceduralStep ;
     tmk:usageCount 0 ;
-    tmk:authoredUsageCount 5 ;
+    tmk:authoredUsageCount 2 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
-    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 5, unreviewed."@en-AU .
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 2, unreviewed."@en-AU .
 
 tmk:qualifies a owl:ObjectProperty ;
     a tmk:ApprovedRelation ;
@@ -1083,14 +1066,14 @@ tmk:qualifies a owl:ObjectProperty ;
     tmk:expectedObjectKind tmk:UseInTrade ;
     tmk:expectedObjectKind tmk:LegislativeProvision ;
     tmk:usageCount 4 ;
-    tmk:authoredUsageCount 53 ;
+    tmk:authoredUsageCount 54 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:usedBy "GR-0017" ;
     tmk:usedBy "GR-0023" ;
     tmk:usedBy "GR-0035" ;
     tmk:usedBy "GR-0040" ;
-    rdfs:comment "Signed usage: 4 relationships (GR-0017, GR-0023, GR-0035, GR-0040). Machine-written usage: 53, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 4 relationships (GR-0017, GR-0023, GR-0035, GR-0040). Machine-written usage: 54, unreviewed."@en-AU .
 
 tmk:requiresConsentOf a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -1137,7 +1120,7 @@ tmk:requiresElement a owl:ObjectProperty ;
     tmk:expectedObjectKind tmk:ManualPassage ;
     tmk:expectedObjectKind tmk:Decision ;
     tmk:usageCount 6 ;
-    tmk:authoredUsageCount 22 ;
+    tmk:authoredUsageCount 21 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedSubjectType tmk:LegislativeProvision ;
     tmk:observedObjectType tmk:LegalConcept ;
@@ -1148,7 +1131,7 @@ tmk:requiresElement a owl:ObjectProperty ;
     tmk:usedBy "GR-0014" ;
     tmk:usedBy "GR-0016" ;
     tmk:usedBy "GR-0054" ;
-    rdfs:comment "Signed usage: 6 relationships (GR-0003, GR-0008, GR-0010, GR-0014, GR-0016, GR-0054). Machine-written usage: 22, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 6 relationships (GR-0003, GR-0008, GR-0010, GR-0014, GR-0016, GR-0054). Machine-written usage: 21, unreviewed."@en-AU .
 
 tmk:resultsIn a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -1165,10 +1148,10 @@ tmk:resultsIn a owl:ObjectProperty ;
     tmk:expectedObjectKind tmk:SubjectMatter ;
     tmk:expectedObjectKind tmk:ProceduralStep ;
     tmk:usageCount 0 ;
-    tmk:authoredUsageCount 3 ;
+    tmk:authoredUsageCount 2 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
-    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 3, unreviewed."@en-AU .
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 2, unreviewed."@en-AU .
 
 tmk:reviewsDecisionsOf a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -1248,5 +1231,7 @@ tmk:suspendsTimeFor a owl:ObjectProperty ;
     tmk:expectedSubjectKind tmk:Context ;
     tmk:expectedObjectKind tmk:ProceduralStep ;
     tmk:usageCount 0 ;
-    tmk:authoredUsageCount 0 ;
-    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 0, unreviewed."@en-AU .
+    tmk:authoredUsageCount 2 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 2, unreviewed."@en-AU .

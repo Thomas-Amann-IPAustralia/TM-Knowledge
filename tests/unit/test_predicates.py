@@ -218,3 +218,11 @@ def test_evidence_may_show_and_never_establishes():
     assert entry.reading == "<evidence> may show <what it shows>"
     assert "evaluative" in entry.definition
     assert entry.subjects == ("instrument_or_record",)
+
+
+def test_establishes_is_retired_once_nothing_uses_it():
+    from tm_knowledge.ontology.predicates import RETIRED
+
+    assert "establishes" in RETIRED and "establishes" not in PREDICATES
+    used = {str(r["predicate"]) for r in authored_store.load()["gold_relationship"]}
+    assert "establishes" not in used
