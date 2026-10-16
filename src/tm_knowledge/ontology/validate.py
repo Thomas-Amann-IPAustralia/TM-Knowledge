@@ -16,7 +16,7 @@ from pathlib import Path
 
 from pyshacl import validate as pyshacl_validate
 from rdflib import Dataset, Graph, URIRef
-from rdflib.namespace import RDF, SH
+from rdflib.namespace import RDF, SH, SKOS
 
 from tm_knowledge.config import REPO_ROOT
 from tm_knowledge.ontology.build import build
@@ -29,7 +29,10 @@ from tm_knowledge.ontology.namespaces import (
     bind_all,
 )
 
-__all__ = ["SHAPES_DIR", "PLACEMENT_SHAPE", "Finding", "ValidationReport", "load_shapes", "placement", "run"]
+__all__ = [
+    "SHAPES_DIR", "PLACEMENT_SHAPE", "S27_SHAPE", "Finding", "ValidationReport",
+    "load_shapes", "placement", "skos_integrity", "run",
+]
 
 SHAPES_DIR = REPO_ROOT / "shapes"
 
@@ -175,6 +178,74 @@ def placement(dataset: Dataset) -> list[Finding]:
     return out
 
 
+S27_SHAPE = "Related is not also broader (SKOS S27)"
+
+
+def _parents(*graphs: Graph) -> dict:
+    """child -> parents, from skos:broader and skos:narrower read as its inverse."""
+    out: dict = {}
+    for graph in graphs:
+        for child, parent in graph.subject_objects(SKOS.broader):
+            out.setdefault(child, set()).add(parent)
+        for parent, child in graph.subject_objects(SKOS.narrower):
+            out.setdefault(child, set()).add(parent)
+    return out
+
+
+def _ancestors(parents: dict, node) -> set:
+    seen: set = set()
+    stack = list(parents.get(node, ()))
+    while stack:
+        current = stack.pop()
+        if current not in seen:
+            seen.add(current)
+            stack.extend(parents.get(current, ()))
+    return seen
+
+
+def skos_integrity(dataset: Dataset) -> list[Finding]:
+    """SKOS S27: two concepts that are `skos:related` are not also joined by `broader`.
+
+    Read per named graph, because the remedy depends on who wrote what. Where a
+    machine wrote either statement it is a defect, fixed by re-reading the authored
+    record. Where both are signed (GC-0017 and GC-0018 today) it is a note: a signed
+    record is corrected outside its signature, on the owner's ruling (ADR-0122), and
+    an agent may not make that call (the review response, F07).
+    """
+    approved, authored = dataset.graph(APPROVED_GRAPH), dataset.graph(AUTHORED_GRAPH)
+    signed, both = _parents(approved), _parents(approved, authored)
+    out, seen = [], set()
+    for graph in (approved, authored):
+        for one, other in graph.subject_objects(SKOS.related):
+            pair = tuple(sorted((one, other)))
+            if pair in seen:
+                continue
+            if other not in _ancestors(both, one) and one not in _ancestors(both, other):
+                continue
+            seen.add(pair)
+            related_signed = (one, SKOS.related, other) in approved or (other, SKOS.related, one) in approved
+            hierarchy_signed = other in _ancestors(signed, one) or one in _ancestors(signed, other)
+            if related_signed and hierarchy_signed:
+                out.append(Finding(
+                    severity="note", shape=S27_SHAPE, node=str(pair[0]), value=str(pair[1]),
+                    path="related",
+                    message="Signed as related and signed as broader or narrower, which SKOS's "
+                            "integrity condition S27 forbids. Both statements are signed, so the "
+                            "fix is a correction on the owner's ruling (ADR-0122); reported, not "
+                            "failed, until the owner decides.",
+                ))
+            else:
+                out.append(Finding(
+                    severity="defect", shape=S27_SHAPE, node=str(pair[0]), value=str(pair[1]),
+                    path="related",
+                    message="Related and also broader or narrower, which SKOS's integrity "
+                            "condition S27 forbids, and a machine wrote at least one of the two "
+                            "statements. Re-read the authored record: one idea is either a kind of "
+                            "the other or associated with it, not both.",
+                ))
+    return out
+
+
 def _flatten(dataset: Dataset) -> Graph:
     """The graphs the shapes run over, as one graph.
 
@@ -282,11 +353,11 @@ def run(
         meta_shacl=False,
         allow_warnings=True,
     )
-    misplaced = placement(dataset)
+    own = [*placement(dataset), *skos_integrity(dataset)]
     return ValidationReport(
-        conforms=conforms and not misplaced,
+        conforms=conforms and not any(finding.severity == "defect" for finding in own),
         findings=sorted(
-            [*_findings(results, shapes), *misplaced],
+            [*_findings(results, shapes), *own],
             key=lambda finding: (finding.severity, finding.shape, finding.node, finding.value or ""),
         ),
     )

@@ -1,0 +1,25 @@
+# A cycle that only shows once narrower is read as inverse broader.
+#
+# :a says :b is broader than it, and also that :b is narrower than it. Neither
+# skos:broader nor skos:narrower alone loops; together they do, and SKOS states
+# narrower as the inverse of broader. Until S036 tmk:NoBroaderCycleShape walked
+# skos:broader only and passed this (the review response, F07).
+#
+# Expected: tmk:NoBroaderCycleShape fires on :a and :b. The conforming twin, :c
+# with :d broader and the matching narrower stated both ways, does not.
+
+@prefix tmk:  <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix :     <https://example.org/fixture/> .
+
+:scheme a tmk:ConceptScheme .
+
+:a a tmk:LegalConcept ; tmk:goldRecord "GC-9011" ; skos:inScheme :scheme ;
+   skos:prefLabel "alpha two-way"@en-AU ; skos:broader :b ; skos:narrower :b .
+:b a tmk:LegalConcept ; tmk:goldRecord "GC-9012" ; skos:inScheme :scheme ;
+   skos:prefLabel "beta two-way"@en-AU .
+
+:c a tmk:LegalConcept ; tmk:goldRecord "GC-9013" ; skos:inScheme :scheme ;
+   skos:prefLabel "gamma two-way"@en-AU ; skos:broader :d .
+:d a tmk:LegalConcept ; tmk:goldRecord "GC-9014" ; skos:inScheme :scheme ;
+   skos:prefLabel "delta two-way"@en-AU ; skos:narrower :c .

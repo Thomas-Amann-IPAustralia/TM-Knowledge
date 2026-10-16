@@ -97,3 +97,75 @@ def test_an_assertion_class_outside_its_graph_is_a_defect(graph, kind):
     report = validate.run(_dataset(URIRef(TMKG[graph]), [(node, RDF.type, TMK[kind])]))
     placement = [f for f in report.by_severity("defect") if f.shape == validate.PLACEMENT_SHAPE]
     assert placement, f"a tmk:{kind} in the {graph} graph was not reported"
+
+
+# --- SKOS S27: related is disjoint with broader's transitive closure ----------------
+#
+# GC-0017 (geographical reference) is skos:related to GC-0018 (geographical
+# indication), and GC-0018 is recorded as a kind of GC-0017. SKOS's integrity
+# condition S27 forbids both, and until S036 nothing checked it (the review response,
+# F07). Both statements are signed, so the fix is a correction on the owner's ruling
+# (ADR-0122, decision 6 in the response); until then the gate reports the signed pair
+# as a note, and fails anything a machine wrote.
+
+
+def _skos(approved, authored):
+    from rdflib import Dataset, URIRef
+    from rdflib.namespace import SKOS
+
+    from tm_knowledge.ontology.namespaces import APPROVED_GRAPH, AUTHORED_GRAPH
+
+    def term(name):
+        return URIRef(f"https://example.org/fixture/{name}")
+
+    dataset = Dataset()
+    for graph, triples in ((APPROVED_GRAPH, approved), (AUTHORED_GRAPH, authored)):
+        named = dataset.graph(graph)
+        for subject, predicate, obj in triples:
+            named.add((term(subject), getattr(SKOS, predicate), term(obj)))
+    return dataset
+
+
+def test_related_beside_a_machine_written_hierarchy_is_a_defect():
+    from tm_knowledge.ontology import validate
+
+    dataset = _skos(approved=[("x", "related", "y")], authored=[("x", "broader", "m"), ("m", "broader", "y")])
+    found = validate.skos_integrity(dataset)
+    assert [f.severity for f in found] == ["defect"], found
+
+
+def test_a_machine_written_related_beside_a_signed_narrower_is_a_defect():
+    from tm_knowledge.ontology import validate
+
+    dataset = _skos(approved=[("y", "narrower", "x")], authored=[("y", "related", "x")])
+    assert [f.severity for f in validate.skos_integrity(dataset)] == ["defect"]
+
+
+def test_a_signed_pair_both_related_and_broader_is_reported_for_the_owner():
+    from tm_knowledge.ontology import validate
+
+    dataset = _skos(approved=[("x", "related", "y"), ("y", "broader", "x")], authored=[])
+    found = validate.skos_integrity(dataset)
+    assert [f.severity for f in found] == ["note"], found
+    assert "owner" in found[0].message
+
+
+def test_related_without_a_hierarchy_between_them_passes():
+    from tm_knowledge.ontology import validate
+
+    dataset = _skos(approved=[("x", "related", "y"), ("x", "broader", "z")], authored=[("y", "broader", "z")])
+    assert validate.skos_integrity(dataset) == []
+
+
+def test_the_committed_graph_reports_the_signed_geographical_pair_and_nothing_else():
+    from rdflib import Dataset
+
+    from tm_knowledge.config import REPO_ROOT
+    from tm_knowledge.ontology import validate
+
+    dataset = Dataset()
+    dataset.parse(REPO_ROOT / "graph" / "dataset.nq", format="nquads")
+    found = validate.skos_integrity(dataset)
+    assert [(f.severity, sorted((f.node.rsplit("/", 1)[-1], f.value.rsplit("/", 1)[-1]))) for f in found] == [
+        ("note", ["GC-0017", "GC-0018"])
+    ]
