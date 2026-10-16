@@ -23,6 +23,8 @@ WHERE {
     GRAPH tmkg:approved {
       ?assertion tmk:sourcePassage ?passage ;
                  tmk:goldRecord ?affected .
+      # A corrected signed record is history; its replacement serves (ADR-0122).
+      FILTER NOT EXISTS { ?assertion tmk:isCorrected true }
       OPTIONAL { ?assertion tmk:supportingText ?sentence }
       OPTIONAL { ?assertion tmk:surface ?surface }
       BIND (COALESCE(?sentence, ?surface, "?") AS ?label)

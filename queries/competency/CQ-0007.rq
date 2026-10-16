@@ -17,6 +17,8 @@ WHERE {
                tmk:sourcePassage ?passage .
     OPTIONAL { ?assertion tmk:modality ?modality }
     VALUES ?predicate { tmk:allocatesTo tmk:excludesBasis }
+    # A corrected signed record is history; its replacement serves (ADR-0122).
+    FILTER NOT EXISTS { ?assertion tmk:isCorrected true }
   }
   # Two GRAPH blocks over the same graph rather than one with two patterns, and
   # the split is a performance fix, not a semantic one: `tmkg:source` is a

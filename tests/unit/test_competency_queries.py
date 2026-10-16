@@ -125,6 +125,36 @@ def test_cq_0017_counts_the_citing_passages_the_graph_holds(dataset):
     assert rows == expected
 
 
+def _corrected_records(dataset) -> set[str]:
+    rows = dataset.query(
+        "PREFIX tmk: <https://data.ipaustralia.gov.au/tmk/ns/> "
+        "SELECT ?record WHERE { GRAPH ?g { ?a tmk:isCorrected true ; tmk:goldRecord ?record } }"
+    )
+    return {str(row[0]) for row in rows}
+
+
+def test_no_competency_query_returns_a_corrected_record(dataset):
+    """A corrected signed relationship is history, not an answer (ADR-0122).
+
+    Until S036 six queries returned one: CQ-0009, CQ-0011, CQ-0018, CQ-0021,
+    CQ-0023 and CQ-0024, which counted all 35 signed relationships (the review
+    response, F04). Every query is run, so a query written later is held to it too.
+    """
+    import re
+
+    corrected = _corrected_records(dataset)
+    assert len(corrected) == 15, "the graph no longer flags the 15 corrected records"
+    record_id = re.compile(r"\bG[A-Z]-\d{4}\b")
+    leaks: dict[str, set[str]] = {}
+    for query in QUERIES:
+        for row in query.run(dataset):
+            for value in row:
+                named = set(record_id.findall(str(value))) if value is not None else set()
+                if named & corrected:
+                    leaks.setdefault(query.question_id, set()).update(named & corrected)
+    assert not leaks, f"queries returning corrected records: { {k: sorted(v) for k, v in leaks.items()} }"
+
+
 def test_cq_0012_returns_prohibitions_and_nothing_else(dataset):
     """The question is an evaluative judgement for the decision maker. The
     system's answer is the list of outputs that would answer it and must not be
