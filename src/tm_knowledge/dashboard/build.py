@@ -35,6 +35,7 @@ import yaml
 from rdflib import Graph, URIRef
 from rdflib.namespace import OWL, RDF, RDFS, SH
 
+from tm_knowledge.authored import corrections as corrections_module
 from tm_knowledge.authored import store as authored_store
 from tm_knowledge.config import DEFAULT_BASE_IRI, PIN_PATH, REPO_ROOT
 from tm_knowledge.dashboard import blocks, questions as questions_module, sources, views
@@ -118,6 +119,11 @@ class Facts:
     """Everything read off disk, once, before any page is composed."""
 
     gold: goldset.GoldSet
+    #: The signed records as they serve, corrections applied (ADR-0122). The map and
+    #: the decision tree draw from this, never from `gold`: a corrected signed
+    #: relationship is history, and drawn as reviewed it would show an examiner a
+    #: claim the project has withdrawn. Counts of what a person signed read `gold`.
+    served: goldset.GoldSet
     #: What `authored/` holds. Read beside the gold set and never added to it —
     #: every figure on the site that could be a sum is a pair instead
     #: (ADR-0080 consequence 4).
@@ -167,9 +173,12 @@ def gather() -> Facts:
         graph.parse(REPO_ROOT / "shapes" / name, format="turtle")
         shapes[name] = graph
 
+    gold = goldset.load()
+    authored = authored_store.load()
     return Facts(
-        gold=goldset.load(),
-        authored=authored_store.load(),
+        gold=gold,
+        served=corrections_module.served_gold(gold, corrections_module.load(gold=gold, authored=authored)),
+        authored=authored,
         modules=modules,
         tbox=tbox.load(),
         approved=_read_graph(REPO_ROOT / "graph" / "approved.ttl"),
@@ -824,7 +833,7 @@ def _graph_page(facts: Facts) -> dict[str, Any]:
 def _map(facts: Facts) -> dict[str, Any]:
     """The node network — every concept, every provision they cite, every edge
     either store states."""
-    payload = views.network(facts.gold, facts.authored)
+    payload = views.network(facts.served, facts.authored)
     counts = payload["counts"]
 
     return {
@@ -965,7 +974,7 @@ def _ask(facts: Facts) -> dict[str, Any]:
 
 def _tree(facts: Facts) -> dict[str, Any]:
     """The examination path — the reasoning groups hung off the sections they cite."""
-    payload = views.decision_tree(facts.gold, facts.authored)
+    payload = views.decision_tree(facts.served, facts.authored)
     grounds = payload["spines"][0]["counts"]
 
     return {

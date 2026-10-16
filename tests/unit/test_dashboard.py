@@ -460,3 +460,34 @@ def test_the_ask_page_shows_the_working_and_says_it_is_unreviewed():
     qa = next(block for block in page["blocks"] if block["kind"] == "qa")
     assert qa["data"]["questions"][0]["review_status"] == "unreviewed"
     assert qa["data"]["kinds"] == [{"id": "problem", "label": build_module.KIND_LABELS["problem"]}]
+
+
+@pytest.mark.rdf
+def test_the_map_and_the_tree_draw_no_corrected_signed_relationship():
+    """The workbench is a serving surface, so it reads the corrected view.
+
+    Until S036 the map and the decision tree were built from `goldset.load()`, and
+    drew 14 of the 15 corrected signed relationships as reviewed edges (the review
+    response, F04). A corrected record is history: its authored replacement serves,
+    marked unreviewed, and the signed one is drawn nowhere.
+    """
+    from tm_knowledge.authored import corrections
+    from tm_knowledge.dashboard import build as build_module
+
+    replaced = set(corrections.load().replacements())
+    assert replaced, "no corrected relationship to test against"
+    pages = build_module.build(generated="2026-01-01")
+
+    def records(node):
+        if isinstance(node, dict):
+            if isinstance(node.get("record"), str):
+                yield node["record"]
+            for value in node.values():
+                yield from records(value)
+        elif isinstance(node, list):
+            for value in node:
+                yield from records(value)
+
+    for page in ("map.json", "tree.json"):
+        drawn = set(records(pages[page])) & replaced
+        assert not drawn, f"{page} draws corrected signed relationships: {sorted(drawn)}"
