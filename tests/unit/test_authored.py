@@ -272,7 +272,12 @@ def test_the_completeness_gate_counts_signed_records_only(tmp_path):
                 "authored_by": "«model»-0.0",
                 "authored_date": "2026-09-08",
                 "authoring_basis": "corpus_explicit",
-                "evidence": [{"ref": "TMM/Part20/5/5/1"}],
+                "evidence": [{
+                    "ref": "TMM/Part20/5/5/1",
+                    "span": [0, 10],
+                    "content_hash": "sha256:831405e7d7b931839c20bb89f61ec12a694ba556c60e342a9e1ef7faea210193",
+                    "quote": "Section 39",
+                }],
                 "reasoning": "«why this reading»",
             },
         }

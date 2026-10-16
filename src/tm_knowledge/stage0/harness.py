@@ -934,6 +934,19 @@ def _evidence_findings(record_id: str, items: Any, corpus: Corpus) -> Iterator[F
             )
             continue
 
+        # A ref, a span, the content hash and a quote that is exactly the text at
+        # the span (ADR-0045, ADR-0090 c3). Until S036 a missing hash was skipped,
+        # a missing span stopped the checks and a quote was never asked for, so a
+        # bare ref passed (the review response, F08).
+        missing = [name for name in ("span", "content_hash", "quote") if item.get(name) in (None, "")]
+        if missing:
+            yield Finding(
+                Severity.DEFECT, "authored-evidence", record_id,
+                f"{where} cites {ref} with no {', '.join(missing)}. Evidence is "
+                "quoted, not retyped: a ref, a span, the content hash, and a quote "
+                "that is exactly the text at the span (ADR-0045, ADR-0090 c3)",
+            )
+
         recorded_hash = item.get("content_hash")
         if (
             isinstance(recorded_hash, str)
