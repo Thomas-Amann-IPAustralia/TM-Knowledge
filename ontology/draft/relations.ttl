@@ -18,9 +18,9 @@
     rdfs:label "TM-Knowledge — relation dictionary"@en-AU ;
     rdfs:comment """The closed list of predicates a relationship may use, each defined.
 
-53 predicates besides SKOS broader: 14 used by the
+54 predicates besides SKOS broader: 14 used by the
 35 signed relationships in `eval/gold/relationships.yaml`, of which
-6 are used exactly once, and 39 admitted by the owner (on
+6 are used exactly once, and 40 admitted by the owner (on
 2026-10-08 and 2026-10-09) and used by no signed record yet. Machine-written
 relationships use 49 of them, 323 times — counted apart, never
 added in. skos:related is retired as a relationship (ADR-0131).
@@ -917,6 +917,25 @@ tmk:mayGiveRiseTo a owl:ObjectProperty ;
     tmk:usedBy "GR-0048" ;
     tmk:usedBy "GR-0057" ;
     rdfs:comment "Signed usage: 6 relationships (GR-0007, GR-0024, GR-0037, GR-0044, GR-0048, GR-0057). Machine-written usage: 52, unreviewed."@en-AU .
+
+tmk:mayShow a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "may show"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The subject — evidence — is material that may show the object: a use, a circumstance or a test's being met. It says what evidence can go to, never that it does: whether evidence establishes anything is the decision maker's evaluative judgement (PU-0001)."@en-AU ;
+    tmk:reading "<evidence> may show <what it shows>"@en-AU ;
+    skos:example "A trade mark lacking inherent adaptation to distinguish may be shown through evidence of use to be capable of distinguishing."@en-AU ;
+    tmk:counterExample "Not for a step that overcomes a ground; use isOvercomeBy from the ground. Not for a heading or a sentence that only says what is considered first."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:UseInTrade ;
+    tmk:expectedObjectKind tmk:LegalTest ;
+    tmk:expectedObjectKind tmk:Context ;
+    tmk:expectedObjectKind tmk:GroundOfRefusal ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 0 ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 0, unreviewed."@en-AU .
 
 tmk:operatesOn a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;

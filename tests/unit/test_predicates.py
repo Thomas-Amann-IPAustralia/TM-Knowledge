@@ -207,3 +207,14 @@ def test_an_exception_is_its_own_predicate_and_not_insufficiency():
     assert exception.objects == ("ground_of_refusal", "legal_test")
     assert exception.reading == "<case> is an exception to <ground or test>"
     assert "isAnExceptionTo" in PREDICATES["doesNotGiveRiseTo"].counter_example
+
+
+def test_evidence_may_show_and_never_establishes():
+    """`establishes` read "<evidence> establishes <what it shows>" while its own example
+    said "may show", and its three records each overstated their sentence (the review
+    response, F18). Whether evidence establishes anything is the decision maker's
+    evaluative judgement (PU-0001); the relation says what evidence can go to."""
+    entry = PREDICATES["mayShow"]
+    assert entry.reading == "<evidence> may show <what it shows>"
+    assert "evaluative" in entry.definition
+    assert entry.subjects == ("instrument_or_record",)

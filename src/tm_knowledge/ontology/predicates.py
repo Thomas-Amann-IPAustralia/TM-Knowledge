@@ -527,6 +527,18 @@ PREDICATES: dict[str, Predicate] = {p.name: p for p in (
        "Evidence of use may show a trade mark to be capable of distinguishing.",
        "Not for a step that overcomes a ground; use isOvercomeBy from the ground.",
        None, "owner-2026-10-09"),
+    # `establishes` overstated what evidence does: its reading said "establishes", its
+    # example "may show" (the review response, F18). Renamed, so its label says it too.
+    _p("mayShow",
+       "The subject — evidence — is material that may show the object: a use, a circumstance or "
+       "a test's being met. It says what evidence can go to, never that it does: whether evidence "
+       "establishes anything is the decision maker's evaluative judgement (PU-0001).",
+       "<evidence> may show <what it shows>",
+       "A trade mark lacking inherent adaptation to distinguish may be shown through evidence of "
+       "use to be capable of distinguishing.",
+       "Not for a step that overcomes a ground; use isOvercomeBy from the ground. Not for a "
+       "heading or a sentence that only says what is considered first.",
+       None, "owner-2026-10-09"),
     _p("isAttributedTo",
        "The law treats the subject — a use or an act — as the object's own.",
        "<use or act> is attributed to <person>",
@@ -607,6 +619,7 @@ _JOINS: dict[str, tuple[tuple[str, ...], tuple[str, ...], bool]] = {
     "runsFrom": (("subject_matter", "procedural_step", "instrument_or_record", "use_in_trade"), ("context",), False),
     "indicates": (("sign_content", "subject_matter"), ("context", "sign_content", "process_role"), False),
     "establishes": (_RECORD, ("use_in_trade", "legal_test", "context", "ground_of_refusal"), False),
+    "mayShow": (_RECORD, ("use_in_trade", "legal_test", "context", "ground_of_refusal"), False),
     "isAttributedTo": (("use_in_trade", "procedural_step", "instrument_or_record"), _ROLE, False),
     "isDistinguishedFrom": (_CONCEPTS, _CONCEPTS, False),
 }
