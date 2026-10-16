@@ -19718,11 +19718,9 @@
 <https://data.ipaustralia.gov.au/tmk/ns/appliesTo> <https://data.ipaustralia.gov.au/tmk/ns/usedBy> "GR-0001"  .
 <https://data.ipaustralia.gov.au/tmk/ns/approvedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/approvedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "The name of the person who approved it. A name and a date are the approval artefact, and there is no separate register (ADR-0039)."@en-AU  .
-<https://data.ipaustralia.gov.au/tmk/ns/approvedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/Assertion>  .
 <https://data.ipaustralia.gov.au/tmk/ns/approvedBy> <http://www.w3.org/2000/01/rdf-schema#label> "approved by"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/approvedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>  .
 <https://data.ipaustralia.gov.au/tmk/ns/approvedDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
-<https://data.ipaustralia.gov.au/tmk/ns/approvedDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/Assertion>  .
 <https://data.ipaustralia.gov.au/tmk/ns/approvedDate> <http://www.w3.org/2000/01/rdf-schema#label> "approved date"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/approvedDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date>  .
 <https://data.ipaustralia.gov.au/tmk/ns/askedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
@@ -19749,11 +19747,9 @@
 <https://data.ipaustralia.gov.au/tmk/ns/attributedTo> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.ipaustralia.gov.au/tmk/ns/Authority>  .
 <https://data.ipaustralia.gov.au/tmk/ns/authoredBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/authoredBy> <http://www.w3.org/2000/01/rdf-schema#comment> "The model that wrote this, with its version. Never a person's name — a person's name goes in tmk:approvedBy and only a transcription from a signed workbook puts it there (ADR-0087)."@en-AU  .
-<https://data.ipaustralia.gov.au/tmk/ns/authoredBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/Assertion>  .
 <https://data.ipaustralia.gov.au/tmk/ns/authoredBy> <http://www.w3.org/2000/01/rdf-schema#label> "authored by"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/authoredBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>  .
 <https://data.ipaustralia.gov.au/tmk/ns/authoredDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
-<https://data.ipaustralia.gov.au/tmk/ns/authoredDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/Assertion>  .
 <https://data.ipaustralia.gov.au/tmk/ns/authoredDate> <http://www.w3.org/2000/01/rdf-schema#label> "authored date"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/authoredDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date>  .
 <https://data.ipaustralia.gov.au/tmk/ns/authoredUsageCount> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty>  .
@@ -19761,12 +19757,10 @@
 <https://data.ipaustralia.gov.au/tmk/ns/authoredUsageCount> <http://www.w3.org/2000/01/rdf-schema#label> "authored usage count"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/authoringBasis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/authoringBasis> <http://www.w3.org/2000/01/rdf-schema#comment> "What the judgement rests on: \"corpus_explicit\" — the corpus states it in terms; \"corpus_inferred\" — the corpus supports it but the reading is the machine's; \"general_knowledge\" — the corpus does not say it. The third is permitted and flagged, never hidden: an unevidenced assertion is not thereby wrong, it is thereby unevidenced, and no count may present it as equivalent to an evidenced one (ADR-0079 guard 2)."@en-AU  .
-<https://data.ipaustralia.gov.au/tmk/ns/authoringBasis> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/Assertion>  .
 <https://data.ipaustralia.gov.au/tmk/ns/authoringBasis> <http://www.w3.org/2000/01/rdf-schema#label> "authoring basis"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/authoringBasis> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>  .
 <https://data.ipaustralia.gov.au/tmk/ns/authoringReasoning> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/authoringReasoning> <http://www.w3.org/2000/01/rdf-schema#comment> "Why this reading and not the obvious alternative, written for the expert who will disagree with it. The field that makes correction cheap, which is the entire premise of ADR-0079."@en-AU  .
-<https://data.ipaustralia.gov.au/tmk/ns/authoringReasoning> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/Assertion>  .
 <https://data.ipaustralia.gov.au/tmk/ns/authoringReasoning> <http://www.w3.org/2000/01/rdf-schema#label> "authoring reasoning"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/authoringReasoning> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>  .
 <https://data.ipaustralia.gov.au/tmk/ns/authority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology>  .
@@ -19783,7 +19777,6 @@
 <https://data.ipaustralia.gov.au/tmk/ns/authorityKind> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/authorityKind> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/authorityKind> <http://www.w3.org/2000/01/rdf-schema#comment> "`law` | `practice` | `decision`. Redundant with the class, on purpose: it is\nwhat a retrieval projection carries when it has dropped the types, and it is\nwhat a shape checks when it wants to catch a projection that dropped them\nsilently. A SPARQL result that names a passage without this is missing the one\nfact CLAUDE.md rule 5 requires it to carry."@en-AU  .
-<https://data.ipaustralia.gov.au/tmk/ns/authorityKind> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/Authority>  .
 <https://data.ipaustralia.gov.au/tmk/ns/authorityKind> <http://www.w3.org/2000/01/rdf-schema#label> "authority kind"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/authorityKind> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>  .
 <https://data.ipaustralia.gov.au/tmk/ns/authorityStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty>  .
@@ -33570,12 +33563,10 @@
 <https://data.ipaustralia.gov.au/tmk/ns/citingPassage> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.ipaustralia.gov.au/tmk/ns/Passage>  .
 <https://data.ipaustralia.gov.au/tmk/ns/conceptGroup> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/conceptGroup> <http://www.w3.org/2000/01/rdf-schema#comment> "The group the typing record names, verbatim — including \"none_of_these\".\n\nRedundant with the concept's class for the eleven kinds that have one, and the\nonly record of the residue. A concept typed none_of_these asserts no class on\npurpose: none of the kinds fit it. Without this property that decision is\nindistinguishable in the graph from a concept nobody has typed at all, and the\ntwo are opposites — one is an answer about the taxonomy, the other is a\ngap (ADR-0093)."@en-AU  .
-<https://data.ipaustralia.gov.au/tmk/ns/conceptGroup> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/Assertion>  .
 <https://data.ipaustralia.gov.au/tmk/ns/conceptGroup> <http://www.w3.org/2000/01/rdf-schema#label> "concept group"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/confidence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/confidence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/confidence> <http://www.w3.org/2000/01/rdf-schema#comment> "A confidence in the **extraction**. Legitimate and required (CLAUDE.md rule 8).\n\nA confidence attached to a legal conclusion is PU-0003 and is prohibited: no\nprobability in this system is calibrated against examination outcomes, and none\ncould be without a decision corpus."@en-AU  .
-<https://data.ipaustralia.gov.au/tmk/ns/confidence> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/Assertion>  .
 <https://data.ipaustralia.gov.au/tmk/ns/confidence> <http://www.w3.org/2000/01/rdf-schema#label> "confidence"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/confidence> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal>  .
 <https://data.ipaustralia.gov.au/tmk/ns/constrainsExaminerTo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty>  .
@@ -33694,8 +33685,7 @@
 <https://data.ipaustralia.gov.au/tmk/ns/dependsOnExternalSource> <https://data.ipaustralia.gov.au/tmk/ns/usedBy> "GR-0036"  .
 <https://data.ipaustralia.gov.au/tmk/ns/dependsOnExternalSource> <https://data.ipaustralia.gov.au/tmk/ns/usedBy> "GR-0058"  .
 <https://data.ipaustralia.gov.au/tmk/ns/derivedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty>  .
-<https://data.ipaustralia.gov.au/tmk/ns/derivedFrom> <http://www.w3.org/2000/01/rdf-schema#comment> "The source facts the inference stands on. Plural, and complete: an explanation that names some of its premises is not an explanation."@en-AU  .
-<https://data.ipaustralia.gov.au/tmk/ns/derivedFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/InferredAssertion>  .
+<https://data.ipaustralia.gov.au/tmk/ns/derivedFrom> <http://www.w3.org/2000/01/rdf-schema#comment> "The source facts the inference stands on. Plural, and complete: an explanation that names some of its premises is not an explanation. No domain: a reasoning expectation names its expected conclusion's basis with it too, and is not an inference (S036)."@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/derivedFrom> <http://www.w3.org/2000/01/rdf-schema#label> "derived from"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/derivedFrom> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasDerivedFrom>  .
 <https://data.ipaustralia.gov.au/tmk/ns/detectableBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
@@ -33766,8 +33756,6 @@
 <https://data.ipaustralia.gov.au/tmk/ns/establishes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/establishes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://data.ipaustralia.gov.au/tmk/ns/AdmittedRelation>  .
 <https://data.ipaustralia.gov.au/tmk/ns/establishes> <http://www.w3.org/2000/01/rdf-schema#comment> "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 3, unreviewed."@en-AU  .
-<https://data.ipaustralia.gov.au/tmk/ns/establishes> <http://www.w3.org/2000/01/rdf-schema#comment> "UNUSED. Declared to name the shape of the relation, not to license it: nothing in this repo may derive this edge."@en-AU  .
-<https://data.ipaustralia.gov.au/tmk/ns/establishes> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/Evidence>  .
 <https://data.ipaustralia.gov.au/tmk/ns/establishes> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/LegalMatter>  .
 <https://data.ipaustralia.gov.au/tmk/ns/establishes> <http://www.w3.org/2000/01/rdf-schema#label> "establishes"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/establishes> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.ipaustralia.gov.au/tmk/ns/LegalMatter>  .
@@ -33860,7 +33848,6 @@
 <https://data.ipaustralia.gov.au/tmk/ns/expectsConceptLabel> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>  .
 <https://data.ipaustralia.gov.au/tmk/ns/expertShouldCheck> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/expertShouldCheck> <http://www.w3.org/2000/01/rdf-schema#comment> "The specific thing most likely to be wrong here. A pointer, not a disclaimer."@en-AU  .
-<https://data.ipaustralia.gov.au/tmk/ns/expertShouldCheck> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/Assertion>  .
 <https://data.ipaustralia.gov.au/tmk/ns/expertShouldCheck> <http://www.w3.org/2000/01/rdf-schema#label> "expert should check"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/expertShouldCheck> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>  .
 <https://data.ipaustralia.gov.au/tmk/ns/explanationRequired> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
@@ -34500,7 +34487,6 @@
 <https://data.ipaustralia.gov.au/tmk/ns/origin> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/origin> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/origin> <http://www.w3.org/2000/01/rdf-schema#comment> "Which store this node was built from: \"approved\" for eval/gold/, \"authored\" for authored/. Stamped on every node of both, so a triple lifted out of its named graph still says where it came from. The named graph is the governance boundary; this is the belt to its braces (ADR-0080)."@en-AU  .
-<https://data.ipaustralia.gov.au/tmk/ns/origin> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/Assertion>  .
 <https://data.ipaustralia.gov.au/tmk/ns/origin> <http://www.w3.org/2000/01/rdf-schema#label> "origin"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/origin> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>  .
 <https://data.ipaustralia.gov.au/tmk/ns/overcomes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty>  .
@@ -34804,7 +34790,6 @@
 <https://data.ipaustralia.gov.au/tmk/ns/reviewStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/reviewStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/reviewStatus> <http://www.w3.org/2000/01/rdf-schema#comment> "`approved` | `candidate` | `rejected` | `stale`. Never absent, and never defaulted to `approved`."@en-AU  .
-<https://data.ipaustralia.gov.au/tmk/ns/reviewStatus> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/Assertion>  .
 <https://data.ipaustralia.gov.au/tmk/ns/reviewStatus> <http://www.w3.org/2000/01/rdf-schema#label> "review status"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/reviewStatus> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>  .
 <https://data.ipaustralia.gov.au/tmk/ns/reviewsDecisionsOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty>  .
@@ -34861,10 +34846,8 @@
 <https://data.ipaustralia.gov.au/tmk/ns/sourceContentHash> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/Assertion>  .
 <https://data.ipaustralia.gov.au/tmk/ns/sourceContentHash> <http://www.w3.org/2000/01/rdf-schema#label> "source content hash"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/sourceContentHash> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>  .
-<https://data.ipaustralia.gov.au/tmk/ns/sourcePassage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/sourcePassage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty>  .
-<https://data.ipaustralia.gov.au/tmk/ns/sourcePassage> <http://www.w3.org/2000/01/rdf-schema#comment> "'Every approved proposition has a source passage' — the first of the six starting SHACL rules."@en-AU  .
-<https://data.ipaustralia.gov.au/tmk/ns/sourcePassage> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/Assertion>  .
+<https://data.ipaustralia.gov.au/tmk/ns/sourcePassage> <http://www.w3.org/2000/01/rdf-schema#comment> "'Every approved proposition has a source passage' — the first of the six starting SHACL rules.\n\nNot functional, and it has no domain (S036, the review response F01). A record resting\non a Manual chunk and a section of the Act carries both; declared functional, OWL\nwould make the two passages the same individual, which is the separation of law and\npractice undone. It is stamped on concepts and typing records as well as assertions,\nso a domain would reclassify them."@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/sourcePassage> <http://www.w3.org/2000/01/rdf-schema#label> "source passage"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/sourcePassage> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.ipaustralia.gov.au/tmk/ns/Passage>  .
 <https://data.ipaustralia.gov.au/tmk/ns/sourceUrl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
@@ -34912,7 +34895,6 @@
 <https://data.ipaustralia.gov.au/tmk/ns/statusDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date>  .
 <https://data.ipaustralia.gov.au/tmk/ns/supersedesRejected> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/supersedesRejected> <http://www.w3.org/2000/01/rdf-schema#comment> "The id of a record a named expert rejected, where this authored assertion covers the same ground. A signed rejection is a human decision and ADR-0079 does not license reversing one silently: naming it, with the difference explained in tmk:authoringReasoning, is the only way an authored record may occupy that ground (ADR-0084 consequence 2)."@en-AU  .
-<https://data.ipaustralia.gov.au/tmk/ns/supersedesRejected> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/Assertion>  .
 <https://data.ipaustralia.gov.au/tmk/ns/supersedesRejected> <http://www.w3.org/2000/01/rdf-schema#label> "supersedes rejected record"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/supersedesRejected> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>  .
 <https://data.ipaustralia.gov.au/tmk/ns/supportingSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty>  .

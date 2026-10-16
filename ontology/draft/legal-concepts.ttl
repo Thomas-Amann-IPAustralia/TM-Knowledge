@@ -248,8 +248,9 @@ tmk:reviewStatus, and a concept whose only typing is authored has been sorted by
 nobody."""@en-AU .
 
 tmk:conceptGroup a owl:DatatypeProperty ;
+    # No domain since S036: its subject is a typing record's node, which the
+    # build does not type, and a domain would classify it rather than check it.
     rdfs:label "concept group"@en-AU ;
-    rdfs:domain tmk:Assertion ;
     rdfs:comment """The group the typing record names, verbatim — including "none_of_these".
 
 Redundant with the concept's class for the eleven kinds that have one, and the
