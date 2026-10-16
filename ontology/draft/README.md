@@ -3,7 +3,7 @@
 **Nothing in here is approved.** That is the whole reason the directory exists.
 
 `ontology/` holds approved modules and there are none. These are a modelling
-proposal: nine OWL 2 RL modules over the section 43 pilot, drafted from the
+proposal: nine modules over the section 43 pilot, drafted from the
 roadmap's own module list and from the 190 approved records in `eval/gold/`. A
 module moves up to `ontology/` when a person signs it, one at a time, and until
 then this path is the marker that says so (ADR-0057).
@@ -34,7 +34,7 @@ choice. Nothing else.
   the graph carries sources and no text. Writing one would be authoring the
   vocabulary (CLAUDE.md rule 1).
 - **A narrow `rdfs:domain` or `rdfs:range` inferred from a handful of examples.**
-  Under OWL 2 RL a domain assertion reclassifies every subject of the property.
+  Under OWL a domain assertion reclassifies every subject of the property.
   The observed types are `tmk:observedSubjectType` annotations, which infer
   nothing; the asserted domain and range are `tmk:LegalMatter`, which licenses
   nothing false. Tightening one is an expert ruling, not an edit.
@@ -42,8 +42,11 @@ choice. Nothing else.
   `eval/gold/relationships.yaml` and a test compares the committed file against
   a regeneration. To add a predicate, have an expert approve a relationship that
   uses it — `tmk-ontology-relations --write`.
-- **Anything outside OWL 2 RL.** If you need a construct outside the profile,
-  that is an ADR, not an edit.
+- **An OWL reasoning commitment.** No profile is claimed and no OWL inference is
+  licensed (ADR-0134); what may be derived is an approved SPARQL rule in
+  `queries/rules/`, and what a node must carry is a shape. A construct that needs a
+  reasoner to mean anything is an ADR, not an edit. `tests/unit/test_declarations.py`
+  holds the graph to its own functional, datatype and domain declarations.
 - **A module not in `tbox.MODULES`.** The list is fixed rather than globbed: a
   file appearing on disk and being picked up silently is how an unreviewed
   module joins the ontology.

@@ -62,7 +62,7 @@ src/tm_knowledge/         loader → candidate generation → authoring → RDF 
         ├──▶ eval/gold/   190 expert-signed records — FROZEN as the yardstick
         │        │
         │        ├──▶ vocab/       SKOS concept scheme           (Stage 3)
-        │        ├──▶ ontology/    RDF/RDFS/OWL 2 RL modules     (Stage 5)
+        │        ├──▶ ontology/    RDF/RDFS modules, no OWL profile (Stage 5)
         │        │        │
         │        │        ▼
         │        └──▶ graph/       named graphs, PROV-O          (Stage 6)
@@ -103,7 +103,7 @@ consequence 3).
 | `review/returned/` | Marked-up artefacts a person handed back (ADR-0050) | 0 | Inputs. Never edited, never regenerated |
 | `review/decisions/` | What each returned artefact was taken to mean (ADR-0049) | 0, and 10 | Derived from `returned/`; verdicts and corrections verbatim |
 | `vocab/` | SKOS controlled vocabulary | 3 | Approved only. Empty — the concepts are in `graph/approved.ttl`, built from `eval/gold/`, not promoted here |
-| `ontology/` | RDF/RDFS/OWL 2 RL modules | 5 | Approved only. **Empty** |
+| `ontology/` | RDF/RDFS modules, no OWL profile (ADR-0134) | 5 | Approved only. **Empty** |
 | `ontology/draft/` | The candidate ontology — 9 modules, none approved | 5 | ADR-0057. Promoted one module at a time, on a recorded decision |
 | `graph/` | Generated RDF, by named graph | 6 | Generated, and all of it committed (ADR-0070, supersedes ADR-0060). Four graphs: `source`, `approved`, `authored` (ADR-0091), `inferred` |
 | `shapes/` | SHACL shapes | 6 | Gate before publication. Every shape has a violating fixture |
@@ -162,7 +162,7 @@ ADR-worthy.
 | Similarity and clustering | Sentence Transformers; agglomerative / HDBSCAN; cross-encoder rerank |
 | Complex structured extraction | **Gemini 3.8 Flash**, schema-constrained JSON (ADR-0087, ADR-0088 — HANDOFF Q3 closed in both halves). Credential in `GEMINI_API_KEY`; the model id lives in `config.DEFAULT_AUTHORING_MODEL` and nowhere else. Corpus text may be sent; an expert's review notes may not |
 | Vocabulary | SKOS |
-| Ontology | RDF, RDFS, OWL 2 RL |
+| Ontology | RDF, RDFS, SKOS, SHACL and approved SPARQL rules; no OWL profile (ADR-0134) |
 | Ontology editing | Protégé / WebProtégé — not used; the modules are hand-written Turtle and `relations.ttl` is generated |
 | Provenance | PROV-O + project fields |
 | Graph processing | RDFLib — **in use since S010**, as the optional `[rdf]` extra (ADR-0056) |

@@ -5943,3 +5943,40 @@ change its blend; nothing was tuned on these questions.
    average, better than keyword search. This is for the owner's pitch decision, not to be quietly
    fixed by tuning on the benchmark.
 5. Report: `data/derived/reports/measure-reading.md`; data under `data/derived/bench/`.
+
+## ADR-0134 — the ontology claims no OWL profile: RDF, SKOS, SHACL and approved SPARQL rules
+
+**Date** 2026-10-16 · **Authority** agent-proposed · **Status** accepted
+
+**Context.** Since ADR-0057 the draft has called its nine modules "OWL 2 RL", and its README says
+that leaving the profile is an ADR, not an edit. The claim is untrue (ChatGPT's review of 15
+October, F07, confirmed in `docs/ONTOLOGY-REVIEW-RESPONSE.md`): `tmk:RelevantFactor`,
+`tmk:Exception` and `tmk:Remedy` are declared equivalent to existential restrictions, of which OWL 2
+RL allows only the subclass direction; and `xsd:date`, used on every approval and authoring date,
+is outside OWL 2's datatype map altogether. Nothing in the product runs OWL inference: `validate.run`
+uses `inference="none"`, search is custom code, and what the graph derives comes from two SPARQL
+`CONSTRUCT` rules. The audience most likely to load the graph into a reasoner is a pitch's, and
+until S036 it would have found contradictions that were declaration bugs (F01, Q-92).
+
+**Decision (the agent's).** The ontology's contract is bounded: RDF and RDFS, SKOS for the concept
+scheme, SHACL for what a node must carry before it publishes, and the approved SPARQL rules in
+`queries/rules/` for what may be derived. **No OWL profile is claimed and no OWL inference is
+licensed.** `owl:` terms stay as vocabulary (classes, properties, disjointness), documenting intent
+for a reader's tool, and the graph is held to its own functional, datatype and domain declarations
+by `tests/unit/test_declarations.py` rather than by a reasoner. `xsd:date` stays: it is the right
+type for a date. The equivalences are not rewritten in RL-legal form, because the RL-legal half
+(the restriction implies the class) is exactly what made "not on its own" an exception (F15).
+
+**What it does not decide.** The rest of the stale documents (the review's F12, the 8 October
+review's F5), which the owner approved and deferred (CHAT-0056): only the sentences stating the
+profile as the contract change. The `Exception` equivalence itself, which Package 2 of the response
+revises by its own ADR.
+
+**Consequences.**
+1. `ontology/README.md`, `ontology/draft/README.md`, the root README, `ARCHITECTURE.md`,
+   `ROADMAP-STATUS.md`, the glossary and the workbench's model page state the contract above.
+2. Declaration bugs that a reasoner would report are caught by a test instead: S036 removed the
+   functional `tmk:sourcePassage`, the domains that classified every concept as an assertion, and
+   the `xsd:double` confidences, and the S27 and two-way cycle checks joined the gate.
+3. A reader who runs an OWL reasoner over `graph/` does so outside anything this project promises.
+   Provisional, as every agent-proposed ADR is; name it in the handoff's open items.

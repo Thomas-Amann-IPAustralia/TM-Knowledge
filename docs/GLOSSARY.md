@@ -118,8 +118,10 @@ auto-accepted. Tier 3 always needs a human (ADR-0008).
 **SKOS** — W3C model for controlled vocabularies: preferred label, alternative
 labels, broader, narrower, related.
 
-**OWL 2 RL** — the OWL profile chosen for scalable rule-based reasoning, trading
-expressiveness for tractability.
+**OWL 2 RL** — an OWL profile for scalable rule-based reasoning, trading
+expressiveness for tractability. The draft ontology claimed it until 2026-10-16 and
+did not meet it; it now claims no OWL profile, and what may be derived is an
+approved SPARQL rule (ADR-0134).
 
 **SHACL** — W3C constraint language for validating RDF, run via pySHACL before
 publication.

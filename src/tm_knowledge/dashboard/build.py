@@ -528,12 +528,13 @@ def _ontology(facts: Facts) -> dict[str, Any]:
             blocks.callout(
                 "note",
                 "In one paragraph, for a reader who does not do this for a living",
-                "The model is written in {{OWL 2 RL}}, a standard language for describing kinds of "
-                "thing and the rules between them. The **RL** part is a deliberate restriction: it "
-                "trades expressive power for the guarantee that reasoning finishes quickly and "
-                "predictably. Separately, {{SHACL}} states constraints that must hold before "
-                "anything is published — think of {{OWL 2 RL}} as what the model *means* and "
-                "{{SHACL}} as what it *refuses to let through*.",
+                "The model is written in RDF, using OWL's standard words for kinds of thing and "
+                "what may be said about them, and the legal ideas are organised with {{SKOS}}. It "
+                "promises **no automated OWL reasoning**: it once claimed the {{OWL 2 RL}} profile "
+                "and did not meet it (ADR-0134). What may be derived is written as approved SPARQL "
+                "rules, each a named query with a test. Separately, {{SHACL}} states constraints "
+                "that must hold before anything is published — think of the rules as what the "
+                "model may *infer* and {{SHACL}} as what it *refuses to let through*.",
             ),
             blocks.stats(
                 [
