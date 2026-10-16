@@ -7,7 +7,7 @@
     tmk-bulk spend                           recorded spend against the cap
     tmk-bulk quote --write                   price the full runs from what was measured
     tmk-bulk audit-apply [--write]           act on the edge audit: re-read or withdraw the wrong ones
-    tmk-bulk restructure [--write]           apply the structure review's ledger (ADR-0131)
+    tmk-bulk restructure [--ledger P] [--write]  apply a structure ledger (ADR-0131; S036's review response)
     tmk-bulk run reading --effort low --confirm --write
                                              the live reading of every benchmark question (ADR-0133)
     tmk-bulk reading-pools [--write]         the page's three rankings, with and without the reading
@@ -533,12 +533,15 @@ def _restructure(args: argparse.Namespace) -> int:
     """Check, then apply, the structure review's ledger (ADR-0131). Spends nothing."""
     from tm_knowledge.bulk import restructure
 
-    ledger = restructure.load_ledger()
+    path = Path(args.ledger).resolve() if args.ledger else restructure.LEDGER_PATH
+    ledger = restructure.load_ledger(path)
+    ledger.setdefault("ledger_path", str(path.relative_to(REPO_ROOT)))
     ctx = _context()
     result = restructure.plan(ctx, ledger)
     print(f"restructure: {len(result.rereads)} to re-read, {len(result.withdrawn)} to withdraw, "
           f"{len(result.new_edges)} new, {len(result.types)} re-typed, {len(result.concepts)} relabelled, "
-          f"{len(result.corrections)} corrections; {result.done} already applied; {len(result.refused)} refused")
+          f"{len(result.corrections)} corrections, {len(result.kept)} kept; {result.done} already applied; "
+          f"{len(result.refused)} refused")
     for line in result.refused:
         print("  refused:", line)
     if not args.write:
@@ -550,9 +553,10 @@ def _restructure(args: argparse.Namespace) -> int:
     labels = {cid: c.pref_label for cid, c in ctx.links.concepts.items()}
     text = restructure.render(result, labels)
     done = restructure.apply(result)
-    restructure.REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    restructure.REPORT_PATH.write_text(text, encoding="utf-8")
-    print(f"wrote {done}; and {restructure.REPORT_PATH.relative_to(REPO_ROOT)}. Rebuild the graph next.")
+    report = restructure.report_path(ledger)
+    report.parent.mkdir(parents=True, exist_ok=True)
+    report.write_text(text, encoding="utf-8")
+    print(f"wrote {done}; and {report.relative_to(REPO_ROOT)}. Rebuild the graph next.")
     return 0
 
 
@@ -660,6 +664,7 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("audit-apply", help="re-read or withdraw what the edge audit found wrong")
     p.add_argument("--write", action="store_true")
     p = sub.add_parser("restructure", help="apply the structure review's ledger (ADR-0131)")
+    p.add_argument("--ledger", help="another ledger to apply (default data/derived/audit/restructure.yaml)")
     p.add_argument("--write", action="store_true")
     sub.add_parser("spend", help="recorded spend against the cap")
     p = sub.add_parser("quote", help="price the full runs")

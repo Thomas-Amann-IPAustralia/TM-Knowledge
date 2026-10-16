@@ -20,6 +20,14 @@ are (`bulk.audit`), and written only with `--write`:
 - **concepts** — an authored concept's fields changed (a relabel).
 - **corrections** — a signed concept's list fields changed outside the signature (ADR-0122).
 
+Since S036 a second ledger goes through the same applier (`--ledger`): the review
+response's worklist, `data/derived/audit/review-response.yaml`. A line may also **keep** a
+record (checked, nothing written, reported), set a record's `modality` or `applies_when`
+(its sentence's own condition or hedge) without moving its triple, and a re-read onto
+another predicate drops the modality it copied unless the line gives one: thirty S029
+re-reads kept the modality of a verb their new predicate does not read (the review
+response, F05 and F16). A ledger names its report, its ruling item and its review.
+
 Every record written carries the session's stamp, `unreviewed`, and the ruling. Nothing
 here calls a model, and nothing here decides: the ledger decides, and the checks refuse.
 """
@@ -40,7 +48,7 @@ from tm_knowledge.bulk import jobs
 from tm_knowledge.ontology import hygiene
 from tm_knowledge.ontology.predicates import PREDICATES, RETIRED, off_schema
 
-__all__ = ["LEDGER_PATH", "REPORT_PATH", "Plan", "apply", "load_ledger", "plan", "render"]
+__all__ = ["LEDGER_PATH", "REPORT_PATH", "Plan", "apply", "load_ledger", "plan", "render", "report_path"]
 
 LEDGER_PATH = jobs.REPO_ROOT / "data" / "derived" / "audit" / "restructure.yaml"
 REPORT_PATH = jobs.REPO_ROOT / "data" / "derived" / "reports" / "restructure.md"
@@ -56,6 +64,8 @@ class Plan:
     concepts: dict[str, dict[str, Any]] = field(default_factory=dict)
     corrections: list[dict[str, Any]] = field(default_factory=list)
     refused: list[str] = field(default_factory=list)
+    #: (edge, triple, why) for every record a line checked and kept as it is.
+    kept: list[tuple[str, tuple[str, str, str], str]] = field(default_factory=list)
     #: Lines an earlier run already applied.
     done: int = 0
     #: (edge, old triple, new triple or None, why) for the report.
@@ -69,6 +79,27 @@ class Plan:
 def load_ledger(path: Path | None = None) -> dict[str, Any]:
     path = path or LEDGER_PATH
     return yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+
+
+def report_path(ledger: dict[str, Any]) -> Path:
+    """Where a ledger's report goes: its own `report`, or the structure review's."""
+    return jobs.REPO_ROOT / str(ledger["report"]) if ledger.get("report") else REPORT_PATH
+
+
+def _review(ledger: dict[str, Any]) -> str:
+    return str(ledger.get("review") or "the structure review (ADR-0131)")
+
+
+def _fold(text: Any) -> str:
+    return " ".join(str(text or "").split())
+
+
+def _condition_refused(row: dict[str, Any], sentence: Any) -> str | None:
+    """A line's `applies_when` must be the sentence's own words (F14), or it is refused."""
+    condition = row.get("applies_when")
+    if condition and _fold(condition) not in _fold(sentence):
+        return f"applies_when {condition!r} is not in the supporting sentence"
+    return None
 
 
 def _triple(record: dict[str, Any]) -> tuple[str, str, str]:
@@ -177,6 +208,9 @@ def plan(ctx: jobs.Context, ledger: dict[str, Any]) -> Plan:
                 out.refused.append(f"{edge}: not a sound machine-written relationship")
             continue
         old = _triple(entry.record)
+        if "keep" in row:
+            out.kept.append((edge, old, str(row["keep"])))
+            continue
         if "to" in row and old == tuple(str(x) for x in row["to"]) and _ours(entry.envelope, ledger):
             out.done += 1
             continue
@@ -188,7 +222,8 @@ def plan(ctx: jobs.Context, ledger: dict[str, Any]) -> Plan:
             continue
         new = tuple(str(x) for x in row["to"])
         named = jobs._quote_names(ctx, str(entry.record.get("supporting_text") or "")) | {old[0], old[2]}
-        problem = _refusal(ctx, kinds, new, named, affirmed)  # type: ignore[arg-type]
+        problem = (_refusal(ctx, kinds, new, named, affirmed)  # type: ignore[arg-type]
+                   or _condition_refused(row, entry.record.get("supporting_text")))
         if problem:
             out.refused.append(f"{edge} → {' '.join(new)}: {problem}")
             continue
@@ -206,7 +241,23 @@ def plan(ctx: jobs.Context, ledger: dict[str, Any]) -> Plan:
         subject, predicate, obj = new
         record.update({"subject": subject, "predicate": predicate, "object": obj,
                        "tier": 2 if predicate == "broader" else 3})
-        note = (f"Re-read on {today} in the structure review (ADR-0131): was {old[0]} {old[1]} {old[2]}.")
+        # A modality belongs to the verb its predicate reads. Copied onto another
+        # predicate it qualifies a verb the sentence may not hold (F16): dropped,
+        # unless the line gives one. A condition goes the same way.
+        if predicate != old[1]:
+            record["modality"] = row.get("modality")
+            record.pop("applies_when", None)
+        elif "modality" in row:
+            record["modality"] = row["modality"]
+        if row.get("applies_when"):
+            record["applies_when"] = _fold(row["applies_when"])
+        if new != old:
+            note = f"Re-read on {today} in {_review(ledger)}: was {old[0]} {old[1]} {old[2]}."
+        else:
+            changed = [f"modality {entry.record.get('modality') or 'none'} → {record.get('modality') or 'none'}"
+                       if record.get("modality") != entry.record.get("modality") else "",
+                       "its sentence's condition added" if row.get("applies_when") else ""]
+            note = f"Checked on {today} in {_review(ledger)}: {'; '.join(x for x in changed if x) or 'unchanged'}."
         record["notes"] = (str(record["notes"]) + " " + note) if record.get("notes") else note
         record["authored"] = _stamp(
             ledger, evidence=list(envelope.get("evidence") or []),
@@ -233,7 +284,7 @@ def plan(ctx: jobs.Context, ledger: dict[str, Any]) -> Plan:
             continue
         named = (jobs._quote_names(ctx, found["quote"]) | {x for x in new if not x.startswith("GC-")}
                  | _relabelled(ledger, found["quote"]))
-        problem = _refusal(ctx, kinds, new, named, affirmed)
+        problem = _refusal(ctx, kinds, new, named, affirmed) or _condition_refused(row, found["quote"])
         if problem:
             out.refused.append(f"new {' '.join(new)}: {problem}")
             continue
@@ -251,7 +302,9 @@ def plan(ctx: jobs.Context, ledger: dict[str, Any]) -> Plan:
             "id": identifier, "subject": new[0], "predicate": new[1], "object": new[2],
             "source_ref": found["ref"], "supporting_text": found["quote"], "span": found["span"],
             "source_content_hash": found["content_hash"], "tier": 2 if new[1] == "broader" else 3,
-            "modality": None, "approved_by": None, "approved_date": None,
+            "modality": row.get("modality"),
+            **({"applies_when": _fold(row["applies_when"])} if row.get("applies_when") else {}),
+            "approved_by": None, "approved_date": None,
             "authored": _stamp(ledger, evidence=[found], basis=str(row.get("basis") or "corpus_explicit"),
                                reasoning=str(row["why"]), alternatives=[],
                                check="Whether the passage states this relationship.",
@@ -348,7 +401,8 @@ def apply(result: Plan, root: Path | None = None) -> dict[str, int]:
     if not result.ok:
         raise ValueError("the plan has refusals; fix the ledger first:\n" + "\n".join(result.refused))
     root = root or authored_store.AUTHORED_DIR
-    ruling = f"{result.ledger['ruling']}#CHAT-0072"
+    ruling = f"{result.ledger['ruling']}#{result.ledger.get('ruling_item', 'CHAT-0072')}"
+    review = str(result.ledger.get("review") or "structure review (ADR-0131)")
     removed = {row["id"] for row in result.withdrawn}
     jobs.rewrite_records(root / "relationships.yaml", replace=result.rereads, remove=removed)
     if result.new_edges:
@@ -365,7 +419,7 @@ def apply(result: Plan, root: Path | None = None) -> dict[str, int]:
         rows = []
         for row in result.withdrawn:
             out: dict[str, Any] = {"id": row["id"], "record_type": "gold_relationship", "retired_on": today,
-                                   "reason": f"Structure review (ADR-0131): {row['reason']}"}
+                                   "reason": f"{review[0].upper()}{review[1:]}: {row['reason']}"}
             if row.get("replaced_by"):
                 out["replaced_by"] = row["replaced_by"]
             out["ruling"] = ruling
@@ -387,37 +441,54 @@ def render(result: Plan, labels: dict[str, str]) -> str:
     withdrawn = [x for x in result.log if x[2] is None]
     added = [x for x in result.log if not x[1][0]]
     by_predicate = Counter(x[2][1] for x in rereads if x[2] and not x[3].startswith("withdrawn:"))
+    ledger = result.ledger
+    source = str(ledger.get("ledger_path") or "data/derived/audit/restructure.yaml")
     lines = [
-        "<!-- Generated by `tmk-bulk restructure --write` from data/derived/audit/restructure.yaml. "
-        "Do not hand-edit. -->",
+        f"<!-- Generated by `tmk-bulk restructure --write` from {source}. Do not hand-edit. -->",
         "",
-        "# The structure review (ADR-0131)",
-        "",
-        "The owner, on 2026-10-09: *\"Not having elements connect seems like a bit of a cop out. "
-        "Similarly 'is related to' is about as non-descript as you can get.\"* Every line below is an "
-        "agent session's judgement (`claude-code-agent-S029`), machine-written and unreviewed.",
-        "",
-        f"- **{len(result.rereads)} relationships re-read** as what their sentence states — "
-        + ", ".join(f"{p} {n}" for p, n in by_predicate.most_common()) + ".",
-        f"- **{len(result.withdrawn)} withdrawn** — the sentence mentions both ideas but states no relation "
-        "between them, or a re-read landed on a triple another record already states.",
-        f"- **{len(result.new_edges)} new** relationships, each from a passage that states it.",
-        f"- **{len(result.types)} concepts re-typed**, **{len(result.concepts)} relabelled**, "
-        f"**{len(result.corrections)} signed \"kind of\" links corrected** outside the signature.",
-        "",
-        "## Re-read",
-        "",
-        "| edge | was | now | why |",
-        "|---|---|---|---|",
     ]
+    if ledger.get("title"):
+        lines += [f"# {ledger['title']}", "", " ".join(str(ledger.get("intro") or "").split()), "",
+                  f"- **{len(result.rereads)} relationships re-read or re-qualified**, "
+                  f"**{len(result.withdrawn)} withdrawn**, **{len(result.new_edges)} new**, "
+                  f"**{len(result.kept)} checked and kept as they are**."]
+    else:
+        lines += [
+            "# The structure review (ADR-0131)",
+            "",
+            "The owner, on 2026-10-09: *\"Not having elements connect seems like a bit of a cop out. "
+            "Similarly 'is related to' is about as non-descript as you can get.\"* Every line below is an "
+            "agent session's judgement (`claude-code-agent-S029`), machine-written and unreviewed.",
+            "",
+            f"- **{len(result.rereads)} relationships re-read** as what their sentence states — "
+            + ", ".join(f"{p} {n}" for p, n in by_predicate.most_common()) + ".",
+            f"- **{len(result.withdrawn)} withdrawn** — the sentence mentions both ideas but states no relation "
+            "between them, or a re-read landed on a triple another record already states.",
+            f"- **{len(result.new_edges)} new** relationships, each from a passage that states it.",
+            f"- **{len(result.types)} concepts re-typed**, **{len(result.concepts)} relabelled**, "
+            f"**{len(result.corrections)} signed \"kind of\" links corrected** outside the signature.",
+        ]
+    lines += ["", "## Re-read", "", "| edge | was | now | why |", "|---|---|---|---|"]
     for edge, old, new, why in rereads:
-        lines.append(f"| {edge} | {triple(old)} | {triple(new) if new else '—'} | {why.replace('|', '/')} |")
+        now = triple(new) if new else "—"
+        record = result.rereads.get(edge) or {}
+        if new == old:
+            now = "the same, " + (f"modality {record.get('modality') or 'none'}" if "modality" in record else "")
+            if record.get("applies_when"):
+                now += f"; only as qualified: “{record['applies_when']}”"
+        elif record.get("applies_when"):
+            now += f"; only as qualified: “{record['applies_when']}”"
+        lines.append(f"| {edge} | {triple(old)} | {now.replace('|', '/')} | {why.replace('|', '/')} |")
     lines += ["", "## Withdrawn", "", "| edge | was | why |", "|---|---|---|"]
     for edge, old, _new, why in withdrawn:
         lines.append(f"| {edge} | {triple(old)} | {why.replace('|', '/')} |")
     lines += ["", "## New", "", "| edge | relationship | why |", "|---|---|---|"]
     for edge, _old, new, why in added:
         lines.append(f"| {edge} | {triple(new)} | {why.replace('|', '/')} |")  # type: ignore[arg-type]
+    if result.kept:
+        lines += ["", "## Checked and kept", "", "| edge | relationship | why it stands |", "|---|---|---|"]
+        for edge, old, why in result.kept:
+            lines.append(f"| {edge} | {triple(old)} | {' '.join(why.split()).replace('|', '/')} |")
     lines += ["", "## Re-typed", "", "| concept | kind | why |", "|---|---|---|"]
     for row in result.ledger.get("types") or ():
         lines.append(f"| {name(str(row['concept']))} | {row['type'].replace('_', ' ')} | {str(row['why']).replace('|', '/')} |")

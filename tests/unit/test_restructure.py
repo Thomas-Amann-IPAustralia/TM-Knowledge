@@ -26,9 +26,9 @@ def _concept(cid, label, group):
 
 
 def _ctx(tmp_path, records):
-    rows = [{**r, "source_ref": "TMM/Part1/1#1", "span": [0, 10], "source_content_hash": "sha256:" + "a" * 64,
-             "tier": 3, "modality": None, "approved_by": None, "approved_date": None, "authored": dict(ENV)}
-            for r in records]
+    defaults = {"source_ref": "TMM/Part1/1#1", "span": [0, 10], "source_content_hash": "sha256:" + "a" * 64,
+                "tier": 3, "modality": None, "approved_by": None, "approved_date": None, "authored": dict(ENV)}
+    rows = [{**r, **{k: v for k, v in defaults.items() if k not in r}} for r in records]
     (tmp_path / "relationships.yaml").write_text(
         "# header\n" + yaml.dump(rows, sort_keys=False, allow_unicode=True), encoding="utf-8")
     (tmp_path / authored_store.RETIRED_IDS_FILE).write_text("[]\n", encoding="utf-8")
@@ -113,3 +113,76 @@ def test_the_harness_refuses_an_edge_between_kinds_its_predicate_does_not_join()
     found = list(harness._authored_kinds(authored))
     assert [(f.subject, f.check) for f in found] == [("GR-2", "authored-kinds")]
     assert found[0].severity == harness.Severity.DEFECT
+
+
+# --- S036: the review response's worklist goes through the same applier -------------
+#
+# Thirty of the 130 S029 re-reads kept the modality of their earlier reading, because
+# a re-read copied every field but the triple (the review response, F05 and F16). A
+# re-read that changes the predicate now drops it unless the ledger gives one, a line
+# may set a modality or a condition on a record whose triple stands, a line may record
+# that a record was checked and kept, and a second ledger reports to its own file under
+# its own ruling.
+
+S036 = {"authored_by": "claude-code-agent-S036", "date": "2026-10-16",
+        "ruling": "review/rulings/2026-10-09-chat-ontology-structure.yaml", "ruling_item": "CHAT-0073",
+        "review": "the review response's worklist (S036)",
+        "report": "data/derived/reports/review-response-edges.md"}
+
+
+def test_a_re_read_onto_another_predicate_drops_the_modality_it_copied(tmp_path):
+    ctx = _ctx(tmp_path, [
+        {"id": "GR-0001", "subject": "GC-0046", "predicate": "issues", "object": "GC-0040",
+         "supporting_text": TEXT, "modality": "must"},
+        {"id": "GR-0002", "subject": "GC-0040", "predicate": "operatesOn", "object": "GC-0127",
+         "supporting_text": TEXT, "modality": "should"},
+    ])
+    result = restructure.plan(ctx, dict(S036, edges=[
+        {"edge": "GR-0001", "to": ["GC-0046", "performs", "GC-0040"], "why": "«decides»"},
+        {"edge": "GR-0002", "to": ["GC-0040", "resultsIn", "GC-0127"], "modality": "may", "why": "«ends in»"},
+    ]))
+    assert result.ok, result.refused
+    assert result.rereads["GR-0001"]["modality"] is None, "the old verb's modality came along"
+    assert result.rereads["GR-0002"]["modality"] == "may"
+
+
+def test_a_line_may_set_a_records_modality_and_condition_without_moving_it(tmp_path):
+    ctx = _ctx(tmp_path, [
+        {"id": "GR-0001", "subject": "GC-0046", "predicate": "performs", "object": "GC-0040",
+         "supporting_text": TEXT, "modality": "should"},
+        {"id": "GR-0002", "subject": "GC-0040", "predicate": "resultsIn", "object": "GC-0127", "supporting_text": TEXT},
+    ])
+    result = restructure.plan(ctx, dict(S036, edges=[
+        {"edge": "GR-0001", "to": ["GC-0046", "performs", "GC-0040"], "modality": None,
+         "applies_when": "decides the opposition", "why": "«the should was another verb's»"},
+        {"edge": "GR-0002", "to": ["GC-0040", "resultsIn", "GC-0127"],
+         "applies_when": "after the opposition is heard", "why": "«retyped»"},
+    ]))
+    record = result.rereads["GR-0001"]
+    assert record["modality"] is None and record["applies_when"] == "decides the opposition"
+    assert "Checked on 2026-10-16" in record["notes"] and record["authored"]["authored_by"] == "claude-code-agent-S036"
+    assert any(line.startswith("GR-0002") and "not in the supporting sentence" in line for line in result.refused)
+
+
+def test_a_keep_line_writes_nothing_and_is_reported(tmp_path):
+    ctx = _ctx(tmp_path, [
+        {"id": "GR-0001", "subject": "GC-0046", "predicate": "performs", "object": "GC-0040", "supporting_text": TEXT},
+    ])
+    result = restructure.plan(ctx, dict(S036, edges=[{"edge": "GR-0001", "keep": "«it says so»"}]))
+    assert result.ok and not result.rereads and not result.withdrawn
+    assert [k[0] for k in result.kept] == ["GR-0001"]
+    assert "GR-0001" in restructure.render(result, {})
+
+
+def test_a_second_ledger_reports_to_its_own_file_and_names_its_own_ruling(tmp_path):
+    ctx = _ctx(tmp_path, [
+        {"id": "GR-0001", "subject": "GC-0046", "predicate": "performs", "object": "GC-0040", "supporting_text": TEXT},
+    ])
+    result = restructure.plan(ctx, dict(S036, edges=[{"edge": "GR-0001", "withdraw": "«overstates»"}]))
+    assert restructure.report_path(result.ledger).name == "review-response-edges.md"
+    assert restructure.report_path(LEDGER) == restructure.REPORT_PATH
+    (tmp_path / authored_store.RETIRED_IDS_FILE).write_text("# withdrawn ids\n", encoding="utf-8")
+    restructure.apply(result, root=tmp_path)
+    retired = yaml.safe_load((tmp_path / authored_store.RETIRED_IDS_FILE).read_text(encoding="utf-8"))
+    assert retired[0]["ruling"].endswith("#CHAT-0073")
+    assert retired[0]["reason"].startswith("The review response's worklist (S036)")
