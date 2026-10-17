@@ -78,13 +78,14 @@ FILE_FOR: dict[str, str] = {value: key for key, value in AUTHORED_FILES.items()}
 
 #: Files in `authored/` that are not records and are not mistakes.
 #:
-#: `definitions.yaml` is named in `authored/README.md` and is deliberately
-#: **not** here: it has no schema and no id series, so the store cannot hold it
-#: yet and reports it like any other unknown name. Inventing a record type in a
-#: plumbing pass would be authoring the shape of a definition by accident.
+#: `definitions.yaml` was named in `authored/README.md` from the start and held out
+#: of this list until it had a schema and an id series, so that no plumbing pass
+#: could invent a definition's shape by accident. S038 gave it both, deliberately
+#: (`eval/schemas/definition.schema.json`, `GD-`, ADR-0137), and a reader of its
+#: own, `authored.definitions`, as corrections have.
 NOT_RECORDS = frozenset({
     "README.md", "corrections.yaml", "retired-ids.yaml", "too-general-labels.yaml",
-    "merge-candidates.yaml", "kind-of-affirmed.yaml",
+    "merge-candidates.yaml", "kind-of-affirmed.yaml", "definitions.yaml",
 })
 
 #: The ledger of authored ids withdrawn from service — a duplicate of a signed record

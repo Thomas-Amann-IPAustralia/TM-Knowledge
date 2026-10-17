@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/authored/definition/1.0.0",
+  "title": "Definition of a concept",
+  "description": "A machine-written definition of one concept (the review response, F06; ADR-0136). Its own record rather than a field on the concept, because a signed concept cannot be edited and approving a label approves no definition (ADR-0071's reason for a concept's kind). Every definition carries the authoring envelope, quoting the passages it rests on, and says where its words come from. One per concept.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "concept", "text", "basis", "source_ref", "approved_by", "approved_date"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^GD-[0-9]{4}$"},
+    "concept": {
+      "type": "string",
+      "pattern": "^GC-[0-9]{4}$",
+      "description": "The concept defined, signed or machine-written. It must exist in one of the two stores."
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The definition. For a statutory_definition, the instrument's own words, verbatim; otherwise the author's wording, staying within the quoted evidence."
+    },
+    "basis": {
+      "enum": ["statutory_definition", "statutory_provision", "manual"],
+      "description": "Where the words come from. statutory_definition: the Act's or Regulations' own definition, quoted (preferred, CHAT-0045). statutory_provision: written from a provision that says what the thing is or does. manual: written from the Manual, which states practice, not law (CLAUDE.md rule 5)."
+    },
+    "scope_note": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Which sense of a word the definition is of, where the corpus uses it in several (\"application\" first, the 8 October review's B2), or which Part of the Regulations a definition belongs to."
+    },
+    "source_ref": {
+      "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/upstream_ref",
+      "description": "The passage the definition is principally drawn from; one of the evidence refs."
+    },
+    "approved_by": {"type": "null", "description": "Never filled by an agent (CLAUDE.md §2)."},
+    "approved_date": {"type": "null"}
+  }
+}

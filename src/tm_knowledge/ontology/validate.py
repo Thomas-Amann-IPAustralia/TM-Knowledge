@@ -134,12 +134,14 @@ PLACEMENT_SHAPE = "Each kind of record sits in its own named graph"
 #: why this is about the record classes and the origin stamp, not the subjects.
 _RECORD_CLASSES = (
     TMK.ApprovedAssertion, TMK.AuthoredAssertion, TMK.CandidateAssertion,
-    TMK.InferredAssertion, TMK.Correction, TMK.ReasoningExpectation, TMK.EntityMention,
+    TMK.InferredAssertion, TMK.Correction, TMK.Definition, TMK.ReasoningExpectation,
+    TMK.EntityMention,
 )
 _PLACEMENT: dict = {
     SOURCE_GRAPH: ((), None),
     APPROVED_GRAPH: ((TMK.ApprovedAssertion, TMK.ReasoningExpectation, TMK.EntityMention), "approved"),
-    AUTHORED_GRAPH: ((TMK.AuthoredAssertion, TMK.Correction, TMK.ReasoningExpectation, TMK.EntityMention), "authored"),
+    AUTHORED_GRAPH: ((TMK.AuthoredAssertion, TMK.Correction, TMK.Definition, TMK.ReasoningExpectation,
+                      TMK.EntityMention), "authored"),
     INFERRED_GRAPH: ((TMK.InferredAssertion,), None),
 }
 

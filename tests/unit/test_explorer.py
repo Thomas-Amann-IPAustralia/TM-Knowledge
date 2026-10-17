@@ -308,3 +308,19 @@ def test_the_page_never_reads_an_empty_map_as_an_absence():
     assert ask.count("not a finding that none exist") == 2
     assert "Gathered no passages through the map's links" in ask
     assert "a requirement, exception or step they do not mention may still exist" in ask
+
+
+@needs_snapshot
+def test_a_concept_card_carries_its_definition_stamped_with_its_source(files):
+    """ADR-0137: shown as machine-written and unreviewed, and saying where its words
+    come from, so the Act's definition and the Manual's practice never blur."""
+    from tm_knowledge.authored import definitions
+
+    defined = [c for c in files["ontology.json"]["concepts"] if c.get("definition")]
+    assert len(defined) == len(definitions.load().sound)
+    for concept in defined:
+        d = concept["definition"]
+        assert d["review_status"] == "unreviewed" and d["text"] and d["ref"], concept["id"]
+        assert d["basis"] in ("statutory_definition", "statutory_provision", "manual")
+    map_js = (SITE / "js" / "map.js").read_text(encoding="utf-8")
+    assert "definition(x.definition)" in map_js and "which states practice, not law" in map_js

@@ -149,9 +149,10 @@ def next_number(prefix: str) -> int:
     ids = [str(r.get("id", "")) for _, r in gold.all_records()]
     ids += [entry.record_id for entry in authored.entries]
     ids += list(gold.retired_ids) + list(authored.retired_ids)
-    corrections = authored_store.AUTHORED_DIR / "corrections.yaml"
-    if corrections.exists():
-        ids += re.findall(r"^- id: (GK-\d+)", corrections.read_text(encoding="utf-8"), re.M)
+    for name, series in (("corrections.yaml", "GK"), ("definitions.yaml", "GD")):
+        path = authored_store.AUTHORED_DIR / name
+        if path.exists():
+            ids += re.findall(rf"^- id: ({series}-\d+)", path.read_text(encoding="utf-8"), re.M)
     # Held seed records keep the numbers they were drafted with (ADR-0043).
     for path in (REPO_ROOT / "review" / "seed").glob("*.yaml"):
         ids += re.findall(rf"\bid: ({prefix}-\d+)", path.read_text(encoding="utf-8"))

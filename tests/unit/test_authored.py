@@ -70,14 +70,19 @@ def test_an_absent_authored_directory_is_not_an_error(tmp_path):
     assert loaded.unreadable == ()
 
 
-def test_definitions_yaml_is_reported_rather_than_read(tmp_path):
-    """`authored/README.md` names a definitions record type that has no schema
-    and no id series. Until it has both, the store says so instead of guessing
-    a shape for it — inventing a record type is authoring, not plumbing."""
+def test_definitions_yaml_is_read_by_its_own_reader_not_the_store(tmp_path):
+    """Until S038 a definition had no schema and no id series, and the store
+    reported the file rather than guess a shape for it. It has both now
+    (ADR-0137), and `authored.definitions` reads it, as `authored.corrections`
+    reads `corrections.yaml`; the store holds it as no record type."""
+    from tm_knowledge.authored import definitions
+
     (tmp_path / "definitions.yaml").write_text("- {id: GD-0001}\n", encoding="utf-8")
     loaded = store.load(tmp_path)
     assert loaded.held == 0
-    assert [path.name for path, _ in loaded.unreadable] == ["definitions.yaml"]
+    assert loaded.unreadable == ()
+    read = definitions.load(tmp_path)
+    assert [entry.id for entry in read.refused] == ["GD-0001"], "a malformed definition is refused, never skipped"
 
 
 def test_the_envelope_is_split_off_before_the_record_is_read(tmp_path):

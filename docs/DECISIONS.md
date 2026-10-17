@@ -6069,3 +6069,41 @@ of the work. When re-measurement happens or what it may cost.
    bumps the pin, runs the staleness check, and rebuilds the graph.
 3. The pitch's numbers predate S029's and S036's edges and the blend fix; the pitch must cite the
    report and commit each comes from (F11) and say they are not re-measured.
+
+## ADR-0137 — definitions are their own records, `GD-`, with the source of their words stated
+
+**Date** 2026-10-17 · **Authority** agent-proposed (S038) · **Status** accepted, provisional ·
+acts on ADR-0136 decision 2 (CHAT-0078)
+
+**Context.** The owner lifted the deferral on definitions (CHAT-0078). ADR-0136 left their
+wording and id series to the agent. None of the 164 concepts had a definition; the signed
+records carry `definition_sources` and no text, and cannot be edited. The Act's dictionary
+is cut upstream into one unit per defined term (`TMA1995/s6/<term>`), and the owner asked
+that the Act's own definitions be preferred (CHAT-0045).
+
+**Decision (the agent's).**
+1. A definition is its own record, `GD-`, one sequence and one per concept, in
+   `authored/definitions.yaml`, schema `eval/schemas/definition.schema.json`, read by
+   `tm_knowledge.authored.definitions`, never a field on the concept (ADR-0071's reason).
+2. Each says where its words come from: `statutory_definition` (the instrument's own
+   definition, verbatim, unit by unit, following a "has the meaning given by" pointer to the
+   section it names), `statutory_provision` (written from a provision), `manual` (written from
+   the Manual, practice, not law). A statutory definition quotes the instrument and nothing
+   else; a Manual one quotes the Manual. The reader refuses a record that breaks this.
+3. Order of preference: the Act's own definition; then the Regulations' dictionary (r 2.1);
+   then a Part's own definition (scope note naming the Part); then a provision; then the
+   Manual. A concept whose sources do not define it gets no record (15 of 164 today).
+4. Scope notes first on "application" (the 8 October review's B2): every definition of a
+   concept named for an application says which sense it means; no concept is split.
+5. In the graph: a `tmk:Definition` record node and `skos:definition` / `skos:scopeNote` on
+   the concept, both in the authored graph only; the placement check fails one anywhere else.
+   The explorer's concept card shows it stamped "Machine · unreviewed", with its source.
+6. Written by the S038 session from the quoted passages, no model call (no spend).
+
+**What it does not decide.** Whether any definition is right; examiners review at ship time
+(ADR-0120). Whether a concept should be split by sense. Whether the answering model is given
+definitions (that changes what it is told, an owner gate).
+
+**Consequences.** 149 definitions: 53 statutory, 22 from a provision, 74 from the Manual. A
+statutory definition whose unit changes at the next pin move goes stale like any evidence
+(Q-95). The harness reports refused definitions as defects and the count as a note.

@@ -38,6 +38,7 @@ from typing import Any
 import yaml
 
 from tm_knowledge.authored import corrections as corrections_module
+from tm_knowledge.authored import definitions as definitions_module
 from tm_knowledge.authored import store as authored_store
 from tm_knowledge.bulk import jobs
 from tm_knowledge.bulk import links as links_module
@@ -293,6 +294,21 @@ def ontology(corpus: Corpus, gold: Any, authored: Any, links: links_module.Links
     for concept in concept_list:
         if fixes.for_target(concept["id"]):
             concept["corrected"] = [c.id for c in fixes.for_target(concept["id"])]
+    # A definition is its own machine-written record (ADR-0137), shown on the card
+    # with its stamp and with where its words come from: the Act's own, written from
+    # a provision, or written from the Manual, which is practice, not law.
+    defined = definitions_module.load(authored=authored).by_concept()
+    for concept in concept_list:
+        found = defined.get(concept["id"])
+        if found is None:
+            continue
+        env = found.envelope or {}
+        concept["definition"] = {
+            "id": found.id, "text": found.record["text"], "basis": found.record["basis"],
+            "scope_note": found.record.get("scope_note"), "ref": found.record["source_ref"],
+            "by": env.get("authored_by"), "date": env.get("authored_date"),
+            "review_status": env.get("review_status"),
+        }
     replaced = {new: old for old, new in fixes.replacements().items()}
     for rel in relations:
         if rel["id"] in replaced:
