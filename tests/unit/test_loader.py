@@ -128,7 +128,7 @@ def test_the_whole_corpus_loads(corpus):
     assert len(corpus.pages) == 500
     assert len(corpus.chunks) == 2460
     assert len(corpus.provisions) == 763
-    assert len(corpus.units) == 5813
+    assert len(corpus.units) == 5821  # 5,813 before the Act's compilation 48
 
 
 @pytest.mark.snapshot

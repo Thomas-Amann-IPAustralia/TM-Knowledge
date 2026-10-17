@@ -117,7 +117,7 @@
       span:
       - 4
       - 243
-      content_hash: sha256:be469f9148fe0eefbde61c9287f8fc3ce41403de3e66af542f93712a97cdb7d7
+      content_hash: sha256:9963ba0996aa29c20aa2417886017ac6b1e9c503645f2cb7c46bdefd4eeea1f0
       quote: For the purposes of paragraph 27(3)(b) of the Act, the following subregulations
         set out the manner of specifying, in an application for the registration of a trade
         mark, the goods and/or services in respect of which registration is sought.
@@ -127,6 +127,11 @@
       duplicate cited paragraph 27(1)(b); regulation 4.4 says the paragraph is 27(3)(b).
     alternatives_considered: []
     expert_should_check: null
+    review_history:
+    - status: unreviewed
+      date: '2026-10-17'
+      by: claude-code-agent-S038
+      round: "evidence re-anchored to the Act's compilation 48 and Regulations re-cut at legislation/0.3.0 (ADR-0136): upstream restored a hyphen in the quoted provision; the judgement is unchanged ('suboffices' now reads 'sub-offices', outside the quote)"
 - id: GK-0004
   corrects: GC-0013
   record_type: gold_concept

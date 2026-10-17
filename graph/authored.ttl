@@ -617,6 +617,24 @@ tmka:GK-0036 a tmk:Correction ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
     tmk:withdrawnValue "broader: GC-0009" .
 
+tmka:GK-0037 a tmk:Correction ;
+    rdfs:comment "The S27 conflict the review response found (F07). The owner confirmed that the D2 ruling, \"correct known defects\" (CHAT-0041), covers it (CHAT-0082)."@en-AU ;
+    tmk:authoredBy "claude-code-agent-S038" ;
+    tmk:authoredDate "2026-10-17"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "GC-0017 records GC-0018 as related, and GC-0018 records itself as a kind of GC-0017; both are signed, and SKOS's integrity condition S27 forbids the pair, because \"related\" means associated and not in a hierarchy. One has to go. The kind-of link stays. The Act's definition, as the Manual quotes it, makes a geographical indication a sign identifying where the goods come from, which is a reference to a geographical location of the kind Part 29.9 describes; and GC-0017's own signed note reads the same way (\"every geographical indication is a geographical reference and the reverse is false\"). The \"related\" link adds nothing the hierarchy does not already say, and GC-0017's not-label \"geographical indication\" still keeps the two apart for recognition."@en-AU ;
+    tmk:confidence 0.85 ;
+    tmk:corrects tmkc:GC-0017 ;
+    tmk:expertShouldCheck "Whether the expert meant \"related\" as something the hierarchy does not cover, such as the separate statutory scheme for wine GIs (GC-0169)."@en-AU ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GK-0037" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:ruling "review/rulings/2026-10-17-chat-review-response.yaml#CHAT-0082+review/rulings/2026-10-08-chat-ontology-review.yaml#CHAT-0041" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part46/4/4/6/1> ;
+    tmk:withdrawnValue "related: GC-0018" .
+
 tmka:GR-0059 a tmk:AuthoredAssertion ;
     tmk:assertionObject tmkc:GC-0003 ;
     tmk:assertionPredicate tmk:mayGiveRiseTo ;
@@ -7341,11 +7359,11 @@ tmka:GR-0672 a tmk:AuthoredAssertion ;
     tmk:isStale false ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourceContentHash "sha256:7c11866151e51042630786461b8b5aeb23da704f63ad9cfef2d89d484ff8e7a5" ;
+    tmk:sourceContentHash "sha256:021ceda02bd6c0ac675cfd1a15a6eb5b6ca76bc17f3fd87da43eeee0eee09b18" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s170> ;
-    tmk:spanEnd 293 ;
+    tmk:spanEnd 294 ;
     tmk:spanStart 0 ;
-    tmk:supportingText "Subject to this Part, the provisions of this Act relating to trade marks (other than sections 8 and 26, paragraph 27(1)(b), sections 33, 34 and 41, sections 121 and 127, Part 9—Removal of trade mark from Register for nonuse and Part 17—Defensive Trade Marks) apply to certification trade marks" ;
+    tmk:supportingText "Subject to this Part, the provisions of this Act relating to trade marks (other than sections 8 and 26, paragraph 27(1)(b), sections 33, 34 and 41, sections 121 and 127, Part 9—Removal of trade mark from Register for non-use and Part 17—Defensive Trade Marks) apply to certification trade marks" ;
     tmk:tier 3 .
 
 tmka:GR-0673 a tmk:AuthoredAssertion ;
@@ -12972,13 +12990,6 @@ tmkc:GC-0015 a tmk:ProceduralStep ;
     tmk:operatesOn tmkc:GC-0012 ;
     tmk:typedBy tmka:GT-0015 .
 
-tmkc:GC-0017 a tmk:SignContent ;
-    tmk:indicates tmkc:GC-0019 ;
-    tmk:mayGiveRiseTo tmkc:GC-0001 ;
-    tmk:qualifies tmkc:GC-0002,
-        tmkc:GC-0059 ;
-    tmk:typedBy tmka:GT-0017 .
-
 tmkc:GC-0019 a tmk:Context ;
     tmk:mayGiveRiseTo tmkc:GC-0004,
         tmkc:GC-0120 ;
@@ -13159,6 +13170,13 @@ tmkc:GC-0008 a tmk:LegalTest ;
     tmk:statesThresholdFor tmkc:GC-0004,
         tmkc:GC-0168 ;
     tmk:typedBy tmka:GT-0008 .
+
+tmkc:GC-0017 a tmk:SignContent ;
+    tmk:indicates tmkc:GC-0019 ;
+    tmk:mayGiveRiseTo tmkc:GC-0001 ;
+    tmk:qualifies tmkc:GC-0002,
+        tmkc:GC-0059 ;
+    tmk:typedBy tmka:GT-0017 .
 
 tmkc:GC-0038 a tmk:SignContent ;
     tmk:mayGiveRiseTo tmkc:GC-0001 ;
@@ -14311,6 +14329,6 @@ tmkc:GC-0168 a skos:Concept,
     tmk:typedBy tmka:GT-0168 .
 
 tmkc:scheme-s43 a tmk:ConceptScheme ;
-    rdfs:label "Section 43 examination vocabulary — pilot"@en-AU ;
-    skos:prefLabel "Section 43 examination vocabulary — pilot"@en-AU .
+    rdfs:label "Trade marks examination vocabulary"@en-AU ;
+    skos:prefLabel "Trade marks examination vocabulary"@en-AU .
 

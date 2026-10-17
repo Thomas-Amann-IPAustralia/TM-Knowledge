@@ -1610,3 +1610,30 @@ the new predicate, re-read its records onto it in a ledger, and only then move t
 `RETIRED`: a record on a retired predicate is a harness defect. New predicates take
 `admitted: owner-2026-10-09` (the structure ruling, CHAT-0073), which `test_predicates.py`
 restricts to the owner's rulings, and need a line in `_JOINS` naming their kinds.
+
+### Q-95: moving the pin — what goes stale, and how S038 re-anchored it
+
+The first pin move (S038, `c490a99` → `308bfd9`, the Act's compilation 48 at
+`legislation/0.3.0`, ADR-0136). Before bumping, diff the two commits' record
+*shapes*, not only their counts: here the provision, unit and instrument records
+kept every key, the schema files were identical, and the only new key was
+`endnotes[].tables[].underlined`, which nothing here reads. No ref was removed;
+eight units were added. 87 provisions changed text, nearly all because 0.3.0
+reads the docx's non-breaking hyphens ("nonuse" → "non-use"), so a re-cut moves
+hashes without moving meaning.
+
+The bump itself: edit `data/pin.json` (commit, extractor version, the corpus
+counts, an empty `tree_sha256`), then `tmk-fetch-upstream --force --write-digest`.
+Then `tmk-harness` lists every record whose evidence moved; only two did (GR-0672,
+GK-0003). Each was re-read against the new text and its quote, span and hash
+re-copied by hand, with a `review_history` entry saying what changed and that the
+judgement did not; it stays `unreviewed`. That entry is the record that it was
+touched: never re-copy a hash without one, and never re-copy one whose quote no
+longer says what the record claims. Then the counts in `test_pin.py`,
+`test_loader.py`, `test_refs_corpus.py`, `refs.py` and the annotation in
+`UPSTREAM.md` §2, and a graph rebuild.
+
+The explorer names the compilation on every answer from the snapshot's
+`instrument.json`, so it moves with the pin by itself; the prepared answers keep
+`explorer.build.PREPARED_LAW`, the law they were written against, until they are
+re-written.

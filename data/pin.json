@@ -1,9 +1,9 @@
 {
   "repo": "Thomas-Amann-IPAustralia/manual-XtrACTor",
   "clone_url": "https://github.com/Thomas-Amann-IPAustralia/manual-XtrACTor",
-  "commit": "c490a9927f1ab67c1c2fe4afdc758c79f35430c8",
+  "commit": "308bfd9162ebea3e0213e6299516ee314d6f2eca",
   "manual_extractor_version": "ingest/0.11.0",
-  "legislation_extractor_version": "legislation/0.2.0",
+  "legislation_extractor_version": "legislation/0.3.0",
   "paths": [
     "snapshot",
     "exports",
@@ -16,10 +16,10 @@
     "links": 2218,
     "instruments": 2,
     "provisions": 763,
-    "units": 5813,
+    "units": 5821,
     "page_files": 500,
     "provision_files": 763
   },
-  "tree_sha256": "cd069946fb4e2cbd8c48f916bb08a62e24b21e9e88d4283c3d0632b9181e89b8",
-  "note": "Upstream publishes no releases and no tags, so the pin is a commit on main (Q-19). This commit is the one docs/UPSTREAM.md §2 quotes: every count there reproduces from it exactly."
+  "tree_sha256": "0c51c4fa5db4c6b1897eba0e2fe92d7e90a7cbb6395da9d0531ccf8ac652b38a",
+  "note": "Upstream publishes no releases and no tags, so the pin is a commit on main (Q-19). Moved on 2026-10-17 from c490a9927f1a to this commit, which holds the Trade Marks Act 1995 at compilation 48 (C2026C00421, in force from 19 September 2026) re-cut at legislation/0.3.0 (ADR-0136, CHAT-0077). The Manual snapshot is unchanged between the two commits."
 }

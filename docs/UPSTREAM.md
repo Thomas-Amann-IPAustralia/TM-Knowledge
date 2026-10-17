@@ -50,6 +50,15 @@ Chunk kinds present: `body` 1,683, `annex` 725, `landing` 52.
 Legislation (`legislation/0.2.0`): 2 instruments, **763 provisions**
 (TMA1995 316, TMR1995 447), **5,813 numbered units**.
 
+> **Annotated 2026-10-17, not upstream's words** (ADR-0136). The pin moved to
+> `308bfd9`, where the legislation is `legislation/0.3.0`: the Act at compilation
+> 48 (`C2026C00421`, in force from 19 September 2026), the Regulations still at
+> compilation 53; **763 provisions, 5,821 numbered units** (eight new units in
+> ss 221, 228A and 231 and the front matter). 0.3.0 reads the docx's non-breaking
+> hyphens and symbol dashes, so 87 provisions changed text ("non-use", not
+> "nonuse"), and the endnote tables gain an `underlined` list. The Manual is
+> unchanged; the join measures 2,615 of 2,691 (Q-20).
+
 **The join:** 2,611 of 2,687 in-scope Manual provision edges resolve (97%).
 
 583 tests pass; both corpora validate; both re-derive from stored raw with zero
