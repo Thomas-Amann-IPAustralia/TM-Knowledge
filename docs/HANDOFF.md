@@ -1,84 +1,64 @@
 # HANDOFF
 
-**Last updated:** 2026-10-16 · S036 (end) · branch `claude/youthful-turing-4x4xa6`
+**Last updated:** 2026-10-17 · S037 (end) · branch `claude/fervent-sagan-idykmy`
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
 
 ## Where things stand
 
-**S036 implemented Packages 1 and 2 of `docs/ONTOLOGY-REVIEW-RESPONSE.md`**, on the owner's
-instruction: agent work only, no spend, nothing from its "Decisions for the owner". Each probe
-in its "How to repeat the checks" is now a test that failed before its fix. Full suite 757
-passed; harness 0 defects; SHACL 0 defects, 260 notes; graph rebuilt.
+**S037 recorded the owner's answers to the review response's nine decisions** and, on the
+owner's instruction, started none of the work. Ruling `review/rulings/2026-10-17-chat-review-response.yaml`
+(`applied: null`), words in `review/returned/261017-owner-chat-review-response.md`, ADR-0136.
+OQ-0029 is answered (`applied: false`). Nothing else changed: no records, no graph, no code.
 
-**Package 1 (gates, serving views, declared logic): all done.**
-- **F04** Workbench map and decision tree on `served_gold()` (they drew 14 corrected signed
-  relationships as reviewed). Nine competency queries filter `tmk:isCorrected`; a test runs
-  every query. CQ-0019 also leaked, which the response missed.
-- **F01** Functional `tmk:sourcePassage` and the reclassifying domains removed: the provenance
-  stamps, and also `approvedBy`/`approvedDate`, `derivedFrom`, `authorityKind`, `conceptGroup`
-  and `evidence.ttl`'s stale `establishes`. `test_declarations.py` checks functional, domain and
-  datatype declarations without a reasoner. owlrl on GC-0054: no `sameAs`, no errors.
-- **F02** `_flatten` includes the inferred graph; `validate.placement` checks each record class
-  and origin stamp against its named graph; tests call `validate.run` on a `Dataset`.
-- **F03** Pages runs on the harness workflow's success for a push to `main` (`workflow_run`,
-  the commit the harness checked). Takes effect once merged: `workflow_run` reads `main`'s file.
-- **F07** Decimal confidences; 12 prose ranges `rdf:langString`; **ADR-0134** drops the OWL 2 RL
-  claim (no profile, no OWL inference); the cycle shape walks inverse `narrower`; SKOS S27
-  check, which reports the signed GC-0017/GC-0018 pair as a note (decision 6).
-- **F08** Span, hash and quote required in the envelope schema and the harness.
-- **F11** Reports name commit, grade hash and count, rankings hash; `measure --write` writes a
-  dated report rather than overwrite one scored on other inputs. Both reports stamped.
+S036 (merged, PR #37) finished Packages 1 and 2 of `docs/ONTOLOGY-REVIEW-RESPONSE.md`: 757
+tests passed; harness 0 defects; SHACL 0 defects, 260 notes. Counts: 52 signed + 112 authored
+concepts; 35 signed relationships (20 current, 15 corrected) + 337 authored; all 164 concepts in
+one connected piece. Recorded spend US$9.63 against the US$9.49 cap: every paid call is refused.
 
-**Package 2 (what the edges say): all done**, except what the response itself sends to the owner.
-- **F05** The worklist through a second ledger, `data/derived/audit/review-response.yaml`
-  (report `data/derived/reports/review-response-edges.md`): 144 lines, 43 re-read or
-  re-qualified, 18 withdrawn, 3 new (GR-0705 to GR-0707), 83 checked and kept. Every S029
-  re-read is now judged in its current form. Of the seven: six withdrawn, GR-0432 kept with its
-  condition. The four audit-disputed replacements of signed records stay the owner's.
-  `restructure` now drops a copied modality on a predicate change, takes `--ledger`, `keep:`
-  lines and conditions, and never lets an earlier ledger read back a later one's record (Q-93).
-- **F13** `prevents` only blocks; `suspendsTimeFor` stops the clock (GR-0259, GR-0534);
-  `precedes` reads "must come before".
-- **F15** `isAnExceptionTo` (**ADR-0135**); GR-0699 to GR-0702 moved onto it, hedges in
-  `applies_when`. `doesNotGiveRiseTo` is "not on its own" in the tree; the equivalence is gone.
-- **F18** `establishes` renamed `mayShow` (labels come from names, Q-94) and retired; GR-0206
-  moved, GR-0163 and GR-0248 withdrawn.
-- **F14** `applies_when` on the schema, harness (verbatim in the sentence), graph
-  (`tmk:appliesWhen`), explorer card, table, CSV and workbench map; 26 records carry one. **Not**
-  given to the live answering model: decision 4.
+## The owner's decisions to act on (ADR-0136, CHAT-0077 to CHAT-0084, OQ-0029)
 
-Counts: 52 signed + 112 authored concepts; 35 signed relationships (20 current, 15 corrected)
-+ 337 authored; all 164 concepts in one connected piece. No spend; recorded US$9.63 against the
-US$9.49 cap, so every paid call is still refused.
+1. **Re-pin to compilation 48** (CHAT-0077). Upstream (`manual-XtrACTor`, not this repo) re-captures
+   the Trade Marks Act 1995 at compilation 48 (`C2026C00421`, from 19 September 2026); bump the pin;
+   run the staleness check; rebuild. The owner's condition: *nothing downstream may break*. Until
+   then show "the Act as in force from 14 October 2024" on every answer, and carry upstream's
+   compilation details into the graph (F09's fix).
+2. **Definitions** (CHAT-0078): deferral lifted. F06's fix: a separate record type with its own id
+   series (`docs/IDENTIFIERS.md`), drafted from each concept's `definition_sources`, the Act's own
+   definitions preferred (CHAT-0045), no model spend; scope notes first on "application".
+3. **Stale documents** (CHAT-0079): deferral lifted. F12's fix: regenerate
+   `data/derived/reports/ontology.md`, correct the root and `ontology/draft/` READMEs, rename the
+   "Section 43 examination vocabulary — pilot" scheme (`ontology/build.py`), add a drift check
+   for the report, and say the `data.ipaustralia.gov.au` IRIs are not published (OQ-0008 open).
+4. **The live chatbot** (CHAT-0080): give each graph path line its modality and `applies_when`, and
+   add the rule against concluding absence (F19's wording), in `jobs.py` and `live.js` together;
+   matching words on the page where nothing is found.
+5. **Masked key** (CHAT-0081): the chatbot already answers through the Render proxy. Remove the
+   masked-key fallback (explorer build and `pages.yml`); the owner revokes the old key.
+6. **GC-0017/GC-0018** (CHAT-0082): correct the S27 conflict with a `GK-` correction naming
+   CHAT-0041 and CHAT-0082; never edit `eval/gold/`. Which link goes is the agent's, stamped.
+7. **Branch protection** (CHAT-0083): no, for now. Do not raise it again unprompted.
+8. **The pitch** (OQ-0029, `both_halves`): claim the gain over keyword search, say plainly modern
+   search ranks better, then lead with what the ontology uniquely does. Update `docs/PITCH-PACK.md`
+   and the draft deck; cite each number's report and commit, and say it is not re-measured.
+9. **Re-measurement** (CHAT-0084): deferred; no amount. Do not ask for one unprompted.
 
-## Waiting on the owner
+Close each out in the ruling's `applied:` as it is done; set OQ-0029's `applied: true` with item 8.
 
-1. **The response's nine decisions**, unchanged: re-pin to the Act's compilation 48; lift the
-   deferrals on definitions (F4) and stale documents (F5); the two live-chatbot changes (4: modality
-   and `applies_when` on the graph path, ready to wire; the rule against concluding absence);
-   remove the masked-key fallback; confirm D2 covers GC-0017/GC-0018 (now an S27 note in every
-   gate run); branch protection on `main`; the pitch's claims (OQ-0029); an amount to re-measure.
-2. **Merge this branch.** It changes records, the graph and the site's code; with F03 in place,
-   Pages deploys only once the harness passes on `main`.
-3. From S034: the page's blend; ADR-0131; the four disputed signed readings; deploy the proxy.
+## Still waiting on the owner
 
-## Next actions
+- From S034: the page's blend; ADR-0131; the four disputed signed readings.
 
-1. **The blend** (S034, F10): hub concepts ("trade mark", "applicant") enter search expansion
-   as neighbours in 15 of 76 questions, and without vectors the linked list breaks ties by ref
-   order. Fix before re-measuring, never tuned on the benchmark; `engine.js` and
-   `search/index.py` together.
-2. **Re-measure** (needs an amount): the measured systems predate S029's and S036's edges.
-3. **Remaining heading-only edges** outside the worklist (GR-0270, Madrid Protocol Article 7's
-   title, at least, found by reading): no check finds them yet; re-cite or withdraw through a
-   ledger.
-4. After decision 4: give the answering model each path line's modality and `applies_when`, in
-   `jobs.py` and `live.js` together.
-5. Package 4 of the response once the owner decides: F12's documents, F06's definitions,
-   re-pin and let the staleness check show what moved.
-6. Small: `map.js` draws a `CASE/…` ref as a Manual chip; "Wrote an answer…" with live answers
+## Next actions (agent work, no spend)
+
+1. The owner's items above, in roughly this order: 3 (an hour), 6, 5, 4, 2, 8; 1 needs upstream.
+2. **The blend** (S034, F10): hub concepts ("trade mark", "applicant") enter search expansion as
+   neighbours in 15 of 76 questions, and without vectors the linked list breaks ties by ref order.
+   Fix in `engine.js` and `search/index.py` together, never tuned on the benchmark.
+3. **Remaining heading-only edges** outside the worklist (GR-0270, Madrid Protocol Article 7's title,
+   at least): no check finds them yet; re-cite or withdraw through a ledger.
+4. Small: `map.js` draws a `CASE/…` ref as a Manual chip; "Wrote an answer…" with live answers
    off; "Gathered 0 passages linked to those ideas" when nothing was recognised.
 
 ## What to distrust
@@ -92,7 +72,7 @@ US$9.49 cap, so every paid call is still refused.
 - **The new predicates' definitions** (`suspendsTimeFor`, `isAnExceptionTo`, `mayShow`) and the
   card's wording ("Only as the source qualifies it") are the agent's. The card change was
   checked by syntax and the explorer build, not in a browser.
-- **The live chatbot still gets bare triples** on its graph path (decision 4).
+- **The live chatbot still gets bare triples** on its graph path (approved, ADR-0136; not wired).
 - **The pinned Act is one compilation behind the law.** **22 legislative bases are unverified.**
 - **The published `site/data/ontology.json` still carries the reviewer's initials** (S028).
 - **The reading and the measurement** are a model's, on model-written questions (ADR-0133).
