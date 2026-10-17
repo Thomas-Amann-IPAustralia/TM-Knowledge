@@ -11,6 +11,6 @@ answer prompt is read from `bulk.jobs`, never restated; the search patterns from
 `bulk.links`; the rankings' constants from `search.index`.
 
 What must not: write into the stores or the snapshot, fill `approved_by`, or put a key in
-any file but `site/data/live.json` — which is git-ignored and only written when
-`TMK_LIVE_OPENAI_KEY` (or `TMK_LIVE_ENDPOINT`) is set, as the Pages workflow does from its
-secret (ADR-0118).
+any file. Live answers go through the proxy named by `TMK_LIVE_ENDPOINT`, which holds the
+key; `site/data/live.json` says only whether they are on and where. The masked-key fallback
+ADR-0118 allowed was removed by ADR-0136.

@@ -18,8 +18,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--out", type=Path, help="write somewhere other than site/data/")
     args = parser.parse_args(argv)
 
-    key, endpoint = build_module.from_environment()
-    files = build_module.build(key=key, endpoint=endpoint)
+    files = build_module.build(endpoint=build_module.from_environment())
     onto = files["ontology.json"]
     counts = onto["counts"]
     print(f"{counts['concepts']['signed']} signed + {counts['concepts']['machine']} machine-written concepts; "
@@ -28,8 +27,8 @@ def main(argv: list[str] | None = None) -> int:
           f"{len(files['passages.json']['legislation'])} provisions and units; "
           f"{len(files['examples.json']['answers'])} prepared answers")
     live = files["live.json"]
-    print("live chat: " + ("on, " + ("key published in the page" if "m" in live else f"through the proxy at {live['endpoint']}")
-                           if live["enabled"] else f"off (set {build_module.KEY_ENV} to turn it on)"))
+    print("live chat: " + (f"on, through the proxy at {live['endpoint']}" if live["enabled"]
+                           else f"off (set {build_module.ENDPOINT_ENV} to the proxy's URL to turn it on)"))
     if args.write:
         for path in build_module.write(files, args.out):
             print(f"wrote {path.relative_to(build_module.REPO_ROOT) if path.is_relative_to(build_module.REPO_ROOT) else path}"

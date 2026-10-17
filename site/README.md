@@ -28,7 +28,7 @@ Generated: everything under `data/`, written by `tmk-explorer --write` from
 | `data/tour.json` | the Manual by Part, ideas named many ways, one worked example |
 | `data/examples.json` | the 129 prepared answers and each search system's score |
 | `data/chat.json` | the measured answer prompt, verbatim, for live questions; and the live-only reading prompt (ADR-0132) |
-| `data/live.json` | whether live answers are on — and, if so, the masked key. **Never commit it.** |
+| `data/live.json` | whether live answers are on, and the proxy they go through. No key, ever |
 
 ## What does not belong here
 
@@ -86,18 +86,17 @@ kinds diagram; `minimap.js` is the embedded map; `graph.js` holds small SVG help
 
 ## Live answers
 
-On when the Pages workflow has the `OPENAI_API_KEY` secret (ADR-0118). The key is then
-**in the published page**, masked against scrapers but recoverable by anyone who reads
-it — so it should be a dedicated, restricted, budget-limited key. Setting the repository
-variable `TMK_LIVE_ENDPOINT` to a proxy that holds the key publishes no key instead, even
-if the secret is still set: `live-proxy/` is that proxy, and its README says how to run it
-on Render's free plan. It also gets through networks that block `api.openai.com`. With
-neither, the site works with live answers off: retrieval still runs and the 129 prepared
-answers still show.
+On when the repository variable `TMK_LIVE_ENDPOINT` names the proxy that holds the key
+(ADR-0118): `live-proxy/` is that proxy, and its README says how to run it on Render's free
+plan. It also gets through networks that block `api.openai.com`. No key is in the page.
+Until ADR-0136 a build with the `OPENAI_API_KEY` secret and no proxy published the key,
+masked; the owner removed that fallback once the proxy served, and the old key is the
+owner's to revoke. Without a proxy the site works with live answers off: retrieval still
+runs and the 129 prepared answers still show.
 
 `live.js` turns the browser's bare "Failed to fetch" into words (no reply came back, so the
-network or an extension stopped the request; a wrong key or model is a reply, and shows
-OpenAI's message). Through a proxy, the Ask page knocks on its `/health` as it opens, and
+network or an extension stopped the request; a wrong model or exhausted credit is a reply,
+and shows OpenAI's message). The Ask page knocks on the proxy's `/health` as it opens, and
 says so when an answer is slow to start, since a free host sleeps when idle.
 
 Before the search, a live question is read by the model against the map (ADR-0132): which
@@ -111,7 +110,7 @@ the page is checked against, recognise by names alone.
 ```bash
 pip install -e ".[rdf]"
 tmk-fetch-upstream                 # the explorer needs the pinned snapshot (ADR-0117)
-tmk-explorer --write               # add TMK_LIVE_OPENAI_KEY=… to try live answers locally
+tmk-explorer --write               # add TMK_LIVE_ENDPOINT=<proxy URL> to try live answers locally
 tmk-dashboard --write              # only if you want the workbench too
 python3 -m http.server -d site 8000   # then open http://localhost:8000
 ```

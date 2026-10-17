@@ -27,11 +27,9 @@ Files written under `site/data/`:
 
 from __future__ import annotations
 
-import base64
 import json
 import os
 import re
-import secrets
 from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
@@ -66,10 +64,10 @@ ALIASES_PATH = jobs.SEARCH_DIR / "aliases.yaml"
 CHAT_MODEL = "gpt-6.1-sol"
 CHAT_EFFORT = "low"
 CHAT_MAX_OUTPUT_TOKENS = 10000
-OPENAI_RESPONSES = "https://api.openai.com/v1/responses"
-#: The environment variables the Pages workflow sets from its secret. A distinct
-#: name, so a key that happens to be in a developer's shell is never picked up.
-KEY_ENV = "TMK_LIVE_OPENAI_KEY"
+#: The environment variable the Pages workflow sets from its repository variable:
+#: the proxy's URL (`live-proxy/`), which holds the key. There is no key variable.
+#: Until ADR-0136 a key with no proxy was published in the page, masked; the owner
+#: removed that fallback once the proxy served, so no build can publish a key.
 ENDPOINT_ENV = "TMK_LIVE_ENDPOINT"
 #: A per-browser courtesy limit on live questions. It is not a control — anyone
 #: can clear it — but it stops one enthusiastic tab running up the bill.
@@ -668,33 +666,24 @@ def chat(ctx: jobs.Context) -> dict[str, Any]:
     }
 
 
-def live_payload(key: str | None, endpoint: str | None = None) -> dict[str, Any]:
-    """Whether the live chat may call a model, and with what.
+def live_payload(endpoint: str | None = None) -> dict[str, Any]:
+    """Whether the live chat may call a model, and where.
 
-    With a key, the key is published in the page (the owner's decision,
-    ADR-0118). It is masked so that pattern-matching scrapers do not find an
-    `sk-` string — which is obfuscation, not security: anyone who reads the
-    page's code can recover it. With an endpoint, the browser calls a proxy that
-    holds the key instead (`live-proxy/`), and nothing secret is published — even
-    if a key is in the environment too, as ADR-0118 says.
+    Only through a proxy that holds the key (`live-proxy/`): the browser calls the
+    endpoint, and nothing secret is in the page. Without one, live answers are off
+    and everything else works. The masked-key fallback ADR-0118 allowed is gone
+    (ADR-0136); this function takes no key, so no build can publish one.
     """
-    if not key and not endpoint:
+    if not endpoint:
         return {"enabled": False}
-    out: dict[str, Any] = {"enabled": True, "endpoint": endpoint or OPENAI_RESPONSES}
-    if key and not endpoint:
-        raw = key.strip().encode("utf-8")
-        mask = secrets.token_bytes(len(raw))
-        mixed = bytes(a ^ b for a, b in zip(raw, mask))[::-1]
-        out["m"] = base64.b64encode(mask).decode("ascii")
-        out["x"] = base64.b64encode(mixed).decode("ascii")
-    return out
+    return {"enabled": True, "endpoint": endpoint}
 
 
 # --------------------------------------------------------------------- build
 
 
 def build(corpus: Corpus | None = None, *, generated: str | None = None,
-          key: str | None = None, endpoint: str | None = None) -> dict[str, Any]:
+          endpoint: str | None = None) -> dict[str, Any]:
     """Every file, as data. `write` puts them on disk."""
     corpus = corpus or load_corpus()
     # What serves: the signed records with the owner's corrections applied (ADR-0122).
@@ -714,7 +703,7 @@ def build(corpus: Corpus | None = None, *, generated: str | None = None,
         "tour.json": tour(corpus, onto, links),
         "examples.json": examples(),
         "chat.json": chat(ctx),
-        "live.json": live_payload(key, endpoint),
+        "live.json": live_payload(endpoint),
     }
 
 
@@ -729,5 +718,7 @@ def write(files: dict[str, Any], out_dir: Path | None = None) -> list[Path]:
     return written
 
 
-def from_environment() -> tuple[str | None, str | None]:
-    return os.environ.get(KEY_ENV) or None, os.environ.get(ENDPOINT_ENV) or None
+def from_environment() -> str | None:
+    """The proxy's URL, if the build has one. A key in the environment is never
+    read: there is nowhere left for it to go."""
+    return os.environ.get(ENDPOINT_ENV) or None
