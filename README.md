@@ -13,31 +13,35 @@ operates only over governed knowledge.
 
 ## Status
 
-**The apparatus is built and the content is not.** Everything an agent can build
-for Stage 0 exists and runs; every remaining Stage 0 deliverable is expert
-content that no amount of engineering substitutes for.
+**A working demonstrator for a pitch** (ADR-0109, ADR-0110): an ontology over the
+whole Manual, "Ask the Manual" beside plain search, a measurement of what the
+ontology adds, and a pitch pack. The scope and its finish line are in `CLAUDE.md`
+§0; where things stand is in `docs/HANDOFF.md`, and what the graph holds, counted,
+is in `data/derived/reports/ontology.md`.
 
-- **Stage 1 (ingest) is complete**, in a separate repo:
+- **Ingest is complete**, in a separate repo:
   [`manual-XtrACTor`](https://github.com/Thomas-Amann-IPAustralia/manual-XtrACTor)
-  — 500 Manual pages / 2,460 chunks, 763 legislative provisions, joined at 97%
-  coverage, extracted deterministically with no LLM in the pipeline. This repo
-  pins a commit of it and reads it; it never re-extracts.
-- **There is no pilot area any more.** The repo worked section 43 alone until
-  2026-09-08, when the owner withdrew the boundary: *"I would like to completely
-  remove the s43 barrier."* All 54 Parts are in scope, there is no exclusion rule
-  anywhere, and section 43 is the area worked **first** rather than a fence
-  (ADR-0081, ADR-0096).
-- **An agent now authors legal content, and never launders it.** Also 2026-09-08:
-  definitions, concept types, relationships and readings are written by a machine
-  and stamped `unreviewed`, with the model that wrote them, the passages they
-  rest on, and `approved_by` left empty. `eval/gold/` is frozen at the 190
-  records an expert signed so that it stays usable as an independent yardstick
-  (ADR-0079, ADR-0080). **Nothing in `authored/` has been read by a trade marks
-  expert.**
-- Stages 2–10 are this repo's work. Stages 2–4 opened on 2026-09-08 (ADR-0083);
-  the deterministic passes run first and are measured against the frozen 190.
+  — 500 Manual pages / 2,460 chunks, 763 legislative provisions, extracted
+  deterministically with no LLM in the pipeline. This repo pins a commit of it and
+  reads it; it never re-extracts. Each answer names the compilation of the Act it
+  read.
+- **The whole Manual is in scope.** The repo worked section 43 alone until
+  2026-09-08, when the owner withdrew the boundary (ADR-0081). Some identifiers and
+  signed records still carry that history (the concept scheme's IRI is
+  `scheme-s43`); the scope does not.
+- **A machine wrote most of the content, and says so.** Concepts, their kinds,
+  relationships, definitions and corrections are written by a model or an agent
+  session and stamped `unreviewed`, with who wrote them, when, and the passages
+  they rest on, quoted; `approved_by` stays empty (ADR-0079). `eval/gold/` is
+  frozen at the 190 records an expert signed, the one independent yardstick
+  (ADR-0080). **Nothing in `authored/` has been read by a trade marks expert**;
+  examiners review the whole when it ships (ADR-0120).
+- **The IRIs are names, not addresses.** Every node is named under
+  `https://data.ipaustralia.gov.au/tmk/` because RDF needs a base; nothing is
+  published there and nothing dereferences. Which address the project may use is
+  an open question for the owner (OQ-0008).
 
-`docs/ROADMAP-STATUS.md` has the full board.
+`docs/ROADMAP-STATUS.md` has the stage-by-stage board.
 
 ### 🗺️ [The Trade Marks Manual Map](https://thomas-amann-ipaustralia.github.io/TM-Knowledge/)
 
@@ -101,7 +105,7 @@ review/            machine-generated candidates awaiting human decision
   returned/        what an expert handed back, unmodified — never edited
   decisions/       what each returned artefact was taken to mean
 vocab/             approved SKOS controlled vocabulary
-ontology/          approved RDF/RDFS modules (no OWL profile, ADR-0134)
+ontology/          RDF/RDFS modules, all still draft (no OWL profile, ADR-0134)
 graph/             generated RDF, by named graph
 shapes/            SHACL shapes
 queries/           SPARQL queries and CONSTRUCT rules
@@ -138,8 +142,9 @@ settled questions, `QUIRKS.md` prevents rediscovering the same traps.
 If you are a human: the same three files are the fastest way back into context.
 
 If you are an agent: read `CLAUDE.md` in full first. Two rules matter more than
-the rest — **never invent legal content**, and **never re-derive what upstream
-already extracted**.
+the rest — **author, but never launder** (what a machine wrote is never mistaken
+for what a person signed), and **never re-derive what upstream already
+extracted**.
 
 ## Licence
 

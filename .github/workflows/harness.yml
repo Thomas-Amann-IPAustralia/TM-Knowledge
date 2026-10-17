@@ -203,10 +203,15 @@ jobs:
             echo "</details>"
           } >> "$GITHUB_STEP_SUMMARY"
 
+      # The report is committed and generated, so it is held to a rebuild like
+      # graph/ is (the review response, F12): it read "the section 43 draft"
+      # for a month after the graph moved on.
+      - name: The committed ontology report matches a rebuild
+        run: tmk-ontology-report --check
+
       - name: Ontology status report
         if: always()
         run: |
-          tmk-ontology-report --write
           {
             echo
             echo "---"

@@ -85,10 +85,15 @@ __all__ = [
 
 GRAPH_DIR = REPO_ROOT / "graph"
 
-#: The scheme every approved concept is `skos:inScheme`. One scheme, named for
-#: the pilot provision, because a second scheme would be a claim that the
-#: vocabulary divides — and nobody has ruled on that.
+#: The scheme every concept is `skos:inScheme`. One scheme, because a second
+#: would be a claim that the vocabulary divides, and nobody has ruled on that.
+#: The IRI keeps the name it was minted under when the work was section 43 alone:
+#: an identifier does not change when its label does (`docs/IDENTIFIERS.md` §3).
+#: The label said "Section 43 … pilot" until the review response's F12.
 SCHEME = URIRef(TMKC["scheme-s43"])
+
+#: The scheme's label. The whole Manual has been in scope since ADR-0081.
+SCHEME_LABEL = "Trade marks examination vocabulary"
 
 #: How a signed assertion got here: a person read a passage and said so.
 ELICITATION = "expert_elicitation"
@@ -812,10 +817,8 @@ def _build_concepts(graph: Graph, store: Store, counts: StoreReport) -> None:
     # a puzzle.
     if store.records.count("gold_concept"):
         graph.add((SCHEME, RDF.type, TMK.ConceptScheme))
-        graph.add((SCHEME, RDFS.label, _en("Section 43 examination vocabulary — pilot")))
-        graph.add(
-            (SCHEME, SKOS.prefLabel, _en("Section 43 examination vocabulary — pilot"))
-        )
+        graph.add((SCHEME, RDFS.label, _en(SCHEME_LABEL)))
+        graph.add((SCHEME, SKOS.prefLabel, _en(SCHEME_LABEL)))
 
     for record in store.records["gold_concept"]:
         node = concept_node(record["id"])

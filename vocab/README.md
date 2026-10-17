@@ -1,6 +1,9 @@
 # vocab/ — the approved controlled vocabulary
 
-**Roadmap Stage 3.** Empty.
+**Roadmap Stage 3.** Empty: nothing in the vocabulary is approved yet. The
+working vocabulary is built into the graph from `eval/gold/concepts.yaml` (signed)
+and `authored/concepts.yaml` (machine-written, unreviewed), and is counted in
+`data/derived/reports/ontology.md`.
 
 SKOS concept scheme: preferred labels, alternative labels, broader/narrower/
 related, definitions, editorial notes, source references.
@@ -24,9 +27,10 @@ confidence level (ADR-0007).
   preferred label. Labels get revised; ids must not (`docs/IDENTIFIERS.md` §3).
 - **Every concept cites its sources** — the passages that define or delimit it, by
   upstream ref.
-- **`skos:broader` is a reasoning commitment.** Under OWL 2 RL it propagates
-  relevance: a passage about a narrower concept becomes relevant to the broader
-  one. Do not assert a hierarchy edge for filing convenience.
+- **`skos:broader` is a commitment.** The explorer reads it as "is a kind of" and
+  draws graph paths along it, so a passage about a narrower concept is offered for
+  the broader one. Do not assert a hierarchy edge for filing convenience. (No OWL
+  profile is claimed, ADR-0134.)
 - **Keep the rejected register.** "Why isn't X a concept?" is asked repeatedly,
   and the answer is expensive to reconstruct.
 - **Legally distinct concepts with similar language are the hard cases** and the
