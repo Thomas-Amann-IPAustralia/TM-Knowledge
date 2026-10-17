@@ -548,6 +548,14 @@ def _build_source(
         node = URIRef(TMK[f"doc/{instrument}"])
         graph.add((node, RDF.type, TMK.Legislation))
         graph.add((node, RDFS.label, _en(label)))
+        # Which compilation the snapshot holds, as upstream recorded it. The pin
+        # names a commit; this names the law a reader can look up (F09).
+        held = corpus.instruments.get(instrument)
+        if held is not None:
+            graph.add((node, TMK.compilationNumber, _lit(held.compilation_number)))
+            graph.add((node, TMK.registerId, _lit(held.register_id)))
+            graph.add((node, TMK.compilationStart, _lit(held.compilation_start, XSD.date)))
+            graph.add((node, TMK.capturedAt, _lit(held.captured_at)))
 
     report.chunks = len(chunks)
     pages_seen: set[str] = set()

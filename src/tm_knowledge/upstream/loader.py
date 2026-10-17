@@ -21,7 +21,7 @@ from pathlib import Path
 
 from tm_knowledge.config import UPSTREAM_DIR
 from tm_knowledge.upstream.pin import Pin, verify
-from tm_knowledge.upstream.records import Chunk, Page, Provision, Unit
+from tm_knowledge.upstream.records import Chunk, Instrument, Page, Provision, Unit
 
 __all__ = ["Corpus", "JoinReport", "load_corpus"]
 
@@ -69,6 +69,9 @@ class Corpus:
     provisions: dict[str, Provision]
     units: dict[str, Unit]
     _chunks_by_page: dict[str, tuple[str, ...]] = field(default_factory=dict)
+    #: Which compilation of each instrument is held, by code (`TMA1995`). Empty
+    #: for a fixture corpus that carries no `instrument.json`.
+    instruments: dict[str, Instrument] = field(default_factory=dict)
 
     # -- lookups ------------------------------------------------------------
 
@@ -194,6 +197,13 @@ def load_corpus(root: Path | None = None, *, deep_verify: bool = False) -> Corpu
         page_ref: tuple(sorted(refs, key=lambda ref: chunks[ref].ordinal))
         for page_ref, refs in by_page.items()
     }
+    instruments = {
+        instrument.code: instrument
+        for instrument in (
+            Instrument.from_dict(_read(path))
+            for path in sorted((root / "snapshot" / "legislation").glob("*/instrument.json"))
+        )
+    }
     return Corpus(
         pin=pin,
         pages=pages,
@@ -201,4 +211,5 @@ def load_corpus(root: Path | None = None, *, deep_verify: bool = False) -> Corpu
         provisions=provisions,
         units=units,
         _chunks_by_page=ordered,
+        instruments=instruments,
     )

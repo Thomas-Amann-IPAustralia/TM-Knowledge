@@ -45,6 +45,7 @@ __all__ = [
     "Page",
     "Unit",
     "Provision",
+    "Instrument",
 ]
 
 
@@ -501,3 +502,49 @@ class Provision:
 
     def unit_refs(self) -> tuple[str, ...]:
         return tuple(unit.ref for unit in self.units)
+
+
+@dataclass(frozen=True, slots=True)
+class Instrument:
+    """Which compilation of an instrument the snapshot holds (`instrument.json`).
+
+    Read so an answer can say which state of the law it searched: the pin names a
+    commit, and a commit is not a date a reader can check against the Federal
+    Register (the review response, F09). Only the fields that say *which text*
+    are taken; the rest of the record (its amendments, counts and document hash)
+    is upstream's, and nothing here needs it. A missing one raises: a compilation
+    nobody can name is not one an answer may cite.
+    """
+
+    code: str
+    name: str
+    compilation_number: str
+    compilation_start: str
+    register_id: str
+    captured_at: str
+
+    @classmethod
+    def from_dict(cls, record: Mapping[str, Any]) -> "Instrument":
+        try:
+            return cls(
+                code=record["code"],
+                name=record["name"],
+                compilation_number=str(record["compilation_number"]),
+                compilation_start=record["compilation_start"],
+                register_id=record["register_id"],
+                captured_at=record["captured_at"],
+            )
+        except KeyError as missing:
+            raise UpstreamSchemaDrift(
+                f"instrument.json has no {missing}: the snapshot no longer says which "
+                "compilation it holds"
+            ) from None
+
+    @property
+    def in_force_line(self) -> str:
+        """"the Act as in force from 14 October 2024" — the words an answer shows."""
+        from datetime import date
+
+        start = date.fromisoformat(self.compilation_start)
+        noun = "the Act" if self.code == "TMA1995" else "the Regulations"
+        return f"{noun} as in force from {start.day} {start:%B %Y}"
