@@ -6024,7 +6024,7 @@ what it may say and is the owner's (the response's decision 4).
 
 ## ADR-0136 — the owner's nine decisions on the review response: eight approvals or deferrals, one refusal
 
-**Date** 2026-10-17 · **Authority** human · **Status** accepted, not yet acted on · supersedes
+**Date** 2026-10-17 · **Authority** human · **Status** accepted, acted on in S038 (the ruling's `applied.items`) · supersedes
 ADR-0118's masked-key publication (its agent decision) and lifts ADR-0121's deferrals of F4 and F5
 
 **Context.** `docs/ONTOLOGY-REVIEW-RESPONSE.md` ended with nine decisions for the owner. S036

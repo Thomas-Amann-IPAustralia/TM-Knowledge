@@ -147,13 +147,12 @@ def render() -> str:
             )
         ]
 
-    def defined_concepts(graph) -> int:
-        return sum(
-            1
-            for node in graph.subjects(RDF.type, TMK.LegalConcept)
-            if next(iter(authored.objects(node, SKOS.definition)), None) is not None
-            or next(iter(approved.objects(node, SKOS.definition)), None) is not None
-        )
+    # Every definition is a machine-written record in the authored graph (ADR-0137),
+    # whichever store the concept it defines is in; so they are counted as the
+    # authored store's, with the signed concepts among them said in words.
+    signed_concepts = set(approved.subjects(RDF.type, TMK.LegalConcept))
+    definitions = [authored.value(node, TMK.defines) for node in authored.subjects(RDF.type, TMK.Definition)]
+    defined_signed = sum(1 for concept in definitions if concept in signed_concepts)
 
     instruments = sorted(
         (
@@ -212,7 +211,7 @@ pair side by side instead.
             ("concepts", build_report.concepts, build_report.authored.concepts),
             ("concepts sorted into a kind", build_report.concept_types,
              build_report.authored.concept_types),
-            ("concepts with a definition", defined_concepts(approved), defined_concepts(authored)),
+            ("definitions", 0, f"{len(definitions)} ({defined_signed} of them of signed concepts)"),
             ("relationships, each a direct triple and a reified assertion",
              f"{build_report.relationships} ({signed_current} current, "
              f"{build_report.relationships - signed_current} corrected)",
@@ -356,7 +355,7 @@ inference is licensed (ADR-0134); these rules are the only reasoning.
 
 **Nobody has reviewed the machine-written half.** {build_report.authored.concepts} concepts,
 {build_report.authored.relationships} relationships, {build_report.authored.concept_types} typings,
-{defined_concepts(authored)} definitions and {build_report.authored.corrections} corrections were written by a machine
+{len(definitions)} definitions and {build_report.authored.corrections} corrections were written by a machine
 and are served stamped "Machine · unreviewed". They may be relied on; they are
 never approved by being old or unchallenged (ADR-0085). Examiners review the
 whole when it ships (ADR-0120). Until then the only independent check on them is
@@ -366,10 +365,10 @@ the signed yardstick.
 typing; {build_report.authored.concept_types} carry a machine's. Whether a concept is a ground, a test
 or a factor is a legal judgement, and every one of these is the agent's.
 
-**Definitions are machine-written where they exist.** {defined_concepts(approved)} signed and
-{defined_concepts(authored)} machine-written concepts carry a definition. A definition is its own
-record, never a field on a signed concept, and approving a label approves no
-definition.
+**Every definition is machine-written.** {len(definitions)} of {build_report.total_concepts} concepts carry one,
+{defined_signed} of them signed concepts; the rest have none, because their sources do not
+define them. A definition is its own record, never a field on a signed concept,
+and approving a label approves no definition (ADR-0137).
 
 **{len(unpopulated)} declared classes hold nothing**: {_names(unpopulated)}.
 Some are empty by design (the evidence module: the Manual describes evidence, it

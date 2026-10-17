@@ -2,7 +2,8 @@
 # docs/ONTOLOGY-REVIEW-RESPONSE.md. Hand-transcribed by the S037 agent; no issue behind it. The
 # artefact is `review/returned/261017-owner-chat-review-response.md`, which carries the words
 # verbatim. `item` names the response's numbered decision and the review finding it concerns.
-# The owner asked that none of the approved work start in S037, so `applied` is null.
+# The owner asked that none of the approved work start in S037; S038 acted on it, item by item,
+# and `applied.items` says what changed for each.
 schema: tmk-ruling/1-manual
 received_utc: '2026-10-17T00:00:00Z'
 questions_updated: '2026-10-17'
@@ -13,7 +14,65 @@ source:
   relayed_by: S037 agent
   title: The nine decisions in the review response (re-pin, definitions, documents, the live chatbot,
     the masked key, GC-0017/GC-0018, branch protection, the pitch's claims, re-measurement)
-applied: null
+applied:
+  session: S038
+  date: '2026-10-17'
+  branch: claude/awesome-mccarthy-pnx39j
+  what_changed: >-
+    Every approved item acted on, each below; the two the owner declined or deferred (CHAT-0083,
+    CHAT-0084) left as ruled. The re-pin was done before the definitions, so they quote the Act's
+    compilation 48. Nothing was spent. ADR-0137 records the agent's choices for definitions.
+  items:
+    CHAT-0079: >-
+      The stale documents corrected (F12). The ontology report is regenerated from counts with
+      no date and drift-checked in CI (`tmk-ontology-report --check`); the scheme label is
+      "Trade marks examination vocabulary" (IRI unchanged); the root, ontology/, ontology/draft/
+      and vocab/ READMEs and the guide no longer describe the pilot, forbid definitions or
+      claim OWL 2 RL, and say the data.ipaustralia.gov.au IRIs are not published (OQ-0008
+      open). Commits eaf648c and 92ba739.
+    CHAT-0082: >-
+      GK-0037 (authored/corrections.yaml) removes GC-0017's signed "related" link to GC-0018 and
+      keeps GC-0018's signed kind-of link, citing CHAT-0041 and CHAT-0082. eval/gold/ untouched;
+      the S27 note is gone from the SHACL run.
+    CHAT-0081: >-
+      The masked-key fallback is gone: the explorer build takes and reads no key, live.json names
+      only the proxy, live.js has no unmasking or Authorization header, and pages.yml no longer
+      passes the OPENAI_API_KEY secret. Revoking the old key (and deleting the unread secret) is
+      the owner's.
+    CHAT-0080: >-
+      Each graph path line given to the answering model carries the record's modality and
+      applies_when (or says none is recorded), in bulk.jobs.path_line and engine.js together; the
+      answer instructions (answer-v3) add the rule against concluding absence in F19's words. The
+      Ask page says the same where nothing is found, and every answer carries a completeness line.
+      The prepared answers stay answer-v2, and the page says so.
+    CHAT-0077: >-
+      Upstream had re-captured the Act (manual-XtrACTor 308bfd9, legislation/0.3.0, compilation 48,
+      C2026C00421, in force from 19 September 2026). Shapes checked first: every provision, unit and
+      instrument key kept, schemas identical, only endnotes gain `underlined` (unread here); no ref
+      removed, eight units added, 87 provisions re-cut (hyphens restored). Pin moved; the harness
+      found two stale records (GR-0672, GK-0003), each re-read and re-anchored with a review_history
+      entry; counts updated; 770 tests pass, harness 0 defects. The graph states each instrument's
+      compilation, and every answer on the page names the law it read: live answers the pinned
+      compilation, the 129 prepared answers the one they were written against ("the Act as in
+      force from 14 October 2024"). Commits eaf648c, 6ec9bc3 and bb44363; Q-95.
+    CHAT-0078: >-
+      149 of the 164 concepts carry a definition, each a GD- record of its own in
+      authored/definitions.yaml (ADR-0137, agent-proposed): 53 the Act's or Regulations' own
+      definitions verbatim, 22 written from a provision, 74 written from the Manual; every one
+      quotes its evidence and is unreviewed. Scope notes on every "application" concept. No model
+      spend. Shown on the explorer's concept card, stamped. Commit cc07c12.
+    OQ-0029: >-
+      docs/PITCH-PACK.md rewritten to the owner's words: the two claims first (the gain over
+      keyword search, +0.079 [+0.042, +0.116]; modern search ranks better, -0.041 [-0.067,
+      -0.017]), each citing measure.md at commit a255063dbe1b and saying it is not re-measured;
+      then the lead, what only the ontology does, shown and not measured; then the build, the
+      numbers, the limits and the cost. OQ-0029 applied: true. The private deck artifact could not
+      be opened from S038 ("not found" for this account), so it is not updated; the pitch pack is
+      its source until it is rebuilt.
+    CHAT-0083: >-
+      Not acted on, as ruled: main stays unprotected. Not raised again.
+    CHAT-0084: >-
+      Not acted on, as ruled: re-measurement deferred, no paid call made in S038.
 answers:
 - id: CHAT-0077
   item: decision-1 (F09)
