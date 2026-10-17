@@ -284,3 +284,27 @@ def test_the_page_checks_the_models_reading_before_it_steers(files, tmp_path):
     assert jingle["dropped"] == [["GC-0078", f"only the first {jobs.READING_MAX_IDEAS} are used"]]
     assert named["kept"] == [] and named["dropped"] == [] and named["passages"] == named["plain"]
     assert garbled["kept"] == [] and garbled["passages"] == garbled["plain"]
+
+
+@needs_snapshot
+def test_every_answer_names_the_law_it_read(files):
+    """ADR-0136 (CHAT-0077): "the Act as in force from …" on every answer. A live
+    answer reads the pinned snapshot; the prepared ones, the snapshot they were
+    written against, which the pin's next move does not change."""
+    from tm_knowledge.upstream.loader import load_corpus
+
+    law = files["chat.json"]["law"]
+    assert [row["line"] for row in law] == [i.in_force_line for i in sorted(
+        load_corpus().instruments.values(), key=lambda i: i.code)]
+    assert law[0]["line"].startswith("the Act as in force from ")
+    assert files["examples.json"]["law"][0]["line"] == "the Act as in force from 14 October 2024"
+    ask = (SITE / "js" / "ask.js").read_text(encoding="utf-8")
+    assert "Read against ${esc(lawLine(a.live ? chat.law : examples.law))}" in ask
+
+
+def test_the_page_never_reads_an_empty_map_as_an_absence():
+    """F19's matching words on the page where nothing is found (CHAT-0080)."""
+    ask = (SITE / "js" / "ask.js").read_text(encoding="utf-8")
+    assert ask.count("not a finding that none exist") == 2
+    assert "Gathered no passages through the map's links" in ask
+    assert "a requirement, exception or step they do not mention may still exist" in ask

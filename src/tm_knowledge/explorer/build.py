@@ -512,7 +512,8 @@ def examples() -> dict[str, Any]:
             "model": a.get("model"), "date": str(a.get("date") or ""), "review_status": a.get("review_status"),
             "ndcg": {s: row.get(f"ndcg:{s}") for s in ("keyword", "hybrid", "ontology")},
         })
-    return {"kinds": QUESTION_KINDS, "answers": out, "summary": results.get("summary", {})}
+    return {"kinds": QUESTION_KINDS, "answers": out, "summary": results.get("summary", {}),
+            "law": PREPARED_LAW}
 
 
 # ---------------------------------------------------------------------- tour
@@ -640,6 +641,28 @@ def _tour_example() -> dict[str, Any] | None:
 
 # ---------------------------------------------------------------------- chat
 
+#: The law the 129 prepared answers read. All were written against the snapshot
+#: pinned from 18 August to 17 October 2026 (`c490a9927f1a`), before the pin moved
+#: to the Act's compilation 48; so their footer names compilation 47, whatever the
+#: pin now holds. A prepared answer re-written against a later pin changes this.
+PREPARED_LAW = [
+    {"code": "TMA1995", "name": "Trade Marks Act 1995", "compilation": "47", "register_id": "C2024C00545",
+     "line": "the Act as in force from 14 October 2024"},
+    {"code": "TMR1995", "name": "Trade Marks Regulations 1995", "compilation": "53",
+     "register_id": "F2026C00009", "line": "the Regulations as in force from 18 December 2025"},
+]
+
+
+def law(corpus: Corpus) -> list[dict[str, str]]:
+    """Which compilation of each instrument the pinned snapshot holds, and the words
+    an answer shows for it: "the Act as in force from 14 October 2024"."""
+    return [
+        {"code": i.code, "name": i.name, "compilation": i.compilation_number,
+         "register_id": i.register_id, "line": i.in_force_line}
+        for i in sorted(corpus.instruments.values(), key=lambda i: i.code)
+    ]
+
+
 
 def chat(ctx: jobs.Context) -> dict[str, Any]:
     """The measured answer prompt, verbatim, so a live question is asked the same way.
@@ -652,7 +675,10 @@ def chat(ctx: jobs.Context) -> dict[str, Any]:
     """
     return {
         "model": CHAT_MODEL, "effort": CHAT_EFFORT, "max_output_tokens": CHAT_MAX_OUTPUT_TOKENS,
-        "measured_effort": "medium", "prompt_version": "answer-v2",
+        "measured_effort": "medium", "prompt_version": jobs.ANSWER_VERSION,
+        "prepared_prompt_version": jobs.PREPARED_ANSWER_VERSION,
+        # Which compilation of each instrument a live answer reads (ADR-0136, F09).
+        "law": law(ctx.corpus),
         "instructions": jobs._ANSWER_INSTRUCTIONS, "schema": jobs._ANSWER_SCHEMA,
         "ontology_map": jobs.ontology_map(ctx),
         "passages_k": 8, "legislation_k": 3, "paths_k": 12, "plain_k": 5, "passage_chars": 1600,

@@ -265,7 +265,7 @@ export class Engine {
       "CONCEPTS RECOGNISED IN THE QUESTION: " + (prepared.trace.ids.map((c) => `${c} ${label(c)}`).join(", ") || "none")];
     if (prepared.paths.length) {
       lines.push("", "GRAPH PATH (relationships the ontology holds for those concepts):");
-      for (const [s, p, o, rid, origin] of prepared.paths) lines.push(`- ${label(s)} —${p}→ ${label(o)} (${rid}, ${origin})`);
+      for (const edge of prepared.paths) lines.push(pathLine(label, edge));
     }
     lines.push("", `QUESTION: ${prepared.question}`, "", "MANUAL PASSAGES:");
     for (const ref of prepared.passages) if (this.text(ref)) lines.push(block(ref));
@@ -333,6 +333,16 @@ export function authorityFlags(answer, cited) {
     }
   }
   return flags;
+}
+
+/** One GRAPH PATH line — `bulk.jobs.path_line`, character for character: the
+    relationship, its record and origin, and the modality and condition the record
+    states (ADR-0136). A prepared answer's five-field path says it records none. */
+export function pathLine(label, edge) {
+  const [s, p, o, rid, origin, modality = "", when = ""] = edge;
+  const qualified = (modality ? `modality "${modality}"` : "modality not recorded") + "; " +
+    (when ? `applies when "${when}"` : "no condition recorded");
+  return `- ${label(s)} —${p}→ ${label(o)} (${rid}, ${origin}; ${qualified})`;
 }
 
 export function sourceName(ref) {

@@ -1108,8 +1108,7 @@ def _answer_render(ctx: Context, item: Item) -> str:
              + (", ".join(f"{c} {labels.get(c, c)}" for c in p.get("recognised") or []) or "none")]
     if p.get("paths"):
         lines += ["", "GRAPH PATH (relationships the ontology holds for those concepts):"]
-        lines += [f"- {labels.get(s, s)} —{pred}→ {labels.get(o, o)} ({rid}, {origin})"
-                  for s, pred, o, rid, origin in p["paths"]]
+        lines += [path_line(labels, edge) for edge in p["paths"]]
     lines += ["", f"QUESTION: {p['question']}", "", "MANUAL PASSAGES:"]
     for ref in p["passages"]:
         passage = passage_at(ctx.corpus, ref)
@@ -1124,6 +1123,27 @@ def _answer_render(ctx: Context, item: Item) -> str:
     return "\n".join(lines)
 
 
+def path_line(labels: dict[str, str], edge: Any) -> str:
+    """One GRAPH PATH line: the relationship, its record and origin, and the modality
+    and condition the record states — `Engine.prompt` writes the same line.
+
+    Until ADR-0136 the line was the bare triple, so a relationship that holds only
+    "where the mark is used in Australia" reached the model as if it held always (the
+    review response, F14). A line from before the condition was recorded (a prepared
+    answer's five-field path) says it records none, which is not the same as none."""
+    s, pred, o, rid, origin = edge[:5]
+    modality, when = (list(edge[5:7]) + ["", ""])[:2]
+    qualified = (f'modality "{modality}"' if modality else "modality not recorded") + "; " + (
+        f'applies when "{when}"' if when else "no condition recorded")
+    return f"- {labels.get(s, s)} —{pred}→ {labels.get(o, o)} ({rid}, {origin}; {qualified})"
+
+
+#: The answer prompt's version. answer-v3 (ADR-0136) added each path line's modality
+#: and condition and the rule against concluding absence; the 129 prepared answers
+#: were written with answer-v2, and the page says so.
+ANSWER_VERSION = "answer-v3"
+PREPARED_ANSWER_VERSION = "answer-v2"
+
 _ANSWER_INSTRUCTIONS = PREAMBLE + """
 
 Task: answer the QUESTION from the MANUAL PASSAGES and LEGISLATION, for a trade \
@@ -1134,6 +1154,12 @@ each passage's source attribute says which it is.
 - If the passages do not answer it, say so. If the question asks how a particular \
 application will be decided, decline that part (declined true) and explain what \
 the Manual says instead.
+- Each GRAPH PATH line gives the relationship's modality and the condition it applies \
+under, copied from its source sentence. State a relationship no more broadly than \
+that; where a line says none is recorded, its conditions are unknown, not absent.
+- Never conclude that a requirement, exception or step does not exist because the \
+passages or the graph path do not mention it. Say what they record, and that they \
+may not be complete.
 - concepts_used: the ids of ONTOLOGY concepts your answer relies on."""
 
 _ANSWER_SCHEMA = _strict({
@@ -1246,9 +1272,11 @@ def _answer_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict
         # Everything the demo page shows is carried here, because the site reads
         # committed artefacts and never the snapshot (ADR-0063).
         "recognised": [{"id": c, "label": labels.get(c, c)} for c in p.get("recognised") or ()],
-        "paths": [{"subject": s, "subject_label": labels.get(s, s), "predicate": pred, "object": o,
-                   "object_label": labels.get(o, o), "record": rid, "origin": origin}
-                  for s, pred, o, rid, origin in p.get("paths") or ()],
+        "paths": [{"subject": e[0], "subject_label": labels.get(e[0], e[0]), "predicate": e[1],
+                   "object": e[2], "object_label": labels.get(e[2], e[2]), "record": e[3], "origin": e[4],
+                   # Seven fields since answer-v3 (ADR-0136): the modality and condition shown.
+                   **({"modality": e[5] or None, "applies_when": e[6] or None} if len(e) >= 7 else {})}
+                  for e in p.get("paths") or ()],
         "passages": [_excerpt(ctx, ref) for ref in p["passages"]],
         "legislation": [_excerpt(ctx, ref) for ref in p.get("legislation") or ()],
         "plain_search": [_excerpt(ctx, ref) for ref in p.get("plain") or ()],
@@ -1522,7 +1550,7 @@ def registry(ctx: Context) -> dict[str, Job]:
         "judge": Job("judge", "judge-v1", "measurement", _JUDGE_INSTRUCTIONS, _JUDGE_SCHEMA,
                      8000, lambda ctx: [], _judge_render, _judge_accept, _write_judgements,
                      "Relevance grades for a pool of ~30 passages per question"),
-        "answer": Job("answer", "answer-v2", "measurement", _ANSWER_INSTRUCTIONS, _ANSWER_SCHEMA,
+        "answer": Job("answer", ANSWER_VERSION, "measurement", _ANSWER_INSTRUCTIONS, _ANSWER_SCHEMA,
                       10000, lambda ctx: [], _answer_render, _answer_accept, _write_answers,
                       "A cited answer to one question"),
         # The live page's reading (ADR-0132), asked of the benchmark to measure it (ADR-0133).
