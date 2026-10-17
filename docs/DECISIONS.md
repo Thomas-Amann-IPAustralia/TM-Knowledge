@@ -5163,7 +5163,7 @@ and the page says so.
 
 ## ADR-0118 — the site is for examiners; the dashboard moves to /workbench/; a live chatbot on the owner's key
 
-**Date** 2026-10-07 · **Authority** human · **Status** accepted
+**Date** 2026-10-07 · **Authority** human · **Status** accepted · **masked-key publication superseded by ADR-0136**
 
 **Context.** Asked what remained before experts could explore the system, an agent
 listed a missing feedback route, stale expert documents, no way to ask new questions,
@@ -5283,7 +5283,7 @@ for the examiner group; none is sent singly.
 ## ADR-0121 — the owner's rulings on the ontology review
 
 **Date** 2026-10-08 · **Authority** human · **Status** accepted · supersedes ADR-0101
-decisions 1 and 2
+decisions 1 and 2 · **F4 and F5 deferrals lifted by ADR-0136**
 
 **Context.** S026 audited the ontology and wrote 40 issues, each with a resolution
 (`docs/ONTOLOGY-REVIEW.md`). The owner ruled on every one in chat; the words are in
@@ -6021,3 +6021,51 @@ what it may say and is the owner's (the response's decision 4).
 2. `RelevantFactor` and `Remedy` keep their equivalences as vocabulary; nothing infers from
    them (ADR-0134).
 3. Provisional, as every agent-proposed ADR is; name it in the handoff's open items.
+
+## ADR-0136 — the owner's nine decisions on the review response: eight approvals or deferrals, one refusal
+
+**Date** 2026-10-17 · **Authority** human · **Status** accepted, not yet acted on · supersedes
+ADR-0118's masked-key publication (its agent decision) and lifts ADR-0121's deferrals of F4 and F5
+
+**Context.** `docs/ONTOLOGY-REVIEW-RESPONSE.md` ended with nine decisions for the owner. S036
+carried out its Packages 1 and 2 without them. In S037 the owner answered all nine in chat
+(CHAT-0077 to CHAT-0084 and OQ-0029, verbatim in
+`review/returned/261017-owner-chat-review-response.md`), and asked that none of the approved
+work start in that session.
+
+**Decision (the owner's).**
+1. **Re-pin** (F09): *"Yes Re-capture the upstream legislation. Ensure that shifting to the latest
+   compilation doesn't break anything downstream."* Upstream re-captures the Trade Marks Act 1995
+   at compilation 48 (`C2026C00421`, from 19 September 2026); the pin moves; the staleness check
+   shows what moved, and nothing downstream may break. Until then, every answer shows "the Act as
+   in force from 14 October 2024" (the recommendation the owner said yes to).
+2. **Definitions** (F06; 8 October F4): *"Agreed, the defferal may be lifted."* Write them as the
+   response's F06 fix sets out.
+3. **Stale documents** (F12; 8 October F5): *"Agreed, the defferal may be lifted."* As F12's fix.
+4. **The live chatbot** (F14, F19): *"Approved."* Each graph path line given to the answering model
+   carries its modality and `applies_when`; the model is told never to conclude that a
+   requirement, exception or step does not exist because the passages or path do not mention it.
+   This changes what the system may say to an examiner, and the owner opened it.
+5. **The masked key** (ADR-0118): *"Approved. The chatbot already now communicates with the Render
+   proxy server so the masked key is not required."* Remove the masked-key fallback from the
+   build and `pages.yml`; the owner revokes the old key.
+6. **GC-0017 and GC-0018** (F07): *"Yes."* The D2 ruling (CHAT-0041) covers the SKOS S27 conflict;
+   correct it by a correction record, never by editing the signed records.
+7. **Branch protection** (F03): *"Not at the moment thank you."* `main` stays unprotected;
+   deployment remains gated on the harness by `workflow_run` alone.
+8. **The pitch's claims** (OQ-0029, `both_halves`): *"Claim the gain over keyword search, and say
+   plainly that modern search ranks better. Then lead with what the ontology uniquely does."*
+9. **Re-measurement**: *"I'll defer the re-measurement for now. We'll likely undergo some
+   additional re-work before we re-measure."* No amount; the cap stays exceeded and every paid
+   call is refused.
+
+**What it does not decide.** Which correction GC-0017/GC-0018 receive (an agent's judgement,
+stamped). How the definitions are worded, or their id series (`docs/IDENTIFIERS.md`). The order
+of the work. When re-measurement happens or what it may cost.
+
+**Consequences.**
+1. The ruling file's `applied` is null until a session acts; each item is closed out there.
+2. The re-capture is work in `manual-XtrACTor` (CLAUDE.md rule 2), not here; this repo then
+   bumps the pin, runs the staleness check, and rebuilds the graph.
+3. The pitch's numbers predate S029's and S036's edges and the blend fix; the pitch must cite the
+   report and commit each comes from (F11) and say they are not re-measured.

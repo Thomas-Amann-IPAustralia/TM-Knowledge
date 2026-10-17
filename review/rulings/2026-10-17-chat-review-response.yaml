@@ -1,0 +1,110 @@
+# Decisions the repo owner made in a chat session, on the nine "Decisions for the owner" in
+# docs/ONTOLOGY-REVIEW-RESPONSE.md. Hand-transcribed by the S037 agent; no issue behind it. The
+# artefact is `review/returned/261017-owner-chat-review-response.md`, which carries the words
+# verbatim. `item` names the response's numbered decision and the review finding it concerns.
+# The owner asked that none of the approved work start in S037, so `applied` is null.
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-17T00:00:00Z'
+questions_updated: '2026-10-17'
+source:
+  kind: chat
+  artefact: review/returned/261017-owner-chat-review-response.md
+  author: Thomas-Amann-IPAustralia
+  relayed_by: S037 agent
+  title: The nine decisions in the review response (re-pin, definitions, documents, the live chatbot,
+    the masked key, GC-0017/GC-0018, branch protection, the pitch's claims, re-measurement)
+applied: null
+answers:
+- id: CHAT-0077
+  item: decision-1 (F09)
+  question: Re-capture the legislation upstream and move the pin to the Act's compilation 48; until
+    then, show "the Act as in force from 14 October 2024" on every answer?
+  kind: instruction
+  value: approve_with_condition
+  label: Yes — re-capture upstream and move the pin, without breaking anything downstream
+  quote: Yes Re-capture the upstream legislation. Ensure that shifting to the latest compilation
+    doesn't break anything downstream.
+  notes: >-
+    The interim label was part of the recommendation the owner said yes to; the agent reads it as
+    approved until the pin moves. The re-capture is upstream's (manual-XtrACTor; CLAUDE.md rule 2).
+  recorded_as:
+  - ADR-0136
+- id: CHAT-0078
+  item: decision-2 (F06; 8 October F4)
+  question: Lift the deferral on definitions before the pitch?
+  kind: choice
+  value: deferral_lifted
+  label: Yes, the deferral is lifted
+  quote: Agreed, the defferal may be lifted.
+  recorded_as:
+  - ADR-0136
+- id: CHAT-0079
+  item: decision-3 (F12; 8 October F5)
+  question: Lift the deferral on the stale documents?
+  kind: choice
+  value: deferral_lifted
+  label: Yes, the deferral is lifted
+  quote: Agreed, the defferal may be lifted.
+  recorded_as:
+  - ADR-0136
+- id: CHAT-0080
+  item: decision-4 (F14, F19)
+  question: Give the live chatbot each graph path line's modality and condition, and tell it never to
+    conclude that something is absent?
+  kind: choice
+  value: approved
+  label: Approved, both changes
+  quote: Approved.
+  recorded_as:
+  - ADR-0136
+- id: CHAT-0081
+  item: decision-5 (masked key; ADR-0118)
+  question: Remove the masked-key fallback once the proxy serves, and revoke the old key?
+  kind: choice
+  value: approved
+  label: Approved; the proxy already serves
+  quote: Approved. The chatbot already now communicates with the Render proxy server so the masked
+    key is not required.
+  notes: >-
+    Revoking the key is the owner's to do in their OpenAI account; an agent cannot.
+  recorded_as:
+  - ADR-0136
+- id: CHAT-0082
+  item: decision-6 (F07; 8 October D2)
+  question: Does the D2 ruling ("correct known defects", CHAT-0041) cover the GC-0017/GC-0018 SKOS
+    conflict inside signed records?
+  kind: choice
+  value: 'yes'
+  label: Yes — correct it by a correction record
+  quote: Yes.
+  recorded_as:
+  - ADR-0136
+- id: CHAT-0083
+  item: decision-7 (F03)
+  question: Turn on branch protection for main, requiring the harness checks?
+  kind: choice
+  value: not_now
+  label: Not at the moment
+  quote: Not at the moment thank you.
+  recorded_as:
+  - ADR-0136
+- id: OQ-0029
+  question: What should the pitch claim?
+  kind: choice
+  value: both_halves
+  label: The gain over keyword search, and plainly that modern search ranks better
+  notes: >-
+    Claim the gain over keyword search, and say plainly that modern search ranks better. Then lead
+    with what the ontology uniquely does.
+  recorded_as:
+  - ADR-0136
+- id: CHAT-0084
+  item: decision-9 (re-measurement)
+  question: Name an amount for re-measurement after packages 1 and 2?
+  kind: choice
+  value: deferred
+  label: Deferred — more re-work is likely before re-measuring
+  quote: I'll defer the re-measurement for now. We'll likely undergo some additional re-work before
+    we re-measure.
+  recorded_as:
+  - ADR-0136

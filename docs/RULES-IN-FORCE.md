@@ -1,10 +1,10 @@
-# Rules in force — what 125 decisions add up to
+# Rules in force — what 126 decisions add up to
 
 Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-10-16, ADR-0135.
+**As at:** 2026-10-17, ADR-0136.
 
 ## Purpose and scope
 
@@ -16,6 +16,13 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   to production ready as possible. No question goes to "the expert" singly
   (ADR-0120).
 - **The whole Manual is in scope.** There is no section 43 boundary (ADR-0081).
+- **The pitch claims** the gain over keyword search, says plainly that modern search
+  ranks better, then leads with what the ontology uniquely does (OQ-0029, ADR-0136).
+- **Definitions are in scope** and the stale documents are to be corrected; both
+  deferrals are lifted (ADR-0136).
+- **The pinned Act moves to compilation 48** once upstream re-captures it, without breaking
+  anything downstream; until then answers say "the Act as in force from 14 October 2024"
+  (ADR-0136).
 - **Never state an examination outcome**, and never a confidence that a ground
   applies (PU-0003). The eleven signed prohibited uses stand (ADR-0082 c4).
 - **The Manual is practice, not law.** Keep the Manual and the legislation
@@ -23,7 +30,8 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 - **The published site is for trade marks examiners** (`site/`, the explorer); the
   owner's workbench is at `/workbench/`, linked from nothing an examiner opens. A live
   chatbot answers examiners' own questions with the owner's key, unprotected — the
-  owner's decision, and the key is recoverable from the page (ADR-0118). Before searching,
+  owner's decision (ADR-0118). It answers through the Render proxy, which holds the key;
+  the masked-key fallback is to be removed and the old key revoked (ADR-0136). Before searching,
   it has the model read a typed question for ideas named in other words, each checked and
   marked "read by the model"; the owner approved it and its cost per question (ADR-0133).
 - **On the site, an expert's review is marked, never featured.** Machine-written
@@ -91,7 +99,8 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 - **A relationship carries its sentence's condition or hedge** in `applies_when`, copied
   verbatim from the supporting sentence, stated on the reified record and shown beside the
   edge (S036). A modality belongs to the verb its predicate reads; a re-read onto another
-  predicate drops it. Not yet given to the live answering model (the owner's decision).
+  predicate drops it. The owner approved giving it, with the modality, to the live answering
+  model, and a rule against concluding absence (ADR-0136); not yet wired.
 - **Roles are distinct and their power is on edges**: the Registrar (an office) is
   not a delegate, a delegate is not the Registrar, the owner is not the authorised
   user; who delegates to, directs, reviews or is consulted by whom is an edge on a
@@ -128,6 +137,7 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   attempts (Q-85). Recorded US$9.63 — S034's unasked US$0.12 smoke test (ADR-0132) and
   US$1.13 of the US$1.60 the owner approved to measure the reading (ADR-0133) — above the
   US$9.49 cap, so every paid call is refused until the owner names an amount.
+  Re-measurement is deferred until more re-work is done (ADR-0136).
   Every paid call goes through `tm_knowledge.bulk`: dry-run, `--confirm`,
   `--limit`, a committed cache, the cap checked before each call. **One exception:**
   the explorer's live answers are made from readers' browsers on the owner's key,
@@ -169,7 +179,8 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 - **What serves reads corrections; so do the queries.** The workbench's map and tree read
   `served_gold()`, and no competency query returns a corrected signed record (S036).
 - **Pages deploys only after the harness passes** on the same push to `main`
-  (`workflow_run`); a manual run is the owner's override (S036).
+  (`workflow_run`); a manual run is the owner's override (S036). `main` is not a
+  protected branch, by the owner's choice (ADR-0136).
 - **The harness's exit 3 is "Stage 0 incomplete"**, a reported state, not a
   failure (ADR-0018, ADR-0030).
 - **The measurement grades a passage once.** A re-measurement re-takes every system's
