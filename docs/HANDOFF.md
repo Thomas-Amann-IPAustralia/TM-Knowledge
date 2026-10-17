@@ -39,7 +39,7 @@ not raise either unprompted.
 
 Counts: 52 signed + 112 machine-written concepts, all 164 in one connected piece; 35 signed
 relationships (20 serving, 15 corrected) + 337 machine-written; 37 corrections; 149
-definitions. Tests: see the final commit's body. Harness 0 defects; SHACL 0 defects, 259 notes.
+definitions. 782 tests pass; harness 0 defects; SHACL 0 defects, 259 notes.
 
 ## For the owner
 
