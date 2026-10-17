@@ -1,10 +1,10 @@
-# Rules in force — what 123 decisions add up to
+# Rules in force — what 125 decisions add up to
 
 Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-10-09, ADR-0131.
+**As at:** 2026-10-16, ADR-0135.
 
 ## Purpose and scope
 
@@ -43,7 +43,8 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 - **`approved_by` is never written by an agent.** Not a name, not initials, not a
   model id. A filled one in `authored/` is a defect (ADR-0090).
 - **Evidence is quoted, not retyped**: a ref, a span, the content hash, and a quote
-  that is exactly the text at the span (ADR-0045, ADR-0090 c3). `general_knowledge`
+  that is exactly the text at the span (ADR-0045, ADR-0090 c3). The envelope schema and
+  the harness require all four for every ref but a case citation (S036). `general_knowledge`
   is allowed and always flagged (ADR-0079 guard 2).
 - **A malformed authored record is refused, never skipped** (ADR-0089).
 - **`authored_by` is the model the API reported**, not the configured one
@@ -65,7 +66,8 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   trade), the process (role, step, instrument or record, external instrument) — and
   `none_of_these` (`typing.GROUPS`). What it *does* is an edge to the ground or test it
   acts on: a factor `qualifies` (or `mayGiveRiseTo`, `statesThresholdFor`), an exception
-  `doesNotGiveRiseTo`, a ground `isOvercomeBy` its remedy — never a kind (ADR-0126).
+  `isAnExceptionTo`, a ground `isOvercomeBy` its remedy — never a kind (ADR-0126).
+  `doesNotGiveRiseTo` means *not on its own* and is never an exception (ADR-0135).
   An eleventh kind, `principle` (the presumption of registrability, mandatory application,
   office practice), sits with the law's questions; `none_of_these` is empty (ADR-0131).
 - **The top level connects** (ADR-0131). The families are classes; every predicate names
@@ -83,6 +85,13 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   example, counter-example, `law` or `practice` — and `relations.ttl` is generated
   from it. An authored edge on an undefined predicate is a defect; a triple that does
   not read the way its predicate reads is recorded the wrong way round (ADR-0123).
+  `prevents` blocks a step, `suspendsTimeFor` stops its clock, `precedes` means *must come
+  before*; `establishes` is retired for `mayShow` (S036). A label on the site is the
+  predicate's name, so changing what examiners read means renaming it (Q-94).
+- **A relationship carries its sentence's condition or hedge** in `applies_when`, copied
+  verbatim from the supporting sentence, stated on the reified record and shown beside the
+  edge (S036). A modality belongs to the verb its predicate reads; a re-read onto another
+  predicate drops it. Not yet given to the live answering model (the owner's decision).
 - **Roles are distinct and their power is on edges**: the Registrar (an office) is
   not a delegate, a delegate is not the Registrar, the owner is not the authorised
   user; who delegates to, directs, reviews or is consulted by whom is an edge on a
@@ -151,14 +160,24 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   or unclassified by its series, never guessed (`ontology.decisions`) (ADR-0121).
 - **The graph reads both stores through one mapping**, every node stamped with its
   origin; an authored relationship is a `tmk:AuthoredAssertion`, never a
-  `tmk:ApprovedAssertion` (ADR-0091).
+  `tmk:ApprovedAssertion` (ADR-0091). The SHACL gate validates all four named graphs and
+  checks each record class sits in its own; a SKOS S27 conflict a machine wrote is a defect,
+  one inside signed records a note for the owner (S036).
+- **No OWL profile is claimed and no OWL inference is licensed**: the contract is RDF, SKOS,
+  SHACL and the approved SPARQL rules; `owl:` terms are vocabulary, and a test holds the
+  graph to its own functional, datatype and domain declarations (ADR-0134).
+- **What serves reads corrections; so do the queries.** The workbench's map and tree read
+  `served_gold()`, and no competency query returns a corrected signed record (S036).
+- **Pages deploys only after the harness passes** on the same push to `main`
+  (`workflow_run`); a manual run is the owner's override (S036).
 - **The harness's exit 3 is "Stage 0 incomplete"**, a reported state, not a
   failure (ADR-0018, ADR-0030).
 - **The measurement grades a passage once.** A re-measurement re-takes every system's
   pools the same day (Q-84), sends only ungraded passages to the judge, and can score
   other rankings on the same grades (`tmk-bulk pools --keep-previous --variant`). The
   judge stays `gpt-6.1-sol` unless a stronger one is shown more accurate on a yardstick
-  no model touched (ADR-0127).
+  no model touched (ADR-0127). Every report names its commit, grade hash and rankings
+  hash, and `--write` never overwrites a report scored on other inputs (S036, Q-91).
 
 ## Process
 

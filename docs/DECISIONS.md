@@ -5943,3 +5943,81 @@ change its blend; nothing was tuned on these questions.
    average, better than keyword search. This is for the owner's pitch decision, not to be quietly
    fixed by tuning on the benchmark.
 5. Report: `data/derived/reports/measure-reading.md`; data under `data/derived/bench/`.
+
+## ADR-0134 — the ontology claims no OWL profile: RDF, SKOS, SHACL and approved SPARQL rules
+
+**Date** 2026-10-16 · **Authority** agent-proposed · **Status** accepted
+
+**Context.** Since ADR-0057 the draft has called its nine modules "OWL 2 RL", and its README says
+that leaving the profile is an ADR, not an edit. The claim is untrue (ChatGPT's review of 15
+October, F07, confirmed in `docs/ONTOLOGY-REVIEW-RESPONSE.md`): `tmk:RelevantFactor`,
+`tmk:Exception` and `tmk:Remedy` are declared equivalent to existential restrictions, of which OWL 2
+RL allows only the subclass direction; and `xsd:date`, used on every approval and authoring date,
+is outside OWL 2's datatype map altogether. Nothing in the product runs OWL inference: `validate.run`
+uses `inference="none"`, search is custom code, and what the graph derives comes from two SPARQL
+`CONSTRUCT` rules. The audience most likely to load the graph into a reasoner is a pitch's, and
+until S036 it would have found contradictions that were declaration bugs (F01, Q-92).
+
+**Decision (the agent's).** The ontology's contract is bounded: RDF and RDFS, SKOS for the concept
+scheme, SHACL for what a node must carry before it publishes, and the approved SPARQL rules in
+`queries/rules/` for what may be derived. **No OWL profile is claimed and no OWL inference is
+licensed.** `owl:` terms stay as vocabulary (classes, properties, disjointness), documenting intent
+for a reader's tool, and the graph is held to its own functional, datatype and domain declarations
+by `tests/unit/test_declarations.py` rather than by a reasoner. `xsd:date` stays: it is the right
+type for a date. The equivalences are not rewritten in RL-legal form, because the RL-legal half
+(the restriction implies the class) is exactly what made "not on its own" an exception (F15).
+
+**What it does not decide.** The rest of the stale documents (the review's F12, the 8 October
+review's F5), which the owner approved and deferred (CHAT-0056): only the sentences stating the
+profile as the contract change. The `Exception` equivalence itself, which Package 2 of the response
+revises by its own ADR.
+
+**Consequences.**
+1. `ontology/README.md`, `ontology/draft/README.md`, the root README, `ARCHITECTURE.md`,
+   `ROADMAP-STATUS.md`, the glossary and the workbench's model page state the contract above.
+2. Declaration bugs that a reasoner would report are caught by a test instead: S036 removed the
+   functional `tmk:sourcePassage`, the domains that classified every concept as an assertion, and
+   the `xsd:double` confidences, and the S27 and two-way cycle checks joined the gate.
+3. A reader who runs an OWL reasoner over `graph/` does so outside anything this project promises.
+   Provisional, as every agent-proposed ADR is; name it in the handoff's open items.
+
+## ADR-0135 — an exception is its own edge; "not on its own" is not an exception
+
+**Date** 2026-10-16 · **Authority** agent-proposed · **Status** accepted · supersedes the
+`doesNotGiveRiseTo` mapping in ADR-0126's agent decision 2, and nothing of the owner's
+decision there
+
+**Context.** ADR-0126 decided, on the owner's word, that being an exception is an edge. Its
+agent part chose `doesNotGiveRiseTo` to be that edge and declared `tmk:Exception ≡
+∃doesNotGiveRiseTo`. But the predicate means "does not *by itself* give rise to": the ground
+may still arise. ChatGPT's review of 15 October (F15) showed that a reasoner turns every
+subject of such an edge into an exception, and S035 found the reading live: the workbench's
+decision tree (`views.FUNCTION_EDGES`) and `typing.FUNCTIONS` filed every subject as
+"something that takes a case out of a ground or test". Of its six edges then, two stated
+insufficiency (GR-0015, signed, "the mere presence"; GR-0688, "merely because"), three
+hedged exceptions (GR-0699 "rarely", GR-0700 "Generally", GR-0701) and one cited a
+procedural sentence (GR-0702).
+
+**Decision (the agent's).** A new predicate, `isAnExceptionTo` (*"⟨case⟩ is an exception to
+⟨ground or test⟩"*: a case the ground or test does not reach, qualified as the source
+qualifies it), carries the exception function, joining any concept to a ground or a test.
+`doesNotGiveRiseTo` keeps its meaning, insufficiency, and its counter-example now points to
+the new predicate. The tree reads `isAnExceptionTo` as an exception and `doesNotGiveRiseTo`
+as **not on its own**, beside the factors on the section gate, never as an exception. The
+equivalence and its restriction are removed from `legal-concepts.ttl`; `tmk:Exception`
+stays as a class, said by the edge, with no OWL axiom (ADR-0134). The three hedged
+exceptions and GR-0702 are re-read in S036's ledger, each hedge or condition in
+`applies_when`; GR-0015 and GR-0688 stay as they are.
+
+**What it does not decide.** Conjunctions, alternatives or completeness markers for
+exceptions, which the review lists and which are outside the demonstrator; a list of
+exceptions is never complete in this project (the response's answer to the review's
+"decisions to record"). Whether the live chatbot is told this distinction, which changes
+what it may say and is the owner's (the response's decision 4).
+
+**Consequences.**
+1. "Not on its own" no longer reads as "takes the case out" in the workbench, the typing
+   table or any reasoner; `test_views.py` and `test_predicates.py` hold it.
+2. `RelevantFactor` and `Remedy` keep their equivalences as vocabulary; nothing infers from
+   them (ADR-0134).
+3. Provisional, as every agent-proposed ADR is; name it in the handoff's open items.

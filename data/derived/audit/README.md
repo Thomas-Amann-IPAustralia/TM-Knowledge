@@ -38,3 +38,16 @@ are kinds the predicate joins, no duplicate triple — and writes nothing while 
 refused; `--write` applies it and writes `data/derived/reports/restructure.md`. It is
 idempotent: a line an earlier run applied is counted, not re-applied, so the ledger can grow.
 A line you disagree with is a finding for a person; change the ledger, not the records.
+
+## `review-response.yaml` — the review response's worklist (S036)
+
+The same kind of ledger, applied by the same checked applier
+(`tmk-bulk restructure --ledger data/derived/audit/review-response.yaml`): an agent
+session's judgements (`claude-code-agent-S036`) on every machine-written relationship the
+review response named (`docs/ONTOLOGY-REVIEW-RESPONSE.md`, F05, F13, F15, F16, F18) and on
+every S029 re-read that had never been judged in its current form. A line re-reads a record
+(`to:`), re-qualifies it on the same triple (`modality:`, `applies_when:` — the sentence's
+own condition or hedge), withdraws it, or records that it was checked and kept (`keep:`).
+Three new relationships restate heading-only ones from body text. The report is
+`data/derived/reports/review-response-edges.md`. A later ledger's re-read is never undone by
+running an earlier one.

@@ -20,6 +20,8 @@ WHERE {
     OPTIONAL { ?object skos:prefLabel ?objectLabel }
     FILTER (CONTAINS(LCASE(CONCAT(?subjectLabel, " ", COALESCE(?objectLabel, ""))), "inn")
             || CONTAINS(LCASE(CONCAT(?subjectLabel, " ", COALESCE(?objectLabel, ""))), "non-proprietary"))
+    # A corrected signed record is history; its replacement serves (ADR-0122).
+    FILTER NOT EXISTS { ?assertion tmk:isCorrected true }
   }
   GRAPH tmkg:source { ?passage tmk:upstreamRef ?sourceRef }
 }

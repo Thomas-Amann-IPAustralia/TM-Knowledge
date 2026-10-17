@@ -20,6 +20,8 @@ WHERE {
     OPTIONAL { ?object skos:prefLabel ?objectLabel }
     VALUES ?predicate { tmk:requiresElement tmk:extendsTo tmk:excludesBasis tmk:qualifies }
     FILTER (CONTAINS(LCASE(?subjectLabel), "geograph") || CONTAINS(LCASE(?subjectLabel), "connotation"))
+    # A corrected signed record is history; its replacement serves (ADR-0122).
+    FILTER NOT EXISTS { ?assertion tmk:isCorrected true }
   }
   GRAPH tmkg:source { ?passage tmk:upstreamRef ?sourceRef }
 }

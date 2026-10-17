@@ -197,7 +197,7 @@ def _relations(gold: Any, authored: Any) -> list[dict[str, Any]]:
         out.append({
             "id": str(record["id"]), "s": str(record["subject"]), "p": str(record["predicate"]),
             "o": str(record["object"]), "origin": "signed", "modality": record.get("modality"),
-            "ref": record.get("source_ref"), "quote": record.get("supporting_text"),
+            "when": record.get("applies_when"), "ref": record.get("source_ref"), "quote": record.get("supporting_text"),
             "signed": {"by": record.get("approved_by"), "date": record.get("approved_date")},
         })
     for entry in authored.of("gold_relationship"):
@@ -208,7 +208,7 @@ def _relations(gold: Any, authored: Any) -> list[dict[str, Any]]:
         out.append({
             "id": str(record["id"]), "s": str(record["subject"]), "p": str(record["predicate"]),
             "o": str(record["object"]), "origin": "machine", "modality": record.get("modality"),
-            "ref": record.get("source_ref") or evidence.get("ref"),
+            "when": record.get("applies_when"), "ref": record.get("source_ref") or evidence.get("ref"),
             "quote": record.get("supporting_text") or evidence.get("quote"),
             "machine": {"by": env.get("authored_by"), "date": env.get("authored_date"),
                         "review_status": env.get("review_status"), "confidence": env.get("confidence"),

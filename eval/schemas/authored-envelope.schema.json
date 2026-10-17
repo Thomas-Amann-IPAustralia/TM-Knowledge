@@ -43,6 +43,7 @@
       "type": "array",
       "description": "The passages this record rests on. Required and non-empty unless `authoring_basis` is `general_knowledge` — see the conditional at the foot of this schema. Every entry is an upstream ref with the span and content hash that let a later run detect the passage changing underneath the record.",
       "items": {
+        "description": "A ref, a span, the content hash, and a quote that is exactly the text at the span (ADR-0045, ADR-0090 c3). Until S036 only the ref was required (the review response, F08). A case citation is the exception: no judgment text is held anywhere (Q-11), so a `CASE/` ref has nothing to quote.",
         "type": "object",
         "additionalProperties": false,
         "required": [
@@ -64,6 +65,32 @@
               "null"
             ],
             "description": "The supporting text, copied character for character from the snapshot. Never retyped — a quote that will not locate means the surface was retyped rather than copied (ADR-0045)."
+          }
+        },
+        "if": {
+          "properties": {
+            "ref": {
+              "pattern": "^CASE/"
+            }
+          }
+        },
+        "else": {
+          "required": [
+            "span",
+            "content_hash",
+            "quote"
+          ],
+          "properties": {
+            "span": {
+              "type": "array"
+            },
+            "content_hash": {
+              "type": "string"
+            },
+            "quote": {
+              "type": "string",
+              "minLength": 1
+            }
           }
         }
       }

@@ -71,11 +71,16 @@ tmk:assertionObject a owl:ObjectProperty , owl:FunctionalProperty ;
 
 # --- where it came from -----------------------------------------------------
 
-tmk:sourcePassage a owl:ObjectProperty , owl:FunctionalProperty ;
-    rdfs:domain tmk:Assertion ;
+tmk:sourcePassage a owl:ObjectProperty ;
     rdfs:range tmk:Passage ;
     rdfs:label "source passage"@en-AU ;
-    rdfs:comment "'Every approved proposition has a source passage' — the first of the six starting SHACL rules."@en-AU .
+    rdfs:comment """'Every approved proposition has a source passage' — the first of the six starting SHACL rules.
+
+Not functional, and it has no domain (S036, the review response F01). A record resting
+on a Manual chunk and a section of the Act carries both; declared functional, OWL
+would make the two passages the same individual, which is the separation of law and
+practice undone. It is stamped on concepts and typing records as well as assertions,
+so a domain would reclassify them."""@en-AU .
 
 tmk:supportingText a owl:DatatypeProperty ;
     rdfs:domain tmk:Assertion ;
@@ -120,7 +125,6 @@ tmk:model a owl:DatatypeProperty ;
     rdfs:comment "The model that produced the assertion, with its version. Absent on an expert-elicited record. HANDOFF Q3 is the question of which model may be named here at all."@en-AU .
 
 tmk:confidence a owl:DatatypeProperty , owl:FunctionalProperty ;
-    rdfs:domain tmk:Assertion ;
     rdfs:range xsd:decimal ;
     rdfs:label "confidence"@en-AU ;
     rdfs:comment """A confidence in the **extraction**. Legitimate and required (CLAUDE.md rule 8).
@@ -130,19 +134,16 @@ probability in this system is calibrated against examination outcomes, and none
 could be without a decision corpus."""@en-AU .
 
 tmk:reviewStatus a owl:DatatypeProperty , owl:FunctionalProperty ;
-    rdfs:domain tmk:Assertion ;
     rdfs:range xsd:string ;
     rdfs:label "review status"@en-AU ;
     rdfs:comment "`approved` | `candidate` | `rejected` | `stale`. Never absent, and never defaulted to `approved`."@en-AU .
 
 tmk:approvedBy a owl:DatatypeProperty ;
-    rdfs:domain tmk:Assertion ;
     rdfs:range xsd:string ;
     rdfs:label "approved by"@en-AU ;
     rdfs:comment "The name of the person who approved it. A name and a date are the approval artefact, and there is no separate register (ADR-0039)."@en-AU .
 
 tmk:approvedDate a owl:DatatypeProperty ;
-    rdfs:domain tmk:Assertion ;
     rdfs:range xsd:date ;
     rdfs:label "approved date"@en-AU .
 
@@ -163,6 +164,13 @@ from the sentence's grammar: whether a 'may' is possibility or permission is a
 legal reading. Five approved relationships carry no modality today and the graph
 carries none for them."""@en-AU .
 
+tmk:appliesWhen a owl:DatatypeProperty ;
+    rdfs:range rdf:langString ;
+    rdfs:label "applies when"@en-AU ;
+    rdfs:comment """The condition or hedge under which the supporting sentence states the relationship, in that sentence's own words: 'an application to record assignment is received after the documentation required under reg 16.2 has been sent to the Commission', 'In most cases'.
+
+On the reified assertion only. The direct triple is a navigation edge and says nothing of when it holds, so a reader who relies on an edge reads its assertion (ADR-0058). Absent means the sentence states the relationship without a condition, not that none exists in the law (the review response, F14 and F19)."""@en-AU .
+
 # --- inference --------------------------------------------------------------
 
 tmk:producedByRule a owl:ObjectProperty ;
@@ -172,9 +180,8 @@ tmk:producedByRule a owl:ObjectProperty ;
 
 tmk:derivedFrom a owl:ObjectProperty ;
     rdfs:subPropertyOf prov:wasDerivedFrom ;
-    rdfs:domain tmk:InferredAssertion ;
     rdfs:label "derived from"@en-AU ;
-    rdfs:comment "The source facts the inference stands on. Plural, and complete: an explanation that names some of its premises is not an explanation."@en-AU .
+    rdfs:comment "The source facts the inference stands on. Plural, and complete: an explanation that names some of its premises is not an explanation. No domain: a reasoning expectation names its expected conclusion's basis with it too, and is not an inference (S036)."@en-AU .
 
 tmk:requiresHumanReview a owl:DatatypeProperty , owl:FunctionalProperty ;
     rdfs:domain tmk:InferredAssertion ;
@@ -211,6 +218,15 @@ being cited by any record is invisible to it (Q-28), so a nil result means
 
 # --- what a machine wrote, and on what -------------------------------------
 #
+# None of the provenance stamps below, nor tmk:confidence, tmk:reviewStatus,
+# tmk:approvedBy or tmk:approvedDate above, has a domain. They are written on
+# concepts, typing records and evaluation records as well as on assertions, and
+# under OWL a domain classifies every subject of its property: declared on
+# tmk:Assertion, each made every concept an assertion (S036, the review response
+# F01). What a node must carry is checked by shapes/provenance.ttl, which is a
+# check and not an inference. tests/unit/test_declarations.py holds the graph to
+# its declarations.
+#
 # ADR-0079 rewrote CLAUDE.md rule 1 from "an agent may not author legal content"
 # to "an agent may not launder it". These five properties are what makes the
 # second rule mechanical in RDF: an authored assertion that reaches a reader
@@ -219,42 +235,35 @@ being cited by any record is invisible to it (Q-28), so a nil result means
 # being served.
 
 tmk:origin a owl:DatatypeProperty , owl:FunctionalProperty ;
-    rdfs:domain tmk:Assertion ;
     rdfs:range xsd:string ;
     rdfs:label "origin"@en-AU ;
     rdfs:comment "Which store this node was built from: \"approved\" for eval/gold/, \"authored\" for authored/. Stamped on every node of both, so a triple lifted out of its named graph still says where it came from. The named graph is the governance boundary; this is the belt to its braces (ADR-0080)."@en-AU .
 
 tmk:authoredBy a owl:DatatypeProperty ;
-    rdfs:domain tmk:Assertion ;
     rdfs:range xsd:string ;
     rdfs:label "authored by"@en-AU ;
     rdfs:comment "The model that wrote this, with its version. Never a person's name — a person's name goes in tmk:approvedBy and only a transcription from a signed workbook puts it there (ADR-0087)."@en-AU .
 
 tmk:authoredDate a owl:DatatypeProperty ;
-    rdfs:domain tmk:Assertion ;
     rdfs:range xsd:date ;
     rdfs:label "authored date"@en-AU .
 
 tmk:authoringBasis a owl:DatatypeProperty ;
-    rdfs:domain tmk:Assertion ;
     rdfs:range xsd:string ;
     rdfs:label "authoring basis"@en-AU ;
     rdfs:comment "What the judgement rests on: \"corpus_explicit\" — the corpus states it in terms; \"corpus_inferred\" — the corpus supports it but the reading is the machine's; \"general_knowledge\" — the corpus does not say it. The third is permitted and flagged, never hidden: an unevidenced assertion is not thereby wrong, it is thereby unevidenced, and no count may present it as equivalent to an evidenced one (ADR-0079 guard 2)."@en-AU .
 
 tmk:authoringReasoning a owl:DatatypeProperty ;
-    rdfs:domain tmk:Assertion ;
-    rdfs:range xsd:string ;
+    rdfs:range rdf:langString ;
     rdfs:label "authoring reasoning"@en-AU ;
     rdfs:comment "Why this reading and not the obvious alternative, written for the expert who will disagree with it. The field that makes correction cheap, which is the entire premise of ADR-0079."@en-AU .
 
 tmk:expertShouldCheck a owl:DatatypeProperty ;
-    rdfs:domain tmk:Assertion ;
-    rdfs:range xsd:string ;
+    rdfs:range rdf:langString ;
     rdfs:label "expert should check"@en-AU ;
     rdfs:comment "The specific thing most likely to be wrong here. A pointer, not a disclaimer."@en-AU .
 
 tmk:supersedesRejected a owl:DatatypeProperty ;
-    rdfs:domain tmk:Assertion ;
     rdfs:range xsd:string ;
     rdfs:label "supersedes rejected record"@en-AU ;
     rdfs:comment "The id of a record a named expert rejected, where this authored assertion covers the same ground. A signed rejection is a human decision and ADR-0079 does not license reversing one silently: naming it, with the difference explained in tmk:authoringReasoning, is the only way an authored record may occupy that ground (ADR-0084 consequence 2)."@en-AU .

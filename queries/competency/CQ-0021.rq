@@ -16,6 +16,8 @@ WHERE {
                tmk:sourcePassage ?passage ;
                tmk:approvedBy ?approvedBy .
     OPTIONAL { ?assertion tmk:modality ?modality }
+    # A corrected signed record is history; its replacement serves (ADR-0122).
+    FILTER NOT EXISTS { ?assertion tmk:isCorrected true }
   }
   GRAPH tmkg:source {
     ?passage tmk:upstreamRef ?sourceRef ;

@@ -47,6 +47,7 @@ const KIND_TONE = {
   legal_test: "note",
   // What a concept does at a gate (ruling B1) — read off an edge, not a kind.
   relevant_factor: "muted",
+  not_on_its_own: "muted",
   exception: "good",
   remedy: "good",
   sign_content: "muted",
@@ -396,6 +397,7 @@ export function renderTree(block, context = {}) {
       const parts = [];
       if (node.tests) parts.push(`${node.tests} question${node.tests === 1 ? "" : "s"}`);
       if (node.factors) parts.push(`${node.factors} factor${node.factors === 1 ? "" : "s"}`);
+      if (node.alone) parts.push(`${node.alone} not on its own`);
       if (node.exceptions)
         parts.push(`${node.exceptions} exception${node.exceptions === 1 ? "" : "s"}`);
       if (node.remedies)

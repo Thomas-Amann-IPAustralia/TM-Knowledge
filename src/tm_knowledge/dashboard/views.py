@@ -82,7 +82,10 @@ FUNCTION_EDGES: dict[str, tuple[str, bool]] = {
     "qualifies": ("relevant_factor", True),
     "mayGiveRiseTo": ("relevant_factor", True),
     "statesThresholdFor": ("relevant_factor", True),
-    "doesNotGiveRiseTo": ("exception", True),
+    "isAnExceptionTo": ("exception", True),
+    # Not enough on its own, so the ground may still arise: read beside the factors,
+    # never as an exception (the review response, F15).
+    "doesNotGiveRiseTo": ("not_on_its_own", True),
     "isOvercomeBy": ("remedy", False),
 }
 
@@ -459,6 +462,7 @@ def network(gold: Any, authored: Any) -> dict[str, Any]:
                     record=str(record["id"]),
                     predicate=str(record["predicate"]),
                     modality=record.get("modality"),
+                    applies_when=record.get("applies_when"),
                     tier=record.get("tier"),
                     text=record.get("supporting_text"),
                     passage=record.get("source_ref"),
@@ -705,6 +709,7 @@ def _gate(
 _FUNCTION_READS = {
     "relevant_factor": "bears on",
     "exception": "takes a case out of",
+    "not_on_its_own": "does not on its own give rise to",
     "remedy": "overcomes",
 }
 
@@ -819,6 +824,7 @@ def _grounds_spine(
         section = ordered[position]
         grounds = considerations(section, "ground_of_refusal")
         factors = considerations(section, "relevant_factor")
+        alone = considerations(section, "not_on_its_own")
         exceptions = considerations(section, "exception")
         remedies = considerations(section, "remedy")
         tests = at(section, "legal_test")
@@ -898,10 +904,11 @@ def _grounds_spine(
             #: here rather than there because three sections hold factors and no
             #: test at all — section 33 among them — and a factor filed against a
             #: question that does not exist is a factor nobody can reach.
-            considerations=grounds + factors,
+            considerations=grounds + factors + alone,
             count=len([view for view in reasoning if section in assigned.get(view.identifier, ())]),
             tests=len(tests),
             factors=len(factors),
+            alone=len(alone),
             exceptions=len(exceptions),
             remedies=len(remedies),
             gap=None if grounds else (
@@ -943,7 +950,8 @@ def _grounds_spine(
         "label": "Grounds for rejection",
         "lede": (
             "Every concept typed as a **ground** or a **test**, arranged as the questions they "
-            "are, and every concept an edge says **bears on**, **takes a case out of** or "
+            "are, and every concept an edge says **bears on**, is **not on its own** enough for, "
+            "**takes a case out of** or "
             "**overcomes** one of them — a factor, an exception or a remedy is what a concept "
             "does, said by an edge, not a kind it is filed in (ruling B1). Each section of the "
             "Act that holds a ground or a test becomes one branch point: answer **no** and the "
@@ -1166,10 +1174,13 @@ def decision_tree(gold: Any, authored: Any) -> dict[str, Any]:
             "an order, not a claim that they are cumulative** — nothing in the records says "
             "which must be answered before which, or that all of them must be answered yes.",
             "A **factor**, an **exception** or a **remedy** is not a branch point and not a "
-            "kind: it is what an edge says a concept does — *qualifies*, *does not give rise "
-            "to*, *is overcome by* — to a named ground or test (ruling B1). It is read at the "
+            "kind: it is what an edge says a concept does — *qualifies*, *is an exception to*, "
+            "*is overcome by* — to a named ground or test (ruling B1). It is read at the "
             "gate of the section that ground or test sits at, and the node names the record "
             "that put it there.",
+            "Something an edge says *does not by itself give rise to* a ground is **not on its "
+            "own** enough: the ground may still arise. It is read beside the factors, never as an "
+            "exception, which is only what an *is an exception to* edge names.",
             "A ground or a test joins a section when its own record cites it; failing that, "
             "when a **signed relationship** or a recorded `broader` / `narrower` / `related` "
             "link joins it to one that does.",

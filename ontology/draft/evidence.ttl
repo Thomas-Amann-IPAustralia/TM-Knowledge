@@ -48,7 +48,9 @@ as it is.
 and stays outside automated reasoning scope (queries/README.md). A class that
 holds such propositions is fine; a rule that derives one is not."""@en-AU .
 
-tmk:establishes a owl:ObjectProperty ;
-    rdfs:domain tmk:Evidence ;
-    rdfs:label "establishes"@en-AU ;
-    rdfs:comment "UNUSED. Declared to name the shape of the relation, not to license it: nothing in this repo may derive this edge."@en-AU .
+# tmk:establishes was declared here, "UNUSED", with domain tmk:Evidence, until
+# S036. The owner admitted it as a relation on 2026-10-09 and relations.ttl now
+# declares it, so this second declaration was stale, and its domain made every
+# subject of the three machine-written edges that use it a tmk:Evidence (the
+# review response, F18). No rule may derive it: a rule's output is checked by
+# shapes/inference.ttl, and an evaluative conclusion stays outside reasoning.

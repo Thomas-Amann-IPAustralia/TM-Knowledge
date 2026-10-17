@@ -51,15 +51,15 @@ stale_source."""@en-AU .
 
 # --- properties -------------------------------------------------------------
 
-tmk:questionText a owl:DatatypeProperty ; rdfs:range xsd:string ; rdfs:label "question"@en-AU .
-tmk:queryText a owl:DatatypeProperty ; rdfs:domain tmk:SearchQuestion ; rdfs:range xsd:string ; rdfs:label "query"@en-AU .
+tmk:questionText a owl:DatatypeProperty ; rdfs:range rdf:langString ; rdfs:label "question"@en-AU .
+tmk:queryText a owl:DatatypeProperty ; rdfs:domain tmk:SearchQuestion ; rdfs:range rdf:langString ; rdfs:label "query"@en-AU .
 tmk:questionCategory a owl:DatatypeProperty ; rdfs:domain tmk:CompetencyQuestion ; rdfs:range xsd:string ; rdfs:label "category"@en-AU ;
     rdfs:comment "retrieval | search | reasoning | currency | impact | provenance. The six the set must span."@en-AU .
 tmk:askedBy a owl:DatatypeProperty ; rdfs:domain tmk:CompetencyQuestion ; rdfs:range xsd:string ; rdfs:label "asked by"@en-AU .
 tmk:pilotInScope a owl:DatatypeProperty ; rdfs:range xsd:boolean ; rdfs:label "in pilot scope"@en-AU .
-tmk:answerShape a owl:DatatypeProperty ; rdfs:range xsd:string ; rdfs:label "answer shape"@en-AU ;
+tmk:answerShape a owl:DatatypeProperty ; rdfs:range rdf:langString ; rdfs:label "answer shape"@en-AU ;
     rdfs:comment "What a correct answer must and must not do. Not the answer — the shape of one."@en-AU .
-tmk:caveat a owl:DatatypeProperty ; rdfs:range xsd:string ; rdfs:label "caveat"@en-AU .
+tmk:caveat a owl:DatatypeProperty ; rdfs:range rdf:langString ; rdfs:label "caveat"@en-AU .
 
 tmk:requiresSource a owl:ObjectProperty ; rdfs:range tmk:Passage ; rdfs:label "requires source"@en-AU ;
     rdfs:comment "A passage a correct answer must cite. Absence of one of these is a grounding failure."@en-AU .
@@ -77,11 +77,11 @@ would silently attach a question to the wrong concept, and `deceptively similar`
 against `likely to deceive or cause confusion` is exactly the pair that would
 go wrong first."""@en-AU .
 
-tmk:expectsConceptLabel a owl:DatatypeProperty ; rdfs:range xsd:string ;
+tmk:expectsConceptLabel a owl:DatatypeProperty ; rdfs:range rdf:langString ;
     rdfs:label "expects concept label"@en-AU ;
     rdfs:comment "The label as the record wrote it, kept whether or not it resolved. An unresolved one is either a boundary (see below) or a worklist item: the vocabulary is missing a concept, or the question names one by a variant nobody has recorded as an alt label."@en-AU .
 
-tmk:expectsBoundaryLabel a owl:DatatypeProperty ; rdfs:range xsd:string ;
+tmk:expectsBoundaryLabel a owl:DatatypeProperty ; rdfs:range rdf:langString ;
     rdfs:label "expects boundary label"@en-AU ;
     rdfs:comment """A label the question expects that the vocabulary deliberately excludes.
 
@@ -113,7 +113,7 @@ flag `shapes/authority.ttl` reads: a question carrying it whose required
 evidence is entirely Manual passages is a question whose correct answer must say
 so in words, because nothing in the sources will say it for them."""@en-AU .
 
-tmk:qualificationsExpected a owl:DatatypeProperty ; rdfs:range xsd:string ; rdfs:label "qualifications expected"@en-AU .
+tmk:qualificationsExpected a owl:DatatypeProperty ; rdfs:range rdf:langString ; rdfs:label "qualifications expected"@en-AU .
 
 tmk:mustNotConclude a owl:ObjectProperty ; rdfs:range tmk:ProhibitedUse ; rdfs:label "must not conclude"@en-AU ;
     rdfs:comment "The prohibited outputs this question is most likely to provoke. The edge that turns a prohibition from a document into a test."@en-AU .
@@ -122,12 +122,12 @@ tmk:prohibitedOutput a owl:DatatypeProperty ; rdfs:domain tmk:ProhibitedUse ; rd
     rdfs:label "prohibited output"@en-AU ;
     rdfs:comment "The output itself, written out. Kept verbatim because a paraphrase of a prohibited output is not the thing being prohibited."@en-AU .
 tmk:prohibitionKind a owl:DatatypeProperty ; rdfs:domain tmk:ProhibitedUse ; rdfs:range xsd:string ; rdfs:label "kind"@en-AU .
-tmk:prohibitionReason a owl:DatatypeProperty ; rdfs:domain tmk:ProhibitedUse ; rdfs:range xsd:string ; rdfs:label "why"@en-AU .
+tmk:prohibitionReason a owl:DatatypeProperty ; rdfs:domain tmk:ProhibitedUse ; rdfs:range rdf:langString ; rdfs:label "why"@en-AU .
 tmk:detectableBy a owl:DatatypeProperty ; rdfs:domain tmk:ProhibitedUse ; rdfs:range xsd:string ; rdfs:label "detectable by"@en-AU ;
     rdfs:comment "shacl | test | eval. `shacl` means the prohibition is expressible as a constraint, which blocks publication; `test` and `eval` only report."@en-AU .
 
 tmk:given a owl:ObjectProperty ; rdfs:domain tmk:ReasoningExpectation ; rdfs:label "given"@en-AU .
-tmk:expectedConclusion a owl:DatatypeProperty ; rdfs:domain tmk:ReasoningExpectation ; rdfs:range xsd:string ; rdfs:label "expected conclusion"@en-AU .
+tmk:expectedConclusion a owl:DatatypeProperty ; rdfs:domain tmk:ReasoningExpectation ; rdfs:range rdf:langString ; rdfs:label "expected conclusion"@en-AU .
 tmk:inferenceKind a owl:DatatypeProperty ; rdfs:range xsd:string ; rdfs:label "inference kind"@en-AU .
 tmk:explanationRequired a owl:DatatypeProperty , owl:FunctionalProperty ; rdfs:range xsd:boolean ; rdfs:label "explanation required"@en-AU .
 

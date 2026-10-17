@@ -831,6 +831,7 @@ export function renderNetwork(block, context = {}) {
           `<span class="muted">${escape(kind ? kind.label : edge.kind)}` +
           (edge.record ? ` · ${escape(edge.record)}` : "") +
           (edge.modality ? ` · “${escape(edge.modality)}”` : "") +
+          (edge.applies_when ? ` · only as qualified: “${escape(edge.applies_when)}”` : "") +
           (edge.kind === "asserted" && edge.origin === "authored" ? " · machine-written, unreviewed" : "") +
           `</span>` +
           (edge.text ? `<p class="quote">${escape(edge.text)}</p>` : "") +

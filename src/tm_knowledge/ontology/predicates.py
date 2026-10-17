@@ -120,6 +120,12 @@ RETIRED: dict[str, str] = {
         "get'); each edge was re-read as the relationship its sentence states or withdrawn "
         "(ADR-0131)."
     ),
+    "establishes": (
+        "Read '<evidence> establishes <what it shows>' while its own example said 'may show', and "
+        "each of its three records overstated its sentence (the review response, F18): whether "
+        "evidence establishes anything is the decision maker's evaluative judgement. Replaced by "
+        "mayShow on 2026-10-16; GR-0206 re-read onto it, GR-0163 and GR-0248 withdrawn."
+    ),
 }
 
 #: The predicates that state who holds power over whom (review item C3). The
@@ -174,8 +180,21 @@ PREDICATES: dict[str, Predicate] = {p.name: p for p in (
        "The subject does not, by itself, give rise to the object.",
        "<subject> does not by itself give rise to <object>",
        "GR-0042: an image of a person does not by itself give rise to a section 43 ground.",
-       "Not for something that can never be relevant; the subject may still contribute.",
+       "Not for something that can never be relevant; the subject may still contribute. Not "
+       "for a case the ground or test does not reach at all; use isAnExceptionTo.",
        None, "signed"),
+    # Until S036 an exception was whatever `doesNotGiveRiseTo` a ground, which turned
+    # "not on its own" into "takes the case out" (the review response, F15; ADR-0135).
+    _p("isAnExceptionTo",
+       "The subject is a case the object — a ground or test — does not reach: where the subject "
+       "is present, the ground or test does not apply, as far as the source says and qualified "
+       "as it qualifies it.",
+       "<case> is an exception to <ground or test>",
+       "Generally, a section 43 ground for rejection will not arise in respect of long deceased "
+       "historical figures.",
+       "Not for something that is only not enough on its own, which leaves the ground open; use "
+       "doesNotGiveRiseTo.",
+       None, "owner-2026-10-09"),
     _p("excludesBasis",
        "The object may not be used as a basis for the subject.",
        "<subject> excludes <object> as its basis",
@@ -414,19 +433,31 @@ PREDICATES: dict[str, Predicate] = {p.name: p for p in (
        "opposition it starts.",
        None, "owner-2026-10-09"),
     _p("precedes",
-       "In the process, the subject comes before the object, which cannot happen until the "
-       "subject has.",
-       "<step> comes before <step>",
+       "In the process, the subject must happen before the object can: the object cannot "
+       "happen until the subject has. An order of steps, never a cause.",
+       "<step> must come before <step>",
        "An application must be accepted if, after examination, there are no grounds for "
        "rejecting it (s 33(1)).",
-       "Not for a cause; use mayGiveRiseTo or resultsIn.",
+       "Not for steps a sentence only lists in that order, nor for a sentence saying one step "
+       "is not followed by another (GR-0167 was that mistake). Not for a cause; use "
+       "mayGiveRiseTo or resultsIn.",
        None, "owner-2026-10-09"),
+    # `prevents` meant two things until S036 — the step cannot happen, or its time stops
+    # running — and its records used both (the review response, F13). Split in two.
     _p("prevents",
-       "While the subject stands, the object — a step — cannot happen, or its time stops "
-       "running.",
+       "While the subject stands, the object — a step — cannot happen.",
        "<subject> prevents <step>",
        "A ground for rejection that is made out prevents acceptance (s 33).",
-       "Not for something that only weighs against; use qualifies.",
+       "Not for stopping the time a step must happen within; use suspendsTimeFor. Not for "
+       "something that only weighs against; use qualifies.",
+       None, "owner-2026-10-09"),
+    _p("suspendsTimeFor",
+       "While the subject stands, the time within which the object — a step — must happen, or "
+       "after which it happens, stops running; the step itself is not blocked.",
+       "<subject> suspends the time for <step>",
+       "A deferment of acceptance sets in abeyance the period an application has to gain "
+       "acceptance (reg 4.13), so the application does not lapse while it is deferred.",
+       "Not for something that stops the step happening at all; use prevents.",
        None, "owner-2026-10-09"),
     _p("isExcludedFrom",
        "A step or scheme does not apply to the subject at all.",
@@ -495,12 +526,17 @@ PREDICATES: dict[str, Predicate] = {p.name: p for p in (
        "origin of the goods.",
        "Not for a cause of a ground or test; use mayGiveRiseTo.",
        None, "owner-2026-10-09"),
-    _p("establishes",
-       "The subject — evidence — is what shows the object: a use, a circumstance or a test's "
-       "being met.",
-       "<evidence> establishes <what it shows>",
-       "Evidence of use may show a trade mark to be capable of distinguishing.",
-       "Not for a step that overcomes a ground; use isOvercomeBy from the ground.",
+    # `establishes` overstated what evidence does: its reading said "establishes", its
+    # example "may show" (the review response, F18). Renamed, so its label says it too.
+    _p("mayShow",
+       "The subject — evidence — is material that may show the object: a use, a circumstance or "
+       "a test's being met. It says what evidence can go to, never that it does: whether evidence "
+       "establishes anything is the decision maker's evaluative judgement (PU-0001).",
+       "<evidence> may show <what it shows>",
+       "A trade mark lacking inherent adaptation to distinguish may be shown through evidence of "
+       "use to be capable of distinguishing.",
+       "Not for a step that overcomes a ground; use isOvercomeBy from the ground. Not for a "
+       "heading or a sentence that only says what is considered first.",
        None, "owner-2026-10-09"),
     _p("isAttributedTo",
        "The law treats the subject — a use or an act — as the object's own.",
@@ -536,6 +572,7 @@ _JOINS: dict[str, tuple[tuple[str, ...], tuple[str, ...], bool]] = {
     "dependsOnExternalSource": (_ANY, ("external_instrument", "sign_content", "process_role",
                                        "instrument_or_record"), False),
     "doesNotGiveRiseTo": (_CONCEPTS, ("ground_of_refusal", "legal_test", "procedural_step", "provision"), False),
+    "isAnExceptionTo": (_CONCEPTS, ("ground_of_refusal", "legal_test"), False),
     "mayGiveRiseTo": (_CONCEPTS, ("ground_of_refusal", "legal_test", "procedural_step", "provision"), False),
     "qualifies": (("context", "sign_content", "use_in_trade", "legal_test", "subject_matter",
                    "instrument_or_record", "principle", "procedural_step"),
@@ -568,6 +605,7 @@ _JOINS: dict[str, tuple[tuple[str, ...], tuple[str, ...], bool]] = {
     "precedes": (("procedural_step", "instrument_or_record"), ("procedural_step", "instrument_or_record"), False),
     "prevents": (("ground_of_refusal", "procedural_step", "instrument_or_record", "context",
                   "use_in_trade", "subject_matter", "principle"), _STEP, False),
+    "suspendsTimeFor": (("procedural_step", "instrument_or_record", "context"), _STEP, False),
     "isExcludedFrom": (("subject_matter", "instrument_or_record", "sign_content"),
                        ("procedural_step", "external_instrument"), False),
     "isRecordedIn": (("instrument_or_record", "subject_matter", "procedural_step", "sign_content"),
@@ -579,7 +617,7 @@ _JOINS: dict[str, tuple[tuple[str, ...], tuple[str, ...], bool]] = {
     "keepsEarlierDate": (("procedural_step", "instrument_or_record", "subject_matter"), ("context",), False),
     "runsFrom": (("subject_matter", "procedural_step", "instrument_or_record", "use_in_trade"), ("context",), False),
     "indicates": (("sign_content", "subject_matter"), ("context", "sign_content", "process_role"), False),
-    "establishes": (_RECORD, ("use_in_trade", "legal_test", "context", "ground_of_refusal"), False),
+    "mayShow": (_RECORD, ("use_in_trade", "legal_test", "context", "ground_of_refusal"), False),
     "isAttributedTo": (("use_in_trade", "procedural_step", "instrument_or_record"), _ROLE, False),
     "isDistinguishedFrom": (_CONCEPTS, _CONCEPTS, False),
 }

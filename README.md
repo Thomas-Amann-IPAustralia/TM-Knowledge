@@ -101,7 +101,7 @@ review/            machine-generated candidates awaiting human decision
   returned/        what an expert handed back, unmodified — never edited
   decisions/       what each returned artefact was taken to mean
 vocab/             approved SKOS controlled vocabulary
-ontology/          approved RDF/RDFS/OWL 2 RL modules
+ontology/          approved RDF/RDFS modules (no OWL profile, ADR-0134)
 graph/             generated RDF, by named graph
 shapes/            SHACL shapes
 queries/           SPARQL queries and CONSTRUCT rules

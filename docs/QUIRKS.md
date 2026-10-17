@@ -1573,3 +1573,40 @@ with their `xsd:decimal` range, and classifies every `doesNotGiveRiseTo` subject
 These are defects in the declarations, recorded in `docs/ONTOLOGY-REVIEW-RESPONSE.md` (F01, F07,
 F15); nothing in the product runs a reasoner (`validate.run` uses `inference="none"`). Until they
 are fixed, do not read a reasoner's output as a finding about the data.
+
+**S036 update to Q-91.** Every measurement report now names the commit, the grade file's hash
+and count, and the rankings' hash it was scored on (`measure.stamp`), and `tmk-bulk measure
+--write` overwrites a report only when both hashes match; otherwise it writes
+`measure-<date>.md` beside it. So a `--write` today writes a dated report and leaves
+`measure.md` standing: that is the guard working, not a bug.
+
+**S036 update to Q-92.** The declaration bugs are fixed: no functional `tmk:sourcePassage`, no
+domains that reclassify, decimal confidences, no `Exception ≡ ∃doesNotGiveRiseTo` (ADR-0135).
+The owlrl probe on GC-0054 now gives no `owl:sameAs`, no `tmk:Assertion` type and no error.
+`tests/unit/test_declarations.py` holds the graph to its own declarations without a reasoner.
+Still true: no OWL profile is claimed (ADR-0134), `RelevantFactor` and `Remedy` keep their
+equivalences as vocabulary, and some reasoners refuse `xsd:date`.
+
+### Q-93: a second structure ledger, and why an earlier one must not be re-run blind
+
+`tmk-bulk restructure --ledger PATH` applies any ledger through the S029 applier; S036's is
+`data/derived/audit/review-response.yaml`. A line can `keep:` a record (reported, nothing
+written), or set `modality:` / `applies_when:` on an unchanged triple; a re-read onto another
+predicate drops the copied modality unless the line gives one. Two traps. **A later ledger's
+re-read rewrites the record with its own stamp**, so the earlier ledger's "applied" check
+(its own stamp, same triple) stopped recognising 40 records and would have read them back:
+`_read_since` now counts a record whose `alternatives_considered` holds the earlier ledger's
+reading as done. Dry-run both ledgers after any change; each should report 0 to re-read.
+**`applies_when` must be a verbatim substring of the record's `supporting_text`** (whitespace
+folded), or the plan refuses the line and the harness reports a defect. And in tests, a
+retired-ids file written as `[]` breaks `jobs.append_records`; write a comment line instead.
+
+### Q-94: a predicate's label on the site comes from its name, so changing what it reads means renaming it
+
+`relations._label` turns `mayGiveRiseTo` into "may give rise to" mechanically, and the explorer
+shows that. Changing a predicate's `reading` in `ontology/predicates.py` changes the prompt and
+the TTL, not what an examiner sees. To change the label (F18: "establishes" to "may show"), add
+the new predicate, re-read its records onto it in a ledger, and only then move the old one to
+`RETIRED`: a record on a retired predicate is a harness defect. New predicates take
+`admitted: owner-2026-10-09` (the structure ruling, CHAT-0073), which `test_predicates.py`
+restricts to the owner's rulings, and need a line in `_JOINS` naming their kinds.

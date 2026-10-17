@@ -38,6 +38,8 @@ no longer matches the pinned snapshot gets `tmk:isStale true` and is reported.
 
 from __future__ import annotations
 
+from decimal import Decimal
+
 import tempfile
 from dataclasses import dataclass, field
 from datetime import date
@@ -710,7 +712,9 @@ def _origin(graph: Graph, node: URIRef, record: dict, store: Store) -> None:
     if envelope.get("supersedes_rejected"):
         graph.add((node, TMK.supersedesRejected, _lit(envelope["supersedes_rejected"])))
     if envelope.get("confidence") is not None:
-        graph.add((node, TMK.confidence, _lit(float(envelope["confidence"]))))
+        # A decimal, as tmk:confidence declares: rdflib types a float xsd:double,
+        # and the two are disjoint value spaces under OWL (the review response, F07).
+        graph.add((node, TMK.confidence, _lit(Decimal(str(envelope["confidence"])), XSD.decimal)))
     for item in envelope.get("evidence") or ():
         if isinstance(item, dict) and isinstance(item.get("ref"), str):
             graph.add((node, TMK.sourcePassage, ref_node(item["ref"])))
@@ -848,8 +852,8 @@ def _build_concepts(graph: Graph, store: Store, counts: StoreReport) -> None:
 #:
 #: A kind says what a concept is (ruling B1, ADR-0126). `tmk:RelevantFactor`,
 #: `tmk:Exception` and `tmk:Remedy` are no longer asserted from a typing: they are
-#: what a concept does, defined in the TBox by the edge that says so
-#: (`qualifies`, `doesNotGiveRiseTo`, `isOvercomeBy`). Every kind here is a
+#: what a concept does, said by the edge that does so (`qualifies`,
+#: `isAnExceptionTo`, `isOvercomeBy`; ADR-0135). Every kind here is a
 #: subclass of `tmk:LegalConcept` on the same footing, so a query that walks the
 #: concept hierarchy reaches every kind without knowing which family it is in.
 #:
@@ -947,6 +951,21 @@ def _term(value: str) -> URIRef:
 SKOS_PREDICATES = {"broader": SKOS.broader, "narrower": SKOS.narrower, "related": SKOS.related}
 
 
+def _qualifiers(graph: Graph, node: URIRef, record: dict[str, Any]) -> None:
+    """What a relationship's sentence qualifies it with, on the reified record.
+
+    The modality, and since S036 the condition or hedge the sentence states it under
+    (`applies_when`, the review response F14). Absent means not supplied, and stays
+    absent. Never inferred from the sentence's grammar — that is a legal reading
+    (guide §5.4). The direct triple carries neither: it is a navigation edge, and a
+    reader who needs the qualification reads the assertion.
+    """
+    if record.get("modality"):
+        graph.add((node, TMK.modality, _lit(record["modality"])))
+    if record.get("applies_when"):
+        graph.add((node, TMK.appliesWhen, _en(" ".join(str(record["applies_when"]).split()))))
+
+
 def _build_relationships(
     graph: Graph, store: Store, corpus: Corpus, counts: StoreReport
 ) -> None:
@@ -985,10 +1004,7 @@ def _build_relationships(
         affirmed = store.affirmed.get((str(record["subject"]), str(record["object"])))
         if affirmed and record["predicate"] == "broader":
             graph.add((node, TMK.kindOfAffirmed, _en(" ".join(str(affirmed.get("why", "")).split()))))
-        # Absent means not supplied, and stays absent. Never inferred from the
-        # sentence's grammar — that is a legal reading (guide §5.4).
-        if record.get("modality"):
-            graph.add((node, TMK.modality, _lit(record["modality"])))
+        _qualifiers(graph, node, record)
         _provenance(graph, node, record, store, corpus, counts)
     counts.relationships = store.records.count("gold_relationship")
 

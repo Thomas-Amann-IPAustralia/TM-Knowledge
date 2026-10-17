@@ -425,6 +425,8 @@ def _modality_line(approved) -> str:
     for node in approved.subjects(RDF.type, TMK.ApprovedAssertion):
         if approved.value(node, TMK.assertionPredicate) is None:
             continue
+        if approved.value(node, TMK.isCorrected) is not None and approved.value(node, TMK.isCorrected).toPython():
+            continue  # history, as CQ-0024 reads it (ADR-0122)
         modality = approved.value(node, TMK.modality)
         counts[str(modality) if modality else "not supplied"] += 1
     return ", ".join(f"{count} `{name}`" for name, count in sorted(counts.items()))

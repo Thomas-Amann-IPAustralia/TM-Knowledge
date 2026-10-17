@@ -138,7 +138,9 @@ tmk:ManualPassage owl:disjointWith tmk:LegislativeProvision .
 # --- what an authority does ------------------------------------------------
 
 tmk:authorityKind a owl:DatatypeProperty , owl:FunctionalProperty ;
-    rdfs:domain tmk:Authority ;
+    # No domain since S036: it is carried by Manual pages and chunks, which are
+    # passages and not tmk:Authority, and AuthorityKindShape already requires it
+    # on every passage and decision.
     rdfs:range xsd:string ;
     rdfs:label "authority kind"@en-AU ;
     rdfs:comment """`law` | `practice` | `decision`. Redundant with the class, on purpose: it is

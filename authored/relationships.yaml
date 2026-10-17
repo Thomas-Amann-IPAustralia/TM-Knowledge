@@ -1366,13 +1366,17 @@
   notes: 'Re-pointed on 2026-10-08 by S026: object GC-0110 -> GC-0043 — an authored duplicate
     withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and
     evidence are the original author''s. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0015 related GC-0043.'
+    was GC-0015 related GC-0043. Checked on 2026-10-16 in the review response''s worklist
+    (S036): its sentence''s condition added.'
   approved_by: null
   approved_date: null
+  applies_when: submissions are received requesting the deletion of certain goods/services
+    from an application that also state that a divisional application is to be filed from
+    that application
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part12/2#1
@@ -1385,13 +1389,12 @@
         that application, any deletion or amendment to the specification of goods/services
         should be delayed until the divisional application has been filed.
     confidence: 0.8
-    reasoning: Where both are asked for, the deletion waits until the divisional application
-      has been filed.
+    reasoning: The 'should' is the delay's, which is the ordering precedes reads; the sentence's
+      condition now travels with it.
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0015 related GC-0043 — The Manual
-      expressly links the timing of a specification amendment to filing an intended divisional
-      application. No listed specific predicate accurately captures that conditional sequencing
-      relationship.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0043 precedes GC-0015
+      — Where both are asked for, the deletion waits until the divisional application has
+      been filed.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0119
@@ -1412,11 +1415,13 @@
   approved_by: null
   approved_date: null
   notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0015 allocatesTo
-    GC-0044.'
+    GC-0044. Checked on 2026-10-16 in the review response''s worklist (S036): its sentence''s
+    condition added.'
+  applies_when: the divisional application is valid and complete
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1
@@ -1429,13 +1434,12 @@
         specification of the parent application to exclude the claimed goods and/or services
         of the divisional application.
     confidence: 0.8
-    reasoning: The examiner processes the amendment that excludes the divisional application's
-      goods from the parent's specification.
+    reasoning: The 'must' is the examiner's processing of the amendment; the condition now
+      travels with it.
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0015 allocatesTo GC-0044 — The Manual
-      allocates processing of the parent specification amendment to the examiner, subject
-      to the stated checklist conditions. I am unsure whether allocatesTo is intended to cover
-      task-to-role allocations as well as allocations to statutory provisions.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0044 performs GC-0015
+      — The examiner processes the amendment that excludes the divisional application''s goods
+      from the parent''s specification.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0122
@@ -1454,11 +1458,14 @@
   modality: null
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0016 related GC-0122.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0016 related GC-0122.
+    Checked on 2026-10-16 in the review response''s worklist (S036): its sentence''s condition
+    added.'
+  applies_when: IRDAs with a convention claim
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part60/4/5/4/5/2
@@ -1470,13 +1477,12 @@
         a convention claim in order to minimise the risk of a trade mark with an earlier priority
         date being overlooked in the examination of other applications.
     confidence: 0.8
-    reasoning: A convention claim (an earlier priority date) leads IP Australia to expedite
-      an IRDA as routine.
+    reasoning: IP Australia expedites only IRDAs with a convention claim; the condition now
+      travels with the edge.
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0016 related GC-0122 — The Manual
-      expressly connects routine expedition with protecting examination against overlooking
-      earlier priority dates. The stated trigger is a convention claim, so the passage does
-      not make priority date itself a direct condition for expedition.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0016 mayGiveRiseTo GC-0122
+      — A convention claim (an earlier priority date) leads IP Australia to expedite an IRDA
+      as routine.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0125
@@ -1812,44 +1818,6 @@
       expression, not a distinct statement about deception alone.'
     expert_should_check: Whether the second model's reading is right where the first model's
       was judged wrong; both read the same sentence.
-- id: GR-0138
-  subject: GC-0028
-  predicate: excludesBasis
-  object: GC-0130
-  source_ref: TMM/Part29/9/9/7
-  supporting_text: When faced with this type of reference it is important to remember that
-    the connotation must be from the trade mark itself and not from any other external considerations
-    such as a reputation in another trade mark.
-  span:
-  - 436
-  - 649
-  source_content_hash: sha256:4a152ff8e285012f7bc44941664602f7d5ebbe7775f61faa73472e1827a6bc60
-  tier: 3
-  modality: must
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part29/9/9/7
-      span:
-      - 436
-      - 649
-      content_hash: sha256:4a152ff8e285012f7bc44941664602f7d5ebbe7775f61faa73472e1827a6bc60
-      quote: When faced with this type of reference it is important to remember that the connotation
-        must be from the trade mark itself and not from any other external considerations
-        such as a reputation in another trade mark.
-    confidence: 0.94
-    reasoning: The Manual expressly excludes reputation in another trade mark as the source
-      of the endorsement connotation. This is a statement of examination practice, not a legislative
-      provision.
-    alternatives_considered:
-    - Reputation supplies a basis for the implied endorsement.
-    expert_should_check: Whether GC-0130 covers the specific reputation in another trade mark
-      excluded here, rather than reputation more broadly.
 - id: GR-0139
   subject: GC-0050
   predicate: qualifies
@@ -1886,49 +1854,6 @@
     - The reference's fame necessarily gives rise to an implied endorsement.
     expert_should_check: Whether GC-0050 denotes the reference's fame, rather than the external
       trade mark reputation excluded by the preceding sentence.
-- id: GR-0140
-  subject: GC-0035
-  predicate: owns
-  object: GC-0032
-  source_ref: TMM/Part29/8/8/2
-  supporting_text: A section 43 ground for rejection will apply if the applicant for a trade
-    mark, which connotes an Internet domain name (including a 2ND level domain / sub domain),
-    is not the registrant or authorised user of that Internet domain name.
-  span:
-  - 434
-  - 668
-  source_content_hash: sha256:28b2041b2264b20d3625c71417f49e1bc0602a1dccf3909b8f6ea9a1e3e1076d
-  tier: 3
-  modality: null
-  notes: 'Subject re-pointed on 2026-10-08 by S026 from GC-0083 to GC-0035: the sentence is
-    about the registrant or authorised user of a domain name — the s 43 factor, not the trade
-    mark''s authorised user (ruling A4). The judgement and evidence are the original author''s.
-    Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0035 related GC-0032.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part29/8/8/2
-      span:
-      - 434
-      - 668
-      content_hash: sha256:28b2041b2264b20d3625c71417f49e1bc0602a1dccf3909b8f6ea9a1e3e1076d
-      quote: A section 43 ground for rejection will apply if the applicant for a trade mark,
-        which connotes an Internet domain name (including a 2ND level domain / sub domain),
-        is not the registrant or authorised user of that Internet domain name.
-    confidence: 0.8
-    reasoning: The ground turns on whether the applicant is the registrant (owner) or authorised
-      user of the domain name the mark connotes.
-    alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0035 related GC-0032 — The Manual
-      expressly connects authorised-user status to the domain name connoted by the trade mark.
-      No more specific listed predicate accurately captures that user-to-domain relationship.'
-    expert_should_check: Whether the sentence states this relationship, read the way the predicate
-      reads.
 - id: GR-0142
   subject: GC-0032
   predicate: mayGiveRiseTo
@@ -2181,84 +2106,6 @@
       error and timing.'
     expert_should_check: Whether the second model's reading is right where the first model's
       was judged wrong; both read the same sentence.
-- id: GR-0163
-  subject: GC-0041
-  predicate: establishes
-  object: GC-0066
-  source_ref: TMM/Part28/3#1
-  supporting_text: When examining evidence of honest concurrent use, the first issue that
-    needs to be considered is honesty.
-  span:
-  - 49
-  - 154
-  source_content_hash: sha256:f1d1059bb19f8214c0e88fbe202d93f672c09e6192752a99af64e680a41571cf
-  tier: 3
-  modality: null
-  approved_by: null
-  approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0041 related GC-0066.'
-  authored:
-    review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part28/3#1
-      span:
-      - 49
-      - 154
-      content_hash: sha256:f1d1059bb19f8214c0e88fbe202d93f672c09e6192752a99af64e680a41571cf
-      quote: When examining evidence of honest concurrent use, the first issue that needs
-        to be considered is honesty.
-    confidence: 0.8
-    reasoning: Evidence of use is what an examiner examines to find honest concurrent use.
-    alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0041 related GC-0066 — The passage
-      expressly identifies honest concurrent use as the subject of evidence examined under
-      the Manual''s practice. It does not establish that evidence is an element of honest
-      concurrent use itself.'
-    expert_should_check: Whether the sentence states this relationship, read the way the predicate
-      reads.
-- id: GR-0167
-  subject: GC-0042
-  predicate: precedes
-  object: GC-0092
-  source_ref: TMM/Part62/8#1
-  supporting_text: The regulations do not provide for cessation of protection to be followed
-    by possible opposition or revocation of acceptance and re-examination.
-  span:
-  - 550
-  - 694
-  source_content_hash: sha256:90818aa05d6d03964738bc94e92c26f52abdcc4b7fa4efec32f5082ddfc19f8b
-  tier: 3
-  modality: null
-  approved_by: null
-  approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0042 related GC-0092.'
-  authored:
-    review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
-    authoring_basis: corpus_inferred
-    evidence:
-    - ref: TMM/Part62/8#1
-      span:
-      - 550
-      - 694
-      content_hash: sha256:90818aa05d6d03964738bc94e92c26f52abdcc4b7fa4efec32f5082ddfc19f8b
-      quote: The regulations do not provide for cessation of protection to be followed by
-        possible opposition or revocation of acceptance and re-examination.
-    confidence: 0.8
-    reasoning: Revocation of acceptance is followed by re-examination; the sentence says the
-      regulations make no such provision after cessation of protection.
-    alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0042 related GC-0092 — The Manual
-      connects revocation of acceptance with re-examination while explaining that this sequence
-      is not provided for following cessation of protection. Mapping re-examination to the
-      broader examination concept is inferred; the passage does not establish that every revocation
-      requires re-examination.'
-    expert_should_check: Whether the sentence states this relationship, read the way the predicate
-      reads.
 - id: GR-0169
   subject: GC-0043
   predicate: keepsEarlierDate
@@ -2359,14 +2206,15 @@
   - 242
   source_content_hash: sha256:a3c76221ded6ca23a7d5908070520ff2cbd0eca86e3489dc0053d37628648348
   tier: 3
-  modality: may
+  modality: null
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0046 related GC-0040.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0046 related GC-0040.
+    Checked on 2026-10-16 in the review response''s worklist (S036): modality may → none.'
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part48/3#1~2
@@ -2378,12 +2226,11 @@
         to have succeeded and refuse to remove the trade mark from the Register, or refuse
         to cease protection of an international trade mark (regs 9.15, 17A.48Q).
     confidence: 0.8
-    reasoning: The Registrar decides the opposition, including taking it to have succeeded.
+    reasoning: The 'may' is the Registrar's discretion to take an undefended opposition to
+      have succeeded, not whether the Registrar decides oppositions.
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0046 related GC-0040 — The Manual
-      expressly connects the Registrar with treating an opposition as successful when no notice
-      of intention to defend is filed. No listed specific predicate captures this conditional
-      decision-making power.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0046 performs GC-0040
+      — The Registrar decides the opposition, including taking it to have succeeded.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0176
@@ -2437,14 +2284,15 @@
   - 224
   source_content_hash: sha256:61fd8af24e5ac9e3e9545086eed96b42c6e9ac91c35ea23297c88ee64bc827f1
   tier: 3
-  modality: may
+  modality: null
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0046 related GC-0128.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0046 related GC-0128.
+    Checked on 2026-10-16 in the review response''s worklist (S036): modality may → none.'
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part47/1/1/3/6~2
@@ -2456,12 +2304,11 @@
         21.15 and 21.16 provide that it is at the Registrar’s discretion whether such a hearing
         would be an oral hearing, or by way of written submissions.
     confidence: 0.8
-    reasoning: The Registrar decides whether a hearing is oral or on written submissions.
+    reasoning: The discretion is over the hearing's form, oral or written, not whether the
+      Registrar conducts it.
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0046 related GC-0128 — The Manual''s
-      account of the regulations expressly connects the Registrar with discretion over hearing
-      format. This is a discretionary choice rather than a constraint to one format, and no
-      listed specific predicate captures it.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0046 performs GC-0128
+      — The Registrar decides whether a hearing is oral or on written submissions.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0180
@@ -2806,51 +2653,6 @@
     - is_kind_of, treating the prescribed sign itself as a ground for rejection.
     expert_should_check: Whether this neighbour's inclusion of 's 43 objection' improperly
       narrows an otherwise generic ground-for-rejection record.
-- id: GR-0199
-  subject: GC-0055
-  predicate: mayGiveRiseTo
-  object: GC-0182
-  source_ref: TMM/Part31/4/4/1
-  supporting_text: Where the prescribed sign forms a reasonably large component of the trade
-    mark and deleting it would substantially affect the identity of the trade mark then a
-    ground for rejection exists and should be raised.
-  span:
-  - 359
-  - 568
-  source_content_hash: sha256:d500c141157868b0250f4c1b2e33ab6de637536e8121bc57afe1f18d5cb62222
-  tier: 3
-  modality: should
-  notes: 'Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection
-    edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by
-    whether the sentence is about section 43 (ruling A2). The judgement and evidence are the
-    original author''s. Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0182 — ground-for-rejection
-    edges whose sentence is about section 39 point at that section''s ground (ruling B4).
-    The judgement and evidence are the original author''s.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part31/4/4/1
-      span:
-      - 359
-      - 568
-      content_hash: sha256:d500c141157868b0250f4c1b2e33ab6de637536e8121bc57afe1f18d5cb62222
-      quote: Where the prescribed sign forms a reasonably large component of the trade mark
-        and deleting it would substantially affect the identity of the trade mark then a ground
-        for rejection exists and should be raised.
-    confidence: 0.94
-    reasoning: The Manual expressly links a prescribed sign to a ground for rejection under
-      the stated size and deletion conditions. The direction to raise that ground is Manual
-      practice, not an independent legislative command.
-    alternatives_considered:
-    - is_kind_of, treating a prescribed sign as itself a ground for rejection rather than
-      something that can generate one.
-    expert_should_check: Whether this relationship needs an explicit restriction to the signs
-      prescribed in regulation 4.15(a) and (b), which frame the paragraph.
 - id: GR-0201
   subject: GC-0056
   predicate: statesThresholdFor
@@ -2942,7 +2744,7 @@
       as well as the section 39 'likely to be taken for' test.
 - id: GR-0206
   subject: GC-0041
-  predicate: establishes
+  predicate: mayShow
   object: GC-0058
   source_ref: TMM/Part10/3/3/5/3~1
   supporting_text: This situation is most likely to occur when a trade mark which is lacking
@@ -2957,13 +2759,14 @@
   notes: 'Re-pointed on 2026-10-08 by S026: subject GC-0101 -> GC-0041 — an authored duplicate
     withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and
     evidence are the original author''s. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0041 related GC-0058.'
+    was GC-0041 related GC-0058. Re-read on 2026-10-16 in the review response''s worklist
+    (S036): was GC-0041 establishes GC-0058.'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part10/3/3/5/3~1
@@ -2975,13 +2778,13 @@
         inherent adaptation to distinguish is shown through evidence of use to be capable
         of distinguishing when used in particular colours.
     confidence: 0.8
-    reasoning: A mark lacking inherent adaptation may be shown through evidence of use to
-      be capable of distinguishing.
+    reasoning: '''Shown through evidence of use to be capable of distinguishing'' is almost
+      the predicate''s own example, read as ''may show'', which is all the sentence and the
+      law allow (the response, F18).'
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0041 related GC-0058 — The Manual
-      expressly connects evidence of use with demonstrating capacity to distinguish in particular
-      colours. No listed predicate precisely captures that evidentiary relationship, and the
-      passage does not make evidence of use universally necessary.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0041 establishes GC-0058
+      — A mark lacking inherent adaptation may be shown through evidence of use to be capable
+      of distinguishing.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0208
@@ -3108,52 +2911,6 @@
       without expressly describing it as a qualifying factor.'
     expert_should_check: Whether qualifies adequately captures the role of ordinary signification
       in assessing prima facie distinguishing capacity.
-- id: GR-0211
-  subject: GC-0060
-  predicate: appliesTo
-  object: GC-0073
-  source_ref: TMM/Part22/7/22/7/3
-  supporting_text: The ordinary signification of a sign is determined by reference to those
-    ‘persons who will purchase, consume or trade in the goods’ (Cantarella at [59], see also
-    at [75]) or ‘any person in Australia concerned with the goods’ (Cantarella at [70]), which
-    the High Court also referred to as the ‘target audience’ (Cantarella at [28], [30] and
-    [71]).
-  span:
-  - 0
-  - 346
-  source_content_hash: sha256:081b45d6a3bf620d41577222325905dc7b22e29e23052acec1fbb9f4cdd94d56
-  tier: 3
-  modality: null
-  notes: 'Re-read on 2026-10-09 from a second model''s audit (gemini-3.1-pro-preview, audit-v1):
-    was GC-0060 appliesTo GC-0073. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0060 related GC-0073.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part22/7/22/7/3
-      span:
-      - 0
-      - 346
-      content_hash: sha256:081b45d6a3bf620d41577222325905dc7b22e29e23052acec1fbb9f4cdd94d56
-      quote: The ordinary signification of a sign is determined by reference to those ‘persons
-        who will purchase, consume or trade in the goods’ (Cantarella at [59], see also at
-        [75]) or ‘any person in Australia concerned with the goods’ (Cantarella at [70]),
-        which the High Court also referred to as the ‘target audience’ (Cantarella at [28],
-        [30] and [71]).
-    confidence: 0.8
-    reasoning: Ordinary signification is a question asked of a sign.
-    alternatives_considered:
-    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0060 related GC-0073 —
-      The predicate appliesTo is used for provisions, rules, or schemes that govern an object.
-      ''Ordinary signification'' is a legal test or attribute of a sign, not a rule that governs
-      it; therefore, they are merely related.'
-    expert_should_check: Whether the sentence states this relationship, read the way the predicate
-      reads.
 - id: GR-0212
   subject: GC-0005
   predicate: qualifies
@@ -3319,47 +3076,6 @@
     - 'same_concept: the contrary-to-law ground is not synonymous with grounds for rejection
       generally.'
     expert_should_check: Whether GC-0053 denotes the general category of grounds for rejection.
-- id: GR-0218
-  subject: GC-0055
-  predicate: mayGiveRiseTo
-  object: GC-0063
-  source_ref: TMM/Part31/5/5/3
-  supporting_text: Grounds for rejection for signs falling into this category will be taken
-    under reg 4.15 (prescribed signs) or subsection 42(b) (contrary to law), as appropriate,
-    rather than on the basis of the WIPO notification.
-  span:
-  - 161
-  - 373
-  source_content_hash: sha256:894f4ceac432b05806d9ced8e192a315885f05b2fc70d24bb85d38e03db46bef
-  tier: 3
-  modality: must
-  approved_by: null
-  approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0063 related GC-0055.'
-  authored:
-    review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part31/5/5/3
-      span:
-      - 161
-      - 373
-      content_hash: sha256:894f4ceac432b05806d9ced8e192a315885f05b2fc70d24bb85d38e03db46bef
-      quote: Grounds for rejection for signs falling into this category will be taken under
-        reg 4.15 (prescribed signs) or subsection 42(b) (contrary to law), as appropriate,
-        rather than on the basis of the WIPO notification.
-    confidence: 0.8
-    reasoning: A ground for a prescribed sign may be taken under section 42(b), use contrary
-      to law.
-    alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0063 related GC-0055 — The Manual
-      connects prescribed signs and contrary to law as alternative bases for raising grounds
-      in the specified category of signs. No listed predicate more precisely captures that
-      practice relationship, and the passage does not establish equivalence or necessary overlap.'
-    expert_should_check: Whether the sentence states this relationship, read the way the predicate
-      reads.
 - id: GR-0219
   subject: GC-0064
   predicate: isOvercomeBy
@@ -3869,48 +3585,6 @@
       signs, without establishing a classification.
     expert_should_check: Whether the cross-reference is sufficient to establish scent trade
       marks as a kind of non-traditional sign.
-- id: GR-0240
-  subject: GC-0079
-  predicate: extendsTo
-  object: GC-0074
-  source_ref: TMM/Part13/4#1~1
-  supporting_text: Applications for a series of trade marks that consist of non-traditional
-    signs must be assessed on their merits, and should not be treated differently to traditional
-    signs.
-  span:
-  - 1367
-  - 1539
-  source_content_hash: sha256:9ac5acfd3aa75773918789261da297b3505d9e44b3600f1471d0f4d80ee346e6
-  tier: 3
-  modality: null
-  notes: 'Re-read on 2026-10-09 from a second model''s audit (gemini-3.1-pro-preview, audit-v1):
-    was GC-0079 extendsTo GC-0074. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0079 related GC-0074.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part13/4#1~1
-      span:
-      - 1367
-      - 1539
-      content_hash: sha256:9ac5acfd3aa75773918789261da297b3505d9e44b3600f1471d0f4d80ee346e6
-      quote: Applications for a series of trade marks that consist of non-traditional signs
-        must be assessed on their merits, and should not be treated differently to traditional
-        signs.
-    confidence: 0.8
-    reasoning: The series rules apply to non-traditional signs as to traditional ones.
-    alternatives_considered:
-    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0079 related GC-0074 —
-      The sentence states that series applications can consist of non-traditional signs and
-      should be assessed on their merits; it does not state that the treatment of a series
-      of trade marks extends to non-traditional signs.'
-    expert_should_check: Whether the sentence states this relationship, read the way the predicate
-      reads.
 - id: GR-0241
   subject: GC-0078
   predicate: broader
@@ -4067,83 +3741,6 @@
       statutory attribution described here.'
     expert_should_check: Whether statutory attribution to the owner is better modelled separately
       from the subtype relationship.
-- id: GR-0248
-  subject: GC-0041
-  predicate: establishes
-  object: GC-0081
-  source_ref: TMM/Part23/x-annex-a6---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-414---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~1
-  supporting_text: HOW TO SUPPLY EVIDENCE OF USE OF A TRADE MARK Under subsection 41(4) of
-    the Trade Marks Act 1995
-  span:
-  - 0
-  - 96
-  source_content_hash: sha256:c5e4d6de6a7920c1dee1ad4128ffbc6d990e7d7862783e84bb466e52a1ca8108
-  tier: 3
-  modality: null
-  approved_by: null
-  approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0041 related GC-0081.'
-  authored:
-    review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part23/x-annex-a6---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-414---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~1
-      span:
-      - 0
-      - 96
-      content_hash: sha256:c5e4d6de6a7920c1dee1ad4128ffbc6d990e7d7862783e84bb466e52a1ca8108
-      quote: HOW TO SUPPLY EVIDENCE OF USE OF A TRADE MARK Under subsection 41(4) of the Trade
-        Marks Act 1995
-    confidence: 0.8
-    reasoning: Evidence of use is supplied to show use of the trade mark (s 41(4)).
-    alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0041 related GC-0081 — The Manual
-      heading expressly identifies the evidence as evidence of trade mark use. None of the
-      more specific listed predicates captures that evidentiary connection without adding
-      a requirement absent from the passage.'
-    expert_should_check: Whether the sentence states this relationship, read the way the predicate
-      reads.
-- id: GR-0249
-  subject: GC-0087
-  predicate: operatesOn
-  object: GC-0108
-  source_ref: TMM/Part43/1#1~3
-  supporting_text: Part 33 Collective Trade Marks - 5. Assignment or transmission of collective
-    trade marks
-  span:
-  - 396
-  - 484
-  source_content_hash: sha256:607de7644ff00eca7f8bf539f4c4d32716088ae480f5600ece89f4417367e074
-  tier: 3
-  modality: null
-  notes: 'Re-read on 2026-10-09 from a second model''s audit (gemini-3.1-pro-preview, audit-v1):
-    was GC-0087 appliesTo GC-0108. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0087 related GC-0108.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part43/1#1~3
-      span:
-      - 396
-      - 484
-      content_hash: sha256:607de7644ff00eca7f8bf539f4c4d32716088ae480f5600ece89f4417367e074
-      quote: Part 33 Collective Trade Marks - 5. Assignment or transmission of collective
-        trade marks
-    confidence: 0.8
-    reasoning: The Manual's section on transmission of collective trade marks.
-    alternatives_considered:
-    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0087 related GC-0108 —
-      The predicate appliesTo is restricted to provisions, rules, or schemes governing an
-      object. Transmission is a procedural step, not a rule, so related is the correct predicate.'
-    expert_should_check: Whether the sentence states this relationship, read the way the predicate
-      reads.
 - id: GR-0250
   subject: GC-0087
   predicate: operatesOn
@@ -4204,13 +3801,16 @@
     withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and
     evidence are the original author''s. Re-read on 2026-10-09 from a second model''s audit
     (gemini-3.1-pro-preview, audit-v1): was GC-0016 appliesTo GC-0111. Re-read on 2026-10-09
-    in the structure review (ADR-0131): was GC-0016 related GC-0111.'
+    in the structure review (ADR-0131): was GC-0016 related GC-0111. Checked on 2026-10-16
+    in the review response''s worklist (S036): its sentence''s condition added.'
   approved_by: null
   approved_date: null
+  applies_when: The earlier priority date will only apply to goods and/or services in common
+    with both applications
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part11/1/1/6
@@ -4223,12 +3823,12 @@
         The earlier priority date will only apply to goods and/or services in common with
         both applications.
     confidence: 0.8
-    reasoning: A convention application takes the priority date of the earlier application
-      for the goods in common.
+    reasoning: The earlier date holds only for goods in common; that limit now travels with
+      the edge.
     alternatives_considered:
-    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0016 related GC-0111 —
-      The predicate appliesTo is intended for provisions, rules, or schemes. Since a priority
-      date is a context and not a rule, the correct relationship is related.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0111 keepsEarlierDate
+      GC-0016 — A convention application takes the priority date of the earlier application
+      for the goods in common.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0253
@@ -4323,7 +3923,7 @@
       reads.
 - id: GR-0259
   subject: GC-0096
-  predicate: prevents
+  predicate: suspendsTimeFor
   object: GC-0093
   source_ref: TMM/Part17/1#1
   supporting_text: Deferment of acceptance is where the period of time that is allowed under
@@ -4338,11 +3938,13 @@
   modality: null
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0096 related GC-0093.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0096 related GC-0093.
+    Re-read on 2026-10-16 in the review response''s worklist (S036): was GC-0096 prevents
+    GC-0093.'
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part17/1#1
@@ -4355,11 +3957,11 @@
         - because a request for deferment has been made and/or certain conditions are met
         (reg 4.13).
     confidence: 0.8
-    reasoning: While deferred, the period for gaining acceptance is set in abeyance.
+    reasoning: 'Deferment sets in abeyance the period an application has to gain acceptance:
+      the clock stops, and acceptance is not blocked (F13).'
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0096 related GC-0093 — The Manual
-      defines deferment by reference to suspending the time allowed to gain acceptance. The
-      listed predicates do not specifically express that temporal relationship.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0096 prevents GC-0093
+      — While deferred, the period for gaining acceptance is set in abeyance.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0260
@@ -4378,13 +3980,15 @@
   modality: null
   notes: 'Re-read on 2026-10-09 from a second model''s audit (gemini-3.1-pro-preview, audit-v1):
     was GC-0040 appliesTo GC-0097. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0040 related GC-0097.'
+    was GC-0040 related GC-0097. Checked on 2026-10-16 in the review response''s worklist
+    (S036): its sentence''s condition added.'
   approved_by: null
   approved_date: null
+  applies_when: extensions of time of more than three months
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part15/6/6/2
@@ -4396,11 +4000,11 @@
         of time of more than three months are to be decided by the Registrar according to
         the individual circumstances of each opposition.
     confidence: 0.8
-    reasoning: An extension of time of more than three months can be opposed.
+    reasoning: Only extensions of more than three months are opposed this way; that limit
+      now travels with the edge.
     alternatives_considered:
-    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0040 related GC-0097 —
-      The sentence discusses procedures for ''oppositions to extensions of time'', which supports
-      a general relationship between the two procedural steps.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0040 operatesOn GC-0097
+      — An extension of time of more than three months can be opposed.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0262
@@ -4415,14 +4019,15 @@
   - 659
   source_content_hash: sha256:fb7064dcfe88164d1f3a2c285b0c581788d39cd4022811705d2b8fd635a62ac0
   tier: 3
-  modality: may
+  modality: null
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0097 related GC-0128.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0097 related GC-0128.
+    Checked on 2026-10-16 in the review response''s worklist (S036): modality may → none.'
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part47/1/1/3/6~1
@@ -4433,12 +4038,11 @@
       quote: They can object by filing written representations or by requesting a hearing
         in the matter of the extension application.
     confidence: 0.8
-    reasoning: An objection to an extension may be heard at a hearing.
+    reasoning: '''Can object ... by requesting a hearing'' is the objector''s option; mayGiveRiseTo
+      already says may.'
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0097 related GC-0128 — The Manual
-      connects the extension application with a hearing that the national trade mark applicant
-      can request when objecting. The passage supports this procedural connection without
-      making a hearing a required element of an extension.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0097 mayGiveRiseTo GC-0128
+      — An objection to an extension may be heard at a hearing.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0267
@@ -4490,15 +4094,16 @@
   - 185
   source_content_hash: sha256:7ac8c71bcd48304b149e6c8244923f7644c5b1c1d2cbb3259994c58fa1dddadd
   tier: 3
-  modality: may
+  modality: null
   approved_by: null
   approved_date: null
   notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0091 qualifies
-    GC-0106.'
+    GC-0106. Checked on 2026-10-16 in the review response''s worklist (S036): modality may
+    → none.'
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part40/1#1
@@ -4509,12 +4114,11 @@
       quote: A trade mark registration may be renewed at ten year intervals dating from the
         original filing date of the application for registration.
     confidence: 0.8
-    reasoning: A registration may be renewed at ten-year intervals dating from the filing
-      date.
+    reasoning: The 'may' is 'may be renewed'; the intervals run from the filing date without
+      one.
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0091 qualifies GC-0106 — The Manual
-      expressly uses the original filing date to determine the timing of renewal intervals.
-      Filing date therefore qualifies renewal temporally.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0106 runsFrom GC-0091
+      — A registration may be renewed at ten-year intervals dating from the filing date.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0270
@@ -4551,48 +4155,6 @@
     - The Madrid Protocol is only related_to renewal because the passage is an authority listing.
     expert_should_check: Whether the authority heading alone sufficiently supports appliesTo
       rather than related_to.
-- id: GR-0271
-  subject: GC-0106
-  predicate: isRecordedIn
-  object: GC-0089
-  source_ref: TMM/Part44/3#1
-  supporting_text: If a trade mark is within its 6 month grace period (as per section 79)
-    in which the registration has expired however renewal may be requested, a claimed interest
-    may be recorded in the database, however this will only be entered in the Register if
-    the trade mark is renewed.
-  span:
-  - 456
-  - 730
-  source_content_hash: sha256:a3fe678828273b6d53c17e7e2dd471f6307f30c8b50a94b42c60f34b28649194
-  tier: 3
-  modality: must
-  approved_by: null
-  approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0106 related GC-0089.'
-  authored:
-    review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part44/3#1
-      span:
-      - 456
-      - 730
-      content_hash: sha256:a3fe678828273b6d53c17e7e2dd471f6307f30c8b50a94b42c60f34b28649194
-      quote: If a trade mark is within its 6 month grace period (as per section 79) in which
-        the registration has expired however renewal may be requested, a claimed interest
-        may be recorded in the database, however this will only be entered in the Register
-        if the trade mark is renewed.
-    confidence: 0.8
-    reasoning: A renewal is entered in the Register, and a claimed interest only with it.
-    alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0106 related GC-0089 — The Manual
-      connects renewal with whether a claimed interest can be entered in the Register. The
-      conditional requirement concerns entry of the interest, not the Register itself as an
-      element of renewal.'
-    expert_should_check: Whether the sentence states this relationship, read the way the predicate
-      reads.
 - id: GR-0272
   subject: GC-0084
   predicate: files
@@ -4688,14 +4250,15 @@
   - 1051
   source_content_hash: sha256:c21d9dfb1e224697c42be3a1662c98ae941753d1ee350592c24c136985d16637
   tier: 3
-  modality: may
+  modality: null
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0084 related GC-0107.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0084 related GC-0107.
+    Checked on 2026-10-16 in the review response''s worklist (S036): modality may → none.'
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part35/1#1
@@ -4708,12 +4271,10 @@
         (see the Note to section 169) provided that the use is in accordance with the rules
         governing the use of the certification trade mark (section 171).
     confidence: 0.8
-    reasoning: The owner of the certification trade mark.
+    reasoning: The 'can' is the owner's use of the mark, not the owning.
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0084 related GC-0107 — The Manual
-      describes the owner''s permission to use the certification trade mark, conditional on
-      compliance with its rules. The listed predicates do not specifically express this owner–mark
-      use relationship.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0084 owns GC-0107 — The
+      owner of the certification trade mark.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0276
@@ -4931,13 +4492,16 @@
   modality: null
   notes: 'Re-read on 2026-10-09 from a second model''s audit (gemini-3.1-pro-preview, audit-v1):
     was GC-0040 mayGiveRiseTo GC-0114. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0040 related GC-0114.'
+    was GC-0040 related GC-0114. Checked on 2026-10-16 in the review response''s worklist
+    (S036): its sentence''s condition added.'
   approved_by: null
   approved_date: null
+  applies_when: an IRDA has successfully gone through IP Australia's examination and opposition
+    processes
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part60/4/18/4/18/2
@@ -4949,12 +4513,12 @@
         processes, it will be known as a Protected International Trade Mark and will have
         the same level of protection as if it had been registered nationally.
     confidence: 0.8
-    reasoning: An IRDA through examination and opposition is known as a protected international
-      trade mark.
+    reasoning: An IRDA becomes a protected international trade mark only once through examination
+      and opposition.
     alternatives_considered:
-    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0040 related GC-0114 —
-      An opposition does not give rise to a protected international trade mark; rather, successfully
-      passing the opposition process does. The text supports a related link.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0113 becomes GC-0114 —
+      An IRDA through examination and opposition is known as a protected international trade
+      mark.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0289
@@ -5136,11 +4700,14 @@
   modality: may
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0046 related GC-0122.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0046 related GC-0122.
+    Checked on 2026-10-16 in the review response''s worklist (S036): its sentence''s condition
+    added.'
+  applies_when: he or she reasonably believes that expedited examination is warranted
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part6/1#1
@@ -5151,12 +4718,10 @@
       quote: The Registrar may expedite examination of an application if he or she reasonably
         believes that expedited examination is warranted (reg 4.19).
     confidence: 0.8
-    reasoning: The Registrar may expedite examination (reg 4.19).
+    reasoning: The 'may' is the expediting's; the condition now travels with it.
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0046 related GC-0122 — The Manual
-      expressly identifies the Registrar as able to expedite examination, subject to the stated
-      reasonable belief, and attributes that power to reg 4.19. No listed specific predicate
-      precisely captures this authorising relationship.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0046 performs GC-0122
+      — The Registrar may expedite examination (reg 4.19).'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0309
@@ -5409,14 +4974,15 @@
   - 319
   source_content_hash: sha256:11a56bd149f712fa77bc2188fa341aad8239ea4709668516aa3a0c6222e32c91
   tier: 3
-  modality: must
+  modality: null
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0153 related GC-0158.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0153 related GC-0158.
+    Checked on 2026-10-16 in the review response''s worklist (S036): modality must → none.'
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part49/4#1
@@ -5429,13 +4995,12 @@
         must file a notice of intention to defend if it wishes to continue with the non-use
         application.
     confidence: 0.8
-    reasoning: Once a complete notice of opposition is filed, the applicant must file a notice
-      of intention to defend.
+    reasoning: The 'must' is the applicant's duty to file the notice of intention to defend
+      if it wishes to continue, not the order of the two notices.
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0153 related GC-0158 — The Manual
-      connects filing the statement, as part of a complete notice of opposition, with the
-      subsequent conditional obligation to file a notice of intention to defend. It does not
-      describe the statement as a component of the defence notice.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0103 precedes GC-0158
+      — Once a complete notice of opposition is filed, the applicant must file a notice of
+      intention to defend.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0320
@@ -5452,14 +5017,15 @@
   - 377
   source_content_hash: sha256:4bd0c392125a44efe33f5387504c7fe3b910cfdeeda0899638dac525b854e100
   tier: 3
-  modality: may
+  modality: null
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0153 related GC-0143.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0153 related GC-0143.
+    Checked on 2026-10-16 in the review response''s worklist (S036): modality may → none.'
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part47/1#1
@@ -5472,13 +5038,11 @@
         (IRDA) by filing a notice of opposition. A notice of opposition means a notice of
         intention to oppose and a statement of grounds and particulars (regs 5.2, 17A.29).
     confidence: 0.8
-    reasoning: A notice of opposition means a notice of intention to oppose and a statement
-      of grounds and particulars.
+    reasoning: A definition ('A notice of opposition means ...'); the 'can' was the opposing's.
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0153 related GC-0143 — The Manual
-      connects the statement with opposing extension of protection through the two-part notice
-      of opposition. The statement is not described as a requirement for obtaining extension
-      of protection.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0153 isPartOf GC-0103
+      — A notice of opposition means a notice of intention to oppose and a statement of grounds
+      and particulars.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0321
@@ -5898,46 +5462,6 @@
     - 'related_to: this would understate the express approved-form requirement for the application.'
     expert_should_check: Whether the neighbour is confined to removal for non-use rather than
       other removal procedures.
-- id: GR-0340
-  subject: GC-0111
-  predicate: requiresElement
-  object: GC-0157
-  source_ref: TMM/Part39/x-relevant-legislation17#1
-  supporting_text: Section 29 Application for registration of a trade mark whose registration
-    has been sought in a Convention country—claim for priority
-  span:
-  - 83
-  - 216
-  source_content_hash: sha256:93a7834e88f5df31f90a8725877144a99fe1e742a52b5b9afa4a47a59d030295
-  tier: 3
-  modality: null
-  notes: 'Re-read on 2026-10-09 from a second model''s audit (gemini-3.1-pro-preview, audit-v1):
-    was GC-0111 requiresElement GC-0157. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0111 related GC-0157.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
-    authoring_basis: corpus_inferred
-    evidence:
-    - ref: TMM/Part39/x-relevant-legislation17#1
-      span:
-      - 83
-      - 216
-      content_hash: sha256:93a7834e88f5df31f90a8725877144a99fe1e742a52b5b9afa4a47a59d030295
-      quote: Section 29 Application for registration of a trade mark whose registration has
-        been sought in a Convention country—claim for priority
-    confidence: 0.8
-    reasoning: A convention application claims priority from an application made in a Convention
-      country (s 29).
-    alternatives_considered:
-    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0111 related GC-0157 —
-      The sentence is merely a section heading. While it mentions the two concepts together,
-      implying a connection, it does not state a legal requirement or rule.'
-    expert_should_check: Whether the sentence states this relationship, read the way the predicate
-      reads.
 - id: GR-0343
   subject: GC-0159
   predicate: exercisesPowersOf
@@ -6512,14 +6036,15 @@
   - 204
   source_content_hash: sha256:ec5a91f4ffef77a620dd5452bd7908b6e397688c216493a6dbec2912acb6e33a
   tier: 3
-  modality: must
+  modality: null
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0162 related GC-0108.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0162 related GC-0108.
+    Checked on 2026-10-16 in the review response''s worklist (S036): modality must → none.'
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part60/4/24/4/24/4/2
@@ -6531,12 +6056,11 @@
         it is not possible to change the ownership of an IRDA or protected international trade
         mark which is a collective trade mark.
     confidence: 0.8
-    reasoning: The ownership of a collective trade mark cannot be changed.
+    reasoning: '''It is not possible to change the ownership'' is the exclusion isExcludedFrom
+      states; ''must'' is not the source''s word.'
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0162 related GC-0108 — The Manual
-      expressly connects collective trade marks with the unavailability of change of ownership.
-      No listed specific predicate accurately expresses that prohibition; the following sentence
-      attributes it to section 166 of the Act.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0108 isExcludedFrom GC-0162
+      — The ownership of a collective trade mark cannot be changed.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0368
@@ -6595,11 +6119,14 @@
   modality: must
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0165 related GC-0150.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0165 related GC-0150.
+    Checked on 2026-10-16 in the review response''s worklist (S036): its sentence''s condition
+    added.'
+  applies_when: an international registration that has designated Australia ceases or is limited
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part60/4/19/4/19/2~1
@@ -6611,13 +6138,12 @@
         the IB must notify Australia. IP Australia must amend the Record of International
         Registration accordingly.
     confidence: 0.8
-    reasoning: IP Australia amends the Record when an international registration designating
-      Australia ceases or is limited.
+    reasoning: The 'must' is IP Australia's duty to amend the Record, which is the recording;
+      the condition now travels with it.
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0165 related GC-0150 — The Manual
-      expressly links amendment of the Record to cessation or limitation of an international
-      registration designating Australia. No listed predicate specifically captures this record-update
-      relationship.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0150 isRecordedIn GC-0165
+      — IP Australia amends the Record when an international registration designating Australia
+      ceases or is limited.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0371
@@ -6716,11 +6242,14 @@
   modality: null
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0167 related GC-0111.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0167 related GC-0111.
+    Checked on 2026-10-16 in the review response''s worklist (S036): its sentence''s condition
+    added.'
+  applies_when: if the application is in a non-English language
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part47/5/5/3
@@ -6733,13 +6262,12 @@
         is in a non-English language, a translation of the earlier application into English
         (together with a certificate of verification relating to the translation).
     confidence: 0.8
-    reasoning: A translation's certificate of verification is among the documents supporting
-      a convention application.
+    reasoning: A certificate of verification accompanies only a translation of a non-English
+      earlier application (the response's sample).
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0167 related GC-0111 — The Manual
-      expressly connects the certificate with the English translation of a non-English Convention
-      application. A general requirement attaching to every convention application or priority
-      claim would overstate this conditional connection.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0167 isPartOf GC-0111
+      — A translation''s certificate of verification is among the documents supporting a convention
+      application.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0383
@@ -7285,13 +6813,16 @@
   modality: null
   notes: 'Re-read on 2026-10-09 from a second model''s audit (gemini-3.1-pro-preview, audit-v1):
     was GC-0017 mayGiveRiseTo GC-0145. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0017 related GC-0019.'
+    was GC-0017 related GC-0019. Checked on 2026-10-16 in the review response''s worklist
+    (S036): its sentence''s condition added.'
   approved_by: null
   approved_date: null
+  applies_when: will often connote the geographical origin or some other attribute of goods
+    or services
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/9#1
@@ -7302,13 +6833,11 @@
       quote: Trade marks which contain a geographical reference will often connote the geographical
         origin or some other attribute of goods or services.
     confidence: 0.8
-    reasoning: A geographical reference will often connote the geographical origin of the
-      goods.
+    reasoning: '''Will often connote'': a tendency, not a rule; the hedge now travels with
+      the edge.'
     alternatives_considered:
-    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0017 related GC-0019 —
-      The sentence discusses connoting ''geographical origin'' (GC-0019), not the specific
-      legal test of where wine ''originates'' (GC-0145). Furthermore, a reference does not
-      cause an origin, so ''related'' is the appropriate predicate.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0017 indicates GC-0019
+      — A geographical reference will often connote the geographical origin of the goods.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0412
@@ -7764,13 +7293,16 @@
   modality: must
   notes: 'Re-judged on 2026-10-08 by S026 under the owner''s ruling D5 (review/rulings/2026-10-08-chat-ontology-review.yaml).
     The evidence is the original author''s. Re-read on 2026-10-09 from a second model''s audit
-    (gemini-3.1-pro-preview, audit-v1): was GC-0107 requiresConsentOf GC-0133.'
+    (gemini-3.1-pro-preview, audit-v1): was GC-0107 requiresConsentOf GC-0133. Checked on
+    2026-10-16 in the review response''s worklist (S036): its sentence''s condition added.'
   approved_by: null
   approved_date: null
+  applies_when: an application to record assignment is received after the documentation required
+    under reg 16.2 has been sent to the Commission but before the trade mark has been registered
   authored:
     review_status: unreviewed
-    authored_by: gemini-3.1-pro-preview
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part35/10#1
@@ -7782,15 +7314,16 @@
         under reg 16.2 has been sent to the Commission but before the trade mark has been
         registered, the assignment will not be recorded unless the applicant provides evidence
         that the Commission has consented to the transfer of ownership (section 180A).
-    confidence: null
-    reasoning: The sentence states that the assignment (or transfer of ownership) requires
-      the consent of the Commission, not the trade mark itself.
+    confidence: 0.8
+    reasoning: The consent is needed only for an assignment recorded after the reg 16.2 documents
+      have gone to the Commission and before registration; the paragraph before says an assignment
+      before referral needs none. The condition now travels with the edge.
     alternatives_considered:
-    - 'As first written by claude-code-agent-S026 on 2026-10-08: GC-0107 requiresConsentOf
-      GC-0133 — An assignment of a certification trade mark is not recorded without evidence
-      of the Commission''s consent.'
-    expert_should_check: Whether the second model's reading is right where the first model's
-      was judged wrong; both read the same sentence.
+    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0086 requiresConsentOf
+      GC-0133 — The sentence states that the assignment (or transfer of ownership) requires
+      the consent of the Commission, not the trade mark itself.'
+    expert_should_check: Whether the sentence states this relationship, read the way the predicate
+      reads.
 - id: GR-0435
   subject: GC-0029
   predicate: isRecordedIn
@@ -7835,48 +7368,6 @@
       says an endorsement should make clear the permission to use the well-known person''s
       image. No listed specific predicate captures this recording function between the endorsement
       and the image.'
-    expert_should_check: Whether the sentence states this relationship, read the way the predicate
-      reads.
-- id: GR-0437
-  subject: GC-0035
-  predicate: owns
-  object: GC-0031
-  source_ref: TMM/Part29/7#1
-  supporting_text: The section 43 ground for rejection will be reconsidered if an applicant
-    provides information confirming that they are the owner or authorised user of the phoneword.
-  span:
-  - 995
-  - 1160
-  source_content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
-  tier: 3
-  modality: must
-  notes: 'Object re-pointed on 2026-10-08 by S026 from GC-0083 to GC-0035: the sentence is
-    about the owner or authorised user of the phoneword — the s 43 factor, not the trade mark''s
-    authorised user (ruling A4). The judgement and evidence are the original author''s. Re-read
-    on 2026-10-09 in the structure review (ADR-0131): was GC-0031 related GC-0035.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part29/7#1
-      span:
-      - 995
-      - 1160
-      content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
-      quote: The section 43 ground for rejection will be reconsidered if an applicant provides
-        information confirming that they are the owner or authorised user of the phoneword.
-    confidence: 0.8
-    reasoning: The ground is reconsidered if the applicant is the owner or authorised user
-      of the phoneword.
-    alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0031 related GC-0035 — The Manual
-      expressly connects a phoneword with authorised-user status when describing reconsideration
-      of a section 43 ground. No listed specific predicate accurately expresses that user
-      relationship.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0440
@@ -8102,13 +7593,15 @@
   modality: null
   notes: 'Re-read on 2026-10-09 from a second model''s audit (gemini-3.1-pro-preview, audit-v1):
     was GC-0040 appliesTo GC-0135. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0040 related GC-0135.'
+    was GC-0040 related GC-0135. Checked on 2026-10-16 in the review response''s worklist
+    (S036): its sentence''s condition added.'
   approved_by: null
   approved_date: null
+  applies_when: cessation of protection for non-use
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part15/2/2/1/1
@@ -8120,12 +7613,11 @@
         of protection and to removal/cessation of protection for non-use are extendible in
         the circumstances set out in regs 5.15, 9.18, 17A.34K and 17A.48T.
     confidence: 0.8
-    reasoning: Oppositions to cessation of protection for non-use.
+    reasoning: Oppositions to cessation of protection are those for non-use; the limit now
+      travels with the edge.
     alternatives_considered:
-    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0040 related GC-0135 —
-      An opposition is a procedural step, not a provision, rule or scheme, so it cannot ''apply
-      to'' cessation of protection. The sentence supports a ''related'' link because it discusses
-      oppositions to cessation of protection.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0040 operatesOn GC-0135
+      — Oppositions to cessation of protection for non-use.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0450
@@ -8183,11 +7675,14 @@
   modality: may
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0041 related GC-0148.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0041 related GC-0148.
+    Checked on 2026-10-16 in the review response''s worklist (S036): its sentence''s condition
+    added.'
+  applies_when: someone you have authorised to make the declaration on your behalf
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part32A/x-annex-6---how-to-supply-evidence-of-use-of-a-trade-mark-for-plants-and-or-plant-material#1~2
@@ -8200,11 +7695,11 @@
         is a company, OR someone you have authorised to make the declaration on your behalf
         (e.g. a lawyer or trade mark attorney).'
     confidence: 0.8
-    reasoning: A lawyer may make the declaration of use on the applicant's behalf.
+    reasoning: A lawyer makes the declaration only as someone the applicant has authorised;
+      the condition now travels with it.
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0041 related GC-0148 — The Manual
-      identifies an authorised lawyer as one permitted declarant for evidence of use. No listed
-      specific predicate adequately expresses this optional declarant role.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0148 files GC-0041 — A
+      lawyer may make the declaration of use on the applicant''s behalf.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0453
@@ -8244,50 +7739,6 @@
       evidence.
     expert_should_check: Whether the neighbour should be narrowed to an application for defensive
       registration rather than a defensive trade mark generally.
-- id: GR-0454
-  subject: GC-0013
-  predicate: prevents
-  object: GC-0042
-  source_ref: TMM/Part38/1/1/1
-  supporting_text: For example, the Registrar may consider that it is not reasonable to revoke
-    acceptance if the applicant agrees to amend the application so that certain conditions
-    and limitations are placed upon the trade mark.
-  span:
-  - 883
-  - 1093
-  source_content_hash: sha256:1e68ddbb103428e50ca34aa2aa6c219108d907440b7ae310c1c038c1da2816d8
-  tier: 3
-  modality: may
-  notes: 'Re-pointed on 2026-10-08 by S026: subject GC-0069 -> GC-0013 — an authored duplicate
-    withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and
-    evidence are the original author''s. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0013 qualifies GC-0042.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part38/1/1/1
-      span:
-      - 883
-      - 1093
-      content_hash: sha256:1e68ddbb103428e50ca34aa2aa6c219108d907440b7ae310c1c038c1da2816d8
-      quote: For example, the Registrar may consider that it is not reasonable to revoke acceptance
-        if the applicant agrees to amend the application so that certain conditions and limitations
-        are placed upon the trade mark.
-    confidence: 0.8
-    reasoning: Revoking acceptance may not be reasonable if the applicant agrees to conditions
-      and limitations.
-    alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0013 qualifies GC-0042 — The Manual
-      identifies agreement to conditions and limitations as a circumstance that may affect
-      whether revocation of acceptance is reasonable. This qualifies the decision to revoke
-      without automatically precluding it.'
-    expert_should_check: Whether the sentence states this relationship, read the way the predicate
-      reads.
 - id: GR-0456
   subject: GC-0043
   predicate: keepsEarlierDate
@@ -8472,14 +7923,15 @@
   - 298
   source_content_hash: sha256:d19d38732b579e97392e879ee35dc9890e1801ec113d65a7b6eb62a3fe968c30
   tier: 3
-  modality: should
+  modality: null
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0044 related GC-0092.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0044 related GC-0092.
+    Checked on 2026-10-16 in the review response''s worklist (S036): modality should → none.'
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part26/8/8/2
@@ -8492,12 +7944,11 @@
         in the name of the applicant (and therefore not a citation) has been assigned to a
         different person then a citation should be raised.
     confidence: 0.8
-    reasoning: The examiner, during the course of examination.
+    reasoning: The 'should' is 'a citation should be raised', not the examiner's examining
+      (the response's sample).
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0044 related GC-0092 — The Manual
-      connects the examiner''s awareness and consequent citation practice with the course
-      of examination. None of the narrower listed predicates captures this role-to-process
-      relationship.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0044 performs GC-0092
+      — The examiner, during the course of examination.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0462
@@ -9123,47 +8574,6 @@
       of the trade mark application.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
-- id: GR-0495
-  subject: GC-0093
-  predicate: resultsIn
-  object: GC-0013
-  source_ref: TMM/Part28/5#1
-  supporting_text: Subsection 44(3) specifies that the Registrar may accept the application
-    for registration subject to any conditions or limitations that he/she thinks fit to impose.
-  span:
-  - 0
-  - 164
-  source_content_hash: sha256:621fe2d59a785be545be6240d9d4607a3f93f51fc5d05a5f1ec3d7b889744397
-  tier: 3
-  modality: may
-  notes: 'Re-pointed on 2026-10-08 by S026: subject GC-0069 -> GC-0013 — an authored duplicate
-    withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and
-    evidence are the original author''s. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0013 qualifies GC-0093.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part28/5#1
-      span:
-      - 0
-      - 164
-      content_hash: sha256:621fe2d59a785be545be6240d9d4607a3f93f51fc5d05a5f1ec3d7b889744397
-      quote: Subsection 44(3) specifies that the Registrar may accept the application for
-        registration subject to any conditions or limitations that he/she thinks fit to impose.
-    confidence: 0.8
-    reasoning: The Registrar may accept an application subject to conditions or limitations
-      (s 44(3)).
-    alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0013 qualifies GC-0093 — The Manual
-      expressly describes acceptance under subsection 44(3) as potentially subject to conditions
-      or limitations. This supports conditions or limitations qualifying acceptance.'
-    expert_should_check: Whether the sentence states this relationship, read the way the predicate
-      reads.
 - id: GR-0497
   subject: GC-0070
   predicate: isDistinguishedFrom
@@ -9407,13 +8817,15 @@
   modality: null
   notes: 'Re-read on 2026-10-09 from a second model''s audit (gemini-3.1-pro-preview, audit-v1):
     was GC-0082 allocatesTo GC-0085. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0082 related GC-0085.'
+    was GC-0082 related GC-0085. Checked on 2026-10-16 in the review response''s worklist
+    (S036): its sentence''s condition added.'
   approved_by: null
   approved_date: null
+  applies_when: a predecessor in title had authorised another person to use the trade mark
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part22/x-annex-a1-section-41-prior-to-raising-the-bar#1~1
@@ -9425,12 +8837,11 @@
         any authorised use of the trade mark by the other person is taken to be a use of the
         trade mark by the predecessor in title (see subsection 7(3) and section 8).
     confidence: 0.8
-    reasoning: Authorised use is taken to be use by the predecessor in title (ss 7(3), 8).
+    reasoning: Authorised use is the predecessor's only where the predecessor authorised it;
+      the condition now travels with it.
     alternatives_considered:
-    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0082 related GC-0085 —
-      The allocatesTo predicate is for tasks or burdens that fall on a role. The sentence
-      describes a statutory deeming where authorised use by another counts as use by the predecessor
-      in title. A generic ''related'' link is appropriate.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0082 isAttributedTo GC-0085
+      — Authorised use is taken to be use by the predecessor in title (ss 7(3), 8).'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0511
@@ -9602,9 +9013,9 @@
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0520
-  subject: GC-0109
-  predicate: requiresElement
-  object: GC-0081
+  subject: GC-0081
+  predicate: qualifies
+  object: GC-0109
   source_ref: TMM/Part34/6/6/2/3
   supporting_text: A primary consideration in deciding whether the trade mark qualifies for
     registration as a defensive trade mark in terms of subsection 185(1) is the extent to
@@ -9619,13 +9030,14 @@
   notes: 'Re-judged on 2026-10-08 by S026 under the owner''s ruling D5 (review/rulings/2026-10-08-chat-ontology-review.yaml).
     The evidence is the original author''s. Re-read on 2026-10-09 from a second model''s audit
     (gemini-3.1-pro-preview, audit-v1): was GC-0081 qualifies GC-0109. Re-read on 2026-10-09
-    in the structure review (ADR-0131): was GC-0081 related GC-0109.'
+    in the structure review (ADR-0131): was GC-0081 related GC-0109. Re-read on 2026-10-16
+    in the review response''s worklist (S036): was GC-0109 requiresElement GC-0081.'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part34/6/6/2/3
@@ -9638,55 +9050,14 @@
         registered trade mark upon which the application is based has been used in respect
         of any or all of the goods for which it is registered.
     confidence: 0.8
-    reasoning: Defensive registration turns on the extent of use of the registered mark it
-      is based on (s 185(1)).
+    reasoning: '''A primary consideration in deciding whether the trade mark qualifies for
+      registration as a defensive trade mark ... is the extent to which the registered trade
+      mark ... has been used'': use bears on the assessment; the sentence does not make it
+      a required element.'
     alternatives_considered:
-    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0081 related GC-0109 —
-      As noted in the instructions, this relationship incorrectly uses the ''qualifies'' predicate
-      simply because the text uses the phrase ''qualifies for registration''. The text establishes
-      that the extent of use is a consideration for registering a defensive trade mark, which
-      supports a basic ''related'' link.'
-    expert_should_check: Whether the sentence states this relationship, read the way the predicate
-      reads.
-- id: GR-0521
-  subject: GC-0151
-  predicate: becomes
-  object: GC-0089
-  source_ref: TMM/Part24/3#1
-  supporting_text: Disclaimers on the old register, kept under the repealed Act, became particulars
-    on the new Register at commencement, and have the same effect as voluntary disclaimers
-    (section 238).
-  span:
-  - 1149
-  - 1331
-  source_content_hash: sha256:8a682b936fdc274b90ccd4c9141e862c24b2d977351d1e8e62015590250d64c0
-  tier: 3
-  modality: null
-  approved_by: null
-  approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0151 related GC-0089.'
-  authored:
-    review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part24/3#1
-      span:
-      - 1149
-      - 1331
-      content_hash: sha256:8a682b936fdc274b90ccd4c9141e862c24b2d977351d1e8e62015590250d64c0
-      quote: Disclaimers on the old register, kept under the repealed Act, became particulars
-        on the new Register at commencement, and have the same effect as voluntary disclaimers
-        (section 238).
-    confidence: 0.8
-    reasoning: At commencement the old register's particulars became particulars on the new
-      Register.
-    alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0151 related GC-0089 — The Manual
-      expressly connects the old register to the new Register through the transition of disclaimer
-      particulars at commencement. No listed specific predicate captures that transition between
-      records.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0109 requiresElement GC-0081
+      — Defensive registration turns on the extent of use of the registered mark it is based
+      on (s 185(1)).'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0522
@@ -9746,11 +9117,14 @@
   modality: null
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0091 related GC-0141.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0091 related GC-0141.
+    Checked on 2026-10-16 in the review response''s worklist (S036): its sentence''s condition
+    added.'
+  applies_when: In most cases
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part39/5#1
@@ -9761,12 +9135,11 @@
       quote: In most cases, this means that the filing date of an application will be its
         registration date.
     confidence: 0.8
-    reasoning: In most cases the filing date is the date of registration (s 72).
+    reasoning: '''In most cases'' the filing date is the registration date (the response''s
+      sample).'
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0091 related GC-0141 — The Manual
-      expressly states that the two dates coincide in most cases, while explaining exceptions
-      for Convention priority. They remain distinct concepts; none of the more specific listed
-      predicates captures this usual coincidence.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0141 isFixedBy GC-0091
+      — In most cases the filing date is the date of registration (s 72).'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0529
@@ -9786,11 +9159,14 @@
   approved_by: null
   approved_date: null
   notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0095 allocatesTo
-    GC-0046.'
+    GC-0046. Checked on 2026-10-16 in the review response''s worklist (S036): its sentence''s
+    condition added.'
+  applies_when: in circumstances in which it appears that the registration should not have
+    occurred
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part62/1#1
@@ -9802,17 +9178,16 @@
         of a trade mark in circumstances in which it appears that the registration should
         not have occurred.
     confidence: 0.8
-    reasoning: Sections 84A to 84D allow the Registrar to revoke a registration.
+    reasoning: '''Allow the Registrar to revoke'' is the revoking''s ''may''; the condition
+      now travels with it.'
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0095 allocatesTo GC-0046 — The Manual
-      expressly identifies the Registrar as the role empowered to revoke registration, supporting
-      allocation of the procedural step to that role. This is the Manual''s account of statutory
-      powers, not a quotation from the Act.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0046 performs GC-0095
+      — Sections 84A to 84D allow the Registrar to revoke a registration.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0534
   subject: GC-0096
-  predicate: prevents
+  predicate: suspendsTimeFor
   object: GC-0098
   source_ref: TMM/Part16/1/1/1
   supporting_text: The legislation states that "an application lapses if it is not accepted
@@ -9831,11 +9206,13 @@
   modality: null
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0098 related GC-0096.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0098 related GC-0096.
+    Re-read on 2026-10-16 in the review response''s worklist (S036): was GC-0096 prevents
+    GC-0098.'
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part16/1/1/1
@@ -9852,14 +9229,12 @@
         an applicant requests an ex parte hearing on an exam matter, the Registrar will defer
         acceptance of that application.
     confidence: 0.8
-    reasoning: Deferment holds the period within which an application must be accepted, so
-      it does not lapse.
+    reasoning: 'Deferring acceptance holds the period after which an application lapses: the
+      clock stops (F13).'
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0098 related GC-0096 — The Manual
-      connects the acceptance deadline that determines lapse with deferment when an examination
-      hearing is requested. This supports a procedural connection, but I am unsure whether
-      the contextual link is sufficiently clear; the passage does not expressly specify deferment''s
-      effect on lapse.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0096 prevents GC-0098
+      — Deferment holds the period within which an application must be accepted, so it does
+      not lapse.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0536
@@ -10208,44 +9583,6 @@
       captures that forum relationship without implying that the court alone performs rectification.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
-- id: GR-0552
-  subject: GC-0106
-  predicate: operatesOn
-  object: GC-0150
-  source_ref: TMM/Part60/2/6/2/6/1
-  supporting_text: Madrid Protocol Article 7 Renewal of International Registration
-  span:
-  - 0
-  - 63
-  source_content_hash: sha256:996548a5f07808ac8800e4dade300092a171d8d8ffbc21eedbd5820ca3462f79
-  tier: 3
-  modality: null
-  notes: 'Re-read on 2026-10-09 from a second model''s audit (gemini-3.1-pro-preview, audit-v1):
-    was GC-0106 appliesTo GC-0150. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0106 related GC-0150.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part60/2/6/2/6/1
-      span:
-      - 0
-      - 63
-      content_hash: sha256:996548a5f07808ac8800e4dade300092a171d8d8ffbc21eedbd5820ca3462f79
-      quote: Madrid Protocol Article 7 Renewal of International Registration
-    confidence: 0.8
-    reasoning: Renewal of an international registration (Madrid Protocol Article 7).
-    alternatives_considered:
-    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0106 related GC-0150 —
-      The predicate ''appliesTo'' is strictly for a provision, rule or scheme governing an
-      object. ''Renewal of registration'' is a procedural step, not a rule. The sentence (a
-      heading) simply connects the two concepts, so ''related'' is the appropriate predicate.'
-    expert_should_check: Whether the sentence states this relationship, read the way the predicate
-      reads.
 - id: GR-0555
   subject: GC-0130
   predicate: qualifies
@@ -10419,11 +9756,14 @@
   modality: null
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0113 related GC-0136.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0113 related GC-0136.
+    Checked on 2026-10-16 in the review response''s worklist (S036): its sentence''s condition
+    added.'
+  applies_when: usually
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part60/4/3/4/3/2
@@ -10434,12 +9774,11 @@
       quote: The filing date of an IRDA is usually the date on which the international registration
         was filed with the Office of origin.
     confidence: 0.8
-    reasoning: The filing date of an IRDA is the date the international registration was filed
-      with the Office of origin.
+    reasoning: '''Usually'': the hedge now travels with the edge.'
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0113 related GC-0136 — The Manual
-      connects an IRDA''s usual filing date to the filing of the international registration
-      with the Office of origin. No more specific listed predicate captures this filing connection.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0113 keepsEarlierDate
+      GC-0091 — The filing date of an IRDA is the date the international registration was
+      filed with the Office of origin.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0566
@@ -10580,13 +9919,16 @@
   modality: null
   notes: 'Re-read on 2026-10-09 from a second model''s audit (gemini-3.1-pro-preview, audit-v1):
     was GC-0119 appliesTo GC-0031. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0031 related GC-0119.'
+    was GC-0031 related GC-0119. Checked on 2026-10-16 in the review response''s worklist
+    (S036): its sentence''s condition added.'
   approved_by: null
   approved_date: null
+  applies_when: in a composite trade mark containing additional distinctive elements will
+    usually have sufficient inherent adaptation to distinguish
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part22/14/14/4
@@ -10598,14 +9940,12 @@
         elements will usually have sufficient inherent adaptation to distinguish and not attract
         a section 41 ground for rejection.
     confidence: 0.8
-    reasoning: A phoneword in a composite mark with other distinctive elements will usually
-      be inherently adapted enough.
+    reasoning: Only phonewords in a composite mark with other distinctive elements, and then
+      usually; the condition now travels with the edge.
     alternatives_considered:
-    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0031 related GC-0119 —
-      The predicate ''appliesTo'' is strictly for provisions, rules, or schemes that govern
-      an object. ''Prima facie capable of distinguishing'' is a legal test. The sentence connects
-      phonewords to this test by noting they usually meet it, which supports a general ''related''
-      link.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0031 qualifies GC-0059
+      — A phoneword in a composite mark with other distinctive elements will usually be inherently
+      adapted enough.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0575
@@ -10823,17 +10163,18 @@
   - 328
   source_content_hash: sha256:52689ba4ba521ede128afc7e830693aca9f3b2fddc5c2815d98736bea000f161
   tier: 3
-  modality: must
+  modality: null
   notes: 'Re-pointed on 2026-10-08 by S026: subject GC-0115 -> GC-0046 — an authored duplicate
     withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and
     evidence are the original author''s. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0046 related GC-0131.'
+    was GC-0046 related GC-0131. Checked on 2026-10-16 in the review response''s worklist
+    (S036): modality must → none.'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part10/x-introduction#1
@@ -10845,12 +10186,10 @@
         carried out under section 31, the Registrar must report on whether or not the application
         has been made in accordance with the Act.
     confidence: 0.8
-    reasoning: The Registrar examines the application (s 31).
+    reasoning: The 'must' is the Registrar's duty to report on the application, not the examining.
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0046 related GC-0131 — The Manual
-      describes the Registrar''s obligation to report on the application''s compliance with
-      the Act. None of the more specific listed predicates captures this role-to-record reporting
-      relationship.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0046 performs GC-0092
+      — The Registrar examines the application (s 31).'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0593
@@ -10943,46 +10282,6 @@
       Act provides ART review, connecting the ART with specified Commission decisions. No
       listed predicate precisely captures that review relationship between the two bodies.'
     expert_should_check: That the list is of reviewable decisions rests on the passage's heading.
-- id: GR-0598
-  subject: GC-0135
-  predicate: operatesOn
-  object: GC-0114
-  source_ref: TMM/Part55/2#1
-  supporting_text: Cessation of protection of a Protected International Trade Mark for non-use
-    (reg 17A.48D)
-  span:
-  - 518
-  - 607
-  source_content_hash: sha256:a29a84090d166036719f5bed9d50980b03548c0d9154cb29d1cf3b4b5733931d
-  tier: 3
-  modality: null
-  notes: 'Re-read on 2026-10-09 from a second model''s audit (gemini-3.1-pro-preview, audit-v1):
-    was GC-0135 appliesTo GC-0114. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0135 related GC-0114.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part55/2#1
-      span:
-      - 518
-      - 607
-      content_hash: sha256:a29a84090d166036719f5bed9d50980b03548c0d9154cb29d1cf3b4b5733931d
-      quote: Cessation of protection of a Protected International Trade Mark for non-use (reg
-        17A.48D)
-    confidence: 0.8
-    reasoning: Cessation of protection of a protected international trade mark.
-    alternatives_considered:
-    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0135 related GC-0114 —
-      Since ''cessation of protection'' is a procedural step, it cannot be the subject of
-      ''appliesTo''. The sentence does support a general relationship between the procedural
-      step and the protected international trade mark it affects.'
-    expert_should_check: Whether the sentence states this relationship, read the way the predicate
-      reads.
 - id: GR-0601
   subject: GC-0138
   predicate: prevailsOver
@@ -11162,11 +10461,14 @@
   modality: null
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0144 related GC-0046.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0144 related GC-0046.
+    Checked on 2026-10-16 in the review response''s worklist (S036): its sentence''s condition
+    added.'
+  applies_when: usually the person named in a subpoena
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part54/1/1/3
@@ -11178,11 +10480,11 @@
         is also acceptable if the subpoena is directed to “the proper officer” of the Trade
         Marks Office.
     confidence: 0.8
-    reasoning: The Registrar is usually the person named in a subpoena.
+    reasoning: The Registrar is usually the person named; a subpoena to 'the proper officer'
+      is also acceptable.
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0144 related GC-0046 — The Manual
-      expressly connects a subpoena with the Registrar as its usual named recipient. No listed
-      specific predicate adequately captures that addressee relationship.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0144 isServedOn GC-0046
+      — The Registrar is usually the person named in a subpoena.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0614
@@ -11273,14 +10575,15 @@
   - 233
   source_content_hash: sha256:a430d99ef295ceb2406b4160cd3bb1dc86b06fabaeab1f3922f7e204481aa7b5
   tier: 3
-  modality: must
+  modality: null
   approved_by: null
   approved_date: null
-  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0092 related GC-0093.'
+  notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0092 related GC-0093.
+    Checked on 2026-10-16 in the review response''s worklist (S036): modality must → none.'
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part18/2/2/1
@@ -11292,13 +10595,12 @@
         made in accordance with the provisions of the Act (see section 6 definition of "this
         Act"), and there are no grounds for rejecting it (subsection 33(1)).
     confidence: 0.8
-    reasoning: An application must be accepted if, after examination, there are no grounds
-      for rejecting it.
+    reasoning: The 'must' is 'must be accepted if ...', the acceptance's, not the order of
+      examination and acceptance.
     alternatives_considered:
-    - 'As first written by gpt-6.1-sol on 2026-10-07: GC-0092 related GC-0093 — The Manual
-      describes acceptance as a mandatory outcome after examination where the stated conditions
-      are met, attributing this requirement to subsection 33(1). No listed predicate precisely
-      captures this conditional procedural sequence; examination alone does not entail acceptance.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0092 precedes GC-0093
+      — An application must be accepted if, after examination, there are no grounds for rejecting
+      it.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0618
@@ -11450,13 +10752,16 @@
   modality: null
   notes: 'Re-read on 2026-10-09 from a second model''s audit (gemini-3.1-pro-preview, audit-v1):
     was GC-0093 qualifies GC-0098. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0093 related GC-0098.'
+    was GC-0093 related GC-0098. Checked on 2026-10-16 in the review response''s worklist
+    (S036): its sentence''s condition added.'
   approved_by: null
   approved_date: null
+  applies_when: within the prescribed period or within that period as extended in accordance
+    with the regulations
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part16/1/1/1
@@ -11468,13 +10773,11 @@
         the prescribed period or within that period as extended in accordance with the regulations"
         (section 37).
     confidence: 0.8
-    reasoning: An application lapses if it is not accepted within the prescribed period (s
-      37).
+    reasoning: Acceptance blocks lapsing only within the prescribed period or its extension;
+      that now travels with the edge.
     alternatives_considered:
-    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0093 related GC-0098 —
-      The sentence states that an application lapses if it is "not accepted". This negative
-      condition connects the two concepts but does not mean acceptance affects the test for
-      lapsing, making ''related'' appropriate.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0093 prevents GC-0098
+      — An application lapses if it is not accepted within the prescribed period (s 37).'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0624
@@ -11569,18 +10872,21 @@
   - 503
   source_content_hash: sha256:1174f0c870bd9dc53e31817668968307cad112de4c1a05bceb33e13913542ef2
   tier: 3
-  modality: null
+  modality: must
   notes: 'Re-pointed on 2026-10-08 by S026: subject GC-0102 -> GC-0040 — an authored duplicate
     withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and
     evidence are the original author''s. Re-read on 2026-10-09 from a second model''s audit
     (gemini-3.1-pro-preview, audit-v1): was GC-0040 requiresElement GC-0158. Re-read on 2026-10-09
-    in the structure review (ADR-0131): was GC-0040 related GC-0158.'
+    in the structure review (ADR-0131): was GC-0040 related GC-0158. Checked on 2026-10-16
+    in the review response''s worklist (S036): modality none → must; its sentence''s condition
+    added.'
   approved_by: null
   approved_date: null
+  applies_when: if they wish to contest the opposition and maintain their rights
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part47/3#1
@@ -11593,12 +10899,12 @@
         or IRDA holder must file a notice of intention to defend if they wish to contest the
         opposition and maintain their rights.
     confidence: 0.8
-    reasoning: The trade mark applicant or IRDA holder must file a notice of intention to
-      defend to contest an opposition.
+    reasoning: '''Must file a notice of intention to defend if they wish to contest the opposition'':
+      the obligation and its condition now travel with the edge.'
     alternatives_considered:
-    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0040 related GC-0158 —
-      The sentence states that a notice of intention to defend is required to contest an opposition,
-      not that it is an element required for the opposition itself to apply.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0116 files GC-0158 — The
+      trade mark applicant or IRDA holder must file a notice of intention to defend to contest
+      an opposition.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0636
@@ -11653,13 +10959,15 @@
   modality: null
   notes: 'Re-read on 2026-10-09 from a second model''s audit (gemini-3.1-pro-preview, audit-v1):
     was GC-0018 isProtectedThrough GC-0107. Re-read on 2026-10-09 in the structure review
-    (ADR-0131): was GC-0019 related GC-0107.'
+    (ADR-0131): was GC-0019 related GC-0107. Checked on 2026-10-16 in the review response''s
+    worklist (S036): its sentence''s condition added.'
   approved_by: null
   approved_date: null
+  applies_when: geographical origin or some other characteristic
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part35/1/1/5
@@ -11671,13 +10979,13 @@
         a particular standard of quality or accuracy, or as having a particular composition,
         mode of manufacture, geographical origin or some other characteristic
     confidence: 0.8
-    reasoning: A certification trade mark may indicate that goods are certified as having
-      a particular geographical origin.
+    reasoning: A certification trade mark indicates certification of geographical origin as
+      one of several characteristics it may certify; that qualification now travels with the
+      edge.
     alternatives_considered:
-    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0019 related GC-0107 —
-      The sentence mentions ''geographical origin'' (GC-0019), not a ''geographical indication''
-      (GC-0018). Furthermore, it states that a certification trade mark indicates a geographical
-      origin rather than giving it legal protection, so ''related'' is the appropriate predicate.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0107 indicates GC-0019
+      — A certification trade mark may indicate that goods are certified as having a particular
+      geographical origin.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0638
@@ -12387,15 +11695,16 @@
   - 187
   source_content_hash: sha256:6cc3b98270dba439a22e7b6765ea12f73936349b4cf5106d94a015d334fc84f6
   tier: 3
-  modality: must
+  modality: null
   approved_by: null
   approved_date: null
   notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0042 allocatesTo
-    GC-0173.'
+    GC-0173. Checked on 2026-10-16 in the review response''s worklist (S036): modality must
+    → none.'
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part38/1/1/3
@@ -12407,12 +11716,10 @@
         writing of the proposed revocation setting out any conditions under which the application
         can remain accepted.
     confidence: 0.8
-    reasoning: The Examination team leader notifies the applicant of a proposed revocation
-      of acceptance.
+    reasoning: The 'must' is the notifying of the proposed revocation, not the revoking.
     alternatives_considered:
-    - 'As first written by claude-code-agent-S026 on 2026-10-08: GC-0042 allocatesTo GC-0173
-      — Notifying a proposed revocation of acceptance falls to the team leader or the Deputy
-      Registrar.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0173 performs GC-0042
+      — The Examination team leader notifies the applicant of a proposed revocation of acceptance.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0666
@@ -12428,15 +11735,16 @@
   - 187
   source_content_hash: sha256:6cc3b98270dba439a22e7b6765ea12f73936349b4cf5106d94a015d334fc84f6
   tier: 3
-  modality: must
+  modality: null
   approved_by: null
   approved_date: null
   notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0042 allocatesTo
-    GC-0159.'
+    GC-0159. Checked on 2026-10-16 in the review response''s worklist (S036): modality must
+    → none.'
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part38/1/1/3
@@ -12448,10 +11756,10 @@
         writing of the proposed revocation setting out any conditions under which the application
         can remain accepted.
     confidence: 0.8
-    reasoning: Or the Deputy Registrar.
+    reasoning: The 'must' is the notifying of the proposed revocation, not the revoking.
     alternatives_considered:
-    - 'As first written by claude-code-agent-S026 on 2026-10-08: GC-0042 allocatesTo GC-0159
-      — As above, for the Deputy Registrar.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0159 performs GC-0042
+      — Or the Deputy Registrar.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0667
@@ -13495,7 +12803,7 @@
       was judged wrong; both read the same sentence.
 - id: GR-0699
   subject: GC-0020
-  predicate: doesNotGiveRiseTo
+  predicate: isAnExceptionTo
   object: GC-0006
   source_ref: TMM/Part29/9/9/6
   supporting_text: Where business identifiers are included in a trade mark (e.g. A TASMANIAN
@@ -13510,13 +12818,15 @@
   modality: null
   notes: 'Re-read on 2026-10-09 from a second model''s audit (gemini-3.1-pro-preview, audit-v1):
     was GC-0020 doesNotGiveRiseTo GC-0168. Re-read on 2026-10-09 in the structure review (ADR-0131):
-    was GC-0020 related GC-0006.'
+    was GC-0020 related GC-0006. Re-read on 2026-10-16 in the review response''s worklist
+    (S036): was GC-0020 doesNotGiveRiseTo GC-0006.'
   approved_by: null
   approved_date: null
+  applies_when: A ground for rejection will rarely apply in these cases
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part29/9/9/6
@@ -13529,18 +12839,17 @@
         the goods or services themselves. A ground for rejection will rarely apply in these
         cases.
     confidence: 0.8
-    reasoning: A business identifier indicates a business, not the goods; a ground for rejection
-      will rarely apply.
+    reasoning: 'A business identifier indicates a business rather than the goods, so a ground
+      will rarely apply: a hedged exception, not insufficiency (F15).'
     alternatives_considered:
-    - 'As first written by gemini-3.1-pro-preview on 2026-10-09: GC-0020 related GC-0006 —
-      The sentence refers broadly to a general "ground for rejection" rather than specifically
-      to the section 43 ground, and "rarely apply" indicates a weak relationship rather than
-      an absolute rule that it does not give rise to the ground.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0020 doesNotGiveRiseTo
+      GC-0006 — A business identifier indicates a business, not the goods; a ground for rejection
+      will rarely apply.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0700
   subject: GC-0027
-  predicate: doesNotGiveRiseTo
+  predicate: isAnExceptionTo
   object: GC-0168
   source_ref: TMM/Part29/6/6/2~1
   supporting_text: Generally, a section 43 ground for rejection will not arise in respect
@@ -13554,10 +12863,14 @@
   modality: null
   approved_by: null
   approved_date: null
+  applies_when: Generally, a section 43 ground for rejection will not arise in respect of
+    long deceased historical figures
+  notes: 'Re-read on 2026-10-16 in the review response''s worklist (S036): was GC-0027 doesNotGiveRiseTo
+    GC-0168.'
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S027
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part29/6/6/2~1
@@ -13568,16 +12881,19 @@
       quote: Generally, a section 43 ground for rejection will not arise in respect of long
         deceased historical figures, even if they were well known for the same field as the
         specified goods/services are in.
-    confidence: 0.9
-    reasoning: 'The Manual says a section 43 ground will generally not arise for a long deceased
+    confidence: 0.8
+    reasoning: '''Generally, a section 43 ground ... will not arise in respect of long deceased
+      historical figures'': a hedged exception, not insufficiency (F15).'
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S027 on 2026-10-09: GC-0027 doesNotGiveRiseTo
+      GC-0168 — The Manual says a section 43 ground will generally not arise for a long deceased
       historical figure, even one well known in the field. Written on the owner''s ruling
       B1 (ADR-0126): what a concept does is an edge naming the ground or test it acts on.'
-    alternatives_considered:
-    - Typed exception as a group (GT-0027) — under B1 the exception is this edge.
-    expert_should_check: Whether 'long deceased' has a working threshold in practice.
+    expert_should_check: Whether the sentence states this relationship, read the way the predicate
+      reads.
 - id: GR-0701
   subject: GC-0048
-  predicate: doesNotGiveRiseTo
+  predicate: isAnExceptionTo
   object: GC-0002
   source_ref: TMM/Part29/9#1
   supporting_text: Deception or confusion is not likely to occur if the geographic reference
@@ -13592,10 +12908,13 @@
   modality: null
   approved_by: null
   approved_date: null
+  applies_when: if the geographic reference is ambiguous or fanciful
+  notes: 'Re-read on 2026-10-16 in the review response''s worklist (S036): was GC-0048 doesNotGiveRiseTo
+    GC-0002.'
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S027
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part29/9#1
@@ -13607,18 +12926,19 @@
         ambiguous or fanciful (FORGED IN THE OUTBACK on Vehicles, ANTARCTIC BERRIES for Frozen
         strawberries) or when a word will not be seen as a geographical reference in the eyes
         of an average consumer (MOCHA for confectionery).
-    confidence: 0.85
-    reasoning: 'The Manual says deception or confusion is not likely where the geographical
+    confidence: 0.8
+    reasoning: 'Deception or confusion is not likely where the geographic reference is ambiguous
+      or fanciful: a case the test does not reach (F15).'
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S027 on 2026-10-09: GC-0048 doesNotGiveRiseTo
+      GC-0002 — The Manual says deception or confusion is not likely where the geographical
       reference is ambiguous or fanciful — the test is not met. Written on the owner''s ruling
       B1 (ADR-0126): what a concept does is an edge naming the ground or test it acts on.'
-    alternatives_considered:
-    - doesNotGiveRiseTo GC-0168 — the sentence speaks of the test (deception or confusion),
-      not the ground.
-    expert_should_check: Whether a fanciful reference never meets the test or only usually
-      does not.
+    expert_should_check: Whether the sentence states this relationship, read the way the predicate
+      reads.
 - id: GR-0702
   subject: GC-0035
-  predicate: doesNotGiveRiseTo
+  predicate: isAnExceptionTo
   object: GC-0168
   source_ref: TMM/Part29/7#1
   supporting_text: The section 43 ground for rejection will be reconsidered if an applicant
@@ -13632,11 +12952,14 @@
   approved_by: null
   approved_date: null
   notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0035 qualifies
-    GC-0168.'
+    GC-0168. Re-read on 2026-10-16 in the review response''s worklist (S036): was GC-0035
+    doesNotGiveRiseTo GC-0168.'
+  applies_when: if an applicant provides information confirming that they are the owner or
+    authorised user of the phoneword
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S029
-    authored_date: '2026-10-09'
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part29/7#1
@@ -13647,14 +12970,14 @@
       quote: The section 43 ground for rejection will be reconsidered if an applicant provides
         information confirming that they are the owner or authorised user of the phoneword.
     confidence: 0.8
-    reasoning: An application by the owner or authorised user of the phoneword takes the case
-      out of the section 43 ground; the ground is reconsidered once that is confirmed.
+    reasoning: 'The ground applies to a phoneword only if the applicant is not its owner or
+      authorised user (the sentence before, GR-0440), and is reconsidered once that is confirmed:
+      an exception with its condition (F15). Kept, as the only edge left on GC-0035 once GR-0140
+      and GR-0437 go.'
     alternatives_considered:
-    - 'As first written by claude-code-agent-S027 on 2026-10-09: GC-0035 qualifies GC-0168
-      — Whether the applicant is the owner or authorised user of the phoneword decides whether
-      the section 43 ground stands; the Manual says it is reconsidered on confirmation. Written
-      on the owner''s ruling B1 (ADR-0126): what a concept does is an edge naming the ground
-      or test it acts on.'
+    - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0035 doesNotGiveRiseTo
+      GC-0168 — An application by the owner or authorised user of the phoneword takes the
+      case out of the section 43 ground; the ground is reconsidered once that is confirmed.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
       reads.
 - id: GR-0703
@@ -14063,5 +13386,106 @@
     confidence: 0.8
     reasoning: For an international application filed from Australia, IP Australia is the
       Office of origin and certifies the application.
+    alternatives_considered: []
+    expert_should_check: Whether the passage states this relationship.
+- id: GR-0715
+  subject: GC-0111
+  predicate: requiresElement
+  object: GC-0157
+  source_ref: TMM/Part11/1/1/4
+  supporting_text: A convention application should be filed within six months after the day
+    on which the application was made in the Convention country (subsection 29(1)).
+  span:
+  - 0
+  - 152
+  source_content_hash: sha256:755f78fffb8fe495136ac30d28eb8cb15ccb61b09c6ae0778ca3fae35697f2ba
+  tier: 3
+  modality: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part11/1/1/4
+      span:
+      - 0
+      - 152
+      content_hash: sha256:755f78fffb8fe495136ac30d28eb8cb15ccb61b09c6ae0778ca3fae35697f2ba
+      quote: A convention application should be filed within six months after the day on which
+        the application was made in the Convention country (subsection 29(1)).
+    confidence: 0.8
+    reasoning: A convention application rests on an application made in a Convention country,
+      and is filed within six months of it. In place of GR-0340, whose only evidence was s
+      29's heading.
+    alternatives_considered: []
+    expert_should_check: Whether the passage states this relationship.
+- id: GR-0716
+  subject: GC-0106
+  predicate: operatesOn
+  object: GC-0150
+  source_ref: TMM/Part60/1/1/9
+  supporting_text: Renewal of an international registration is due 10 years from the date
+    of the international registration.
+  span:
+  - 0
+  - 105
+  source_content_hash: sha256:ac12201fb0d8d12b99b1df48c5fe2bf861775a334a16ff7f72aece794f12d1c2
+  tier: 3
+  modality: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part60/1/1/9
+      span:
+      - 0
+      - 105
+      content_hash: sha256:ac12201fb0d8d12b99b1df48c5fe2bf861775a334a16ff7f72aece794f12d1c2
+      quote: Renewal of an international registration is due 10 years from the date of the
+        international registration.
+    confidence: 0.8
+    reasoning: Renewal acts on an international registration. In place of GR-0552, whose only
+      evidence was a heading.
+    alternatives_considered: []
+    expert_should_check: Whether the passage states this relationship.
+- id: GR-0717
+  subject: GC-0135
+  predicate: operatesOn
+  object: GC-0114
+  source_ref: TMM/Part49/1/1/1
+  supporting_text: all references in this Manual part to the removal of a trade mark from
+    the Register also apply to the cessation of protection of a protected international trade
+    mark.
+  span:
+  - 141
+  - 307
+  source_content_hash: sha256:5e5c8fdef3f8164d5afa5725c91c4f3547c9e392ec3de770afd2f2a1b24ea8b2
+  tier: 3
+  modality: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S036
+    authored_date: '2026-10-16'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part49/1/1/1
+      span:
+      - 141
+      - 307
+      content_hash: sha256:5e5c8fdef3f8164d5afa5725c91c4f3547c9e392ec3de770afd2f2a1b24ea8b2
+      quote: all references in this Manual part to the removal of a trade mark from the Register
+        also apply to the cessation of protection of a protected international trade mark.
+    confidence: 0.8
+    reasoning: Cessation of protection acts on a protected international trade mark. In place
+      of GR-0598, whose only evidence was a heading.
     alternatives_considered: []
     expert_should_check: Whether the passage states this relationship.

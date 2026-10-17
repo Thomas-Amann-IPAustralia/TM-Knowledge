@@ -26,27 +26,19 @@
 
 name: pages
 
+# Publication waits on the checks (the review response, F03). This runs when the
+# harness workflow completes, and deploys only when that run succeeded on a push
+# to `main`, building the exact commit it checked: tests, the Stage 0 harness,
+# the graph drift check and the SHACL gate are all in `harness.yml`. Until S036
+# it ran on the push itself, beside the harness, and a red run still published.
+# `workflow_run` reads this file from the default branch, and it has no path
+# filter, so every green push to `main` redeploys. A manual run is the owner's
+# override (a secret or variable change does not redeploy) and skips the wait.
 on:
-  push:
+  workflow_run:
+    workflows: [harness]
+    types: [completed]
     branches: [main]
-    paths:
-      - "site/**"
-      - "src/**"
-      - "eval/gold/**"
-      - "authored/**"
-      - "ontology/draft/**"
-      - "graph/**"
-      - "shapes/**"
-      - "queries/**"
-      - "review/questions/**"
-      - "review/rulings/**"
-      - "data/derived/**"
-      - "data/pin.json"
-      - "docs/DECISIONS.md"
-      - "docs/ROADMAP-STATUS.md"
-      - "docs/GLOSSARY.md"
-      - "pyproject.toml"
-      - ".github/workflows/pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -63,12 +55,19 @@ concurrency:
 
 jobs:
   deploy:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.event == 'push')
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The commit the harness passed; empty on a manual run, which takes main.
+          ref: ${{ github.event.workflow_run.head_sha }}
 
       - uses: actions/setup-python@v5
         with:
@@ -109,7 +108,7 @@ jobs:
           {
             echo "### Explorer"
             echo
-            echo "Built from \`${GITHUB_SHA:0:12}\`."
+            echo "Built from \`$(git rev-parse --short=12 HEAD)\`."
             echo
             sed 's/^/    /' "$RUNNER_TEMP/explorer.txt"
             echo

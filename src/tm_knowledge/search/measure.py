@@ -13,12 +13,22 @@ irrelevant merely because nobody looked at it (KB SOP §6, "judged@k").
 
 Reported overall and per kind of question, because an average hides where a
 method helps (KB SOP §7.1). Nothing was tuned on these questions.
+
+**A report names what it was scored on** (the review response, F11): the commit, and
+a hash and count of the grade file and the rankings. The pooled grade file grows, so
+the same rankings scored later give other absolute numbers; git already freezes
+every input, and the stamp is the pointer to it. `write_report` never overwrites a
+report scored on other inputs: it writes a dated one beside it.
 """
 
 from __future__ import annotations
 
+import hashlib
 import math
 import random
+import re
+import subprocess
+from pathlib import Path
 from typing import Any
 
 SYSTEMS = ("keyword", "hybrid", "ontology")
@@ -284,3 +294,89 @@ def render_reading(summary: dict[str, Any], touched: dict[str, Any], *, coverage
               "retrieval questions, run as a cross-check.",
               "- Each question was read once; a second reading could pick differently."]
     return "\n".join(lines) + "\n"
+
+
+# ------------------------------------------------------------------ what a report was scored on
+
+_STAMP = re.compile(
+    r"<!-- scored-on: commit=(?P<commit>\S+) grades=(?P<grades>sha256:[0-9a-f]{64}) "
+    r"grade-count=(?P<grade_count>\d+) rankings=(?P<rankings>sha256:[0-9a-f]{64}) -->"
+)
+
+
+def _sha256(path: Path) -> str:
+    return "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def inputs(grades: Path, rankings: Path) -> dict[str, Any]:
+    """The commit the working tree is at, and a hash and count of the two inputs.
+
+    A commit with the inputs uncommitted is marked `+uncommitted`: checking it out
+    would not reproduce the report.
+    """
+    import yaml
+
+    root = Path(__file__).resolve().parents[3]
+
+    def git(*args: str) -> str:
+        try:
+            return subprocess.run(["git", *args], cwd=root, capture_output=True, text=True,
+                                  check=True).stdout.strip()
+        except (OSError, subprocess.CalledProcessError):
+            return ""
+
+    commit = git("rev-parse", "--short=12", "HEAD") or "unknown"
+    if git("status", "--porcelain", "--", str(grades), str(rankings)):
+        commit += "+uncommitted"
+    rows = (yaml.safe_load(grades.read_text(encoding="utf-8")) or {}).get("judgements", [])
+    return {"commit": commit, "grades": _sha256(grades),
+            "grade_count": sum(len(r.get("grades") or {}) for r in rows), "rankings": _sha256(rankings)}
+
+
+def stamp(text: str, named: dict[str, Any], command: str = "tmk-bulk measure") -> str:
+    """The report with its inputs under the title: a comment to read back, a line to read."""
+    title, _, rest = text.partition("\n")
+    comment = (f"<!-- scored-on: commit={named['commit']} grades={named['grades']} "
+               f"grade-count={named['grade_count']} rankings={named['rankings']} -->")
+    line = (f"*Scored at commit `{named['commit']}` on {named['grade_count']} grades "
+            f"(`{named['grades'][:19]}…`) and rankings `{named['rankings'][:19]}…`. To reproduce: "
+            f"`git checkout {named['commit'].split('+')[0]}`, then `{command}`.*")
+    return f"{title}\n{comment}\n\n{line}\n{rest}"
+
+
+def read_inputs(path: Path) -> dict[str, Any] | None:
+    """What a written report says it was scored on, or None if it does not say."""
+    if not path.exists():
+        return None
+    match = _STAMP.search(path.read_text(encoding="utf-8"))
+    if match is None:
+        return None
+    named = match.groupdict()
+    named["grade_count"] = int(named["grade_count"])
+    return named
+
+
+def write_report(path: Path, text: str, named: dict[str, Any], *, today: str) -> Path:
+    """Write `text` to `path`, unless `path` holds a report scored on other inputs.
+
+    Then the published report stands, and this one is written beside it, dated,
+    saying which report it does not replace. A report that names no inputs counts as
+    scored on other ones: nothing shows it is not. Returns where it was written.
+    """
+    old = read_inputs(path)
+    same = (old is not None and old["grades"] == named["grades"]
+            and old["rankings"] == named["rankings"])
+    if not path.exists() or same:
+        path.write_text(text, encoding="utf-8")
+        return path
+    dated = path.with_name(f"{path.stem}-{today}{path.suffix}")
+    held = read_inputs(dated)
+    if dated.exists() and (held is None or (held["grades"], held["rankings"]) != (named["grades"], named["rankings"])):
+        raise SystemExit(f"{dated.name} already holds a report on other inputs; nothing written")
+    before = (f"scored on {old['grade_count']} grades (`{old['grades'][:19]}…`) at commit `{old['commit']}`"
+              if old else "which does not name the grades it was scored on")
+    title, _, rest = text.partition("\n")
+    note = (f"\n*This report does not replace `{path.name}`, {before}; that report stands as "
+            "written. Different grades move the absolute numbers, not the method.*\n")
+    dated.write_text(f"{title}\n{rest.rstrip()}\n{note}", encoding="utf-8")
+    return dated

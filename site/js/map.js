@@ -637,11 +637,19 @@ export async function render(root, { ontology, params }) {
     return `<span title="The author's rating of its own record, on its own scale. Not comparable across authors.">self-rated ${esc(m.confidence)} by <code>${esc(m.by || "?")}</code></span>`;
   }
 
+  // The condition or hedge the sentence states the connection under, in its own words
+  // (review response F14). Shown beside the connection so it never reads as more than
+  // its sentence says.
+  function whenLine(r) {
+    return r.when ? `<p class="small"><b>Only as the source qualifies it:</b> “${esc(r.when)}”</p>` : "";
+  }
+
   function relationCard(r) {
     const name = (id) => byId.get(id)?.label || refLabel(id);
     return `<div style="margin:.6rem 0 1rem">
       <div class="meta">${trustBadge(r.origin)}${r.modality ? `<span class="chip">${esc(r.modality)}</span>` : ""}</div>
       <div><b>${esc(name(r.s))}</b> <span class="muted">— ${esc(ontology.predicates[r.p]?.label || r.p)} →</span> <b>${esc(name(r.o))}</b></div>
+      ${whenLine(r)}
       ${r.quote ? quoteBlock(r.ref, r.quote) : ""}
       ${r.ref ? refChip(r.ref) : ""}
       ${r.replaces ? `<p class="tiny">A corrected reading of ${esc(r.replaces)}, which is kept unchanged.</p>` : ""}

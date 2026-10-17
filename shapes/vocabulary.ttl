@@ -31,11 +31,11 @@ tmk:NoBroaderCycleShape
     rdfs:label "No cycles in broader/narrower"@en-AU ;
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:message "This concept is its own ancestor. A cycle in the hierarchy makes every hierarchy walk non-terminating and every broader-than query meaningless." ;
+        sh:message "This concept is its own ancestor. A cycle in the hierarchy makes every hierarchy walk non-terminating and every broader-than query meaningless. Narrower is read as inverse broader, as SKOS defines it, so a pair stated broader one way and narrower the other is a cycle too (the review response, F07)." ;
         sh:select """
             SELECT $this
             WHERE {
-                $this <http://www.w3.org/2004/02/skos/core#broader>+ $this .
+                $this (<http://www.w3.org/2004/02/skos/core#broader>|^<http://www.w3.org/2004/02/skos/core#narrower>)+ $this .
             }
         """ ;
     ] .

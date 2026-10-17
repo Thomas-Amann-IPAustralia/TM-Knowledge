@@ -1,4 +1,7 @@
 # The live reading — does a model's reading of the question make search better?
+<!-- scored-on: commit=d248c18271ed grades=sha256:48f4fbe46ecbe3b1e4da9bd2a955ee49334814e412287e3ebe7b0c7995afb16a grade-count=2892 rankings=sha256:b3533f7e896078cc711ac17fa6c26a2139061ecad934ecd04f079f22c35135af -->
+
+*Scored at commit `d248c18271ed` on 2892 grades (`sha256:48f4fbe46ecb…`) and rankings `sha256:b3533f7e8960…`. To reproduce: `git checkout d248c18271ed`, then `tmk-bulk measure --reading --allow-ungraded 3`.*
 
 Rankings taken on 2026-10-12. 129 benchmark questions, each read once by `gpt-6.1-sol` (prompt `reading-v1`, effort low), the picks checked as the page checks them. Every passage any of the three systems ranks in its top ten is graded 0–3 by `gpt-6.1-sol` (2219 grades). The systems are the page's own, with no vectors: **keyword** (BM25), **names** (the ontology system starting from ideas named in the question) and **reading** (the same, starting also from the ideas the model read). Intervals are paired bootstrap 95%; ✓ means the difference is established, ✗ that it is established the other way. **3 pooled passages have no grade** (BN-0015) and score 0: the judge's answer for them was refused because it also graded passages not in its pool.
 

@@ -101,6 +101,11 @@ def test_broader_cycle_fires():
     assert nodes(fired(report, "No cycles")) == {"a", "b"}
 
 
+def test_a_cycle_through_narrower_fires_and_its_consistent_twin_does_not():
+    report = check("broader-narrower-cycle.ttl")
+    assert nodes(fired(report, "No cycles")) == {"a", "b"}
+
+
 def test_not_label_that_is_also_a_label_fires():
     report = check("broader-cycle.ttl")
     findings = fired(report, "not-label is not also a label")

@@ -180,3 +180,49 @@ def test_relations_ttl_says_which_kinds_each_predicate_joins():
     assert "tmk:expectedSubjectKind tmk:ProcessRole" in block
     assert "tmk:expectedObjectKind tmk:ProceduralStep" in block
     assert "tmk:related a owl:ObjectProperty" not in text
+
+
+def test_blocking_a_step_and_stopping_its_clock_are_two_predicates():
+    """`prevents` meant both, and its records used both: GR-0394, a ground for rejection
+    that blocks acceptance, and GR-0534, a deferment that stops the time that would make
+    an application lapse (the review response, F13). A reader cannot tell which a
+    `prevents` edge asserts, and the two have opposite consequences for the step."""
+    assert "time" not in PREDICATES["prevents"].definition
+    clock = PREDICATES["suspendsTimeFor"]
+    assert "time" in clock.definition and clock.objects == ("procedural_step",)
+    assert "suspendsTimeFor" in PREDICATES["prevents"].counter_example
+
+
+def test_precedes_says_the_first_step_must_happen_first():
+    """An ordering of steps, not a sequence the sentence happens to mention: all its
+    sound records mean that the second cannot happen until the first has (F13)."""
+    entry = PREDICATES["precedes"]
+    assert entry.reading == "<step> must come before <step>"
+    assert "GR-0167" in entry.counter_example
+
+
+def test_an_exception_is_its_own_predicate_and_not_insufficiency():
+    """F15: a case a ground does not reach, against a thing not enough on its own."""
+    exception = PREDICATES["isAnExceptionTo"]
+    assert exception.objects == ("ground_of_refusal", "legal_test")
+    assert exception.reading == "<case> is an exception to <ground or test>"
+    assert "isAnExceptionTo" in PREDICATES["doesNotGiveRiseTo"].counter_example
+
+
+def test_evidence_may_show_and_never_establishes():
+    """`establishes` read "<evidence> establishes <what it shows>" while its own example
+    said "may show", and its three records each overstated their sentence (the review
+    response, F18). Whether evidence establishes anything is the decision maker's
+    evaluative judgement (PU-0001); the relation says what evidence can go to."""
+    entry = PREDICATES["mayShow"]
+    assert entry.reading == "<evidence> may show <what it shows>"
+    assert "evaluative" in entry.definition
+    assert entry.subjects == ("instrument_or_record",)
+
+
+def test_establishes_is_retired_once_nothing_uses_it():
+    from tm_knowledge.ontology.predicates import RETIRED
+
+    assert "establishes" in RETIRED and "establishes" not in PREDICATES
+    used = {str(r["predicate"]) for r in authored_store.load()["gold_relationship"]}
+    assert "establishes" not in used
