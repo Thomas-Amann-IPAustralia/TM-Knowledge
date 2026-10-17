@@ -1,8 +1,9 @@
-# The section 43 ontology — a guide for people, not for parsers
+# The ontology — a guide for people, not for parsers
 
 **Draft. Nothing here is approved.** Read `data/derived/reports/ontology.md`
 alongside it: this file explains the modelling choices, and that one counts what
-they produced and what is still missing.
+they produced and what is still missing. The examples come from section 43, where
+the work started; the scope has been the whole Manual since ADR-0081.
 
 ---
 
@@ -54,7 +55,7 @@ method, and that somebody else approved it on a date.
 Every approved relationship is in the graph twice:
 
 ```turtle
-# the direct triple — what SPARQL and OWL RL work on
+# the direct triple — what SPARQL works on
 tmkr:TMA1995/s43  tmk:requiresElement  tmkc:GC-0002 .
 
 # the assertion — what an audit works on
@@ -140,62 +141,66 @@ Two constraints follow. A term may not be both a label and a not-label of the
 same concept (a defect: the record says at once that it means this and never
 means this). A term that is one concept's not-label and another's preferred
 label is *reported and not failed* — that is exactly what a not-label is for,
-and the 29 pairs the run finds are the vocabulary's boundaries drawn in.
+and the pairs the run finds (counted in the report) are the vocabulary's
+boundaries drawn in.
 
-**No concept has a definition.** `skos:definition` appears nowhere in this repo.
-The approved records carry definition *sources* — the passages the meaning is
-drawn from — and no text, so the graph carries sources and no text. That is a
-gap, it is counted in the report, and filling it is an expert's afternoon.
+**A definition is its own record.** The signed concept records carry definition
+*sources* — the passages the meaning is drawn from — and no text, and a signed
+record is never edited. So a definition is a `GD-` record in
+`authored/definitions.yaml`: machine-written, unreviewed, drafted from those
+sources with the Act's own definition preferred where it has one (CHAT-0045), and
+quoting the words it rests on. The graph states it as `skos:definition` on the
+concept, in the authored graph, beside the record that says who wrote it.
+Approving a label approves no definition (the review response, F06).
 
 ---
 
-## 5. Why the interesting classes are empty
+## 5. The kinds, and who chose them
 
-`tmk:GroundOfRefusal`, `tmk:LegalTest`, `tmk:RelevantFactor`, `tmk:Exception` —
-declared, and holding nothing. All 52 approved concepts are bare
-`tmk:LegalConcept`.
+Every concept is sorted into one of eleven kinds in three families (ADR-0126,
+ADR-0131): the law's questions (`GroundOfRefusal`, `LegalTest`, `Principle`),
+what they are asked about (`SubjectMatter`, `SignContent`, `Context`,
+`UseInTrade`), and the process (`ProcessRole`, `ProceduralStep`,
+`InstrumentOrRecord`, `ExternalInstrument`). A kind says what a concept *is*.
+What it *does* is an edge to the ground or test it acts on: a factor `qualifies`
+it, an exception `isAnExceptionTo` it, a ground `isOvercomeBy` its remedy.
 
-This is not an oversight and it is the single largest gap in the draft. The gold
-concept record has no type field, and deciding that *connotation* is a
-`LegalTest` rather than a `RelevantFactor` is a legal judgement. An agent filling
-those slots would produce a taxonomy that reads as authoritative and was authored
-by nobody — the exact failure the whole repo is arranged to prevent.
+**A machine chose every kind.** A typing is its own record (`GT-`, ADR-0071),
+and every one is in `authored/concept-types.yaml`, stamped unreviewed; no person
+has typed a concept. Deciding that *connotation* is a `LegalTest` rather than a
+factor is a legal judgement, so each of these is the agent's, recorded with the
+passages it rests on, and the examiners' review at ship time is where it is
+checked (ADR-0120).
 
-The same applies to the roles in `examination.ttl`. `tmk:Registrar`,
-`tmk:DecisionMaker`, `tmk:Examiner` and the rest are declared UNDEFINED because
-the reviewer's own covering note asks for those definitions and has not had them
-(HANDOFF Q17). `tmk:DecisionMaker` carries the sharpest version: the office's bar
-for the presumption of registrability is not that the individual examiner doubts
-a connotation exists but that the Registrar as a whole does, and a model that
-equates the two roles loses that silently.
+The roles in `examination.ttl` (the Registrar, a delegate, an applicant and the
+rest) are distinct, and their power is on edges read from a sentence of the Act
+or the Manual (ADR-0123). `tmk:ExaminationOutcome` stays empty for good: the
+system never states one.
 
 Declaring a class empty makes the gap countable. `tmk-ontology-report` counts
 them.
 
 ---
 
-## 6. Domain and range: a decision that looks like laziness and is not
+## 6. Domain and range: what a predicate joins, without a reasoner
 
 Every predicate in `relations.ttl` has `rdfs:domain tmk:LegalMatter` and
-`rdfs:range tmk:LegalMatter`, where `LegalMatter` is a superclass covering
-concepts, provisions, passages and decisions. That looks like giving up.
+`rdfs:range tmk:LegalMatter`, where `LegalMatter` covers concepts, provisions,
+passages and decisions. That looks like giving up, and it is not.
 
-It is not. Under OWL 2 RL, `rdfs:domain` is a *reasoning commitment*: it says
-that anything appearing as the subject of this property **is** a member of that
-class, and a reasoner will assert it. The approved relationships do not support
-a narrow one. `requiresElement` runs Provision→Concept twice, Concept→Concept
-three times and Concept→Provision once. `excludesBasis` runs both ways. Asserting
-`rdfs:domain tmk:LegalConcept` on that evidence would silently reclassify every
-provision it touches.
+A domain is a reasoning commitment: in any tool that applies RDFS or OWL
+semantics, anything appearing as the subject of the property **is** a member of
+that class. No OWL profile is claimed here and no OWL inference is licensed
+(ADR-0134), but a reader can still load the graph into a tool that reasons, and a
+narrow domain would silently reclassify every subject that did not fit it.
 
-So the narrow types each predicate has actually been seen with are recorded as
-`tmk:observedSubjectType` and `tmk:observedObjectType` — **annotation**
-properties, which infer nothing — with the count and the record ids beside them.
-Tightening one to a real domain assertion is an expert ruling, and the
-annotations are the evidence to rule on.
-
-Six of the fourteen predicates are used exactly once. A term seen once is a term
-whose boundaries nobody has tested.
+So what a predicate joins is stated as the kinds it expects —
+`tmk:expectedSubjectKind` and `tmk:expectedObjectKind`, annotations that infer
+nothing — and the harness fails a machine-written edge whose ends are not those
+kinds (ADR-0131). Each predicate is defined in `ontology/predicates.py`, with a
+reading, an example and a counter-example (ADR-0123); the report counts how many
+are used by one record only, because a term seen once is a term whose boundaries
+nobody has tested.
 
 ---
 
@@ -237,13 +242,19 @@ Point-in-time questions do not work and will not under this snapshot strategy.
 There is no corpus-level version stamp; the amendment history is the upstream
 repository's git history. "What guidance was current on «date»" needs a
 full-history clone, which is a different data strategy rather than a different
-query. CQ-0014 carries that limitation and the pilot scope draft puts it out of
-scope.
+query. CQ-0014 carries that limitation and it is out of scope.
+
+The legislation says which state of the law it is. Upstream records the
+compilation of each instrument it holds, and the graph states it on the
+instrument (`tmk:compilationNumber`, `tmk:registerId`, `tmk:compilationStart`), so
+every answer can name "the Act as in force from" that date. When the pin moves to
+a new compilation, every record resting on a changed provision goes stale and is
+re-read, never refreshed silently.
 
 `tmk:NotHeld` is the third status and the useful one: cited by the corpus, held
 nowhere in the programme. Section 114 of the *Trade Marks Act 1905* is cited by
 Part 29.3.1, the Manual relies on it, and it can be neither excluded nor
-resolved. 35 citations are in that state and CQ-0020 asks for exactly the list.
+resolved. CQ-0020 asks for exactly the list of citations in that state.
 
 ---
 
@@ -253,26 +264,25 @@ resolved. 35 citations are in that state and CQ-0020 asks for exactly the list.
 pip install -e ".[test,intake,rdf]"
 tmk-fetch-upstream                # the pinned snapshot
 tmk-graph --write --rules         # build, run the candidate rules, serialise
-tmk-shacl                         # the gate. 0 defects, 0 gaps, 29 notes
+tmk-shacl --rules                 # the gate. Exit 0: no defects and no gaps
 tmk-ask                           # every competency query, with its limits
 tmk-ask CQ-0017                   # one of them
-tmk-ontology-report --write       # the state of the draft, counted
+tmk-ontology-report --write       # the state of the ontology, counted (--check in CI)
 python3 -m pytest -q              # note python3 -m, not bare pytest (Q-29)
 ```
 
-## 10. If you are the person approving this
+## 10. If you are the person reviewing this
 
-The four questions worth your time, in order of how much they unblock:
+Nobody signs anything singly before the ontology ships to a group of trade marks
+examiners, who review it all at once (ADR-0120). What is worth their time, in
+order of how much rests on it:
 
-1. **Type the 52 concepts** into `GroundOfRefusal` / `LegalTest` /
-   `RelevantFactor` / `Exception`, or say the taxonomy is wrong. One pass over a
-   list, no new records, and it is what turns a flat vocabulary into a hierarchy
-   the retrieval stages can generalise over.
-2. **Rule on the four unmatched question labels**, `deceptively similar` first.
-   It is a not-label of an existing concept and a competency question names it as
-   an expected concept — so either the vocabulary needs the s 44 concept or the
-   question is using it as a boundary marker.
-3. **Approve or reject the two CONSTRUCT rules.** Both are `PENDING` and
-   everything they produce is quarantined as a candidate until you do.
-4. **Say whether a narrow domain is right for any predicate.** The observed
-   types are annotated on each one, with counts.
+1. **The kinds.** Every concept's kind is a machine's judgement; a wrong kind
+   misroutes everything that hangs off it.
+2. **The relationships and their conditions.** Each machine-written edge quotes
+   its sentence and carries the sentence's condition in `applies_when`; the card
+   in the explorer shows both.
+3. **The definitions.** Drafted from each concept's sources, the Act's own words
+   first; approving a label approves no definition.
+4. **RULE-0001.** Still pending; everything it produces is quarantined as a
+   candidate until a person rules.

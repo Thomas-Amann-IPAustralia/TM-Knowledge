@@ -50,6 +50,7 @@ from rdflib import Dataset, Graph, Literal, URIRef
 from rdflib.namespace import DCTERMS, OWL, PROV, RDF, RDFS, SKOS, XSD
 
 from tm_knowledge.authored import corrections as corrections_module
+from tm_knowledge.authored import definitions as definitions_module
 from tm_knowledge.authored import store as authored_module
 from tm_knowledge.config import REPO_ROOT
 from tm_knowledge.ontology import decisions as decisions_module
@@ -85,10 +86,15 @@ __all__ = [
 
 GRAPH_DIR = REPO_ROOT / "graph"
 
-#: The scheme every approved concept is `skos:inScheme`. One scheme, named for
-#: the pilot provision, because a second scheme would be a claim that the
-#: vocabulary divides — and nobody has ruled on that.
+#: The scheme every concept is `skos:inScheme`. One scheme, because a second
+#: would be a claim that the vocabulary divides, and nobody has ruled on that.
+#: The IRI keeps the name it was minted under when the work was section 43 alone:
+#: an identifier does not change when its label does (`docs/IDENTIFIERS.md` §3).
+#: The label said "Section 43 … pilot" until the review response's F12.
 SCHEME = URIRef(TMKC["scheme-s43"])
+
+#: The scheme's label. The whole Manual has been in scope since ADR-0081.
+SCHEME_LABEL = "Trade marks examination vocabulary"
 
 #: How a signed assertion got here: a person read a passage and said so.
 ELICITATION = "expert_elicitation"
@@ -123,6 +129,9 @@ class StoreReport:
     #: Corrections to signed records stated in this store's graph (ADR-0122).
     #: Always 0 for the approved store: a correction is machine-written.
     corrections: int = 0
+    #: Concepts this store's graph defines (ADR-0137). Always 0 for the approved
+    #: store: every definition is machine-written.
+    definitions: int = 0
     #: Records whose recorded hash no longer matches the snapshot.
     stale: list[str] = field(default_factory=list)
     #: Records naming a source the corpus does not hold at all.
@@ -177,6 +186,8 @@ class BuildReport:
     authored_refused: list[str] = field(default_factory=list)
     #: Corrections refused at load (ADR-0122) — reported, never applied.
     corrections_refused: list[str] = field(default_factory=list)
+    #: Definitions refused at load (ADR-0137) — reported, never stated.
+    definitions_refused: list[str] = field(default_factory=list)
 
     # The signed store's counters, under the names they have always had. Read
     # only: a caller that needs to set one is building a store, and building a
@@ -548,6 +559,14 @@ def _build_source(
         node = URIRef(TMK[f"doc/{instrument}"])
         graph.add((node, RDF.type, TMK.Legislation))
         graph.add((node, RDFS.label, _en(label)))
+        # Which compilation the snapshot holds, as upstream recorded it. The pin
+        # names a commit; this names the law a reader can look up (F09).
+        held = corpus.instruments.get(instrument)
+        if held is not None:
+            graph.add((node, TMK.compilationNumber, _lit(held.compilation_number)))
+            graph.add((node, TMK.registerId, _lit(held.register_id)))
+            graph.add((node, TMK.compilationStart, _lit(held.compilation_start, XSD.date)))
+            graph.add((node, TMK.capturedAt, _lit(held.captured_at)))
 
     report.chunks = len(chunks)
     pages_seen: set[str] = set()
@@ -804,10 +823,8 @@ def _build_concepts(graph: Graph, store: Store, counts: StoreReport) -> None:
     # a puzzle.
     if store.records.count("gold_concept"):
         graph.add((SCHEME, RDF.type, TMK.ConceptScheme))
-        graph.add((SCHEME, RDFS.label, _en("Section 43 examination vocabulary — pilot")))
-        graph.add(
-            (SCHEME, SKOS.prefLabel, _en("Section 43 examination vocabulary — pilot"))
-        )
+        graph.add((SCHEME, RDFS.label, _en(SCHEME_LABEL)))
+        graph.add((SCHEME, SKOS.prefLabel, _en(SCHEME_LABEL)))
 
     for record in store.records["gold_concept"]:
         node = concept_node(record["id"])
@@ -1291,6 +1308,39 @@ def _build_corrections(graph: Graph, corrections: Any, counts: StoreReport) -> N
     counts.corrections = len(corrections.sound)
 
 
+def _build_definitions(graph: Graph, definitions: Any, counts: StoreReport) -> None:
+    """Definitions, stated where machine output lives (ADR-0137).
+
+    Two forms, as a relationship has (ADR-0058): the record, a `tmk:Definition`
+    carrying the authoring envelope and saying where its words come from; and the
+    direct `skos:definition` (and `skos:scopeNote`) on the concept, for navigation.
+    Both in the authored graph, never the approved one, signed concept or not: a
+    definition of a signed concept is still machine-written.
+    """
+    store = Store(
+        name="authored", records=None, graph_name=AUTHORED_GRAPH,
+        assertion_class=TMK.AuthoredAssertion,
+        envelopes={d.id: d.envelope for d in definitions.sound if d.envelope},
+    )
+    for definition in definitions.sound:
+        record = definition.record
+        node = assertion_node(definition.id)
+        concept = concept_node(definition.concept)
+        text = _en(record["text"])
+        graph.add((node, RDF.type, TMK.Definition))
+        graph.add((node, TMK.goldRecord, _lit(definition.id)))
+        graph.add((node, TMK.defines, concept))
+        graph.add((node, SKOS.definition, text))
+        graph.add((node, TMK.definitionBasis, _lit(record["basis"])))
+        graph.add((node, TMK.extractionMethod, _lit(AUTHORING)))
+        graph.add((concept, SKOS.definition, text))
+        if record.get("scope_note"):
+            graph.add((node, SKOS.scopeNote, _en(record["scope_note"])))
+            graph.add((concept, SKOS.scopeNote, _en(record["scope_note"])))
+        _origin(graph, node, record, store)
+    counts.definitions = len(definitions.sound)
+
+
 def _build_store(
     corpus: Corpus,
     store: Store,
@@ -1354,6 +1404,8 @@ def build(
 
     corrections = corrections_module.load(authored.root, gold=gold, authored=authored)
     report.corrections_refused = [entry.id for entry in corrections.refused]
+    definitions = definitions_module.load(authored.root, gold=gold, authored=authored)
+    report.definitions_refused = [entry.id for entry in definitions.refused]
     signed = approved_store(
         corrections_module.in_force_gold(gold, corrections), corrections.replacements()
     )
@@ -1377,6 +1429,7 @@ def build(
     approved = _build_store(corpus, signed, report.approved, labels, excluded, signed_labels)
     authored_graph = _build_store(corpus, machine, report.authored, labels, excluded, signed_labels)
     _build_corrections(authored_graph, corrections, report.authored)
+    _build_definitions(authored_graph, definitions, report.authored)
 
     in_scope = {
         str(ref) for ref in source.subjects(RDF.type, TMK.Chunk)

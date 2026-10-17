@@ -657,6 +657,21 @@ export async function render(root, { ontology, params }) {
     </div>`;
   }
 
+  /** A concept's definition: its own machine-written record (ADR-0137), stamped as
+      such, and saying where its words come from, so the Act's words and the Manual's
+      practice are never read as one another (CLAUDE.md rule 5). */
+  function definition(d) {
+    if (!d) return "";
+    const src = sourceOf(d.ref) === "act" ? "the Act" : sourceOf(d.ref) === "regs" ? "the Regulations" : "the Manual";
+    const own = src === "the Regulations" ? "the Regulations'" : `${src}'s`;
+    const whose = d.basis === "statutory_definition" ? `${own} own definition, quoted`
+      : d.basis === "statutory_provision" ? `written from ${src}` : "written from the Manual, which states practice, not law";
+    return `<h4>Definition <span class="trust machine" title="Written by a machine; no expert has reviewed it">Machine · unreviewed</span></h4>
+      <p class="small">${esc(d.text)}</p>
+      ${d.scope_note ? `<p class="tiny"><span class="muted">Scope:</span> ${esc(d.scope_note)}</p>` : ""}
+      <p class="tiny">${esc(whose)} ${refChip(d.ref)}</p>`;
+  }
+
   function showConcept(x) {
     const rels = relOf.get(x.id) || [];
     const groups = new Map();
@@ -675,6 +690,7 @@ export async function render(root, { ontology, params }) {
       <div class="meta">${kindChip(x.kind, ontology)}${trustBadge(x.origin)}</div>
       ${x.alt.length ? `<p class="small"><span class="muted">Also called</span> ${x.alt.map(esc).join(" · ")}</p>` : ""}
       ${x.not.length ? `<p class="small"><span class="muted">Not the same as</span> ${x.not.map(esc).join(" · ")}</p>` : ""}
+      ${definition(x.definition)}
       ${first ? `<h4>What it rests on</h4>${quoteBlock(first.ref, first.quote)}${refChip(first.ref)}
         <span class="tiny">${first.for === "kind" ? "quoted when the machine sorted it into its kind" : "quoted by the record itself"}</span>` : ""}
       ${["act", "regs"].map((src) => {

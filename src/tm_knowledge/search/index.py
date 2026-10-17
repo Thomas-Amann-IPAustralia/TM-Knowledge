@@ -68,8 +68,9 @@ class Trace:
     recognised: list[str] = field(default_factory=list)
     neighbours: list[str] = field(default_factory=list)
     provisions: list[str] = field(default_factory=list)
-    #: (subject, predicate, object, record id, origin) for every edge followed
-    paths: list[tuple[str, str, str, str, str]] = field(default_factory=list)
+    #: (subject, predicate, object, record id, origin, modality, applies_when) for
+    #: every edge followed; the last two are "" where the record states none
+    paths: list[tuple[str, str, str, str, str, str, str]] = field(default_factory=list)
 
 
 class KeywordIndex:
@@ -114,8 +115,9 @@ class Systems:
     links: links_module.Links
     dense: Any = None  # search.vectors.Dense, optional
     aliases: dict[str, list[str]] = field(default_factory=dict)
-    #: (subject, predicate, object, record id, origin), concept to concept, both stores
-    relations: list[tuple[str, str, str, str, str]] = field(default_factory=list)
+    #: (subject, predicate, object, record id, origin, modality, applies_when),
+    #: concept to concept, both stores
+    relations: list[tuple[str, str, str, str, str, str, str]] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         extra = {cid: tuple(phrases) for cid, phrases in self.aliases.items()}
@@ -125,7 +127,7 @@ class Systems:
             for cid, c in self.links.concepts.items()
         })
         self._vetoes = links_module._vetoes(self.links.concepts)
-        self._edges: dict[str, list[tuple[str, str, str, str, str]]] = defaultdict(list)
+        self._edges: dict[str, list[tuple[str, ...]]] = defaultdict(list)
         for edge in self.relations:
             self._edges[edge[0]].append(edge)
             self._edges[edge[2]].append(edge)
@@ -232,12 +234,15 @@ def find_words(question: str, words: str) -> tuple[int, int] | None:
     return None if at < 0 else (index[at], index[at + len(wanted) - 1] + 1)
 
 
-def relations_from(gold: Any, authored: Any) -> list[tuple[str, str, str, str, str]]:
-    """Concept-to-concept relationships from both stores, with their origin kept."""
+def relations_from(gold: Any, authored: Any) -> list[tuple[str, str, str, str, str, str, str]]:
+    """Concept-to-concept relationships from both stores, with their origin kept, and
+    the modality and condition each record states ("" where it states none), so the
+    answering model reads a relationship as qualified as its sentence (ADR-0136, F14)."""
     out = []
     for origin, records in (("approved", gold["gold_relationship"]), ("authored", authored["gold_relationship"])):
         for r in records:
             s, o = str(r["subject"]), str(r["object"])
             if s.startswith("GC-") and o.startswith("GC-"):
-                out.append((s, str(r["predicate"]), o, str(r["id"]), origin))
+                out.append((s, str(r["predicate"]), o, str(r["id"]), origin,
+                            str(r.get("modality") or ""), str(r.get("applies_when") or "")))
     return out

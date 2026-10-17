@@ -1,10 +1,10 @@
-# Rules in force — what 126 decisions add up to
+# Rules in force — what 127 decisions add up to
 
 Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-10-17, ADR-0136.
+**As at:** 2026-10-17, ADR-0137 (S038).
 
 ## Purpose and scope
 
@@ -18,11 +18,12 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 - **The whole Manual is in scope.** There is no section 43 boundary (ADR-0081).
 - **The pitch claims** the gain over keyword search, says plainly that modern search
   ranks better, then leads with what the ontology uniquely does (OQ-0029, ADR-0136).
-- **Definitions are in scope** and the stale documents are to be corrected; both
-  deferrals are lifted (ADR-0136).
-- **The pinned Act moves to compilation 48** once upstream re-captures it, without breaking
-  anything downstream; until then answers say "the Act as in force from 14 October 2024"
-  (ADR-0136).
+- **Definitions are written** and the stale documents corrected; both deferrals were lifted
+  (ADR-0136). The ontology report is generated without a date and drift-checked in CI.
+- **The pinned Act is compilation 48** (`C2026C00421`, in force from 19 September 2026),
+  moved without breaking anything downstream (ADR-0136, Q-95). Every answer names the
+  compilation it read: a live one the pinned compilation, a prepared one the compilation it
+  was written against (compilation 47 for all 129).
 - **Never state an examination outcome**, and never a confidence that a ground
   applies (PU-0003). The eleven signed prohibited uses stand (ADR-0082 c4).
 - **The Manual is practice, not law.** Keep the Manual and the legislation
@@ -31,7 +32,8 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   owner's workbench is at `/workbench/`, linked from nothing an examiner opens. A live
   chatbot answers examiners' own questions with the owner's key, unprotected — the
   owner's decision (ADR-0118). It answers through the Render proxy, which holds the key;
-  the masked-key fallback is to be removed and the old key revoked (ADR-0136). Before searching,
+  the masked-key fallback is removed and no build can publish a key; revoking the old key is
+  the owner's (ADR-0136). Before searching,
   it has the model read a typed question for ideas named in other words, each checked and
   marked "read by the model"; the owner approved it and its cost per question (ADR-0133).
 - **On the site, an expert's review is marked, never featured.** Machine-written
@@ -99,8 +101,14 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 - **A relationship carries its sentence's condition or hedge** in `applies_when`, copied
   verbatim from the supporting sentence, stated on the reified record and shown beside the
   edge (S036). A modality belongs to the verb its predicate reads; a re-read onto another
-  predicate drops it. The owner approved giving it, with the modality, to the live answering
-  model, and a rule against concluding absence (ADR-0136); not yet wired.
+  predicate drops it. The answering model sees each path line's modality and condition, and
+  is told never to conclude that a requirement, exception or step does not exist because its
+  sources do not mention it (`answer-v3`, ADR-0136); the page says the same where it finds
+  nothing.
+- **A definition is its own record** (`GD-`, `authored/definitions.yaml`), never a field on a
+  concept, and says where its words come from: the instrument's own definition, verbatim
+  (preferred, CHAT-0045), a provision, or the Manual. A concept its sources do not define gets
+  none; "application" carries scope notes, not a split (ADR-0137).
 - **Roles are distinct and their power is on edges**: the Registrar (an office) is
   not a delegate, a delegate is not the Registrar, the owner is not the authorised
   user; who delegates to, directs, reviews or is consulted by whom is an edge on a
@@ -140,8 +148,8 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   Re-measurement is deferred until more re-work is done (ADR-0136).
   Every paid call goes through `tm_knowledge.bulk`: dry-run, `--confirm`,
   `--limit`, a committed cache, the cap checked before each call. **One exception:**
-  the explorer's live answers are made from readers' browsers on the owner's key,
-  outside `bulk` and the cap (ADR-0118).
+  the explorer's live answers are made from readers' browsers through the proxy that
+  holds the owner's key, outside `bulk` and the cap (ADR-0118, ADR-0136).
 - **Corpus text may go to the API; an expert's own notes may not** (ADR-0088).
 - **A call must be worth making**: deterministic first, batch related judgements,
   never re-send what already has a current record (ADR-0088 c2).
@@ -150,7 +158,7 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
 - **`data/derived/` and the whole `graph/` are committed**; CI fails on graph
   drift, so rebuild with `tmk-graph --write --rules` after changing records
-  (ADR-0042, ADR-0070).
+  (ADR-0042, ADR-0070), and on a stale ontology report (`tmk-ontology-report --write`).
 - **The site rebuilds itself on deploy**; `site/data/` is not committed (ADR-0112).
   The explorer's build reads the pinned snapshot; the workbench's does not (ADR-0117).
 - **The explorer may use libraries, vendored** under `site/vendor/` with a checksum
@@ -172,7 +180,8 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   origin; an authored relationship is a `tmk:AuthoredAssertion`, never a
   `tmk:ApprovedAssertion` (ADR-0091). The SHACL gate validates all four named graphs and
   checks each record class sits in its own; a SKOS S27 conflict a machine wrote is a defect,
-  one inside signed records a note for the owner (S036).
+  one inside signed records a note for the owner (S036). The one signed pair (GC-0017,
+  GC-0018) is corrected by GK-0037 on CHAT-0082.
 - **No OWL profile is claimed and no OWL inference is licensed**: the contract is RDF, SKOS,
   SHACL and the approved SPARQL rules; `owl:` terms are vocabulary, and a test holds the
   graph to its own functional, datatype and domain declarations (ADR-0134).

@@ -105,8 +105,9 @@ def test_an_assertion_class_outside_its_graph_is_a_defect(graph, kind):
 # indication), and GC-0018 is recorded as a kind of GC-0017. SKOS's integrity
 # condition S27 forbids both, and until S036 nothing checked it (the review response,
 # F07). Both statements are signed, so the fix is a correction on the owner's ruling
-# (ADR-0122, decision 6 in the response); until then the gate reports the signed pair
-# as a note, and fails anything a machine wrote.
+# (ADR-0122): the gate reports a signed pair as a note for the owner, and fails anything
+# a machine wrote. The owner confirmed the D2 ruling covers this pair (CHAT-0082), and
+# GK-0037 removes the "related" link; the kind-of link stays.
 
 
 def _skos(approved, authored):
@@ -157,15 +158,18 @@ def test_related_without_a_hierarchy_between_them_passes():
     assert validate.skos_integrity(dataset) == []
 
 
-def test_the_committed_graph_reports_the_signed_geographical_pair_and_nothing_else():
+def test_the_committed_graph_has_no_s27_conflict_once_gk_0037_corrects_it():
+    """Until S038 the signed geographical pair was the one note; the correction
+    serves, so what the graph states no longer breaks S27, and the signed record
+    in `eval/gold/` still says what was signed."""
     from rdflib import Dataset
 
     from tm_knowledge.config import REPO_ROOT
     from tm_knowledge.ontology import validate
+    from tm_knowledge.stage0 import goldset
 
     dataset = Dataset()
     dataset.parse(REPO_ROOT / "graph" / "dataset.nq", format="nquads")
-    found = validate.skos_integrity(dataset)
-    assert [(f.severity, sorted((f.node.rsplit("/", 1)[-1], f.value.rsplit("/", 1)[-1]))) for f in found] == [
-        ("note", ["GC-0017", "GC-0018"])
-    ]
+    assert validate.skos_integrity(dataset) == []
+    signed = next(r for r in goldset.load()["gold_concept"] if r["id"] == "GC-0017")
+    assert "GC-0018" in signed["related"], "eval/gold/ is never edited (ADR-0122)"

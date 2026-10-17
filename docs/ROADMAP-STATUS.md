@@ -206,7 +206,8 @@ Complete as data. Measured at `ingest/0.11.0` and `legislation/0.2.0`:
 - Manual: 500 pages, 54 Parts, 2,460 chunks, 12,521 blocks, 2,717 provision
   edges, 519 case edges (411 distinct decisions), 418 internal refs.
 - Legislation: 2 instruments, 763 provisions (TMA1995 316, TMR1995 447), 5,813
-  numbered units.
+  numbered units. Since 2026-10-17 the pin holds `legislation/0.3.0` and the Act's
+  compilation 48: 5,821 units (ADR-0136).
 - Join: 2,611 of 2,687 in-scope provision edges resolve (97%).
 - 583 tests pass; both corpora validate and re-derive from stored raw.
 

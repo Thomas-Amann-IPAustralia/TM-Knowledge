@@ -55,11 +55,12 @@ schemas:
 | `reasoning-expected.yaml` | reasoning expectation |
 | `prohibited-uses.yaml` | prohibited use |
 
-**What is in it today** (2026-10-08): `concepts.yaml` 110 records, `concept-types.yaml`
-162 — one typing per concept in the project, signed and authored alike —
-and `relationships.yaml` 564. Written by the bulk pipeline (`gpt-6.1-sol`), by earlier
-agent sessions, and by S026 (`claude-code-agent-S026`, Q-75); `authored_by` says which,
-record by record. **No expert has read any of it.** The other files in the table are
+**What is in it today** (2026-10-17): `concepts.yaml` 112 records, `concept-types.yaml`
+164 — one typing per concept in the project, signed and authored alike — and
+`relationships.yaml` 337; beside them 37 corrections and 149 definitions. Written by the
+bulk pipeline (`gpt-6.1-sol`) and by agent sessions (`claude-code-agent-S026` and later,
+Q-75); `authored_by` says which, record by record. `data/derived/reports/ontology.md`
+counts it as built. **No expert has read any of it.** The other files in the table are
 absent.
 
 **The duplicates of signed records are gone.** Eleven authored concepts that covered
@@ -67,7 +68,7 @@ ground a signed one claims were withdrawn on the owner's ruling A1 (ADR-0121), a
 ADR-0080 consequence 2 always intended: the authored record retires, never the signed
 one. What they added that the signed record lacked is carried by a correction.
 
-## Five files here are not records
+## Six files here are not records
 
 | File | What it is | Read by |
 |---|---|---|
@@ -75,18 +76,19 @@ one. What they added that the signed record lacked is carried by a correction.
 | `retired-ids.yaml` | The ledger of authored ids withdrawn from service: why, by whose ruling, what replaced it, and a withdrawn concept's label. An id here is never reused. | `authored.store`, `bulk.jobs.next_number`, the harness |
 | `too-general-labels.yaml` | Labels recognition skips, per concept, because the Manual uses the bare word mostly in other senses (ruling E1) — and the ones looked at and kept, with the reason. The label stays on its record. | `bulk.links`; through it search, the explorer and "Ask the Manual" |
 | `merge-candidates.yaml` | Every pair the relate model judged to be one idea, and what was decided: merged (A1, A2) or kept apart (A6). A kept-apart pair merged anyway is a harness defect. | `ontology.hygiene`; the harness; the relate job |
+| `definitions.yaml` | `GD-` definitions of concepts, one per concept, each with the envelope and its `basis` (ADR-0137). Never a field on a concept: approving a label approves no definition. | `authored.definitions`; the harness, the graph build (authored graph only) and the explorer's concept card |
 | `kind-of-affirmed.yaml` | "Kind of" links that stand beside a "not the same as", each with the written reason both hold (ruling D4). Without an entry such a link is refused. | `ontology.hygiene`; the harness, the relate job, the graph build and the SHACL gate |
 
-All five are machine-written and unreviewed, and say so in their headers.
+All six are machine-written and unreviewed, and say so in their headers.
 
-`definitions.yaml` was named here when this directory was created and **is not
-in the list**: a definition has no schema and no id series, so the store cannot
-hold one. `tm_knowledge.authored.store` reports it as an unreadable file rather
-than guessing a shape for it, which is right — deciding what fields a definition
-carries is a record-type design pass, and doing it by accident inside a plumbing
-change would be authoring the shape of the project's definitions without anybody
-noticing. It needs a schema, an id prefix in `docs/IDENTIFIERS.md`, and an entry
-in `RECORD_TYPES`, in one deliberate commit.
+`definitions.yaml` was named here when this directory was created and held out of
+the store until a definition had a schema and an id series, so that no plumbing pass
+could invent its shape by accident. S038 gave it both, deliberately: `GD-` records,
+`eval/schemas/definition.schema.json`, read by `tm_knowledge.authored.definitions`
+(ADR-0137). One per concept; each says whether its words are the Act's or
+Regulations' own (`statutory_definition`, verbatim), written from a provision
+(`statutory_provision`) or written from the Manual (`manual`, practice, not law), and
+quotes what it rests on. A concept whose sources do not define it has no record.
 
 ## How it is read
 

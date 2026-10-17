@@ -1481,12 +1481,12 @@ questions:
   - id: OQ-0029
     theme: unblocks
     status: answered
-    # Answered 2026-10-17 (S037, chat): both_halves. Not yet acted on.
+    # Answered 2026-10-17 (S037, chat): both_halves. Acted on in S038: docs/PITCH-PACK.md.
     answered:
       date: '2026-10-17'
       how: 'You answered in a Claude Code chat session (S037).'
       record: review/returned/261017-owner-chat-review-response.md
-      applied: false
+      applied: true
     needs: owner
     urgency: high
     raised: S023

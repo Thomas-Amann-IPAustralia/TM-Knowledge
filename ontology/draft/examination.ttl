@@ -42,7 +42,7 @@ tmk:Objection a owl:Class ;
 
 tmk:ExaminationOutcome a owl:Class ;
     rdfs:label "Examination outcome"@en-AU ;
-    rdfs:comment """UNPOPULATED, and it must stay that way for this pilot.
+    rdfs:comment """UNPOPULATED, and it must stay that way.
 
 Deciding an examination outcome is explicitly out of scope (CLAUDE.md §6), and
 the prohibited-use set exists to keep it there: PU-0001 and PU-0002 are the two

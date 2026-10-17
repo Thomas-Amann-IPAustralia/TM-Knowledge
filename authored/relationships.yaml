@@ -11937,12 +11937,12 @@
   source_ref: TMA1995/s170
   supporting_text: Subject to this Part, the provisions of this Act relating to trade marks
     (other than sections 8 and 26, paragraph 27(1)(b), sections 33, 34 and 41, sections 121
-    and 127, Part 9—Removal of trade mark from Register for nonuse and Part 17—Defensive Trade
+    and 127, Part 9—Removal of trade mark from Register for non-use and Part 17—Defensive Trade
     Marks) apply to certification trade marks
   span:
   - 0
-  - 293
-  source_content_hash: sha256:7c11866151e51042630786461b8b5aeb23da704f63ad9cfef2d89d484ff8e7a5
+  - 294
+  source_content_hash: sha256:021ceda02bd6c0ac675cfd1a15a6eb5b6ca76bc17f3fd87da43eeee0eee09b18
   tier: 3
   modality: null
   approved_by: null
@@ -11956,11 +11956,11 @@
     - ref: TMA1995/s170
       span:
       - 0
-      - 293
-      content_hash: sha256:7c11866151e51042630786461b8b5aeb23da704f63ad9cfef2d89d484ff8e7a5
+      - 294
+      content_hash: sha256:021ceda02bd6c0ac675cfd1a15a6eb5b6ca76bc17f3fd87da43eeee0eee09b18
       quote: Subject to this Part, the provisions of this Act relating to trade marks (other
         than sections 8 and 26, paragraph 27(1)(b), sections 33, 34 and 41, sections 121 and
-        127, Part 9—Removal of trade mark from Register for nonuse and Part 17—Defensive Trade
+        127, Part 9—Removal of trade mark from Register for non-use and Part 17—Defensive Trade
         Marks) apply to certification trade marks
     confidence: 0.9
     reasoning: Section 170 applies the Act's trade mark provisions to certification trade
@@ -11968,6 +11968,11 @@
     alternatives_considered: []
     expert_should_check: Section 170 excludes sections 8, 26, 27(1)(b), 33, 34, 41, 121 and
       127 and Parts 9 and 17; the edge does not carry the exceptions.
+    review_history:
+    - status: unreviewed
+      date: '2026-10-17'
+      by: claude-code-agent-S038
+      round: "evidence re-anchored to the Act's compilation 48 and Regulations re-cut at legislation/0.3.0 (ADR-0136): upstream restored a hyphen in the quoted provision; the judgement is unchanged ('nonuse' now reads 'non-use')"
 - id: GR-0673
   subject: GC-0108
   predicate: broader

@@ -117,7 +117,7 @@
       span:
       - 4
       - 243
-      content_hash: sha256:be469f9148fe0eefbde61c9287f8fc3ce41403de3e66af542f93712a97cdb7d7
+      content_hash: sha256:9963ba0996aa29c20aa2417886017ac6b1e9c503645f2cb7c46bdefd4eeea1f0
       quote: For the purposes of paragraph 27(3)(b) of the Act, the following subregulations
         set out the manner of specifying, in an application for the registration of a trade
         mark, the goods and/or services in respect of which registration is sought.
@@ -127,6 +127,11 @@
       duplicate cited paragraph 27(1)(b); regulation 4.4 says the paragraph is 27(3)(b).
     alternatives_considered: []
     expert_should_check: null
+    review_history:
+    - status: unreviewed
+      date: '2026-10-17'
+      by: claude-code-agent-S038
+      round: "evidence re-anchored to the Act's compilation 48 and Regulations re-cut at legislation/0.3.0 (ADR-0136): upstream restored a hyphen in the quoted provision; the judgement is unchanged ('suboffices' now reads 'sub-offices', outside the quote)"
 - id: GK-0004
   corrects: GC-0013
   record_type: gold_concept
@@ -1136,3 +1141,52 @@
     reasoning: As the correction of GC-0009 — the other end of the same link.
     alternatives_considered: []
     expert_should_check: Whether the signed link was meant as a kind-of.
+- id: GK-0037
+  corrects: GC-0017
+  record_type: gold_concept
+  remove:
+    related:
+    - GC-0018
+  ruling: review/rulings/2026-10-17-chat-review-response.yaml#CHAT-0082+review/rulings/2026-10-08-chat-ontology-review.yaml#CHAT-0041
+  notes: The S27 conflict the review response found (F07). The owner confirmed that the D2
+    ruling, "correct known defects" (CHAT-0041), covers it (CHAT-0082).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S038
+    authored_date: '2026-10-17'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part46/4/4/6/1
+      span:
+      - 0
+      - 180
+      content_hash: sha256:3473dcf62cb5e62c4499a9227e23c00fd147228ea661e4b89aa543b938be0ac3
+      quote: 'Section 6 of the Trade Marks Act 1995 defines a geographical indication as: a sign
+        that identifies the goods as originating in a country, or in a region or locality in
+        that country'
+    - ref: TMM/Part29/9#1
+      span:
+      - 163
+      - 268
+      content_hash: sha256:17c928f3bdc152f1ba5a886c36379eb9e74ab1b2afcb0cef15aa9cc5ee4cf3d6
+      quote: A trade mark may also simply include the name or a graphical representation of
+        a town/city/state/country.
+    confidence: 0.85
+    reasoning: GC-0017 records GC-0018 as related, and GC-0018 records itself as a kind of
+      GC-0017; both are signed, and SKOS's integrity condition S27 forbids the pair, because
+      "related" means associated and not in a hierarchy. One has to go. The kind-of link
+      stays. The Act's definition, as the Manual quotes it, makes a geographical indication
+      a sign identifying where the goods come from, which is a reference to a geographical
+      location of the kind Part 29.9 describes; and GC-0017's own signed note reads the same
+      way ("every geographical indication is a geographical reference and the reverse is
+      false"). The "related" link adds nothing the hierarchy does not already say, and
+      GC-0017's not-label "geographical indication" still keeps the two apart for
+      recognition.
+    alternatives_considered:
+    - 'Removing the kind-of link from GC-0018 instead: it would contradict the signed note
+      on GC-0017 and the Act''s definition, and leave a geographical indication outside the
+      hierarchy of the reference it is a kind of.'
+    expert_should_check: Whether the expert meant "related" as something the hierarchy does
+      not cover, such as the separate statutory scheme for wine GIs (GC-0169).

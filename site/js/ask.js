@@ -292,8 +292,9 @@ export async function render(root, { ontology, params }) {
         : read?.model ? `Found no specific idea in the question, by name or in the model's reading, so this is plain keyword search.`
         : `Recognised no specific idea in the question, so this is plain keyword search.`) + readNote,
       followed.length ? `Followed ${followed.length > 1 ? `all ${followed.length} connections` : "the one connection"} from ${rec.length > 1 ? "them" : "it"}, one step out, to ${neighbours.size} related idea${neighbours.size === 1 ? "" : "s"}${followed.length > g.paths.length ? `; ${g.paths.length} of them go to the answer-writer` : ""}.${(() => { const old = g.paths.filter((p) => ontology.retired_predicates?.[p.p]).length; return old ? ` <span class="muted">Prepared before the ontology was restructured on 9 October 2026: ${old} of the connections drawn below said only "is related to" and have since been re-read or withdrawn.</span>` : ""; })()}`
-        : rec.length ? `The map records no connections for ${rec.length > 1 ? "these ideas" : "this idea"}, so there were none to follow.` : `No connections to follow.`,
-      live ? `Gathered ${fmt(linkedCount)} passages linked to those ideas${g.legislation.length ? `, and ${g.legislation.length} provision${g.legislation.length > 1 ? "s" : ""} of the legislation` : ""}.`
+        : rec.length ? `The map records no connections for ${rec.length > 1 ? "these ideas" : "this idea"}, so there were none to follow. That is what the map holds, not a finding that none exist.` : `No connections to follow.`,
+      live && !linkedCount ? `Gathered no passages through the map's links, so the passages come from keyword search alone${g.legislation.length ? `, with ${g.legislation.length} provision${g.legislation.length > 1 ? "s" : ""} of the legislation` : ""}. They may not be all the Manual says.`
+        : live ? `Gathered ${fmt(linkedCount)} passages linked to those ideas${g.legislation.length ? `, and ${g.legislation.length} provision${g.legislation.length > 1 ? "s" : ""} of the legislation` : ""}.`
         : `Gathered the passages linked to those ideas${g.legislation.length ? `, and ${g.legislation.length} provision${g.legislation.length > 1 ? "s" : ""} of the legislation` : ""}.`,
       `Ranked them with the question's own words${live ? "" : " and meaning"}: ${g.passages.length} passages for the answer${g.plain?.length ? ` — ${beyond} of them outside plain keyword search's top ${Math.min(10, g.plain.length)}` : ""}.`,
       live ? `Wrote an answer citing only those passages, each quote checked against the text.` : `Shows the answer written from them in advance.`,
@@ -503,7 +504,7 @@ export async function render(root, { ontology, params }) {
         when the connections are sorted by the identifiers of the ideas at each end — <b>not</b> the most relevant; the other ${fmt(followed.length - shown)} steered the search
         just the same. The map beside this draws all ${fmt(followed.length)}.</p>`
           : `<p class="small">All ${fmt(followed.length)} are shown to the answer-writer as context, and drawn on the map beside this.</p>`}`
-        : `<p class="muted">${rec.length ? "The map records no connections for the starting ideas, so there was nothing to follow." : "With no starting idea, there were no connections to follow."}</p>`}
+        : `<p class="muted">${rec.length ? "The map records no connections for the starting ideas, so there was nothing to follow. That is what the map holds, not a finding that none exist." : "With no starting idea, there were no connections to follow."}</p>`}
       </div></div>
       <div class="why-step"><span class="n">3</span><div>
         <b>Which passages: three lists, merged</b>
@@ -570,13 +571,23 @@ export async function render(root, { ontology, params }) {
         ${a.dropped?.length ? `<p class="tiny" style="margin-top:.4rem">${a.dropped.length} citation${a.dropped.length > 1 ? "s" : ""} the model gave could not be found word for word in the passage, and ${a.dropped.length > 1 ? "were" : "was"} removed.</p>` : ""}
       </div>
       <div class="stamp" style="margin-top:1rem">${stampIcon}<span>Written by a machine (<code>${esc(a.model || "")}</code>${a.live ? "" : `, ${esc(a.when || "")}`}) from the passages shown, and not reviewed by a trade marks expert.
-        The Manual states the Registrar's practice; it is not law. This is not advice and not an examination decision.</span></div>
+        The Manual states the Registrar's practice; it is not law. This is not advice and not an examination decision.
+        It says what these passages and connections record, and they may not be complete: a requirement, exception or step they do not mention may still exist.</span></div>
       <p class="tiny" style="margin-top:.5rem">${a.live ? `Live answer · ${a.seconds ? a.seconds.toFixed(0) + " s" : ""}${a.cost != null ? ` · about US${(a.cost * 100).toFixed(1)}¢${a.readingCost ? `, ${(a.readingCost * 100).toFixed(1)}¢ of it reading the question` : ""}` : ""} · ${esc(chat.effort)} reasoning effort (the prepared answers used ${esc(chat.measured_effort)}) · search ran without the meaning-vectors the measured system also used${a.reading?.kept?.length ? `, and started from ${a.reading.kept.length === 1 ? "an idea" : `${a.reading.kept.length} ideas`} the model read in the question, which the measured system did not do` : ""}.`
-        : `Prepared answer, written ${esc(a.when || "")} with ${esc(chat.measured_effort)} reasoning effort by the same pipeline.`}</p>`;
+        : `Prepared answer, written ${esc(a.when || "")} with ${esc(chat.measured_effort)} reasoning effort by the same pipeline.`}
+        Read against ${esc(lawLine(a.live ? chat.law : examples.law))}.</p>`;
   }
 
   if (params[0] && prepared.has(params[0])) showPrepared(prepared.get(params[0]));
   return () => { maps++; mini?.destroy(); controller?.abort(); };
+}
+
+/** "the Act as in force from 14 October 2024 and the Regulations as in force from …":
+    which compilation of each instrument an answer read (ADR-0136, F09). A live answer
+    reads the pinned snapshot's; a prepared one, the snapshot it was written against. */
+function lawLine(law) {
+  const lines = (law || []).map((l) => l.line);
+  return lines.length ? lines.join(" and ") : "the legislation the snapshot holds";
 }
 
 function spread(i, n, top, bottom) {

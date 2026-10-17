@@ -111,7 +111,7 @@ _CASE = re.compile(r"^CASE/[0-9]{4}/[A-Za-z]{2,10}/[0-9]+(/[0-9]+)?$")
 #: `TMA1995/s41(3)(a)`, and the ordinal form the snapshot mints for units of a
 #: provision that has no numbered subdivisions — `TMA1995/front~1`,
 #: `TMR1995/sch1/pt2~1`. Measured over the pinned corpus: no provision ref
-#: carries either character, and 5,624 of the 5,813 unit refs carry one. The
+#: carries either character, and 5,632 of the 5,821 unit refs carry one. The
 #: remaining 189 are definition slugs and are not decidable — see `RefKind`.
 _UNIT_TAIL = re.compile(r"\(|~")
 

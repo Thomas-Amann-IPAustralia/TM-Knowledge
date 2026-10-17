@@ -53,8 +53,10 @@ export async function render(root, { ontology }) {
       passage, and drops any it cannot find. The model is told never to say how an application would be decided, and to keep practice and law apart.</li>
     </ol>
     <p class="small muted">Live answers use <code>${esc(chat.model)}</code> at ${esc(chat.effort)} reasoning effort.
-    The ${examples.answers.length} prepared answers used the same instructions at ${esc(chat.measured_effort)} effort. Search in your browser runs without the
-    meaning-vectors the measured system also used.</p>
+    The ${examples.answers.length} prepared answers were written at ${esc(chat.measured_effort)} effort with the earlier version of these instructions
+    (${esc(chat.prepared_prompt_version)}); live answers (${esc(chat.prompt_version)}) are also given each connection's modality and the condition it applies under,
+    and told never to conclude that a requirement, exception or step does not exist because the passages or connections do not mention it.
+    Search in your browser runs without the meaning-vectors the measured system also used.</p>
 
     <h2>How well the search works</h2>
     <p>Three ways of searching were fixed before any result was graded, and each question's top ten passages were scored (nDCG@10, out of 100):

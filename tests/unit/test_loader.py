@@ -18,6 +18,7 @@ from tm_knowledge.config import UPSTREAM_DIR
 from tm_knowledge.upstream.loader import load_corpus
 from tm_knowledge.upstream.records import (
     Chunk,
+    Instrument,
     InternalRef,
     ProvisionEdge,
     UpstreamSchemaDrift,
@@ -34,6 +35,26 @@ def test_an_unknown_upstream_field_stops_the_load():
         ProvisionEdge.from_dict(
             {"id": "TMA1995/s43", "extraction": "regex", "difficulty_rating": 3}
         )
+
+
+def test_an_instrument_names_the_law_it_holds():
+    """An answer names the compilation it read (the review response, F09), in
+    the words the owner approved: "the Act as in force from 14 October 2024"."""
+    act = Instrument.from_dict({
+        "code": "TMA1995", "name": "Trade Marks Act 1995", "compilation_number": "47",
+        "compilation_start": "2024-10-14", "register_id": "C2024C00545",
+        "captured_at": "2026-07-29T13:31:29Z", "amendments": [], "status": "InForce",
+    })
+    assert act.in_force_line == "the Act as in force from 14 October 2024"
+    assert act.register_id == "C2024C00545"
+
+
+def test_an_instrument_that_cannot_say_its_compilation_stops_the_load():
+    with pytest.raises(UpstreamSchemaDrift, match="compilation_start"):
+        Instrument.from_dict({
+            "code": "TMA1995", "name": "Trade Marks Act 1995", "compilation_number": "47",
+            "register_id": "C2024C00545", "captured_at": "2026-07-29T13:31:29Z",
+        })
 
 
 def test_edges_keep_upstreams_words():
@@ -95,11 +116,19 @@ def corpus():
 
 
 @pytest.mark.snapshot
+def test_the_corpus_says_which_compilation_of_each_instrument_it_holds(corpus):
+    assert set(corpus.instruments) == {"TMA1995", "TMR1995"}
+    for instrument in corpus.instruments.values():
+        assert instrument.register_id and instrument.compilation_number
+        assert instrument.in_force_line.split(" as in force from ")[1]
+
+
+@pytest.mark.snapshot
 def test_the_whole_corpus_loads(corpus):
     assert len(corpus.pages) == 500
     assert len(corpus.chunks) == 2460
     assert len(corpus.provisions) == 763
-    assert len(corpus.units) == 5813
+    assert len(corpus.units) == 5821  # 5,813 before the Act's compilation 48
 
 
 @pytest.mark.snapshot

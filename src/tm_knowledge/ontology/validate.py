@@ -134,12 +134,14 @@ PLACEMENT_SHAPE = "Each kind of record sits in its own named graph"
 #: why this is about the record classes and the origin stamp, not the subjects.
 _RECORD_CLASSES = (
     TMK.ApprovedAssertion, TMK.AuthoredAssertion, TMK.CandidateAssertion,
-    TMK.InferredAssertion, TMK.Correction, TMK.ReasoningExpectation, TMK.EntityMention,
+    TMK.InferredAssertion, TMK.Correction, TMK.Definition, TMK.ReasoningExpectation,
+    TMK.EntityMention,
 )
 _PLACEMENT: dict = {
     SOURCE_GRAPH: ((), None),
     APPROVED_GRAPH: ((TMK.ApprovedAssertion, TMK.ReasoningExpectation, TMK.EntityMention), "approved"),
-    AUTHORED_GRAPH: ((TMK.AuthoredAssertion, TMK.Correction, TMK.ReasoningExpectation, TMK.EntityMention), "authored"),
+    AUTHORED_GRAPH: ((TMK.AuthoredAssertion, TMK.Correction, TMK.Definition, TMK.ReasoningExpectation,
+                      TMK.EntityMention), "authored"),
     INFERRED_GRAPH: ((TMK.InferredAssertion,), None),
 }
 
@@ -208,9 +210,11 @@ def skos_integrity(dataset: Dataset) -> list[Finding]:
 
     Read per named graph, because the remedy depends on who wrote what. Where a
     machine wrote either statement it is a defect, fixed by re-reading the authored
-    record. Where both are signed (GC-0017 and GC-0018 today) it is a note: a signed
-    record is corrected outside its signature, on the owner's ruling (ADR-0122), and
-    an agent may not make that call (the review response, F07).
+    record. Where both are signed it is a note: a signed record is corrected outside
+    its signature, on the owner's ruling (ADR-0122), and an agent may not make that
+    call unasked (the review response, F07). The one signed pair, GC-0017 and
+    GC-0018, was corrected by GK-0037 once the owner confirmed the ruling covered it
+    (CHAT-0082).
     """
     approved, authored = dataset.graph(APPROVED_GRAPH), dataset.graph(AUTHORED_GRAPH)
     signed, both = _parents(approved), _parents(approved, authored)

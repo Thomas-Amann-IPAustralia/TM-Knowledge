@@ -9,7 +9,6 @@ the way the 129 prepared answers were.
 
 from __future__ import annotations
 
-import base64
 import json
 import re
 import shutil
@@ -74,32 +73,38 @@ def test_the_workbench_is_kept_but_not_linked():
         assert "workbench" not in path.read_text(encoding="utf-8"), path.name
 
 
-def test_live_answers_are_off_without_a_key():
+def test_live_answers_are_off_without_a_proxy():
     assert explorer.live_payload(None) == {"enabled": False}
 
 
-def test_a_published_key_is_masked_and_recoverable():
-    """The key is published when the owner supplies one (ADR-0118). It must not
-    appear as a plain `sk-` string, and the page must be able to recover it."""
-    key = "sk-proj-abcDEF0123456789"
-    payload = explorer.live_payload(key)
-    assert payload["enabled"] and payload["endpoint"] == explorer.OPENAI_RESPONSES
-    assert key not in json.dumps(payload) and "sk-" not in json.dumps(payload)
-    mask = base64.b64decode(payload["m"])
-    mixed = base64.b64decode(payload["x"])[::-1]
-    assert bytes(a ^ b for a, b in zip(mixed, mask)).decode() == key
-
-
 def test_a_proxy_endpoint_publishes_no_key():
-    payload = explorer.live_payload(None, "https://proxy.example/answer")
-    assert payload == {"enabled": True, "endpoint": "https://proxy.example/answer"}
-
-
-def test_a_proxy_endpoint_publishes_no_key_even_with_a_key_set():
-    """ADR-0118: a proxy that holds the key means no key in the page, even if the
-    OPENAI_API_KEY secret is still set on the Pages environment."""
-    payload = explorer.live_payload("sk-proj-abcDEF0123456789", "https://proxy.example/v1/responses")
+    payload = explorer.live_payload("https://proxy.example/v1/responses")
     assert payload == {"enabled": True, "endpoint": "https://proxy.example/v1/responses"}
+
+
+def test_no_build_can_publish_a_key(monkeypatch):
+    """The masked-key fallback is removed (ADR-0136, reversing part of ADR-0118):
+    the build takes no key, reads none from the environment, and the page has no
+    code to unmask one or send it."""
+    import inspect
+
+    monkeypatch.setenv("TMK_LIVE_OPENAI_KEY", "sk-proj-abcDEF0123456789")
+    monkeypatch.setenv("OPENAI_API_KEY", "sk-proj-abcDEF0123456789")
+    monkeypatch.delenv("TMK_LIVE_ENDPOINT", raising=False)
+    assert explorer.from_environment() is None
+    assert "key" not in inspect.signature(explorer.live_payload).parameters
+    assert "key" not in inspect.signature(explorer.build).parameters
+    live_js = (SITE / "js" / "live.js").read_text(encoding="utf-8")
+    assert "Authorization" not in live_js and "reveal(" not in live_js
+
+
+def test_the_pages_workflow_passes_no_key_to_the_build():
+    from tm_knowledge.config import REPO_ROOT
+
+    workflow = (REPO_ROOT / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
+    assert "secrets.OPENAI_API_KEY" not in workflow
+    assert "TMK_LIVE_OPENAI_KEY" not in workflow
+    assert "vars.TMK_LIVE_ENDPOINT" in workflow
 
 
 def test_predicate_labels_come_from_the_relation_list():
@@ -279,3 +284,43 @@ def test_the_page_checks_the_models_reading_before_it_steers(files, tmp_path):
     assert jingle["dropped"] == [["GC-0078", f"only the first {jobs.READING_MAX_IDEAS} are used"]]
     assert named["kept"] == [] and named["dropped"] == [] and named["passages"] == named["plain"]
     assert garbled["kept"] == [] and garbled["passages"] == garbled["plain"]
+
+
+@needs_snapshot
+def test_every_answer_names_the_law_it_read(files):
+    """ADR-0136 (CHAT-0077): "the Act as in force from …" on every answer. A live
+    answer reads the pinned snapshot; the prepared ones, the snapshot they were
+    written against, which the pin's next move does not change."""
+    from tm_knowledge.upstream.loader import load_corpus
+
+    law = files["chat.json"]["law"]
+    assert [row["line"] for row in law] == [i.in_force_line for i in sorted(
+        load_corpus().instruments.values(), key=lambda i: i.code)]
+    assert law[0]["line"].startswith("the Act as in force from ")
+    assert files["examples.json"]["law"][0]["line"] == "the Act as in force from 14 October 2024"
+    ask = (SITE / "js" / "ask.js").read_text(encoding="utf-8")
+    assert "Read against ${esc(lawLine(a.live ? chat.law : examples.law))}" in ask
+
+
+def test_the_page_never_reads_an_empty_map_as_an_absence():
+    """F19's matching words on the page where nothing is found (CHAT-0080)."""
+    ask = (SITE / "js" / "ask.js").read_text(encoding="utf-8")
+    assert ask.count("not a finding that none exist") == 2
+    assert "Gathered no passages through the map's links" in ask
+    assert "a requirement, exception or step they do not mention may still exist" in ask
+
+
+@needs_snapshot
+def test_a_concept_card_carries_its_definition_stamped_with_its_source(files):
+    """ADR-0137: shown as machine-written and unreviewed, and saying where its words
+    come from, so the Act's definition and the Manual's practice never blur."""
+    from tm_knowledge.authored import definitions
+
+    defined = [c for c in files["ontology.json"]["concepts"] if c.get("definition")]
+    assert len(defined) == len(definitions.load().sound)
+    for concept in defined:
+        d = concept["definition"]
+        assert d["review_status"] == "unreviewed" and d["text"] and d["ref"], concept["id"]
+        assert d["basis"] in ("statutory_definition", "statutory_provision", "manual")
+    map_js = (SITE / "js" / "map.js").read_text(encoding="utf-8")
+    assert "definition(x.definition)" in map_js and "which states practice, not law" in map_js

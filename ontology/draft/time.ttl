@@ -13,12 +13,18 @@
     rdfs:label "TM-Knowledge — time module"@en-AU ;
     rdfs:comment """Dates, currency and what this corpus cannot answer about time.
 
-The honest headline: **point-in-time questions are out of the pilot scope draft
-and the snapshot cannot support them.** There is no corpus-level version stamp
+The honest headline: **point-in-time questions are out of scope and the snapshot
+cannot support them.** There is no corpus-level version stamp for the Manual
 (Q-05); the amendment history is the upstream repository's git history, and
 answering 'what guidance was current on «date»' properly needs a full-history
 clone, which is a different data strategy rather than a different query. CQ-0014
 is marked out of scope on the strength of that line.
+
+The legislation is different: upstream records which compilation of each
+instrument it holds, and the graph states it on the instrument
+(`tmk:compilationNumber`, `tmk:registerId`, `tmk:compilationStart`), so an answer
+can say which state of the law it read (the review response, F09). One
+compilation per instrument, the one the pin holds; not a history.
 
 What the module does carry is the currency mechanism that actually works:
 staleness by content hash. An assertion whose source hash no longer matches the
@@ -57,6 +63,24 @@ tmk:capturedAt a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "captured at"@en-AU ;
     rdfs:comment "When upstream captured the passage. The nearest thing this corpus has to a currency date, and it is a capture time, not an in-force date."@en-AU .
+
+tmk:compilationNumber a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Legislation ;
+    rdfs:range xsd:string ;
+    rdfs:label "compilation number"@en-AU ;
+    rdfs:comment "Which compilation of the instrument the pinned snapshot holds, numbered as the Federal Register of Legislation numbers it. Read from upstream's `instrument.json`."@en-AU .
+
+tmk:registerId a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Legislation ;
+    rdfs:range xsd:string ;
+    rdfs:label "register id"@en-AU ;
+    rdfs:comment "The Federal Register of Legislation's id for that compilation (`C2024C00545`): the one name a reader can look up."@en-AU .
+
+tmk:compilationStart a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Legislation ;
+    rdfs:range xsd:date ;
+    rdfs:label "in force from"@en-AU ;
+    rdfs:comment "The date the held compilation is in force from. Every answer names it ('the Act as in force from 14 October 2024'), because the law moves and the snapshot does not until the pin does."@en-AU .
 
 tmk:lastAmended a owl:DatatypeProperty ;
     rdfs:domain tmk:Page ;

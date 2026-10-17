@@ -27,11 +27,9 @@ Files written under `site/data/`:
 
 from __future__ import annotations
 
-import base64
 import json
 import os
 import re
-import secrets
 from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
@@ -40,6 +38,7 @@ from typing import Any
 import yaml
 
 from tm_knowledge.authored import corrections as corrections_module
+from tm_knowledge.authored import definitions as definitions_module
 from tm_knowledge.authored import store as authored_store
 from tm_knowledge.bulk import jobs
 from tm_knowledge.bulk import links as links_module
@@ -66,10 +65,10 @@ ALIASES_PATH = jobs.SEARCH_DIR / "aliases.yaml"
 CHAT_MODEL = "gpt-6.1-sol"
 CHAT_EFFORT = "low"
 CHAT_MAX_OUTPUT_TOKENS = 10000
-OPENAI_RESPONSES = "https://api.openai.com/v1/responses"
-#: The environment variables the Pages workflow sets from its secret. A distinct
-#: name, so a key that happens to be in a developer's shell is never picked up.
-KEY_ENV = "TMK_LIVE_OPENAI_KEY"
+#: The environment variable the Pages workflow sets from its repository variable:
+#: the proxy's URL (`live-proxy/`), which holds the key. There is no key variable.
+#: Until ADR-0136 a key with no proxy was published in the page, masked; the owner
+#: removed that fallback once the proxy served, so no build can publish a key.
 ENDPOINT_ENV = "TMK_LIVE_ENDPOINT"
 #: A per-browser courtesy limit on live questions. It is not a control — anyone
 #: can clear it — but it stops one enthusiastic tab running up the bill.
@@ -295,6 +294,21 @@ def ontology(corpus: Corpus, gold: Any, authored: Any, links: links_module.Links
     for concept in concept_list:
         if fixes.for_target(concept["id"]):
             concept["corrected"] = [c.id for c in fixes.for_target(concept["id"])]
+    # A definition is its own machine-written record (ADR-0137), shown on the card
+    # with its stamp and with where its words come from: the Act's own, written from
+    # a provision, or written from the Manual, which is practice, not law.
+    defined = definitions_module.load(authored=authored).by_concept()
+    for concept in concept_list:
+        found = defined.get(concept["id"])
+        if found is None:
+            continue
+        env = found.envelope or {}
+        concept["definition"] = {
+            "id": found.id, "text": found.record["text"], "basis": found.record["basis"],
+            "scope_note": found.record.get("scope_note"), "ref": found.record["source_ref"],
+            "by": env.get("authored_by"), "date": env.get("authored_date"),
+            "review_status": env.get("review_status"),
+        }
     replaced = {new: old for old, new in fixes.replacements().items()}
     for rel in relations:
         if rel["id"] in replaced:
@@ -514,7 +528,8 @@ def examples() -> dict[str, Any]:
             "model": a.get("model"), "date": str(a.get("date") or ""), "review_status": a.get("review_status"),
             "ndcg": {s: row.get(f"ndcg:{s}") for s in ("keyword", "hybrid", "ontology")},
         })
-    return {"kinds": QUESTION_KINDS, "answers": out, "summary": results.get("summary", {})}
+    return {"kinds": QUESTION_KINDS, "answers": out, "summary": results.get("summary", {}),
+            "law": PREPARED_LAW}
 
 
 # ---------------------------------------------------------------------- tour
@@ -642,6 +657,28 @@ def _tour_example() -> dict[str, Any] | None:
 
 # ---------------------------------------------------------------------- chat
 
+#: The law the 129 prepared answers read. All were written against the snapshot
+#: pinned from 18 August to 17 October 2026 (`c490a9927f1a`), before the pin moved
+#: to the Act's compilation 48; so their footer names compilation 47, whatever the
+#: pin now holds. A prepared answer re-written against a later pin changes this.
+PREPARED_LAW = [
+    {"code": "TMA1995", "name": "Trade Marks Act 1995", "compilation": "47", "register_id": "C2024C00545",
+     "line": "the Act as in force from 14 October 2024"},
+    {"code": "TMR1995", "name": "Trade Marks Regulations 1995", "compilation": "53",
+     "register_id": "F2026C00009", "line": "the Regulations as in force from 18 December 2025"},
+]
+
+
+def law(corpus: Corpus) -> list[dict[str, str]]:
+    """Which compilation of each instrument the pinned snapshot holds, and the words
+    an answer shows for it: "the Act as in force from 14 October 2024"."""
+    return [
+        {"code": i.code, "name": i.name, "compilation": i.compilation_number,
+         "register_id": i.register_id, "line": i.in_force_line}
+        for i in sorted(corpus.instruments.values(), key=lambda i: i.code)
+    ]
+
+
 
 def chat(ctx: jobs.Context) -> dict[str, Any]:
     """The measured answer prompt, verbatim, so a live question is asked the same way.
@@ -654,7 +691,10 @@ def chat(ctx: jobs.Context) -> dict[str, Any]:
     """
     return {
         "model": CHAT_MODEL, "effort": CHAT_EFFORT, "max_output_tokens": CHAT_MAX_OUTPUT_TOKENS,
-        "measured_effort": "medium", "prompt_version": "answer-v2",
+        "measured_effort": "medium", "prompt_version": jobs.ANSWER_VERSION,
+        "prepared_prompt_version": jobs.PREPARED_ANSWER_VERSION,
+        # Which compilation of each instrument a live answer reads (ADR-0136, F09).
+        "law": law(ctx.corpus),
         "instructions": jobs._ANSWER_INSTRUCTIONS, "schema": jobs._ANSWER_SCHEMA,
         "ontology_map": jobs.ontology_map(ctx),
         "passages_k": 8, "legislation_k": 3, "paths_k": 12, "plain_k": 5, "passage_chars": 1600,
@@ -668,33 +708,24 @@ def chat(ctx: jobs.Context) -> dict[str, Any]:
     }
 
 
-def live_payload(key: str | None, endpoint: str | None = None) -> dict[str, Any]:
-    """Whether the live chat may call a model, and with what.
+def live_payload(endpoint: str | None = None) -> dict[str, Any]:
+    """Whether the live chat may call a model, and where.
 
-    With a key, the key is published in the page (the owner's decision,
-    ADR-0118). It is masked so that pattern-matching scrapers do not find an
-    `sk-` string — which is obfuscation, not security: anyone who reads the
-    page's code can recover it. With an endpoint, the browser calls a proxy that
-    holds the key instead (`live-proxy/`), and nothing secret is published — even
-    if a key is in the environment too, as ADR-0118 says.
+    Only through a proxy that holds the key (`live-proxy/`): the browser calls the
+    endpoint, and nothing secret is in the page. Without one, live answers are off
+    and everything else works. The masked-key fallback ADR-0118 allowed is gone
+    (ADR-0136); this function takes no key, so no build can publish one.
     """
-    if not key and not endpoint:
+    if not endpoint:
         return {"enabled": False}
-    out: dict[str, Any] = {"enabled": True, "endpoint": endpoint or OPENAI_RESPONSES}
-    if key and not endpoint:
-        raw = key.strip().encode("utf-8")
-        mask = secrets.token_bytes(len(raw))
-        mixed = bytes(a ^ b for a, b in zip(raw, mask))[::-1]
-        out["m"] = base64.b64encode(mask).decode("ascii")
-        out["x"] = base64.b64encode(mixed).decode("ascii")
-    return out
+    return {"enabled": True, "endpoint": endpoint}
 
 
 # --------------------------------------------------------------------- build
 
 
 def build(corpus: Corpus | None = None, *, generated: str | None = None,
-          key: str | None = None, endpoint: str | None = None) -> dict[str, Any]:
+          endpoint: str | None = None) -> dict[str, Any]:
     """Every file, as data. `write` puts them on disk."""
     corpus = corpus or load_corpus()
     # What serves: the signed records with the owner's corrections applied (ADR-0122).
@@ -714,7 +745,7 @@ def build(corpus: Corpus | None = None, *, generated: str | None = None,
         "tour.json": tour(corpus, onto, links),
         "examples.json": examples(),
         "chat.json": chat(ctx),
-        "live.json": live_payload(key, endpoint),
+        "live.json": live_payload(endpoint),
     }
 
 
@@ -729,5 +760,7 @@ def write(files: dict[str, Any], out_dir: Path | None = None) -> list[Path]:
     return written
 
 
-def from_environment() -> tuple[str | None, str | None]:
-    return os.environ.get(KEY_ENV) or None, os.environ.get(ENDPOINT_ENV) or None
+def from_environment() -> str | None:
+    """The proxy's URL, if the build has one. A key in the environment is never
+    read: there is nowhere left for it to go."""
+    return os.environ.get(ENDPOINT_ENV) or None

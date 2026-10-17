@@ -1,13 +1,12 @@
 # live-proxy/ — the answer service that holds the OpenAI key
 
-"Ask the Manual" can send each live question straight to OpenAI, with the key
-published in the page (ADR-0118), or here, to a small service that holds the key
-and forwards the question. This is that service. Use it when:
-
-- the key should not be in the page, or
-- a reader's network blocks `api.openai.com` — common on work and government
-  networks, where the page then says it "could not reach the model service". A
-  proxy on another address gets through wherever that address is allowed.
+"Ask the Manual" sends each live question here, to a small service that holds
+the key and forwards the question. It is the only route: until ADR-0136 a site
+built without a proxy published the key in the page, masked (ADR-0118), and the
+owner removed that fallback once this service served. It also helps when a
+reader's network blocks `api.openai.com` — common on work and government
+networks, where the page then says it "could not reach the model service". A
+proxy on another address gets through wherever that address is allowed.
 
 ## What belongs here
 

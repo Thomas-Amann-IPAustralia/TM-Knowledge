@@ -32,7 +32,9 @@ UPSTREAM_MD_COUNTS = {
     "links": 2218,
     "instruments": 2,
     "provisions": 763,
-    "units": 5813,
+    # 5,813 at legislation/0.2.0; 5,821 since the pin moved to the Act's
+    # compilation 48 at legislation/0.3.0, as UPSTREAM.md §2's annotation says.
+    "units": 5821,
 }
 
 
@@ -41,7 +43,7 @@ def test_the_tracked_pin_loads_and_names_a_real_commit():
     assert pin.repo == "Thomas-Amann-IPAustralia/manual-XtrACTor"
     assert len(pin.commit) == 40
     assert pin.manual_extractor_version == "ingest/0.11.0"
-    assert pin.legislation_extractor_version == "legislation/0.2.0"
+    assert pin.legislation_extractor_version == "legislation/0.3.0"
 
 
 def test_the_pin_agrees_with_upstream_md():

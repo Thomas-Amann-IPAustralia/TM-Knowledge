@@ -261,6 +261,29 @@ indistinguishable in the graph from a concept nobody has typed at all, and the
 two are opposites — one is an answer about the taxonomy, the other is a
 gap (ADR-0093)."""@en-AU .
 
+# --- definitions (the review response, F06; ADR-0136, ADR-0137) ------------------
+#
+# A definition is its own record, not a field on the concept: a signed concept cannot
+# be edited, and approving a label approves no definition. The record carries the
+# authoring envelope; `skos:definition` on the concept is its navigation form.
+
+tmk:Definition a owl:Class ;
+    rdfs:subClassOf tmk:Assertion ;
+    rdfs:label "Definition"@en-AU ;
+    rdfs:comment "A machine-written definition of one concept (`authored/definitions.yaml`, `GD-`). Lives in the authored graph, carries the authoring envelope, quotes the passages it rests on, and says where its words come from (tmk:definitionBasis). Unreviewed: no person has approved a definition."@en-AU .
+
+tmk:defines a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Definition ;
+    rdfs:range tmk:LegalConcept ;
+    rdfs:label "defines"@en-AU ;
+    rdfs:comment "The concept a definition record defines. One definition per concept."@en-AU .
+
+tmk:definitionBasis a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Definition ;
+    rdfs:range xsd:string ;
+    rdfs:label "definition basis"@en-AU ;
+    rdfs:comment "Where the definition's words come from: `statutory_definition` (the Act's or Regulations' own definition, verbatim), `statutory_provision` (written from a provision) or `manual` (written from the Manual, which states practice, not law). Kept because a definition is where practice and law are easiest to blur (CLAUDE.md rule 5)."@en-AU .
+
 tmk:LegalProposition a owl:Class ;
     rdfs:label "Legal proposition"@en-AU ;
     rdfs:comment """A statement that something is so, held together with the passage that states

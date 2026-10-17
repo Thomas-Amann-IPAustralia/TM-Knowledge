@@ -162,9 +162,26 @@ def ontology_report(argv: list[str] | None = None) -> int:
         description="What the ontology draft holds, what it answers, and what it cannot.",
     )
     parser.add_argument("--write", action="store_true", help="write into data/derived/reports/")
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="fail if the committed report differs from a rebuild",
+    )
     args = parser.parse_args(argv)
 
     text = report_module.render()
+    if args.check:
+        # The report went stale for a month while the graph beside it was
+        # drift-checked (the review response, F12). Same rule now.
+        if not report_module.check(text):
+            print(
+                f"{report_module.REPORT_PATH} no longer matches a rebuild. Run "
+                "`tmk-ontology-report --write` and commit the result.",
+                file=sys.stderr,
+            )
+            return 1
+        print("The committed ontology report matches a rebuild.")
+        return 0
     if args.write:
         path = report_module.write(text)
         print(f"wrote {path}")

@@ -10,15 +10,14 @@
 # Manual's text in the browser (ADR-0117). If the snapshot cannot be fetched the
 # deploy fails and the previous site stays up.
 #
-# Live answers (ADR-0118). When the `OPENAI_API_KEY` secret is set — an
-# environment secret on `github-pages` is the narrower choice, since only this
-# job can read it — the explorer is built with live answers on and the key is
-# published, masked, in `data/live.json`. Anyone who reads the page can recover
-# it; the owner accepted that. Set the repository variable `TMK_LIVE_ENDPOINT`
-# to a proxy URL (`live-proxy/`, e.g. on Render) to answer through a proxy that
-# holds the key: then no key is published, even if the secret is still set. With
-# neither, the site publishes with live answers off and everything else works.
-# A secret or variable change does not redeploy: run this workflow by hand.
+# Live answers (ADR-0118, ADR-0136). The repository variable `TMK_LIVE_ENDPOINT`
+# is the URL of the proxy that holds the key (`live-proxy/`, on Render); with it,
+# the explorer answers live through the proxy and nothing secret is in the page.
+# Without it the site publishes with live answers off and everything else works.
+# No key reaches this job: until ADR-0136 the `OPENAI_API_KEY` secret was passed
+# in and, with no proxy, published masked in `data/live.json`. The owner removed
+# that fallback once the proxy served; the secret is no longer read here.
+# A variable change does not redeploy: run this workflow by hand.
 #
 # One job, under the `github-pages` environment, so the environment secret is in
 # reach of the step that needs it. One-time repository setting: Settings → Pages
@@ -97,7 +96,6 @@ jobs:
 
       - name: Generate the explorer data
         env:
-          TMK_LIVE_OPENAI_KEY: ${{ secrets.OPENAI_API_KEY }}
           TMK_LIVE_ENDPOINT: ${{ vars.TMK_LIVE_ENDPOINT }}
         run: |
           set -o pipefail

@@ -16,6 +16,8 @@ describe the same record, so neither can drift from the other unnoticed.
 | `reasoning-expectation.schema.json` | Expected reasoning results | `GX-` |
 | `prohibited-use.schema.json` | Prohibited uses | `PU-` |
 | `concept-type.schema.json` | Which of four groups a concept is in | `GT-` |
+| `correction.schema.json` | Corrections to signed records, machine-written only (`authored/corrections.yaml`, ADR-0122) | `GK-` |
+| `definition.schema.json` | Definitions of concepts, machine-written only (`authored/definitions.yaml`, ADR-0137) | `GD-` |
 | `authored-envelope.schema.json` | **Not a record type** — the block every record in `authored/` carries | — |
 
 ## What belongs here

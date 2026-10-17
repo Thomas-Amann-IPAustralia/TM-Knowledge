@@ -893,6 +893,49 @@ def _authored_evidence(authored: AuthoredSet, corpus: Corpus) -> Iterator[Findin
         yield from _evidence_findings(entry.record_id, entry.evidence(), corpus)
 
 
+def _authored_definitions(authored: AuthoredSet, gold: GoldSet) -> Iterator[Finding]:
+    """Definitions are machine-written records with a reader of their own (ADR-0137).
+
+    A refused one is a defect, as any refused authored record is: it names a concept
+    that does not exist, quotes nothing, says its words are the Act's when they are
+    not, or defines a concept a second time. The count is a note, because every
+    definition is unreviewed and the number defined is a fact a reader should have.
+    """
+    from tm_knowledge.authored import definitions as definitions_module
+
+    try:
+        found = definitions_module.load(authored.root, gold=gold, authored=authored)
+    except authored_store.MalformedAuthoredFile as error:
+        yield Finding(Severity.DEFECT, "definitions", "authored/definitions.yaml", str(error))
+        return
+    for entry in found.refused:
+        for error in entry.errors:
+            yield Finding(Severity.DEFECT, "definitions", entry.id, str(error))
+    if found.sound:
+        bases = {}
+        for entry in found.sound:
+            bases[entry.record["basis"]] = bases.get(entry.record["basis"], 0) + 1
+        yield Finding(
+            Severity.NOTE, "definitions", "authored/definitions.yaml",
+            f"{len(found.sound)} concept(s) carry a machine-written definition, none reviewed ("
+            + ", ".join(f"{count} {basis}" for basis, count in sorted(bases.items()))
+            + "). Approving a concept's label approves no definition",
+        )
+
+
+def _definition_evidence(authored: AuthoredSet, gold: GoldSet, corpus: Corpus) -> Iterator[Finding]:
+    """A definition's quotes are checked like any authored record's: a statutory
+    definition whose provision moved is stale, and is re-read rather than refreshed."""
+    from tm_knowledge.authored import definitions as definitions_module
+
+    try:
+        found = definitions_module.load(authored.root, gold=gold, authored=authored)
+    except authored_store.MalformedAuthoredFile:
+        return  # reported by _authored_definitions
+    for entry in found.sound:
+        yield from _evidence_findings(entry.id, (entry.envelope or {}).get("evidence") or [], corpus)
+
+
 def _correction_evidence(authored: AuthoredSet, gold: GoldSet, corpus: Corpus) -> Iterator[Finding]:
     """A correction's evidence is checked like any authored record's (ADR-0122):
     it changes what a signed record serves, so a quote that no longer lands is a
@@ -1206,6 +1249,7 @@ def _authored(authored: AuthoredSet, gold: GoldSet) -> Iterator[Finding]:
     yield from _authored_approval(authored)
     yield from _authored_identifiers(authored, gold)
     yield from _authored_corrections(authored, gold)
+    yield from _authored_definitions(authored, gold)
     yield from _authored_predicates(authored)
     yield from _authored_kinds(authored)
     yield from _authored_conditions(authored)
@@ -1325,6 +1369,7 @@ def run(
         findings.extend(_staleness(gold, corpus))
         findings.extend(_authored_evidence(authored, corpus))
         findings.extend(_correction_evidence(authored, gold, corpus))
+        findings.extend(_definition_evidence(authored, gold, corpus))
         findings.extend(_legislative_bases(authored, gold, corpus))
     else:
         findings.append(

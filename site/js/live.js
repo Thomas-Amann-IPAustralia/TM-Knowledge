@@ -4,17 +4,10 @@
    same instructions, JSON schema and input shape (built by engine.prompt) — with
    `stream: true`, so the page can show the answer as it is written. Before it, the
    reading (ADR-0132) asks the same model which ideas on the map a typed question
-   is about, with the prompt `bulk.jobs` keeps for it. When the site
-   is built with a key, the key is in the page: the owner's decision (ADR-0118).
-   It is masked against pattern-matching scrapers; that is not security, and
-   anyone reading this file can recover it. */
-
-function reveal(live) {
-  if (!live.m || !live.x) return null;
-  const bytes = (b64) => Uint8Array.from(atob(b64), (ch) => ch.charCodeAt(0));
-  const mask = bytes(live.m), mixed = bytes(live.x).reverse();
-  return new TextDecoder().decode(mixed.map((b, i) => b ^ mask[i]));
-}
+   is about, with the prompt `bulk.jobs` keeps for it. Every call goes to the
+   proxy (`live-proxy/`), which holds the key; the page holds none. Until ADR-0136
+   a site built without a proxy carried the key, masked, and this file unmasked
+   it; the owner removed that fallback once the proxy served. */
 
 /** Whether answers go through a proxy (`live-proxy/`) rather than straight to OpenAI. */
 export function viaProxy(live) {
@@ -70,7 +63,6 @@ export function read(live, chat, question, signal) {
 }
 
 async function respond(live, request, signal, onText = null) {
-  const key = reveal(live);
   const body = {
     model: request.model,
     instructions: request.instructions,
@@ -87,7 +79,7 @@ async function respond(live, request, signal, onText = null) {
   try {
     response = await fetch(live.endpoint, {
       method: "POST",
-      headers: { "Content-Type": "application/json", ...(key ? { Authorization: `Bearer ${key}` } : {}) },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
       signal,
     });

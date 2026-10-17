@@ -108,3 +108,44 @@ def test_the_evidence_cross_check_uses_only_the_expert_lists():
     assert out["n"] == 1
     assert out["ndcg:ontology"] == pytest.approx(1.0) and out["ndcg:hybrid"] == 0.0
     assert out["recall:ontology"] == 1.0
+
+
+# --- the answering model reads a relationship as qualified as its sentence (ADR-0136) ---
+
+
+def test_a_path_line_carries_the_records_modality_and_condition():
+    from tm_knowledge.bulk import jobs
+
+    labels = {"GC-0001": "trade mark", "GC-0002": "ground"}
+    line = jobs.path_line(labels, ("GC-0001", "mayGiveRiseTo", "GC-0002", "GR-0001", "authored",
+                                   "may", "where the mark is used in Australia"))
+    assert line == ('- trade mark —mayGiveRiseTo→ ground (GR-0001, authored; modality "may"; '
+                    'applies when "where the mark is used in Australia")')
+
+
+def test_a_path_line_without_them_says_none_is_recorded_not_that_none_exists():
+    from tm_knowledge.bulk import jobs
+
+    line = jobs.path_line({}, ("GC-0001", "qualifies", "GC-0002", "GR-0001", "approved"))
+    assert line.endswith("(GR-0001, approved; modality not recorded; no condition recorded)")
+
+
+def test_the_answer_prompt_forbids_concluding_absence():
+    """F19's wording, approved by the owner (CHAT-0080)."""
+    from tm_knowledge.bulk import jobs
+
+    assert ("Never conclude that a requirement, exception or step does not exist because the "
+            "passages or the graph path do not mention it") in jobs._ANSWER_INSTRUCTIONS.replace("\n", " ")
+    assert jobs.ANSWER_VERSION == "answer-v3"
+    import inspect
+
+    assert '"answer": Job("answer", ANSWER_VERSION,' in inspect.getsource(jobs.registry)
+
+
+def test_relations_carry_modality_and_condition_from_both_stores():
+    from tm_knowledge.authored import corrections, store
+    from tm_knowledge.search.index import relations_from
+
+    rows = relations_from(corrections.served_gold(), store.load())
+    assert rows and all(len(row) == 7 for row in rows)
+    assert any(row[6] for row in rows), "no relationship states a condition"

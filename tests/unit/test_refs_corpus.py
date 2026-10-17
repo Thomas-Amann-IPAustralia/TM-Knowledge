@@ -85,7 +85,7 @@ def test_every_cited_provision_and_case_parses(manual_refs):
 
 def test_every_legislation_ref_parses_and_units_carry_their_root(legislation_refs):
     assert len(legislation_refs["provisions"]) == 763
-    assert len(legislation_refs["units"]) == 5813
+    assert len(legislation_refs["units"]) == 5821  # 5,813 before compilation 48
     for ref in legislation_refs["provisions"]:
         assert parse_ref(ref).kind in (RefKind.PROVISION, RefKind.LEGISLATION)
     for ref in legislation_refs["units"]:

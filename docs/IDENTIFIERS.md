@@ -113,9 +113,10 @@ sequence across `eval/gold/` and `authored/` (ADR-0080 c1) — `GC-` concept, `G
 concept type, `GR-` relationship, `GE-` entity mention, `GS-`/`GA-` questions, `GX-`
 reasoning, `PU-` prohibited use (`eval/schemas/common.schema.json`). Since 2026-10-08
 there is one more: **`GK-` a correction** to a signed record (`authored/corrections.yaml`,
-ADR-0122). A withdrawn id is listed with its reason — signed ones in
+ADR-0122). Since 2026-10-17, **`GD-` a definition** of a concept (`authored/definitions.yaml`,
+ADR-0137): one per concept, its own record because a signed concept cannot be edited. A withdrawn id is listed with its reason — signed ones in
 `eval/gold/retired-ids.yaml`, authored ones in `authored/retired-ids.yaml` — and
-`bulk.jobs.next_number` counts both ledgers and the corrections before allocating.
+`bulk.jobs.next_number` counts both ledgers, the corrections and the definitions before allocating.
 
 **Machine-generated candidates, content-addressed** — so that re-running a
 pipeline over unchanged input produces the same identifiers and does not litter
