@@ -55,6 +55,11 @@ look at; it does not state the law.
 | `#/change/TMM/…` | `change.js` | an amendment timeline (Plot) and every page as a tile in its Part's row, titles in full; pick one to see the ripple, and what rests on it on a mini map |
 | `#/about` | `about.js` | what it is, how it works, the measurement as intervals (Plot), the limits |
 
+**An idea's card shows its own record's fields**, on the map and in the table alike: its
+labels, its definition (`GD-`, stamped), what it rests on, its legislative basis, and the
+"is a kind of" links its record states (`hierarchy`), which no connection carries and so
+are listed, never drawn (Q-96).
+
 **The Manual, the Act and the Regulations each have a colour and a mark** — a blue
 square, an amber diamond, a plum hexagon — wherever a passage appears: map nodes and
 boxes, chips (`refChip`), quotes headed by their source (`quoteBlock`), Ask's diagram.

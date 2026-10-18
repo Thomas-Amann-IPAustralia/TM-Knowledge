@@ -161,6 +161,28 @@ def test_kind_links_add_up_to_the_relationships_between_concepts(files):
 
 
 @needs_snapshot
+def test_every_kind_of_link_a_record_states_reaches_a_page(files):
+    """A concept record's own `broader` / `narrower` fields are in the graph as
+    `skos:broader`, but no relationship record carries them; until S039 the views
+    drew only relationships, and four signed kind-of links were on no page. Each is
+    now a connection or on the card at both ends, naming the record that states it."""
+    onto = files["ontology.json"]
+    by_id = {c["id"]: c for c in onto["concepts"]}
+    drawn = {(r["s"], r["o"]) for r in onto["relations"] if r["p"] == "broader"}
+    stated = {(c["id"], o) for c in onto["concepts"] for o in c["broader"]}
+    stated |= {(o, c["id"]) for c in onto["concepts"] for o in c["narrower"]}
+    assert stated, "no concept record states a hierarchy any more; this test has nothing to hold"
+    for narrow, broad in stated - drawn:
+        up = (by_id[narrow].get("hierarchy") or {}).get("kind_of", [])
+        down = (by_id[broad].get("hierarchy") or {}).get("kinds", [])
+        assert any(i["id"] == broad for i in up), (narrow, broad)
+        assert any(i["id"] == narrow for i in down), (narrow, broad)
+        for item in up + down:
+            origins = {by_id[r]["origin"] for r in item["records"]}
+            assert item["origin"] == ("signed" if origins == {"signed"} else "machine"), item
+
+
+@needs_snapshot
 def test_the_live_prompt_is_the_measured_one(files):
     from tm_knowledge.bulk import jobs
 
@@ -322,5 +344,8 @@ def test_a_concept_card_carries_its_definition_stamped_with_its_source(files):
         d = concept["definition"]
         assert d["review_status"] == "unreviewed" and d["text"] and d["ref"], concept["id"]
         assert d["basis"] in ("statutory_definition", "statutory_provision", "manual")
-    map_js = (SITE / "js" / "map.js").read_text(encoding="utf-8")
-    assert "definition(x.definition)" in map_js and "which states practice, not law" in map_js
+    app_js = (SITE / "js" / "app.js").read_text(encoding="utf-8")
+    assert "export function definitionBlock" in app_js and "which states practice, not law" in app_js
+    # Both cards that show an idea's own fields: the map's and the table's (S039).
+    for card in ("map.js", "table.js"):
+        assert "definitionBlock(x.definition)" in (SITE / "js" / card).read_text(encoding="utf-8"), card

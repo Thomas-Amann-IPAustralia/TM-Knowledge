@@ -1637,3 +1637,21 @@ The explorer names the compilation on every answer from the snapshot's
 `instrument.json`, so it moves with the pin by itself; the prepared answers keep
 `explorer.build.PREPARED_LAW`, the law they were written against, until they are
 re-written.
+
+### Q-96: the explorer's views draw only relationship records, not a concept's own hierarchy
+
+Every view (map, circles, table and its CSV, mini map, change, Ask) builds its lines
+from `ontology.json`'s `relations`, which `explorer.build._relations` fills from
+`GR-` records alone. A concept record's own `broader` / `narrower` / `related` fields
+are in the graph (`skos:broader`, `skos:related`) but are a different thing: no
+relationship record carries them, so they were on no page. S039 found four signed
+kind-of links invisible that way (deception and confusion under "likely to deceive or
+cause confusion", geographical indication under geographical reference, the one
+GK-0037 kept, and deceased person under well-known person). They are now on the card
+at both ends (`concept.hierarchy`, `hierarchyBlock` in `app.js`), naming the records
+that state them, and deliberately not drawn as connections: every page promises a
+connection rests on a quoted sentence, and these rest on a record. The `related`
+lists stay unshown (ADR-0131). `test_every_kind_of_link_a_record_states_reaches_a_page`
+holds it. To check the site against the graph field by field, compare `ontology.json`
+with `graph/approved.ttl` + `graph/authored.ttl`; a concept's kind is on its `GT-`
+typing node (`tmk:typedBy` → `tmk:conceptGroup`), not on the concept.
