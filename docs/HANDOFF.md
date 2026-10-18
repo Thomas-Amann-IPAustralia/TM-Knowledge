@@ -1,45 +1,46 @@
 # HANDOFF
 
-**Last updated:** 2026-10-17 · S038 (end) · branch `claude/awesome-mccarthy-pnx39j`
+**Last updated:** 2026-10-17 · S039 (end) · branch `claude/magical-cerf-49lhls`
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
 
 ## Where things stand
 
-**S038 carried out the owner's approved decisions on the review response** (ADR-0136,
-ruling `review/rulings/2026-10-17-chat-review-response.yaml`, every item closed in its
-`applied.items`). No model was called; recorded spend is still US$9.63 against the US$9.49
-cap, so every paid call is refused.
+**S039 checked that the published explorer shows the current ontology.** No model was
+called; recorded spend is still US$9.63 against the US$9.49 cap, so every paid call is refused.
 
-1. **Stale documents (F12, CHAT-0079).** The ontology report is regenerated from counts with
-   no date, and CI fails if it drifts (`tmk-ontology-report --check`). The root, `ontology/`,
-   `ontology/draft/` and `vocab/` READMEs and the guide are corrected; the concept scheme is
-   "Trade marks examination vocabulary" (IRI still `scheme-s43`); the `data.ipaustralia.gov.au`
-   IRIs are said plainly to be unpublished (OQ-0008 open).
-2. **GC-0017/GC-0018 (CHAT-0082).** GK-0037 removes the signed "related" link and keeps the
-   kind-of link; the S27 note is gone. `eval/gold/` untouched.
-3. **Masked key (CHAT-0081).** The build takes and reads no key; `live.json` names only the
-   proxy; `pages.yml` no longer passes the secret.
-4. **Live chatbot (CHAT-0080).** Path lines carry modality and `applies_when`; the answer
-   prompt (`answer-v3`) forbids concluding absence, in F19's words; the Ask page says the same
-   where it finds nothing. The 129 prepared answers stay `answer-v2`, and the page says so.
-5. **Re-pin (CHAT-0077).** Upstream `308bfd9`, the Act's compilation 48 at
-   `legislation/0.3.0`. Shapes checked first (only `endnotes[].tables[].underlined` is new;
-   nothing reads it). Two records went stale and were re-anchored (GR-0672, GK-0003). The graph
-   states each instrument's compilation; every answer names the law it read. Q-95.
-6. **Definitions (F06, CHAT-0078).** 149 of 164 concepts, `GD-` records in
-   `authored/definitions.yaml` (ADR-0137): 53 the Act's or Regulations' own words, 22 from a
-   provision, 74 from the Manual. Shown on the explorer's concept card, stamped.
-7. **Pitch (OQ-0029).** `docs/PITCH-PACK.md` rewritten to the owner's claims, each number
-   citing its report and commit, and saying it is not re-measured.
+1. **Deployment is current.** `main` at `3ecf410` passed the harness and its Pages run
+   succeeded. The eight data files and every page file served at the live URL are
+   byte-identical to a fresh `tmk-explorer --write` from that commit; only `live.json`
+   differs, because CI sets the proxy endpoint. The committed graph equals a rebuild.
+2. **The site matches the graph, field by field** (a scratch script, not committed):
+   164 concepts, their labels, not-labels, kinds, legislative bases; all 357 relationships
+   (20 signed serving, 337 machine) with subject, predicate, object and modality; the 15
+   withheld signed relationships are exactly those GK-0015 to GK-0029 replace; 149
+   definitions; every machine record stamped unreviewed.
+3. **Two gaps found and fixed.** (a) Four signed "is a kind of" links stated on concept
+   records (deception and confusion under GC-0002; geographical indication under
+   geographical reference, the link GK-0037 kept; deceased person under well-known person)
+   were on no page, because every view draws only `GR-` relationship records. They are now
+   on the idea card at both ends, on the map and in the table, naming the stating records,
+   and not drawn as connections (they rest on a record, not a sentence). Q-96. (b) The
+   table's idea detail and its CSV lacked the S038 definitions; both now carry them, from
+   the map card's block, moved to `app.js`.
+4. **Checked in a browser for the first time since S036**: 13 routes in headless Chromium
+   with no console or page errors; the GC-0018 map card and GC-0002 table detail render
+   with stamps; a hierarchy link opens its idea.
 
-Branch protection (CHAT-0083) and re-measurement (CHAT-0084) were not acted on, as ruled; do
-not raise either unprompted.
+**S038, still the substance** (ADR-0136, ADR-0137): stale documents corrected and the
+ontology report drift-checked; GK-0037 on GC-0017/GC-0018; no key in the build; live path
+lines carry modality and `applies_when`, `answer-v3` forbids concluding absence; re-pin to
+upstream `308bfd9` (the Act's compilation 48); 149 machine-written definitions; the pitch
+pack rewritten to the owner's claims.
 
 Counts: 52 signed + 112 machine-written concepts, all 164 in one connected piece; 35 signed
 relationships (20 serving, 15 corrected) + 337 machine-written; 37 corrections; 149
-definitions. 782 tests pass; harness 0 defects; SHACL 0 defects, 259 notes.
+definitions; 4 signed record-stated kind-of links, now shown. 783 tests pass;
+harness 0 defects; SHACL 0 defects, 259 notes.
 
 ## For the owner
 
@@ -65,7 +66,10 @@ definitions. 782 tests pass; harness 0 defects; SHACL 0 defects, 259 notes.
    7's title, at least): no check finds them yet; re-cite or withdraw through a ledger.
 5. Small: `map.js` draws a `CASE/…` ref as a Manual chip; "Wrote an answer…" with live answers
    off.
-6. Whether the answering model should see definitions is an owner gate (what it is told).
+6. **The four record-stated kind-of links are not in search expansion** (`search/index.py`
+   reads relationship records only), so Ask does not follow them. Left alone: changing it
+   changes what was measured; it belongs with the blend (item 1), in both engines.
+7. Whether the answering model should see definitions is an owner gate (what it is told).
 
 ## What to distrust
 
@@ -76,8 +80,8 @@ definitions. 782 tests pass; harness 0 defects; SHACL 0 defects, 259 notes.
 - **GK-0037's choice** (drop "related", keep "kind of") is the agent's, on CHAT-0082.
 - **The re-anchored records** (GR-0672, GK-0003): only a hyphen moved, but a hash was
   re-copied by hand; their `review_history` says so.
-- **The page changes** (path lines, absence wording, the law line, the definition card) were
-  checked by syntax and the Node parity test, not in a browser.
+- **The Ask page's live answer was not exercised in S039's browser run** (live answers off
+  locally); S038's path-line and absence changes there are still unchecked in a browser.
 - **The pitch's numbers are from 9 and 12 October**, before the restructure, definitions and
   re-pin. **22 legislative bases are unverified.**
 - **The published `site/data/ontology.json` still carries the reviewer's initials** (S028).
@@ -112,6 +116,9 @@ definitions. 782 tests pass; harness 0 defects; SHACL 0 defects, 259 notes.
   `jobs.Context` with `bulk.cli._context()`.
 
 ## Open items (agent-proposed, provisional)
+
+- S039's engineering: the record hierarchy listed on the card, not drawn (Q-96); a pair is
+  shown as signed only if every record stating it is signed.
 
 - ADR-0137 (definitions), S038; ADR-0134 (no OWL profile) and ADR-0135 (`isAnExceptionTo`),
   both S036.

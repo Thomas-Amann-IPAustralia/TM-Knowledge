@@ -109,6 +109,35 @@ export function trustBadge(origin) {
     : `<span class="trust machine" title="Written by a machine; no expert has reviewed it">Machine · unreviewed</span>`;
 }
 
+/** A concept's definition: its own machine-written record (ADR-0137), stamped as
+    such, and saying where its words come from, so the Act's words and the Manual's
+    practice are never read as one another (CLAUDE.md rule 5). */
+export function definitionBlock(d) {
+  if (!d) return "";
+  const src = sourceOf(d.ref) === "act" ? "the Act" : sourceOf(d.ref) === "regs" ? "the Regulations" : "the Manual";
+  const own = src === "the Regulations" ? "the Regulations'" : `${src}'s`;
+  const whose = d.basis === "statutory_definition" ? `${own} own definition, quoted`
+    : d.basis === "statutory_provision" ? `written from ${src}` : "written from the Manual, which states practice, not law";
+  return `<h4>Definition <span class="trust machine" title="Written by a machine; no expert has reviewed it">Machine · unreviewed</span></h4>
+    <p class="small">${esc(d.text)}</p>
+    ${d.scope_note ? `<p class="tiny"><span class="muted">Scope:</span> ${esc(d.scope_note)}</p>` : ""}
+    <p class="tiny">${esc(whose)} ${refChip(d.ref)}</p>`;
+}
+
+/** The "is a kind of" links a concept record states in its own fields, which no
+    connection carries (tmk-explorer works them out). They rest on the record that
+    states them, not on a sentence, and say so. `link(id)` renders the other idea. */
+export function hierarchyBlock(x, link) {
+  const h = x.hierarchy;
+  if (!h) return "";
+  const line = (label, items) => items.length
+    ? `<p class="small"><span class="muted">${label}</span> ${items.map((i) => `${link(i.id)} ${trustBadge(i.origin)}`).join(" · ")}</p>` : "";
+  const records = [...new Set([...h.kind_of, ...h.kinds].flatMap((i) => i.records))].sort();
+  return `<h4>Hierarchy on the record</h4>
+    ${line("A kind of", h.kind_of)}${line("Kinds of it", h.kinds)}
+    <p class="tiny">Stated in the record${records.length === 1 ? "" : "s"} of ${records.map(esc).join(", ")}, not as a connection, so no sentence is cited for it.</p>`;
+}
+
 export function kindChip(kind, ontology) {
   const k = ontology.kinds.find((x) => x.id === kind);
   return `<span class="chip kind-chip" style="--c:${kindColour(kind)}"><i class="dot"></i>${esc(k ? k.label : kind)}</span>`;

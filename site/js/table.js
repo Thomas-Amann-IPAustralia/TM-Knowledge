@@ -14,7 +14,7 @@
    rest (ADR-0130). Each table downloads as a CSV with the same columns, who
    wrote each record, and which text each quote is from (rules 5, 8). */
 
-import { esc, fmt, el, kindColour, kindCount, refChip, refLabel, trustBadge, quoteBlock, sourceOf, SOURCES, legend } from "./app.js";
+import { esc, fmt, el, kindColour, kindCount, refChip, refLabel, trustBadge, quoteBlock, sourceOf, SOURCES, legend, definitionBlock, hierarchyBlock } from "./app.js";
 import { LOOSE, specificCount } from "./kinds.js";
 
 const TABS = [["kinds", "Kinds"], ["ideas", "Ideas"], ["connections", "Connections"]];
@@ -275,12 +275,14 @@ function ideaDetail(ctx, x) {
     <div class="idea-facts">
       ${x.alt.length ? `<p class="small"><span class="muted">Also called</span> ${x.alt.map(esc).join(" · ")}</p>` : ""}
       ${x.not.length ? `<p class="small"><span class="muted">Not the same as</span> ${x.not.map(esc).join(" · ")}</p>` : ""}
+      ${definitionBlock(x.definition)}
       ${first ? `<h4>What it rests on</h4>${quoteBlock(first.ref, first.quote)}${refChip(first.ref)}
         <span class="tiny">${first.for === "kind" ? "quoted when the machine sorted it into its kind" : "quoted by the record itself"}</span>` : ""}
       ${["act", "regs"].map((src) => {
         const list = x.basis.filter((r) => sourceOf(r) === src);
         return list.length ? `<h4>In the ${src === "act" ? "Act" : "Regulations"}</h4><div class="meta">${list.map((r) => refChip(r)).join("")}</div>` : "";
       }).join("")}
+      ${hierarchyBlock(x, (id) => endHtml(ctx, id))}
       ${x.notes ? `<h4>Note on the record</h4><p class="small">${esc(x.notes)}</p>` : ""}
       <h4>Who wrote this record</h4>${provenance(x)}
       <p class="actions-row"><a class="btn small" href="#/map/ideas/${esc(x.id)}">Show on the map</a><a class="btn small" href="#/map/text/${esc(x.id)}">Open into its passages</a></p>
@@ -315,7 +317,8 @@ function ideasCsv(ctx) {
   const { ontology, kinds, relOf } = ctx;
   const head = ["id", "idea", "also_called", "not_the_same_as", "kind", "family", "connections", "passages_naming_it",
     "act_provisions", "regulations_provisions", "rests_on", "rests_on_text", "quote",
-    "record", "review_status", "machine_author", "date", "kind_judged_by", "kind_review_status", "corrected_by"];
+    "record", "review_status", "machine_author", "date", "kind_judged_by", "kind_review_status", "corrected_by",
+    "definition", "definition_basis", "definition_source", "definition_record", "definition_review_status", "kind_of_on_record"];
   return [head, ...ontology.concepts.map((x) => {
     const first = x.evidence.find((e) => e.for === "concept") || x.evidence[0];
     return [x.id, x.label, x.alt.join("; "), x.not.join("; "), kinds.get(x.kind)?.label || x.kind,
@@ -323,7 +326,9 @@ function ideasCsv(ctx) {
       x.basis.filter((r) => sourceOf(r) === "act").map(refLabel).join("; "),
       x.basis.filter((r) => sourceOf(r) === "regs").map(refLabel).join("; "),
       first?.ref || "", first ? sourceText(first.ref) : "", first?.quote || "",
-      ...whoColumns(x), x.typed?.by || "", x.typed?.review_status || "", (x.corrected || []).join("; ")];
+      ...whoColumns(x), x.typed?.by || "", x.typed?.review_status || "", (x.corrected || []).join("; "),
+      x.definition?.text || "", x.definition?.basis || "", x.definition?.ref || "", x.definition?.id || "",
+      x.definition?.review_status || "", (x.hierarchy?.kind_of || []).map((i) => i.id).join("; ")];
   })];
 }
 

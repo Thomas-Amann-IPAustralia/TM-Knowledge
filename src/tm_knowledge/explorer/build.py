@@ -216,6 +216,34 @@ def _relations(gold: Any, authored: Any) -> list[dict[str, Any]]:
     return out
 
 
+def _record_hierarchy(concepts: list[dict[str, Any]], relations: list[dict[str, Any]]) -> None:
+    """The "is a kind of" links a concept record states in its own `broader` /
+    `narrower` fields, set on the card at both ends.
+
+    They are in the graph as `skos:broader`, but no relationship record carries them,
+    so no connection draws them: four signed ones, until this, were on no page. Each
+    names the records that state it, since it rests on them and on no sentence of its
+    own, and is signed only if every one of them is. A pair a relationship already
+    carries is left to it. The `related` lists stay unshown: "is related to" is
+    retired (ADR-0131).
+    """
+    by_id = {c["id"]: c for c in concepts}
+    drawn = {(r["s"], r["o"]) for r in relations if r["p"] == "broader"}
+    pairs: dict[tuple[str, str], set[str]] = defaultdict(set)
+    for concept in concepts:
+        for other in concept["broader"]:
+            pairs[(concept["id"], other)].add(concept["id"])
+        for other in concept["narrower"]:
+            pairs[(other, concept["id"])].add(concept["id"])
+    for (narrow, broad), records in sorted(pairs.items()):
+        if (narrow, broad) in drawn or narrow not in by_id or broad not in by_id:
+            continue
+        origin = "signed" if all(by_id[r]["origin"] == "signed" for r in records) else "machine"
+        for this, key, other in ((narrow, "kind_of", broad), (broad, "kinds", narrow)):
+            held = by_id[this].setdefault("hierarchy", {"kind_of": [], "kinds": []})
+            held[key].append({"id": other, "records": sorted(records), "origin": origin})
+
+
 def _kind_links(concepts: dict[str, dict[str, Any]], relations: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Concept-to-concept relationships rolled up to the kinds at either end.
 
@@ -313,6 +341,7 @@ def ontology(corpus: Corpus, gold: Any, authored: Any, links: links_module.Links
     for rel in relations:
         if rel["id"] in replaced:
             rel["replaces"] = replaced[rel["id"]]
+    _record_hierarchy(concept_list, relations)
     labels = predicate_labels()
     provisions = sorted({r for c in concept_list for r in c["basis"]}
                         | {x for rel in relations for x in (rel["s"], rel["o"]) if not x.startswith("GC-")})

@@ -15,7 +15,7 @@
    (ADR-0130). The text level keeps the Manual, the Act and the Regulations
    apart: a box, a colour and a mark for each. */
 
-import { esc, fmt, el, load, kindColour, kindCount, refChip, refLabel, trustBadge, kindChip, legend, isLaw, sourceOf, quoteBlock, SOURCES, openPassage } from "./app.js";
+import { esc, fmt, el, load, kindColour, kindCount, refChip, refLabel, trustBadge, kindChip, legend, isLaw, sourceOf, quoteBlock, SOURCES, openPassage, definitionBlock, hierarchyBlock } from "./app.js";
 import { KIND_POS, LOOSE, specificCount } from "./kinds.js";
 import * as lib from "./lib.js";
 
@@ -657,21 +657,6 @@ export async function render(root, { ontology, params }) {
     </div>`;
   }
 
-  /** A concept's definition: its own machine-written record (ADR-0137), stamped as
-      such, and saying where its words come from, so the Act's words and the Manual's
-      practice are never read as one another (CLAUDE.md rule 5). */
-  function definition(d) {
-    if (!d) return "";
-    const src = sourceOf(d.ref) === "act" ? "the Act" : sourceOf(d.ref) === "regs" ? "the Regulations" : "the Manual";
-    const own = src === "the Regulations" ? "the Regulations'" : `${src}'s`;
-    const whose = d.basis === "statutory_definition" ? `${own} own definition, quoted`
-      : d.basis === "statutory_provision" ? `written from ${src}` : "written from the Manual, which states practice, not law";
-    return `<h4>Definition <span class="trust machine" title="Written by a machine; no expert has reviewed it">Machine · unreviewed</span></h4>
-      <p class="small">${esc(d.text)}</p>
-      ${d.scope_note ? `<p class="tiny"><span class="muted">Scope:</span> ${esc(d.scope_note)}</p>` : ""}
-      <p class="tiny">${esc(whose)} ${refChip(d.ref)}</p>`;
-  }
-
   function showConcept(x) {
     const rels = relOf.get(x.id) || [];
     const groups = new Map();
@@ -690,13 +675,14 @@ export async function render(root, { ontology, params }) {
       <div class="meta">${kindChip(x.kind, ontology)}${trustBadge(x.origin)}</div>
       ${x.alt.length ? `<p class="small"><span class="muted">Also called</span> ${x.alt.map(esc).join(" · ")}</p>` : ""}
       ${x.not.length ? `<p class="small"><span class="muted">Not the same as</span> ${x.not.map(esc).join(" · ")}</p>` : ""}
-      ${definition(x.definition)}
+      ${definitionBlock(x.definition)}
       ${first ? `<h4>What it rests on</h4>${quoteBlock(first.ref, first.quote)}${refChip(first.ref)}
         <span class="tiny">${first.for === "kind" ? "quoted when the machine sorted it into its kind" : "quoted by the record itself"}</span>` : ""}
       ${["act", "regs"].map((src) => {
         const list = x.basis.filter((r) => sourceOf(r) === src);
         return list.length ? `<h4>In the ${src === "act" ? "Act" : "Regulations"}</h4><div class="meta">${list.map((r) => refChip(r)).join("")}</div>` : "";
       }).join("")}
+      ${hierarchyBlock(x, (id) => `<button class="link" type="button" data-c="${esc(id)}">${esc(byId.get(id)?.label || id)}</button>`)}
       ${x.notes ? `<h4>Note on the record</h4><p class="small">${esc(x.notes)}</p>` : ""}
       ${level() !== "text" ? `<p style="margin-top:1rem"><button class="btn primary small" type="button" data-text>Open into the text it rests on →</button>
         <a class="btn small" href="#/ask">Ask about it</a></p>` : ""}
