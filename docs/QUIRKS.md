@@ -1690,3 +1690,21 @@ Re-running a ledger with `--write` after it has applied regenerates its report f
 is left to do, which is nothing: restore the records and apply the whole ledger in one
 pass instead. Dry-run all four ledgers after touching the applier; each must report 0 to
 re-read and 0 refused.
+
+### Q-99: a paid call can be refused by the session, not the cap; and the answer job needs vectors first
+
+S042 had the owner's US$4 (ADR-0141) and still spent nothing. `tmk-bulk run answer --dry-run`
+refuses before any estimate with "No passage vectors: run `tmk-bulk embed --confirm` first": the
+answer job's search uses the hybrid system, and the vectors (`data/derived/search/*.npy`) are not
+committed. So the first paid call of any answer or measurement run is the vector rebuild (about two
+cents), and in a cloud session that call can be refused by the session's own permission layer as a
+real-world transaction, before the cap is ever consulted. Do not route around it (a test, a script,
+a different command): the owner allows it, by a permission rule or by running the command, and the
+session goes on with the work that needs no spend. A refused call spends nothing and records
+nothing in `data/llm/cache/`.
+
+**Two smaller traps from the same session.** `ontology.dependencies.build` reads every store and
+resolves every hash: about five seconds, so build it once and pass it (`explorer.build` does).
+`graph/manifest.json` is written by `tmk-graph --write` from the dataset, the pin and
+`eval/schemas/`: a schema `$id`, a pin move or any record change moves it, and `--check` compares
+it like the other graph files.

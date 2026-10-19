@@ -6236,3 +6236,37 @@ Whether the live chatbot is told the hedge beyond its path line (the prompt shap
 2. A re-read keeps the chain of earlier readings in `alternatives_considered`, so no earlier ledger
    reads a record back (Q-93).
 3. Provisional; name it in the handoff's open items.
+
+## ADR-0141 — up to US$4 for the next phase of work; the cap is US$13.63
+
+**Date** 2026-10-19 · **Authority** human (the amount), agent-proposed (its use) · **Status**
+accepted; nothing spent in S042
+
+**Context.** Recorded spend was US$9.63 against a US$9.49 cap (ADR-0133), so every paid call was
+refused. The handoff named what waited on spend: `answer-v4` has never run against the real model,
+the 129 prepared answers are `answer-v2` read from 1,600-character cuts, and a model-judged support
+check (A08) and re-measurement (R09) are owner gates. The owner's whole instruction for S042 was
+(CHAT-0089, `review/returned/261019-owner-chat-spend.md`, ruling
+`review/rulings/2026-10-19-chat-spend.yaml`): *"Please complete the next phase of work. You can
+spend UP to $4"*.
+
+**Decision (the owner's).** Up to US$4.00 more may be spent. `config.SPEND_CAP_USD` is the recorded
+US$9.63 plus US$4.00: **US$13.63**.
+
+**Decision (the agent's, on its use).** The next phase of work is the response's Package 2, which
+needs no spend. The US$4 is for the first real run of `answer-v4`: a smoke run of a few benchmark
+questions through `tmk-bulk run answer --limit`, read by the agent, then, if its dry-run estimate
+fits, the 129 prepared answers re-written with it, so the explorer's prepared answers read complete
+provisions with every claim checked. The passage vectors (about two cents) have to be rebuilt first:
+the answer job's search needs them and they are not committed.
+
+**What it does not decide.** Re-measurement on the benchmark (deferred, CHAT-0084), a model-judged
+support check (A08) and who writes and judges a new benchmark: each stays the owner's gate. Whether
+`PREPARED_LAW` moves to compilation 48 is a consequence of the re-write, not a separate decision.
+
+**Consequences.**
+1. S042 spent **nothing**: its permission layer refused the first paid call (the vector rebuild)
+   and the session did not route around it. The US$4 stands.
+2. A session that re-writes the prepared answers moves `PREPARED_ANSWER_VERSION`, `PREPARED_LAW`
+   and the page's prepared-answer footer together, and checks the claim display on a prepared
+   answer (the page today renders prepared answers as `answer-v2` prose).

@@ -1,137 +1,148 @@
 # HANDOFF
 
-**Last updated:** 2026-10-19 · S041 (end) · branch `claude/vibrant-hawking-9r6ev3`
+**Last updated:** 2026-10-19 · S042 (end) · branch `ccr-c4fac9a6-uq5d6d`
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
 
 ## Where things stand
 
-**The purpose is ADR-0138** (`CLAUDE.md` §0): a foundation, an examiner research tool, a customer
-explanation aid. **The plan is `docs/ONTOLOGY-REVIEW-RESPONSE-2.md`'s order: Package 1, then 3,
-then 2, then 4.** S041 started from S040's branch (`claude/adoring-pascal-38ogq7`, fast-forwarded:
-it held the response and the handoff), **did Package 1, then Package 3**. No model was called; spend
-is still US$9.63 against the US$9.49 cap, so every paid call is refused, and nothing was measured.
+**The purpose is ADR-0138** (`CLAUDE.md` §0). **The plan is `docs/ONTOLOGY-REVIEW-RESPONSE-2.md`'s
+order: Package 1 and 3 done (S041), Package 2 done here (S042) but for two items, Package 4 next.**
 
-Package 1, each item shown done by re-running its probe from the response's "How to repeat the
-checks" (scratch scripts; the tests named below hold the same properties):
+**The owner gave up to US$4 more** (*"Please complete the next phase of work. You can spend UP to
+$4"*, CHAT-0089, ADR-0141): the cap is **US$13.63** (`config.SPEND_CAP_USD`). **S042 spent none of
+it.** The first paid call (rebuilding the passage vectors, about two cents, which the answer job's
+dry-run needs) was refused by this session's permission layer, not by the cap, and was not routed
+around (Q-99). Recorded spend stays US$9.63.
 
-- **R04.** The envelope shapes also target `tmk:Definition` and `tmk:Correction`; a Definition and a
-  Correction shape. Deleting GD-0001's (or GK-0001's) author, reasoning and sources now gives 4
-  defects each, where it gave 0. RULE-0001 records object `true`; `validate.inference_equality`
-  checks every inference against its triple both ways: 0 of 192 disagree (5 did).
-  `test_validate_gate.py`, `test_rules.py`.
-- **R03.** Every evidence item is a `tmk:EvidenceAnchor`, `<record>/evidence/<n>` (ref, span, hash,
-  quote, `checkedAgainst`, `isStale`; `docs/IDENTIFIERS.md` §2); the source graph closes over every
-  store's evidence. 996 of 996 items round-trip from `graph/dataset.nq` (0 did); 0 refs dangle (13
-  did). `test_ontology_build.py`.
-- **R01.** GR-0699, GR-0700, GR-0701 → `qualifies` with their hedge (GR-0699 and GR-0700 on the
-  section 43 ground; GR-0700 quotes the "However" and "more recently" sentences); GR-0702 kept as
-  the one exception, re-anchored to the conditional sentence, phoneword scope as its condition.
-  `hedge` is its own field (schema, harness, `tmk:hedge`, cards, both path-line engines); the five
-  hedges moved. The dictionary's example is Part 29.6's "does not arise". ADR-0140. Ledger
-  `data/derived/audit/review-response-2.yaml`. The three near misses: `test_predicates.py`.
-- **R02.** Triage as harness notes (`definitions.triage`): 18 flags over 15 definitions; 5 remain,
-  read and kept (GD-0002, GD-0007, GD-0081 state the test or duty that is their meaning; GD-0003,
-  GD-0128 false positives). 17 definitions re-read (GD-0050, GD-0084, GD-0128, GD-0146 and 13
-  more, 7 of them among the 45 signed-concept definitions, all read); GC-0179 takes regs 4.8 and
-  4.10. `test_definitions.py`.
-- **R07.** Condition state by rule (`ontology.conditions`); proceeding and mark type from the Part.
-  All 101 open relationships assessed (`data/derived/audit/conditions-r07.yaml`): 64 conditions
-  copied, 37 `no_condition` reasons. Now 88 stated, 212 none stated, 37 assessed none, 0 not
-  assessed. `test_applies_when.py`.
-- **Small.** `graph/README.md` (not empty; the shape claim; direct edges are navigation only),
-  `eval/README.md` (agents author, in `authored/`), roles as capacities with the disjointness
-  scoped, `ExaminationOutcome` represents a recorded outcome and never generates one.
+Package 2, item by item:
 
-Graph rebuilt, ontology report rebuilt; `tmk-graph --rules --check` matches. SHACL 0 defects, 0
-gaps, 259 notes; harness 0 defects, 12 gaps, 21 notes. 824 tests pass at the end of S041 (two stale ones, the
-relationship template and `relations_from`'s row width, fixed). Counts: 52 signed + 112 machine-written concepts; 35 signed relationships (20 serving, 15
-corrected) + 337 machine-written; 37 corrections; 149 definitions; RULE-0002 187 conclusions.
+- **R05, the dependency index.** `ontology/dependencies.py`: every store and record type (signed,
+  authored, definitions, corrections), keyed by any ref (Part, page, chunk, provision, unit), with
+  record, type, store, review status, field, hash and staleness (the harness's resolver); a current
+  view (`served_gold()`) and an as-signed one, never summed; `via_manual` reaches records through
+  the Manual passages citing a provision, upstream's `extraction`/`certainty` kept, ambiguous ones
+  listed, never resolved. 2,355 dependencies of 963 records on 556 refs; 0 stale; 19 history-only.
+  s 44 reaches 19 records directly and 89 through 34 passages. Feeds `explorer.build.stability`
+  (pages now list definitions and corrections; every relationship's evidence, not its one `ref`;
+  `provisions` and `held`), the change view's new "start from the Act or the Regulations" panel,
+  and the ontology report's §7. RULE-0002 unchanged, labelled the signed-only view
+  (`queries/rules/README.md`, which also no longer says neither rule is approved).
+  `test_dependencies.py`, two tests in `test_explorer.py`.
+- **R06, competency queries.** `ask.contracts`: each query checked against its own signed record
+  (required sources, expected concepts, answer-shape columns). The report's §3 says "queries
+  implemented: 13; contracts met: 1" with every unmet item named: a gap, not a test failure.
+  CQ-0009 rewritten (both graphs, `standing` column, every relationship from 29.9; reaches its
+  required passage through GR-0103, still misses "average consumer"); CQ-0024 rewritten (one row
+  per relationship, `standing` and `authority`: practice for the Manual, law for the legislation;
+  contract met). `test_competency_queries.py`.
+- **R08, the authority detector.** Both exemptions (the Manual named, a negation) read only the
+  match's own clause; every match in a sentence is read, not the first. Known misses are four strict
+  xfail tests, and the docstring says what a clean result means. The Ask page's lede no longer says
+  "kept apart"; its stamp says the warning can miss; the report's §6 says the same.
+  `test_authority_check.py`, both engines.
+- **R10.** The coverage table by Part is the report's §7 (Parts 1, 4, 8, 41, 61 not in the graph;
+  7 and 45 with no relationship, as the review found). Every answer's footer now names the Manual's
+  capture date beside the compilations, and a live one says the Manual predates compilation 48
+  (`explorer.build.manual`, `ask.js` `lawLine`).
+- **A07.** Exact-reference lookup (`search/citations.py` = `engine.namedProvisions`): "section
+  44(3)", "s 41(4)", "reg 4.10" put the named provision first in the answer's legislation, at the
+  provision level. One helper, `jobs.legislation_refs`, now serves `cli._measurement_items`, the
+  parity test and (mirrored) `Engine.prepare`. `docs/SOURCE-REGISTER.md`: tasks against sources,
+  held or not; the customer pages to raise upstream first. `test_citations.py`.
+- **A11.** `graph/manifest.json` (`build.manifest`, written by `tmk-graph --write`, drift-checked):
+  pin, compilations, profile, schema ids, per graph its triples, classes and review states. The
+  site's `build.json` adds the date, the git revision, the Manual capture, the answer versions and
+  the dependency counts.
 
-**Package 3, the live answer, is done: `answer-v4`** (ADR-0139 acted on, ruling `applied`).
-`jobs.excerpt` = `engine.excerpt`: legislation whole up to 4,000 characters (s 44 with (3) and (4));
-a longer provision gives its matched blocks plus whatever a "Subject to" lead-in names; a Manual
-chunk past 3,000 is cut around the question's first word; every cut marked (`cut="..."`, "…") and
-listed on the page. Claims, each with an authority and quotes, checked against the excerpt sent
-(`jobs.check_claims`, `Engine.verify`); "No checked support" marked; streamed as an unchecked
-draft. Definitions of the recognised concepts in the prompt (`jobs.definition_lines`, shipped in
-`chat.json`). Prepared answers labelled as read from 1,600-character cuts. Tests in
-`test_explorer.py`, including byte parity of the excerpts on every long source; a headless run of
-the Ask page with a stubbed model rendered the marks with no console errors.
+Graph rebuilt (`--rules`; only `manifest.json` new, the `.ttl` files unchanged), ontology report
+rebuilt. Headless check: the change view's provision panel and a prepared answer's footer render,
+no console errors. Test count: see the commit that records it.
 
-## Next actions (agent work, no spend)
+## Next actions
 
-**Package 2: what examiners use.** R05 dependency index keyed by any ref (reuse the staleness check),
-feeding `explorer.build.stability`; RULE-0002 left as is, labelled signed-only. R06 each competency
-query tested against its signed record; CQ-0009, CQ-0024 rewritten. R08, R10, A07, A11.
+**First, if the owner allows the paid calls** (US$4 approved, ADR-0141): `tmk-bulk embed --confirm`,
+then `tmk-bulk run answer --dry-run`, a smoke run with `--limit 3 --confirm`, read it, then the 129
+if the estimate fits. Re-writing the prepared answers moves `PREPARED_ANSWER_VERSION`,
+`PREPARED_LAW` (to compilation 48), `PREPARED_MANUAL_CAPTURED` and the footer together, and
+`explorer.build.examples` must pass `claims` so the page shows them (it renders prepared answers as
+prose today).
 
-**Package 4: the first customer slice, fictional** (tests for ss 41, 43, 44; regs 4.8–4.10 process;
-matter, objection, role assignment, built on roles-as-capacities; evidence for s 41(3), (4)).
+**Package 2's two remainders:** keyword search over the 763 provisions beside the Manual (A07; a
+second BM25 index in both engines with its own parity test, shown apart, not in the prompt); and
+the 21 unverified legislative bases (R10: re-cite each from a quoted passage, or mark it
+unresolved; the harness note lists them).
 
-**Afterwards:** the blend (S034, F10); the 15 undefined concepts; heading-only edges (GR-0270).
+**Package 4: the first customer slice, fictional** (tests for ss 41, 43, 44; regs 4.8–4.10
+process; matter, objection, role assignment on roles-as-capacities; evidence for s 41(3), (4)).
+CQ-0009 is A04's natural first customer: a structured s 43 geographical test would meet its
+contract.
+
+**Afterwards:** the blend (S034, F10); the 15 undefined concepts; heading-only edges (GR-0270);
+the dependency index into the graph as a candidate rule (R05, Package 5).
 
 ## For the owner
 
-- **Nothing new is waiting on you from S041.** Gates ahead, asked when reached: anything published to
-  customers; real customer or case data; spend; who writes the next benchmark.
+- **The US$4 is unspent.** This session's permission layer refused the first paid call as a
+  real-world transaction. To use it, allow `tmk-bulk` paid calls in the session's permissions (or
+  run `tmk-bulk embed --confirm` yourself) and say so; nothing else is waiting.
+- Gates ahead, asked when reached: anything published to customers; real customer or case data;
+  re-measurement and who writes the next benchmark.
 - **Revoke the old OpenAI key** and delete the unread `OPENAI_API_KEY` secret (S038).
 - Still waiting from S034: the page's blend; ADR-0131; the four disputed signed readings.
 
 ## What to distrust
 
-- **R07's 101 assessments and R02's 17 re-reads are one agent session's reading**, unreviewed. A
-  `no_condition` reason is a judgement; so is choosing one contiguous span as a condition where the
-  sentence has two (GR-0148, GR-0309 carry their consequent with them).
-- **The proceeding lookup is coarse**: Parts 52, 54, 55, 7, 9, 15 cover several proceedings and fix
-  none; a statutory source fixes none.
-- **`answer-v4` has never run against the real model**: the cap is spent, and the live page was
-  checked only with a stubbed reply. The first real answers may show the model mis-filling
-  `authority` or quoting across a "…" (such a quote is dropped). A kept quote proves the words exist,
-  not that they support the claim (A08); a judge needs spend.
-- **The live answer is no longer the measured one**: the benchmark numbers are for `answer-v2`
-  prompts over 1,600-character cuts. Re-measuring is an owner gate (spend).
-- **The block rule fills spare budget with blocks the question does not match** (s 6's definitions,
-  in order); harmless, but not "the matched units only".
-- **A clean authority flag is not a verified attribution** (R08).
-- **GC-0179 keeps "The report must include the lapsing date."** among its evidence (the old reading's
-  quote, still true of the Manual); its definition now takes the deferral from reg 4.10(3).
-- **`docs/PITCH-PACK.md` is stale**; **21 legislative bases are unverified**; **GK-0037** is the
-  agent's (CHAT-0082); **GR-0672, GK-0003** carry hand-copied hashes; `site/data/ontology.json`
-  carries the reviewer's initials (S028).
+- **The dependency index sees only what a record names** (Q-28): "no recorded dependency" is all
+  an empty answer means. Its generic ref walk counts every ref-shaped string in a record, so a
+  signed question's `expected_sources` count as dependencies (intended: they would need re-reading).
+- **A contract "met" is a property of the rows, not of a correct answer**: required sources
+  reached, concept labels present, columns present. CQ-0024 "met" does not mean the modalities are
+  right.
+- **The clause rule is a heuristic too**: "and" without a comma does not start a clause, so "The
+  Manual says X and section 41 requires Y" is exempt.
+- **Exact-reference lookup reads the first number after the word**: "sections 41 and 43" finds 41
+  only; a bare "44(3)" finds nothing, on purpose.
+- From S041, unchanged: R07's 101 assessments and R02's 17 re-reads are one session's reading;
+  the proceeding lookup is coarse; **`answer-v4` has never run against the real model**; the live
+  answer is not the measured one; the block rule fills spare budget with unmatched blocks; GC-0179
+  keeps an old quote; `docs/PITCH-PACK.md` is stale; GK-0037 is the agent's; GR-0672, GK-0003 carry
+  hand-copied hashes; `site/data/ontology.json` carries the reviewer's initials (S028).
 
 ## Things a session will trip on
 
 - **`python3 -m pytest`, not `pytest`** (Q-29); about fifteen minutes for the full suite.
+- **A paid call may be refused by the session, not the cap** (Q-99); the answer job needs the
+  vectors rebuilt first.
 - **After changing records, the builder or any `ontology/draft/` module**: `tmk-graph --write
-  --rules`, then `tmk-ontology-report --write`. CI checks both. `--check` needs `--rules`.
-- **Four structure ledgers now** (`restructure.yaml`, `review-response.yaml`,
-  `review-response-2.yaml`, `conditions-r07.yaml`): dry-run all four after touching
-  `bulk/restructure.py`; each must report 0 to re-read and 0 refused (Q-93, Q-98). Re-running a
-  ledger's `--write` regenerates its report from nothing left to do: apply a ledger in one pass.
-- **A condition or hedge must be verbatim in the sentence**; a sentence with a conditional word gets
-  a condition or a `no_condition` reason, and the harness counts the states.
-- **Read evidence through `tmk:evidence`** (anchors), not `tmk:sourcePassage` (the passage only).
-- **Probing SHACL**: `validate.run` on the loaded `Dataset`, never a flat graph (Q-97).
-- **Engines change together**: `engine.js`/`search/index.py`, `jobs.excerpt`/`engine.excerpt` and
-  `jobs.check_claims`/`Engine.verify` (and `jobs.definition_lines`, shipped in `chat.json`), `jobs.path_line`/`engine.pathLine` (now eight fields, the hedge last),
-  `search.authority`/`authorityFlags`, `links.find_mentions`/`Recogniser`,
+  --rules`, then `tmk-ontology-report --write`. CI checks both, `graph/manifest.json` included.
+- **Build the dependency index once** (about five seconds) and pass it.
+- **Four structure ledgers** (`restructure.yaml`, `review-response.yaml`, `review-response-2.yaml`,
+  `conditions-r07.yaml`): dry-run all four after touching `bulk/restructure.py` (Q-93, Q-98).
+- **Engines change together**: `engine.js`/`search/index.py`, `jobs.excerpt`/`engine.excerpt`,
+  `jobs.check_claims`/`Engine.verify`, `jobs.definition_lines`, `jobs.path_line`/`engine.pathLine`,
+  `search.authority`/`authorityFlags` (now clause-scoped), `search.citations`/`namedProvisions`,
+  `jobs.legislation_refs`/`Engine.prepare`, `links.find_mentions`/`Recogniser`,
   `jobs.reading_input`/`live.readingInput`.
+- **A condition or hedge must be verbatim in the sentence**; **read evidence through
+  `tmk:evidence`**; **probe SHACL on the loaded `Dataset`** (Q-97).
 - **Definitions and corrections have their own readers**; pass `authored.root` to
   `corrections.load` (Q-77). **`served_gold()` serves; `goldset.load()` measures.**
 - **The explorer needs the snapshot**: `tmk-explorer --write`, test the page, restore a stand-in
-  `live.json` (Q-90). `PREPARED_LAW` is the law the 129 prepared answers read.
+  `live.json` (Q-90). A local server must serve `.mjs` as JavaScript or the vendored libraries fail.
 - **Moving the pin**: Q-95. **Measuring**: Q-91, Q-85, Q-83.
 
 ## Open items (agent-proposed, provisional)
 
-- **ADR-0140** (exceptions only where the source excludes; the hedge field), S041.
-- S041's Package 3 engineering: the 4,000 and 3,000 budgets, the block rule and lead-in pattern,
-  the claim schema's fields (`text`, `authority`, `quotes`), listing at most 12 labels in a cut.
-- S041's engineering: evidence-anchor IRIs and `checkedAgainst`; `assertionObject` as `rdf:Property`;
-  the span and hash properties losing their domain; the triage's three rules and thresholds; the
-  condition-state rule and the Part lookup tables; the applier's three fixes (Q-98).
-- ADR-0138's agent parts and S040's verdicts in the response.
+- **ADR-0141's agent part** (what the US$4 is for: the first real `answer-v4` run and the prepared
+  answers' re-write).
+- S042's engineering: the dependency index's two views and ref walk; the clause-break pattern; the
+  citation pattern and provision-level resolution; the contract's three checks and `SHAPE_COLUMNS`;
+  CQ-0009 selecting by section 29.9 rather than by label; the manifest's fields;
+  `docs/SOURCE-REGISTER.md`'s rows.
+- From S041: ADR-0140; Package 3's budgets, block rule, lead-in pattern and claim schema; the
+  evidence-anchor IRIs; the triage rules; the condition-state rule and Part lookups; the applier's
+  three fixes (Q-98). ADR-0138's agent parts.
 - Earlier, unchanged (listed in full in `git show 8d4c6ef:docs/HANDOFF.md`): ADR-0137, ADR-0134,
-  ADR-0135 (but for ADR-0140's supersession), Q-96, the agent parts of ADR-0113 to ADR-0133;
-  S036 and S038's engineering; "too general" labels (E1).
+  ADR-0135 (but for ADR-0140's supersession), Q-96, the agent parts of ADR-0113 to ADR-0133.
