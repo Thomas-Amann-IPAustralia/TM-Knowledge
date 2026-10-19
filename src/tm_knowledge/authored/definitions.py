@@ -26,6 +26,7 @@ it, the record says so or is not written" (ADR-0079 guard 2).
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -36,7 +37,7 @@ from tm_knowledge.authored import store as authored_store
 from tm_knowledge.stage0 import goldset
 from tm_knowledge.stage0.schemas import SchemaError, validator_for_file
 
-__all__ = ["DEFINITIONS_FILE", "SCHEMA", "BASES", "Definition", "Definitions", "load"]
+__all__ = ["DEFINITIONS_FILE", "SCHEMA", "BASES", "Definition", "Definitions", "Flag", "load", "triage"]
 
 DEFINITIONS_FILE = "definitions.yaml"
 SCHEMA = "definition.schema.json"
@@ -148,3 +149,67 @@ def load(
         defined.add(str(record.get("concept")))
         entries.append(Definition(record=record, envelope=envelope, errors=tuple(errors)))
     return Definitions(entries=tuple(entries), path=path)
+
+
+# ---------------------------------------------------------------------------
+# triage: three deterministic checks for a definition that omits a qualification
+# ---------------------------------------------------------------------------
+#
+# The second review response (R02) found four definitions that drop a qualification
+# their source states: GD-0050 (s 41 does not apply to certification marks), GD-0128
+# (s 11(1)(c) left out), GD-0084 ("unless ... prescribed in reg 21.28"), GD-0146
+# ("unless acceptance is deferred"). Three checks find the first three in seconds and
+# run on every definition written later. They flag for a reader; they decide nothing,
+# and a flag that was read and stands stays a note.
+
+#: A qualifier that, just after a quoted Manual span, may limit what the span says.
+_QUALIFIER = re.compile(r"\bHowever\b|\bBut\b|\b[Uu]nless\b|\bdoes not apply\b")
+#: How far after a quoted span a qualifier is looked for.
+_AFTER = 200
+#: An obligation or a consequence in a definition's own words.
+_CONSEQUENCE = re.compile(r"\bmust\b|\brejected\b", re.IGNORECASE)
+
+
+@dataclass(frozen=True)
+class Flag:
+    id: str
+    check: str
+    message: str
+
+
+def _parent(ref: str) -> str | None:
+    found = re.match(r"^(.*)\([^()]*\)$", ref)
+    return found.group(1) if found else None
+
+
+def triage(definitions: Definitions, corpus: Any, kinds: dict[str, str]) -> list[Flag]:
+    """(a) a statutory definition quoting some paragraphs of a subsection and not the
+    rest; (b) Manual evidence followed, within 200 characters of the same chunk and
+    outside any other quoted span, by "However", "But", "unless" or "does not apply";
+    (c) the definition of a concept that is not a ground for rejection stating "must"
+    or "rejected", an obligation or consequence kept apart from the meaning (for a
+    ground, the rejection is the meaning). `kinds` maps a concept to its kind."""
+    out: list[Flag] = []
+    for entry in definitions.sound:
+        evidence = [e for e in (entry.envelope or {}).get("evidence") or () if isinstance(e, dict)]
+        cited = {str(e.get("ref")) for e in evidence if str(e.get("ref", "")).startswith(("TMA", "TMR"))}
+        for parent in sorted({p for r in cited if (p := _parent(r)) and "(" in p}):
+            children = [k for k in corpus.units if k.startswith(parent + "(") and "~" not in k
+                        and "(" not in k[len(parent) + 1:].split(")", 1)[1]]
+            missing = sorted(k for k in children if k not in cited)
+            if missing and len(missing) < len(children):
+                out.append(Flag(entry.id, "a", f"quotes some paragraphs of {parent} and not {', '.join(missing)}"))
+        for item in evidence:
+            ref, span = str(item.get("ref", "")), item.get("span") or (0, 0)
+            chunk = corpus.chunks.get(ref) if ref.startswith("TMM/") else None
+            if chunk is None:
+                continue
+            found = _QUALIFIER.search(chunk.text, span[1], span[1] + _AFTER)
+            if found and not any(o.get("ref") == ref and o["span"][0] <= found.start() < o["span"][1]
+                                 for o in evidence if o.get("span")):
+                tail = " ".join(chunk.text[found.start():found.start() + 70].split())
+                out.append(Flag(entry.id, "b", f"{ref} continues after the quote: \u201c{tail}\u2026\u201d"))
+        if kinds.get(entry.concept) != "ground_of_refusal" and _CONSEQUENCE.search(str(entry.record.get("text"))):
+            out.append(Flag(entry.id, "c", "states an obligation or a consequence (\"must\" or \"rejected\") "
+                                          "in the definition of a concept that is not a ground"))
+    return out

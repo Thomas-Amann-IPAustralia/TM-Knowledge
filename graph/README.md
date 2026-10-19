@@ -62,13 +62,28 @@ graph asserts *about* each node rather than in the mapping itself:
   — still says what it is. The named graph is the boundary; the stamp is what
   survives leaving it;
 - every node carries `tmk:authoredBy`, `tmk:authoredDate`, `tmk:authoringBasis`
-  and `tmk:authoringReasoning`, and a SHACL shape refuses one that does not;
+  and `tmk:authoringReasoning`, and a SHACL shape refuses one that does not:
+  relationships, concepts and typings (`tmk:AuthoredAssertion`), and since S041
+  definitions (`tmk:Definition`) and corrections (`tmk:Correction`), which until
+  then escaped the shapes (the second review response, R04);
+- every evidence item is a `tmk:EvidenceAnchor`, `<record>/evidence/<n>`, with its
+  ref, span, hash, quote and the snapshot it was checked against
+  (`docs/IDENTIFIERS.md` §2); `tmk:sourcePassage` stays on the record as the
+  shortcut (R03);
 - `tmk:approvedBy` on a node here is a shape violation. It is the single failure
   the whole scheme exists to prevent (ADR-0079 guard 3).
 
-**It is empty today and committed anyway.** An empty declared graph is the honest
-state of a repo that has authored nothing yet, and it stops being empty without
-any code changing.
+**It holds most of the graph.** It was empty when this README was first written
+and filled without any code changing: since S040 it carries over 16,000 triples,
+every one machine-written and unreviewed.
+
+**A relationship's direct edge is a navigation projection, not a legal reading.**
+Each relationship is stated twice (ADR-0058): the reified assertion, which carries
+the sentence, its condition (`tmk:appliesWhen`), its hedge (`tmk:hedge`), its
+condition state (`tmk:conditionState`: stated, none stated, assessed none, not
+assessed) and the proceeding and kind of mark its Part fixes; and the bare direct
+triple, which carries none of them. The assertion is the reading; the direct triple
+is for traversal and search, and nothing may be inferred from it (ADR-0134, R07).
 
 **The two record graphs are never summed.** No figure in any generated report
 adds `approved` to `authored`. The question a reader has is how much of what

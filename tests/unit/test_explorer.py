@@ -349,3 +349,128 @@ def test_a_concept_card_carries_its_definition_stamped_with_its_source(files):
     # Both cards that show an idea's own fields: the map's and the table's (S039).
     for card in ("map.js", "table.js"):
         assert "definitionBlock(x.definition)" in (SITE / "js" / card).read_text(encoding="utf-8"), card
+
+
+# --- answer-v4: what the answer is given of each source (A06, ADR-0139) -------------
+
+
+@needs_snapshot
+@pytest.mark.skipif(shutil.which("node") is None, reason="needs Node to run the browser engine")
+def test_the_browser_cuts_every_long_source_exactly_as_python_does(files, tmp_path):
+    """Every provision past the law budget and every Manual chunk past the Manual one,
+    each with a question that matches somewhere in it and one that matches nothing."""
+    from tm_knowledge.bulk import jobs
+    from tm_knowledge.upstream.loader import load_corpus
+
+    corpus = load_corpus()
+    explorer.write(files, tmp_path)
+    long_law = [r for r, p in corpus.provisions.items() if len(p.text or "") > jobs.LAW_CHARS]
+    long_manual = [r for r, c in corpus.chunks.items() if len(c.text) > jobs.MANUAL_CHARS]
+    assert long_law and long_manual
+    cases = [[ref, q] for ref in long_law + long_manual
+             for q in ("What does it say about opposition, registration and a certification trade mark?", "zzz")]
+    (tmp_path / "cases.json").write_text(json.dumps(cases), encoding="utf-8")
+    result = subprocess.run(["node", str(REPO_ROOT / "tests" / "explorer_excerpt.mjs"), str(tmp_path),
+                             str(tmp_path / "cases.json")], capture_output=True, text=True, check=True)
+    for (ref, question), js in zip(cases, json.loads(result.stdout)):
+        text = jobs.passage_at(corpus, ref).text
+        py = jobs.excerpt(ref, text, jobs.provision_units(corpus, ref), question)
+        assert (js["text"], js["cut"]) == (py.text, py.cut), (ref, question)
+
+
+@needs_snapshot
+def test_a_section_44_answer_sees_its_exceptions():
+    """The regression A06 found: the 1,600 cut removed subsections (3) and (4), the
+    exceptions subsection (1) is 'Subject to'. Now s 44 is given whole."""
+    from tm_knowledge.bulk import cli, jobs
+
+    ctx = cli._context()
+    payload = {"question": "When does honest concurrent use overcome a section 44 ground?", "recognised": [],
+               "paths": [], "passages": [], "legislation": ["TMA1995/s44"]}
+    prompt = jobs._answer_render(ctx, jobs.Item("s44", payload))
+    text = ctx.corpus.provisions["TMA1995/s44"].text
+    assert text[text.index("(3)"):text.index("(3)") + 60] in prompt
+    assert text[text.index("(4)"):text.index("(4)") + 60] in prompt
+    assert 'ref="TMA1995/s44" cut=' not in prompt
+
+
+def test_a_long_provision_gives_the_matched_parts_and_what_their_lead_in_names():
+    """A provision past the budget: the block the question matches, plus the blocks its
+    'Subject to subsections ...' lead-in names, whatever the budget; the cut is marked."""
+    from tm_knowledge.bulk import jobs
+
+    filler = " ".join(["word"] * 900)
+    units = [("TMA1995/s99(1)", "(1) Subject to subsections (3) and (4), an opposition must be filed."),
+             ("TMA1995/s99(1)(a)", "(a) on time;"),
+             ("TMA1995/s99(2)", "(2) " + filler),
+             ("TMA1995/s99(3)", "(3) The first exception."),
+             ("TMA1995/s99(4)", "(4) The second exception."),
+             ("TMA1995/s99(5)", "(5) " + filler)]
+    text = " ".join(u for _, u in units)
+    shown = jobs.excerpt("TMA1995/s99", text, units, "When must an opposition be filed?")
+    assert "(3) The first exception." in shown.text and "(4) The second exception." in shown.text
+    assert "on time" in shown.text, "a block keeps its paragraphs"
+    assert shown.cut.startswith("parts shown: (1)") and "omitted: " in shown.cut and "…" in shown.text
+
+
+def test_a_long_manual_chunk_is_cut_around_the_questions_words():
+    from tm_knowledge.bulk import jobs
+
+    text = "x " * 2000 + "honest concurrent use is here " + "y " * 2000
+    shown = jobs.excerpt("TMM/Part28/1#1", text, None, "honest concurrent use")
+    assert "honest concurrent use is here" in shown.text
+    assert shown.text.startswith("…") and shown.text.endswith("…") and shown.cut.startswith("characters ")
+    assert jobs.excerpt("TMM/Part28/1#1", "short", None, "anything") == jobs.Excerpt("short")
+
+
+def test_a_claim_is_supported_only_by_a_quote_from_what_was_sent():
+    """A08: the check runs against the excerpt the model was given, so a quote from a
+    part that was cut is dropped, and a claim left with none is unsupported."""
+    from tm_knowledge.bulk import jobs
+
+    sent = {"TMA1995/s99": jobs.Excerpt("(1) An opposition must be filed on time. …", "parts shown: (1); omitted: (2)")}
+    claims = jobs.check_claims([
+        {"text": "It must be filed on time.", "authority": "legislation",
+         "quotes": [{"ref": "TMA1995/s99", "quote": "An opposition must be filed on time."}]},
+        {"text": "The cut part says more.", "authority": "legislation",
+         "quotes": [{"ref": "TMA1995/s99", "quote": "words only in the omitted part"},
+                    {"ref": "TMM/Part1/1#1", "quote": "a passage that was never sent"}]},
+        {"text": "No quote at all.", "authority": "bogus", "quotes": []},
+    ], sent)
+    assert [c["supported"] for c in claims] == [True, False, False]
+    assert len(claims[1]["dropped"]) == 2 and claims[2]["authority"] == "none"
+
+
+@needs_snapshot
+def test_the_prompt_gives_the_recognised_concepts_definitions_with_basis_and_stamp():
+    from tm_knowledge.bulk import cli, jobs
+
+    ctx = cli._context()
+    payload = {"question": "What is a connotation?", "recognised": ["GC-0001"], "paths": [], "passages": [],
+               "legislation": []}
+    prompt = jobs._answer_render(ctx, jobs.Item("d", payload))
+    line = jobs.definition_lines(ctx)["GC-0001"]
+    assert line in prompt and "GD-0001" in line and "machine-written, unreviewed" in line
+    assert "written from the Manual, which states practice, not law" in line
+    assert "statutory_definition" not in prompt
+
+
+@needs_snapshot
+def test_the_bulk_answer_job_records_claims_and_drops_quotes_from_outside_what_was_sent():
+    from tm_knowledge.bulk import cli, jobs
+
+    ctx = cli._context()
+    payload = {"question": "When does honest concurrent use overcome a section 44 ground?", "recognised": [],
+               "paths": [], "passages": [], "legislation": ["TMA1995/s44"]}
+    s44 = ctx.corpus.provisions["TMA1995/s44"].text
+    parsed = {"claims": [
+        {"text": "Section 44 is subject to its exceptions.", "authority": "legislation",
+         "quotes": [{"ref": "TMA1995/s44", "quote": s44[5:60]}]},
+        {"text": "Unsupported.", "authority": "legislation",
+         "quotes": [{"ref": "TMA1995/s6", "quote": "a provision that was not sent to the model"}]},
+    ], "concepts_used": [], "declined": False, "decline_reason": ""}
+    outcome = jobs._answer_accept(ctx, jobs.Item("k", payload), parsed, {"model_reported": "m"})
+    row = outcome.records["answers"][0]
+    assert [c["supported"] for c in row["claims"]] == [True, False] and row["prompt_version"] == "answer-v4"
+    assert row["answer"].startswith("Section 44 is subject") and len(row["citations"]) == 1
+    assert any("not in what was sent" in r for r in outcome.refused)

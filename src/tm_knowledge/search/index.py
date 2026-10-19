@@ -234,15 +234,17 @@ def find_words(question: str, words: str) -> tuple[int, int] | None:
     return None if at < 0 else (index[at], index[at + len(wanted) - 1] + 1)
 
 
-def relations_from(gold: Any, authored: Any) -> list[tuple[str, str, str, str, str, str, str]]:
+def relations_from(gold: Any, authored: Any) -> list[tuple[str, str, str, str, str, str, str, str]]:
     """Concept-to-concept relationships from both stores, with their origin kept, and
-    the modality and condition each record states ("" where it states none), so the
-    answering model reads a relationship as qualified as its sentence (ADR-0136, F14)."""
+    the modality, condition and hedge each record states ("" where it states none), so
+    the answering model reads a relationship as qualified as its sentence (ADR-0136,
+    F14; the hedge since S041, the second review response R01)."""
     out = []
     for origin, records in (("approved", gold["gold_relationship"]), ("authored", authored["gold_relationship"])):
         for r in records:
             s, o = str(r["subject"]), str(r["object"])
             if s.startswith("GC-") and o.startswith("GC-"):
                 out.append((s, str(r["predicate"]), o, str(r["id"]), origin,
-                            str(r.get("modality") or ""), str(r.get("applies_when") or "")))
+                            str(r.get("modality") or ""), str(r.get("applies_when") or ""),
+                            str(r.get("hedge") or "")))
     return out

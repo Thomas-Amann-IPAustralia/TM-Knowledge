@@ -19,7 +19,8 @@ from tm_knowledge.refs import PREFIXES, iri_for, to_iri
 __all__ = [
     "TMK", "TMKC", "TMKP", "TMKA", "TMKG",
     "DCTERMS", "OWL", "PROV", "RDF", "RDFS", "SH", "SKOS", "XSD",
-    "bind_all", "ref_node", "concept_node", "assertion_node", "proposition_node",
+    "bind_all", "ref_node", "concept_node", "assertion_node", "evidence_node",
+    "proposition_node",
     "SOURCE_GRAPH", "APPROVED_GRAPH", "AUTHORED_GRAPH", "INFERRED_GRAPH",
     "NAMED_GRAPHS",
 ]
@@ -93,6 +94,17 @@ def concept_node(concept_id: str) -> URIRef:
 def assertion_node(record_id: str) -> URIRef:
     """`GR-0001` -> `tmka:GR-0001`. One assertion resource per gold record."""
     return URIRef(iri_for("tmka", record_id))
+
+
+def evidence_node(record: URIRef, ordinal: int) -> URIRef:
+    """The `ordinal`th evidence item of a record, as a node of its own.
+
+    `tmka:GD-0050` -> `tmka:GD-0050/evidence/1`, numbered from 1 in the order the
+    record's `evidence:` list gives them. Minted from the record's own IRI so an
+    anchor is never shared between records and a rebuild mints the same one
+    (IDENTIFIERS.md §2; the second review response, R03).
+    """
+    return URIRef(f"{record}/evidence/{ordinal}")
 
 
 def proposition_node(record_id: str) -> URIRef:

@@ -151,7 +151,12 @@ tmk:UncheckedStalenessShape
 
 tmk:AuthoredAssertionShape
     a sh:NodeShape ;
-    sh:targetClass tmk:AuthoredAssertion ;
+    # A definition and a correction are machine-written records too, and neither is
+    # a subclass of tmk:AuthoredAssertion, so each is named here. Until S041 both
+    # escaped the envelope: a definition or a correction with its author, date,
+    # reasoning and sources deleted validated with no defect (the second review
+    # response, R04; Q-97). Every record class added later gets the same targets.
+    sh:targetClass tmk:AuthoredAssertion, tmk:Definition, tmk:Correction ;
     rdfs:label "An authored assertion says who wrote it, when, and on what"@en-AU ;
     sh:property [
         sh:path tmk:goldRecord ;
@@ -223,7 +228,7 @@ tmk:AuthoredAssertionShape
 
 tmk:AuthoredEvidenceShape
     a sh:NodeShape ;
-    sh:targetClass tmk:AuthoredAssertion ;
+    sh:targetClass tmk:AuthoredAssertion, tmk:Definition, tmk:Correction ;
     rdfs:label "An authored assertion cites the corpus or says it cannot"@en-AU ;
     sh:or (
         [ sh:property [
@@ -237,6 +242,87 @@ tmk:AuthoredEvidenceShape
         ] ]
     ) ;
     sh:message "This assertion says the corpus supports it and names no passage. Either cite the passage, or record the basis as general_knowledge and let a reviewer reach it first — the one thing that may not happen is the claim without the citation (ADR-0079 guard 2)." .
+
+# What a definition and a correction are, beyond the envelope. A definition names
+# the one concept it defines, its words and where the words come from (ADR-0137);
+# a correction names the record it corrects and the owner's ruling it acts on
+# (ADR-0122). Either without these is text with nothing to attach it to.
+
+tmk:DefinitionShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:Definition ;
+    rdfs:label "A definition names its concept, its words and their basis"@en-AU ;
+    sh:property [
+        sh:path tmk:defines ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "A definition that defines no concept, or more than one. One record per concept defined (ADR-0137)." ;
+    ] ;
+    sh:property [
+        sh:path <http://www.w3.org/2004/02/skos/core#definition> ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:minLength 1 ;
+        sh:message "A definition with no text." ;
+    ] ;
+    sh:property [
+        sh:path tmk:definitionBasis ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "statutory_definition" "statutory_provision" "manual" ) ;
+        sh:message "No basis, or one outside the three. A reader must be able to tell the Act's own words from the agent's reading of the Manual (CLAUDE.md rule 5)." ;
+    ] ;
+    sh:property [
+        sh:path tmk:evidence ;
+        sh:minCount 1 ;
+        sh:message "A definition whose evidence carries no span, hash or quote in the graph. Its words cannot be checked against the passage they rest on (the second review response, R03)." ;
+    ] .
+
+tmk:CorrectionShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:Correction ;
+    rdfs:label "A correction names what it corrects and the ruling it acts on"@en-AU ;
+    sh:property [
+        sh:path tmk:corrects ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "A correction that corrects nothing, or more than one record." ;
+    ] ;
+    sh:property [
+        sh:path tmk:ruling ;
+        sh:minCount 1 ;
+        sh:minLength 1 ;
+        sh:message "A correction to a signed record with no owner's ruling behind it. A signed record is corrected only on the owner's instruction (ADR-0122)." ;
+    ] .
+
+# Every evidence item an authored record rests on, as a node of its own: the ref,
+# the measured span, the content hash and the quote (the second review response,
+# R03). A span without a hash cannot be checked for staleness; a hash without a
+# span says which passage, not which sentence.
+
+tmk:EvidenceAnchorShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:EvidenceAnchor ;
+    rdfs:label "An evidence anchor locates a sentence in a version of a passage"@en-AU ;
+    sh:property [
+        sh:path tmk:sourcePassage ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "An evidence anchor that names no passage." ;
+    ] ;
+    sh:property [
+        sh:path tmk:upstreamRef ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "An evidence anchor with no upstream ref, so nothing outside this graph can find the passage." ;
+    ] ;
+    sh:property [
+        sh:path tmk:sourceContentHash ;
+        sh:maxCount 1 ;
+        sh:pattern "^sha256:[0-9a-f]{64}$" ;
+        sh:message "A content hash that is not one. Staleness detection reads this and nothing else." ;
+    ] ;
+    sh:property [
+        sh:path tmk:checkedAgainst ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "An evidence anchor that does not say which snapshot its hash was checked against." ;
+    ] .
 
 # The cross-check that survives flattening. The named graphs are the separation;
 # a validator sees their union, so this is what would catch machine output that

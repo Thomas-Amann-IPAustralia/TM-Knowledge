@@ -4885,7 +4885,7 @@ ref, in the store.
 
 ## ADR-0109 — the project is a pitch, and a working demonstrator soon outranks completeness
 
-**Date** 2026-10-07 · **Authority** human · **Status** accepted
+**Date** 2026-10-07 · **Authority** human · **Status** accepted · **purpose (the first decision) superseded by ADR-0138**; the second stands
 
 **Context.** The owner, in a chat session, after building a second project with
 Claude Code from concept to working prototype quickly and committing the method
@@ -4938,7 +4938,7 @@ chooses (OQ-0028).
 
 ## ADR-0110 — the pitch proposal is adopted: a finish line, a pipeline, lighter process
 
-**Date** 2026-10-07 · **Authority** human · **Status** accepted · **Answers OQ-0028**
+**Date** 2026-10-07 · **Authority** human · **Status** accepted · **Answers OQ-0028** · **D4 (the pitch pack) superseded by ADR-0138**
 
 **Context.** `docs/PITCH-PROPOSAL.md` (ADR-0109) proposed a finish line, a batch
 pipeline in place of hand-authoring, a measured comparison with plain search, an
@@ -5985,7 +5985,7 @@ revises by its own ADR.
 
 **Date** 2026-10-16 · **Authority** agent-proposed · **Status** accepted · supersedes the
 `doesNotGiveRiseTo` mapping in ADR-0126's agent decision 2, and nothing of the owner's
-decision there
+decision there · its reading of GR-0699, GR-0700 and GR-0701 superseded by ADR-0140
 
 **Context.** ADR-0126 decided, on the owner's word, that being an exception is an edge. Its
 agent part chose `doesNotGiveRiseTo` to be that edge and declared `tmk:Exception ≡
@@ -6107,3 +6107,132 @@ definitions (that changes what it is told, an owner gate).
 **Consequences.** 149 definitions: 53 statutory, 22 from a provision, 74 from the Manual. A
 statutory definition whose unit changes at the next pin move goes stale like any evidence
 (Q-95). The harness reports refused definitions as defects and the count as a note.
+
+## ADR-0138 — the ontology is a foundation; examiners and customers are its immediate users; the pitch is left to go stale
+
+**Date** 2026-10-19 · **Authority** human · **Status** accepted, acted on in S040 · supersedes
+ADR-0109's first decision (the purpose is a pitch) and ADR-0110's D4 (a pitch pack)
+
+**Context.** The first version of `docs/ONTOLOGY-REVIEW-RESPONSE-2.md` found ChatGPT's
+consolidated review technically accurate but judged most of its A-series against the purpose this
+log recorded, a pitch demonstrator for examiners (ADR-0109), and recommended that scope stay. The
+owner replied in chat (CHAT-0085, CHAT-0086; words verbatim in
+`review/returned/261019-owner-chat-purpose.md`; ruling at
+`review/rulings/2026-10-19-chat-purpose.yaml`).
+
+**Decision (the owner's).**
+1. *"The ontology is being written to operate as a foundational layer for any future machine
+   learning, machine decision making, customer service delivery or policy writing aid (simulating
+   flow on affects of amendments). In the immediate, for examiners, it must operate as a research
+   and decision-support tool, helping them quickly identify relevant sections of guidance,
+   legislation and related material. The immediate use case for IP Australia's 'customers' is
+   about improving understanding of trade mark requirements, the application process and
+   objections raised during examination (likely an LLM driven chatbot with clear visuals for
+   explainability)."* The owner says this has always been the intention.
+2. *"forget about the pitch deck. Let it go stale. We don't waste tokens on reviewing a pitch whose
+   product is still being developed."*
+
+**What it does not decide.** It withdraws none of ADR-0109's second decision (a working system
+soon outranks completeness), ADR-0110's way of working, or any hard rule in `CLAUDE.md` §2. No
+system states an examination outcome; the signed prohibited uses stand (ADR-0082 c4). "Machine
+decision making" is named as a future use the foundation must serve, not one this repository
+performs: the foundation must be able to *represent* a recorded decision without any product
+*making* one, and whether any service may predict or make decisions is a later owner decision with
+its own validation. Publishing a customer-facing chatbot, testing with customers, and using real
+customer or case data stay owner gates (`CLAUDE.md` §3a).
+
+**The agent's parts (S040, agent-proposed).** `CLAUDE.md` §0 keeps D1 to D3 and makes D4 a
+customer explanation aid, with a done-test the agent wrote; §3a's gate on what the system may say
+names the customer beside the examiner, and adds real customer or case data as a gate. The order
+of work is `docs/ONTOLOGY-REVIEW-RESPONSE-2.md` ("Recommended order of work"): repair the
+foundation first, then one fictional vertical slice for the customer use, then widen. Structured
+legal tests are captured as data within ADR-0009 as it stands (it allows decision tables); a
+superseding ADR is owed only if a named use needs defeasibility or rule priorities in an engine.
+
+**Consequences.**
+1. `CLAUDE.md`'s opening and §0, and `docs/RULES-IN-FORCE.md`'s purpose lines, now say this.
+2. `docs/PITCH-PACK.md` and the private deck are left as they are, unreviewed and stale; the docs
+   index says so. No session spends tokens on them.
+3. The consolidated review's A-series is in scope as foundation work, sequenced as the response
+   sets out; nothing in it licenses stating an outcome.
+
+## ADR-0139 — the live chatbot gets complete provisions, claim-level checking and, after their repair, the definitions
+
+**Date** 2026-10-19 · **Authority** human · **Status** accepted, acted on in S041 (`answer-v4`;
+the ruling's `applied` says what changed) · answers the two decisions in
+`docs/ONTOLOGY-REVIEW-RESPONSE-2.md`
+
+**Context.** The re-evaluated response (ADR-0138) found two live defects in the examiner chatbot:
+every passage is cut at 1,600 characters, which removes section 44's subsections (3) and (4) (A06);
+and the citation check runs against the full stored text rather than the excerpt sent, passes an
+answer with no citations, and leaves a dropped citation's sentence on the page (A08). Changing what
+the chatbot is given and shown is an owner gate (`CLAUDE.md` §3a), as is giving it definitions
+(open since S038). The owner answered in chat (CHAT-0087, CHAT-0088; words verbatim in
+`review/returned/261019-owner-chat-approvals.md`; ruling at
+`review/rulings/2026-10-19-chat-approvals.yaml`).
+
+**Decision (the owner's).** *"I approve both the decision points you raised."*
+1. **CHAT-0087.** The live answer is given complete legislative units, with every cut marked in the
+   prompt and on the page (A06 step 1); and it returns claims, each carrying its own quotes, checked
+   against the excerpt actually sent, with an unsupported claim marked as such and the answer
+   streamed as a visibly unchecked draft (A08's deterministic parts).
+2. **CHAT-0088.** The answering model is given definitions, once Package 1 has re-read the flagged
+   ones (R02). Each keeps its basis and its unreviewed stamp in the prompt.
+
+**What it does not decide.** A model-judged support check (does this quote support this claim?):
+that is a paid call and needs a quote and the owner's spend. Re-writing the 129 prepared answers,
+which stay at `answer-v2` and are labelled as written from cut passages. Anything shown to
+customers. The engineering (budgets, the schema's field names, the answer version's name) is the
+agent's.
+
+**Consequences.**
+1. A new answer version in `bulk/jobs.py` and `site/js/engine.js` together (the parity test holds
+   them identical), with the page's display in `site/js/ask.js`.
+2. Order: Package 1 first (it repairs the definitions this decision waits on), then this, then the
+   rest of the response's Package 2.
+3. The session that builds it fills the ruling's `applied` and marks this ADR acted on.
+
+## ADR-0140 — an exception edge only where the source excludes the case; the hedge is its own field
+
+**Date** 2026-10-19 · **Authority** agent-proposed · **Status** accepted · supersedes ADR-0135's
+reading of GR-0699, GR-0700 and GR-0701 (and its "each hedge or condition in `applies_when`"),
+and nothing else of ADR-0135
+
+**Context.** ADR-0135 made `isAnExceptionTo` the exception edge and re-read four records onto it,
+three of them hedged ("rarely", "Generally", "not likely") with the hedge in `applies_when`.
+ChatGPT's consolidated review (R01) and S040's check found that the three state a tendency, not a
+case the ground does not reach; that GR-0700's chunk goes on "However, a relevant connotation may
+arise if the deceased person's estate ... has continued to control the use"; that GR-0699's object
+was every ground, not section 43's; that GR-0702 rested on a reconsideration sentence; and that the
+dictionary's own example for the predicate was GR-0700's hedged sentence, rendered into the relate
+prompt. Five records held a hedge or an outcome in `applies_when` (GR-0565, GR-0574, GR-0608,
+GR-0699, GR-0700).
+
+**Decision (the agent's).**
+1. `isAnExceptionTo` is used only where the source excludes the case. Its definition says so, and
+   its example is Part 29.6's "a section 43 ground for rejection does not arise" for an application
+   by the well-known person; a tendency goes on `qualifies` with its hedge.
+2. A relationship carries a `hedge` (the sentence's strength word, verbatim) apart from
+   `applies_when` (the antecedent, verbatim): schema, harness check, `tmk:hedge` in the graph, the
+   explorer's cards and table, and the answer prompt's path line (`jobs.path_line`,
+   `engine.pathLine`), which adds `hedged "…"` only where one is recorded, so every other line is
+   unchanged.
+3. S041's ledger (`data/derived/audit/review-response-2.yaml`): GR-0699 → GC-0020 `qualifies`
+   GC-0168 (where business identifiers are included; "rarely"; 29.9.5 as evidence that the ground
+   is section 43's); GR-0700 → GC-0027 `qualifies` GC-0168 ("in respect of long deceased historical
+   figures"; "Generally"; the "However" and "more recently" sentences as evidence); GR-0701 →
+   GC-0048 `qualifies` GC-0002 ("not likely"); GR-0702 kept, re-anchored to the conditional
+   sentence with the reconsideration one as second evidence and the phoneword scope as its
+   condition; the hedges of GR-0565, GR-0574 and GR-0608 moved.
+4. No likelihood or reconsideration predicate: eleven predicates already have one use, and the
+   degree belongs on the record where a test record can read it.
+
+**What it does not decide.** Structured tests with conjunctions and exceptions (A04, Package 4).
+Whether the live chatbot is told the hedge beyond its path line (the prompt shape is ADR-0139's).
+
+**Consequences.**
+1. One `isAnExceptionTo` edge remains (GR-0702); `test_predicates.py` holds the three near misses
+   the review named.
+2. A re-read keeps the chain of earlier readings in `alternatives_considered`, so no earlier ledger
+   reads a record back (Q-93).
+3. Provisional; name it in the handoff's open items.

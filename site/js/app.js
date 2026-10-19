@@ -112,6 +112,19 @@ export function trustBadge(origin) {
 /** A concept's definition: its own machine-written record (ADR-0137), stamped as
     such, and saying where its words come from, so the Act's words and the Manual's
     practice are never read as one another (CLAUDE.md rule 5). */
+/** The condition and the hedge a connection's sentence states it under, in its own words
+ * (review response F14; the hedge split from the condition in S041, R01). Shown beside the
+ * connection so it never reads as more than its sentence says. */
+export function qualifiedLine(r) {
+  // A sentence with a conditional word nobody has assessed says so (R07): absent a
+  // condition, it may still hold only in some cases.
+  const unknown = r.condition === "not_assessed"
+    ? `<p class="tiny muted">Its sentence has a conditional word (if, where, unless, when, except) that no one has assessed yet.</p>` : "";
+  if (!r.when && !r.hedge) return unknown;
+  const parts = [r.when ? `only when “${esc(r.when)}”` : "", r.hedge ? `stated as “${esc(r.hedge)}”` : ""].filter(Boolean);
+  return `<p class="small"><b>Only as the source qualifies it:</b> ${parts.join("; ")}</p>`;
+}
+
 export function definitionBlock(d) {
   if (!d) return "";
   const src = sourceOf(d.ref) === "act" ? "the Act" : sourceOf(d.ref) === "regs" ? "the Regulations" : "the Manual";

@@ -30,8 +30,8 @@ from tm_knowledge.ontology.namespaces import (
 )
 
 __all__ = [
-    "SHAPES_DIR", "PLACEMENT_SHAPE", "S27_SHAPE", "Finding", "ValidationReport",
-    "load_shapes", "placement", "skos_integrity", "run",
+    "SHAPES_DIR", "PLACEMENT_SHAPE", "S27_SHAPE", "EQUALITY_SHAPE", "Finding", "ValidationReport",
+    "load_shapes", "placement", "skos_integrity", "inference_equality", "run",
 ]
 
 SHAPES_DIR = REPO_ROOT / "shapes"
@@ -250,6 +250,51 @@ def skos_integrity(dataset: Dataset) -> list[Finding]:
     return out
 
 
+EQUALITY_SHAPE = "An inference and the triple it emits agree"
+
+
+def inference_equality(dataset: Dataset) -> list[Finding]:
+    """Each inferred assertion records the triple its rule emitted, and nothing else.
+
+    Read in the inferred named graph, both ways: every `tmk:InferredAssertion`'s
+    subject, predicate and object is a triple there, and every triple there that is
+    not part of an assertion's own record is recorded by one. Until S041 RULE-0001
+    recorded the chunk as its object while emitting `true`, so 5 of 192 inferences
+    described a triple that did not exist (the second review response, R04). A
+    pySHACL constraint over the flattened graph could be satisfied by the same
+    triple in another graph, so this reads the named graph directly.
+    """
+    graph = dataset.graph(INFERRED_GRAPH)
+    recorded = set()
+    out = []
+    for node in set(graph.subjects(RDF.type, TMK.InferredAssertion)):
+        triple = (
+            graph.value(node, TMK.assertionSubject),
+            graph.value(node, TMK.assertionPredicate),
+            graph.value(node, TMK.assertionObject),
+        )
+        recorded.add(triple)
+        if None in triple or triple not in graph:
+            out.append(Finding(
+                severity="defect", shape=EQUALITY_SHAPE, node=str(node), path="assertionObject",
+                value=str(triple[2]) if triple[2] is not None else None,
+                message="This inference records a triple its rule did not emit. The explanation "
+                        "and the conclusion must be the same statement, or a reader following "
+                        "the explanation reaches a different fact from the one served.",
+            ))
+    records = set(graph.subjects(RDF.type, TMK.InferredAssertion))
+    for triple in graph:
+        if triple[0] in records or triple in recorded:
+            continue
+        out.append(Finding(
+            severity="defect", shape=EQUALITY_SHAPE, node=str(triple[0]),
+            path=str(triple[1]).rsplit("/", 1)[-1], value=str(triple[2]),
+            message="A triple in the inferred graph that no inferred assertion records. An "
+                    "inference that cannot name its rule and premises does not publish.",
+        ))
+    return out
+
+
 def _flatten(dataset: Dataset) -> Graph:
     """The graphs the shapes run over, as one graph.
 
@@ -357,7 +402,7 @@ def run(
         meta_shacl=False,
         allow_warnings=True,
     )
-    own = [*placement(dataset), *skos_integrity(dataset)]
+    own = [*placement(dataset), *skos_integrity(dataset), *inference_equality(dataset)]
     return ValidationReport(
         conforms=conforms and not any(finding.severity == "defect" for finding in own),
         findings=sorted(

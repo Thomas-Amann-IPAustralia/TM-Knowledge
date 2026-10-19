@@ -1,0 +1,140 @@
+# Written by S041 from the second review response's R01, then kept as the ledger.
+# Edit lines here, not records: `tmk-bulk restructure --ledger` checks and applies them.
+note: 'S041''s re-reading of the four isAnExceptionTo edges and the five hedges held as conditions, from the second review
+  response (docs/ONTOLOGY-REVIEW-RESPONSE-2.md, R01), on the owner''s instruction of 2026-10-19 to carry out its Package 1,
+  under the standing instruction of 2026-10-09 to represent the information correctly and accurately (CHAT-0073). Machine-written
+  by an agent session, unreviewed: a judgement per line for an examiner to disagree with. Applied by `tmk-bulk restructure
+  --ledger data/derived/audit/review-response-2.yaml --write`.'
+session: S041
+authored_by: claude-code-agent-S041
+date: '2026-10-19'
+ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml
+ruling_item: CHAT-0073
+review: the second review response's R01 (S041)
+report: data/derived/reports/review-response-2-edges.md
+ledger_path: data/derived/audit/review-response-2.yaml
+title: The second review response's R01 (S041)
+intro: ChatGPT's consolidated review found that three of the four isAnExceptionTo edges state a likelihood, not a case a ground
+  does not reach, and the fourth rests on the wrong sentence; S040's response found five records whose applies_when held a
+  hedge or an outcome in place of a condition. Since S041 a relationship carries its condition (applies_when, the antecedent)
+  and its hedge (the strength word) apart, both copied verbatim. Every line below is an agent session's judgement (`claude-code-agent-S041`),
+  machine-written and unreviewed.
+edges:
+- edge: GR-0699
+  to:
+  - GC-0020
+  - qualifies
+  - GC-0168
+  evidence:
+  - ref: TMM/Part29/9/9/6
+    quote: Where business identifiers are included in a trade mark (e.g. A TASMANIAN COMPANY, RIVERINA DAIRY CO.) this tends
+      to indicate a characteristic of a business rather than the goods or services themselves. A ground for rejection will
+      rarely apply in these cases.
+  - ref: TMM/Part29/9/9/5
+    quote: An applicant will be able to overcome a geographical section 43 objection by agreeing to a condition of registration
+      or a specification amendment which removes the likelihood of consumers being deceived or confused.
+  applies_when: Where business identifiers are included in a trade mark
+  hedge: rarely
+  why: '''A ground for rejection will rarely apply'': a tendency, not an exclusion, so the identifier bears on the assessment
+    (qualifies) rather than taking the case out. The paragraph is Part 29.9.6, inside section 43''s treatment of geographical
+    references, whose ground 29.9.5 calls ''a geographical section 43 objection''; the object is that ground, not every ground
+    for rejection, so a business identifier challenged on another ground is not covered. The condition and the hedge travel
+    apart.'
+- edge: GR-0700
+  to:
+  - GC-0027
+  - qualifies
+  - GC-0168
+  evidence:
+  - ref: TMM/Part29/6/6/2~1
+    quote: Generally, a section 43 ground for rejection will not arise in respect of long deceased historical figures, even
+      if they were well known for the same field as the specified goods/services are in.
+  - ref: TMM/Part29/6/6/2~1
+    quote: However, a relevant connotation may arise if the deceased person’s estate (or other authorised entity) has continued
+      to control the use of the person’s name/image after their death, e.g. by commercialising directly or licensing to third
+      parties.
+  - ref: TMM/Part29/6/6/2~1
+    quote: The more well-known the person is, and the more recently they died (especially from the mid-twentieth century onwards),
+      the more likely consumers will be to know about or expect this kind of control.
+  applies_when: in respect of long deceased historical figures
+  hedge: Generally
+  why: '''Generally ... will not arise'' for the long deceased, and the same chunk goes on: ''However, a relevant connotation
+    may arise if the deceased person''s estate ... has continued to control the use'', and the more recently they died, the
+    more likely. Being deceased bears on the section 43 assessment; it does not take the case out of it, and for the recently
+    deceased whose estate controls the name the ground may well arise. Both qualifying sentences are now evidence on the record.'
+- edge: GR-0701
+  to:
+  - GC-0048
+  - qualifies
+  - GC-0002
+  applies_when: if the geographic reference is ambiguous or fanciful
+  hedge: not likely
+  why: '''Deception or confusion is not likely to occur if ...'' is the test''s own outcome on those facts, framed as likelihood:
+    the closest of the four to an exclusion, but the source states a tendency, and the test still supplies the reasoning.
+    The hedge is recorded beside the condition.'
+- edge: GR-0702
+  to:
+  - GC-0035
+  - isAnExceptionTo
+  - GC-0168
+  evidence:
+  - ref: TMM/Part29/7#1
+    quote: A section 43 ground for rejection will apply if the applicant for a trade mark containing material likely to be
+      viewed as a phoneword, or the numbers representing a phoneword, is not also the owner (or authorised user) of that phoneword.
+  - ref: TMM/Part29/7#1
+    quote: The section 43 ground for rejection will be reconsidered if an applicant provides information confirming that they
+      are the owner or authorised user of the phoneword.
+  applies_when: a trade mark containing material likely to be viewed as a phoneword, or the numbers representing a phoneword
+  why: 'Kept as an exception: the ground applies to a phoneword mark only if the applicant ''is not also the owner (or authorised
+    user) of that phoneword'', so being the owner takes the case out of the phoneword ground. Re-anchored to that conditional
+    sentence, with the reconsideration sentence as second evidence: information prompting reconsideration is a procedural
+    step, not acceptance. The condition now carries the phoneword scope, so the edge no longer reads as true of the owner
+    of any mark.'
+- edge: GR-0565
+  to:
+  - GC-0113
+  - keepsEarlierDate
+  - GC-0091
+  applies_when: null
+  hedge: usually
+  why: '''usually'' is how strongly the sentence states it, not a circumstance: moved from applies_when to hedge.'
+- edge: GR-0574
+  to:
+  - GC-0031
+  - qualifies
+  - GC-0059
+  applies_when: in a composite trade mark containing additional distinctive elements
+  hedge: usually
+  why: applies_when held the condition and the outcome together ('... will usually have sufficient inherent adaptation to
+    distinguish'); the condition is the composite mark with other distinctive elements, and 'usually' is the hedge.
+- edge: GR-0608
+  to:
+  - GC-0144
+  - isServedOn
+  - GC-0046
+  applies_when: null
+  hedge: usually
+  why: '''usually the person named in a subpoena'' is the hedge with the object restated, not a condition; the sentence goes
+    on to accept a subpoena directed to ''the proper officer'' as well.'
+concepts:
+- concept: GC-0179
+  set:
+    notes: 'A written report in which the Registrar tells an applicant of grounds for rejecting the application, or that
+      it was not made in accordance with the Act or Regulations: after examination (reg 4.8), and again after a response
+      (reg 4.10).'
+    legislative_basis:
+    - TMR1995/r4.8
+    - TMR1995/r4.10
+    definition_sources:
+    - TMM/Part16/2#1
+    - TMM/Part18/3/3/1/2
+  evidence:
+  - ref: TMM/Part18/3/3/1/2
+    quote: Reg 4.8 of the Trade Mark Regulations 1995 requires the Registrar to issue an adverse report to the applicant
+      if they reasonably believe that a ground for rejection exists under the Trade Marks Act 1995 or that the application
+      has not been made in accordance with the Act or Regulations.
+  why: 'The concept was fixed to the further report after a response: its notes, its basis (reg 4.10 alone) and its
+    definition. The Manual also calls the first report under reg 4.8 an adverse report (Part 18.3.3.1.2), so both
+    regulations are its basis and both passages its sources (S040''s response, R02). ''further adverse report'' stays
+    an alternative label: it names the reg 4.10 report, which is still an adverse report.'
+  check: Whether 'adverse report' in the Manual ever means something other than a report under reg 4.8 or reg 4.10.

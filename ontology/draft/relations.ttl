@@ -12,6 +12,12 @@
 # with usage counted from eval/gold/ and authored/ apart.
 # Do not hand-edit: a test compares this file against a regeneration.
 # To change a predicate, change the dictionary; to add one, the owner admits it.
+#
+# A direct triple using one of these predicates is a navigation projection. The legal
+# reading is the reified assertion beside it, which carries the sentence, its
+# condition (tmk:appliesWhen), its hedge (tmk:hedge) and its condition state; the
+# direct triple carries none of them, and nothing may be inferred from it (ADR-0134;
+# the second review response, R07).
 
 <https://data.ipaustralia.gov.au/tmk/ns/relations>
     a owl:Ontology ;
@@ -496,10 +502,10 @@ tmk:isAnExceptionTo a owl:ObjectProperty ;
     rdfs:label "is an exception to"@en-AU ;
     rdfs:domain tmk:LegalMatter ;
     rdfs:range tmk:LegalMatter ;
-    skos:definition "The subject is a case the object — a ground or test — does not reach: where the subject is present, the ground or test does not apply, as far as the source says and qualified as it qualifies it."@en-AU ;
+    skos:definition "The subject is a case the object — a ground or test — does not reach: where the subject is present, the source says the ground or test does not apply. Only where the source excludes the case; a source that says the ground rarely, generally or is not likely to apply states a tendency, and the hedge goes on a qualifies edge."@en-AU ;
     tmk:reading "<case> is an exception to <ground or test>"@en-AU ;
-    skos:example "Generally, a section 43 ground for rejection will not arise in respect of long deceased historical figures."@en-AU ;
-    tmk:counterExample "Not for something that is only not enough on its own, which leaves the ground open; use doesNotGiveRiseTo."@en-AU ;
+    skos:example "Part 29.6: if the application is submitted by the well-known person, or with their permission, \"a section 43 ground for rejection does not arise\"."@en-AU ;
+    tmk:counterExample "Not for a tendency ('generally', 'rarely', 'not likely'); use qualifies with the hedge. Not for something only not enough on its own, which leaves the ground open; use doesNotGiveRiseTo. Not for reconsideration once information is supplied, which is a step."@en-AU ;
     tmk:admittedBy "owner-2026-10-09" ;
     tmk:expectedSubjectKind tmk:GroundOfRefusal ;
     tmk:expectedSubjectKind tmk:LegalTest ;
@@ -515,10 +521,10 @@ tmk:isAnExceptionTo a owl:ObjectProperty ;
     tmk:expectedObjectKind tmk:GroundOfRefusal ;
     tmk:expectedObjectKind tmk:LegalTest ;
     tmk:usageCount 0 ;
-    tmk:authoredUsageCount 4 ;
+    tmk:authoredUsageCount 1 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
-    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 4, unreviewed."@en-AU .
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 1, unreviewed."@en-AU .
 
 tmk:isAssessedIn a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -1066,14 +1072,14 @@ tmk:qualifies a owl:ObjectProperty ;
     tmk:expectedObjectKind tmk:UseInTrade ;
     tmk:expectedObjectKind tmk:LegislativeProvision ;
     tmk:usageCount 4 ;
-    tmk:authoredUsageCount 54 ;
+    tmk:authoredUsageCount 57 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:usedBy "GR-0017" ;
     tmk:usedBy "GR-0023" ;
     tmk:usedBy "GR-0035" ;
     tmk:usedBy "GR-0040" ;
-    rdfs:comment "Signed usage: 4 relationships (GR-0017, GR-0023, GR-0035, GR-0040). Machine-written usage: 54, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 4 relationships (GR-0017, GR-0023, GR-0035, GR-0040). Machine-written usage: 57, unreviewed."@en-AU .
 
 tmk:requiresConsentOf a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;

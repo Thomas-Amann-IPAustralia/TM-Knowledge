@@ -53,6 +53,7 @@ from tm_knowledge.authored import corrections as corrections_module
 from tm_knowledge.authored import definitions as definitions_module
 from tm_knowledge.authored import store as authored_module
 from tm_knowledge.config import REPO_ROOT
+from tm_knowledge.ontology import conditions
 from tm_knowledge.ontology import decisions as decisions_module
 from tm_knowledge.ontology import hygiene
 from tm_knowledge.ontology.namespaces import (
@@ -66,6 +67,7 @@ from tm_knowledge.ontology.namespaces import (
     assertion_node,
     bind_all,
     concept_node,
+    evidence_node,
     proposition_node,
     ref_node,
 )
@@ -351,6 +353,10 @@ class Store:
     #: (narrower, broader) -> the written reason a "kind of" link stands beside a
     #: not-label (review D4, ADR-0125). Authored store only.
     affirmed: dict[tuple[str, str], dict[str, Any]] = field(default_factory=dict)
+    #: The pinned snapshot, against which each evidence anchor's hash is checked.
+    #: None only for a store built without one, whose anchors then say nothing
+    #: about staleness or version (and fail the anchor shape, as they should).
+    corpus: Any = None
 
     @property
     def signed(self) -> bool:
@@ -383,7 +389,7 @@ def approved_store(gold: goldset.GoldSet, replaced: dict[str, str] | None = None
     )
 
 
-def authored_store(authored: authored_module.AuthoredSet) -> Store:
+def authored_store(authored: authored_module.AuthoredSet, corpus: Corpus | None = None) -> Store:
     return Store(
         name="authored",
         records=authored,
@@ -395,6 +401,7 @@ def authored_store(authored: authored_module.AuthoredSet) -> Store:
             if entry.sound and entry.envelope
         },
         affirmed=hygiene.affirmations(authored.root),
+        corpus=corpus,
     )
 
 
@@ -431,8 +438,20 @@ def _each(record: dict, key: str) -> Iterable[str]:
 # ---------------------------------------------------------------------------
 
 
+def _version_iri(corpus: Corpus) -> URIRef:
+    return URIRef(TMK[f"snapshot-{corpus.pin.commit[:12]}"])
+
+
+def _held(corpus: Corpus, ref: str) -> Any:
+    """The passage, page, provision or unit a ref names in the snapshot, or None."""
+    return (
+        corpus.chunks.get(ref) or corpus.provisions.get(ref)
+        or corpus.units.get(ref) or corpus.pages.get(ref)
+    )
+
+
 def _version_node(corpus: Corpus, graph: Graph) -> URIRef:
-    node = URIRef(TMK[f"snapshot-{corpus.pin.commit[:12]}"])
+    node = _version_iri(corpus)
     graph.add((node, RDF.type, TMK.DocumentVersion))
     graph.add((node, TMK.upstreamCommit, _lit(corpus.pin.commit)))
     for name, version in sorted(getattr(corpus.pin, "extractor_versions", {}).items()):
@@ -480,6 +499,7 @@ def source_chunks(
     corpus: Corpus,
     gold: goldset.GoldSet,
     authored: authored_module.AuthoredSet,
+    extra: Iterable[tuple[str, dict, dict | None]] = (),
 ) -> tuple:
     """Which passages of the Manual the source graph holds.
 
@@ -531,12 +551,34 @@ def source_chunks(
             ),
         ]
     )
+    # Corrections and definitions (`extra`): their own readers, and no gold
+    # schema to name their ref fields, so their evidence and `source_ref`.
+    refs |= _evidence_refs(None, extra)
     refs |= {
         chunk.chunk_ref
         for chunk in corpus.chunks.values()
         if any(edge.needs_a_human for edge in chunk.provisions)
     }
     return select_evidenced(corpus, refs)
+
+
+def _evidence_refs(
+    authored: authored_module.AuthoredSet | None,
+    extra: Iterable[tuple[str, dict, dict | None]] = (),
+) -> set[str]:
+    """Every ref an authored record's evidence names, and a correction's or
+    definition's `source_ref`."""
+    found: set[str] = set()
+    envelopes = [entry.envelope for entry in authored.all_entries() if entry.sound] if authored else []
+    for _, record, envelope in extra:
+        envelopes.append(envelope)
+        if isinstance(record.get("source_ref"), str):
+            found.add(record["source_ref"])
+    for envelope in envelopes:
+        for item in (envelope or {}).get("evidence") or ():
+            if isinstance(item, dict) and isinstance(item.get("ref"), str):
+                found.add(item["ref"])
+    return found
 
 
 def _build_source(
@@ -734,9 +776,46 @@ def _origin(graph: Graph, node: URIRef, record: dict, store: Store) -> None:
         # A decimal, as tmk:confidence declares: rdflib types a float xsd:double,
         # and the two are disjoint value spaces under OWL (the review response, F07).
         graph.add((node, TMK.confidence, _lit(Decimal(str(envelope["confidence"])), XSD.decimal)))
-    for item in envelope.get("evidence") or ():
+    for ordinal, item in enumerate(envelope.get("evidence") or (), start=1):
         if isinstance(item, dict) and isinstance(item.get("ref"), str):
+            # The shortcut, kept so the competency queries and RULE-0002 read as
+            # they did; the anchor beside it is the evidence itself.
             graph.add((node, TMK.sourcePassage, ref_node(item["ref"])))
+            _anchor(graph, node, ordinal, item, store.corpus)
+
+
+def _anchor(graph: Graph, record: URIRef, ordinal: int, item: dict, corpus: Corpus | None) -> None:
+    """One evidence item as a node: which passage, which sentence in it, which text.
+
+    Until S041 only `tmk:sourcePassage` reached the graph, so the span, hash and
+    quote of every concept, typing, correction and definition (634 items) stayed in
+    the record files, and a downstream reader of the RDF could name the passage a
+    statement rests on but not the sentence (the second review response, R03).
+    Everything here is copied off the record; `tmk:isStale` and
+    `tmk:checkedAgainst` are computed, as they are for a relationship.
+    """
+    anchor = evidence_node(record, ordinal)
+    ref = item["ref"]
+    graph.add((record, TMK.evidence, anchor))
+    graph.add((anchor, RDF.type, TMK.EvidenceAnchor))
+    graph.add((anchor, TMK.ordinal, _lit(ordinal, XSD.integer)))
+    graph.add((anchor, TMK.sourcePassage, ref_node(ref)))
+    graph.add((anchor, TMK.upstreamRef, _lit(ref)))
+    span = item.get("span")
+    if isinstance(span, (list, tuple)) and len(span) == 2:
+        graph.add((anchor, TMK.spanStart, _lit(span[0], XSD.integer)))
+        graph.add((anchor, TMK.spanEnd, _lit(span[1], XSD.integer)))
+    recorded = item.get("content_hash")
+    if recorded:
+        graph.add((anchor, TMK.sourceContentHash, _lit(recorded)))
+    if item.get("quote"):
+        graph.add((anchor, TMK.quote, _lit(str(item["quote"]))))
+    if corpus is None:
+        return
+    graph.add((anchor, TMK.checkedAgainst, _version_iri(corpus)))
+    held = _held(corpus, ref)
+    if held is not None and recorded:
+        graph.add((anchor, TMK.isStale, _lit(recorded != held.content_hash, XSD.boolean)))
 
 
 def _provenance(
@@ -981,6 +1060,17 @@ def _qualifiers(graph: Graph, node: URIRef, record: dict[str, Any]) -> None:
         graph.add((node, TMK.modality, _lit(record["modality"])))
     if record.get("applies_when"):
         graph.add((node, TMK.appliesWhen, _en(" ".join(str(record["applies_when"]).split()))))
+    if record.get("hedge"):
+        graph.add((node, TMK.hedge, _en(" ".join(str(record["hedge"]).split()))))
+    # Computed, like tmk:isStale: whether a condition was stated, none is in the
+    # sentence, or nobody has looked; and the proceeding and kind of mark the source's
+    # Part fixes (the second review response, R07; `ontology.conditions`).
+    graph.add((node, TMK.conditionState, _lit(conditions.state(record))))
+    if record.get("no_condition"):
+        graph.add((node, TMK.noConditionBecause, _en(" ".join(str(record["no_condition"]).split()))))
+    for prop, value in ((TMK.proceeding, conditions.proceeding(record)), (TMK.markType, conditions.mark_type(record))):
+        if value:
+            graph.add((node, prop, _lit(value)))
 
 
 def _build_relationships(
@@ -1264,7 +1354,9 @@ _ADDED = {
 }
 
 
-def _build_corrections(graph: Graph, corrections: Any, counts: StoreReport) -> None:
+def _build_corrections(
+    graph: Graph, corrections: Any, counts: StoreReport, corpus: Corpus | None = None
+) -> None:
     """Corrections to signed records, stated where machine output lives (ADR-0122).
 
     Each correction is a node carrying the authoring envelope like any authored
@@ -1278,6 +1370,7 @@ def _build_corrections(graph: Graph, corrections: Any, counts: StoreReport) -> N
         name="authored", records=None, graph_name=AUTHORED_GRAPH,
         assertion_class=TMK.AuthoredAssertion,
         envelopes={c.id: c.envelope for c in corrections.sound if c.envelope},
+        corpus=corpus,
     )
     for correction in corrections.sound:
         record = correction.record
@@ -1308,7 +1401,9 @@ def _build_corrections(graph: Graph, corrections: Any, counts: StoreReport) -> N
     counts.corrections = len(corrections.sound)
 
 
-def _build_definitions(graph: Graph, definitions: Any, counts: StoreReport) -> None:
+def _build_definitions(
+    graph: Graph, definitions: Any, counts: StoreReport, corpus: Corpus | None = None
+) -> None:
     """Definitions, stated where machine output lives (ADR-0137).
 
     Two forms, as a relationship has (ADR-0058): the record, a `tmk:Definition`
@@ -1321,6 +1416,7 @@ def _build_definitions(graph: Graph, definitions: Any, counts: StoreReport) -> N
         name="authored", records=None, graph_name=AUTHORED_GRAPH,
         assertion_class=TMK.AuthoredAssertion,
         envelopes={d.id: d.envelope for d in definitions.sound if d.envelope},
+        corpus=corpus,
     )
     for definition in definitions.sound:
         record = definition.record
@@ -1409,7 +1505,7 @@ def build(
     signed = approved_store(
         corrections_module.in_force_gold(gold, corrections), corrections.replacements()
     )
-    machine = authored_store(authored)
+    machine = authored_store(authored, corpus)
 
     # One label index over both stores, built before either graph, because the
     # question "does the vocabulary hold this label" spans them (see
@@ -1418,18 +1514,30 @@ def build(
     excluded = _not_labels(signed, machine)
     signed_labels = frozenset(_concept_labels(signed))
 
+    # The source graph is closed over every ref any record rests on, in every
+    # store: corrections and definitions as well as the record types the gold
+    # schema knows. Until S041 a definition resting on a unit no chunk cites
+    # (GD-0060, GD-0112, GD-0138) pointed at a node the graph did not hold (the
+    # second review response, R03).
+    extra = [
+        *(("correction", c.record, c.envelope) for c in corrections.sound),
+        *(("definition", d.record, d.envelope) for d in definitions.sound),
+    ]
     if chunks is None:
-        chunks = source_chunks(corpus, gold, authored)
+        chunks = source_chunks(corpus, gold, authored, extra)
     record_provisions = {
         str(r.get("source_ref"))
         for store in (gold, authored) for r in store["gold_relationship"]
         if str(r.get("source_ref", "")).startswith(("TMA", "TMR"))
     }
+    record_provisions |= {
+        ref for ref in _evidence_refs(authored, extra) if ref.startswith(("TMA", "TMR"))
+    }
     source = _build_source(corpus, chunks, report, also=record_provisions)
     approved = _build_store(corpus, signed, report.approved, labels, excluded, signed_labels)
     authored_graph = _build_store(corpus, machine, report.authored, labels, excluded, signed_labels)
-    _build_corrections(authored_graph, corrections, report.authored)
-    _build_definitions(authored_graph, definitions, report.authored)
+    _build_corrections(authored_graph, corrections, report.authored, corpus)
+    _build_definitions(authored_graph, definitions, report.authored, corpus)
 
     in_scope = {
         str(ref) for ref in source.subjects(RDF.type, TMK.Chunk)

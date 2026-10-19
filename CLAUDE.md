@@ -18,22 +18,43 @@ hand-authoring, lighter paperwork, and questions to the owner only at named gate
 (ADR-0109 to ADR-0111). What changed neither time is every rule about provenance,
 citation and the separation of what a machine wrote from what a person signed.
 
-## 0. Current scope: the demonstrator
+**On 2026-10-19 the owner stated the purpose in full** (ADR-0138), replacing "a
+pitch": the ontology is a foundation for future machine learning, decision-making,
+customer service and policy aids, and immediately a research tool for examiners and
+an explanation aid for customers. The faster way of working stands; the pitch pack
+is left to go stale.
 
-Build only this (ADR-0110). Done when each line's test holds.
+## 0. Purpose and current scope
+
+The owner's words (ADR-0138): *"The ontology is being written to operate as a
+foundational layer for any future machine learning, machine decision making,
+customer service delivery or policy writing aid (simulating flow on affects of
+amendments). In the immediate, for examiners, it must operate as a research and
+decision-support tool, helping them quickly identify relevant sections of guidance,
+legislation and related material. The immediate use case for IP Australia's
+'customers' is about improving understanding of trade mark requirements, the
+application process and objections raised during examination (likely an LLM driven
+chatbot with clear visuals for explainability)."*
+
+Build toward this. Done when each line's test holds.
 
 | | Deliverable | Done when |
 |---|---|---|
 | D1 | A connected ontology over the whole Manual — concepts, labels, groups, relationships, and links from concepts to passages and provisions | The graph builds with 0 SHACL defects; most concepts sit in one connected piece; every machine-written record carries its envelope |
-| D2 | "Ask the Manual" — concepts recognised, graph path, passages with the Act and the Manual kept apart, a cited answer, the unreviewed stamp; plain search beside it | Runs on every benchmark question; never states an examination outcome |
+| D2 | "Ask the Manual", for examiners — concepts recognised, graph path, passages with the Act and the Manual kept apart, a cited answer, the unreviewed stamp; plain search beside it | Runs on every benchmark question; never states an examination outcome |
 | D3 | The value measurement — plain search against ontology-enhanced search | Numbers with intervals, per kind of question |
-| D4 | A pitch pack — the numbers, screenshots, the honest limits | The owner has seen it |
+| D4 | A customer explanation aid — requirements, the application process and an objection, explained from the same ontology, with visuals | Explains each in plain language with sources, conditions and unknowns visible and a text equivalent for every visual; asks only for facts that change the explanation; never states an outcome; built and tested on fictional cases (done-test agent-proposed, ADR-0138) |
 
-`docs/PITCH-PROPOSAL.md` is the plan and `docs/QUOTE.md` what the model work
-costs. **Future state — context only, do not build yet:** the rest of
-`docs/roadmap/AUTOMATION-FIRST-ROADMAP.md` (OpenSearch, a triple store, Stage 10
-maintenance) and the expert-review apparatus in `src/tm_knowledge/stage0/`, which
-is parked, not deleted.
+`docs/ONTOLOGY-REVIEW-RESPONSE-2.md` sets the order of work: repair the foundation,
+then one fictional vertical slice for customers, then widen. `docs/QUOTE.md` says
+what the model work costs; `docs/PITCH-PROPOSAL.md` records the way of working
+adopted on 2026-10-07. **`docs/PITCH-PACK.md` is stale by the owner's word: do not
+update or review it.** **Future state — context only, do not build yet, but never
+model in a way that precludes it:** machine-learning and decision services
+(represent a recorded decision; never make one), executing policy scenarios, the
+rest of `docs/roadmap/AUTOMATION-FIRST-ROADMAP.md` (OpenSearch, a triple store,
+Stage 10 maintenance), and the expert-review apparatus in
+`src/tm_knowledge/stage0/`, which is parked, not deleted.
 
 ## 1. Read order for a new session
 
@@ -160,9 +181,13 @@ Only at these gates (ADR-0110, P6). Everything else: decide, log it, move on.
   the dry-run estimate and wait.
 - **Anything outward-facing or irreversible** — publishing somewhere new, sending
   anything to the expert, making the repository public, rewriting history.
-- **Changing what the system may say to an examiner.**
+- **Changing what the system may say to an examiner or a customer.**
+- **Using real customer or case data** (a real examination report, a real
+  application) in the repository, a fixture or a prompt; fictional cases until
+  then (ADR-0138).
 - **Putting an expert's own notes into a model prompt** (ADR-0088).
-- **Which measured results become claims in the pitch.**
+- **Which measured results become claims made outside this repository** (the pitch
+  that used to ask this is stale, ADR-0138).
 - **Model choice for measurement work** — the owner chose the model for knowledge
   work; who writes and judges the benchmark is theirs to choose from the quote.
 

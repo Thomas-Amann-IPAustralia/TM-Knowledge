@@ -4,20 +4,28 @@ Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-10-17, ADR-0137 (S038).
+**As at:** 2026-10-19, ADR-0139 (S040).
 
 ## Purpose and scope
 
-- **The project is a pitch** that demonstrates the value of an ontology for the
-  Trade Marks Manual; a working system soon outranks completeness (ADR-0109).
-  Current scope is the demonstrator, D1–D4, in `CLAUDE.md` §0 (ADR-0110).
+- **The ontology is a foundation** for future machine learning, decision-making,
+  customer service and policy aids (simulating amendments); immediately, a research
+  and decision-support tool for examiners and an explanation aid for customers
+  (ADR-0138, superseding ADR-0109's "a pitch"). A working system soon still outranks
+  completeness (ADR-0109). Deliverables D1 to D4 are in `CLAUDE.md` §0; D4 is now
+  the customer explanation aid. Future uses are modelled for, never performed:
+  represent a recorded decision, never make one.
 - **Waterfall delivery.** Nobody signs anything until the ontology ships to a group
   of trade marks examiners, who review it all at once; until then, make it as close
   to production ready as possible. No question goes to "the expert" singly
   (ADR-0120).
 - **The whole Manual is in scope.** There is no section 43 boundary (ADR-0081).
-- **The pitch claims** the gain over keyword search, says plainly that modern search
-  ranks better, then leads with what the ontology uniquely does (OQ-0029, ADR-0136).
+- **The pitch pack and deck are left to go stale** (ADR-0138); no session reviews or
+  updates them. OQ-0029's claims stand in `docs/PITCH-PACK.md` as written, unmaintained.
+- **Approved, not yet built (ADR-0139):** the live chatbot gets complete legislative units with
+  every cut marked; claims each carrying their own quotes, checked against the excerpt sent,
+  unsupported ones marked, streamed as an unchecked draft; and, once the flagged definitions are
+  re-read, the definitions, each with its basis and stamp. No model-judged support check yet.
 - **Definitions are written** and the stale documents corrected; both deferrals were lifted
   (ADR-0136). The ontology report is generated without a date and drift-checked in CI.
 - **The pinned Act is compilation 48** (`C2026C00421`, in force from 19 September 2026),
@@ -78,6 +86,8 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   acts on: a factor `qualifies` (or `mayGiveRiseTo`, `statesThresholdFor`), an exception
   `isAnExceptionTo`, a ground `isOvercomeBy` its remedy — never a kind (ADR-0126).
   `doesNotGiveRiseTo` means *not on its own* and is never an exception (ADR-0135).
+  `isAnExceptionTo` only where the source excludes the case; a tendency ("generally",
+  "rarely", "not likely") is `qualifies` with its hedge (ADR-0140).
   An eleventh kind, `principle` (the presumption of registrability, mandatory application,
   office practice), sits with the law's questions; `none_of_these` is empty (ADR-0131).
 - **The top level connects** (ADR-0131). The families are classes; every predicate names
@@ -98,17 +108,32 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   `prevents` blocks a step, `suspendsTimeFor` stops its clock, `precedes` means *must come
   before*; `establishes` is retired for `mayShow` (S036). A label on the site is the
   predicate's name, so changing what examiners read means renaming it (Q-94).
-- **A relationship carries its sentence's condition or hedge** in `applies_when`, copied
-  verbatim from the supporting sentence, stated on the reified record and shown beside the
-  edge (S036). A modality belongs to the verb its predicate reads; a re-read onto another
+- **A relationship carries its sentence's condition** in `applies_when` and its strength
+  word in `hedge`, each copied verbatim from the supporting sentence, stated on the reified
+  record and shown beside the edge (S036, ADR-0140). Its condition state is set by rule
+  (`ontology.conditions`: stated, none stated, assessed none, not assessed); a sentence with
+  a conditional word gets a condition or a `no_condition` reason, never silence (R07). The
+  direct edge is navigation only (ADR-0134). A modality belongs to the verb its predicate reads; a re-read onto another
   predicate drops it. The answering model sees each path line's modality and condition, and
   is told never to conclude that a requirement, exception or step does not exist because its
   sources do not mention it (`answer-v3`, ADR-0136); the page says the same where it finds
   nothing.
+- **The live answer is `answer-v4`** (ADR-0139): legislation whole up to 4,000 characters, a
+  longer provision's matched blocks plus whatever a "Subject to" lead-in names, a Manual chunk
+  cut around the question past 3,000, every cut marked in the prompt and on the page
+  (`jobs.excerpt` = `engine.excerpt`); the answer is claims, each quote checked against the
+  excerpt sent, unsupported claims marked; the definitions of the concepts recognised, stamped.
+  The 129 prepared answers stay `answer-v2`, labelled as read from 1,600-character cuts.
 - **A definition is its own record** (`GD-`, `authored/definitions.yaml`), never a field on a
   concept, and says where its words come from: the instrument's own definition, verbatim
   (preferred, CHAT-0045), a provision, or the Manual. A concept its sources do not define gets
-  none; "application" carries scope notes, not a split (ADR-0137).
+  none; "application" carries scope notes, not a split (ADR-0137). Keep the meaning short
+  and put obligations and consequences in the scope note; the harness's triage notes flag a
+  quote cut before its qualifier, a subsection quoted in part, and "must" in a non-ground
+  definition (R02).
+- **Every machine-written record type carries the envelope in the RDF too**: the SHACL
+  shapes target definitions and corrections as well as authored assertions, and every
+  evidence item is an anchor `<record>/evidence/<n>` with ref, span, hash and quote (R03, R04).
 - **Roles are distinct and their power is on edges**: the Registrar (an office) is
   not a delegate, a delegate is not the Registrar, the owner is not the authorised
   user; who delegates to, directs, reviews or is consulted by whom is an edge on a

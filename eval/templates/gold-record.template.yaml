@@ -68,7 +68,9 @@ relationship:
   source_content_hash: ""
   tier: 3                               # 1 deterministic | 2 low-risk | 3 legally significant
   modality:                             # must | may | should — where the relation is normative
-  applies_when:                         # optional: the sentence's own condition or hedge, copied, never retyped
+  applies_when:                         # optional: the sentence's own condition, copied, never retyped
+  hedge:                                # optional: its strength word (usually, rarely, generally), copied
+  no_condition:                         # optional: why a conditional word in the sentence conditions nothing here
   notes: >
     If this is a case where "may" is possibility rather than permission, or "must"
     is explanatory rather than obligatory, that is exactly why it belongs here.

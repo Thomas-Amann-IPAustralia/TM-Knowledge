@@ -4936,16 +4936,19 @@
   - decision
   definition_sources:
   - TMM/Part16/2#1
+  - TMM/Part18/3/3/1/2
   legislative_basis:
+  - TMR1995/r4.8
   - TMR1995/r4.10
-  notes: A written report the Registrar issues after considering a response to an examination
-    report, when the application still cannot be accepted. It must state the lapsing date.
+  notes: 'A written report in which the Registrar tells an applicant of grounds for rejecting
+    the application, or that it was not made in accordance with the Act or Regulations: after
+    examination (reg 4.8), and again after a response (reg 4.10).'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S026
-    authored_date: '2026-10-08'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part16/2#1
@@ -4961,11 +4964,29 @@
       - 381
       content_hash: sha256:399ea7506378b653fdf6a61c07d01284871964193718817e46ead6f7d69ddef4
       quote: The report must include the lapsing date.
-    confidence: 0.9
-    reasoning: Part 16 states the report, its trigger and its regulation in two sentences.
-    alternatives_considered: []
-    expert_should_check: Whether a first examination report is also an adverse report in the
-      Manual's usage.
+    - ref: TMM/Part18/3/3/1/2
+      span:
+      - 0
+      - 287
+      content_hash: sha256:46ca753283deeda71894fa6d3586ac5840989e02b258b01c3e020269b6d67192
+      quote: Reg 4.8 of the Trade Mark Regulations 1995 requires the Registrar to issue an
+        adverse report to the applicant if they reasonably believe that a ground for rejection
+        exists under the Trade Marks Act 1995 or that the application has not been made in
+        accordance with the Act or Regulations.
+    confidence: 0.8
+    reasoning: 'The concept was fixed to the further report after a response: its notes, its
+      basis (reg 4.10 alone) and its definition. The Manual also calls the first report under
+      reg 4.8 an adverse report (Part 18.3.3.1.2), so both regulations are its basis and both
+      passages its sources (S040''s response, R02). ''further adverse report'' stays an alternative
+      label: it names the reg 4.10 report, which is still an adverse report.'
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S026 on 2026-10-08: {''notes'': ''A written report
+      the Registrar issues after considering a response to an examination report, when the
+      application still cannot be accepted. It must state the lapsing date.'', ''legislative_basis'':
+      [''TMR1995/r4.10''], ''definition_sources'': [''TMM/Part16/2#1'']} — Part 16 states
+      the report, its trigger and its regulation in two sentences.'
+    expert_should_check: Whether 'adverse report' in the Manual ever means something other
+      than a report under reg 4.8 or reg 4.10.
 - id: GC-0180
   pref_label: office practice
   alt_labels:

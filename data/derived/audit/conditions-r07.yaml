@@ -1,0 +1,827 @@
+# Written by S041 from its reading of each sentence (the second review response, R07), then kept as the ledger.
+# Edit lines here, not records: `tmk-bulk restructure --ledger` checks and applies them.
+note: 'S041''s assessment of every machine-written relationship whose sentence holds a conditional marker and whose record
+  held no condition (the second review response, R07): each now carries the sentence''s condition, verbatim, or the reason
+  its conditional word conditions nothing here, so no record reads as unconditioned because nobody looked. On the owner''s
+  instruction of 2026-10-19 to carry out Package 1, under CHAT-0073. Machine-written, unreviewed: a judgement per line.'
+session: S041
+authored_by: claude-code-agent-S041
+date: '2026-10-19'
+ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml
+ruling_item: CHAT-0073
+review: the second review response's R07 (S041)
+report: data/derived/reports/conditions-assessed.md
+ledger_path: data/derived/audit/conditions-r07.yaml
+title: Conditions assessed (S041, R07)
+intro: 'Of 337 machine-written relationships, 24 carried their sentence''s condition, and 101 more had a conditional word
+  (''if'', ''where'', ''unless'', ''when'', ''except'') in their sentence and no condition: ''no condition needed'' and ''nobody
+  looked'' read the same. Each is now assessed: the condition copied from the sentence, or the reason the word conditions
+  nothing in this relationship. Every line is an agent session''s judgement (`claude-code-agent-S041`), machine-written and
+  unreviewed.'
+edges:
+- edge: GR-0065
+  to:
+  - GC-0002
+  - mayGiveRiseTo
+  - GC-0168
+  applies_when: during examination of a new application research reveals that a trade mark is identical or similar to a listed
+    EU GI
+  why: The sentence's own condition, now on the record.
+- edge: GR-0066
+  to:
+  - GC-0002
+  - mayGiveRiseTo
+  - GC-0168
+  applies_when: a trade mark, or some part of the trade mark, contains a reference to Indigenous people and a connotation
+    arises from the mark that would be likely to deceive or confuse consumers within the relevant market
+  why: The sentence's own condition, now on the record.
+- edge: GR-0067
+  to:
+  - GC-0009
+  - qualifies
+  - GC-0002
+  no_condition: '''when applied to the goods and/or services that remain'' places the assessment after an exclusion; it does
+    not limit how the relevant market bears on the test'
+  why: 'Its conditional word conditions nothing here: ''when applied to the goods and/or services that remain'' places the
+    assessment after an exclusion; it does not limit how the relevant market bears on the test.'
+- edge: GR-0079
+  to:
+  - GC-0017
+  - qualifies
+  - GC-0002
+  applies_when: a geographical reference is included, but also has other meanings and / or associations
+  why: The sentence's own condition, now on the record.
+- edge: GR-0087
+  to:
+  - GC-0168
+  - isAssessedIn
+  - GC-0092
+  no_condition: '''when the full facts of a case are available'' says when a connotation emerges at opposition, not when the
+    ground is assessed in examination'
+  why: 'Its conditional word conditions nothing here: ''when the full facts of a case are available'' says when a connotation
+    emerges at opposition, not when the ground is assessed in examination.'
+- edge: GR-0090
+  to:
+  - GC-0036
+  - mayGiveRiseTo
+  - GC-0168
+  applies_when: a trade mark contains or consists of word/s which connote a particular plant variety or other plant name,
+    and is applied to plants or plant materials of the same or a closely related genus
+  why: The sentence's own condition, now on the record.
+- edge: GR-0092
+  to:
+  - GC-0007
+  - constrainsRole
+  - GC-0046
+  applies_when: the Registrar or their delegate is not satisfied that any grounds for rejecting a trade mark application exist
+  why: The sentence's own condition, now on the record.
+- edge: GR-0095
+  to:
+  - GC-0009
+  - qualifies
+  - GC-0004
+  no_condition: '''when applied to the goods and/or services that remain'' places the assessment after an exclusion; it does
+    not limit how the relevant market bears on the test'
+  why: 'Its conditional word conditions nothing here: ''when applied to the goods and/or services that remain'' places the
+    assessment after an exclusion; it does not limit how the relevant market bears on the test.'
+- edge: GR-0101
+  to:
+  - GC-0010
+  - qualifies
+  - GC-0004
+  no_condition: the 'if' clause is the test the ordinary person's doubt supplies, which is the qualification itself, not a
+    circumstance limiting it
+  why: 'Its conditional word conditions nothing here: the ''if'' clause is the test the ordinary person''s doubt supplies,
+    which is the qualification itself, not a circumstance limiting it.'
+- edge: GR-0106
+  to:
+  - GC-0124
+  - operatesOn
+  - GC-0012
+  no_condition: the 'if' conditions delaying a deletion until a divisional is filed, not an amendment's operating on the specification
+  why: 'Its conditional word conditions nothing here: the ''if'' conditions delaying a deletion until a divisional is filed,
+    not an amendment''s operating on the specification.'
+- edge: GR-0116
+  to:
+  - GC-0015
+  - operatesOn
+  - GC-0012
+  no_condition: the 'if' conditions delaying a deletion until a divisional is filed, not a limitation's operating on the specification
+  why: 'Its conditional word conditions nothing here: the ''if'' conditions delaying a deletion until a divisional is filed,
+    not a limitation''s operating on the specification.'
+- edge: GR-0125
+  to:
+  - GC-0017
+  - qualifies
+  - GC-0059
+  applies_when: there is some ambiguity as to whether or not other traders would desire to use the trade mark for its geographic
+    meaning
+  why: The sentence's own condition, now on the record.
+- edge: GR-0131
+  to:
+  - GC-0022
+  - mayGiveRiseTo
+  - GC-0002
+  applies_when: a trade mark, or part of a trade mark, to be used in relation to pharmaceuticals or veterinary substances
+    is the same as, or may connote, a notified INN and use of the trade mark in respect of the goods covered by the specification
+    are not restricted to the particular substance indicated by the INN
+  why: The sentence's own condition, now on the record.
+- edge: GR-0133
+  to:
+  - GC-0022
+  - mayGiveRiseTo
+  - GC-0003
+  applies_when: a trade mark, or part of a trade mark, to be used in relation to pharmaceuticals or veterinary substances
+    is the same as, or may connote, a notified INN and use of the trade mark in respect of the goods covered by the specification
+    are not restricted to the particular substance indicated by the INN
+  why: The sentence's own condition, now on the record.
+- edge: GR-0135
+  to:
+  - GC-0038
+  - qualifies
+  - GC-0024
+  applies_when: its presence is clearly overwhelmed by the meaning of the trade mark as a whole
+  why: The sentence's own condition, now on the record.
+- edge: GR-0142
+  to:
+  - GC-0032
+  - mayGiveRiseTo
+  - GC-0168
+  applies_when: the applicant for a trade mark, which connotes an Internet domain name (including a 2ND level domain / sub
+    domain), is not the registrant or authorised user of that Internet domain name
+  why: The sentence's own condition, now on the record.
+- edge: GR-0148
+  to:
+  - GC-0033
+  - mayGiveRiseTo
+  - GC-0168
+  applies_when: the generic TLD referred to in the trade mark appears on ICANN’s list and is not under the status ‘Withdrawn’,
+    ‘Not Approved’ or ‘Will Not Proceed’, then a section 43 ground for rejection should be raised in the first instance if
+    the applicant is not also listed as the registrant of the generic TLD application
+  why: The sentence's own condition, now on the record.
+- edge: GR-0153
+  to:
+  - GC-0038
+  - qualifies
+  - GC-0036
+  no_condition: the 'if' introduces an example of the whole-mark consideration, which the sentence before states without a
+    condition
+  why: 'Its conditional word conditions nothing here: the ''if'' introduces an example of the whole-mark consideration, which
+    the sentence before states without a condition.'
+- edge: GR-0161
+  to:
+  - GC-0103
+  - mayGiveRiseTo
+  - GC-0095
+  applies_when: the Registrar has inadvertently registered a trade mark in the face of a properly filed component of a notice
+    of opposition to registration, or an application for extension of time to file
+  why: The sentence's own condition, now on the record.
+- edge: GR-0169
+  to:
+  - GC-0043
+  - keepsEarlierDate
+  - GC-0016
+  applies_when: unless the convention priority claim of the parent is also made when filing the divisional application or
+    within the period provided for in regulation 4.5
+  why: The sentence's own condition, now on the record.
+- edge: GR-0175
+  to:
+  - GC-0046
+  - performs
+  - GC-0040
+  applies_when: a notice of intention to defend is not filed
+  why: The sentence's own condition, now on the record.
+- edge: GR-0186
+  to:
+  - GC-0052
+  - mayGiveRiseTo
+  - GC-0181
+  applies_when: research identifies a plant name of the relevant type that only differs from the applied for trade mark by
+    words that are common to the trade
+  why: The sentence's own condition, now on the record.
+- edge: GR-0189
+  to:
+  - GC-0052
+  - qualifies
+  - GC-0058
+  no_condition: '''unless'' introduces what the research must demonstrate, which is how research bears on the test, the qualification
+    itself'
+  why: 'Its conditional word conditions nothing here: ''unless'' introduces what the research must demonstrate, which is how
+    research bears on the test, the qualification itself.'
+- edge: GR-0195
+  to:
+  - GC-0065
+  - mayGiveRiseTo
+  - GC-0006
+  applies_when: the trade mark is substantially identical or deceptively similar to another trade mark the subject of an application
+    or registration and is to be used in respect of goods or services, similar to goods or services covered by that other
+    application or registration, or goods that are closely related to those other services or services that are closely related
+    to those other goods
+  why: The sentence's own condition, now on the record.
+- edge: GR-0198
+  to:
+  - GC-0055
+  - mayGiveRiseTo
+  - GC-0182
+  no_condition: the marker's clause names the relationship's own subject or object; it adds no circumstance
+  why: 'Its conditional word conditions nothing here: the marker''s clause names the relationship''s own subject or object;
+    it adds no circumstance.'
+- edge: GR-0201
+  to:
+  - GC-0056
+  - statesThresholdFor
+  - GC-0182
+  no_condition: the marker's clause names the relationship's own subject or object; it adds no circumstance
+  why: 'Its conditional word conditions nothing here: the marker''s clause names the relationship''s own subject or object;
+    it adds no circumstance.'
+- edge: GR-0204
+  to:
+  - GC-0056
+  - mayGiveRiseTo
+  - GC-0063
+  applies_when: (b) the person does not have the written authority of the Minister, or of a person authorised in writing by
+    the Minister to do so
+  why: The sentence's own condition, now on the record.
+- edge: GR-0206
+  to:
+  - GC-0041
+  - mayShow
+  - GC-0058
+  applies_when: a trade mark which is lacking in inherent adaptation to distinguish is shown through evidence of use to be
+    capable of distinguishing when used in particular colours
+  why: The sentence's own condition, now on the record.
+- edge: GR-0212
+  to:
+  - GC-0005
+  - qualifies
+  - GC-0060
+  applies_when: there is a primary meaning for a sign other than the geographical name
+  why: The sentence's own condition, now on the record.
+- edge: GR-0220
+  to:
+  - GC-0064
+  - isOvercomeBy
+  - GC-0066
+  applies_when: after revocation of registration and then acceptance, and a new citation having been raised
+  why: The sentence's own condition, now on the record.
+- edge: GR-0222
+  to:
+  - GC-0064
+  - mayGiveRiseTo
+  - GC-0042
+  applies_when: a conflicting application with a later priority date has already been accepted
+  why: The sentence's own condition, now on the record.
+- edge: GR-0231
+  to:
+  - GC-0068
+  - mayGiveRiseTo
+  - GC-0093
+  applies_when: having regard to the evidence and the circumstances, an examiner is satisfied it is proper for the application
+    to be accepted
+  why: The sentence's own condition, now on the record.
+- edge: GR-0233
+  to:
+  - GC-0071
+  - qualifies
+  - GC-0109
+  applies_when: the goods or services specified in the application are in some way related to those in respect of which the
+    trade mark has already been registered and used
+  hedge: In general
+  why: The sentence's own condition and hedge, now on the record.
+- edge: GR-0242
+  to:
+  - GC-0079
+  - requiresElement
+  - GC-0080
+  no_condition: the 'if:' introduces the element the relationship names (resemblance in material particulars), not a circumstance
+  why: 'Its conditional word conditions nothing here: the ''if:'' introduces the element the relationship names (resemblance
+    in material particulars), not a circumstance.'
+- edge: GR-0253
+  to:
+  - GC-0016
+  - qualifies
+  - GC-0064
+  applies_when: they have the earliest rights compared to the owner of the cited mark
+  hedge: Generally
+  why: The sentence's own condition and hedge, now on the record.
+- edge: GR-0254
+  to:
+  - GC-0016
+  - isFixedBy
+  - GC-0091
+  applies_when: unless the convention priority claim of the parent is also made when filing the divisional application or
+    within the period provided for in regulation 4.5
+  why: The sentence's own condition, now on the record.
+- edge: GR-0259
+  to:
+  - GC-0096
+  - suspendsTimeFor
+  - GC-0093
+  no_condition: '''where'' introduces what deferment is, the definition, not a circumstance limiting it'
+  why: 'Its conditional word conditions nothing here: ''where'' introduces what deferment is, the definition, not a circumstance
+    limiting it.'
+- edge: GR-0267
+  to:
+  - GC-0105
+  - mayGiveRiseTo
+  - GC-0096
+  applies_when: deferment is sought on the grounds that rectification action has been taken in respect of at least one of
+    the cited trade marks
+  why: The sentence's own condition, now on the record.
+- edge: GR-0277
+  to:
+  - GC-0108
+  - isExcludedFrom
+  - GC-0086
+  no_condition: '''except'' states the exclusion the relationship records, not a circumstance'
+  why: 'Its conditional word conditions nothing here: ''except'' states the exclusion the relationship records, not a circumstance.'
+- edge: GR-0301
+  to:
+  - GC-0012
+  - dependsOnExternalSource
+  - GC-0121
+  applies_when: if practicable
+  why: The sentence's own condition, now on the record.
+- edge: GR-0309
+  to:
+  - GC-0064
+  - mayGiveRiseTo
+  - GC-0122
+  applies_when: an expedited application has a citation against it, the cited application, if it is not already being examined
+  why: The sentence's own condition, now on the record.
+- edge: GR-0311
+  to:
+  - GC-0128
+  - isPartOf
+  - GC-0040
+  no_condition: '''When a late application is filed'' introduces a cross-reference for late extension requests; it does not
+    condition a hearing''s being part of the opposition'
+  why: 'Its conditional word conditions nothing here: ''When a late application is filed'' introduces a cross-reference for
+    late extension requests; it does not condition a hearing''s being part of the opposition.'
+- edge: GR-0318
+  to:
+  - GC-0103
+  - requiresElement
+  - GC-0153
+  no_condition: '''When a complete Notice of Opposition is filed'' conditions recording and notifying the IB; the element
+    is stated in the parenthesis without a condition'
+  why: 'Its conditional word conditions nothing here: ''When a complete Notice of Opposition is filed'' conditions recording
+    and notifying the IB; the element is stated in the parenthesis without a condition.'
+- edge: GR-0319
+  to:
+  - GC-0103
+  - precedes
+  - GC-0158
+  applies_when: it wishes to continue with the non-use application
+  why: The sentence's own condition, now on the record.
+- edge: GR-0321
+  to:
+  - GC-0040
+  - requiresElement
+  - GC-0153
+  no_condition: the 'if' states the consequence of the element's absence (dismissal), which is the evidence for the requirement,
+    not a circumstance limiting it
+  why: 'Its conditional word conditions nothing here: the ''if'' states the consequence of the element''s absence (dismissal),
+    which is the evidence for the requirement, not a circumstance limiting it.'
+- edge: GR-0333
+  to:
+  - GC-0155
+  - mayGiveRiseTo
+  - GC-0096
+  applies_when: on request by the applicant
+  why: The sentence's own condition, now on the record.
+- edge: GR-0343
+  to:
+  - GC-0159
+  - exercisesPowersOf
+  - GC-0046
+  applies_when: except the power of delegation
+  why: The sentence's own condition, now on the record.
+- edge: GR-0355
+  to:
+  - GC-0113
+  - isRecordedIn
+  - GC-0161
+  no_condition: the 'where' conditions not raising a section 39(2) ground on an IRDA bearing a symbol; recording on the International
+    Register is not conditioned
+  why: 'Its conditional word conditions nothing here: the ''where'' conditions not raising a section 39(2) ground on an IRDA
+    bearing a symbol; recording on the International Register is not conditioned.'
+- edge: GR-0384
+  to:
+  - GC-0048
+  - qualifies
+  - GC-0001
+  applies_when: considering trade marks that include a clear connotation
+  why: The sentence's own condition, now on the record.
+- edge: GR-0385
+  to:
+  - GC-0030
+  - mayGiveRiseTo
+  - GC-0001
+  no_condition: the 'if' conditions raising the ground on the connotation arising, which is the relationship's object; the
+    sentence before says an image alone is not enough
+  why: 'Its conditional word conditions nothing here: the ''if'' conditions raising the ground on the connotation arising,
+    which is the relationship''s object; the sentence before says an image alone is not enough.'
+- edge: GR-0386
+  to:
+  - GC-0145
+  - qualifies
+  - GC-0002
+  applies_when: a trade mark containing a geographical reference is found to connote geographical origin
+  why: The sentence's own condition, now on the record.
+- edge: GR-0387
+  to:
+  - GC-0018
+  - mayGiveRiseTo
+  - GC-0002
+  applies_when: during examination of a new application research reveals that a trade mark is identical or similar to a listed
+    EU GI
+  why: The sentence's own condition, now on the record.
+- edge: GR-0390
+  to:
+  - GC-0008
+  - statesThresholdFor
+  - GC-0004
+  applies_when: the two trade marks are used in relation to similar or closely related goods/services
+  why: The sentence's own condition, now on the record.
+- edge: GR-0394
+  to:
+  - GC-0006
+  - prevents
+  - GC-0093
+  no_condition: '''when'' says when an impasse is reached, not when a ground for rejection prevents acceptance'
+  why: 'Its conditional word conditions nothing here: ''when'' says when an impasse is reached, not when a ground for rejection
+    prevents acceptance.'
+- edge: GR-0396
+  to:
+  - GC-0038
+  - qualifies
+  - GC-0181
+  applies_when: research identifies a plant name of the relevant type that only differs from the applied for trade mark by
+    words that are common to the trade
+  why: The sentence's own condition, now on the record.
+- edge: GR-0400
+  to:
+  - GC-0009
+  - qualifies
+  - GC-0008
+  applies_when: the two trade marks are used in relation to similar or closely related goods/services
+  why: The sentence's own condition, now on the record.
+- edge: GR-0412
+  to:
+  - GC-0018
+  - mayGiveRiseTo
+  - GC-0168
+  applies_when: during examination of a new application research reveals that a trade mark is identical or similar to a listed
+    EU GI
+  why: The sentence's own condition, now on the record.
+- edge: GR-0413
+  to:
+  - GC-0018
+  - mayGiveRiseTo
+  - GC-0004
+  applies_when: during examination of a new application research reveals that a trade mark is identical or similar to a listed
+    EU GI
+  why: The sentence's own condition, now on the record.
+- edge: GR-0418
+  to:
+  - GC-0023
+  - mayGiveRiseTo
+  - GC-0168
+  applies_when: a trade mark to be used in relation to pharmaceuticals or veterinary substances consists of an INN stem, or
+    contains a notified INN stem in a meaningful way, and use of the trade mark in respect of the goods covered by the specification
+    are not restricted to substances indicated by the INN stem
+  why: The sentence's own condition, now on the record.
+- edge: GR-0420
+  to:
+  - GC-0025
+  - qualifies
+  - GC-0002
+  applies_when: a trade mark, or part of a trade mark, to be used in relation to pharmaceuticals or veterinary substances
+    is the same as, or may connote, a notified INN and use of the trade mark in respect of the goods covered by the specification
+    are not restricted to the particular substance indicated by the INN
+  why: The sentence's own condition, now on the record.
+- edge: GR-0421
+  to:
+  - GC-0025
+  - qualifies
+  - GC-0004
+  applies_when: a trade mark, or part of a trade mark, to be used in relation to pharmaceuticals or veterinary substances
+    is the same as, or may connote, a notified INN and use of the trade mark in respect of the goods covered by the specification
+    are not restricted to the particular substance indicated by the INN
+  why: The sentence's own condition, now on the record.
+- edge: GR-0422
+  to:
+  - GC-0025
+  - qualifies
+  - GC-0168
+  applies_when: a trade mark to be used in relation to pharmaceuticals or veterinary substances consists of an INN stem, or
+    contains a notified INN stem in a meaningful way, and use of the trade mark in respect of the goods covered by the specification
+    are not restricted to substances indicated by the INN stem
+  why: The sentence's own condition, now on the record.
+- edge: GR-0424
+  to:
+  - GC-0026
+  - qualifies
+  - GC-0003
+  applies_when: the image represented in the trade mark is of a well-known person (or group of people), and the well-known
+    person (or group of people) is not the applicant
+  why: The sentence's own condition, now on the record.
+- edge: GR-0425
+  to:
+  - GC-0026
+  - qualifies
+  - GC-0004
+  applies_when: the image represented in the trade mark is of a well-known person (or group of people), and the well-known
+    person (or group of people) is not the applicant
+  why: The sentence's own condition, now on the record.
+- edge: GR-0435
+  to:
+  - GC-0029
+  - isRecordedIn
+  - GC-0014
+  no_condition: the marker's clause names the relationship's own subject or object; it adds no circumstance
+  why: 'Its conditional word conditions nothing here: the marker''s clause names the relationship''s own subject or object;
+    it adds no circumstance.'
+- edge: GR-0440
+  to:
+  - GC-0031
+  - mayGiveRiseTo
+  - GC-0168
+  applies_when: the applicant for a trade mark containing material likely to be viewed as a phoneword, or the numbers representing
+    a phoneword, is not also the owner (or authorised user) of that phoneword
+  why: The sentence's own condition, now on the record.
+- edge: GR-0443
+  to:
+  - GC-0034
+  - mayGiveRiseTo
+  - GC-0004
+  applies_when: the owner of the trade mark did not in fact have the license to operate with that radio call sign or frequency
+  why: The sentence's own condition, now on the record.
+- edge: GR-0448
+  to:
+  - GC-0038
+  - qualifies
+  - GC-0168
+  applies_when: in the context of the trade mark as a whole, the Australian National Flag connotes a quality of the goods
+    or services, and consumers would be likely to be confused as a result
+  why: The sentence's own condition, now on the record.
+- edge: GR-0458
+  to:
+  - GC-0181
+  - allocatesTo
+  - GC-0044
+  applies_when: a trade mark directly describes the potential subject matter of goods in class 9 and 16, or services in class
+    41
+  why: The sentence's own condition, now on the record.
+- edge: GR-0459
+  to:
+  - GC-0006
+  - allocatesTo
+  - GC-0044
+  no_condition: both 'where's condition giving research to the applicant; the examiner's raising the ground is stated without
+    one
+  why: 'Its conditional word conditions nothing here: both ''where''s condition giving research to the applicant; the examiner''s
+    raising the ground is stated without one.'
+- edge: GR-0460
+  to:
+  - GC-0044
+  - performs
+  - GC-0092
+  no_condition: the 'if' conditions raising a citation after an assignment, not the examiner's examining
+  why: 'Its conditional word conditions nothing here: the ''if'' conditions raising a citation after an assignment, not the
+    examiner''s examining.'
+- edge: GR-0479
+  to:
+  - GC-0182
+  - isOvercomeBy
+  - GC-0029
+  no_condition: '''If an examiner becomes aware'' says when consent is requested, not when consent overcomes the ground'
+  why: 'Its conditional word conditions nothing here: ''If an examiner becomes aware'' says when consent is requested, not
+    when consent overcomes the ground.'
+- edge: GR-0485
+  to:
+  - GC-0005
+  - qualifies
+  - GC-0059
+  applies_when: there is a primary meaning for a sign other than the geographical name
+  why: The sentence's own condition, now on the record.
+- edge: GR-0488
+  to:
+  - GC-0007
+  - qualifies
+  - GC-0062
+  applies_when: if the Registrar or their delegate is satisfied that the ground for rejection exists, the presumption no longer
+    applies
+  why: The sentence's own condition, now on the record.
+- edge: GR-0490
+  to:
+  - GC-0062
+  - appliesTo
+  - GC-0131
+  no_condition: the marker's clause names the relationship's own subject or object; it adds no circumstance
+  why: 'Its conditional word conditions nothing here: the marker''s clause names the relationship''s own subject or object;
+    it adds no circumstance.'
+- edge: GR-0501
+  to:
+  - GC-0076
+  - broader
+  - GC-0073
+  no_condition: the 'if' conditions which filing requirement applies, not a colour trade mark's being a kind of sign
+  why: 'Its conditional word conditions nothing here: the ''if'' conditions which filing requirement applies, not a colour
+    trade mark''s being a kind of sign.'
+- edge: GR-0507
+  to:
+  - GC-0080
+  - appliesTo
+  - GC-0074
+  applies_when: the trade marks consist only of colours
+  why: The sentence's own condition, now on the record.
+- edge: GR-0512
+  to:
+  - GC-0084
+  - owns
+  - GC-0088
+  no_condition: the 'if' states when infringement occurs; ownership is not conditioned
+  why: 'Its conditional word conditions nothing here: the ''if'' states when infringement occurs; ownership is not conditioned.'
+- edge: GR-0522
+  to:
+  - GC-0016
+  - qualifies
+  - GC-0067
+  no_condition: '''where'' describes the circumstance that is prior use, the object itself'
+  why: 'Its conditional word conditions nothing here: ''where'' describes the circumstance that is prior use, the object itself.'
+- edge: GR-0534
+  to:
+  - GC-0096
+  - suspendsTimeFor
+  - GC-0098
+  no_condition: the two 'if's state when an application lapses and one case of deferment; neither conditions deferment's suspending
+    the time
+  why: 'Its conditional word conditions nothing here: the two ''if''s state when an application lapses and one case of deferment;
+    neither conditions deferment''s suspending the time.'
+- edge: GR-0555
+  to:
+  - GC-0130
+  - qualifies
+  - GC-0109
+  applies_when: there is no appreciable reputation arising from use of the trade mark in relation to the goods or services
+    for which it is already registered
+  hedge: unlikely
+  why: The sentence's own condition and hedge, now on the record.
+- edge: GR-0557
+  to:
+  - GC-0084
+  - owns
+  - GC-0109
+  no_condition: the 'if' conditions obtaining relief on an infringement, not ownership
+  why: 'Its conditional word conditions nothing here: the ''if'' conditions obtaining relief on an infringement, not ownership.'
+- edge: GR-0564
+  to:
+  - GC-0113
+  - broader
+  - GC-0150
+  no_condition: the 'if' conditions verifying a priority claim, not an IRDA's being an international registration
+  why: 'Its conditional word conditions nothing here: the ''if'' conditions verifying a priority claim, not an IRDA''s being
+    an international registration.'
+- edge: GR-0573
+  to:
+  - GC-0038
+  - qualifies
+  - GC-0119
+  applies_when: a trade mark containing an acronym also contains other material of a significant nature
+  why: The sentence's own condition, now on the record.
+- edge: GR-0593
+  to:
+  - GC-0139
+  - hearsAppealsFrom
+  - GC-0133
+  no_condition: '''Where'' conditions the two-month deferment on an appealable adverse decision; the court''s hearing the
+    appeal is presupposed, not conditioned'
+  why: 'Its conditional word conditions nothing here: ''Where'' conditions the two-month deferment on an appealable adverse
+    decision; the court''s hearing the appeal is presupposed, not conditioned.'
+- edge: GR-0601
+  to:
+  - GC-0138
+  - prevailsOver
+  - GC-0136
+  applies_when: in the event of a dispute between an Office of origin and the International Bureau (IB)
+  why: The sentence's own condition, now on the record.
+- edge: GR-0602
+  to:
+  - GC-0111
+  - keepsEarlierDate
+  - GC-0141
+  applies_when: different priority claims are made in respect of the specification of a single convention application on the
+    basis of earlier applications made in convention countries at different times
+  why: The sentence's own condition, now on the record.
+- edge: GR-0608
+  to:
+  - GC-0144
+  - isServedOn
+  - GC-0046
+  no_condition: the 'if' introduces a second acceptable addressee, the proper officer, not a condition on serving the Registrar
+  why: 'Its conditional word conditions nothing here: the ''if'' introduces a second acceptable addressee, the proper officer,
+    not a condition on serving the Registrar.'
+- edge: GR-0617
+  to:
+  - GC-0092
+  - precedes
+  - GC-0093
+  no_condition: the 'if' conditions acceptance on the outcome of examination; examination's coming first is not conditioned
+  why: 'Its conditional word conditions nothing here: the ''if'' conditions acceptance on the outcome of examination; examination''s
+    coming first is not conditioned.'
+- edge: GR-0620
+  to:
+  - GC-0007
+  - mayGiveRiseTo
+  - GC-0093
+  applies_when: the Registrar or their delegate is not satisfied that any grounds for rejecting a trade mark application exist
+  why: The sentence's own condition, now on the record.
+- edge: GR-0636
+  to:
+  - GC-0126
+  - mayGiveRiseTo
+  - GC-0063
+  applies_when: a trade mark or part of a trade mark is identical to, or resembles, an entry on the Register of Protected
+    Geographical Indications and Other Terms
+  why: The sentence's own condition, now on the record.
+- edge: GR-0638
+  to:
+  - GC-0159
+  - actsUnderDirectionOf
+  - GC-0046
+  no_condition: '''except'' limits the powers a Deputy Registrar has, not the Registrar''s direction'
+  why: 'Its conditional word conditions nothing here: ''except'' limits the powers a Deputy Registrar has, not the Registrar''s
+    direction.'
+- edge: GR-0640
+  to:
+  - GC-0171
+  - actsUnderDirectionOf
+  - GC-0046
+  applies_when: so required by the instrument of delegation
+  why: The sentence's own condition, now on the record.
+- edge: GR-0659
+  to:
+  - GC-0044
+  - escalatesTo
+  - GC-0173
+  applies_when: an examiner believes they have a request for an amendment (probably most commonly to the statement of goods
+    or services, but also possibly to the trade mark) which cannot be made under section 65, but which appears to meet the
+    criteria for section 65A
+  why: The sentence's own condition, now on the record.
+- edge: GR-0682
+  to:
+  - GC-0007
+  - constrainsExaminerTo
+  - GC-0168
+  applies_when: there is doubt that a connotation exists
+  why: The sentence's own condition, now on the record.
+- edge: GR-0686
+  to:
+  - GC-0026
+  - mayGiveRiseTo
+  - GC-0168
+  applies_when: a trade mark contains a name of a person (or group of people) which is well known in relation to the specified
+    goods or services
+  why: The sentence's own condition, now on the record.
+- edge: GR-0689
+  to:
+  - GC-0001
+  - excludesBasis
+  - GC-0130
+  no_condition: '''When faced with this type of reference'' introduces a reminder of a general rule; the exclusion holds for
+    every connotation'
+  why: 'Its conditional word conditions nothing here: ''When faced with this type of reference'' introduces a reminder of
+    a general rule; the exclusion holds for every connotation.'
+- edge: GR-0690
+  to:
+  - GC-0037
+  - mayGiveRiseTo
+  - GC-0168
+  applies_when: a trade mark, or some part of the trade mark, contains a reference to Indigenous people and a connotation
+    arises from the mark that would be likely to deceive or confuse consumers within the relevant market
+  why: The sentence's own condition, now on the record.
+- edge: GR-0692
+  to:
+  - GC-0058
+  - statesThresholdFor
+  - GC-0181
+  no_condition: the marker's clause names the relationship's own subject or object; it adds no circumstance
+  why: 'Its conditional word conditions nothing here: the marker''s clause names the relationship''s own subject or object;
+    it adds no circumstance.'
+- edge: GR-0707
+  to:
+  - GC-0058
+  - appliesTo
+  - GC-0152
+  no_condition: the marker's clause names the relationship's own subject or object; it adds no circumstance
+  why: 'Its conditional word conditions nothing here: the marker''s clause names the relationship''s own subject or object;
+    it adds no circumstance.'
+- edge: GR-0709
+  to:
+  - GC-0046
+  - actsAs
+  - GC-0149
+  applies_when: a request is made through the Trade Marks Office
+  why: The sentence's own condition, now on the record.

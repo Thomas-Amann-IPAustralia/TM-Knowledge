@@ -24,11 +24,11 @@ ontology cannot do, and it is the honest half of the demonstration.
 | Trade Marks Act 1995 | compilation 48 (`C2026C00421`), in force from 19 September 2026 |
 | Trade Marks Regulations 1995 | compilation 53 (`F2026C00009`), in force from 18 December 2025 |
 | Ontology modules | 9, all draft |
-| Classes declared | 90 |
+| Classes declared | 91 |
 | Predicates defined | 53 in `ontology/predicates.py`; 14 used by a signed record, 51 by a machine-written one |
-| Source graph | 64,644 triples over 1053 chunks |
-| Approved graph | 3,574 triples — signed by a named expert |
-| Authored graph | 16,107 triples — **written by a machine, validated by nobody** |
+| Source graph | 65,355 triples over 1057 chunks |
+| Approved graph | 3,644 triples — signed by a named expert |
+| Authored graph | 27,885 triples — **written by a machine, validated by nobody** |
 | Inferred graph | 2,315 triples — derived by the SPARQL rules, never a signed record |
 | SHACL result | 0 defects, 0 gaps, 259 notes — exit 0 |
 | Competency queries | 13 of 20 questions |
@@ -63,13 +63,13 @@ unreviewed, naming the owner's ruling; what serves applies it, and the yardstick
 reads the record as signed (ADR-0122). A machine-written concept sorted into a
 kind is a typing by a machine; a person has typed none.
 
-The `source` graph holds 1053 chunks from 204 pages,
-670 provisions and units and 311 decisions: the passages
+The `source` graph holds 1057 chunks from 206 pages,
+803 provisions and units and 311 decisions: the passages
 a record rests on and what they cite (ADR-0097), not the whole snapshot.
 
 ### The trust metadata survived
 
-2206 citations reached the graph as nodes rather than as bare edges, each
+2227 citations reached the graph as nodes rather than as bare edges, each
 carrying upstream's `extraction` and `certainty` verbatim. That is what makes
 CQ-0022 — *did the Manual's authors link that section themselves, or did we work
 it out from the wording?* — a query rather than a shrug. Collapsing those two
@@ -90,6 +90,8 @@ untested shape that never matches anything reads as coverage (`shapes/README.md`
 |---|---|
 | A Manual passage is practice | `shapes/authority.ttl` |
 | A concept has exactly one preferred label and belongs to a scheme | `shapes/vocabulary.ttl` |
+| A correction names what it corrects and the ruling it acts on | `shapes/provenance.ttl` |
+| A definition names its concept, its words and their basis | `shapes/provenance.ttl` |
 | A machine-written 'kind of' beside a 'not the same as' carries its reason | `shapes/vocabulary.ttl` |
 | A name two concepts answer to is reported, not failed | `shapes/vocabulary.ttl` |
 | A not-label is not also a label | `shapes/vocabulary.ttl` |
@@ -101,6 +103,7 @@ untested shape that never matches anything reads as coverage (`shapes/README.md`
 | An assertion about a provision keeps the passage it was read from | `shapes/authority.ttl` |
 | An authored assertion cites the corpus or says it cannot | `shapes/provenance.ttl` |
 | An authored assertion says who wrote it, when, and on what | `shapes/provenance.ttl` |
+| An evidence anchor locates a sentence in a version of a passage | `shapes/provenance.ttl` |
 | An inference names its rule and its premises | `shapes/inference.ttl` |
 | Every approved relation edge has an assertion behind it | `shapes/provenance.ttl` |
 | Every passage says what kind of authority it is | `shapes/authority.ttl` |
@@ -207,8 +210,8 @@ Either the vocabulary is short a concept, or the question names one by a variant
 nobody recorded as a label. **1 names a concept it deliberately excludes**,
 which is the opposite of a gap: `CQ-0007:deceptively similar` (ADR-0075).
 
-**0 defined predicates are used by no record**, and 11 by exactly one:
-`actsUnderControlOf`, `becomes`, `citesAuthorityFor`, `escalatesTo`, `hearsAppealsFrom`, `interprets`, `isAssessedIn`, `isAttributedTo`, `mayShow`, `prevailsOver`, `requiresConsentOf`. A term seen once is a term whose boundaries nobody has tested.
+**0 defined predicates are used by no record**, and 12 by exactly one:
+`actsUnderControlOf`, `becomes`, `citesAuthorityFor`, `escalatesTo`, `hearsAppealsFrom`, `interprets`, `isAnExceptionTo`, `isAssessedIn`, `isAttributedTo`, `mayShow`, `prevailsOver`, `requiresConsentOf`. A term seen once is a term whose boundaries nobody has tested.
 
 **No OWL profile is claimed and no OWL inference is licensed** (ADR-0134). The
 contract is RDF, SKOS, SHACL and the approved SPARQL rules; `owl:` terms are

@@ -226,3 +226,66 @@ def test_establishes_is_retired_once_nothing_uses_it():
     assert "establishes" in RETIRED and "establishes" not in PREDICATES
     used = {str(r["predicate"]) for r in authored_store.load()["gold_relationship"]}
     assert "establishes" not in used
+
+
+# --- R01: an exception edge only where the source excludes the case (S041) ----------
+#
+# ChatGPT's consolidated review asked for near misses with each replacement: a recently
+# deceased person, a business identifier challenged on another ground, and evidence that
+# prompts reconsideration without establishing acceptance. They are tested on the
+# committed records, because the records are what a customer explanation would compose.
+
+
+def _relationships():
+    import yaml
+
+    from tm_knowledge.config import REPO_ROOT
+
+    rows = yaml.safe_load((REPO_ROOT / "authored" / "relationships.yaml").read_text(encoding="utf-8"))
+    return {r["id"]: r for r in rows}
+
+
+def test_a_deceased_person_is_not_an_exception_to_section_43():
+    """Near miss 1: the recently deceased whose estate controls the name. GR-0700 is a
+    factor with its hedge, and carries the 'However' sentence that reopens the ground."""
+    record = _relationships()["GR-0700"]
+    assert (record["subject"], record["predicate"], record["object"]) == ("GC-0027", "qualifies", "GC-0168")
+    assert record["hedge"] == "Generally"
+    quotes = " ".join(e["quote"] for e in record["authored"]["evidence"])
+    assert "However, a relevant connotation may arise" in quotes and "the more recently they died" in quotes
+
+
+def test_a_business_identifier_bears_on_section_43_and_no_other_ground():
+    """Near miss 2: a business identifier challenged on another ground. GR-0699 names the
+    section 43 ground, not every ground for rejection, and states a tendency."""
+    record = _relationships()["GR-0699"]
+    assert (record["subject"], record["predicate"], record["object"]) == ("GC-0020", "qualifies", "GC-0168")
+    assert record["hedge"] == "rarely"
+    assert record["applies_when"] == "Where business identifiers are included in a trade mark"
+
+
+def test_reconsideration_is_not_the_evidence_for_an_exception():
+    """Near miss 3: information that prompts reconsideration does not establish
+    acceptance. GR-0702 rests on the conditional sentence, scoped to phonewords."""
+    record = _relationships()["GR-0702"]
+    assert record["predicate"] == "isAnExceptionTo"
+    assert record["supporting_text"].startswith("A section 43 ground for rejection will apply if")
+    assert "phoneword" in record["applies_when"]
+
+
+def test_no_exception_edge_carries_a_hedge_and_no_condition_holds_one():
+    rows = _relationships().values()
+    hedges = ("usually", "rarely", "generally", "not likely")
+    for record in rows:
+        if record["predicate"] == "isAnExceptionTo":
+            assert not record.get("hedge"), f"{record['id']}: a hedged sentence states a tendency, not an exclusion"
+        when = str(record.get("applies_when") or "").casefold()
+        assert when not in hedges, f"{record['id']}: applies_when holds a bare hedge"
+
+
+def test_the_exception_example_is_a_sentence_that_excludes_a_case():
+    from tm_knowledge.ontology.predicates import PREDICATES
+
+    entry = PREDICATES["isAnExceptionTo"]
+    assert "does not arise" in entry.example and "Generally" not in entry.example
+    assert "qualifies" in entry.counter_example

@@ -85,6 +85,110 @@ def passage_block(ref: str, text: str, limit: int = 2500, around: int | None = N
     return f'<passage ref="{ref}">\n{defang(text)}\n</passage>'
 
 
+# --- what an answer is given of each source (A06, ADR-0139) -------------------
+#
+# Until answer-v4 every passage and provision was cut at 1,600 characters from its
+# start, which removed section 44's subsections (3) and (4), the exceptions its
+# subsection (1) is "Subject to" (the second review response, A06). Now legislation is
+# given whole up to LAW_CHARS; a larger provision gives the blocks the question's words
+# match, within the budget, plus every block a "Subject to subsection(s) ..." lead-in in
+# them names, whatever the budget; a Manual chunk over MANUAL_CHARS is cut around the
+# first word of the question it holds. Every cut is marked, in a `cut` attribute and
+# with "…". `Engine.excerpt` in site/js/engine.js applies the same rules, character for
+# character (test_explorer.py holds the prompts identical).
+
+LAW_CHARS = 4000
+MANUAL_CHARS = 3000
+
+_BLOCK_START = re.compile(r"^(\([^()]+\)|/[^()~]+)$")
+_LEAD_IN = re.compile(r"[Ss]ubject to (?:subsections?|subregulations?) ([^.;:]*)")
+
+
+@dataclass(frozen=True)
+class Excerpt:
+    text: str
+    cut: str | None = None
+
+
+def _hits(text: str, term: str) -> list[int]:
+    return [m.start() for m in re.finditer(rf"(?<![a-z0-9]){re.escape(term)}(?![a-z0-9])", text.lower())]
+
+
+def _window(text: str, terms: list[str], budget: int) -> Excerpt:
+    if len(text) <= budget:
+        return Excerpt(text)
+    found = [hit for term in terms for hit in _hits(text, term)[:1]]
+    anchor = min(found) if found else 0
+    start = max(0, min(anchor - budget // 3, len(text) - budget))
+    end = start + budget
+    shown = ("…" if start else "") + text[start:end] + ("…" if end < len(text) else "")
+    return Excerpt(shown, f"characters {start}-{end} of {len(text)}")
+
+
+def _blocks(provision: str, units: list[tuple[str, str]]) -> list[tuple[str, str]]:
+    """A provision's units grouped under each subsection (or defined term) they belong
+    to: (label, text). A unit whose ref adds "(3)" or "/term" to the provision's starts
+    a block; nested paragraphs and continuations join the block before them."""
+    out: list[list[str]] = []
+    for ref, text in units:
+        suffix = ref[len(provision):]
+        if not out or _BLOCK_START.match(suffix):
+            out.append([suffix or ref, text])
+        else:
+            out[-1][1] += " " + text
+    return [(label, text) for label, text in out]
+
+
+def excerpt(ref: str, text: str, units: list[tuple[str, str]] | None, question: str) -> Excerpt:
+    """What an answer is given of one source, and what was cut from it."""
+    from tm_knowledge.search.index import _terms
+
+    terms = list(dict.fromkeys(_terms(question)))
+    if not ref.startswith(("TMA", "TMR")):
+        return _window(text, terms, MANUAL_CHARS)
+    if len(text) <= LAW_CHARS:
+        return Excerpt(text)
+    blocks = _blocks(ref, units or [])
+    if len(blocks) < 2:
+        return _window(text, terms, LAW_CHARS)
+    score = [sum(1 for term in terms if _hits(body, term)) for _, body in blocks]
+    chosen: set[int] = set()
+    used = 0
+    for i in sorted(range(len(blocks)), key=lambda i: (-score[i], i)):
+        if used + len(blocks[i][1]) <= LAW_CHARS:
+            chosen.add(i)
+            used += len(blocks[i][1])
+    labels = {label: i for i, (label, _) in enumerate(blocks)}
+    for i in sorted(chosen):
+        for lead in _LEAD_IN.findall(blocks[i][1]):
+            for label in re.findall(r"\(\w+\)", lead):
+                if label in labels:
+                    chosen.add(labels[label])
+    if not chosen:
+        return _window(text, terms, LAW_CHARS)
+    parts, previous = [], -1
+    for i in sorted(chosen):
+        if i != previous + 1:
+            parts.append("…")
+        parts.append(blocks[i][1])
+        previous = i
+    if previous != len(blocks) - 1:
+        parts.append("…")
+    shown = [blocks[i][0] for i in sorted(chosen)]
+    omitted = [blocks[i][0] for i in range(len(blocks)) if i not in chosen]
+    return Excerpt(" ".join(parts), f"parts shown: {_named(shown)}; omitted: {_named(omitted)}")
+
+
+def _named(labels: list[str], most: int = 12) -> str:
+    return ", ".join(labels) if len(labels) <= most else f"{', '.join(labels[:most])} and {len(labels) - most} more"
+
+
+def source_block(ref: str, source: str, shown: Excerpt) -> str:
+    """One source as the answer prompt tags it — `Engine.prompt` writes the same."""
+    cut = f' cut="{shown.cut}"' if shown.cut else ""
+    return f'<passage source="{source}" ref="{ref}"{cut}>\n{defang(shown.text)}\n</passage>'
+
+
 _NORMALISE = {"‘": "'", "’": "'", "“": '"', "”": '"', "–": "-",
               "—": "-", " ": " "}
 
@@ -1107,21 +1211,70 @@ def _answer_render(ctx: Context, item: Item) -> str:
     lines = ["ONTOLOGY (one line per concept):", ontology_map(ctx), "",
              "CONCEPTS RECOGNISED IN THE QUESTION: "
              + (", ".join(f"{c} {labels.get(c, c)}" for c in p.get("recognised") or []) or "none")]
+    defined = [definition_lines(ctx)[c] for c in p.get("recognised") or [] if c in definition_lines(ctx)]
+    if defined:
+        lines += ["", "DEFINITIONS (of the concepts recognised; machine-written, unreviewed):", *defined]
     if p.get("paths"):
         lines += ["", "GRAPH PATH (relationships the ontology holds for those concepts):"]
         lines += [path_line(labels, edge) for edge in p["paths"]]
     lines += ["", f"QUESTION: {p['question']}", "", "MANUAL PASSAGES:"]
-    for ref in p["passages"]:
-        passage = passage_at(ctx.corpus, ref)
-        if passage is not None and passage.text:
-            lines.append(passage_block(ref, passage.text, 1600).replace(
-                "<passage ", f'<passage source="{_source(ref)}" ', 1))
+    sent = answer_excerpts(ctx, p)
+    lines += [source_block(ref, _source(ref), sent[ref]) for ref in p["passages"] if ref in sent]
     if p.get("legislation"):
         lines += ["", "LEGISLATION:"]
-        for ref in p["legislation"]:
-            lines.append(passage_block(ref, passage_at(ctx.corpus, ref).text, 1600).replace(
-                "<passage ", f'<passage source="{_source(ref)}" ', 1))
+        lines += [source_block(ref, _source(ref), sent[ref]) for ref in p["legislation"] if ref in sent]
     return "\n".join(lines)
+
+
+def provision_units(corpus: Corpus, ref: str) -> list[tuple[str, str]] | None:
+    """A provision's units, in order, where it has any and is too long to give whole."""
+    provision = corpus.provisions.get(ref)
+    if provision is None or len(provision.text or "") <= LAW_CHARS:
+        return None
+    return [(unit.ref, unit.text) for unit in provision.units]
+
+
+def answer_excerpts(ctx: Context, payload: dict[str, Any]) -> dict[str, Excerpt]:
+    """ref -> what the answer is given of it: the prompt shows these, and the
+    citations are checked against these, never against the whole text (A08)."""
+    out = {}
+    for ref in [*payload["passages"], *(payload.get("legislation") or ())]:
+        passage = passage_at(ctx.corpus, ref)
+        if passage is not None and passage.text:
+            out[ref] = excerpt(ref, passage.text, provision_units(ctx.corpus, ref), payload["question"])
+    return out
+
+
+_BASIS_WORDS = {
+    "statutory_definition": "{instrument}'s own definition, quoted",
+    "statutory_provision": "written from {instrument}",
+    "manual": "written from the Manual, which states practice, not law",
+}
+
+
+def definition_lines(ctx: Context) -> dict[str, str]:
+    """concept -> its definition's line in the answer prompt, with its record, where its
+    words come from, and its stamp (CHAT-0088, ADR-0139). `chat.json` carries the same
+    lines to the browser, so the two prompts cannot differ."""
+    if getattr(ctx, "_definition_lines", None) is None:
+        from tm_knowledge.authored import definitions as definitions_module
+
+        labels = {cid: c.pref_label for cid, c in ctx.links.concepts.items()}
+        found = definitions_module.load(_ledger_root(ctx), gold=ctx.gold, authored=ctx.authored)
+        out = {}
+        for d in sorted(found.sound, key=lambda d: d.concept):
+            ref = str(d.record["source_ref"])
+            instrument = "the Regulations" if ref.startswith("TMR") else "the Act"
+            whose = _BASIS_WORDS[d.record["basis"]].format(instrument=instrument)
+            if d.record["basis"] == "statutory_definition" and instrument == "the Regulations":
+                whose = "the Regulations' own definition, quoted"
+            line = (f"- {d.concept} {labels.get(d.concept, d.concept)} ({d.id}; {whose}; machine-written, "
+                    f"unreviewed): {' '.join(str(d.record['text']).split())}")
+            if d.record.get("scope_note"):
+                line += f" Scope: {' '.join(str(d.record['scope_note']).split())}"
+            out[d.concept] = line
+        ctx._definition_lines = out
+    return ctx._definition_lines
 
 
 def path_line(labels: dict[str, str], edge: Any) -> str:
@@ -1133,25 +1286,39 @@ def path_line(labels: dict[str, str], edge: Any) -> str:
     review response, F14). A line from before the condition was recorded (a prepared
     answer's five-field path) says it records none, which is not the same as none."""
     s, pred, o, rid, origin = edge[:5]
-    modality, when = (list(edge[5:7]) + ["", ""])[:2]
+    modality, when, hedge = (list(edge[5:8]) + ["", "", ""])[:3]
     qualified = (f'modality "{modality}"' if modality else "modality not recorded") + "; " + (
-        f'applies when "{when}"' if when else "no condition recorded")
+        f'applies when "{when}"' if when else "no condition recorded") + (
+        f'; hedged "{hedge}"' if hedge else "")
     return f"- {labels.get(s, s)} —{pred}→ {labels.get(o, o)} ({rid}, {origin}; {qualified})"
 
 
 #: The answer prompt's version. answer-v3 (ADR-0136) added each path line's modality
-#: and condition and the rule against concluding absence; the 129 prepared answers
-#: were written with answer-v2, and the page says so.
-ANSWER_VERSION = "answer-v3"
+#: and condition and the rule against concluding absence. answer-v4 (ADR-0139) gives
+#: complete provisions with every cut marked, the definitions of the concepts
+#: recognised, and asks for claims, each with its own quotes, checked against what was
+#: sent. The 129 prepared answers were written with answer-v2, from passages cut at
+#: 1,600 characters, and the page says so.
+ANSWER_VERSION = "answer-v4"
 PREPARED_ANSWER_VERSION = "answer-v2"
+AUTHORITIES = ("legislation", "manual", "both", "none")
 
 _ANSWER_INSTRUCTIONS = PREAMBLE + """
 
 Task: answer the QUESTION from the MANUAL PASSAGES and LEGISLATION, for a trade \
 marks examiner.
-- Cite every claim: citations are the refs and exact quotes you relied on.
-- Say which statements are Manual practice and which are the Act or Regulations; \
-each passage's source attribute says which it is.
+- Write the answer as claims, in reading order: each claim one statement a reader \
+can check, with the quotes that support it, each quote's ref and its exact words \
+copied from the passage as shown here. A claim no passage supports gets no quote, \
+and is shown to the reader as unsupported.
+- authority, for each claim: "legislation" if it states what the Act or Regulations \
+say, "manual" if it states the Manual's practice, "both", or "none" for what the \
+passages do or do not cover. Each passage's source attribute says which it is.
+- A passage with a cut attribute is an excerpt: it names what it shows and what it \
+omits, and what it omits exists. Never conclude from a cut passage that a \
+subsection, exception or step does not exist.
+- DEFINITIONS are machine-written and unreviewed, and say where their words come \
+from. Use them to read the passages, not in place of them; quote the passages.
 - If the passages do not answer it, say so. If the question asks how a particular \
 application will be decided, decline that part (declined true) and explain what \
 the Manual says instead.
@@ -1164,7 +1331,10 @@ may not be complete.
 - concepts_used: the ids of ONTOLOGY concepts your answer relies on."""
 
 _ANSWER_SCHEMA = _strict({
-    "answer": STR, "citations": {"type": "array", "items": _strict({"ref": STR, "quote": STR})},
+    "claims": {"type": "array", "items": _strict({
+        "text": STR, "authority": {"type": "string", "enum": list(AUTHORITIES)},
+        "quotes": {"type": "array", "items": _strict({"ref": STR, "quote": STR})},
+    })},
     "concepts_used": STRS, "declined": {"type": "boolean"}, "decline_reason": STR,
 })
 
@@ -1254,36 +1424,73 @@ def _excerpt(ctx: Context, ref: str, limit: int = 320) -> dict[str, str]:
             "excerpt": text[:limit] + ("…" if len(text) > limit else "")}
 
 
+def check_claims(claims: Any, sent: dict[str, Excerpt]) -> list[dict[str, Any]]:
+    """Each claim with its quotes checked against the excerpt the model was given
+    (A08): a quote is kept only if its words are in what was sent, so a quote from a
+    part that was cut, or from a passage not sent, is dropped. A claim with no kept
+    quote is unsupported. `Engine.verify` applies the same check in the browser.
+
+    The check proves the words exist where the claim says; it does not prove that they
+    support the claim. That needs a judge, which costs money (ADR-0139)."""
+    out = []
+    for claim in claims or ():
+        if not isinstance(claim, dict):
+            continue
+        kept, dropped = [], []
+        for q in claim.get("quotes") or ():
+            ref, quote = str(q.get("ref", "")), str(q.get("quote", ""))
+            shown = sent.get(ref)
+            span = locate(shown.text, quote) if shown is not None else None
+            if span is None:
+                dropped.append({"ref": ref, "quote": quote})
+            else:
+                kept.append({"ref": ref, "quote": shown.text[span[0]:span[1]]})
+        authority = str(claim.get("authority") or "none")
+        out.append({"text": str(claim.get("text") or ""), "authority": authority if authority in AUTHORITIES else "none",
+                    "quotes": kept, "dropped": dropped, "supported": bool(kept)})
+    return out
+
+
 def _answer_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict[str, Any]) -> Outcome:
     outcome = Outcome(proposed=1)
+    p = item.payload
+    shown = p["passages"] + p.get("legislation", [])
+    if "claims" in parsed:  # answer-v4: claims checked against the excerpts sent
+        claims = check_claims(parsed.get("claims"), answer_excerpts(ctx, p))
+        text = "\n\n".join(c["text"] for c in claims)
+        candidates = [q for c in claims for q in c["quotes"]]
+        outcome.refused += [f"{item.key}: quote from {q['ref']!r} is not in what was sent"
+                            for c in claims for q in c["dropped"]]
+    else:  # answer-v2 and v3: one string and a citation list
+        claims, text, candidates = None, str(parsed.get("answer", "")), list(parsed.get("citations") or ())
     cited = []
-    for c in parsed.get("citations") or ():
+    for c in candidates:
         ref = str(c.get("ref", ""))
-        shown = item.payload["passages"] + item.payload.get("legislation", [])
         found = evidence(ctx.corpus, ref, str(c.get("quote", ""))) if ref in shown else None
         if found is None:
             outcome.refused.append(f"{item.key}: citation to {ref!r} does not land")
             continue
         cited.append(found)
-    p = item.payload
     labels = {cid: c.pref_label for cid, c in ctx.links.concepts.items()}
     outcome.records["answers"] = [{
         "key": item.key, "kind": p.get("kind"), "question": p["question"],
-        "answer": str(parsed.get("answer", "")),
+        "answer": text,
+        **({"claims": claims, "prompt_version": ANSWER_VERSION} if claims is not None else {}),
         # Everything the demo page shows is carried here, because the site reads
         # committed artefacts and never the snapshot (ADR-0063).
         "recognised": [{"id": c, "label": labels.get(c, c)} for c in p.get("recognised") or ()],
         "paths": [{"subject": e[0], "subject_label": labels.get(e[0], e[0]), "predicate": e[1],
                    "object": e[2], "object_label": labels.get(e[2], e[2]), "record": e[3], "origin": e[4],
                    # Seven fields since answer-v3 (ADR-0136): the modality and condition shown.
-                   **({"modality": e[5] or None, "applies_when": e[6] or None} if len(e) >= 7 else {})}
+                   **({"modality": e[5] or None, "applies_when": e[6] or None} if len(e) >= 7 else {}),
+                   **({"hedge": e[7] or None} if len(e) >= 8 else {})}
                   for e in p.get("paths") or ()],
         "passages": [_excerpt(ctx, ref) for ref in p["passages"]],
         "legislation": [_excerpt(ctx, ref) for ref in p.get("legislation") or ()],
         "plain_search": [_excerpt(ctx, ref) for ref in p.get("plain") or ()],
         "citations": cited, "concepts_used": list(parsed.get("concepts_used") or ()),
         # PU-0004 at answer time (review F1): flagged, never removed.
-        "authority_flags": conflations(str(parsed.get("answer", "")), [c["ref"] for c in cited]),
+        "authority_flags": conflations(text, [c["ref"] for c in cited]),
         "declined": bool(parsed.get("declined")), "decline_reason": str(parsed.get("decline_reason", "")),
         "model": entry["model_reported"], "date": date.today().isoformat(), "review_status": "unreviewed",
     }]

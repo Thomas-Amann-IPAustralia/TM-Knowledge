@@ -189,6 +189,18 @@ def _concept(view: views.ConceptView, mentions: dict[str, list[str]], generic: s
     return record
 
 
+def _applicability(record: dict[str, Any]) -> dict[str, Any]:
+    """The condition state, and the proceeding and kind of mark the source's Part fixes
+    (R07, `ontology.conditions`); a field the Part does not fix is left out."""
+    from tm_knowledge.ontology import conditions
+
+    out: dict[str, Any] = {"condition": conditions.state(record)}
+    for key, value in (("proceeding", conditions.proceeding(record)), ("mark_type", conditions.mark_type(record))):
+        if value:
+            out[key] = value
+    return out
+
+
 def _relations(gold: Any, authored: Any) -> list[dict[str, Any]]:
     """Every relationship record from both stores, its origin kept."""
     out = []
@@ -196,7 +208,8 @@ def _relations(gold: Any, authored: Any) -> list[dict[str, Any]]:
         out.append({
             "id": str(record["id"]), "s": str(record["subject"]), "p": str(record["predicate"]),
             "o": str(record["object"]), "origin": "signed", "modality": record.get("modality"),
-            "when": record.get("applies_when"), "ref": record.get("source_ref"), "quote": record.get("supporting_text"),
+            "when": record.get("applies_when"), "hedge": record.get("hedge"), **_applicability(record),
+            "ref": record.get("source_ref"), "quote": record.get("supporting_text"),
             "signed": {"by": record.get("approved_by"), "date": record.get("approved_date")},
         })
     for entry in authored.of("gold_relationship"):
@@ -207,7 +220,8 @@ def _relations(gold: Any, authored: Any) -> list[dict[str, Any]]:
         out.append({
             "id": str(record["id"]), "s": str(record["subject"]), "p": str(record["predicate"]),
             "o": str(record["object"]), "origin": "machine", "modality": record.get("modality"),
-            "when": record.get("applies_when"), "ref": record.get("source_ref") or evidence.get("ref"),
+            "when": record.get("applies_when"), "hedge": record.get("hedge"), **_applicability(record),
+            "ref": record.get("source_ref") or evidence.get("ref"),
             "quote": record.get("supporting_text") or evidence.get("quote"),
             "machine": {"by": env.get("authored_by"), "date": env.get("authored_date"),
                         "review_status": env.get("review_status"), "confidence": env.get("confidence"),
@@ -456,6 +470,11 @@ def passages(corpus: Corpus, also: set[str] = frozenset()) -> dict[str, Any]:
         provision = corpus.resolve_provision(ref)
         heading = " > ".join(getattr(provision, "heading_path", ()) or ())
         legislation[ref] = [_source(ref), views._provision_label(ref), heading, found.text]
+        # A provision too long to give an answer whole carries its units, so the page can
+        # give the parts the question needs the way `jobs.excerpt` does (A06).
+        units = jobs.provision_units(corpus, ref)
+        if units:
+            legislation[ref].append([list(unit) for unit in units])
     pages = {}
     for page in sorted(corpus.pages.values(), key=lambda p: p.page_ref):
         pages[page.page_ref] = {"title": page.nav_title, "part": page.part_id, "url": page.url}
@@ -726,7 +745,13 @@ def chat(ctx: jobs.Context) -> dict[str, Any]:
         "law": law(ctx.corpus),
         "instructions": jobs._ANSWER_INSTRUCTIONS, "schema": jobs._ANSWER_SCHEMA,
         "ontology_map": jobs.ontology_map(ctx),
-        "passages_k": 8, "legislation_k": 3, "paths_k": 12, "plain_k": 5, "passage_chars": 1600,
+        "passages_k": 8, "legislation_k": 3, "paths_k": 12, "plain_k": 5,
+        # answer-v4 (A06): legislation whole up to law_chars, a Manual chunk cut around the
+        # question's words past manual_chars. The prepared answers read 1,600 of each.
+        "law_chars": jobs.LAW_CHARS, "manual_chars": jobs.MANUAL_CHARS, "prepared_passage_chars": 1600,
+        # The definitions of the concepts a question names, as the prompt states them
+        # (CHAT-0088): one line each, written by `jobs.definition_lines`.
+        "definitions": jobs.definition_lines(ctx),
         "daily_limit": DAILY_LIMIT,
         "prices": config.PRICES_PER_MTOK[CHAT_MODEL]["default"],
         "reading": {

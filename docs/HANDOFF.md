@@ -1,136 +1,137 @@
 # HANDOFF
 
-**Last updated:** 2026-10-17 · S039 (end) · branch `claude/magical-cerf-49lhls`
+**Last updated:** 2026-10-19 · S041 (end) · branch `claude/vibrant-hawking-9r6ev3`
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
 
 ## Where things stand
 
-**S039 checked that the published explorer shows the current ontology.** No model was
-called; recorded spend is still US$9.63 against the US$9.49 cap, so every paid call is refused.
+**The purpose is ADR-0138** (`CLAUDE.md` §0): a foundation, an examiner research tool, a customer
+explanation aid. **The plan is `docs/ONTOLOGY-REVIEW-RESPONSE-2.md`'s order: Package 1, then 3,
+then 2, then 4.** S041 started from S040's branch (`claude/adoring-pascal-38ogq7`, fast-forwarded:
+it held the response and the handoff), **did Package 1, then Package 3**. No model was called; spend
+is still US$9.63 against the US$9.49 cap, so every paid call is refused, and nothing was measured.
 
-1. **Deployment is current.** `main` at `3ecf410` passed the harness and its Pages run
-   succeeded. The eight data files and every page file served at the live URL are
-   byte-identical to a fresh `tmk-explorer --write` from that commit; only `live.json`
-   differs, because CI sets the proxy endpoint. The committed graph equals a rebuild.
-2. **The site matches the graph, field by field** (a scratch script, not committed):
-   164 concepts, their labels, not-labels, kinds, legislative bases; all 357 relationships
-   (20 signed serving, 337 machine) with subject, predicate, object and modality; the 15
-   withheld signed relationships are exactly those GK-0015 to GK-0029 replace; 149
-   definitions; every machine record stamped unreviewed.
-3. **Two gaps found and fixed.** (a) Four signed "is a kind of" links stated on concept
-   records (deception and confusion under GC-0002; geographical indication under
-   geographical reference, the link GK-0037 kept; deceased person under well-known person)
-   were on no page, because every view draws only `GR-` relationship records. They are now
-   on the idea card at both ends, on the map and in the table, naming the stating records,
-   and not drawn as connections (they rest on a record, not a sentence). Q-96. (b) The
-   table's idea detail and its CSV lacked the S038 definitions; both now carry them, from
-   the map card's block, moved to `app.js`.
-4. **Checked in a browser for the first time since S036**: 13 routes in headless Chromium
-   with no console or page errors; the GC-0018 map card and GC-0002 table detail render
-   with stamps; a hierarchy link opens its idea.
+Package 1, each item shown done by re-running its probe from the response's "How to repeat the
+checks" (scratch scripts; the tests named below hold the same properties):
 
-**S038, still the substance** (ADR-0136, ADR-0137): stale documents corrected and the
-ontology report drift-checked; GK-0037 on GC-0017/GC-0018; no key in the build; live path
-lines carry modality and `applies_when`, `answer-v3` forbids concluding absence; re-pin to
-upstream `308bfd9` (the Act's compilation 48); 149 machine-written definitions; the pitch
-pack rewritten to the owner's claims.
+- **R04.** The envelope shapes also target `tmk:Definition` and `tmk:Correction`; a Definition and a
+  Correction shape. Deleting GD-0001's (or GK-0001's) author, reasoning and sources now gives 4
+  defects each, where it gave 0. RULE-0001 records object `true`; `validate.inference_equality`
+  checks every inference against its triple both ways: 0 of 192 disagree (5 did).
+  `test_validate_gate.py`, `test_rules.py`.
+- **R03.** Every evidence item is a `tmk:EvidenceAnchor`, `<record>/evidence/<n>` (ref, span, hash,
+  quote, `checkedAgainst`, `isStale`; `docs/IDENTIFIERS.md` §2); the source graph closes over every
+  store's evidence. 996 of 996 items round-trip from `graph/dataset.nq` (0 did); 0 refs dangle (13
+  did). `test_ontology_build.py`.
+- **R01.** GR-0699, GR-0700, GR-0701 → `qualifies` with their hedge (GR-0699 and GR-0700 on the
+  section 43 ground; GR-0700 quotes the "However" and "more recently" sentences); GR-0702 kept as
+  the one exception, re-anchored to the conditional sentence, phoneword scope as its condition.
+  `hedge` is its own field (schema, harness, `tmk:hedge`, cards, both path-line engines); the five
+  hedges moved. The dictionary's example is Part 29.6's "does not arise". ADR-0140. Ledger
+  `data/derived/audit/review-response-2.yaml`. The three near misses: `test_predicates.py`.
+- **R02.** Triage as harness notes (`definitions.triage`): 18 flags over 15 definitions; 5 remain,
+  read and kept (GD-0002, GD-0007, GD-0081 state the test or duty that is their meaning; GD-0003,
+  GD-0128 false positives). 17 definitions re-read (GD-0050, GD-0084, GD-0128, GD-0146 and 13
+  more, 7 of them among the 45 signed-concept definitions, all read); GC-0179 takes regs 4.8 and
+  4.10. `test_definitions.py`.
+- **R07.** Condition state by rule (`ontology.conditions`); proceeding and mark type from the Part.
+  All 101 open relationships assessed (`data/derived/audit/conditions-r07.yaml`): 64 conditions
+  copied, 37 `no_condition` reasons. Now 88 stated, 212 none stated, 37 assessed none, 0 not
+  assessed. `test_applies_when.py`.
+- **Small.** `graph/README.md` (not empty; the shape claim; direct edges are navigation only),
+  `eval/README.md` (agents author, in `authored/`), roles as capacities with the disjointness
+  scoped, `ExaminationOutcome` represents a recorded outcome and never generates one.
 
-Counts: 52 signed + 112 machine-written concepts, all 164 in one connected piece; 35 signed
-relationships (20 serving, 15 corrected) + 337 machine-written; 37 corrections; 149
-definitions; 4 signed record-stated kind-of links, now shown. 783 tests pass;
-harness 0 defects; SHACL 0 defects, 259 notes.
+Graph rebuilt, ontology report rebuilt; `tmk-graph --rules --check` matches. SHACL 0 defects, 0
+gaps, 259 notes; harness 0 defects, 12 gaps, 21 notes. 824 tests pass at the end of S041 (two stale ones, the
+relationship template and `relations_from`'s row width, fixed). Counts: 52 signed + 112 machine-written concepts; 35 signed relationships (20 serving, 15
+corrected) + 337 machine-written; 37 corrections; 149 definitions; RULE-0002 187 conclusions.
 
-## For the owner
-
-- **Revoke the old OpenAI key** in your OpenAI account, and delete the now-unread
-  `OPENAI_API_KEY` secret from the `github-pages` environment. Nothing in the repo reads it.
-- **The draft deck could not be opened** from S038 (the artifact service said "not found" for
-  this account), so it still shows the 7 October draft. `docs/PITCH-PACK.md` is current; a
-  session can build a new private deck from it if you want one.
-- **ADR-0137 is agent-proposed**: the shape of a definition and the order of preference.
-- Still waiting from S034: the page's blend; ADR-0131; the four disputed signed readings.
+**Package 3, the live answer, is done: `answer-v4`** (ADR-0139 acted on, ruling `applied`).
+`jobs.excerpt` = `engine.excerpt`: legislation whole up to 4,000 characters (s 44 with (3) and (4));
+a longer provision gives its matched blocks plus whatever a "Subject to" lead-in names; a Manual
+chunk past 3,000 is cut around the question's first word; every cut marked (`cut="..."`, "…") and
+listed on the page. Claims, each with an authority and quotes, checked against the excerpt sent
+(`jobs.check_claims`, `Engine.verify`); "No checked support" marked; streamed as an unchecked
+draft. Definitions of the recognised concepts in the prompt (`jobs.definition_lines`, shipped in
+`chat.json`). Prepared answers labelled as read from 1,600-character cuts. Tests in
+`test_explorer.py`, including byte parity of the excerpts on every long source; a headless run of
+the Ask page with a stubbed model rendered the marks with no console errors.
 
 ## Next actions (agent work, no spend)
 
-1. **The blend** (S034, F10): hub concepts ("trade mark", "applicant") enter search expansion
-   as neighbours in 15 of 76 questions, and without vectors the linked list breaks ties by ref
-   order. Fix in `engine.js` and `search/index.py` together, never tuned on the benchmark.
-   This is the "fix designed and not yet made" the pitch names.
-2. **The 15 undefined concepts** (examiner, decision maker, reputation, IP Australia,
-   substantially identical, closely related goods and services, and nine others): their sources
-   do not define them. Find a defining passage elsewhere in the Manual, or leave them.
-3. **F09's remaining parts**: one coverage table by Part (searchable, in the graph).
-4. **Remaining heading-only edges** outside the worklist (GR-0270, Madrid Protocol Article
-   7's title, at least): no check finds them yet; re-cite or withdraw through a ledger.
-5. Small: `map.js` draws a `CASE/…` ref as a Manual chip; "Wrote an answer…" with live answers
-   off.
-6. **The four record-stated kind-of links are not in search expansion** (`search/index.py`
-   reads relationship records only), so Ask does not follow them. Left alone: changing it
-   changes what was measured; it belongs with the blend (item 1), in both engines.
-7. Whether the answering model should see definitions is an owner gate (what it is told).
+**Package 2: what examiners use.** R05 dependency index keyed by any ref (reuse the staleness check),
+feeding `explorer.build.stability`; RULE-0002 left as is, labelled signed-only. R06 each competency
+query tested against its signed record; CQ-0009, CQ-0024 rewritten. R08, R10, A07, A11.
+
+**Package 4: the first customer slice, fictional** (tests for ss 41, 43, 44; regs 4.8–4.10 process;
+matter, objection, role assignment, built on roles-as-capacities; evidence for s 41(3), (4)).
+
+**Afterwards:** the blend (S034, F10); the 15 undefined concepts; heading-only edges (GR-0270).
+
+## For the owner
+
+- **Nothing new is waiting on you from S041.** Gates ahead, asked when reached: anything published to
+  customers; real customer or case data; spend; who writes the next benchmark.
+- **Revoke the old OpenAI key** and delete the unread `OPENAI_API_KEY` secret (S038).
+- Still waiting from S034: the page's blend; ADR-0131; the four disputed signed readings.
 
 ## What to distrust
 
-- **All 149 definitions are one agent session's reading**, unreviewed. The 53 statutory ones
-  are verbatim, but whether the instrument's term is the sense the Manual's label means is a
-  judgement (GC-0081 "use of a trade mark" quotes s 7's "use … in relation to goods/services";
-  GC-0178 quotes "registered trade marks attorney"). The 74 Manual ones are the agent's words.
-- **GK-0037's choice** (drop "related", keep "kind of") is the agent's, on CHAT-0082.
-- **The re-anchored records** (GR-0672, GK-0003): only a hyphen moved, but a hash was
-  re-copied by hand; their `review_history` says so.
-- **The Ask page's live answer was not exercised in S039's browser run** (live answers off
-  locally); S038's path-line and absence changes there are still unchecked in a browser.
-- **The pitch's numbers are from 9 and 12 October**, before the restructure, definitions and
-  re-pin. **22 legislative bases are unverified.**
-- **The published `site/data/ontology.json` still carries the reviewer's initials** (S028).
-- **The reading and the measurement** are a model's, on model-written questions (ADR-0133).
+- **R07's 101 assessments and R02's 17 re-reads are one agent session's reading**, unreviewed. A
+  `no_condition` reason is a judgement; so is choosing one contiguous span as a condition where the
+  sentence has two (GR-0148, GR-0309 carry their consequent with them).
+- **The proceeding lookup is coarse**: Parts 52, 54, 55, 7, 9, 15 cover several proceedings and fix
+  none; a statutory source fixes none.
+- **`answer-v4` has never run against the real model**: the cap is spent, and the live page was
+  checked only with a stubbed reply. The first real answers may show the model mis-filling
+  `authority` or quoting across a "…" (such a quote is dropped). A kept quote proves the words exist,
+  not that they support the claim (A08); a judge needs spend.
+- **The live answer is no longer the measured one**: the benchmark numbers are for `answer-v2`
+  prompts over 1,600-character cuts. Re-measuring is an owner gate (spend).
+- **The block rule fills spare budget with blocks the question does not match** (s 6's definitions,
+  in order); harmless, but not "the matched units only".
+- **A clean authority flag is not a verified attribution** (R08).
+- **GC-0179 keeps "The report must include the lapsing date."** among its evidence (the old reading's
+  quote, still true of the Manual); its definition now takes the deferral from reg 4.10(3).
+- **`docs/PITCH-PACK.md` is stale**; **21 legislative bases are unverified**; **GK-0037** is the
+  agent's (CHAT-0082); **GR-0672, GK-0003** carry hand-copied hashes; `site/data/ontology.json`
+  carries the reviewer's initials (S028).
 
 ## Things a session will trip on
 
-- **`python3 -m pytest`, not `pytest`** (Q-29); `pip install -e ".[rdf,test]"`; about ten
-  minutes. owlrl is not a dependency; install it only to probe.
+- **`python3 -m pytest`, not `pytest`** (Q-29); about fifteen minutes for the full suite.
 - **After changing records, the builder or any `ontology/draft/` module**: `tmk-graph --write
-  --rules`, then `tmk-ontology-report --write` (about a minute). CI checks both.
-- **Moving the pin**: diff the record shapes first; Q-95 has the procedure.
-- **Definitions have their own reader** (`authored.definitions`), like corrections; the store
-  skips the file. A statutory definition quotes only the instrument, a Manual one the Manual.
-- **`explorer.build.PREPARED_LAW`** is the law the 129 prepared answers read; change it only
-  when they are re-written.
-- **`tmk-bulk measure --write` now writes `measure-<date>.md`** when the grades moved (Q-91).
-- **Two structure ledgers**: dry-run both after touching `restructure` (Q-93). A condition must
-  be verbatim in the sentence. **Renaming is how a site label changes** (Q-94).
-- **Test the page after `tmk-explorer --write`**, then restore a stand-in `live.json` (Q-90).
-- **`engine.js` and `search/index.py` change together**, as do `links.find_mentions` and
-  `Recogniser`, `search.authority` and `authorityFlags`, `jobs.reading_input` and
-  `live.readingInput`, `jobs.path_line` and `engine.pathLine`.
-- **Off-kind edge? Check the kinds first** (Q-86). **Relabelled in a ledger?** Q-87.
-  **Edit record files block by block** (Q-76).
-- **Gemini ignores its schema** (Q-83); **price from completed calls** (Q-85); hold a paid run to
-  the owner's amount with `TMK_SPEND_CAP_USD` (ADR-0128).
-- **`tmk-graph --check` needs `--rules`.** Pass `authored.root` to `corrections.load` (Q-77).
-- **`served_gold()` for what serves; `goldset.load()` for what measures.**
-- **The explorer needs the snapshot**: `tmk-fetch-upstream`, then `tmk-explorer --write`.
-- **Probing by hand**: `validate_envelope` takes `record_id` as a keyword only; build a
-  `jobs.Context` with `bulk.cli._context()`.
+  --rules`, then `tmk-ontology-report --write`. CI checks both. `--check` needs `--rules`.
+- **Four structure ledgers now** (`restructure.yaml`, `review-response.yaml`,
+  `review-response-2.yaml`, `conditions-r07.yaml`): dry-run all four after touching
+  `bulk/restructure.py`; each must report 0 to re-read and 0 refused (Q-93, Q-98). Re-running a
+  ledger's `--write` regenerates its report from nothing left to do: apply a ledger in one pass.
+- **A condition or hedge must be verbatim in the sentence**; a sentence with a conditional word gets
+  a condition or a `no_condition` reason, and the harness counts the states.
+- **Read evidence through `tmk:evidence`** (anchors), not `tmk:sourcePassage` (the passage only).
+- **Probing SHACL**: `validate.run` on the loaded `Dataset`, never a flat graph (Q-97).
+- **Engines change together**: `engine.js`/`search/index.py`, `jobs.excerpt`/`engine.excerpt` and
+  `jobs.check_claims`/`Engine.verify` (and `jobs.definition_lines`, shipped in `chat.json`), `jobs.path_line`/`engine.pathLine` (now eight fields, the hedge last),
+  `search.authority`/`authorityFlags`, `links.find_mentions`/`Recogniser`,
+  `jobs.reading_input`/`live.readingInput`.
+- **Definitions and corrections have their own readers**; pass `authored.root` to
+  `corrections.load` (Q-77). **`served_gold()` serves; `goldset.load()` measures.**
+- **The explorer needs the snapshot**: `tmk-explorer --write`, test the page, restore a stand-in
+  `live.json` (Q-90). `PREPARED_LAW` is the law the 129 prepared answers read.
+- **Moving the pin**: Q-95. **Measuring**: Q-91, Q-85, Q-83.
 
 ## Open items (agent-proposed, provisional)
 
-- S039's engineering: the record hierarchy listed on the card, not drawn (Q-96); a pair is
-  shown as signed only if every record stating it is signed.
-
-- ADR-0137 (definitions), S038; ADR-0134 (no OWL profile) and ADR-0135 (`isAnExceptionTo`),
-  both S036.
-- S038's engineering: the report's structure and its drift check; the scheme's IRI kept;
-  `answer-v3` for live answers with the prepared ones left at `answer-v2`; `PREPARED_LAW`;
-  re-anchoring stale evidence with a `review_history` entry; the compilation properties in
-  `time.ttl`.
-- S036's engineering: the placement rule's class-per-graph table; S27 split; the manual Pages
-  run skipping the wait; dated reports on changed inputs; the ledger's `keep:` lines and the
-  earlier-ledger rule; new predicates admitted under CHAT-0073 as `owner-2026-10-09`.
-- The response's other recommendations not yet done: each the agent's until done or ruled.
-- ADR-0133's measurement choices; ADR-0132's engineering; S033's proxy limits; S030's table view.
-- ADR-0131's agent parts; ADR-0130's; ADR-0127 entire; the agent parts of ADR-0125, ADR-0126,
-  ADR-0128, ADR-0129; ADR-0122; the agent parts of ADR-0120, ADR-0123, ADR-0124.
-- "Too general" labels (E1); ADR-0113, ADR-0115, ADR-0117; agent parts of ADR-0118, ADR-0119.
+- **ADR-0140** (exceptions only where the source excludes; the hedge field), S041.
+- S041's Package 3 engineering: the 4,000 and 3,000 budgets, the block rule and lead-in pattern,
+  the claim schema's fields (`text`, `authority`, `quotes`), listing at most 12 labels in a cut.
+- S041's engineering: evidence-anchor IRIs and `checkedAgainst`; `assertionObject` as `rdf:Property`;
+  the span and hash properties losing their domain; the triage's three rules and thresholds; the
+  condition-state rule and the Part lookup tables; the applier's three fixes (Q-98).
+- ADR-0138's agent parts and S040's verdicts in the response.
+- Earlier, unchanged (listed in full in `git show 8d4c6ef:docs/HANDOFF.md`): ADR-0137, ADR-0134,
+  ADR-0135 (but for ADR-0140's supersession), Q-96, the agent parts of ADR-0113 to ADR-0133;
+  S036 and S038's engineering; "too general" labels (E1).

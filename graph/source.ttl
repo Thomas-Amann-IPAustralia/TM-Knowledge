@@ -409,8 +409,10 @@
     tmk:upstreamRef "TMA1995/s108(1)(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s10~1> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s10> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s10> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:267b10f0b047e6ab3212296943282612992e1bf8ca8de41a26b0891eefaa166e" ;
     tmk:ordinal 1 ;
@@ -418,8 +420,10 @@
     tmk:upstreamRef "TMA1995/s10~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11(1)(a)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:4dc30a9a9519c8cc85708e4ec8246be2351b8da615b145df879e59ca9fa1c230" ;
     tmk:ordinal 3 ;
@@ -427,8 +431,10 @@
     tmk:upstreamRef "TMA1995/s11(1)(a)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11(1)(b)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:df1cc30be008f4cc02cc91620c0469d987a7dd8deccd85b8227324ae5f5179a9" ;
     tmk:ordinal 4 ;
@@ -436,8 +442,10 @@
     tmk:upstreamRef "TMA1995/s11(1)(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11(1)(c)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:50cb0912a9bc7def7804c73aeb00afa1dfdfec4dcb2447d92595a89f121314e1" ;
     tmk:ordinal 5 ;
@@ -445,8 +453,10 @@
     tmk:upstreamRef "TMA1995/s11(1)(c)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11(1)(c)(i)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:057e3c164266ae50511b0354a302d7988ab0710231c7e2915659b28885197853" ;
     tmk:ordinal 6 ;
@@ -454,8 +464,10 @@
     tmk:upstreamRef "TMA1995/s11(1)(c)(i)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11(1)(c)(ii)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:db163febc70e9b52dc0709e206f816b1ea65c9bf598ac917f606ed8a5953850d" ;
     tmk:ordinal 7 ;
@@ -463,8 +475,10 @@
     tmk:upstreamRef "TMA1995/s11(1)(c)(ii)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11(1)(d)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:84d77ea984fd70bbd2af91043a3fff13b090b76f78556a6421475cd82fb9e302" ;
     tmk:ordinal 9 ;
@@ -481,8 +495,10 @@
     tmk:upstreamRef "TMA1995/s11(1)(d)~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11(1)~1> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:4f41fb3342ab1abb39124640942816aabd2b6dc105160aa9799c6bb9e434c281" ;
     tmk:ordinal 8 ;
@@ -688,8 +704,10 @@
     tmk:upstreamRef "TMA1995/s11~2" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s12(a)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s12> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s12> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:d5ee1be85f8d7b7cca80622d2bf6ef2d144027adf84d783afcd80a5d9a8112ec" ;
     tmk:ordinal 2 ;
@@ -697,8 +715,10 @@
     tmk:upstreamRef "TMA1995/s12(a)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s12(b)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s12> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s12> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:fe74107817d8c0471d5fe5271bafea40d13c7740d42cb0a37a1d609a09867c52" ;
     tmk:ordinal 3 ;
@@ -1570,17 +1590,61 @@
     tmk:upstreamRef "TMA1995/s126(2)(e)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s12~1> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s12> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s12> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:d3757ee6255bc6b9b6ca4412992904000b2aee504287432ac478af07587ffbfd" ;
     tmk:ordinal 1 ;
     tmk:text "The priority date for the registration of a trade mark in respect of particular goods or services is:" ;
     tmk:upstreamRef "TMA1995/s12~1" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s15(a)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s15> ;
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s14(1)(a)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s14> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:bfaa71048d2f889d2f1e1b2825770fccb5303f84500373542980d83fa61d285a" ;
+    tmk:ordinal 2 ;
+    tmk:text "(a) if they are the same as the other goods; or" ;
+    tmk:upstreamRef "TMA1995/s14(1)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s14(1)(b)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s14> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:aa10070de585fa4f2ed559abb7485586e68489482144ad583f035e1035acd582" ;
+    tmk:ordinal 3 ;
+    tmk:text "(b) if they are of the same description as that of the other goods." ;
+    tmk:upstreamRef "TMA1995/s14(1)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s14(2)(a)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s14> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:665e6b35dcfc693f3cd80bc610f31a5084be80719cbf22611894cfff1f1fd022" ;
+    tmk:ordinal 5 ;
+    tmk:text "(a) if they are the same as the other services; or" ;
+    tmk:upstreamRef "TMA1995/s14(2)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s14(2)(b)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s14> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:86de17680274b8ba50b78ffe859e56d820fdafc1366c6a22e5297aa4bf797c58" ;
+    tmk:ordinal 6 ;
+    tmk:text "(b) if they are of the same description as that of the other services." ;
+    tmk:upstreamRef "TMA1995/s14(2)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s15(a)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s15> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:3d48d517be4df6db40bea7da9d449db0dc8ba18e51080bd98307758012e5d1cd" ;
     tmk:ordinal 2 ;
@@ -1588,8 +1652,10 @@
     tmk:upstreamRef "TMA1995/s15(a)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s15(b)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s15> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s15> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:eedeba641b6c8dbcf246b6f60652d83a8b885719576ded91aa950bd4aa511eb2" ;
     tmk:ordinal 3 ;
@@ -2065,8 +2131,10 @@
     tmk:upstreamRef "TMA1995/s156~7" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s15~1> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s15> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s15> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:3a49ee7b05a34ae86f9dd03011c14374fbad640af30730869bdc436b0d3d9616" ;
     tmk:ordinal 1 ;
@@ -2074,8 +2142,10 @@
     tmk:upstreamRef "TMA1995/s15~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s16(1)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s16> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s16> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:7a16f05ab4d92fde083f092c1d19ad3970239145e155b35f61305a67e5317261" ;
     tmk:ordinal 1 ;
@@ -2083,8 +2153,10 @@
     tmk:upstreamRef "TMA1995/s16(1)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s16(1)(a)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s16> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s16> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:b853ef2d623e4b98919e32e270be65d3a734a578415ae47b1667e2d81b6e6f90" ;
     tmk:ordinal 2 ;
@@ -2092,8 +2164,10 @@
     tmk:upstreamRef "TMA1995/s16(1)(a)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s16(1)(b)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s16> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s16> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:a34e3b8c2593744bab18844621cf3d9cbeaa686122245ae126eed8ed3326ed70" ;
     tmk:ordinal 3 ;
@@ -2146,8 +2220,10 @@
     tmk:upstreamRef "TMA1995/s161~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s162~1> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s162> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s162> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:b510cb9b2b8fc60688045c303c03e71bbe7cfecfc3b415a849cb28b80f2254eb" ;
     tmk:ordinal 1 ;
@@ -2209,8 +2285,10 @@
     tmk:upstreamRef "TMA1995/s168~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s169(a)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s169> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s169> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:f06cec14b94fe66665aeff542bd23e8053b156caa8b4f31f25d1917637013b53" ;
     tmk:ordinal 2 ;
@@ -2218,8 +2296,10 @@
     tmk:upstreamRef "TMA1995/s169(a)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s169(b)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s169> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s169> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:58e96fedfbec76377ae4a1818aa7d70bf837c88d7e74fb25af840e7364deb3ca" ;
     tmk:ordinal 3 ;
@@ -2227,8 +2307,10 @@
     tmk:upstreamRef "TMA1995/s169(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s169~1> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s169> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s169> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:5150051f74a26fe78fe622ee4fad422b1935dabc78e7283502c1f00ed249a794" ;
     tmk:ordinal 1 ;
@@ -2236,8 +2318,10 @@
     tmk:upstreamRef "TMA1995/s169~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s169~2> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s169> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s169> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:e295eb9197b9dc461fd1dfa9e958e92a2500c95e86583ba7a289dd18a37a0a3e" ;
     tmk:ordinal 4 ;
@@ -2479,8 +2563,10 @@
     tmk:upstreamRef "TMA1995/s177~1~3" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s17~1> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s17> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s17> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:19fcd99043438dc1562a18409baf5f40f6f48a80bc727f16ffb4dead9e8eae28" ;
     tmk:ordinal 1 ;
@@ -2659,8 +2745,10 @@
     tmk:upstreamRef "TMA1995/s185(1)~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s185(2)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s185> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s185> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:f48c321182e0b1b5a491976ecdbbfbab1c152d839610e377607078c167833a4d" ;
     tmk:ordinal 3 ;
@@ -2848,8 +2936,10 @@
     tmk:upstreamRef "TMA1995/s189A(4)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s189A/international-bureau> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s189A> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s189A> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:b86922956e6f908611babdcc2792fac885121eee6a02fb403ad7086422940c52" ;
     tmk:ordinal 13 ;
@@ -2857,8 +2947,10 @@
     tmk:upstreamRef "TMA1995/s189A/international-bureau" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s189A/international-registration> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s189A> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s189A> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:13fb3306efa285ac137055280cce22e7add89e3612c4a64ed3c532fc98d48c38" ;
     tmk:ordinal 14 ;
@@ -2866,8 +2958,10 @@
     tmk:upstreamRef "TMA1995/s189A/international-registration" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s189A/madrid-protocol> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s189A> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s189A> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:86ede718224cf2d9a1734fae9eee2bca59ad0b419b26f2d5a9e8e32df2e30a6e" ;
     tmk:ordinal 15 ;
@@ -2875,8 +2969,10 @@
     tmk:upstreamRef "TMA1995/s189A/madrid-protocol" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s189A/protected-international-trade-mark> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s189A> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s189A> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:7c2df7953bbf1e972cbac873715fb4290947fe5a85ca855cb387082d6343237c" ;
     tmk:ordinal 16 ;
@@ -3180,6 +3276,24 @@
     tmk:text "Note: For limitations see section 6." ;
     tmk:upstreamRef "TMA1995/s20(4)~1" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s201(1)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s201> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:92396ae7fc5cd968607a5ff52a7f9f3892f1b8f490327679b26ac7944d49990d" ;
+    tmk:ordinal 1 ;
+    tmk:text "(1) There is to be a Registrar of Trade Marks." ;
+    tmk:upstreamRef "TMA1995/s201(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s201(2)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s201> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:9703a35ce6d17d1ec51a1c8fcfd766945418ecbf44cc6adbd4d8c9c8f7ad48eb" ;
+    tmk:ordinal 2 ;
+    tmk:text "(2) The Registrar has the powers and functions that are given to him or her under this Act or any other Act (including regulations under that Act)." ;
+    tmk:upstreamRef "TMA1995/s201(2)" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s202(a)> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s202> ;
     tmk:authorityKind "law" ;
@@ -3325,8 +3439,10 @@
     tmk:upstreamRef "TMA1995/s205(6)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s206(1)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s206> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s206> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:9f9a46601515884db48c981586d416d078545317f6a3257de9e6afd13d23ab40" ;
     tmk:ordinal 1 ;
@@ -3640,8 +3756,10 @@
     tmk:upstreamRef "TMA1995/s213B(4)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s214(1)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s214> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s214> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:4f223431a146c55ab7ebab9113ae6219a39749f50e2083767a3d8d7528b723c2" ;
     tmk:ordinal 1 ;
@@ -5593,8 +5711,10 @@
     tmk:upstreamRef "TMA1995/s40~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(1)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:42edf378286a04aacd5a7217202c4fb2c177bfc1d5bd612770ee17c4880ac34a" ;
     tmk:ordinal 1 ;
@@ -6133,8 +6253,10 @@
     tmk:upstreamRef "TMA1995/s51~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s52(1)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s52> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s52> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:fe98c73e3cbcca0d5824b9d4ba88f97157a3a47b6aade4667f5b28a1807046c5" ;
     tmk:ordinal 1 ;
@@ -6765,8 +6887,10 @@
     tmk:upstreamRef "TMA1995/s6/applied-to" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/approved-form> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:19f151ca00db93773bfe147b26c2d33bf08db398fdcf45f46a7568551b922386" ;
     tmk:ordinal 5 ;
@@ -6774,8 +6898,10 @@
     tmk:upstreamRef "TMA1995/s6/approved-form" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/assignment> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:05bf7d38537a27493704344bc7136f2fc1df605b87caffe04431d7c2846a3e8f" ;
     tmk:ordinal 6 ;
@@ -6828,8 +6954,10 @@
     tmk:upstreamRef "TMA1995/s6/australian-continental-shelf" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/authorised-use> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:683529eeb96173123b0c520b3783780c53802a4ed07a599b15fc41f1af7dbbdb" ;
     tmk:ordinal 12 ;
@@ -6837,8 +6965,10 @@
     tmk:upstreamRef "TMA1995/s6/authorised-use" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/authorised-user> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:6104fc4b38a7310a309c90a2afedd0f0183fd06a422928cd7e7e2e0f1d3321e7" ;
     tmk:ordinal 13 ;
@@ -6855,8 +6985,10 @@
     tmk:upstreamRef "TMA1995/s6/board" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/certification-trade-mark> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:acf83d17ee9ae6b9fb4e061d3ddb3a47f82c2663cc73db1f613c31bba2987dff" ;
     tmk:ordinal 15 ;
@@ -6873,8 +7005,10 @@
     tmk:upstreamRef "TMA1995/s6/claim-period" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/collective-trade-mark> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:0404cee45c51ed51a3c759f63650c12f4b15a4511cfaaebfde6bf43f639a2a56" ;
     tmk:ordinal 17 ;
@@ -6882,8 +7016,10 @@
     tmk:upstreamRef "TMA1995/s6/collective-trade-mark" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/commission> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:2433d7b98eab9485eaa943d2317b70f6e00f3d19a1b31d7b5a8569bd3cbfa0ac" ;
     tmk:ordinal 18 ;
@@ -6909,8 +7045,10 @@
     tmk:upstreamRef "TMA1995/s6/comptroller" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/convention-country> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:8c7841472e31ff07bb0283782600f5c522c7452efaf1706ba9d53eccc9e02bf2" ;
     tmk:ordinal 21 ;
@@ -6918,8 +7056,10 @@
     tmk:upstreamRef "TMA1995/s6/convention-country" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/date-of-registration> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:797c35eab262003941fe9420173cb0a132c144f0c609bc1728e2b3bc94390acb" ;
     tmk:ordinal 22 ;
@@ -6927,8 +7067,10 @@
     tmk:upstreamRef "TMA1995/s6/date-of-registration" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/date-of-registration(a)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:27418882e3eb51bf70fde0ceb1c65ae2ba7d76e30b6170789f9a8b4315e6e7ef" ;
     tmk:ordinal 23 ;
@@ -6936,8 +7078,10 @@
     tmk:upstreamRef "TMA1995/s6/date-of-registration(a)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/date-of-registration(b)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:c80d2f8c0ca2642b79a858e5ad056d6f96db8843cdfceec08003520d76089e2d" ;
     tmk:ordinal 24 ;
@@ -6945,8 +7089,10 @@
     tmk:upstreamRef "TMA1995/s6/date-of-registration(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/deceptively-similar> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:bc16f0be0f1050316cdd3fafeeb976e818bcf2df7251fc53ac63353683c6fca4" ;
     tmk:ordinal 25 ;
@@ -6963,8 +7109,10 @@
     tmk:upstreamRef "TMA1995/s6/defensive-trade-mark" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/deputy-registrar> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:5e778493efe4354cd7e4814a1ea1833223bf1f241c6e850d092aad737a0a58f3" ;
     tmk:ordinal 27 ;
@@ -7008,8 +7156,10 @@
     tmk:upstreamRef "TMA1995/s6/designated-owner(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/divisional-application> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:c9cb9768a3760a4898c591378780f60c73d7ee3d783ca38ed15b6e21968fe64a" ;
     tmk:ordinal 32 ;
@@ -7089,8 +7239,10 @@
     tmk:upstreamRef "TMA1995/s6/file~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/filing-date> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:7322d58f5431590dd1354a6061044a6e0367ae6c6cddf03384fb22e1f3a79070" ;
     tmk:ordinal 41 ;
@@ -7098,8 +7250,10 @@
     tmk:upstreamRef "TMA1995/s6/filing-date" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/filing-date(a)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:8a0990876d8f0f5f96aec2f33a220e7761ac4fb150f202030bb4489982638c4c" ;
     tmk:ordinal 42 ;
@@ -7107,8 +7261,10 @@
     tmk:upstreamRef "TMA1995/s6/filing-date(a)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/filing-date(b)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:3a96ba579dad9c0ffab011788eaf61595f8fc96dea8f46ec051d716c15209e9d" ;
     tmk:ordinal 43 ;
@@ -7116,8 +7272,10 @@
     tmk:upstreamRef "TMA1995/s6/filing-date(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/filing-date(c)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:920421486b3285f33e6a9125ec0074b45b141746f915cf6364c412fabe3a7f28" ;
     tmk:ordinal 44 ;
@@ -7125,8 +7283,10 @@
     tmk:upstreamRef "TMA1995/s6/filing-date(c)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/filing-date(d)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:42c24cd72a7efbb7df9dc021b200a8926849b19569f46f01891af51b23d7211e" ;
     tmk:ordinal 45 ;
@@ -7134,8 +7294,10 @@
     tmk:upstreamRef "TMA1995/s6/filing-date(d)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/filing-date(e)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:105828f4d5edea7686ad80a7dceccd90a037b5816562a69f3b3eab7600eb005e" ;
     tmk:ordinal 46 ;
@@ -7143,8 +7305,10 @@
     tmk:upstreamRef "TMA1995/s6/filing-date(e)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/geographical-indication> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:0fb15c5f3f148db436400ea181cb21bc26e64c62604a3e7a4fb6023050c38b52" ;
     tmk:ordinal 47 ;
@@ -7188,8 +7352,10 @@
     tmk:upstreamRef "TMA1995/s6/intellectual-property-advice" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/lawyer> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:9e3a92bd369fa55ce1e56ee90b55f09a370cd7e5748ea97497f9c6a60d5a6194" ;
     tmk:ordinal 52 ;
@@ -7260,8 +7426,10 @@
     tmk:upstreamRef "TMA1995/s6/objector" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/old-register> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:2b6f30bd87ad84754d6d58ad6497b0d03ce2044ef2049d192a853f2a82e06291" ;
     tmk:ordinal 60 ;
@@ -7269,8 +7437,10 @@
     tmk:upstreamRef "TMA1995/s6/old-register" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/opponent> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:92c0d379611d9497856463f04ed582a498ddc560359b9e0f4cbfeea122bd1c37" ;
     tmk:ordinal 61 ;
@@ -7278,8 +7448,10 @@
     tmk:upstreamRef "TMA1995/s6/opponent" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/opponent(a)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:812ea741e925055ad6ec094709c73bc9f3aab2af2abfc8d5727c516dff0f5f03" ;
     tmk:ordinal 62 ;
@@ -7287,8 +7459,10 @@
     tmk:upstreamRef "TMA1995/s6/opponent(a)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/opponent(b)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:0103524c1f57e82f04ac4083a0fa051ec565e6df3de6ecc0025fcfe00c590fa1" ;
     tmk:ordinal 63 ;
@@ -7296,8 +7470,10 @@
     tmk:upstreamRef "TMA1995/s6/opponent(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/originate> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:0216bf9864805f9d050249552f457ad47ae42d7bb408c987f5cf4a7dc5240d20" ;
     tmk:ordinal 64 ;
@@ -7395,8 +7571,10 @@
     tmk:upstreamRef "TMA1995/s6/ppsa-security-interest~2" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/predecessor-in-title> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:07bdf41798949ef1454ee00c81622c45b5c1d3d9014785fdfed3cddf4d120d8d" ;
     tmk:ordinal 75 ;
@@ -7404,8 +7582,10 @@
     tmk:upstreamRef "TMA1995/s6/predecessor-in-title" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/predecessor-in-title(a)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:488d90e73ab7cebe166878ca1b0393d244a73d7853d4d5ea57839d02ddbff22f" ;
     tmk:ordinal 76 ;
@@ -7413,8 +7593,10 @@
     tmk:upstreamRef "TMA1995/s6/predecessor-in-title(a)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/predecessor-in-title(b)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:080935b909578a6025e37a2d6312f5080b8e1d405b384afcb623c42ca698ada1" ;
     tmk:ordinal 77 ;
@@ -7422,8 +7604,10 @@
     tmk:upstreamRef "TMA1995/s6/predecessor-in-title(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/predecessor-in-title(b)~1> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:556ca24ae5ea312a2760bb90717e2614b467da4f6502e2c3e21e6c250fb33d42" ;
     tmk:ordinal 78 ;
@@ -7458,8 +7642,10 @@
     tmk:upstreamRef "TMA1995/s6/preferred-means(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/prescribed-court> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:f69bb72c5687905928da706f45c6e8610435bbb89c49a4130b43c0221826dce5" ;
     tmk:ordinal 82 ;
@@ -7467,8 +7653,10 @@
     tmk:upstreamRef "TMA1995/s6/prescribed-court" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/priority-date> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:58c974e5b99109d669241114abd7bc409f5fbfa875d981cb5745c6d18089793e" ;
     tmk:ordinal 83 ;
@@ -7476,8 +7664,10 @@
     tmk:upstreamRef "TMA1995/s6/priority-date" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/register> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:bcf448f9600add54d2d0a32b3b8b2a12a584a06f04ac502812389771ccec1022" ;
     tmk:ordinal 84 ;
@@ -7485,8 +7675,10 @@
     tmk:upstreamRef "TMA1995/s6/register" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registered-owner> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:4ce5b5c231ee09abaac3335e9ba1178de4d10f7be1fb83c89226b8d4803819ce" ;
     tmk:ordinal 85 ;
@@ -7505,8 +7697,10 @@
     tmk:upstreamRef "TMA1995/s6/registered-trade-mark" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registered-trade-marks-attorney> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:243f798a88c42ed6eea538d56c605b4f0ae91d61fc68267273374ac28707f343" ;
     tmk:ordinal 88 ;
@@ -7523,8 +7717,10 @@
     tmk:upstreamRef "TMA1995/s6/registered-trade-mark~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registrar> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:0747d36f6b8a618b2323ad53edf975988f3b9f381ffb912f4d01a29ab6e27e53" ;
     tmk:ordinal 89 ;
@@ -7541,8 +7737,10 @@
     tmk:upstreamRef "TMA1995/s6/registrar~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registration-number> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:fb1888ecc0957300962dfcae250a41d13a9701f6dc5fa950aef832546f1d990a" ;
     tmk:ordinal 91 ;
@@ -7559,8 +7757,10 @@
     tmk:upstreamRef "TMA1995/s6/remove-from-the-register" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/repealed-act> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:ec7d6cd8a0b529f0336d4a6b0963a14f95125f283c508844903a70d3f7625f14" ;
     tmk:ordinal 93 ;
@@ -7577,8 +7777,10 @@
     tmk:upstreamRef "TMA1995/s6/seized-goods" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/services-of-a-person> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:7f04fb371bbe56058e621c0067593438eb0ac62755173c3024818f4fd4f40322" ;
     tmk:ordinal 95 ;
@@ -7624,8 +7826,10 @@
     tmk:upstreamRef "TMA1995/s6/this-act" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/trade-mark> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:e63523e67adb8c970d4526d1bccbeb919e09f070b5d2b575d594fe9cf9b1a7c8" ;
     tmk:ordinal 100 ;
@@ -7651,8 +7855,10 @@
     tmk:upstreamRef "TMA1995/s6/trade-marks-work" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/transmission> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:6108e282c9138185eb35d6861cac003a5a68864dc69ca490ad8e8d6318d55204" ;
     tmk:ordinal 103 ;
@@ -7660,8 +7866,10 @@
     tmk:upstreamRef "TMA1995/s6/transmission" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/transmission(a)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:e304cf6056b64a6834e89bf3a70366b4bf54a1347315b0397a4182a4b60368c6" ;
     tmk:ordinal 104 ;
@@ -7669,8 +7877,10 @@
     tmk:upstreamRef "TMA1995/s6/transmission(a)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/transmission(b)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:d5ce64fc2e301c4b5068c126e6b14b0127060a596fd9922f22f3a03e74eb18e9" ;
     tmk:ordinal 105 ;
@@ -7678,8 +7888,10 @@
     tmk:upstreamRef "TMA1995/s6/transmission(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/transmission(c)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:e58247435cac11bc245952f8a8a9cf0025ef47f7091e142ea804a8e0fc5bb50e" ;
     tmk:ordinal 106 ;
@@ -7687,8 +7899,10 @@
     tmk:upstreamRef "TMA1995/s6/transmission(c)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/use-of-a-trade-mark> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:379ae8ab1b97f3945633bd32661eba89e73c6e94cb8499b8ab1d9ad536f318a4" ;
     tmk:ordinal 107 ;
@@ -8254,8 +8468,10 @@
     tmk:upstreamRef "TMA1995/s68(1)(b)(iii)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s68(2)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s68> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s68> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:0aef4e5ba939786992121dbc251a12297aa3d7eb3d02497be130318d32b35a8f" ;
     tmk:ordinal 9 ;
@@ -8398,8 +8614,10 @@
     tmk:upstreamRef "TMA1995/s7(5)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s7/use-of-a-trade-mark-in-relation-to-goods> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s7> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s7> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:5de45cf5afe7f7759822f16e4b6978162661d113e693c575f2946fa765348aa8" ;
     tmk:ordinal 6 ;
@@ -8407,8 +8625,10 @@
     tmk:upstreamRef "TMA1995/s7/use-of-a-trade-mark-in-relation-to-goods" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s7/use-of-a-trade-mark-in-relation-to-services> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s7> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s7> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:8ed5e2e6bb84a11f1f5e27165a7e4a0211383d2fbbe630c762f5ed2d030274ff" ;
     tmk:ordinal 8 ;
@@ -8569,8 +8789,10 @@
     tmk:upstreamRef "TMA1995/s72~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s75(1)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s75> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s75> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:28540c11397681be8844578d68f68d4433cd44673151dbee03c95f498d2e2b32" ;
     tmk:ordinal 1 ;
@@ -9037,8 +9259,10 @@
     tmk:upstreamRef "TMA1995/s84(2)~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s84A(1)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s84A> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s84A> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:182d4818d685bb4e0a330302bcb49e38ddd1b25dbad398555b0fb82b635ae93f" ;
     tmk:ordinal 2 ;
@@ -9892,8 +10116,10 @@
     tmk:upstreamRef "TMA1995/s91~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s92(1)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s92> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s92> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:da0da6061accb9f62b7dfaa2cee3b948f9655c31cc4cc413c851c01812c06054" ;
     tmk:ordinal 1 ;
@@ -16524,8 +16750,10 @@
     tmk:upstreamRef "TMR1995/r17A.1~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/change-of-ownership> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:cec3eb0efce0ea5e94b73c3faa9851af8650f1b7269deb35eb654352425c3e55" ;
     tmk:ordinal 1 ;
@@ -16533,8 +16761,10 @@
     tmk:upstreamRef "TMR1995/r17A.2/change-of-ownership" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/contracting-party-of-the-holder> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:fd0b7f5b32b601067f30cb56111479f03f2c91a2b4f1045bbfd9164f103eaa78" ;
     tmk:ordinal 2 ;
@@ -16560,8 +16790,10 @@
     tmk:upstreamRef "TMR1995/r17A.2/date-of-recording" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/holder> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:0b1534352b780170a359c53300bb8257c1793f7a2a6455f8b1c66754b99780b3" ;
     tmk:ordinal 5 ;
@@ -16569,8 +16801,10 @@
     tmk:upstreamRef "TMR1995/r17A.2/holder" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/holder(a)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:fec4cf51eb7f17cdd44ab7e6d9810a47a3c46ba89727ca574dc430b513a48236" ;
     tmk:ordinal 6 ;
@@ -16578,8 +16812,10 @@
     tmk:upstreamRef "TMR1995/r17A.2/holder(a)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/holder(b)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:7eef3995b0837b2e09e6755c8b30043a269d1170d565952d868aecfb8397ac38" ;
     tmk:ordinal 7 ;
@@ -16587,8 +16823,10 @@
     tmk:upstreamRef "TMR1995/r17A.2/holder(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-bureau> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:3ea95c2297a482f46c309226f212723ad4cb3dec86f77641aa94eab8a4bedd26" ;
     tmk:ordinal 8 ;
@@ -16596,8 +16834,10 @@
     tmk:upstreamRef "TMR1995/r17A.2/international-bureau" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-register> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:067a8e6f63514e57b0905c7b01fe16669fc7d222d4f5dff78dab982facacfdc5" ;
     tmk:ordinal 9 ;
@@ -16605,8 +16845,10 @@
     tmk:upstreamRef "TMR1995/r17A.2/international-register" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-registration> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:d8c10b37b85ba40cac1ed442cd280474ebd847446a8f72eec025ce4ff22394f1" ;
     tmk:ordinal 10 ;
@@ -16614,8 +16856,10 @@
     tmk:upstreamRef "TMR1995/r17A.2/international-registration" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-registration-designating-australia> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:59ef831d74af9e00fcd92ad22bd5f9e687f6279b5c50763aca92ebb217752ec7" ;
     tmk:ordinal 11 ;
@@ -16650,8 +16894,10 @@
     tmk:upstreamRef "TMR1995/r17A.2/madrid-regulations~2" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/office-of-origin> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:e6edef55c645ddcaf7ba6e91a076215429099d3ee292e24b24f8bf4e8bca9e35" ;
     tmk:ordinal 15 ;
@@ -16686,8 +16932,10 @@
     tmk:upstreamRef "TMR1995/r17A.2/protocol" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/record-of-international-registrations> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:571d95d2b936c83e615d2125eff14056133830cd842a759836a3be6af412f724" ;
     tmk:ordinal 19 ;
@@ -17343,8 +17591,10 @@
     tmk:upstreamRef "TMR1995/r17A.27~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.29/extension-of-protection> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.29> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.29> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:173e4de8d116a02f7bbde02c5756f813ca0cf6cefa10dae9fa9d60083511a7d1" ;
     tmk:ordinal 2 ;
@@ -17433,8 +17683,10 @@
     tmk:upstreamRef "TMR1995/r17A.29/party" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.29/statement-of-grounds-and-particulars> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.29> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.29> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:520bede0a774c87c35d2e272e4f76b3926d0777fdd752b612bdc7196620b9706" ;
     tmk:ordinal 12 ;
@@ -19629,8 +19881,10 @@
     tmk:upstreamRef "TMR1995/r17A.48/application-for-cessation-of-protection" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.48/cessation-of-protection> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.48> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.48> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:296273c3f151d5da979696b9eda33e587b3201df60c0ce113cb8e063c531320a" ;
     tmk:ordinal 3 ;
@@ -21889,6 +22143,69 @@
     tmk:text "The Registrar must take all reasonable steps to ensure that the application is received by the International Bureau within 2 months after the date on which it is filed." ;
     tmk:upstreamRef "TMR1995/r17A.9~1" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r2.1/art> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:da8dd7ee37544b8b7dcf4f35cb1b52e712d44a36a4fab20c1c28b1cc3277b196" ;
+    tmk:text "ART means the Administrative Review Tribunal." ;
+    tmk:upstreamRef "TMR1995/r2.1/art" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r2.1/certificate-of-verification> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:ae94d2fc984874bdd52f15ac72ae7b761faf4a1ac5140c488cf1f19898fd14f2" ;
+    tmk:text "certificate of verification means a statement:" ;
+    tmk:upstreamRef "TMR1995/r2.1/certificate-of-verification" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r2.1/certificate-of-verification(a)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:8c1a4a8b9a730c94f58b5d22474f0d5dfdd594ee1e89ec577ea2a3e29086e71a" ;
+    tmk:text "(a) that a document to which the statement relates:" ;
+    tmk:upstreamRef "TMR1995/r2.1/certificate-of-verification(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r2.1/certificate-of-verification(a)(i)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:c1c364ae20d688eed1386fc27bc01da83cb11f933d5c269a3546fee23cffe945" ;
+    tmk:text "(i) has been translated by a person who is proficient in both the language from which the document has been translated into English and English; and" ;
+    tmk:upstreamRef "TMR1995/r2.1/certificate-of-verification(a)(i)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r2.1/certificate-of-verification(a)(ii)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:e97b6bcb2459d10327f990854b2ffd1780a8a322c5b2a7c174fb22192f91e916" ;
+    tmk:text "(ii) is a true and complete translation of the accompanying document to the best of the knowledge of the person who signs the statement; and" ;
+    tmk:upstreamRef "TMR1995/r2.1/certificate-of-verification(a)(ii)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r2.1/certificate-of-verification(b)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:ebcd6d19c88596451b6f4ab7cebc1d93c8aa777f72ca3e1801618987bf5b9265" ;
+    tmk:text "(b) that is dated and signed." ;
+    tmk:upstreamRef "TMR1995/r2.1/certificate-of-verification(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r2.1/irda> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:701c43cd65d6ed64f5207ea8744ade5d4fae3c322ef5d8170dbe4c3508bfb6d4" ;
+    tmk:text "IRDA has the meaning given by regulation 17A.2." ;
+    tmk:upstreamRef "TMR1995/r2.1/irda" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.1(a)> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.1> ;
     tmk:authorityKind "law" ;
@@ -23888,8 +24205,10 @@
     tmk:upstreamRef "TMR1995/r4.10(2)(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10(3)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:e8af4c8fe2516964efcdd525cad12b6a970ac7d54fc86a29a04702608bddf1a6" ;
     tmk:ordinal 6 ;
@@ -24716,8 +25035,10 @@
     tmk:upstreamRef "TMR1995/r4.8(1)(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8(2)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:8baecec255266933012c252d29fb9e4408d69c426bc956bc5ebed7238e63fb21" ;
     tmk:ordinal 5 ;
@@ -25661,8 +25982,10 @@
     tmk:upstreamRef "TMR1995/r5.19(4)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2/notice-of-intention-to-defend> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:1fc226cffa2f03b050ae335b04d0fe53c8446a80231bde4b704a4329928a514d" ;
     tmk:ordinal 2 ;
@@ -25670,8 +25993,10 @@
     tmk:upstreamRef "TMR1995/r5.2/notice-of-intention-to-defend" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2/notice-of-opposition> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:281ec08f3439ef174eac3aa14d5660529928cd50842296816d991c244840a83a" ;
     tmk:ordinal 3 ;
@@ -25688,8 +26013,10 @@
     tmk:upstreamRef "TMR1995/r5.2/party" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2/statement-of-grounds-and-particulars> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:520bede0a774c87c35d2e272e4f76b3926d0777fdd752b612bdc7196620b9706" ;
     tmk:ordinal 5 ;
@@ -25697,8 +26024,10 @@
     tmk:upstreamRef "TMR1995/r5.2/statement-of-grounds-and-particulars" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2/statement-of-grounds-and-particulars(a)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:7278e1734e0818add3ca00e55830d787519933027ef92cf57ce057c8edbd410e" ;
     tmk:ordinal 6 ;
@@ -25706,8 +26035,10 @@
     tmk:upstreamRef "TMR1995/r5.2/statement-of-grounds-and-particulars(a)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2/statement-of-grounds-and-particulars(b)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:7a789b7488391b66ce32d917430c511ecab1f2c70081dbde1a80cec275ab5e9c" ;
     tmk:ordinal 7 ;
@@ -25715,8 +26046,10 @@
     tmk:upstreamRef "TMR1995/r5.2/statement-of-grounds-and-particulars(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2/trade-mark-application> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:79b9dd2e3c6767aaf130bd2d1b5520294d27bed78992cfb2d1e1173986686e92" ;
     tmk:ordinal 8 ;
@@ -27389,8 +27722,10 @@
     tmk:upstreamRef "TMR1995/r9.1~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r9.2/application-for-removal> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r9.2> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r9.2> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:da123870ab129c8445936f7edeadde64ffb532dae9b3576cdb52df6c8f6fe5a5" ;
     tmk:ordinal 2 ;
@@ -28379,6 +28714,22 @@
     tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7/7/3> ;
     tmk:extraction "regex" ;
     tmk:mention "subsection 72(3)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part12/1%231/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s45> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/1%231> ;
+    tmk:extraction "regex" ;
+    tmk:mention "sections 45 and 46" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part12/1%231/prov/1> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s46> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/1%231> ;
+    tmk:extraction "regex" ;
+    tmk:mention "sections 45 and 46" .
 
 <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part12/2%231/prov/0> a tmk:Citation ;
     tmk:certainty "default" ;
@@ -29914,6 +30265,140 @@
     tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/1%231> ;
     tmk:extraction "href" ;
     tmk:mention "reg 4.13" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/internal/0> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~1> ;
+    tmk:extraction "href" ;
+    tmk:mention "Annex A1" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/internal/1> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part42/1> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~1> ;
+    tmk:extraction "href" ;
+    tmk:mention "Part 42 Rectification" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/prov/0> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~1> ;
+    tmk:extraction "href" ;
+    tmk:mention "subsection 44(1) or (2) of the Act" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/prov/1> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(2)(a)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~1> ;
+    tmk:extraction "href" ;
+    tmk:mention "subreg 4.14(2)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/prov/2> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(2)(b)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~1> ;
+    tmk:extraction "href" ;
+    tmk:mention "subreg 4.14(2)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/prov/3> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~1> ;
+    tmk:extraction "href" ;
+    tmk:mention "subregulation 4.14(3)." .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/prov/4> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(a)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~1> ;
+    tmk:extraction "href" ;
+    tmk:mention "subreg 4.14(3)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/prov/5> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(b)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~1> ;
+    tmk:extraction "href" ;
+    tmk:mention "subreg 4.14(3)(b))" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/prov/6> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(c)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~1> ;
+    tmk:extraction "href" ;
+    tmk:mention "subreg 4.14(3)(c)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/prov/7> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(d)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~1> ;
+    tmk:extraction "href" ;
+    tmk:mention "subreg 4.14(3)(d)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~2/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.13(2)(b)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~2> ;
+    tmk:extraction "regex" ;
+    tmk:mention "subregulation 4.13(2)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~2/prov/1> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(e)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~2> ;
+    tmk:extraction "href" ;
+    tmk:mention "subreg 4.14(3)(e)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~2/prov/2> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(f)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~2> ;
+    tmk:extraction "href" ;
+    tmk:mention "subreg 4.14(3)(f)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~2/prov/3> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(g)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~2> ;
+    tmk:extraction "href" ;
+    tmk:mention "subreg 4.14(3)(g)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~2/prov/4> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(ga)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~2> ;
+    tmk:extraction "href" ;
+    tmk:mention "subreg 4.14(3)(ga)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~2/prov/5> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(h)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~2> ;
+    tmk:extraction "href" ;
+    tmk:mention "subreg 4.14(3)(h)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~3/prov/0> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s175(2)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~3> ;
+    tmk:extraction "href" ;
+    tmk:mention "section 175(2) of the Act" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~3/prov/1> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s175(4)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~3> ;
+    tmk:extraction "href" ;
+    tmk:mention "subsection 175(4) of the Act" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~3/prov/2> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(j)(i)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~3> ;
+    tmk:extraction "href" ;
+    tmk:mention "subreg 4.14(3)(j)(i)" .
 
 <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/4%231/prov/0> a tmk:Citation ;
     tmk:citationResolves true ;
@@ -44560,17 +45045,6 @@
     tmk:text "5.2.1 Where an appeal to a court has begun or an application to the ART for review has been made, the Registrar will defer acceptance of the application up until 3 months after the determination or other disposal of the appeal or review or until the expiration of such further time as the court to which the appeal, or any further appeal is brought, or the ART, or the court to which any appeal, arising out of the decision of the ART, is brought, allows. 5.2.2 The Registrar will have notification of such an appeal or application as, in ex parte matters, documents will be required by the Courts from the Registrar and the Registrar will generally be invited by the Court to be a party to the proceedings. In the normal course of events the Registrar will receive notice of the filing in the Court or tribunal. On such notification, as long as the application is still pending, the deferment will be entered on the system. 5.3 Where the applicant requests a hearing 5.3.1 Where the applicant has made a request to the Registrar to be heard in relation to the application, the Registrar will defer acceptance of the application until the earlier of: (i) the day the applicant withdraws the request to be heard; and (ii) the day the Registrar decides to accept or reject the application. Note: If an appeal of the Registrar’s decision is filed with a court, acceptance will be deferred until the end of those proceedings, under subregulation 4.13(2)(b)." ;
     tmk:upstreamRef "TMM/Part17/5/5/2" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits> a tmk:Page ;
-    rdfs:label "Annex A1 - Deferment of acceptance date - Grounds and time limits"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
-    tmk:authorityKind "practice" ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:f27ae75b7a28f39892a5b1a07b17ae15f07a73d59ae9d7f00aaa88cd6e1f477f" ;
-    tmk:lastAmended "2025-12-19" ;
-    tmk:partId "Part17" ;
-    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/annex-a1---deferment-of-acceptance-date---grounds-and-time-limits"^^xsd:anyURI ;
-    tmk:upstreamRef "TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part18/2%231> a tmk:Chunk,
         tmk:ManualPassage ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -47634,17 +48108,6 @@
     tmk:partId "Part40" ;
     tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-what-is-renewal-"^^xsd:anyURI ;
     tmk:upstreamRef "TMM/Part40/1" .
-
-<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part42/1> a tmk:Page ;
-    rdfs:label "1. What is rectification?"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
-    tmk:authorityKind "practice" ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:86885d3625b0ee9616d8c46d197a06bcb389e30f9d088b2796666a6e8be269ce" ;
-    tmk:lastAmended "2025-04-01" ;
-    tmk:partId "Part42" ;
-    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-what-is-rectification-"^^xsd:anyURI ;
-    tmk:upstreamRef "TMM/Part42/1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part42/2> a tmk:Page ;
     rdfs:label "2. What part does the Registrar play in rectification actions brought by a person aggrieved?"@en-AU ;
@@ -51392,6 +51855,24 @@
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s170A> tmk:authorityStatus tmk:NotHeld ;
     tmk:upstreamRef "TMA1995/s170A" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s175(2)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:c22d2a630a20bc456eb1372ceffcd6cef9e873b010edcde9eea808373a60e773" ;
+    tmk:text "(2) If the Commission is satisfied that:" ;
+    tmk:upstreamRef "TMA1995/s175(2)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s175(4)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:effa13834acfa3af6f1727b84e849298e70580595d7a59a07fd371e548488aab" ;
+    tmk:text "(4) If the Commission is not satisfied as set out in subsection (2):" ;
+    tmk:upstreamRef "TMA1995/s175(4)" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s175(5)> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
     tmk:authorityKind "law" ;
@@ -51548,6 +52029,16 @@
     tmk:ordinal 14 ;
     tmk:text "(5) If the trade mark is registered in the name of 2 or more persons as joint owners of the trade mark, the rights granted to those persons under this section are to be exercised by them as if they were the rights of a single person." ;
     tmk:upstreamRef "TMA1995/s20(5)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s201> a tmk:LegislativeProvision ;
+    rdfs:label "Registrar of Trade Marks"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:b63f6fe30e1b387a4804e1fe7895771f010f8cccaf9f319498d9bc77a813907d" ;
+    tmk:text "(1) There is to be a Registrar of Trade Marks. (2) The Registrar has the powers and functions that are given to him or her under this Act or any other Act (including regulations under that Act)." ;
+    tmk:upstreamRef "TMA1995/s201" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s202(b)> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
@@ -52530,6 +53021,25 @@
     tmk:partId "Part11" ;
     tmk:text "Where an opposition proceeding relates to an application in respect of which the applicant claims a right of priority. In such cases an opponent can request that the Registrar send the opponent a copy of the earlier application. Where this has been requested the Registrar will obtain certified copies (translated if necessary) from the file if the documents are on file, or from the applicant if the documents are not already on file. A copy of the documents will then be sent to the opponent (reg 5.18). Although the Registrar has no power to enforce this request, any inconvenience or extra extension fees borne by the opponent as a result of the applicant's non co-operation at this stage may be taken into account when costs are determined at the conclusion of proceedings. Part 47 Procedures for Opposing an Registration or Protection - 4. Making convention documents available to opponent" ;
     tmk:upstreamRef "TMM/Part11/4/4/2" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/1%231> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s45>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s46> ;
+    tmk:contentHash "sha256:d095cd23621ebb182a51c6b60876ee2bdb1c4322b436883dc13a306a842d4ca2" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part12/1%231/prov/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part12/1%231/prov/1> ;
+    tmk:headingPath "12.1. Divisional applications - general",
+        "Part 12 Divisional Applications" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/1> ;
+    tmk:ordinal 1 ;
+    tmk:partId "Part12" ;
+    tmk:text "Division 3 of Part 4 of the Act sets out a process whereby a trade mark applicant may file an application (divisional application) as a limited continuation of their current application (parent application) under certain circumstances. Divisional applications claim the priority date of the original parent application, however, they receive a new trade mark number and must meet the conditions specified in sections 45 and 46 of the Act." ;
+    tmk:upstreamRef "TMM/Part12/1#1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/3/3/3~1> a tmk:Chunk,
         tmk:ManualPassage ;
@@ -56453,17 +56963,6 @@
     tmk:text "(2) The Registrar may, on his or her own initiative, defer acceptance of the application within a period that is prescribed in subregulation 4.12(1) or that is extended under section 224 of the Act or subregulation 4.12(4), if:" ;
     tmk:upstreamRef "TMR1995/r4.13(2)" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.13(2)(b)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.13> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:721bf1ba6a3845b7528055095b9cc2d89eaec568ed1570ec2c012ec501a6428c" ;
-    tmk:ordinal 19 ;
-    tmk:text "(b) appeal proceedings under a provision of the Act have begun in a prescribed court in relation to the application; or" ;
-    tmk:upstreamRef "TMR1995/r4.13(2)(b)" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.13(4)> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.13> ;
@@ -56474,6 +56973,123 @@
     tmk:ordinal 24 ;
     tmk:text "(4) The Registrar must notify an applicant:" ;
     tmk:upstreamRef "TMR1995/r4.13(4)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(2)(a)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:88161f1b625b8d1b9b64a705e2d6653d9227cf363b7f845c694fb577623ded24" ;
+    tmk:text "(a) when the application is withdrawn; or" ;
+    tmk:upstreamRef "TMR1995/r4.14(2)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(2)(b)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:dd6143fc4f8074922838e86d03ede3ed1063c61b01070afe8bad8be54b6f950c" ;
+    tmk:text "(b) if paragraph (a) does not apply—when the Registrar is reasonably satisfied that there are no longer grounds for rejecting the application under subsection 44(1) or (2) of the Act or subregulation 4.15A(1) or (2); or" ;
+    tmk:upstreamRef "TMR1995/r4.14(2)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:a290c92c22ee49b626c1774173860e2003f94e8f9e4525d3940677341902e9c8" ;
+    tmk:text "(3) For the purposes of paragraph (2)(c), the deferment period ends:" ;
+    tmk:upstreamRef "TMR1995/r4.14(3)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(a)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:4476a31d7c06bc26fdc1deb7b3ca9f0ec70e03a01b4227eb43ebe3d65844d0a9" ;
+    tmk:text "(a) if acceptance is deferred because of subparagraph 4.13(1)(c)(i)—when proceedings relating to the registration of, or the extension of protection to, the other trade mark are finalised; and" ;
+    tmk:upstreamRef "TMR1995/r4.14(3)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(b)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:64da778af0c7114b3dd822a2e8691e57636b41a5e22ded649cbc4a78bd08ab2f" ;
+    tmk:text "(b) if acceptance is deferred because of subparagraph 4.13(1)(c)(ii)—at the end of 6 months from the date of commencement of deferment; and" ;
+    tmk:upstreamRef "TMR1995/r4.14(3)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(c)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:491c1e83d27f82ed70667b0d03d800e3009f9255ae177365b1f7a4881a29c8a3" ;
+    tmk:text "(c) if acceptance is deferred because of subparagraph 4.13(1)(c)(iii)—when proceedings under Part 9 of the Act or regulation 17A.48C in respect of the other trade mark are finalised; and" ;
+    tmk:upstreamRef "TMR1995/r4.14(3)(c)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(d)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:2e1d73141980063b8189fc9c8aa6bcbfdd3dbcbf7a5999bbf7f9f4defee884f7" ;
+    tmk:text "(d) if acceptance is deferred because of subparagraph 4.13(1)(c)(iv)—when the proceedings to have the Register or the Record of International Registrations rectified in respect of the other trade mark are determined or otherwise disposed of; and" ;
+    tmk:upstreamRef "TMR1995/r4.14(3)(d)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(e)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:c7ab64d8de1849bcde4833e35ebfe41de8c912eaf75bb9d5fd2c8ab62e00e85e" ;
+    tmk:text "(e) if acceptance is deferred because of subparagraph 4.13(1)(c)(v)—when the registration of the other trade mark is renewed or the other trade mark is removed from the Register; and" ;
+    tmk:upstreamRef "TMR1995/r4.14(3)(e)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(f)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:b26b0d28728913cca7a45e8fe3b7d35641bffd58af75b1acd539ffe073bea0d3" ;
+    tmk:text "(f) if acceptance is deferred because of paragraph 4.13(2)(a)—at the end of 2 months after the beginning of the period in which:" ;
+    tmk:upstreamRef "TMR1995/r4.14(3)(f)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(g)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:ccc909f2b5d4762bfb81654de47ec21e34bd7fcf5340b5a8a59a556547c503d5" ;
+    tmk:text "(g) if acceptance is deferred because of paragraph 4.13(2)(b) or (c)—at the end of:" ;
+    tmk:upstreamRef "TMR1995/r4.14(3)(g)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(ga)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:6b01562e24948c9d9228dfa664626140377093d223474d53a24c30b7814b1e7b" ;
+    tmk:text "(ga) if acceptance is deferred because of paragraph 4.13(2)(ca)—at the end of the earlier of the following days:" ;
+    tmk:upstreamRef "TMR1995/r4.14(3)(ga)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(h)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:bc3a56819c7719241a8d784e7f1b8ce45c510ae7752618fc135a14ad9ee6039b" ;
+    tmk:text "(h) if acceptance is deferred because of paragraph 4.13(2)(d)—at the end of a period after the death of the applicant that the Registrar reasonably regards as sufficient in the circumstances; and" ;
+    tmk:upstreamRef "TMR1995/r4.14(3)(h)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(j)(i)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:7974b74f2c69e0c46cd1b2e33e4528aa89f3cc7721afb22db004ed689d9b9306" ;
+    tmk:text "(i) if the Commission gives a certificate under subsection 175(2) of the Act in respect of the application—when the Registrar accepts the certification trade mark for registration; or" ;
+    tmk:upstreamRef "TMR1995/r4.14(3)(j)(i)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.15(b)> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
@@ -57485,6 +58101,49 @@
     tmk:partId "Part16" ;
     tmk:text "Subsection 224(4) provides that the date of acceptance for an application may be extended either before or after the time has expired. Subsection 224(4) will apply to all late requests for extensions of time for acceptance, whether the application in question is within its \"easy\" extension period or not. Therefore, if an application for an extension of time is made after the time has expired, even if it is within its six month \"easy\" extension period, it will still have to be made under the provisions of section 224(4) and regulation 21.25. These provide that a late application for an extension of time must be accompanied by a declaration setting out both the grounds for needing an extension of time, and also the reasons the application for the extension was not filed in time (together with the appropriate fee). This declaration will be assessed as described in paragraph 1.3. Note: Although any late application for an extension of time must be made under the provisions of section 224, any subsequent applications for extension of time within the six month “easy” extension period that are not late will not require a declaration, as the conditions for “easy” extensions may again be applied." ;
     tmk:upstreamRef "TMM/Part16/1/1/4" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3> a tmk:Page ;
+    rdfs:label "3. Period of deferment and termination"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:66c350fd614abc9aecf026f388846e6bae0b941d116eebdc29ae1a632dd37405" ;
+    tmk:lastAmended "2025-12-19" ;
+    tmk:partId "Part17" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/3.-period-of-deferment"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part17/3" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~3> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s175(2)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s175(4)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(j)(i)> ;
+    tmk:contentHash "sha256:dc0fd549b504847e26b9660db8b8b9f83958312ad812f2e9ef1103ffb7921953" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~3/prov/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~3/prov/1>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~3/prov/2> ;
+    tmk:headingPath "17.3. Period of deferment and termination",
+        "Part 17 Deferment of Acceptance" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3> ;
+    tmk:ordinal 3 ;
+    tmk:partId "Part17" ;
+    tmk:text "3.12 Where deferment has been granted on the basis that an application has been sent to the Australian Competition and Consumer Commission (ACCC) and the ACCC has granted a certificate under section 175(2) of the Act, deferment will end when the Registrar decides to accept the application (subreg 4.14(3)(j)(i)); or 3.13 Where the ACCC has refused to issue a certificate, deferment will end two months after the date of the notice to the Registrar under subsection 175(4) of the Act (subparagraph 4.14(3)(j)(i)). 3.14 Where the deferment is based on multiple grounds, the deferment will be terminated when the last ground for deferment has been finalised. 3.15 If only one of multiple grounds for deferment ends, a standard notice is sent to the address for service stating that the deferment has been amended due to one of the grounds changing. The notice also advises that deferment has not yet been terminated. 3.16 On termination of deferment, a standard notice will be automatically sent to the address for service stating that deferment has been terminated. The notice will also provide the new acceptance due date and advise the applicant to notify the Registrar if the application is now clear to be accepted or make further submissions, if there are still outstanding matters, or to apply for further extensions of time for acceptance, if needed." ;
+    tmk:upstreamRef "TMM/Part17/3#1~3" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits> a tmk:Page ;
+    rdfs:label "Annex A1 - Deferment of acceptance date - Grounds and time limits"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:f27ae75b7a28f39892a5b1a07b17ae15f07a73d59ae9d7f00aaa88cd6e1f477f" ;
+    tmk:lastAmended "2025-12-19" ;
+    tmk:partId "Part17" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/annex-a1---deferment-of-acceptance-date---grounds-and-time-limits"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits%231> a tmk:Chunk,
         tmk:ManualPassage ;
@@ -59059,6 +59718,17 @@
     tmk:text "An accepted trade mark application may be registered at any time within the six month period after publication of acceptance reg 7.1. Note that a trade mark will not be registered until at least seven and a half months after its priority date. This is to honour the Office’s international obligations in respect of convention claims under which the Office will recognise the filing date of overseas applications in convention countries for up to six months. Accordingly it is office practice not to publish acceptance of an application until at least five months after the priority date. Therefore, if the application has been accepted early the trade mark system will not allocate a publication date until at least five months from the priority date. Where an application has more than one priority date for different goods and services, the five-month period until publication of acceptance is calculated from the latest of the earlier convention priority dates. Registration is subject to the condition that there has been no opposition, or in the case of opposition (or appeal from an opposition decision), the final decision has been that the trade mark should be registered. As the period allowed for filing a notice of intention to oppose is two months from the date of publication of acceptance, the period within which a trade mark may be registered effectively runs for four months from the end of the opposition period. The registration period is, however, extendible (either before, or after it has expired) under the provisions of section 224. Part 15 General Provisions for Extensions of Time" ;
     tmk:upstreamRef "TMM/Part39/4/4/1" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part42/1> a tmk:Page ;
+    rdfs:label "1. What is rectification?"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:86885d3625b0ee9616d8c46d197a06bcb389e30f9d088b2796666a6e8be269ce" ;
+    tmk:lastAmended "2025-04-01" ;
+    tmk:partId "Part42" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-what-is-rectification-"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part42/1" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part43/3/3/2> a tmk:Chunk,
         tmk:ManualPassage ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -60361,20 +61031,24 @@
     tmk:upstreamRef "TMA1995/s123" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s14(1)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s14> ;
     tmk:authorityKind "law" ;
     tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:b783926b9d6968e89b9c566562094096543f315eed17a41c24b008ebb382ba9e" ;
+    tmk:ordinal 1 ;
     tmk:text "(1) For the purposes of this Act, goods are similar to other goods:" ;
     tmk:upstreamRef "TMA1995/s14(1)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s14(2)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s14> ;
     tmk:authorityKind "law" ;
     tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:f37dac0e644707f421d956c24d61d1a2ac1cf48a56b02fd1f45a0176e5e6c00c" ;
+    tmk:ordinal 4 ;
     tmk:text "(2) For the purposes of this Act, services are similar to other services:" ;
     tmk:upstreamRef "TMA1995/s14(2)" .
 
@@ -62481,6 +63155,17 @@
     tmk:text "(1) For the purposes of subsection 37(1) of the Act (which deals with lapsing), the prescribed period, for an application in respect of which a report is made under regulation 4.8, is:" ;
     tmk:upstreamRef "TMR1995/r4.12(1)" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.13(2)(b)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.13> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:721bf1ba6a3845b7528055095b9cc2d89eaec568ed1570ec2c012ec501a6428c" ;
+    tmk:ordinal 19 ;
+    tmk:text "(b) appeal proceedings under a provision of the Act have begun in a prescribed court in relation to the application; or" ;
+    tmk:upstreamRef "TMR1995/r4.13(2)(b)" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.15(c)> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.15> ;
@@ -64542,6 +65227,16 @@
     tmk:text "(1) A person infringes a registered trade mark if the person uses as a trade mark a sign that is substantially identical with, or deceptively similar to, the trade mark in relation to goods or services in respect of which the trade mark is registered." ;
     tmk:upstreamRef "TMA1995/s120(1)" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s14> a tmk:LegislativeProvision ;
+    rdfs:label "Definition of similar goods and similar services"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:0456707ab519ed2971c40b4e9be7c1fdb9a1ae2b43adf0046d6767369965dcfd" ;
+    tmk:text "(1) For the purposes of this Act, goods are similar to other goods: (a) if they are the same as the other goods; or (b) if they are of the same description as that of the other goods. (2) For the purposes of this Act, services are similar to other services: (a) if they are the same as the other services; or (b) if they are of the same description as that of the other services." ;
+    tmk:upstreamRef "TMA1995/s14" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s15(1)> tmk:authorityStatus tmk:NotHeld ;
     tmk:upstreamRef "TMA1995/s15(1)" .
 
@@ -64842,6 +65537,33 @@
     tmk:partId "Part14" ;
     tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-the-purpose-of-classification"^^xsd:anyURI ;
     tmk:upstreamRef "TMM/Part14/1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~2> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.13(2)(b)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(e)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(f)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(g)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(ga)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(h)> ;
+    tmk:contentHash "sha256:b0311a6ab36da96fcfa62a89669097d54faaac27788c664e4fc4258c48e9faa8" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~2/prov/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~2/prov/1>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~2/prov/2>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~2/prov/3>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~2/prov/4>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~2/prov/5> ;
+    tmk:headingPath "17.3. Period of deferment and termination",
+        "Part 17 Deferment of Acceptance" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3> ;
+    tmk:ordinal 2 ;
+    tmk:partId "Part17" ;
+    tmk:text "3.7 Where deferment has been granted on the basis that a citation that is un-renewed but is within 6 months of its expiry date, the deferment will end on the date the cited trade mark is renewed or removed (subreg 4.14(3)(e)). 3.8 Where deferment has been granted on the basis that the time during which proceedings under a provision of the Act could have been brought in a prescribed court has not ended, or that the time for an application to be made to the ART for review of a decision of the Registrar in relation to the application has not yet ceased, deferment will cease 2 months after the beginning of the period when the proceeding could have been brought or the application for review made (subreg 4.14(3)(f)). 3.9 Where deferment has been granted on the basis that proceedings under a provision of the Act have begun in a prescribed court or an application has been made to the ART for review of a decision of the Registrar in relation to the application, deferment will cease 3 months after the determination or other disposal of the proceedings or review, or such time as the court or ART allows (subreg 4.14(3)(g)). 3.10 Where deferment has been granted on the basis that the applicant has made a request to the Registrar to be heard in relation to the application (subreg 4.14(3)(ga)), deferment will cease at the end of the earlier of: (i) the day the applicant withdraws the request to be heard; and (ii) the day the Registrar decides to accept or reject the application. Note: If an appeal of the Registrar’s decision is filed with a court, acceptance will be deferred until the end of those proceedings, under subregulation 4.13(2)(b). 3.11 Where deferment has been granted on the basis of written notification of the applicant’s death, deferment will cease at the end of the period that the Registrar reasonably regards as sufficient in the circumstances (subreg 4.14(3)(h)). This period will generally be set at twelve months from the date of the notice of deferment. A bar to lapsing will be put on the application and the period of deferment set. A manual diary entry will be made so that the deferment can be terminated at the appropriate time." ;
+    tmk:upstreamRef "TMM/Part17/3#1~2" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part18/1/1/4> a tmk:Chunk,
         tmk:ManualPassage ;
@@ -65945,6 +66667,17 @@
     tmk:contentHash "sha256:c75f35814dda0bbf31426c626683c8d3b99299f1e39b7d9e2a626e3c782a605d" ;
     tmk:text "(1) An aggrieved person applying to a prescribed court under this Division must give notice of the application to the Registrar. Note: For prescribed court see section 190. (2) In relation to an application made by an aggrieved person, the Registrar may appear before the court and be heard at his or her discretion unless the court directs the Registrar to appear before the court. (3) If the application is made by an aggrieved person, the applicant must give to the Registrar a copy of any order made by the court under this Division. (4) The Registrar must comply with any order made by the court under this Division." ;
     tmk:upstreamRef "TMA1995/s90" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/1> a tmk:Page ;
+    rdfs:label "1. Divisional applications - general"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:82052bc283149bfba013da1aa7d8e0891ee11286dae0d1398fed8e76e795119c" ;
+    tmk:lastAmended "2026-07-20" ;
+    tmk:partId "Part12" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-divisional-applications---general"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part12/1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/3/3/1~1> a tmk:Chunk,
         tmk:ManualPassage ;
@@ -68273,6 +69006,41 @@
     tmk:text "The Registrar must revoke the registration of a trade mark if: (a) either: (i) a component of a notice of opposition to the registration was filed in accordance with subsection 52(2); or (ii) before the registration, a person applied in accordance with the regulations for an extension of the period for filing a component of a notice of opposition to the registration; and (b) the Registrar failed to take account of the component or application in deciding to register the trade mark; and (c) the Registrar becomes aware of the failure within 1 month after the notice was filed or the application was made. The revocation must be done within that month. Note: If the Registrar becomes aware of the failure later, he or she may be able to revoke the registration under section 84A." ;
     tmk:upstreamRef "TMA1995/s84B" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3%231~1> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part42/1> ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(2)(a)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(2)(b)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(a)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(b)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(c)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(3)(d)> ;
+    tmk:contentHash "sha256:fd01155e912cd98de675159da855007892e10ad8fe801f4e461fb5533ace644d" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/internal/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/internal/1>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/prov/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/prov/1>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/prov/2>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/prov/3>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/prov/4>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/prov/5>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/prov/6>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part17/3%231~1/prov/7> ;
+    tmk:headingPath "17.3. Period of deferment and termination",
+        "Part 17 Deferment of Acceptance" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/3> ;
+    tmk:ordinal 1 ;
+    tmk:partId "Part17" ;
+    tmk:text "The period of deferment will differ depending on the circumstances under which deferment was granted. These periods of deferment are detailed at Annex A1. 3.1 The period for which the acceptance of an application is deferred begins from the date deferment was requested. However, the status of the trade mark will only be updated to Deferred when the request is processed. Correspondence will also be issued on the same day the request is processed. 3.2 Generally speaking, the deferment period ends when the application is withdrawn (subreg 4.14(2)(a)), or when the Registrar is satisfied that there are no longer any grounds for rejecting the application under subsection 44(1) or (2) of the Act and therefore withdraws the citation (subreg 4.14(2)(b)), or if these do not apply, in accordance with the rules laid down in subregulation 4.14(3). 3.3 Where deferment has been granted on the basis that a pending application constituted a citation against the application and proceedings regarding the pending application had not been finalised, deferment will end when the proceedings in relation to the cited application are finalised, that is, the cited application is withdrawn, rejected, refused, lapses or is registered (subreg 4.14(3)(a)). 3.4 Where deferment has been granted on the basis that the applicant is seeking to overcome a citation on the basis of “honest concurrent use”, “prior use” or “other circumstances”, the deferment will be until the Registrar withdraws the citation or for a period of 6 months (subreg 4.14(3)(b)), from the deferment request date. 3.5 Where deferment has been granted on the basis that the applicant has filed an application for the removal of a cited trade mark on the basis of non-use, the deferment will end when proceedings in respect of the action for non-use have been finalised (subreg 4.14(3)(c)). 3.6 Where deferment has been granted on the basis that the applicant has taken a rectification action against the owner of a trade mark that has been cited against their application, the deferment will end when the rectification proceedings have ended (subreg 4.14(3)(d)). Hearings Support will advise the CEG Trade Mark & Designs Administration section that the rectification action has been finalised. The system will be updated and deferment will terminate on that day. Part 42 Rectification" ;
+    tmk:upstreamRef "TMM/Part17/3#1~1" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part18/3> a tmk:Page ;
     rdfs:label "Part 18.3. Rejection of an application for registration"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -69626,17 +70394,6 @@
     tmk:text "(2) An application for the registration of a trade mark may be rejected if the trade mark contains or consists of:" ;
     tmk:upstreamRef "TMA1995/s39(2)" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:76ae56986ebf87b83c99855263706630dad583c5b4f7cf510ed114f64ea65cd8" ;
-    tmk:ordinal 1 ;
-    tmk:text "(1) Subject to subsections (3) and (4), an application for the registration of a trade mark (applicant’s trade mark) in respect of goods (applicant’s goods) must be rejected if:" ;
-    tmk:upstreamRef "TMA1995/s44(1)" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(3)> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
@@ -69847,16 +70604,6 @@
     tmk:text "An application for the registration of a trade mark must be rejected if the trade mark cannot be represented graphically." ;
     tmk:upstreamRef "TMA1995/s40" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s46> a tmk:LegislativeProvision ;
-    rdfs:label "Rules relating to divisional applications"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:493301000ea15ff48d0f8c8aa9c8f2d69aff8b35978f66db3d8c960fa40cc84f" ;
-    tmk:text "(1) A divisional application must: (a) be for the registration of the trade mark to which the parent application relates; and (b) specify the goods and/or services to which it relates; and (c) specify the goods and/or services that are to remain in the parent application. Note: For divisional application and parent application see section 45. (2) When a divisional application is made, the Registrar must, unless the parent application has lapsed, amend the parent application by excluding the goods and/or services in respect of which the divisional application is made. Note: Section 204 requires the Registrar, where no time or period is specified for doing a thing, to do the thing as soon as practicable. However, it is possible that a parent application will lapse before it is practicable for the Registrar to amend it under subsection (2) of this section." ;
-    tmk:upstreamRef "TMA1995/s46" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s55> a tmk:LegislativeProvision ;
     rdfs:label "Decision"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
@@ -70019,15 +70766,16 @@
     tmk:text "A trade mark is a sign used, or intended to be used, to distinguish goods or services dealt with or provided in the course of trade by a person from goods or services so dealt with or provided by any other person. Note: For sign see section 6." ;
     tmk:upstreamRef "TMA1995/s17" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s45> a tmk:LegislativeProvision ;
-    rdfs:label "Divisional applications"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
     tmk:authorityKind "law" ;
     tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:7be83e5257d68826159cc196e4e6a67ddbf27edd1510b5312e06df0c2b6bc2fc" ;
-    tmk:text "(1) If a single application for the registration of a trade mark in respect of certain goods and/or services is pending (parent application), the applicant may make another application (divisional application) for the registration of the trade mark in respect of some only of the goods and/or services in respect of which registration is sought under the parent application. Note: For applicant and pending see section 6. (2) To avoid doubt, the parent application may itself be a divisional application. Note: A divisional application may be made by a person who has become the applicant in relation to the parent application because of subsection 108(2) (which deals with assignment and transmission)." ;
-    tmk:upstreamRef "TMA1995/s45" .
+    tmk:contentHash "sha256:76ae56986ebf87b83c99855263706630dad583c5b4f7cf510ed114f64ea65cd8" ;
+    tmk:ordinal 1 ;
+    tmk:text "(1) Subject to subsections (3) and (4), an application for the registration of a trade mark (applicant’s trade mark) in respect of goods (applicant’s goods) must be rejected if:" ;
+    tmk:upstreamRef "TMA1995/s44(1)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51> a tmk:LegislativeProvision ;
     rdfs:label "Application—series of trade marks"@en-AU ;
@@ -70090,6 +70838,16 @@
     tmk:contentHash "sha256:d1ce6ecc897a45f6145319d0df97aac7adbd4078b09865afbc68648012fe5a04" ;
     tmk:text "(1) A notice of intention to defend must be filed within 2 months from the day the applicant is given a copy of the statement of grounds and particulars. (2) The Registrar must give the opponent a copy of the notice. (3) If the applicant does not file the notice of intention to defend within the period mentioned in subregulation (1) or that period as extended, the Registrar may decide to: (a) take the opposition to have succeeded; and (b) refuse to cease protection of the protected international trade mark. (4) The Registrar must notify the parties of the Registrar’s decision." ;
     tmk:upstreamRef "TMR1995/r17A.48Q" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s46> a tmk:LegislativeProvision ;
+    rdfs:label "Rules relating to divisional applications"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:493301000ea15ff48d0f8c8aa9c8f2d69aff8b35978f66db3d8c960fa40cc84f" ;
+    tmk:text "(1) A divisional application must: (a) be for the registration of the trade mark to which the parent application relates; and (b) specify the goods and/or services to which it relates; and (c) specify the goods and/or services that are to remain in the parent application. Note: For divisional application and parent application see section 45. (2) When a divisional application is made, the Registrar must, unless the parent application has lapsed, amend the parent application by excluding the goods and/or services in respect of which the divisional application is made. Note: Section 204 requires the Registrar, where no time or period is specified for doing a thing, to do the thing as soon as practicable. However, it is possible that a parent application will lapse before it is practicable for the Registrar to amend it under subsection (2) of this section." ;
+    tmk:upstreamRef "TMA1995/s46" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s58A> a tmk:LegislativeProvision ;
     rdfs:label "Opponent’s earlier use of similar trade mark"@en-AU ;
@@ -70433,6 +71191,16 @@
     tmk:ordinal 24 ;
     tmk:text "(4) If the Registrar in either case is satisfied that the applicant, or the applicant and the predecessor in title of the applicant, have continuously used the applicant’s trade mark for a period:" ;
     tmk:upstreamRef "TMA1995/s44(4)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s45> a tmk:LegislativeProvision ;
+    rdfs:label "Divisional applications"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:7be83e5257d68826159cc196e4e6a67ddbf27edd1510b5312e06df0c2b6bc2fc" ;
+    tmk:text "(1) If a single application for the registration of a trade mark in respect of certain goods and/or services is pending (parent application), the applicant may make another application (divisional application) for the registration of the trade mark in respect of some only of the goods and/or services in respect of which registration is sought under the parent application. Note: For applicant and pending see section 6. (2) To avoid doubt, the parent application may itself be a divisional application. Note: A divisional application may be made by a person who has become the applicant in relation to the parent application because of subsection 108(2) (which deals with assignment and transmission)." ;
+    tmk:upstreamRef "TMA1995/s45" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/4> a tmk:Page ;
     rdfs:label "4. Colour and coloured trade marks"@en-AU ;

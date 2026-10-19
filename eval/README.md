@@ -35,16 +35,18 @@ questions, expected reasoning results, and examples of prohibited conclusions.
 
 ## Who writes what
 
-**Experts own the content.** Competency questions, gold answers, concept
-approvals, relationship judgements and the prohibited-use list are legal
-judgements. An agent must not author them (CLAUDE.md rule 1).
-
-**One qualified exception, and it does not live here.** `review/seed/` holds
-machine-written *example* records over section 43, for experts to correct
-rather than compose (ADR-0043). Nothing in it is approved, nothing in it counts
-toward a Stage 0 deliverable, and it reaches `eval/gold/` only through
+**Experts sign the content here.** Since 2026-09-08 an agent may author legal
+content (CLAUDE.md rule 1, ADR-0079), and does, in `authored/`, stamped as never
+validated. What it may not do is put anything in `eval/gold/`: that directory is
+frozen as the 190 records a person signed, the only independent yardstick for
+measuring what a machine wrote (ADR-0080). A record reaches it only through
 `tmk-transcribe` with an expert's name in `approved_by`. If you find
-agent-authored content anywhere under `eval/`, that is still a defect.
+agent-authored content anywhere under `eval/gold/`, that is a defect.
+
+`review/seed/` holds machine-written *example* records over section 43, for
+experts to correct rather than compose (ADR-0043). Nothing in it is approved or
+counts toward a Stage 0 deliverable. Stage 0 itself is parked, not deleted
+(CLAUDE.md §0): it no longer blocks building anything.
 
 **Agents own the container.** Templates, schemas, loaders, the harness, internal
 consistency checks, coverage reports, the intake workbook and the transcription
