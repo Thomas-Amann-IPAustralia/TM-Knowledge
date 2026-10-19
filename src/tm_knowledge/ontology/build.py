@@ -53,6 +53,7 @@ from tm_knowledge.authored import corrections as corrections_module
 from tm_knowledge.authored import definitions as definitions_module
 from tm_knowledge.authored import store as authored_module
 from tm_knowledge.config import REPO_ROOT
+from tm_knowledge.ontology import conditions
 from tm_knowledge.ontology import decisions as decisions_module
 from tm_knowledge.ontology import hygiene
 from tm_knowledge.ontology.namespaces import (
@@ -1061,6 +1062,15 @@ def _qualifiers(graph: Graph, node: URIRef, record: dict[str, Any]) -> None:
         graph.add((node, TMK.appliesWhen, _en(" ".join(str(record["applies_when"]).split()))))
     if record.get("hedge"):
         graph.add((node, TMK.hedge, _en(" ".join(str(record["hedge"]).split()))))
+    # Computed, like tmk:isStale: whether a condition was stated, none is in the
+    # sentence, or nobody has looked; and the proceeding and kind of mark the source's
+    # Part fixes (the second review response, R07; `ontology.conditions`).
+    graph.add((node, TMK.conditionState, _lit(conditions.state(record))))
+    if record.get("no_condition"):
+        graph.add((node, TMK.noConditionBecause, _en(" ".join(str(record["no_condition"]).split()))))
+    for prop, value in ((TMK.proceeding, conditions.proceeding(record)), (TMK.markType, conditions.mark_type(record))):
+        if value:
+            graph.add((node, prop, _lit(value)))
 
 
 def _build_relationships(

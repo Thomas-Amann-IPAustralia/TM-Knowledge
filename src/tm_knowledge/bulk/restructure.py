@@ -31,7 +31,9 @@ response, F05 and F16). A ledger names its report, its ruling item and its revie
 Since S041 (the second review response, R01) a line may also give a `hedge` (the
 sentence's own strength word, beside its condition), clear a field by setting it to
 null, and re-anchor a record with `evidence:` — a list of `{ref, quote}`, each located
-verbatim; the first becomes the record's sentence and all of them its evidence.
+verbatim; the first becomes the record's sentence and all of them its evidence. A line
+may give `no_condition`, the reason a conditional word in the sentence conditions
+nothing here, so the record reads as assessed (R07, `ontology.conditions`).
 
 Every record written carries the session's stamp, `unreviewed`, and the ruling. Nothing
 here calls a model, and nothing here decides: the ledger decides, and the checks refuse.
@@ -239,8 +241,10 @@ def plan(ctx: jobs.Context, ledger: dict[str, Any]) -> Plan:
         if "keep" in row:
             out.kept.append((edge, old, str(row["keep"])))
             continue
-        if "to" in row and old == tuple(str(x) for x in row["to"]) and _ours(entry.envelope, ledger):
-            out.done += 1
+        if ("to" in row and old == tuple(str(x) for x in row["to"]) and _ours(entry.envelope, ledger)
+                and all(_fold(row[k]) == _fold(entry.record.get(k)) if row[k] else not entry.record.get(k)
+                        for k in ("applies_when", "hedge", "no_condition") if k in row)):
+            out.done += 1  # same triple, same qualifiers, this ledger's stamp: applied before
             continue
         if "to" in row and _read_since(entry.envelope, ledger):
             out.done += 1
@@ -265,7 +269,10 @@ def plan(ctx: jobs.Context, ledger: dict[str, Any]) -> Plan:
         if problem:
             out.refused.append(f"{edge} → {' '.join(new)}: {problem}")
             continue
-        duplicate = existing.get(new)  # type: ignore[arg-type]
+        # Two records may state one triple from two sentences under two conditions
+        # (GR-0065, GR-0066): only a line that moves a record onto another's triple
+        # withdraws it.
+        duplicate = existing.get(new) if new != old else None  # type: ignore[arg-type]
         if duplicate and duplicate != edge:
             reason = f"Re-read as {' '.join(new)}, which {duplicate} already states. {row.get('why', '')}".strip()
             out.withdrawn.append({"id": edge, "reason": reason, "replaced_by": duplicate})
@@ -288,7 +295,7 @@ def plan(ctx: jobs.Context, ledger: dict[str, Any]) -> Plan:
             record.pop("hedge", None)
         elif "modality" in row:
             record["modality"] = row["modality"]
-        for name in ("applies_when", "hedge"):
+        for name in ("applies_when", "hedge", "no_condition"):
             if row.get(name):
                 record[name] = _fold(row[name])
             elif name in row:
@@ -305,6 +312,7 @@ def plan(ctx: jobs.Context, ledger: dict[str, Any]) -> Plan:
                        "its sentence's condition added" if row.get("applies_when") else "",
                        "its condition withdrawn" if "applies_when" in row and not row["applies_when"] else "",
                        "its hedge recorded" if row.get("hedge") else "",
+                       "its conditional word assessed as conditioning nothing here" if row.get("no_condition") else "",
                        "re-anchored" if anchored else ""]
             note = f"Checked on {today} in {_review(ledger)}: {'; '.join(x for x in changed if x) or 'unchanged'}."
         record["notes"] = (str(record["notes"]) + " " + note) if record.get("notes") else note
@@ -339,7 +347,7 @@ def plan(ctx: jobs.Context, ledger: dict[str, Any]) -> Plan:
             continue
         if new in existing:
             held_new = records.get(existing[new])
-            if held_new is not None and _ours(held_new.envelope, ledger):
+            if held_new is not None and (_ours(held_new.envelope, ledger) or _read_since(held_new.envelope, ledger)):
                 out.done += 1
             else:
                 out.refused.append(f"new {' '.join(new)}: {existing[new]} already states it")
@@ -527,6 +535,8 @@ def render(result: Plan, labels: dict[str, str]) -> str:
             now += f"; only as qualified: “{record['applies_when']}”"
         if record.get("hedge"):
             now += f"; stated as “{record['hedge']}”"
+        if record.get("no_condition"):
+            now += "; no condition: " + record["no_condition"]
         lines.append(f"| {edge} | {triple(old)} | {now.replace('|', '/')} | {why.replace('|', '/')} |")
     lines += ["", "## Withdrawn", "", "| edge | was | why |", "|---|---|---|"]
     for edge, old, _new, why in withdrawn:

@@ -284,3 +284,30 @@ def test_a_third_ledger_keeps_the_first_ledgers_reading_so_neither_earlier_one_u
     for earlier in (first, second):
         again = restructure.plan(_ctx_from_disk(tmp_path, ctx), earlier)
         assert again.ok and not again.rereads and again.done == 1, earlier["authored_by"]
+
+
+def test_a_same_triple_line_never_withdraws_a_record_that_shares_its_triple(tmp_path):
+    """GR-0065 and GR-0066 state one triple from two sentences, each under its own
+    condition: qualifying one must not withdraw it in the other's favour."""
+    ctx = _ctx(tmp_path, [
+        {"id": "GR-0001", "subject": "GC-0046", "predicate": "performs", "object": "GC-0040", "supporting_text": HEDGED},
+        {"id": "GR-0002", "subject": "GC-0046", "predicate": "performs", "object": "GC-0040", "supporting_text": HEDGED},
+    ])
+    result = restructure.plan(ctx, dict(S041, edges=[
+        {"edge": "GR-0002", "to": ["GC-0046", "performs", "GC-0040"], "applies_when": "where it is defended",
+         "why": "«its condition»"}]))
+    assert not result.withdrawn and result.rereads["GR-0002"]["applies_when"] == "where it is defended"
+
+
+def test_a_line_may_record_why_a_conditional_word_conditions_nothing(tmp_path):
+    ctx = _ctx(tmp_path, [{"id": "GR-0001", "subject": "GC-0046", "predicate": "performs", "object": "GC-0040",
+                           "supporting_text": HEDGED}])
+    result = restructure.plan(ctx, dict(S041, edges=[
+        {"edge": "GR-0001", "to": ["GC-0046", "performs", "GC-0040"], "no_condition": "«the where is another clause's»",
+         "why": "«assessed»"}]))
+    assert result.rereads["GR-0001"]["no_condition"] == "«the where is another clause's»"
+    restructure.apply(result, root=tmp_path)
+    again = restructure.plan(_ctx_from_disk(tmp_path, ctx), dict(S041, edges=[
+        {"edge": "GR-0001", "to": ["GC-0046", "performs", "GC-0040"], "no_condition": "«the where is another clause's»",
+         "why": "«assessed»"}]))
+    assert again.done == 1 and not again.rereads

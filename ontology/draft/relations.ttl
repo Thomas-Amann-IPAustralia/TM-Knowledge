@@ -12,6 +12,12 @@
 # with usage counted from eval/gold/ and authored/ apart.
 # Do not hand-edit: a test compares this file against a regeneration.
 # To change a predicate, change the dictionary; to add one, the owner admits it.
+#
+# A direct triple using one of these predicates is a navigation projection. The legal
+# reading is the reified assertion beside it, which carries the sentence, its
+# condition (tmk:appliesWhen), its hedge (tmk:hedge) and its condition state; the
+# direct triple carries none of them, and nothing may be inferred from it (ADR-0134;
+# the second review response, R07).
 
 <https://data.ipaustralia.gov.au/tmk/ns/relations>
     a owl:Ontology ;

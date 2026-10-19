@@ -206,6 +206,26 @@ tmk:hedge a owl:DatatypeProperty ;
     rdfs:label "hedge"@en-AU ;
     rdfs:comment """How strongly the supporting sentence states the relationship, in its own words: 'usually', 'rarely', 'Generally', 'not likely'. Split from tmk:appliesWhen in S041, where five records held a hedge or an outcome in place of a condition (the second review response, R01). A hedge is not a predicate: a relationship the sentence states 'usually' is the same relationship, said less strongly, and a test record can read the word where it is copied."""@en-AU .
 
+tmk:conditionState a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "condition state"@en-AU ;
+    rdfs:comment """Whether a relationship's condition is known: `stated` (tmk:appliesWhen holds it), `none_stated` (its sentence holds no conditional marker), `assessed_none` (it holds one, and tmk:noConditionBecause says why it does not condition this relationship) or `not_assessed`. Computed by rule (`ontology.conditions`), never written by hand, so "no condition" and "nobody looked" are never the same (the second review response, R07)."""@en-AU .
+
+tmk:noConditionBecause a owl:DatatypeProperty ;
+    rdfs:range rdf:langString ;
+    rdfs:label "no condition because"@en-AU ;
+    rdfs:comment "Why the conditional marker in a relationship's sentence does not condition it: a reader's judgement, on the record it qualifies."@en-AU .
+
+tmk:proceeding a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "proceeding"@en-AU ;
+    rdfs:comment "The proceeding a relationship's Manual passage is about, read off its Part by a lookup (`ontology.conditions.PROCEEDING_BY_PART`). Absent where the Part covers several proceedings or none in particular, or the source is legislation: absent is not 'every proceeding'."@en-AU .
+
+tmk:markType a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "mark type"@en-AU ;
+    rdfs:comment "The kind of trade mark a relationship's Manual passage is about where its Part fixes one: collective (Part 33), defensive (Part 34), certification (Part 35). Absent elsewhere."@en-AU .
+
 # --- inference --------------------------------------------------------------
 
 tmk:producedByRule a owl:ObjectProperty ;

@@ -398,8 +398,8 @@ function connectionsTab(body, ctx, fromKind, toKind) {
 
 function connectionsCsv(ctx) {
   const { ontology } = ctx;
-  const head = ["id", "from_id", "from", "says", "to_id", "to", "modality", "applies_when", "hedge", "rests_on", "rests_on_text", "quote",
+  const head = ["id", "from_id", "from", "says", "to_id", "to", "modality", "applies_when", "hedge", "condition_state", "proceeding", "mark_type", "rests_on", "rests_on_text", "quote",
     "record", "review_status", "machine_author", "date", "replaces"];
   return [head, ...ontology.relations.map((r) => [r.id, r.s, endName(ctx, r.s), predLabel(ontology, r.p), r.o, endName(ctx, r.o),
-    r.modality || "", r.when || "", r.hedge || "", r.ref, sourceText(r.ref), r.quote, ...whoColumns(r), r.replaces || ""])];
+    r.modality || "", r.when || "", r.hedge || "", r.condition || "", r.proceeding || "", r.mark_type || "", r.ref, sourceText(r.ref), r.quote, ...whoColumns(r), r.replaces || ""])];
 }

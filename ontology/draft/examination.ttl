@@ -42,11 +42,9 @@ tmk:Objection a owl:Class ;
 
 tmk:ExaminationOutcome a owl:Class ;
     rdfs:label "Examination outcome"@en-AU ;
-    rdfs:comment """UNPOPULATED, and it must stay that way.
+    rdfs:comment """UNPOPULATED. An outcome a decision maker recorded on a matter — accepted, rejected, a report issued — may be represented here, attributed to whoever decided it and when; the system never generates one.
 
-Deciding an examination outcome is explicitly out of scope (CLAUDE.md §6), and
-the prohibited-use set exists to keep it there: PU-0001 and PU-0002 are the two
-outputs that state one."""@en-AU .
+Deciding an examination outcome is out of scope (CLAUDE.md §6), and the prohibited-use set exists to keep it there: PU-0001 and PU-0002 are the two outputs that state one. Representing a recorded decision is not deciding: the future machine-learning and decision services the owner named (ADR-0138) need recorded outcomes to read, and a node here says only that a named person decided, never that the system did. Until S041 this comment said the class must stay empty, which would have precluded that (the second review response, A01)."""@en-AU .
 
 # --- roles: who acts, and with what power (review C5, ADR-0123) -------------
 #
@@ -68,7 +66,7 @@ outputs that state one."""@en-AU .
 
 tmk:Role a owl:Class ;
     rdfs:label "Role"@en-AU ;
-    rdfs:comment "A person, office or body acting in the trade marks system. The families below sort roles by where their power comes from, and are disjoint where that matters: an office is not a delegate, and neither is a party."@en-AU .
+    rdfs:comment "A capacity in which a person, office or body acts in the trade marks system — not the person or body holding it. One person can hold several capacities, in different matters or at different times: an attorney who applies in their own name is a party in that matter and a representative in others; an examiner who files a personal application is a party in it. The families below sort capacities by where their power comes from, and are disjoint as capacities: the capacity of an office is not that of a delegate, and neither is a party's. Whoever holds a capacity is linked to it by a role assignment scoped to a matter and a time (the second review response, A01), never by typing the person with the class."@en-AU .
 
 tmk:roleConcept a owl:AnnotationProperty ;
     rdfs:label "role concept"@en-AU ;
@@ -207,6 +205,10 @@ tmk:OfficeOfOrigin a owl:Class ;
     tmk:roleConcept tmkc:GC-0136 ; rdfs:subClassOf tmk:InternationalBody ;
     rdfs:label "Office of origin"@en-AU .
 
+# Disjoint as capacities (S041, A01): no capacity is both an office and a delegate.
+# Not a statement about people — nobody is typed with these classes, and a person
+# holding two capacities is two role assignments, so the axioms never make them a
+# contradiction. ADR-0134: no reasoner is run over them in any case.
 tmk:Office owl:disjointWith tmk:Delegate , tmk:Party , tmk:Representative .
 tmk:Delegate owl:disjointWith tmk:Party , tmk:Representative .
 tmk:Party owl:disjointWith tmk:Representative .

@@ -189,6 +189,18 @@ def _concept(view: views.ConceptView, mentions: dict[str, list[str]], generic: s
     return record
 
 
+def _applicability(record: dict[str, Any]) -> dict[str, Any]:
+    """The condition state, and the proceeding and kind of mark the source's Part fixes
+    (R07, `ontology.conditions`); a field the Part does not fix is left out."""
+    from tm_knowledge.ontology import conditions
+
+    out: dict[str, Any] = {"condition": conditions.state(record)}
+    for key, value in (("proceeding", conditions.proceeding(record)), ("mark_type", conditions.mark_type(record))):
+        if value:
+            out[key] = value
+    return out
+
+
 def _relations(gold: Any, authored: Any) -> list[dict[str, Any]]:
     """Every relationship record from both stores, its origin kept."""
     out = []
@@ -196,7 +208,7 @@ def _relations(gold: Any, authored: Any) -> list[dict[str, Any]]:
         out.append({
             "id": str(record["id"]), "s": str(record["subject"]), "p": str(record["predicate"]),
             "o": str(record["object"]), "origin": "signed", "modality": record.get("modality"),
-            "when": record.get("applies_when"), "hedge": record.get("hedge"),
+            "when": record.get("applies_when"), "hedge": record.get("hedge"), **_applicability(record),
             "ref": record.get("source_ref"), "quote": record.get("supporting_text"),
             "signed": {"by": record.get("approved_by"), "date": record.get("approved_date")},
         })
@@ -208,7 +220,7 @@ def _relations(gold: Any, authored: Any) -> list[dict[str, Any]]:
         out.append({
             "id": str(record["id"]), "s": str(record["subject"]), "p": str(record["predicate"]),
             "o": str(record["object"]), "origin": "machine", "modality": record.get("modality"),
-            "when": record.get("applies_when"), "hedge": record.get("hedge"),
+            "when": record.get("applies_when"), "hedge": record.get("hedge"), **_applicability(record),
             "ref": record.get("source_ref") or evidence.get("ref"),
             "quote": record.get("supporting_text") or evidence.get("quote"),
             "machine": {"by": env.get("authored_by"), "date": env.get("authored_date"),

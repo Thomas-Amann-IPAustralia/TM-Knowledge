@@ -39,6 +39,7 @@ remaining finding is real.
 from __future__ import annotations
 
 import re
+from collections import Counter
 from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
@@ -1095,6 +1096,24 @@ def _authored_conditions(authored: AuthoredSet) -> Iterator[Finding]:
                     f"{field} {words!r} is not in the supporting sentence. A condition or a hedge "
                     "is copied from the sentence that states the relationship, never retyped",
                 )
+        if entry.record.get("applies_when") and entry.record.get("no_condition"):
+            yield Finding(
+                Severity.DEFECT, "authored-conditions", entry.record_id,
+                "carries a condition and a reason it has none. One of the two is wrong",
+            )
+    # How many conditions are known (the second review response, R07): a note, so a
+    # reader sees how much of "no condition" is "nobody looked".
+    from tm_knowledge.ontology import conditions
+
+    states = Counter(conditions.state(e.record) for e in authored.of("gold_relationship") if e.sound)
+    if states:
+        yield Finding(
+            Severity.NOTE, "authored-conditions", "authored/relationships.yaml",
+            "condition states of the machine-written relationships: "
+            + ", ".join(f"{states.get(s, 0)} {s.replace('_', ' ')}" for s in conditions.STATES)
+            + ". Not assessed means the sentence holds a conditional marker and nobody has said "
+            "whether it conditions the relationship",
+        )
 
 
 def _authored_kinds(authored: AuthoredSet) -> Iterator[Finding]:

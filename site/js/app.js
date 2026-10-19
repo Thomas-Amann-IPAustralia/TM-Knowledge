@@ -116,7 +116,11 @@ export function trustBadge(origin) {
  * (review response F14; the hedge split from the condition in S041, R01). Shown beside the
  * connection so it never reads as more than its sentence says. */
 export function qualifiedLine(r) {
-  if (!r.when && !r.hedge) return "";
+  // A sentence with a conditional word nobody has assessed says so (R07): absent a
+  // condition, it may still hold only in some cases.
+  const unknown = r.condition === "not_assessed"
+    ? `<p class="tiny muted">Its sentence has a conditional word (if, where, unless, when, except) that no one has assessed yet.</p>` : "";
+  if (!r.when && !r.hedge) return unknown;
   const parts = [r.when ? `only when “${esc(r.when)}”` : "", r.hedge ? `stated as “${esc(r.hedge)}”` : ""].filter(Boolean);
   return `<p class="small"><b>Only as the source qualifies it:</b> ${parts.join("; ")}</p>`;
 }

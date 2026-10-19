@@ -34,6 +34,11 @@
       "minLength": 1,
       "description": "How strongly the supporting sentence states the relationship, its own strength word or phrase copied verbatim: 'usually', 'rarely', 'Generally', 'not likely'. Split from applies_when in S041, where five records held a hedge or an outcome in place of a condition (the second review response, R01). Optional; absent means the sentence states it without one."
     },
+    "no_condition": {
+      "type": ["string", "null"],
+      "minLength": 1,
+      "description": "Why the conditional marker in the supporting sentence ('if', 'where', 'unless', 'when', 'except') does not condition this relationship: the reader's judgement, so the record reads as assessed rather than not assessed (the second review response, R07; ontology.conditions). Never beside applies_when."
+    },
     "notes": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/notes" },
     "approved_by": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_by" },
     "approved_date": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_date" }

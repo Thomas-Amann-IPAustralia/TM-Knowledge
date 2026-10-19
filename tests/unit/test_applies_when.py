@@ -49,7 +49,7 @@ def test_the_relationship_schema_takes_a_condition():
 def test_a_condition_is_the_sentences_own_words(condition, defect):
     entry = SimpleNamespace(record_id="GR-9001", record=_record(applies_when=condition), sound=True)
     authored = SimpleNamespace(of=lambda kind: (entry,) if kind == "gold_relationship" else ())
-    found = list(harness._authored_conditions(authored))
+    found = [f for f in harness._authored_conditions(authored) if f.severity is harness.Severity.DEFECT]
     assert bool(found) is defect, found
     if defect:
         assert found[0].severity is harness.Severity.DEFECT
@@ -69,7 +69,10 @@ def test_the_graph_states_the_condition_on_the_reified_record():
     assert str(graph.value(node, TMK.modality)) == "must"
     bare = Graph()
     build._qualifiers(bare, node, _record(modality=None))
-    assert len(bare) == 0, "absent stays absent: no condition and no modality is stated"
+    # Absent stays absent: no condition and no modality is stated. What is stated is the
+    # computed condition state (R07), so "none" and "nobody looked" stay apart.
+    assert not {TMK.modality, TMK.appliesWhen, TMK.hedge} & set(bare.predicates()), "absent stays absent"
+    assert TMK.conditionState in set(bare.predicates())
 
 
 def test_the_explorer_carries_the_condition_with_the_edge():
@@ -91,7 +94,7 @@ def test_a_hedge_is_the_sentences_own_words_and_is_stated_apart():
     assert not schemas.validate(_record(hedge="unless"), "gold_relationship")
     retyped = SimpleNamespace(record_id="GR-9001", record=_record(hedge="normally"), sound=True)
     authored = SimpleNamespace(of=lambda kind: (retyped,) if kind == "gold_relationship" else ())
-    found = list(harness._authored_conditions(authored))
+    found = [f for f in harness._authored_conditions(authored) if f.severity is harness.Severity.DEFECT]
     assert found and "hedge" in found[0].message
 
 
@@ -116,3 +119,66 @@ def test_the_path_line_says_how_strongly_and_only_when_it_is_recorded():
     assert hedged.endswith('applies when "if x"; hedged "rarely")')
     plain = jobs.path_line(labels, ("GC-0001", "qualifies", "GC-0002", "GR-1", "authored", "", "if x", ""))
     assert plain.endswith('applies when "if x")'), "a line with no hedge is unchanged"
+
+
+# --- R07: the condition state, set by rule (S041) ----------------------------------
+
+
+@pytest.mark.parametrize("extra, text, expected", [
+    ({"applies_when": "where it is defended"}, "The Registrar decides where it is defended.", "stated"),
+    ({}, "The Registrar decides the opposition.", "none_stated"),
+    ({}, "The Registrar decides if it is defended.", "not_assessed"),
+    ({"no_condition": "the 'if' conditions another clause"}, "The Registrar decides if it is defended.",
+     "assessed_none"),
+], ids=["stated", "none-stated", "not-assessed", "assessed-none"])
+def test_the_condition_state_is_set_by_rule(extra, text, expected):
+    from tm_knowledge.ontology import conditions
+
+    assert conditions.state(_record(supporting_text=text, **extra)) == expected
+
+
+def test_the_proceeding_and_mark_type_come_from_the_part_and_only_where_it_fixes_them():
+    from tm_knowledge.ontology import conditions
+
+    assert conditions.proceeding(_record(source_ref="TMM/Part49/4#1")) == "removal_for_non_use"
+    assert conditions.mark_type(_record(source_ref="TMM/Part35/4#1")) == "certification"
+    assert conditions.proceeding(_record(source_ref="TMM/Part52/1#1")) is None, "hearings: several proceedings"
+    assert conditions.proceeding(_record(source_ref="TMA1995/s41")) is None
+    assert conditions.mark_type(_record(source_ref="TMM/Part29/1#1")) is None
+
+
+def test_a_record_with_a_condition_and_a_reason_it_has_none_is_a_defect():
+    entry = SimpleNamespace(record_id="GR-9001", record=_record(applies_when=CONDITION, no_condition="x"), sound=True)
+    authored = SimpleNamespace(of=lambda kind: (entry,) if kind == "gold_relationship" else ())
+    found = [f for f in harness._authored_conditions(authored) if f.severity is harness.Severity.DEFECT]
+    assert found and "reason it has none" in found[0].message
+
+
+@pytest.mark.rdf
+def test_the_graph_states_the_condition_state_and_the_part_context():
+    from rdflib import Graph, URIRef
+
+    from tm_knowledge.ontology import build
+    from tm_knowledge.ontology.namespaces import TMK
+
+    graph, node = Graph(), URIRef("https://data.ipaustralia.gov.au/tmk/assertion/GR-9001")
+    build._qualifiers(graph, node, _record(source_ref="TMM/Part49/4#1", supporting_text="Files a notice if it wishes."))
+    assert str(graph.value(node, TMK.conditionState)) == "not_assessed"
+    assert str(graph.value(node, TMK.proceeding)) == "removal_for_non_use"
+    assert graph.value(node, TMK.markType) is None
+
+
+def test_no_committed_relationship_is_left_not_assessed():
+    """S041 assessed all 101; a relationship written later with a conditional word and
+    no condition shows on the harness's note until someone does the same."""
+    import yaml
+
+    from tm_knowledge.config import REPO_ROOT
+    from tm_knowledge.ontology import conditions
+
+    rows = yaml.safe_load((REPO_ROOT / "authored" / "relationships.yaml").read_text(encoding="utf-8"))
+    left = [r["id"] for r in rows if conditions.state(r) == "not_assessed"]
+    assert left == []
+    gr0319 = next(r for r in rows if r["id"] == "GR-0319")
+    assert gr0319["applies_when"] == "it wishes to continue with the non-use application"
+    assert conditions.proceeding(gr0319) == "removal_for_non_use"
