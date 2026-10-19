@@ -1669,3 +1669,24 @@ correction's author, date, reasoning and sources still validates with 0 defects;
 catch it, the SHACL gate does not. Probe through `validate.run` on the loaded `Dataset`, never a flat
 graph. Until R03 and R04 are done, do not read "SHACL passed" as "every machine-written node carries
 its envelope", and do not write a SPARQL query that needs a non-relationship record's span.
+**Fixed in S041**: the shapes target `tmk:Definition` and `tmk:Correction`, and every evidence
+item is a `tmk:EvidenceAnchor` with its span, hash and quote; read a record's evidence through
+`tmk:evidence`, not `tmk:sourcePassage`, which names the passage only.
+
+### Q-98: a same-session ledger, a shared triple, and an earlier ledger's new edges
+
+Three traps in `bulk/restructure.py`, all found applying S041's two ledgers
+(`review-response-2.yaml`, `conditions-r07.yaml`), all fixed. **A re-read must keep the
+chain of readings**: S041 re-read records S036 had re-read from S029's, and with only the
+last reading in `alternatives_considered` the S029 ledger found no trace of itself and
+would have read five records back; `_readings` now carries every earlier "As first
+written by" line. **Two records may state one triple from two sentences** (GR-0065 and
+GR-0066, GR-0091 and GR-0092): a line that qualifies one without moving it must not
+withdraw it as a duplicate of the other. **"Done" means the triple and the qualifiers
+match**: a record this session already stamped (GR-0608, by R01) is not done for a later
+line that adds a `no_condition`. And an earlier ledger's `new_edges` must count a later
+re-read of the edge it created as done (`_read_since`), or it refuses (GR-0707, GR-0709).
+Re-running a ledger with `--write` after it has applied regenerates its report from what
+is left to do, which is nothing: restore the records and apply the whole ledger in one
+pass instead. Dry-run all four ledgers after touching the applier; each must report 0 to
+re-read and 0 refused.

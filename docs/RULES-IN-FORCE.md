@@ -86,6 +86,8 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   acts on: a factor `qualifies` (or `mayGiveRiseTo`, `statesThresholdFor`), an exception
   `isAnExceptionTo`, a ground `isOvercomeBy` its remedy — never a kind (ADR-0126).
   `doesNotGiveRiseTo` means *not on its own* and is never an exception (ADR-0135).
+  `isAnExceptionTo` only where the source excludes the case; a tendency ("generally",
+  "rarely", "not likely") is `qualifies` with its hedge (ADR-0140).
   An eleventh kind, `principle` (the presumption of registrability, mandatory application,
   office practice), sits with the law's questions; `none_of_these` is empty (ADR-0131).
 - **The top level connects** (ADR-0131). The families are classes; every predicate names
@@ -106,9 +108,12 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   `prevents` blocks a step, `suspendsTimeFor` stops its clock, `precedes` means *must come
   before*; `establishes` is retired for `mayShow` (S036). A label on the site is the
   predicate's name, so changing what examiners read means renaming it (Q-94).
-- **A relationship carries its sentence's condition or hedge** in `applies_when`, copied
-  verbatim from the supporting sentence, stated on the reified record and shown beside the
-  edge (S036). A modality belongs to the verb its predicate reads; a re-read onto another
+- **A relationship carries its sentence's condition** in `applies_when` and its strength
+  word in `hedge`, each copied verbatim from the supporting sentence, stated on the reified
+  record and shown beside the edge (S036, ADR-0140). Its condition state is set by rule
+  (`ontology.conditions`: stated, none stated, assessed none, not assessed); a sentence with
+  a conditional word gets a condition or a `no_condition` reason, never silence (R07). The
+  direct edge is navigation only (ADR-0134). A modality belongs to the verb its predicate reads; a re-read onto another
   predicate drops it. The answering model sees each path line's modality and condition, and
   is told never to conclude that a requirement, exception or step does not exist because its
   sources do not mention it (`answer-v3`, ADR-0136); the page says the same where it finds
@@ -116,7 +121,13 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 - **A definition is its own record** (`GD-`, `authored/definitions.yaml`), never a field on a
   concept, and says where its words come from: the instrument's own definition, verbatim
   (preferred, CHAT-0045), a provision, or the Manual. A concept its sources do not define gets
-  none; "application" carries scope notes, not a split (ADR-0137).
+  none; "application" carries scope notes, not a split (ADR-0137). Keep the meaning short
+  and put obligations and consequences in the scope note; the harness's triage notes flag a
+  quote cut before its qualifier, a subsection quoted in part, and "must" in a non-ground
+  definition (R02).
+- **Every machine-written record type carries the envelope in the RDF too**: the SHACL
+  shapes target definitions and corrections as well as authored assertions, and every
+  evidence item is an anchor `<record>/evidence/<n>` with ref, span, hash and quote (R03, R04).
 - **Roles are distinct and their power is on edges**: the Registrar (an office) is
   not a delegate, a delegate is not the Registrar, the owner is not the authorised
   user; who delegates to, directs, reviews or is consulted by whom is an edge on a
