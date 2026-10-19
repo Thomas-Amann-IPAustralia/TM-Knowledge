@@ -1655,3 +1655,17 @@ lists stay unshown (ADR-0131). `test_every_kind_of_link_a_record_states_reaches_
 holds it. To check the site against the graph field by field, compare `ontology.json`
 with `graph/approved.ttl` + `graph/authored.ttl`; a concept's kind is on its `GT-`
 typing node (`tmk:typedBy` → `tmk:conceptGroup`), not on the concept.
+
+### Q-97: only relationships keep their evidence detail in the RDF, and two record types escape the envelope shapes
+
+Found checking the consolidated review (S040, `docs/ONTOLOGY-REVIEW-RESPONSE-2.md` R03 and R04).
+`build._origin` writes one `tmk:sourcePassage` per evidence item and nothing else; span and hash
+come only from `_provenance`, for a relationship's single top-level `source_ref`. So concepts,
+typings, corrections and definitions (634 evidence items) reach the graph with no span, hash or
+quote, while the record files and the harness have all four. Separately, `AuthoredAssertionShape`
+and `AuthoredEvidenceShape` target `tmk:AuthoredAssertion`, and `tmk:Definition` and
+`tmk:Correction` are subclasses of `tmk:Assertion` only, so deleting a definition's or a
+correction's author, date, reasoning and sources still validates with 0 defects; the YAML readers
+catch it, the SHACL gate does not. Probe through `validate.run` on the loaded `Dataset`, never a flat
+graph. Until R03 and R04 are done, do not read "SHACL passed" as "every machine-written node carries
+its envelope", and do not write a SPARQL query that needs a non-relationship record's span.
