@@ -4,20 +4,24 @@ Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-10-17, ADR-0137 (S038).
+**As at:** 2026-10-19, ADR-0138 (S040).
 
 ## Purpose and scope
 
-- **The project is a pitch** that demonstrates the value of an ontology for the
-  Trade Marks Manual; a working system soon outranks completeness (ADR-0109).
-  Current scope is the demonstrator, D1–D4, in `CLAUDE.md` §0 (ADR-0110).
+- **The ontology is a foundation** for future machine learning, decision-making,
+  customer service and policy aids (simulating amendments); immediately, a research
+  and decision-support tool for examiners and an explanation aid for customers
+  (ADR-0138, superseding ADR-0109's "a pitch"). A working system soon still outranks
+  completeness (ADR-0109). Deliverables D1 to D4 are in `CLAUDE.md` §0; D4 is now
+  the customer explanation aid. Future uses are modelled for, never performed:
+  represent a recorded decision, never make one.
 - **Waterfall delivery.** Nobody signs anything until the ontology ships to a group
   of trade marks examiners, who review it all at once; until then, make it as close
   to production ready as possible. No question goes to "the expert" singly
   (ADR-0120).
 - **The whole Manual is in scope.** There is no section 43 boundary (ADR-0081).
-- **The pitch claims** the gain over keyword search, says plainly that modern search
-  ranks better, then leads with what the ontology uniquely does (OQ-0029, ADR-0136).
+- **The pitch pack and deck are left to go stale** (ADR-0138); no session reviews or
+  updates them. OQ-0029's claims stand in `docs/PITCH-PACK.md` as written, unmaintained.
 - **Definitions are written** and the stale documents corrected; both deferrals were lifted
   (ADR-0136). The ontology report is generated without a date and drift-checked in CI.
 - **The pinned Act is compilation 48** (`C2026C00421`, in force from 19 September 2026),

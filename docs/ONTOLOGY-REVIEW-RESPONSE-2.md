@@ -2,6 +2,10 @@
 
 **As at:** 2026-10-19 · session S040 · responding to `docs/Trade-Mark-Ontology-Consolidated-Review.md`
 (written by ChatGPT, dated 18 October 2026, about commits `3ecf410` and `e6985e9`)
+**Revised:** the same day, after the owner stated the ontology's purpose (CHAT-0085, ADR-0138). The
+first version (commit `8d4c6ef`) judged the A-series against the purpose then recorded, a pitch
+demonstrator; this version judges every finding against the purpose the owner has now stated.
+"What changed from the first version" lists each verdict that moved.
 **Checked against:** `c6a0f0e`, which differs from `e6985e9` only by the review file, with the pinned
 snapshot `308bfd9` (the Act at compilation 48)
 **Written by:** an agent (Claude Code), at the owner's request. Machine-written and reviewed by no one;
@@ -12,41 +16,52 @@ pySHACL 0.40.1).
 
 The task: for each problem ChatGPT identified, say whether it is right; where it is, say whether its
 proposed fix is right; and where the fix is wrong for this project, say what should be done instead,
-and why. The first response (`docs/ONTOLOGY-REVIEW-RESPONSE.md`, S035) answered ChatGPT's earlier
-review of 15 October; this one answers the consolidated review, which keeps that review's
-implementation findings as R01 to R10 and adds A01 to A12 against a wider set of intended uses.
+and why.
+
+## The purpose this response judges against
+
+In the owner's words (ADR-0138): *"The ontology is being written to operate as a foundational layer
+for any future machine learning, machine decision making, customer service delivery or policy
+writing aid (simulating flow on affects of amendments). In the immediate, for examiners, it must
+operate as a research and decision-support tool, helping them quickly identify relevant sections of
+guidance, legislation and related material. The immediate use case for IP Australia's 'customers' is
+about improving understanding of trade mark requirements, the application process and objections
+raised during examination (likely an LLM driven chatbot with clear visuals for explainability)."*
+
+So there are two immediate users (examiners researching; customers trying to understand) and four
+future consumers (machine learning, decision services, customer service, policy simulation) that the
+foundation must not preclude. The rules that do not change: no system states an examination
+outcome; the Act and the Manual stay distinguishable everywhere; what a machine wrote is never
+mistaken for what a person signed. A future "machine decision making" use means the foundation must
+be able to represent a recorded decision; it does not license any product here to make one.
 
 ## In short
 
-- **The technical findings are accurate.** I re-ran every probe it describes, read each cited
-  record beside its full passage and the provision behind it, and checked every count. All ten
-  implementation findings (R01 to R10) reproduce. In four places the problem is wider than reported
-  (R02, R03, R04, R08), and in one the headline says more than its own table (R09).
-- **Findings: I agree with 19 of the 22 and with the other 3 in part. I reject none.**
-- **Fixes: I agree with 5 outright, 13 in part, and disagree with 4.** The disagreements are mostly
-  about scope and timing, not about the design. Where a fix calls for hand-written work and the
-  repository already has a signed yardstick (R06) or a deterministic check would do (R02, R07), I
-  use that instead; R06's fix as written would have an agent write the expected answers it is then
-  graded against.
-- **The A-series is a sound gap analysis against uses this repository has not adopted.** ChatGPT
-  writes as though the ontology's immediate purpose includes explaining objections to customers, and
-  later ML, decision services and policy simulation. The repository records a different purpose: a
-  pitch demonstrator for examiners, D1 to D4 (ADR-0109, ADR-0110), with nothing about customers.
-  Whether the purpose widens is the owner's decision, and it decides most of the A-series. I
-  recommend it does not widen yet, and that the A-series becomes the pitch's account of what the
-  foundation would need next.
-- **Two A findings are live defects in the examiner chatbot today, whatever the scope.** A06: the
-  1,600-character cut removes exactly the exceptions in section 44 (subsections (3) and (4) start at
-  characters 2,390 and 2,962), so the model is shown the rule without its exceptions. A08: the
-  citation check runs against the full stored text rather than the excerpt the model saw, an answer
-  with no citations passes silently, and dropping a bad citation leaves its sentence on the page.
-- **It missed some things.** The most important: the 37 correction records share the definitions'
-  validation gap (R04); the RDF drops span, hash and quote for 634 evidence items across four record
-  types, not 230 in one (R03); the signed competency-question records already contain the answer
-  contract R06 asks someone to write; and three of the pitch pack's six capability claims currently
-  say more than the implementation does.
-- **Almost all of the repair is agent work that costs nothing.** Four decisions need the owner;
-  they are listed near the end.
+- **The technical findings are accurate, and against the stated purpose all 22 stand.** I re-ran
+  every probe ChatGPT describes, read each cited record beside its full passage and the provision
+  behind it, and checked every count. In four places the problem is wider than reported (R02, R03,
+  R04, R08). One headline needs a correction (R09), which does not change the verdict.
+- **Fixes: I agree with 17 and with 5 in part. I disagree with none.** In the first version I
+  disagreed with four (A02, A04, A05, A09), each for one reason: "not now; outside the recorded
+  scope". The owner has removed that reason. What remains are five genuine differences of method,
+  where a deterministic check, a signed yardstick or a simpler mechanism does the job better (R01,
+  R02, R06, R07, A06).
+- **My main difference with ChatGPT now is order, not content.** It recommends starting the matter,
+  process, test and evidence models in parallel with the repairs. I would design them in parallel
+  but populate them only after the repairs, because an explanation of a section 43 objection is
+  composed from exactly the records R01 and R02 show to be overstated. Built first, those errors
+  would reach customers in plain language.
+- **Two defects in the examiner chatbot come first, because they will carry into any customer
+  chatbot built the same way.** A06: the 1,600-character cut removes exactly the exceptions in
+  section 44 (subsections (3) and (4) start at characters 2,390 and 2,962). A08: the citation check
+  runs against the full stored text rather than the excerpt the model saw, an answer with no
+  citations passes silently, and dropping a bad citation leaves its sentence on the page.
+- **It missed some things.** The 37 correction records share the definitions' validation gap (R04);
+  the RDF drops span, hash and quote for 634 evidence items across four record types, not 230 in one
+  (R03), which matters now that downstream consumers are a stated use; and the signed
+  competency-question records already contain the answer contract R06 asks someone to write.
+- **Almost all of the work is agent work that costs nothing.** Two decisions need the owner now;
+  four gates are named for later.
 
 ## Verdicts at a glance
 
@@ -56,24 +71,44 @@ implementation findings as R01 to R10 and adds A01 to A12 against a wider set of
 | R02 | Three definitions drop a qualification their source states | Agree, wider | In part | Deterministic triage of all 149 first, then re-read what it flags |
 | R03 | The RDF loses the definitions' evidence detail | Agree, wider | Agree | One evidence-anchor node per evidence item, for every record type |
 | R04 | Validation skips definitions; RULE-0001's record is wrong | Agree, wider | Agree | Add the targets (corrections too); fix RULE-0001; an equality check |
-| R05 | Change impact misses machine-written records and definitions | Agree | In part | One dependency index in Python, keyed by any ref; leave the approved RULE-0002 alone |
+| R05 | Change impact misses machine-written records and definitions | Agree | Agree | One dependency index, keyed by any ref; RULE-0002 left as the signed-only view |
 | R06 | Competency queries do not answer their questions | Agree | In part | Test each query against its own signed record, which already holds the contract |
-| R07 | Conditions are rare, and "none" cannot be told from "not checked" | Agree | In part | Set the state by rule where a machine can; split hedge from condition |
-| R08 | The authority check is a heuristic | Agree, wider | Agree | Say so, test its misses, soften the pitch's wording |
-| R09 | The measurements do not establish a retrieval advantage | In part | Agree | They establish one over keyword search, not over hybrid; owner gates on re-measurement |
-| R10 | Coverage and source currency need clearer boundaries | Agree | Agree | The coverage table already planned, plus the Manual's capture date |
-| A01 | No model of a matter, its objections or role assignments | Agree | In part | Not now; reword roles as capacities now |
-| A02 | No process or event model | Agree | Disagree | Not now; regs 4.8 to 4.10 if the owner adopts customer guidance |
-| A03 | Applicability does not depend on context or time | Agree | In part | Show the Manual's capture date now; versioning when a dated question is in scope |
-| A04 | No structured legal tests | Agree | Disagree | Not now (ADR-0009); keep the two principles that matter in the answer rules |
-| A05 | No model of case evidence and assessments | Agree | Disagree | Not now; no case evidence is in scope or held |
-| A06 | Passages are cut at 1,600 characters | Agree | In part | Whole provisions (90% are under 1,800 characters), cuts around the match, every cut marked |
-| A07 | Legislation is not directly searchable; cases are citations only | Agree | In part | Exact-reference lookup and provision search now; judgments and customer pages are upstream's and out of scope |
-| A08 | Support is not verified claim by claim | Agree | In part | Check against what was sent; claims with their own quotes; mark what fails. No paid entailment check yet |
-| A09 | No customer explanation model | In part | Disagree | Not a defect of an examiner tool; the owner's decision |
-| A10 | Dependency, scenarios and real-world effects are different questions | Agree | In part | Agree with the distinction; build only the first (R05) |
-| A11 | No versioned contract for downstream consumers | In part | In part | A small build manifest now; R03 is the real precondition |
-| A12 | Tests do not cover the intended tasks | Agree | In part | Deterministic release-blocking fixtures now; examiner-written scenarios are the owner's call |
+| R07 | Conditions are rare, and "none" cannot be told from "not checked" | Agree | In part | Set the state by rule where a machine can; split hedge from condition; proceeding from the Part |
+| R08 | The authority check is a heuristic | Agree, wider | Agree | Say so, test its misses, tighten two rules |
+| R09 | The measurements do not establish a retrieval advantage | Agree, with a correction | Agree | Keep the best search as the baseline; add the ontology to it |
+| R10 | Coverage and source currency need clearer boundaries | Agree | Agree | One coverage table by Part, and the Manual's capture date beside the compilation |
+| A01 | No model of a matter, its objections or role assignments | Agree | Agree | A minimal schema and fictional fixtures, after the repairs; roles as capacities now |
+| A02 | No process or event model | Agree | Agree | One template, regulations 4.8 to 4.10; explain deadlines, do not compute them |
+| A03 | Applicability does not depend on context or time | Agree | Agree | Define identity and version now; select versions when a second one is held |
+| A04 | No structured legal tests | Agree | Agree | Test records as data for sections 41, 43 and 44, within ADR-0009 |
+| A05 | No model of case evidence and assessments | Agree | Agree | General evidence requirements from the Manual first; case evidence as schema only |
+| A06 | Passages are cut at 1,600 characters | Agree | In part | Whole provisions and marked cuts now; the context bundle drawn from A04's test records |
+| A07 | Legislation is not directly searchable; cases are citations only | Agree | Agree | Exact-reference and provision search now; customer pages and judgments captured upstream |
+| A08 | Support is not verified claim by claim | Agree | Agree | Claims with their own quotes, checked against what was sent; a support check before any customer release |
+| A09 | No customer explanation model | Agree | Agree | Intents, context slots and three views built on A08's explanation object |
+| A10 | Dependency, scenarios and real-world effects are different questions | Agree | Agree | Build the first (R05) now, the second once A03 and A04 exist |
+| A11 | No versioned contract for downstream consumers | Agree | Agree | A release manifest and full provenance in every export (R03 first) |
+| A12 | Tests do not cover the intended tasks | Agree | Agree | Task fixtures for both users, abstention counted as success; owner gates named |
+
+## What changed from the first version
+
+| # | First version (finding / fix) | Now | Why |
+|---|---|---|---|
+| R05 | Agree / In part | Agree / Agree | A dependency index is the first layer of the policy aid (A10); my one reservation (leave the approved RULE-0002 alone) is an implementation note, not a disagreement |
+| R09 | In part / Agree | Agree / Agree | For an examiner research tool the comparison that matters is the best search, not keyword search; against that, ChatGPT's headline is right |
+| A01 | Agree / In part | Agree / Agree | Explaining an objection a customer received needs its ground, affected goods and options |
+| A02 | Agree / Disagree | Agree / Agree | "The application process" is a stated immediate customer use |
+| A03 | Agree / In part | Agree / Agree | Policy simulation is a stated future use; the model must be defined now |
+| A04 | Agree / Disagree | Agree / Agree | Explaining an objection, and later deciding and simulating, need tests as structure; ADR-0009 already allows it as data |
+| A05 | Agree / Disagree | Agree / Agree | Evidence of use is one of the commonest objection responses a customer must understand |
+| A07 | Agree / In part | Agree / Agree | Examiner research needs legislation and cases found directly; customers need official guidance |
+| A08 | Agree / In part | Agree / Agree | A customer-facing answer must not show an unsupported claim as supported; a support check is owed before release |
+| A09 | In part / Disagree | Agree / Agree | The customer explanation aid is now D4 |
+| A10 | Agree / In part | Agree / Agree | Simulating flow-on effects of amendments is a stated future use |
+| A11 | In part / In part | Agree / Agree | Machine learning and decision services are stated future consumers |
+| A12 | Agree / In part | Agree / Agree | Customer tasks are now in scope; the gates remain, as process, not disagreement |
+
+Everything about the pitch pack is removed: the owner has left it to go stale (CHAT-0086).
 
 ## How I checked
 
@@ -95,36 +130,28 @@ implementation findings as R01 to R10 and adds A01 to A12 against a wider set of
   ChatGPT found by reading.
 - **Not run**: the full test suite (nothing changed), any live model call, any browser session.
 
-## Whose purpose? The review's framing
+## The review's framing
 
-**ChatGPT says** (its sections 1 and 2). The ontology is meant as a foundation for machine learning,
-machine decision-making, customer service and policy-writing; its immediate customer role is
-explaining requirements, the application process and objections, possibly through a chatbot with
-visuals. So process, applicability, objection and evidence modelling should begin now; the
-`ExaminationOutcome` restriction and the exclusion of point-in-time questions are inappropriate as
-permanent restrictions; and the scope documents should distinguish representing a recorded
+**ChatGPT says** (its sections 1 and 2). The model should distinguish representing a recorded
 decision, explaining a rule, evaluating a hypothetical, predicting an outcome and making a decision,
-with application profiles over a shared model.
+and serve each user through an application profile over one shared model (examiner research,
+customer explanation, policy scenarios, ML and decision services). The `ExaminationOutcome`
+restriction and the exclusion of point-in-time questions are inappropriate as permanent
+restrictions on a foundation.
 
-**My view.** The five-activity distinction is right and useful, and I would adopt its vocabulary.
-Representing a recorded outcome is not deciding one, and the `ExaminationOutcome` class comment
-("UNPOPULATED, and it must stay that way") blurs the two by citing the rule against deciding as the
-reason for not representing. But the uses the framing rests on are not recorded anywhere in this
-repository. Its purpose, set by the owner on 7 October, is "a pitch that demonstrates the value of
-an ontology for the Trade Marks Manual; a system that works, soon, not every nuance" (ADR-0109); its
-scope is D1 to D4 (ADR-0110); the published site and its chatbot are for trade marks examiners; and
-the rest of the roadmap is "future state, context only, do not build yet" (`CLAUDE.md` §0). A search
-of the repository finds no customer-facing use. If the uses ChatGPT names are the owner's intention,
-they change the project's purpose and what the system says to whom, which only the owner can decide
-(`CLAUDE.md` §3a). Two of the restrictions it calls permanent are also not the agent's to relax: the
-signed prohibited uses PU-0001 and PU-0002 stand as approved knowledge, and no agent may widen the
-product's scope (ADR-0082 consequence 4).
+**My view: agree.** With the purpose stated, this is the right frame, and it fits the rules that
+stay. "Never state an examination outcome" is a rule about what a product says; it does not forbid
+the foundation from representing an outcome someone recorded, which future ML needs. The
+`ExaminationOutcome` class comment ("UNPOPULATED, and it must stay that way") cites the rule against
+deciding as the reason for not representing, which conflates the two; it should say instead that no
+outcome is ever generated, and that a recorded one may be represented once case data is in scope
+(an owner gate). The signed prohibited uses PU-0001 and PU-0002 stand, and bind every profile.
+Point-in-time questions are A03.
 
-So for A01 to A05 and A09 to A11, my verdict on each finding is whether it correctly describes what
-is missing for the uses it names, and my verdict on each fix turns on the owner's decision about
-scope (decision 1 below). I recommend the demonstrator scope stays for now. ChatGPT's A-series is a
-good, specific account of what a production foundation would need next, and that account is itself
-worth putting in the pitch.
+On profiles: the examiner explorer and the customer aid should be two profiles over one model, not
+two models. They differ in what they may show (an examiner sees unreviewed records stamped; a
+customer explanation should rest on fewer, better-evidenced statements), in register, and in what
+they ask for, never in what the underlying records say.
 
 ## Implementation and semantic findings
 
@@ -143,6 +170,10 @@ GR-0700's `applies_when` repeats the outcome rather than stating the circumstanc
 | GR-0701 | fanciful or ambiguous reference is an exception to likely to deceive or cause confusion | Right. "Deception or confusion is not likely to occur if ..." is the test's own outcome on those facts. It is the closest of the four to an exclusion (a fanciful reference carries no geographical connotation for the test to act on), but the source frames it as likelihood |
 | GR-0702 | owner or authorised user is an exception to the section 43 ground | In part. Read with the sentence before it ("A section 43 ground for rejection will apply if the applicant ... is not also the owner (or authorised user) of that phoneword"), being the owner does take the case out of the phoneword ground, so an exception edge is defensible. What is wrong is the evidence, which quotes the reconsideration sentence (a procedural consequence), and the scope: GC-0035 is the generic signed role, so the edge reads as true of any mark |
 
+**Why it matters now.** A customer explanation built on GR-0700 would tell someone that naming a
+mark after any deceased person avoids section 43, which is wrong for the recently deceased whose
+estate controls the name. An examiner can weigh a stamped machine edge; a customer cannot.
+
 Two things it missed. First, the predicate dictionary teaches the error: `isAnExceptionTo`'s worked
 example in `src/tm_knowledge/ontology/predicates.py` is GR-0700's own sentence, and its definition
 admits hedged cases ("as far as the source says and qualified as it qualifies it"). The dictionary is
@@ -156,7 +187,8 @@ that is accurate; restrict section 43 relations to that ground; keep the excepti
 that excludes a case; keep the replacements unreviewed; add near-miss tests. Disagree: introducing a
 likelihood or reconsideration predicate. Eleven predicates already have exactly one use
 (`data/derived/reports/ontology.md`), and a predicate per degree of hedging multiplies thin
-categories. The degree belongs on the record, beside the condition, where it can be copied verbatim.
+categories. The degree belongs on the record, beside the condition, where it can be copied verbatim,
+and where A04's test records can read it.
 
 **What I would do.**
 1. Re-read the four in a restructure ledger, as S036 did: GR-0699 as GC-0020 `qualifies` GC-0168
@@ -196,6 +228,10 @@ categories. The degree belongs on the record, beside the condition, where it can
   provision or the general provision in section 224"; the passage continues "unless the act or
   document has been listed (prescribed) in reg.21.28 as one to which section 224 does not apply".
   The triage below found it.
+
+**Why it matters now.** "Adverse report", "pending application" and "extension of time" are the
+words a customer meets in their own correspondence. A definition that is right for the further
+report but wrong for the first one misleads exactly the reader the customer aid is for.
 
 **Its fix: agree in part.** Agree: keep a short definition apart from obligations, consequences and
 steps; add scope notes; show the complete source beside each definition in the review pack; prefer
@@ -242,9 +278,10 @@ definitions (230) all export without span, hash or quote: 634 items. The 337 rel
 only nodes that keep theirs. D1's own done-test says "every machine-written record carries its
 envelope", and rule 8 lists the source span as part of it; in the RDF, most records do not.
 
-Nothing in the repository reads evidence from the RDF today (the explorer and the harness read the
-record files), so the harm falls on someone who loads the graph into a standard tool, who for a pitch
-about ontologies is the audience most likely to try.
+**Why it matters now.** In the first version I noted that nothing reads evidence from the RDF today.
+That is still true, but the stated future consumers (ML, decision services, a policy aid) will read
+exports, not this repository's YAML. A foundation whose exports cannot say which sentence a statement
+rests on is not yet a foundation; this is core work, not polish.
 
 **Its fix: agree.** One evidence-anchor node per evidence item (ref, span, hash, quote, and the
 snapshot or compilation it was read from), linked from the record, built once in `_origin` so every
@@ -274,7 +311,8 @@ further `sh:targetClass` values on `AuthoredAssertionShape` and `AuthoredEvidenc
 have several), plus a small Definition shape for `defines`, text, basis and, after R03, its anchors.
 Correct RULE-0001's `assertionObject` to `true` (it is a candidate rule, so the agent may), add the
 equality check in both directions, and test it all through `validate.run` on a `Dataset`, not
-pySHACL on a flat graph (the lesson of the first review's F02).
+pySHACL on a flat graph (the lesson of the first review's F02). Every record type added for the
+A-series (test records, process templates, matters) gets the same targets from the start.
 
 ### R05: change impact omits current authored dependencies
 
@@ -287,26 +325,23 @@ relationships and no `GD-` record; `explorer.build.stability` gathers concept an
 each relationship's single `ref` and the mention index, and no definitions or corrections. Both start
 from a Manual chunk, so neither starts from a provision. The only route from an amended section is
 CQ-0017, which is fixed to section 43 and counts the Manual passages citing it by Part; it names no
-concept, relationship or definition. That matters because the pitch pack's fifth claim is that "an
-amendment to a section reaches the passages, concepts and connections that rest on it".
+concept, relationship or definition. For a policy aid, the amendment it simulates is usually to a
+provision, so this is the gap that matters most.
 
 Two mitigations it does not weigh. The harness's staleness check compares every evidence item's
 hash with the pinned snapshot, definitions included (ADR-0137), so once a changed source is pinned,
 a stale definition is found; what is missing is the forward view ("what would this change touch?"),
 not detection. And RULE-0002's limits line already says a nil result is not "nothing is affected".
 
-**Its fix: agree in part.** Agree: one dependency index over every evidence item and record type,
-with record id, type, review status, source version and reason; an effective-current view and a
-separately labelled historical one; "no recorded impact", never "no impact"; RDF and browser
-agreeing. Disagree with doing it through RULE-0002 or through the RDF first. RULE-0002 is approved
-by the owner for its stated scope (OQ-0004); widening it would be a different rule, needing its own
-approval. And the RDF cannot carry the dependency until R03 lands.
-
-**What I would do.** One Python function, reading the stores the way the staleness check does (reuse
-it), keyed by any ref (chunk, provision or unit), feeding `explorer.stability` (adding definitions,
-corrections and provisions) and a generated report. Keep RULE-0002 as it is, labelled "signed records
-only". A SPARQL rule over authored records can follow R03 as a candidate if the owner wants one in the
-graph. Until this is done, correct the pitch's fifth claim.
+**Its fix: agree.** One dependency index over every evidence item and record type, with record id,
+type, review status, source version and reason; an effective-current view and a separately labelled
+historical one; "no recorded impact", never "no impact"; RDF and browser agreeing. This is the first
+of A10's three layers. Implementation notes: build it in Python first, reading the stores the way the
+staleness check does (reuse it), keyed by any ref (chunk, provision or unit), feeding
+`explorer.stability` and a generated report. Leave RULE-0002 as it is, labelled "signed records
+only": it is approved by the owner for its stated scope (OQ-0004), and widening it would be a
+different rule. Once R03 lands, put the same index into the graph as a candidate rule over every
+store, so a downstream policy tool can read it.
 
 ### R06: executable competency queries do not always answer their questions
 
@@ -336,7 +371,8 @@ required sources, the expected concepts appear, and whatever of the answer shape
 GR-0008 was corrected away by GK-0017, so no signed record states the elements), the query says so,
 and an effective-current variant over the authored graph returns the machine-written records,
 labelled unreviewed. Report an unmet contract as a gap in the ontology report, as the harness reports
-gaps, rather than as a failing or skipped test.
+gaps, rather than as a failing or skipped test. CQ-0009 is also a natural first customer for A04: a
+structured section 43 test record would answer it directly.
 
 ### R07: conditions need an explicit representation and consumption contract
 
@@ -349,7 +385,8 @@ have a conditional marker ("if", "where", "unless", "when", "except") in their s
 That is a crude count and overstates, but it shows the gap is not small. And five of the 26 hold a
 hedge or an outcome rather than a condition (R01). GR-0319 and GR-0206 are as described: the
 non-use proceeding and the "if it wishes to continue" condition are not on GR-0319, and the
-mark-type and colour context is not on GR-0206.
+mark-type and colour context is not on GR-0206. Both are the kind of context a customer explanation
+must carry, or it tells one applicant what applies to another.
 
 **Its fix: agree in part.** Agree: the qualified assertion is the legal reading and the direct edge a
 navigation projection; an assessment state; negative examples for the risky predicates. ADR-0134
@@ -360,8 +397,9 @@ header of `relations.ttl`. Where I differ is how the state is set and where the 
 sentence gives `none_stated` (a fact about the sentence, not a legal judgement); a marker and no
 condition gives `not_assessed`; then the agent assesses the hundred or so flagged. Split hedge from
 condition (R01). Derive the proceeding from the source Part with a small lookup table rather than
-hand-writing it on each record, and hand-write it only where a Part covers several proceedings. Add a
-mark-type field only when a question needs one.
+hand-writing it on each record, and hand-write it only where a Part covers several proceedings. Add
+mark type (standard, certification, collective, defensive) the same way, from the Part where it
+determines it. These become the applicability fields A03 and A04 read.
 
 ### R08: the authority detector is a warning heuristic
 
@@ -373,14 +411,16 @@ passes, and naming the Manual exempts a sentence.
 the match suppresses the flag ("The legislation does not say anything else, but section 41 requires
 use evidence" passes with no citations), and phrasing outside the verb list is never examined
 ("Under section 43 the connotation must be obvious, direct and immediate"; "It is a legal requirement
-that ..."). The module's docstring already calls the check "deliberately narrow"; the overstatement
-is in the pitch pack ("It keeps the law and the practice apart at every point").
+that ..."). The module's docstring already calls the check "deliberately narrow". For customers the
+distinction matters more, not less: a customer told that the Act requires what is only the
+Registrar's practice may argue the wrong point.
 
 **Its fix: agree.** Document what a clean result means; add the adversarial cases as tests that
-record the known misses; soften the pitch's wording. Claim-level anchoring belongs with A08 and
-should be done there. Two cheap tightenings worth making in both engines: apply the Manual exemption
-only when the legislative verb is attributed to the Manual in the same clause, and the negation check
-only within the matched clause. It stays a warning.
+record the known misses; remove absolute wording wherever the site or the documents describe the
+separation as guaranteed. Claim-level anchoring belongs with A08, where each claim names whether its
+source is the Act, the Regulations, the Manual or a case. Two cheap tightenings worth making in both
+engines: apply the Manual exemption only when the legislative verb is attributed to the Manual in the
+same clause, and the negation check only within the matched clause. It stays a warning.
 
 ### R09: existing measurements do not establish a retrieval advantage
 
@@ -389,18 +429,21 @@ ten-question check shows no dependable difference; the browser reading did not b
 Keep the strongest baseline, test ablations, measure other benefits separately, freeze questions
 before tuning.
 
-**Finding: agree in part.** Every number in its table matches `measure.md` and `measure-reading.md`
-at their commits. The headline does not: the measurements do establish one advantage, over keyword
-search (ontology minus keyword +0.079 [+0.042, +0.116] on all 129 questions, +0.201 on the problem
-questions), which is the first of the two claims the owner chose for the pitch (OQ-0029). They do not
-establish one over hybrid. ChatGPT's own first row says so; its title does not.
+**Finding: agree, with a correction.** Every number in its table matches `measure.md` and
+`measure-reading.md` at their commits. The correction: the measurements do establish one advantage,
+over keyword search (ontology minus keyword +0.079 [+0.042, +0.116] on all 129 questions, +0.201 on
+the problem questions). But for an examiner research tool, the comparison that matters is against
+the best search available, and there the ontology system trails hybrid search by −0.041
+[−0.067, −0.017]. Judged by the stated use, ChatGPT's headline is right.
 
-**Its fix: agree,** with two owner gates. Re-measurement is deferred by the owner until more re-work
-is done (CHAT-0084), and who writes and judges a new benchmark is the owner's to choose (`CLAUDE.md`
-§3a); examiner-authored questions would need the examiners. The ablations it suggests are the
-handoff's first next action (hub concepts entering expansion, ties broken by ref order), designed
-before measuring and never tuned on the benchmark. Measuring tracing, cross-Part navigation and
-impact separately is right.
+**Its fix: agree.** The ontology's place in examiner research is on top of the best search, not
+instead of it: keep hybrid search as the baseline and measure what expansion adds to it. The
+ablations it suggests are the handoff's first next action (hub concepts entering expansion, ties
+broken by ref order), designed before measuring and never tuned on the benchmark. Measuring the
+other benefits separately is right, and they are the ones most specific to the stated uses: tracing
+a statement to its source, reaching the right provision and its exceptions, and finding what an
+amendment touches. Two owner gates remain: re-measurement is deferred (CHAT-0084), and who writes
+and judges a new benchmark is the owner's (`CLAUDE.md` §3a).
 
 ### R10: coverage and source currency need clearer boundaries
 
@@ -411,106 +454,125 @@ authored relationship; the Manual capture predates the Act compilation; case nod
 **Finding: agree.** All reproduce: 1,053 of 2,460 chunks; Parts 1, 4, 8, 41 and 61 absent, Parts 7
 and 45 also without an authored relationship; the Manual captured on 3 August 2026, the Act at
 compilation 48 (in force from 19 September 2026), the Regulations at compilation 53 (from 18 December
-2025); 21 unverified bases (the handoff says 22; the harness, which is right, says 21).
+2025); 21 unverified bases (the handoff said 22; the harness, which is right, says 21).
 
 **Its fix: agree.** One generated table by Part (searchable, in the graph, concepts, relationships,
-definitions, reviewed) is the handoff's third next action. Answers already name the compilation they
-read; add the Manual's capture date beside it, and say on the About page that a Manual captured on 3
-August 2026 may not reflect compilation 48. Reconciling the two is for the examiners at the
-end-of-work review (ADR-0120), not an agent. The 21 bases are agent work: re-cite each from a quoted
-passage, or mark it unresolved.
+definitions, reviewed) is the handoff's coverage action. Answers already name the compilation they
+read; add the Manual's capture date beside it, and say that a Manual captured on 3 August 2026 may
+not reflect compilation 48. Reconciling the two is for the examiners at the end-of-work review
+(ADR-0120), not an agent. A customer aid must say what it does not cover in words a customer
+understands. The 21 bases are agent work: re-cite each from a quoted passage, or mark it unresolved.
 
 ## Foundations for the intended uses
 
-Read these with the framing section above: each finding is judged as a description of what those
-uses would need; each fix is judged against this project's recorded scope.
-
 ### A01: model the matter and each objection, not only the vocabulary
 
-**Finding: agree.** `TradeMarkApplication`, `Examination` and `Objection` are unpopulated. `tmk:Role`
-is described as "a person, office or body", while `examination.ttl` (lines 210 to 212) declares
-offices, delegates, parties and representatives disjoint. Once individuals are typed, an attorney
-applying in their own name (party and representative) or an examiner filing a personal application
-(delegate and party) is a contradiction. It is latent: no individuals exist and no OWL inference is
-licensed (ADR-0134).
+**Finding: agree.** `TradeMarkApplication`, `Examination` and `Objection` are unpopulated, and
+nothing connects a report's objections to their ground, affected goods or response options.
+`tmk:Role` is described as "a person, office or body", while `examination.ttl` (lines 210 to 212)
+declares offices, delegates, parties and representatives disjoint; once individuals are typed, an
+attorney applying in their own name, or an examiner filing a personal application, is a
+contradiction.
 
-**Its fix: agree in part.** Not the matter model now; that is the scope decision. The role point is
-worth fixing now in its cheap form: say in the class comments that a role is a capacity, not the
-person who holds it, and either scope the disjointness to capacities or drop it (no check uses it).
-If the owner adopts customer explanation, ChatGPT's minimal shape (sign, application, goods and
-services items, report, objection with its ground, affected items and disposition, and a role
-assignment scoped to a matter and time) is the right one, tested on fictional data.
+**Its fix: agree.** A small matter schema (sign and its representations, application, claimed goods
+and services items, examination, report, objection with its ground, stated reasons, affected items
+and disposition, registration) and a role assignment scoped to a matter and a time. Keep
+classification separate from the specification, and never use class membership for similarity.
+Three notes. Populate it only with fictional cases until the owner allows real data (a gate). Model
+it after Package 1, because each objection's ground will link to the records Package 1 repairs.
+And fix the role point now, in its cheap form: say in the class comments that a role is a capacity,
+not the person who holds it, and scope the disjointness to capacities.
 
 ### A02: represent process stages, events and conditional response paths
 
 **Finding: agree.** There is no transition model; three `precedes` and two `suspendsTimeFor` edges
-are the extent of it.
+are the extent of it, and nothing can establish where a customer is in the process.
 
-**Its fix: disagree, for now.** For the examiner use, "what does the Manual say happens next" is
-answered from the passages and those edges. If the owner adopts customer guidance, a template from
-regulations 4.8 to 4.10, separate from any matter's events, is a sound first slice, and it must keep
-the owner's rule that the procedural spine is not made binary (ADR-0105, ADR-0106).
+**Its fix: agree.** Start with one template, regulations 4.8 to 4.10 (report, response,
+reconsideration, further report or acceptance, deferment and lapse), each step with its source,
+prerequisites, effect and responsible role, kept separate from any matter's event history. Explain
+deadline rules and the inputs they need; compute dates only for branches whose rules and edge cases
+have been reviewed, and never recalculate a date the customer's own report states. One caution: the
+explorer's grounds tree is a binary tree of questions by the owner's ruling (ADR-0106); that is a
+view of the grounds, not the process, and the process template should not be built by stretching
+it.
 
 ### A03: make applicability and meaning depend on context and time
 
 **Finding: agree.** `time.ttl` excludes point-in-time questions and holds one compilation per
 instrument; ADR-0137 allows one definition per concept (`tmk:defines` is declared functional).
 
-**Its fix: agree in part.** Now: show the Manual's capture date beside the compilation (R10), so a
-reader sees the gap between them. Later, when a dated question is in scope: versioned text,
-applicability intervals, transitional rules, OWL-Time for the primitives. Several scoped definitions
-only where a question needs them; the owner postponed splitting "application" by sense (CHAT-0025),
-so scope notes stay.
+**Its fix: agree.** Define now: an instrument's or concept's enduring identity apart from its
+versioned text; legal effective intervals apart from capture dates (the repository already records
+both for each instrument); scoped statements; an explicit unknown when a filing date matters and is
+not given. Relax "one definition per concept" to "one per concept per scope", with a disambiguation
+rule and an unresolved state (an agent-proposed ADR superseding that part of ADR-0137; the owner's
+postponement on splitting "application", CHAT-0025, is about splitting concepts, not scoping
+definitions). Selecting between versions needs a second version to be held: historical compilations
+and transitional provisions would have to be captured upstream (`CLAUDE.md` rule 2). OWL-Time for
+the primitives, as it says.
 
 ### A04: introduce structured legal tests alongside conceptual relationships
 
 **Finding: agree.** Binary edges with a modality and a free-text condition cannot hold conjunctions,
-alternatives, exceptions with priority, or discretion.
+alternatives, exceptions with priority, or discretion, and traversing an edge does not show that its
+conditions hold.
 
-**Its fix: disagree, for now.** Representing defeasible rules (LegalRuleML) is deferred by ADR-0009
-and listed in `CLAUDE.md` §6 as not done here; reversing that is the owner's. Two of its principles
-matter today and cost nothing, and both are already in force: an unknown fact is not a false one (the
-`answer-v3` rule against concluding absence, ADR-0136), and a discretion is not an obligation (the
-first review's work on "may"). Keep them in the answer rules; do not build a norm layer.
+**Its fix: agree.** Keep the concept graph for terminology and navigation, and add test records:
+the actor, the conditions (with AND and OR, and unknown kept apart from false), the legal effect,
+the modality's meaning (an obligation, a discretion, or evidence that may establish something),
+scope, authority, period, and exceptions, each element citing its exact unit and quote. Start with
+sections 41, 43 and 44, which cover the commonest objections and exercise every feature (41's
+evidence routes in (3) and (4), 43's connotation and its factors, 44's carve-outs in (3) and (4) and
+the discretion they give). ADR-0009 already allows this: it defers LegalRuleML, not structure, and
+permits "decision tables for bounded procedural logic". A superseding ADR is owed only when a named
+use needs defeasibility or rule priorities executed by an engine (machine decision-making, later).
+Evaluative steps stay as assessments for a person, never computed.
 
 ### A05: separate case evidence, factual claims and assessed conclusions
 
-**Finding: agree.** The four evidence classes are unpopulated and nothing links an exhibit to a
-claim, an issue and an assessment.
+**Finding: agree.** The four evidence classes are unpopulated, and nothing links an exhibit to a
+claim, an issue and an assessment. "Evidence" here (material an applicant files) is a different
+thing from the repository's source-quotation evidence, and the two must never share a class.
 
-**Its fix: disagree, for now.** No case evidence is in scope or held, and the evidentiary-proposition
-boundary in `evidence.ttl` is honest for a vocabulary over the Manual. If the uses are adopted,
-ChatGPT's chain (evidence item, the claims it supports or challenges, its period and goods, and a
-separate assessment naming who made it) is right, and the section 41(3) and 41(4) evidence-of-use
-example is a good first fixture.
+**Its fix: agree.** In two steps. First, what customers need now: the Manual's general requirements
+for evidence that addresses an objection (for section 41(3) and 41(4): the sign as used, the goods
+and services, the dates relative to the filing date, use in Australia), written as authored records
+from the Manual, distinguishing relevance from sufficiency. Second, for later ML and decision
+services, the schema ChatGPT describes (evidence item, its submission, the claims it supports or
+challenges, its period and goods, and a separate assessment naming who made it and on what basis),
+populated with fictional fixtures only.
 
 ### A06: retrieve complete legal context, not fixed-length passage prefixes
 
-**Finding: agree; the most important of the A-series, because it affects the examiner chatbot
-today.** Reproduced through the repository's loader: section 44 is 3,785 characters; subsection (3)
-starts at 2,390 and (4) at 2,962; both are cut by the 1,600-character limit
-(`explorer/build.py` line 729, `bulk/jobs.py` lines 1117 and 1122, `site/js/engine.js` line 260). They
-are the honest concurrent use and prior continuous use carve-outs, the exceptions to (1) and (2),
-and the `s44(1)` unit opens "Subject to subsections (3) and (4)". So a live answer about section 44 is
-written from the rule without its exceptions, and the rule against concluding absence cannot help,
-because the model never sees them. 372 of 2,460 chunks and 101 of 763 provisions exceed the limit.
+**Finding: agree; the most urgent of the A-series, because it affects the examiner chatbot today
+and would carry into a customer chatbot built the same way.** Reproduced through the repository's
+loader: section 44 is 3,785 characters; subsection (3) starts at 2,390 and (4) at 2,962; both are
+cut by the 1,600-character limit (`explorer/build.py` line 729, `bulk/jobs.py` lines 1117 and 1122,
+`site/js/engine.js` line 260). They are the honest concurrent use and prior continuous use
+carve-outs, the exceptions to (1) and (2), and the `s44(1)` unit opens "Subject to subsections (3)
+and (4)". So a live answer about section 44 is written from the rule without its exceptions, and the
+rule against concluding absence cannot help, because the model never sees them. 372 of 2,460 chunks
+and 101 of 763 provisions exceed the limit.
 
-**Its fix: agree in part.** Agree: complete units, disclosed omissions, a regression fixture for
-section 44 and one for an exception on another page. Disagree that a general context-bundle model is
-needed first. The sizes make a simpler fix sufficient: the median provision is 576 characters, 90%
-are under 1,800 and only 10 exceed 4,000.
+**Its fix: agree in part.** Agree with the end state: complete units, the context a test needs,
+omissions disclosed, a regression fixture for section 44 and one for an exception on another page.
+I differ on the route. A general context-bundle model is not the first step, and once A04 exists it
+need not be a separate one.
 
-**What I would do.** In `jobs.py` and `engine.js` together (a test holds them identical):
-1. give legislation whole up to a budget (say 6,000 characters), and for the few larger provisions
-   the matched units plus any unit a lead-in names ("Subject to subsections (3) and (4)");
-2. cut a long Manual chunk around the match rather than from its start (`passage_block` already takes
-   `around`; answers do not use it);
-3. mark every cut, in the prompt and on the page ("subsections (3) and (4) not shown");
-4. add the section 44 fixture.
+**What I would do.**
+1. Now, in `jobs.py` and `engine.js` together (a test holds them identical): give legislation whole
+   up to a budget (the median provision is 576 characters, 90% are under 1,800 and only 10 exceed
+   4,000), and for the few larger ones the matched units plus any unit a lead-in names ("Subject to
+   subsections (3) and (4)"); cut a long Manual chunk around the match rather than from its start
+   (`passage_block` already takes `around`; answers do not use it); mark every cut, in the prompt and
+   on the page; add the section 44 fixture.
+2. Then, as A04's test records are written, draw the bundle from them: a test record already names
+   its units, its exceptions and the concepts it turns on, so its definitions and cross-references
+   come with it, and the bundle has one source of truth rather than a second retrieval model.
 
-This changes what the live chatbot is given, so it goes to the owner with A08 (decision 2). The 129
-prepared answers were written from cut passages; re-writing them costs money and the cap is spent, so
-they should say so (decision 3).
+This changes what the live chatbot is given, so it goes to the owner with A08 (decision 1). The 129
+prepared answers on the Ask page were written from cut passages; label them as such (no spend).
 
 ### A07: broaden source access while preserving proposition-level authority
 
@@ -518,14 +580,17 @@ they should say so (decision 3).
 a recognised concept's legislative basis or a provision one of the top three passages cites
 (`Engine.prepare`). Cases are held at citation level; no customer guidance is held.
 
-**Its fix: agree in part.** Agree, now: exact-reference lookup ("section 44(3)", "reg 4.10" to the
-unit) and keyword search over the 763 held provisions beside the Manual. Both are deterministic and
-cheap; both change the measured system, so label them unmeasured until the next measurement.
-Disagree, for this repository: a register and ingestion of judgments, customer pages and forms.
-Crawling and extraction are upstream's (`CLAUDE.md` rule 2 and §6), judgment text exists nowhere in
-the programme (Q-11), and customer pages serve a use not in scope. Its points about cases (the
-Manual's account of a case is not the judgment; quoted, paraphrased and inferred differ) are right
-and partly encoded already (`statedIn`, `attributedTo`).
+**Its fix: agree.** Now: exact-reference lookup ("section 44(3)", "reg 4.10" to the unit) and keyword
+search over the 763 held provisions beside the Manual, both deterministic and cheap, both labelled
+unmeasured until the next measurement. A task-based source register here, naming which judgments,
+customer pages and forms each task needs, linking out before ingesting. One note on where the
+ingestion happens: crawling and extraction belong upstream (`CLAUDE.md` rule 2 and §6), so a small,
+named set of IP Australia's customer pages (how to respond to an examination report; how to provide
+evidence of use) should be raised with `manual-XtrACTor`, kept as their own source kind, distinct
+from the Manual and the legislation. Judgment text is held nowhere in the programme (Q-11), and its
+licence terms need checking before any capture. Its points about cases (the Manual's account of a
+case is not the judgment; quoted, paraphrased and inferred differ) are right and partly encoded
+already (`statedIn`, `attributedTo`).
 
 ### A08: make support verifiable for each claim before displaying the answer
 
@@ -535,78 +600,101 @@ excerpt the model was given; an empty list returns nothing kept and nothing drop
 `ask.js` streams the answer as it arrives and, after checking, shows the same text with the kept
 citations and a note that others were removed.
 
-**Its fix: agree in part.** Agree with four changes, all deterministic and cheap: verify against the
-excerpt actually sent; return claims, each with its own quotes, so a failed quote marks its claim
-rather than vanishing from the list; show a claim with no surviving quote as unsupported, and an
-answer with none as "no checked support"; stream as a visibly unchecked draft. Disagree, for now,
-with a model-judged support check (does this quote support this sentence): it is a paid call per
-answer, its own accuracy is unmeasured, and the cap is spent. Say instead, on the page, that the check
-proves a quote exists in the passage, not that it supports the sentence. Reviewed explanation
-templates belong to the customer track. The schema change alters what the live chatbot is told, so it
-goes to the owner with A06, as the path-line change did (CHAT-0080).
+**Its fix: agree.** An explanation object of discrete claims, each with its type, scope, source
+kind, quotes, assumptions and missing facts; quotes validated against the excerpt actually sent; a
+claim with no surviving quote shown as unsupported (or omitted, or stated as a gap), and an answer
+with none shown as having no checked support; the answer streamed as a visibly unchecked draft; the
+final claim-to-source mapping stored with the answer. All of that is deterministic and costs
+nothing. The support check proper (does this quote support this claim and its qualifications?) needs
+a model judge or expert labels. For the examiner tool, saying plainly that the check proves a quote
+exists, not that it supports the sentence, is an honest interim. For any customer release it is
+owed first, and a model judge needs a quote and the owner's spend (the cap is spent). Reviewed
+templates for recurring explanations are right; under the owner's waterfall ruling (ADR-0120) they
+are reviewed at ship time, so until then they are templates stamped unreviewed. The schema change
+alters what the live chatbot is told, so it goes to the owner with A06 (decision 1).
 
 ### A09: build customer explanations and visuals from a shared explanation model
 
-**Finding: agree in part.** Accurate that there is no customer task or context contract, but the
-answering instructions target an examiner by design: the site and its chatbot are for examiners. The
-one point that applies now is its distinction between "why this was retrieved" and "why this
-proposition is supported"; the Ask page's trace explains retrieval scoring and should never read as
-support.
+**Finding: agree.** The answering instructions target an examiner, and there is no customer task or
+context contract. A retrieval trace explains how passages were found, not why a proposition holds,
+and "they rejected my name" can mean several things.
 
-**Its fix: disagree, for now.** The owner's decision (decision 1). If adopted, its three views (an
-issue card, a conditional timeline, an evidence-to-issue view), each with a text equivalent, and its
-insistence on testing comprehension with customers, are sensible.
+**Its fix: agree.** Customer intents and a few context slots (the report's wording or cited ground,
+the application route, the stage, the affected goods and services, dates where they change the
+answer); ask only for facts that change the explanation, and allow general guidance without
+personal data. Plain-language text as versioned views of scoped propositions, never alternative
+definitions. A08's explanation object generating both prose and visuals, and its three views (an
+issue card, a conditional process timeline, an evidence-to-issue view), each exposing sources,
+conditions and unknowns, each with a text equivalent, and each separating "why this was retrieved"
+from "why this is supported". The repository's everyday-language reading (ADR-0132) is a good start
+for intents, provided it asks when a phrase could mean several things rather than choosing. Testing
+comprehension with customers is right and is an owner gate (outward-facing).
 
 ### A10: separate dependency analysis, legal scenarios and real-world policy effects
 
 **Finding: agree.** "Which guidance needs review?", "would this matter be treated differently?" and
 "how would applicants behave?" are different questions, and connectivity answers only the first.
 
-**Its fix: agree in part.** Agree with the distinction; build only the first now (R05). Normative
-scenarios need A03 and A04; behavioural effects need data nobody holds. Put the distinction on the
-pitch's limits page, so "what would this change touch" is not heard as "what would this change do".
+**Its fix: agree.** Build the editorial-impact layer now (R05, keyed by provision so an amendment can
+start it). Normative scenarios once A03 (versions) and A04 (tests) exist for a small set of
+provisions, run on fictional matters, with draft text kept out of anything operative. Behavioural
+and operational effects need a separate empirical model and data nobody here holds; until then the
+system says such effects are unknown.
 
 ### A11: create versioned reuse contracts for ML and other downstream consumers
 
-**Finding: agree in part.** No downstream consumer exists. ChatGPT's own section 7 says namespace
-publication and alignment "can wait until there is an external consumer with a concrete need", which
-is equally true here. Its evidence of drift between interfaces (hierarchy links, definitions) was
-found and fixed in S039.
+**Finding: agree.** The records serve the explorer, and the projections do not all carry the same
+semantics: R03 shows evidence lost in the RDF, and S039 found hierarchy links and definitions
+missing from some views.
 
-**Its fix: agree in part.** A small `build.json` on the site and a matching graph header (commit, pin,
-compilations, counts by review state) are cheap and useful for the pitch. R03 is the real
-precondition for any RDF consumer. Its rules for training data (split by matter and time, no
-later outcomes in earlier features, keep the frozen benchmark) are right, and there is nothing yet to
-apply them to.
+**Its fix: agree.** A release manifest per build (ontology revision, pin and compilations, schema
+versions, corrections, review-state counts, coverage, profile) as `build.json` on the site and a
+header in the graph; assertion-level provenance and applicability in every export, with explicit
+missing values (R03 and R07 first); authoring origin, review state, legal authority and authoring
+confidence kept as separate fields, which the records mostly do already. Identifiers and their
+retirements are already stable (`authored/retired-ids.yaml`, `eval/gold/retired-ids.yaml`); a
+migration map for re-read records (old triple to new) would complete it, and the restructure ledgers
+hold the data for one. PROV-O alignment is optional. Its rules for training data (split by matter
+and time, no later outcomes in earlier features, the frozen benchmark kept and a new one versioned)
+are right, and apply when case data exists.
 
 ### A12: test the intended tasks, including missing and conflicting information
 
 **Finding: agree.** Query execution, connectivity and quote matching do not show that an examiner
-found the governing qualification.
+found the governing qualification or that a customer understood an objection.
 
-**Its fix: agree in part.** Agree with task-level fixtures, abstention counted as success, and
-release-blocking fixtures that an average score cannot hide. Two constraints: who writes and judges a
-benchmark is the owner's (`CLAUDE.md` §3a), and expert-reviewed fixtures wait for the examiners'
-review at the end (ADR-0120). What an agent can add now, deterministic and labelled unreviewed: the
-section 44 context fixture (A06), the unsupported-claim display (A08), the compilation named on every
-answer, the absence rule; and, of its scenarios, those inside the examiner demonstrator (the section
-44 bundle, ambiguous everyday wording, conflicting sources, a missing judgment). Multiple objections,
-transitions, evidence periods and amendments belong to the customer and policy tracks.
+**Its fix: agree.** Task-level fixtures for both users, abstention and clarification counted as
+success, and release-blocking fixtures that no average can hide (an unsupported operative claim,
+the wrong compilation, an omitted outcome-changing qualification). Its scenario list is a good one.
+Three constraints on how, none on what: who writes and judges a benchmark is the owner's
+(`CLAUDE.md` §3a); expert review of expected answers happens at the examiners' review at ship time
+(ADR-0120), so until then the fixtures test behaviour and consistency, not legal correctness, and
+say so; and customer comprehension testing needs customers (an owner gate). What an agent can write
+now: the section 44 context fixture, the unsupported-claim display, the compilation on every answer,
+the absence rule, and fictional versions of its scenarios (two objections over different goods,
+evidence covering the wrong period, ambiguous everyday wording).
 
 ## Other points in the review
 
-- **Stale documents (its section 7): agree; fix now.** `graph/README.md` says the authored graph "is
-  empty today" (it holds 16,107 triples) and that a shape refuses an authored node without its
-  envelope (not for definitions or corrections, R04). `eval/README.md` still says an agent "must not
-  author" legal judgements, citing a rule 1 that now says the opposite, and frames Stage 0 as the
-  blocker.
-- **Predicate boundaries (section 7): already largely done.** Every predicate in `predicates.py`
-  carries a definition, a reading, an example, a counter-example, an authority and the kinds it
-  joins (ADR-0123, ADR-0131). The gap is the eleven singletons' thin use, not missing statements.
-- **A register of empty classes (section 7): agree, low priority.** The ontology report already lists
-  the 53; a status column (populated, structural, reserved) is a small addition.
-- **Strengths to preserve (section 4): agree** with all of them, and with keeping RDF, SKOS, SHACL
-  and bounded SPARQL rules rather than unrestricted OWL.
+- **The integrated design (its section 7): agree.** Keep SKOS concepts, classes, source passages and
+  assertions apart, and introduce case-level instances explicitly rather than reusing concept nodes.
+  Its five-layer information model (source and authority; meaning and norms; matter and process;
+  evidence and assessment; explanation and scenarios) is a sound target, and the order of work
+  below follows it.
+- **Stale documents: agree; fix now.** `graph/README.md` says the authored graph "is empty today" (it
+  holds 16,107 triples) and that a shape refuses an authored node without its envelope (not for
+  definitions or corrections, R04). `eval/README.md` still says an agent "must not author" legal
+  judgements, citing a rule 1 that now says the opposite, and frames Stage 0 as the blocker.
+- **Predicate boundaries: already largely done.** Every predicate in `predicates.py` carries a
+  definition, a reading, an example, a counter-example, an authority and the kinds it joins
+  (ADR-0123, ADR-0131). The gap is the eleven singletons' thin use.
+- **A register of empty classes: agree.** The ontology report lists the 53; a status column
+  (populated, structural, reserved for a named use) is now worth having, because the A-series will
+  populate several of them.
+- **Its roadmap (section 8): agree with the stages and the vertical slice**, with the sequencing
+  difference above: design the slice's schema in parallel with the repairs, populate it after.
+- **Strengths to preserve (its section 4): agree** with all of them, and with keeping RDF, SKOS,
+  SHACL and bounded SPARQL rules rather than unrestricted OWL.
 
 ## What the review missed
 
@@ -618,56 +706,63 @@ transitions, evidence periods and amendments belong to the customer and policy t
    rendered into the relate prompt.
 5. **A fourth definition omits a qualification** (GD-0084), and **GD-0146's narrowing is in its
    concept record** too (GC-0179).
-6. **Three of the pitch pack's six capability claims say more than the implementation.** Claim 2
-   ("keeps the law and the practice apart at every point") rests on a heuristic (R08); claim 4
-   ("quotes the passage it rests on with an exact span and hash") is true in the record files and on
-   the site, but not in the RDF for anything but relationships (R03); claim 5 ("an amendment to a
-   section reaches ... what rests on it") has no view that starts from a provision; CQ-0017 counts
-   the passages citing section 43 and names no record (R05). The owner has seen this pack (D4's done-test), so these should be
-   corrected and the owner told.
-7. **Two more authority-detector misses** (an earlier negation; phrasing outside the verb list).
-8. **Five conditions are hedges** (GR-0565, GR-0574, GR-0608, GR-0699, GR-0700).
-9. **The section 44 cut removes exactly the exceptions**, which the answer rule against concluding
+6. **Two more authority-detector misses** (an earlier negation; phrasing outside the verb list).
+7. **Five conditions are hedges** (GR-0565, GR-0574, GR-0608, GR-0699, GR-0700).
+8. **The section 44 cut removes exactly the exceptions**, which the answer rule against concluding
    absence cannot repair, because the model never sees them.
+9. **ADR-0009 already permits structured tests as data** (decision tables); A04 needs no reversal of
+   it.
+10. **The order matters.** The customer slice composes the very records R01, R02 and R07 show to be
+    overstated or unconditioned; repairing them first is cheaper than correcting explanations after.
 
 ## Recommended order of work
 
-**Package 1: the records and their checks** (agent, no spend, about one session). R04 (shape targets
+**Package 1: repair the foundation** (agent, no spend, about one session). R04 (shape targets
 including corrections, a Definition shape, RULE-0001 and the equality check); R03 (evidence anchors
 for every record type, source closure); R01 (the four re-reads, the hedge field, the dictionary
 example, an ADR superseding ADR-0135's reading); R02 (the triage as harness notes, then the flagged
-re-reads and GC-0179); R07 (the condition state set by rule); the stale READMEs; the role comments
-(A01) and the `ExaminationOutcome` comment's reason. Then `tmk-graph --write --rules` and
-`tmk-ontology-report --write`.
+re-reads and GC-0179); R07 (the condition state set by rule; proceeding and mark type from the
+Part); the stale READMEs; the role comments (A01) and the `ExaminationOutcome` comment (represent,
+never generate). Then `tmk-graph --write --rules` and `tmk-ontology-report --write`.
 
-**Package 2: what is served and what is claimed** (agent, no spend, about one session). R05 (the
-dependency index; the change view gains definitions, corrections and provisions); R06 (each query
-tested against its signed record; CQ-0009 and CQ-0024 rewritten); R08 (documented limits, tests, the
-two tightenings); R10 (the coverage table, the Manual's capture date); A07 (exact-reference lookup
-and provision search, labelled unmeasured); the pitch pack's claims 2, 4 and 5 made accurate.
+**Package 2: what examiners use** (agent, no spend, about one session). R05 (the dependency index,
+keyed by any ref; the change view gains definitions, corrections and provisions); R06 (each query
+tested against its signed record; CQ-0009 and CQ-0024 rewritten); R08 (documented limits, tests, two
+tightenings); R10 (the coverage table, the Manual's capture date); A07 (exact-reference lookup and
+provision search; the source register); A11's release manifest.
 
-**Package 3: the live chatbot, after decision 2.** A06 and A08 together in `jobs.py` and
-`engine.js`, as a new answer version; the prepared answers labelled as written from cut passages.
+**Package 3: the live answer, after decision 1.** A06 step 1 and A08's deterministic parts together
+in `jobs.py` and `engine.js`, as a new answer version; the prepared answers labelled as written from
+cut passages.
 
-**Package 4: the owner's decisions** (next section).
+**Package 4: the first customer slice, fictional** (agent, no spend, one or two sessions; schema
+design may start during Package 1). Test records for sections 41, 43 and 44 (A04); the regulations
+4.8 to 4.10 process template (A02); the matter, objection and role-assignment schema (A01); the
+evidence requirements for section 41(3) and 41(4) (A05); the explanation object and its three views
+(A08, A09), on a page separate from the examiner explorer and not published to customers; fixtures
+from ChatGPT's acceptance examples, every record stamped unreviewed, every case fictional. A06 step
+2 follows from the test records.
+
+**Package 5: the later foundations.** The versioning model defined (A03), with version selection
+once upstream holds a second version; the dependency index in the graph as a candidate rule (R05,
+A10); normative scenarios on fictional matters (A10).
 
 ## Decisions for the owner
 
-1. **Does the project's purpose widen?** ChatGPT writes as though the ontology must now serve
-   customer explanations of objections and the application process, and later ML, decision services
-   and policy simulation. The repository records a pitch demonstrator for examiners (ADR-0109,
-   ADR-0110). I recommend keeping that scope now, and putting the A-series in the pitch as what the
-   foundation would need next. If you want one customer-style demonstration in the pitch, a single
-   fictional slice (a report with two objections, the regulations 4.8 to 4.10 template) after
-   packages 1 to 3.
-2. **Approve two changes to what the live chatbot is given and how its answers are shown**: complete
-   legislative units with every cut marked (A06); and claims carrying their own quotes, checked
-   against what was sent, unsupported ones marked, streamed as an unchecked draft (A08).
-   Recommended.
-3. **The 129 prepared answers were written from cut passages.** Leave them, labelled (recommended; no
-   spend), or name an amount to re-write them at the next measurement.
-4. **When re-measurement comes** (deferred, CHAT-0084), who writes and judges the new questions:
-   R09 and A12 ask for examiner-written cases and near misses, which would need the examiners.
+Now:
+
+1. **Approve two changes to what the live examiner chatbot is given and how its answers are shown**:
+   complete legislative units with every cut marked (A06); and claims carrying their own quotes,
+   checked against what was sent, unsupported ones marked, streamed as an unchecked draft (A08).
+   Recommended; the customer chatbot would be built the same way.
+2. **Let the answering model see definitions** (open since S038), once Package 1 has re-read the
+   flagged ones. Explaining requirements to customers leans on definitions more than any other
+   record. Recommended.
+
+Gates ahead, to be asked when reached: publishing anything to customers, or testing with them; using
+real customer or case data (`CLAUDE.md` §3a, ADR-0138); spend for a model-judged support check
+(A08) and for re-measurement (the cap is spent); and who writes and judges the next benchmark (R09,
+A12).
 
 ## How to repeat the checks
 
@@ -688,7 +783,7 @@ The probes were scratch scripts and are not committed; each is a few lines. Afte
   `ontology.validate.run(dataset)`; for each `tmk:InferredAssertion`, test whether its subject,
   predicate and object form a triple in the inferred graph.
 - **R05**: the subjects of `tmk:impactedBy` in the inferred graph against the approved nodes with
-  `tmk:isCorrected true`.
+  `tmk:isCorrected true`; `queries/competency/CQ-0017.rq` for the provision route.
 - **R06**: run `queries/competency/CQ-0009.rq` and `CQ-0024.rq` over the dataset; compare with the
   records in `eval/gold/competency-questions.yaml`.
 - **R07**: count authored relationships with `applies_when`, and those without whose

@@ -1,0 +1,61 @@
+# Decisions the repo owner made in a chat session, replying to the first version of
+# docs/ONTOLOGY-REVIEW-RESPONSE-2.md. Hand-transcribed by the S040 agent; no issue behind it. The
+# artefact is `review/returned/261019-owner-chat-purpose.md`, which carries the words verbatim.
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-19T00:00:00Z'
+questions_updated: '2026-10-19'
+source:
+  kind: chat
+  artefact: review/returned/261019-owner-chat-purpose.md
+  author: Thomas-Amann-IPAustralia
+  relayed_by: S040 agent
+  title: The ontology is a foundation; examiners and customers are its immediate users; the pitch
+    deck is left to go stale
+applied:
+  session: S040
+  date: '2026-10-19'
+  branch: claude/adoring-pascal-38ogq7
+  what_changed: >-
+    ADR-0138 records both decisions and marks ADR-0109's purpose and ADR-0110's D4 superseded.
+    CLAUDE.md's opening and §0 now state the purpose in the owner's words, keep D1 to D3, replace
+    the pitch pack with a customer explanation aid as D4 (its done-test is the agent's), and add
+    the customer to the §3a gate on what the system may say. RULES-IN-FORCE's purpose lines
+    follow. docs/ONTOLOGY-REVIEW-RESPONSE-2.md is re-evaluated against the stated uses, with no
+    pitch material in it. docs/PITCH-PACK.md and docs/PITCH-PROPOSAL.md are not edited; the docs
+    index marks the pitch pack stale. No record, graph, query, prompt or page changed; nothing was
+    spent.
+answers:
+- id: CHAT-0085
+  item: the review's intended uses (docs/ONTOLOGY-REVIEW-RESPONSE-2.md, first version, decision 1)
+  question: What is the ontology for?
+  kind: instruction
+  value: foundation_examiners_customers
+  label: A foundational layer for future ML, decision-making, customer service and policy aids;
+    immediately, an examiner research and decision-support tool and a customer explanation aid
+  quote: >-
+    The ontology is being written to operate as a foundational layer for any future machine
+    learning, machine decision making, customer service delivery or policy writing aid (simulating
+    flow on affects of amendments). In the immediate, for examiners, it must operate as a research
+    and decision-support tool, helping them quickly identify relevant sections of guidance,
+    legislation and related material. The immediate use case for IP Australia's 'customers' is
+    about improving understanding of trade mark requirements, the application process and
+    objections raised during examination (likely an LLM driven chatbot with clear visuals for
+    explainability).
+  notes: >-
+    The owner says this has always been the intention. It supersedes ADR-0109's first decision
+    (the purpose is a pitch). It does not withdraw ADR-0109's second (a working system soon
+    outranks completeness), ADR-0110's way of working, or any hard rule in CLAUDE.md §2, including
+    that no system states an examination outcome.
+  recorded_as:
+  - ADR-0138
+- id: CHAT-0086
+  item: the pitch deck and pitch pack (D4)
+  question: Keep the pitch deck and pitch pack current?
+  kind: instruction
+  value: let_stale
+  label: No; let it go stale and spend no tokens reviewing it
+  quote: >-
+    Also, forget about the pitch deck. Let it go stale. We don't waste tokens on reviewing a pitch
+    whose product is still being developed.
+  recorded_as:
+  - ADR-0138

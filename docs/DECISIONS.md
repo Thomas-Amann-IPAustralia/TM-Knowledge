@@ -4885,7 +4885,7 @@ ref, in the store.
 
 ## ADR-0109 — the project is a pitch, and a working demonstrator soon outranks completeness
 
-**Date** 2026-10-07 · **Authority** human · **Status** accepted
+**Date** 2026-10-07 · **Authority** human · **Status** accepted · **purpose (the first decision) superseded by ADR-0138**; the second stands
 
 **Context.** The owner, in a chat session, after building a second project with
 Claude Code from concept to working prototype quickly and committing the method
@@ -4938,7 +4938,7 @@ chooses (OQ-0028).
 
 ## ADR-0110 — the pitch proposal is adopted: a finish line, a pipeline, lighter process
 
-**Date** 2026-10-07 · **Authority** human · **Status** accepted · **Answers OQ-0028**
+**Date** 2026-10-07 · **Authority** human · **Status** accepted · **Answers OQ-0028** · **D4 (the pitch pack) superseded by ADR-0138**
 
 **Context.** `docs/PITCH-PROPOSAL.md` (ADR-0109) proposed a finish line, a batch
 pipeline in place of hand-authoring, a measured comparison with plain search, an
@@ -6107,3 +6107,51 @@ definitions (that changes what it is told, an owner gate).
 **Consequences.** 149 definitions: 53 statutory, 22 from a provision, 74 from the Manual. A
 statutory definition whose unit changes at the next pin move goes stale like any evidence
 (Q-95). The harness reports refused definitions as defects and the count as a note.
+
+## ADR-0138 — the ontology is a foundation; examiners and customers are its immediate users; the pitch is left to go stale
+
+**Date** 2026-10-19 · **Authority** human · **Status** accepted, acted on in S040 · supersedes
+ADR-0109's first decision (the purpose is a pitch) and ADR-0110's D4 (a pitch pack)
+
+**Context.** The first version of `docs/ONTOLOGY-REVIEW-RESPONSE-2.md` found ChatGPT's
+consolidated review technically accurate but judged most of its A-series against the purpose this
+log recorded, a pitch demonstrator for examiners (ADR-0109), and recommended that scope stay. The
+owner replied in chat (CHAT-0085, CHAT-0086; words verbatim in
+`review/returned/261019-owner-chat-purpose.md`; ruling at
+`review/rulings/2026-10-19-chat-purpose.yaml`).
+
+**Decision (the owner's).**
+1. *"The ontology is being written to operate as a foundational layer for any future machine
+   learning, machine decision making, customer service delivery or policy writing aid (simulating
+   flow on affects of amendments). In the immediate, for examiners, it must operate as a research
+   and decision-support tool, helping them quickly identify relevant sections of guidance,
+   legislation and related material. The immediate use case for IP Australia's 'customers' is
+   about improving understanding of trade mark requirements, the application process and
+   objections raised during examination (likely an LLM driven chatbot with clear visuals for
+   explainability)."* The owner says this has always been the intention.
+2. *"forget about the pitch deck. Let it go stale. We don't waste tokens on reviewing a pitch whose
+   product is still being developed."*
+
+**What it does not decide.** It withdraws none of ADR-0109's second decision (a working system
+soon outranks completeness), ADR-0110's way of working, or any hard rule in `CLAUDE.md` §2. No
+system states an examination outcome; the signed prohibited uses stand (ADR-0082 c4). "Machine
+decision making" is named as a future use the foundation must serve, not one this repository
+performs: the foundation must be able to *represent* a recorded decision without any product
+*making* one, and whether any service may predict or make decisions is a later owner decision with
+its own validation. Publishing a customer-facing chatbot, testing with customers, and using real
+customer or case data stay owner gates (`CLAUDE.md` §3a).
+
+**The agent's parts (S040, agent-proposed).** `CLAUDE.md` §0 keeps D1 to D3 and makes D4 a
+customer explanation aid, with a done-test the agent wrote; §3a's gate on what the system may say
+names the customer beside the examiner, and adds real customer or case data as a gate. The order
+of work is `docs/ONTOLOGY-REVIEW-RESPONSE-2.md` ("Recommended order of work"): repair the
+foundation first, then one fictional vertical slice for the customer use, then widen. Structured
+legal tests are captured as data within ADR-0009 as it stands (it allows decision tables); a
+superseding ADR is owed only if a named use needs defeasibility or rule priorities in an engine.
+
+**Consequences.**
+1. `CLAUDE.md`'s opening and §0, and `docs/RULES-IN-FORCE.md`'s purpose lines, now say this.
+2. `docs/PITCH-PACK.md` and the private deck are left as they are, unreviewed and stale; the docs
+   index says so. No session spends tokens on them.
+3. The consolidated review's A-series is in scope as foundation work, sequenced as the response
+   sets out; nothing in it licenses stating an outcome.
