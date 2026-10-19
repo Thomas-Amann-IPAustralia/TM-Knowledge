@@ -12,7 +12,23 @@ source:
   author: Thomas-Amann-IPAustralia
   relayed_by: S040 agent
   title: The live chatbot's complete provisions and claim-level checking; definitions in its prompt
-applied: null
+applied:
+  session: S041
+  date: '2026-10-19'
+  branch: claude/vibrant-hawking-9r6ev3
+  what_changed: >-
+    answer-v4 in bulk/jobs.py and site/js/engine.js together. CHAT-0087: legislation is given whole
+    up to 4,000 characters (section 44 with its subsections (3) and (4)); a longer provision gives the
+    blocks the question matches and every block a "Subject to subsections ..." lead-in names; a Manual
+    chunk past 3,000 characters is cut around the question's first word in it; every cut is marked in
+    a cut attribute and with an ellipsis in the prompt, and listed under the answer on the page. The
+    answer is claims, each with its quotes, checked against the excerpt sent (jobs.check_claims,
+    Engine.verify); a claim with none is marked "No checked support", an answer with none says so,
+    the reply streams as an unchecked draft, and the page says the check proves a quote exists, not
+    that it supports. The 129 prepared answers (answer-v2) are labelled as written from passages cut
+    at 1,600 characters. CHAT-0088: after Package 1's R02 re-reads, the definitions of the concepts a
+    question names are in the prompt, each with its record, the source of its words and its
+    unreviewed stamp. Nothing was measured: the cap is spent.
 answers:
 - id: CHAT-0087
   item: decision 1 (A06, A08)

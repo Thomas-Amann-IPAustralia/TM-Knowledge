@@ -24,10 +24,19 @@ export function wake(live) {
 /** The value of a string field in JSON that may still be arriving. */
 export function partialField(json, key) {
   const m = new RegExp(`"${key}"\\s*:\\s*"`).exec(json);
-  if (!m) return null;
+  return m ? readString(json, m.index + m[0].length) : null;
+}
+
+/** Every value of a string field in JSON that may still be arriving, the last perhaps
+    cut short: the claims of an answer-v4 reply, as they stream (A08). */
+export function partialFields(json, key) {
+  return [...json.matchAll(new RegExp(`"${key}"\\s*:\\s*"`, "g"))].map((m) => readString(json, m.index + m[0].length));
+}
+
+function readString(json, from) {
   const escapes = { n: "\n", t: "\t", r: "", b: "", f: "", '"': '"', "\\": "\\", "/": "/" };
   let out = "";
-  for (let i = m.index + m[0].length; i < json.length;) {
+  for (let i = from; i < json.length;) {
     const ch = json[i];
     if (ch === '"') break;
     if (ch !== "\\") { out += ch; i++; continue; }

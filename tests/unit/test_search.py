@@ -136,7 +136,7 @@ def test_the_answer_prompt_forbids_concluding_absence():
 
     assert ("Never conclude that a requirement, exception or step does not exist because the "
             "passages or the graph path do not mention it") in jobs._ANSWER_INSTRUCTIONS.replace("\n", " ")
-    assert jobs.ANSWER_VERSION == "answer-v3"
+    assert jobs.ANSWER_VERSION == "answer-v4"
     import inspect
 
     assert '"answer": Job("answer", ANSWER_VERSION,' in inspect.getsource(jobs.registry)

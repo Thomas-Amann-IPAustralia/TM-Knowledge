@@ -655,3 +655,9 @@ circle.sel { stroke: var(--ink) !important; stroke-width: 3 !important; stroke-d
   .tbl.conns tr.detail, .tbl.conns tr.detail > td { display: block; }
   .tbl.conns tr[hidden] { display: none; }
 }
+
+/* answer-v4 (A08): a claim the check found no quote for, and the draft label while it streams */
+.claim { margin: 0 0 .6rem; }
+.claim.unsupported { border-left: 3px solid var(--warn, #b45309); padding-left: .6rem; }
+.nosupport { display: inline-block; margin-right: .4rem; color: var(--warn, #b45309); font-weight: 600; }
+.answer .draft { text-transform: uppercase; letter-spacing: .05em; color: var(--muted, #666); }

@@ -6158,8 +6158,9 @@ superseding ADR is owed only if a named use needs defeasibility or rule prioriti
 
 ## ADR-0139 — the live chatbot gets complete provisions, claim-level checking and, after their repair, the definitions
 
-**Date** 2026-10-19 · **Authority** human · **Status** accepted, not yet acted on (the ruling's
-`applied` is null) · answers the two decisions in `docs/ONTOLOGY-REVIEW-RESPONSE-2.md`
+**Date** 2026-10-19 · **Authority** human · **Status** accepted, acted on in S041 (`answer-v4`;
+the ruling's `applied` says what changed) · answers the two decisions in
+`docs/ONTOLOGY-REVIEW-RESPONSE-2.md`
 
 **Context.** The re-evaluated response (ADR-0138) found two live defects in the examiner chatbot:
 every passage is cut at 1,600 characters, which removes section 44's subsections (3) and (4) (A06);

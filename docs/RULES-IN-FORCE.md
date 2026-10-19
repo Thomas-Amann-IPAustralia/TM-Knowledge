@@ -118,6 +118,12 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   is told never to conclude that a requirement, exception or step does not exist because its
   sources do not mention it (`answer-v3`, ADR-0136); the page says the same where it finds
   nothing.
+- **The live answer is `answer-v4`** (ADR-0139): legislation whole up to 4,000 characters, a
+  longer provision's matched blocks plus whatever a "Subject to" lead-in names, a Manual chunk
+  cut around the question past 3,000, every cut marked in the prompt and on the page
+  (`jobs.excerpt` = `engine.excerpt`); the answer is claims, each quote checked against the
+  excerpt sent, unsupported claims marked; the definitions of the concepts recognised, stamped.
+  The 129 prepared answers stay `answer-v2`, labelled as read from 1,600-character cuts.
 - **A definition is its own record** (`GD-`, `authored/definitions.yaml`), never a field on a
   concept, and says where its words come from: the instrument's own definition, verbatim
   (preferred, CHAT-0045), a provision, or the Manual. A concept its sources do not define gets

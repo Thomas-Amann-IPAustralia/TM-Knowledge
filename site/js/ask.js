@@ -13,7 +13,7 @@ import { esc, fmt, load, kindColour, refChip, refLabel, isLaw, sourceOf, srcClas
 import { svg, curve, wrapText, wait } from "./graph.js";
 import { Engine, Recogniser, authorityFlags } from "./engine.js";
 import { miniMap } from "./minimap.js";
-import { answer as callModel, read as readModel, cost, partialField, viaProxy, wake } from "./live.js";
+import { answer as callModel, read as readModel, cost, partialFields, viaProxy, wake } from "./live.js";
 import * as lib from "./lib.js";
 
 /** Markdown → sanitised HTML, with bracketed refs turned into passage chips. */
@@ -191,7 +191,8 @@ export async function render(root, { ontology, params }) {
     }
     view.body.innerHTML = `<div class="thinking"><span class="spinner"></span><span class="thinking-text">Reading the ${prep.passages.length} passages${prep.legislation.length ? ` and ${prep.legislation.length} provisions` : ""}…</span></div>
       <div class="answer streaming"></div>`;
-    // Stream: the model chooses its citations first, then writes the answer.
+    // Stream: claims arrive one by one, each followed by its quotes. Shown as an
+    // unchecked draft until the reply is complete and every quote is checked (A08).
     let lastPaint = 0, painting = false;
     sleepy = viaProxy(live) && !g.reading?.model ? setTimeout(() => {
       const status = view.body.querySelector(".thinking-text");
@@ -202,15 +203,15 @@ export async function render(root, { ontology, params }) {
       const now = performance.now();
       if (painting || now - lastPaint < 120) return;
       painting = true; lastPaint = now;
-      const sofar = partialField(text, "answer");
+      const sofar = partialFields(text, "text");
       const status = view.body.querySelector(".thinking-text");
-      if (sofar === null) {
-        const n = (text.match(/"ref"\s*:/g) || []).length;
-        if (status) status.textContent = n ? `Choosing what to cite — ${n} quote${n > 1 ? "s" : ""} so far, each to be checked against the text…` : "Reading the passages…";
+      if (!sofar.length) {
+        if (status) status.textContent = "Reading the passages…";
       } else {
-        if (status) status.textContent = "Writing the answer…";
+        const n = (text.match(/"ref"\s*:/g) || []).length;
+        if (status) status.textContent = `Writing the answer — an unchecked draft: ${sofar.length} claim${sofar.length > 1 ? "s" : ""}, ${n} quote${n === 1 ? "" : "s"} so far, each checked when the answer is complete…`;
         const holder = view.body.querySelector(".answer.streaming");
-        if (holder) holder.innerHTML = await renderAnswer(sofar);
+        if (holder) holder.innerHTML = `<p class="tiny draft">Unchecked draft</p>` + await renderAnswer(sofar.join("\n\n"));
       }
       painting = false;
     };
@@ -218,10 +219,13 @@ export async function render(root, { ontology, params }) {
       const reply = await callModel(live, chat, eng.prompt(prep, chat), signal, onText);
       clearTimeout(sleepy);
       await animation;
-      const checked = eng.verify(reply.parsed.citations, prep);
+      const claims = eng.verify(reply.parsed.claims, prep, chat);
+      // Every cut is marked on the page as in the prompt (A06).
+      const cuts = [...eng.excerpts(prep, chat)].filter(([, e]) => e.cut).map(([ref, e]) => ({ ref, cut: e.cut }));
       const spent = cost(reply.usage, chat.prices);
       showAnswer(view, {
-        answer: reply.parsed.answer, citations: checked.kept, dropped: checked.dropped,
+        claims, cuts, answer: claims.map((c) => c.text).join("\n\n"),
+        citations: claims.flatMap((c) => c.quotes), dropped: claims.flatMap((c) => c.dropped),
         declined: reply.parsed.declined, decline_reason: reply.parsed.decline_reason,
         model: reply.model, when: "just now", live: true, seconds: reply.seconds,
         cost: spent == null ? null : spent + (g.reading?.cost || 0), readingCost: g.reading?.cost, reading: g.reading,
@@ -556,6 +560,22 @@ export async function render(root, { ontology, params }) {
 
   // ------------------------------------------------------------ the answer
 
+  /** An answer-v4 answer, claim by claim: each with the quotes that were found in what
+      the model was given, or marked as having none (A08). */
+  async function claimsBlock(claims) {
+    const parts = [];
+    for (const c of claims) {
+      const misread = c.authority === "legislation" && c.supported && !c.quotes.some((q) => isLaw(q.ref));
+      parts.push(`<div class="claim${c.supported ? "" : " unsupported"}">${await renderAnswer(c.text)}
+        <div class="tiny">${c.supported ? c.quotes.map((q) => refChip(q.ref)).join(" ")
+          : `<span class="nosupport" title="The model gave no quote for this claim that could be found in what it was given.">No checked support</span>`}
+        ${misread ? `<span class="nosupport">Said to state the legislation, but every quote kept is from the Manual</span>` : ""}</div></div>`);
+    }
+    const none = claims.length && !claims.some((c) => c.supported);
+    return `${none ? `<div class="stamp" style="margin-bottom:.8rem">${stampIcon}<span><b>No claim in this answer has a checked quote.</b> Read all of it as unsupported.</span></div>` : ""}
+      <div class="answer claims">${parts.join("")}</div>`;
+  }
+
   async function showAnswer(view, a) {
     const cites = a.citations || [];
     const conflated = authorityFlags(a.answer, cites.map((x) => x.ref));
@@ -563,18 +583,19 @@ export async function render(root, { ontology, params }) {
     view.tags.innerHTML = `<span class="trust machine">Machine · unreviewed</span>`;
     view.body.innerHTML = `
       ${a.declined ? `<div class="stamp" style="margin-bottom:.8rem">${stampIcon}<span><b>Part of this question asked how an application would be decided, and the answer declines that part.</b>${a.decline_reason ? " " + esc(a.decline_reason) : ""}</span></div>` : ""}
-      <div class="answer">${await renderAnswer(a.answer)}</div>
+      ${a.claims ? await claimsBlock(a.claims) : `<div class="answer">${await renderAnswer(a.answer)}</div>`}
       ${conflated.length ? `<div class="stamp" style="margin-top:.8rem">${stampIcon}<span><b>Practice or law?</b> ${esc(conflated[0].message)}<ul class="tiny" style="margin:.3rem 0 0">${conflated.map((f) => `<li>“${esc(f.sentence.slice(0, 220))}${f.sentence.length > 220 ? "…" : ""}”</li>`).join("")}</ul></span></div>` : ""}
       <div class="cites">
-        <h4 style="margin:.8rem 0 .2rem;font-size:.85rem">Citations · ${cites.length} <span class="tiny">(${bySource("manual")} Manual · ${bySource("act")} Act · ${bySource("regs")} Regulations) — each quote found word for word in the passage</span></h4>
+        <h4 style="margin:.8rem 0 .2rem;font-size:.85rem">Citations · ${cites.length} <span class="tiny">(${bySource("manual")} Manual · ${bySource("act")} Act · ${bySource("regs")} Regulations) — each quote found word for word in the passage${a.claims ? " as the model was given it. That proves the words are there, not that they support the claim" : ""}</span></h4>
         <ul>${cites.map((x) => `<li>${srcBadge(x.ref)} ${refChip(x.ref)} <span class="muted">“${esc(String(x.quote || "").slice(0, 220))}${String(x.quote || "").length > 220 ? "…" : ""}”</span></li>`).join("")}</ul>
+        ${a.cuts?.length ? `<p class="tiny" style="margin-top:.4rem">Given to the model in part, every cut marked: ${a.cuts.map((x) => `${refChip(x.ref)} <span class="muted">(${esc(x.cut)})</span>`).join("; ")}. What a cut omits exists.</p>` : ""}
         ${a.dropped?.length ? `<p class="tiny" style="margin-top:.4rem">${a.dropped.length} citation${a.dropped.length > 1 ? "s" : ""} the model gave could not be found word for word in the passage, and ${a.dropped.length > 1 ? "were" : "was"} removed.</p>` : ""}
       </div>
       <div class="stamp" style="margin-top:1rem">${stampIcon}<span>Written by a machine (<code>${esc(a.model || "")}</code>${a.live ? "" : `, ${esc(a.when || "")}`}) from the passages shown, and not reviewed by a trade marks expert.
         The Manual states the Registrar's practice; it is not law. This is not advice and not an examination decision.
         It says what these passages and connections record, and they may not be complete: a requirement, exception or step they do not mention may still exist.</span></div>
       <p class="tiny" style="margin-top:.5rem">${a.live ? `Live answer · ${a.seconds ? a.seconds.toFixed(0) + " s" : ""}${a.cost != null ? ` · about US${(a.cost * 100).toFixed(1)}¢${a.readingCost ? `, ${(a.readingCost * 100).toFixed(1)}¢ of it reading the question` : ""}` : ""} · ${esc(chat.effort)} reasoning effort (the prepared answers used ${esc(chat.measured_effort)}) · search ran without the meaning-vectors the measured system also used${a.reading?.kept?.length ? `, and started from ${a.reading.kept.length === 1 ? "an idea" : `${a.reading.kept.length} ideas`} the model read in the question, which the measured system did not do` : ""}.`
-        : `Prepared answer, written ${esc(a.when || "")} with ${esc(chat.measured_effort)} reasoning effort by the same pipeline.`}
+        : `Prepared answer, written ${esc(a.when || "")} with ${esc(chat.measured_effort)} reasoning effort by the same pipeline (${esc(chat.prepared_prompt_version)}), from passages and provisions cut at ${esc(chat.prepared_passage_chars)} characters: a long provision's later subsections, section 44's exceptions among them, were not in front of it. A live answer is given complete provisions, with every cut marked.`}
         Read against ${esc(lawLine(a.live ? chat.law : examples.law))}.</p>`;
   }
 

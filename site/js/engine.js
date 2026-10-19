@@ -252,42 +252,63 @@ export class Engine {
     return i === undefined ? null : this.chunks[i][3];
   }
 
+  /** What the answer is given of each source — `bulk.jobs.answer_excerpts`, rule for
+      rule: legislation whole up to law_chars, a larger provision's matched blocks and any
+      block a "Subject to" lead-in names, a Manual chunk cut around the question's words
+      (A06). The prompt shows these, and `verify` checks quotes against these. */
+  excerpts(prepared, chat) {
+    const terms = this.terms(prepared.question);
+    const out = new Map();
+    for (const ref of [...prepared.passages, ...prepared.legislation]) {
+      const text = this.text(ref);
+      if (!text) continue;
+      out.set(ref, excerpt(ref, text, this.legislation[ref]?.[4] || null, terms, chat));
+    }
+    return out;
+  }
+
   /** The answer prompt's input, in the exact shape `bulk.jobs._answer_render` writes. */
   prompt(prepared, chat) {
     const label = (c) => this.s.concepts[c]?.pref || c;
+    const sent = this.excerpts(prepared, chat);
     const block = (ref) => {
-      let text = this.text(ref) || "";
-      if (text.length > chat.passage_chars) text = text.slice(0, chat.passage_chars) + "…";
-      text = text.replaceAll("<passage", "&lt;passage").replaceAll("</passage", "&lt;/passage");
-      return `<passage source="${sourceName(ref)}" ref="${ref}">\n${text}\n</passage>`;
+      const { text, cut } = sent.get(ref);
+      const body = text.replaceAll("<passage", "&lt;passage").replaceAll("</passage", "&lt;/passage");
+      return `<passage source="${sourceName(ref)}" ref="${ref}"${cut ? ` cut="${cut}"` : ""}>\n${body}\n</passage>`;
     };
     const lines = ["ONTOLOGY (one line per concept):", chat.ontology_map, "",
       "CONCEPTS RECOGNISED IN THE QUESTION: " + (prepared.trace.ids.map((c) => `${c} ${label(c)}`).join(", ") || "none")];
+    const defined = prepared.trace.ids.filter((c) => chat.definitions?.[c]).map((c) => chat.definitions[c]);
+    if (defined.length) lines.push("", "DEFINITIONS (of the concepts recognised; machine-written, unreviewed):", ...defined);
     if (prepared.paths.length) {
       lines.push("", "GRAPH PATH (relationships the ontology holds for those concepts):");
       for (const edge of prepared.paths) lines.push(pathLine(label, edge));
     }
     lines.push("", `QUESTION: ${prepared.question}`, "", "MANUAL PASSAGES:");
-    for (const ref of prepared.passages) if (this.text(ref)) lines.push(block(ref));
+    for (const ref of prepared.passages) if (sent.has(ref)) lines.push(block(ref));
     if (prepared.legislation.length) {
       lines.push("", "LEGISLATION:");
-      for (const ref of prepared.legislation) lines.push(block(ref));
+      for (const ref of prepared.legislation) if (sent.has(ref)) lines.push(block(ref));
     }
     return lines.join("\n");
   }
 
-  /** Keep only citations whose quote is really in the passage — `bulk.jobs.evidence`. */
-  verify(citations, prepared) {
-    const shown = new Set([...prepared.passages, ...prepared.legislation]);
-    const kept = [], dropped = [];
-    for (const c of citations || []) {
-      const ref = String(c.ref || "");
-      const text = shown.has(ref) ? this.text(ref) : null;
-      const span = text ? locate(text, String(c.quote || "")) : null;
-      if (span) kept.push({ ref, quote: text.slice(span[0], span[1]) });
-      else dropped.push({ ref, quote: c.quote });
-    }
-    return { kept, dropped };
+  /** Each claim's quotes checked against the excerpt the model was given, not the whole
+      text — `bulk.jobs.check_claims` (A08). A claim with no kept quote is unsupported.
+      This proves the words are there; it does not prove they support the claim. */
+  verify(claims, prepared, chat) {
+    const sent = this.excerpts(prepared, chat);
+    return (claims || []).filter((c) => c && typeof c === "object").map((c) => {
+      const quotes = [], dropped = [];
+      for (const q of c.quotes || []) {
+        const ref = String(q.ref || ""), shown = sent.get(ref);
+        const span = shown ? locate(shown.text, String(q.quote || "")) : null;
+        if (span) quotes.push({ ref, quote: shown.text.slice(span[0], span[1]) });
+        else dropped.push({ ref, quote: q.quote });
+      }
+      const authority = AUTHORITIES.includes(c.authority) ? c.authority : "none";
+      return { text: String(c.text || ""), authority, quotes, dropped, supported: quotes.length > 0 };
+    });
   }
 }
 
@@ -338,6 +359,65 @@ export function authorityFlags(answer, cited) {
 /** One GRAPH PATH line — `bulk.jobs.path_line`, character for character: the
     relationship, its record and origin, and the modality and condition the record
     states (ADR-0136). A prepared answer's five-field path says it records none. */
+export const AUTHORITIES = ["legislation", "manual", "both", "none"];
+
+const BLOCK_START = /^(\([^()]+\)|\/[^()~]+)$/;
+const LEAD_IN = /[Ss]ubject to (?:subsections?|subregulations?) ([^.;:]*)/g;
+
+function hits(text, term) {
+  const re = new RegExp(`(?<![a-z0-9])${term}(?![a-z0-9])`, "g");
+  return [...text.toLowerCase().matchAll(re)].map((m) => m.index);
+}
+
+function windowed(text, terms, budget) {
+  if (text.length <= budget) return { text, cut: null };
+  const found = terms.flatMap((t) => hits(text, t).slice(0, 1));
+  const anchor = found.length ? Math.min(...found) : 0;
+  const start = Math.max(0, Math.min(anchor - Math.floor(budget / 3), text.length - budget));
+  const end = start + budget;
+  return { text: (start ? "…" : "") + text.slice(start, end) + (end < text.length ? "…" : ""),
+    cut: `characters ${start}-${end} of ${text.length}` };
+}
+
+/** `bulk.jobs.excerpt`, character for character (A06). */
+export function excerpt(ref, text, units, terms, chat) {
+  terms = [...new Set(terms)];
+  if (!/^(TMA|TMR)/.test(ref)) return windowed(text, terms, chat.manual_chars);
+  if (text.length <= chat.law_chars) return { text, cut: null };
+  const blocks = [];
+  for (const [uref, utext] of units || []) {
+    const suffix = uref.slice(ref.length);
+    if (!blocks.length || BLOCK_START.test(suffix)) blocks.push([suffix || uref, utext]);
+    else blocks[blocks.length - 1][1] += " " + utext;
+  }
+  if (blocks.length < 2) return windowed(text, terms, chat.law_chars);
+  const score = blocks.map(([, body]) => terms.filter((t) => hits(body, t).length).length);
+  const chosen = new Set();
+  let used = 0;
+  for (const i of blocks.map((_, i) => i).sort((a, b) => score[b] - score[a] || a - b)) {
+    if (used + blocks[i][1].length <= chat.law_chars) { chosen.add(i); used += blocks[i][1].length; }
+  }
+  const labels = new Map(blocks.map(([label], i) => [label, i]));
+  for (const i of [...chosen].sort((a, b) => a - b)) {
+    for (const m of blocks[i][1].matchAll(LEAD_IN)) {
+      for (const label of m[1].match(/\(\w+\)/g) || []) if (labels.has(label)) chosen.add(labels.get(label));
+    }
+  }
+  if (!chosen.size) return windowed(text, terms, chat.law_chars);
+  const order = [...chosen].sort((a, b) => a - b);
+  const parts = [];
+  let previous = -1;
+  for (const i of order) {
+    if (i !== previous + 1) parts.push("…");
+    parts.push(blocks[i][1]);
+    previous = i;
+  }
+  if (previous !== blocks.length - 1) parts.push("…");
+  const omitted = blocks.map(([label], i) => (chosen.has(i) ? null : label)).filter((x) => x !== null);
+  const named = (xs) => (xs.length <= 12 ? xs.join(", ") : `${xs.slice(0, 12).join(", ")} and ${xs.length - 12} more`);
+  return { text: parts.join(" "), cut: `parts shown: ${named(order.map((i) => blocks[i][0]))}; omitted: ${named(omitted)}` };
+}
+
 export function pathLine(label, edge) {
   const [s, p, o, rid, origin, modality = "", when = "", hedge = ""] = edge;
   const qualified = (modality ? `modality "${modality}"` : "modality not recorded") + "; " +
