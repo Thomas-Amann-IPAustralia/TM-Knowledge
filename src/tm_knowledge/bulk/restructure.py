@@ -399,7 +399,10 @@ def plan(ctx: jobs.Context, ledger: dict[str, Any]) -> Plan:
         if entry is None:
             out.refused.append(f"concept {cid}: not a machine-written concept (a signed one takes a correction)")
             continue
-        if all(entry.record.get(k) == v for k, v in row["set"].items()) and _ours(entry.envelope, ledger):
+        # Done when this ledger wrote it, or a later ledger has re-read it since (its chain
+        # of readings holds this one's): otherwise an earlier ledger reads it back (Q-93).
+        if all(entry.record.get(k) == v for k, v in row["set"].items()) and (
+                _ours(entry.envelope, ledger) or _read_since(entry.envelope, ledger)):
             out.done += 1
             continue
         envelope = dict(entry.envelope or {})
@@ -415,7 +418,7 @@ def plan(ctx: jobs.Context, ledger: dict[str, Any]) -> Plan:
             evidence.append(found)
         record["authored"] = _stamp(
             ledger, evidence=evidence, basis=str(envelope.get("authoring_basis") or "corpus_inferred"),
-            reasoning=str(row["why"]), alternatives=[_first(envelope, repr(before))],
+            reasoning=str(row["why"]), alternatives=_readings(envelope, repr(before)),
             check=str(row.get("check") or "Whether the concept as now labelled is what the corpus uses."),
             confidence=float(row.get("confidence", 0.8)),
         )
