@@ -400,3 +400,66 @@ def test_every_ambiguous_edge_reaches_the_graph_however_the_selection_moves(corp
     }
     assert ambiguous, "the corpus holds ambiguous edges; the fixture is wrong if not"
     assert ambiguous <= selected
+
+
+# --- evidence anchors (the second review response, R03) ---------------------
+
+
+def _authored_evidence():
+    """(record id, ordinal, evidence item) for every machine-written record that
+    carries an envelope, whatever file it lives in."""
+    import yaml
+
+    from tm_knowledge.config import REPO_ROOT
+
+    for path in sorted((REPO_ROOT / "authored").glob("*.yaml")):
+        for record in yaml.safe_load(path.read_text(encoding="utf-8")) or ():
+            if not isinstance(record, dict) or not isinstance(record.get("authored"), dict):
+                continue
+            for ordinal, item in enumerate(record["authored"].get("evidence") or (), start=1):
+                yield str(record["id"]), ordinal, item
+
+
+def test_every_evidence_item_is_reconstructable_from_the_graph(built):
+    """Each evidence item of every machine-written record (concept, typing,
+    relationship, correction, definition) is an anchor in the authored graph with
+    the record's ref, span, hash and quote, verbatim. Until S041 only the passage
+    reached the graph for 634 of them (Q-97)."""
+    from tm_knowledge.ontology.namespaces import (
+        AUTHORED_GRAPH,
+        assertion_node,
+        concept_node,
+        evidence_node,
+    )
+
+    dataset, _report = built
+    authored = dataset.graph(AUTHORED_GRAPH)
+    kinds, misses = set(), []
+    for record_id, ordinal, item in _authored_evidence():
+        node = concept_node(record_id) if record_id.startswith("GC-") else assertion_node(record_id)
+        anchor = evidence_node(node, ordinal)
+        kinds.add(record_id[:2])
+        got = (
+            str(authored.value(anchor, TMK.upstreamRef)),
+            [authored.value(anchor, TMK.spanStart), authored.value(anchor, TMK.spanEnd)],
+            str(authored.value(anchor, TMK.sourceContentHash)),
+            str(authored.value(anchor, TMK.quote)),
+        )
+        want = (item["ref"], [Literal(x) for x in item["span"]], item["content_hash"], item["quote"])
+        if got != want or (node, TMK.evidence, anchor) not in authored:
+            misses.append((record_id, ordinal))
+    assert {"GC", "GT", "GR", "GK", "GD"} <= kinds, kinds
+    assert misses == [], f"{len(misses)} evidence items the graph cannot give back, e.g. {misses[:5]}"
+
+
+def test_every_evidence_ref_is_a_node_the_source_graph_holds(built):
+    """The source graph is closed over every store's evidence: a definition resting
+    on a unit no chunk cites (GD-0060's s 14(1)(a)) still has a node to point at."""
+    from tm_knowledge.ontology.namespaces import AUTHORED_GRAPH
+
+    dataset, _report = built
+    authored, source = dataset.graph(AUTHORED_GRAPH), dataset.graph(SOURCE_GRAPH)
+    dangling = sorted(
+        {str(target) for target in authored.objects(None, TMK.sourcePassage) if (target, None, None) not in source}
+    )
+    assert dangling == []

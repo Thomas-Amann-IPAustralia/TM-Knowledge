@@ -88,6 +88,9 @@ def test_rule_0001_fires_on_the_mixed_chunk():
     )
     assert (node, TMK.mixedAuthority, Literal(True)) in produced
     inference = next(produced.subjects(TMK.producedByRule, None))
+    # The assertion records the triple emitted, object and all (the second review
+    # response, R04): until S041 it named the chunk as its object.
+    assert produced.value(inference, TMK.assertionObject) == Literal(True)
     # Stamped from `approved-by:`, which for this rule still reads PENDING: the
     # owner asked to see the flagged passages before ruling (OQ-0003).
     assert produced.value(inference, TMK.reviewStatus) == Literal("candidate")

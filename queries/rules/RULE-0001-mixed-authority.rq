@@ -14,7 +14,7 @@ CONSTRUCT {
   ?inference a tmk:InferredAssertion ;
              tmk:assertionSubject ?chunk ;
              tmk:assertionPredicate tmk:mixedAuthority ;
-             tmk:assertionObject ?chunk ;
+             tmk:assertionObject true ;
              tmk:producedByRule <https://data.ipaustralia.gov.au/tmk/prop/RULE-0001> ;
              tmk:derivedFrom ?lawMention ;
              tmk:derivedFrom ?practiceMention ;

@@ -88,6 +88,19 @@ a find-and-replace across serialised RDF.
 | `tmka:` | `<BASE>assertion/` | Individual assertions with provenance |
 | `tmkg:` | `<BASE>graph/` | Named graphs |
 
+**Evidence anchors** (S041, the second review response R03). Each item of a
+machine-written record's `evidence:` list is a node of its own, minted from the
+record's IRI and the item's position, numbered from 1:
+
+```
+tmka:GD-0050/evidence/1     the first evidence item of definition GD-0050
+tmkc:GC-0179/evidence/2     the second of machine-written concept GC-0179
+```
+
+`namespaces.evidence_node` is the one function that mints them. Reordering a
+record's evidence renumbers its anchors; nothing outside the graph stores an
+anchor IRI, so that is a rebuild, not a migration.
+
 Standard prefixes keep their usual bindings: `skos:`, `prov:`, `owl:`, `rdfs:`,
 `sh:`, `dcterms:`.
 

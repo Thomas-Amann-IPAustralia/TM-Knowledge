@@ -173,3 +173,180 @@ def test_the_committed_graph_has_no_s27_conflict_once_gk_0037_corrects_it():
     assert validate.skos_integrity(dataset) == []
     signed = next(r for r in goldset.load()["gold_concept"] if r["id"] == "GC-0017")
     assert "GC-0018" in signed["related"], "eval/gold/ is never edited (ADR-0122)"
+
+
+# --- definitions and corrections carry the envelope (the second review response, R04) ---
+#
+# Until S041 the envelope shapes targeted tmk:AuthoredAssertion only, and a definition
+# or a correction is a subclass of tmk:Assertion: either, with its author, date,
+# reasoning and sources deleted, validated with 0 defects (Q-97).
+
+
+def _anchor(record):
+    from rdflib import Literal, URIRef
+    from rdflib.namespace import RDF, XSD
+
+    from tm_knowledge.ontology.namespaces import TMK, evidence_node
+
+    anchor = evidence_node(record, 1)
+    passage = URIRef("https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231")
+    return [
+        (record, TMK.sourcePassage, passage),
+        (record, TMK.evidence, anchor),
+        (anchor, RDF.type, TMK.EvidenceAnchor),
+        (anchor, TMK.sourcePassage, passage),
+        (anchor, TMK.upstreamRef, Literal("TMM/Part29/1#1")),
+        (anchor, TMK.spanStart, Literal(0, datatype=XSD.integer)),
+        (anchor, TMK.spanEnd, Literal(10, datatype=XSD.integer)),
+        (anchor, TMK.sourceContentHash, Literal("sha256:" + "0" * 64)),
+        (anchor, TMK.quote, Literal("A fixture.")),
+        (anchor, TMK.checkedAgainst, URIRef("https://data.ipaustralia.gov.au/tmk/ns/snapshot-fixture")),
+    ]
+
+
+def _definition(node, drop=()):
+    from rdflib import Literal, URIRef
+    from rdflib.namespace import RDF, SKOS
+
+    from tm_knowledge.ontology.namespaces import TMK
+
+    triples = [t for t in _authored_envelope(node) if t[1] != RDF.type]
+    triples += [
+        (node, RDF.type, TMK.Definition),
+        (node, TMK.defines, URIRef("https://data.ipaustralia.gov.au/tmk/concept/GC-9999")),
+        (node, SKOS.definition, Literal("A fixture.", lang="en-AU")),
+        (node, TMK.definitionBasis, Literal("manual")),
+        *_anchor(node),
+    ]
+    triples = [t for t in triples if t[1] not in drop]
+    return [(s, p, o) if p != TMK.authoringBasis else (s, p, Literal("corpus_explicit")) for s, p, o in triples]
+
+
+def _correction(node, drop=()):
+    from rdflib import Literal, URIRef
+    from rdflib.namespace import RDF
+
+    from tm_knowledge.ontology.namespaces import TMK
+
+    triples = [t for t in _authored_envelope(node) if t[1] != RDF.type]
+    triples += [
+        (node, RDF.type, TMK.Correction),
+        (node, TMK.corrects, URIRef("https://data.ipaustralia.gov.au/tmk/concept/GC-9999")),
+        (node, TMK.ruling, Literal("review/rulings/fixture.yaml#X1")),
+        *_anchor(node),
+    ]
+    triples = [t for t in triples if t[1] not in drop]
+    return [(s, p, o) if p != TMK.authoringBasis else (s, p, Literal("corpus_explicit")) for s, p, o in triples]
+
+
+def test_a_complete_definition_and_correction_pass():
+    from rdflib import URIRef
+
+    from tm_knowledge.ontology import validate
+    from tm_knowledge.ontology.namespaces import AUTHORED_GRAPH
+
+    definition = URIRef("https://data.ipaustralia.gov.au/tmk/assertion/GD-9999")
+    correction = URIRef("https://data.ipaustralia.gov.au/tmk/assertion/GK-9999")
+    report = validate.run(_dataset(AUTHORED_GRAPH, _definition(definition) + _correction(correction)))
+    assert report.exit_code == 0, [str(f) for f in report.by_severity("defect")]
+
+
+def test_a_definition_without_its_envelope_is_a_defect():
+    """The probe of R04: author, sources, reasoning and the concept deleted."""
+    from rdflib import URIRef
+
+    from tm_knowledge.ontology import validate
+    from tm_knowledge.ontology.namespaces import AUTHORED_GRAPH, TMK
+
+    node = URIRef("https://data.ipaustralia.gov.au/tmk/assertion/GD-9999")
+    stripped = _definition(
+        node, drop=(TMK.authoredBy, TMK.sourcePassage, TMK.authoringReasoning, TMK.defines, TMK.evidence)
+    )
+    report = validate.run(_dataset(AUTHORED_GRAPH, stripped))
+    paths = {f.path for f in report.by_severity("defect") if f.node == str(node)}
+    assert {"authoredBy", "authoringReasoning", "defines", "evidence"} <= paths, paths
+    assert any("cites the corpus" in f.shape for f in report.by_severity("defect") if f.node == str(node))
+
+
+def test_a_correction_without_its_envelope_is_a_defect():
+    from rdflib import URIRef
+
+    from tm_knowledge.ontology import validate
+    from tm_knowledge.ontology.namespaces import AUTHORED_GRAPH, TMK
+
+    node = URIRef("https://data.ipaustralia.gov.au/tmk/assertion/GK-9999")
+    stripped = _correction(
+        node, drop=(TMK.authoredBy, TMK.authoredDate, TMK.authoringReasoning, TMK.sourcePassage, TMK.ruling)
+    )
+    report = validate.run(_dataset(AUTHORED_GRAPH, stripped))
+    paths = {f.path for f in report.by_severity("defect") if f.node == str(node)}
+    assert {"authoredBy", "authoredDate", "authoringReasoning", "ruling"} <= paths, paths
+
+
+def test_an_evidence_anchor_without_its_passage_or_version_is_a_defect():
+    from rdflib import URIRef
+
+    from tm_knowledge.ontology import validate
+    from tm_knowledge.ontology.namespaces import AUTHORED_GRAPH, TMK, evidence_node
+
+    node = URIRef("https://data.ipaustralia.gov.au/tmk/assertion/GD-9999")
+    anchor = evidence_node(node, 1)
+    triples = [t for t in _definition(node) if not (t[0] == anchor and t[1] in (TMK.upstreamRef, TMK.checkedAgainst))]
+    report = validate.run(_dataset(AUTHORED_GRAPH, triples))
+    paths = {f.path for f in report.by_severity("defect") if f.node == str(anchor)}
+    assert {"upstreamRef", "checkedAgainst"} <= paths, paths
+
+
+# --- an inference and its triple agree (R04) -----------------------------------------
+
+
+def _inference(obj, emitted):
+    from rdflib import Literal, URIRef
+    from rdflib.namespace import RDF
+
+    from tm_knowledge.ontology.namespaces import TMK
+
+    node = URIRef("https://data.ipaustralia.gov.au/tmk/assertion/inf-fixture")
+    chunk = URIRef("https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231")
+    triples = [
+        (node, RDF.type, TMK.InferredAssertion),
+        (node, TMK.assertionSubject, chunk),
+        (node, TMK.assertionPredicate, TMK.mixedAuthority),
+        (node, TMK.assertionObject, obj if obj is not None else chunk),
+        (node, TMK.producedByRule, URIRef("https://data.ipaustralia.gov.au/tmk/prop/RULE-0001")),
+        (node, TMK.derivedFrom, chunk),
+        (node, TMK.reviewStatus, Literal("candidate")),
+    ]
+    if emitted:
+        triples.append((chunk, TMK.mixedAuthority, Literal(True)))
+    return triples
+
+
+def test_an_inference_recording_a_triple_its_rule_did_not_emit_is_a_defect():
+    """RULE-0001 until S041: the assertion's object was the chunk, the triple's `true`."""
+    from tm_knowledge.ontology import validate
+    from tm_knowledge.ontology.namespaces import INFERRED_GRAPH
+
+    report = validate.run(_dataset(INFERRED_GRAPH, _inference(None, emitted=True)))
+    found = [f for f in report.by_severity("defect") if f.shape == validate.EQUALITY_SHAPE]
+    assert len(found) == 2, [str(f) for f in found]  # the assertion's triple is absent, and the emitted one unrecorded
+
+
+def test_an_inference_and_its_triple_in_agreement_pass():
+    from rdflib import Literal
+
+    from tm_knowledge.ontology import validate
+    from tm_knowledge.ontology.namespaces import INFERRED_GRAPH
+
+    report = validate.run(_dataset(INFERRED_GRAPH, _inference(Literal(True), emitted=True)))
+    assert not [f for f in report.by_severity("defect") if f.shape == validate.EQUALITY_SHAPE]
+
+
+def test_an_inferred_assertion_with_no_triple_behind_it_is_a_defect():
+    from rdflib import Literal
+
+    from tm_knowledge.ontology import validate
+    from tm_knowledge.ontology.namespaces import INFERRED_GRAPH
+
+    report = validate.run(_dataset(INFERRED_GRAPH, _inference(Literal(True), emitted=False)))
+    assert [f for f in report.by_severity("defect") if f.shape == validate.EQUALITY_SHAPE]

@@ -89,7 +89,6 @@ tmk:lastAmended a owl:DatatypeProperty ;
     rdfs:comment "The Manual page's own amendment note where it carries one. Page-level and self-reported — not a version stamp, and not comparable across pages."@en-AU .
 
 tmk:isStale a owl:DatatypeProperty , owl:FunctionalProperty ;
-    rdfs:domain tmk:Assertion ;
     rdfs:range xsd:boolean ;
     rdfs:label "is stale"@en-AU ;
-    rdfs:comment "The assertion's `tmk:sourceContentHash` no longer matches the pinned snapshot: the passage under it moved. Computed at build time, never asserted by hand."@en-AU .
+    rdfs:comment "The `tmk:sourceContentHash` on an assertion or an evidence anchor no longer matches the pinned snapshot: the passage under it moved. Computed at build time, never asserted by hand. No domain since S041, because anchors carry it too."@en-AU .

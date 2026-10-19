@@ -65,9 +65,10 @@ tmk:assertionPredicate a owl:ObjectProperty , owl:FunctionalProperty ;
     rdfs:label "assertion predicate"@en-AU ;
     rdfs:comment "The relation asserted, as a node. Restricted to tmk:ApprovedRelation by a shape, which is how relations.ttl stays a closed list in practice and not only in prose."@en-AU .
 
-tmk:assertionObject a owl:ObjectProperty , owl:FunctionalProperty ;
+tmk:assertionObject a rdf:Property , owl:FunctionalProperty ;
     rdfs:domain tmk:Assertion ;
-    rdfs:label "assertion object"@en-AU .
+    rdfs:label "assertion object"@en-AU ;
+    rdfs:comment "The object of the triple this assertion records, as rdf:object is: a node for an object property, a literal for a datatype one. An inference's assertion and its emitted triple agree exactly (the second review response, R04): RULE-0001 emits `?chunk tmk:mixedAuthority true`, so its assertion's object is `true`, not the chunk."@en-AU .
 
 # --- where it came from -----------------------------------------------------
 
@@ -88,21 +89,50 @@ tmk:supportingText a owl:DatatypeProperty ;
     rdfs:label "supporting text"@en-AU ;
     rdfs:comment "The sentence that states it, verbatim. Checked against the snapshot at the recorded offsets: if the text at the span is not this string, the record is stale or the surface was retyped rather than copied (ADR-0045)."@en-AU .
 
+# No domain on the span and hash properties since S041: an evidence anchor carries
+# them as well as an assertion, and a domain would reclassify every anchor as an
+# assertion (the second review response, R03).
+
 tmk:spanStart a owl:DatatypeProperty , owl:FunctionalProperty ;
-    rdfs:domain tmk:Assertion ;
     rdfs:range xsd:integer ;
     rdfs:label "span start"@en-AU .
 
 tmk:spanEnd a owl:DatatypeProperty , owl:FunctionalProperty ;
-    rdfs:domain tmk:Assertion ;
     rdfs:range xsd:integer ;
     rdfs:label "span end"@en-AU .
 
 tmk:sourceContentHash a owl:DatatypeProperty , owl:FunctionalProperty ;
-    rdfs:domain tmk:Assertion ;
     rdfs:range xsd:string ;
     rdfs:label "source content hash"@en-AU ;
     rdfs:comment "The hash the passage carried when the assertion was made. Staleness is this not matching the pinned snapshot, and a stale assertion returns to review rather than being carried forward — the whole mechanism behind Stage 10."@en-AU .
+
+# --- each evidence item, as a node (S041, the second review response R03) ----
+#
+# A record names the passages it rests on with tmk:sourcePassage, a shortcut for
+# navigation. What it rests on exactly — which sentence, in which version of the
+# passage, in what words — is an evidence anchor, one per item of the record's
+# `evidence:` list, minted as `<record IRI>/evidence/<n>` (IDENTIFIERS.md §2).
+
+tmk:EvidenceAnchor a owl:Class ;
+    rdfs:label "Evidence anchor"@en-AU ;
+    rdfs:comment "One item of the evidence a machine-written record rests on: the passage (tmk:sourcePassage, tmk:upstreamRef), the measured span (tmk:spanStart, tmk:spanEnd), the hash the passage carried when it was read (tmk:sourceContentHash), the quoted words (tmk:quote), and the snapshot the build checked that hash against (tmk:checkedAgainst, tmk:isStale). Not an assertion: it states nothing, it locates."@en-AU .
+
+tmk:evidence a owl:ObjectProperty ;
+    rdfs:range tmk:EvidenceAnchor ;
+    rdfs:label "evidence"@en-AU ;
+    rdfs:comment "An evidence item of this record. No domain: concepts, typings, relationships, corrections and definitions all carry one."@en-AU .
+
+tmk:quote a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:EvidenceAnchor ;
+    rdfs:range xsd:string ;
+    rdfs:label "quote"@en-AU ;
+    rdfs:comment "The words at the span, verbatim, as the record copied them. The harness checks them against the snapshot."@en-AU .
+
+tmk:checkedAgainst a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:EvidenceAnchor ;
+    rdfs:range tmk:DocumentVersion ;
+    rdfs:label "checked against"@en-AU ;
+    rdfs:comment "The snapshot this build compared the anchor's hash with. Not the version the record's author read: that is whichever version carried the recorded hash, and tmk:isStale says whether it is this one."@en-AU .
 
 # --- how it was made --------------------------------------------------------
 
