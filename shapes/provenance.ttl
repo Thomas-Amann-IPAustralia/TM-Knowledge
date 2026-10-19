@@ -156,7 +156,7 @@ tmk:AuthoredAssertionShape
     # escaped the envelope: a definition or a correction with its author, date,
     # reasoning and sources deleted validated with no defect (the second review
     # response, R04; Q-97). Every record class added later gets the same targets.
-    sh:targetClass tmk:AuthoredAssertion, tmk:Definition, tmk:Correction ;
+    sh:targetClass tmk:AuthoredAssertion, tmk:Definition, tmk:Correction, tmk:StructuredTest, tmk:ProcessTemplate ;
     rdfs:label "An authored assertion says who wrote it, when, and on what"@en-AU ;
     sh:property [
         sh:path tmk:goldRecord ;
@@ -228,7 +228,7 @@ tmk:AuthoredAssertionShape
 
 tmk:AuthoredEvidenceShape
     a sh:NodeShape ;
-    sh:targetClass tmk:AuthoredAssertion, tmk:Definition, tmk:Correction ;
+    sh:targetClass tmk:AuthoredAssertion, tmk:Definition, tmk:Correction, tmk:StructuredTest, tmk:ProcessTemplate ;
     rdfs:label "An authored assertion cites the corpus or says it cannot"@en-AU ;
     sh:or (
         [ sh:property [
@@ -274,6 +274,36 @@ tmk:DefinitionShape
         sh:path tmk:evidence ;
         sh:minCount 1 ;
         sh:message "A definition whose evidence carries no span, hash or quote in the graph. Its words cannot be checked against the passage they rest on (the second review response, R03)." ;
+    ] .
+
+# A structured test and a process template (ADR-0142): every element quotes its unit, so
+# a record whose evidence reached the graph without anchors cannot be checked; a test
+# names the provision it reads.
+
+tmk:ProcedureRecordShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:StructuredTest, tmk:ProcessTemplate ;
+    rdfs:label "A structured test or process template is titled and quoted"@en-AU ;
+    sh:property [
+        sh:path <http://www.w3.org/2000/01/rdf-schema#label> ;
+        sh:minCount 1 ;
+        sh:message "A structured test or process template with no title." ;
+    ] ;
+    sh:property [
+        sh:path tmk:evidence ;
+        sh:minCount 1 ;
+        sh:message "Its evidence carries no span, hash or quote in the graph, so no element can be checked against the unit it quotes (R03, ADR-0142)." ;
+    ] .
+
+tmk:StructuredTestShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:StructuredTest ;
+    rdfs:label "A structured test names the provision it reads"@en-AU ;
+    sh:property [
+        sh:path tmk:readsProvision ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "A structured test that reads no provision, or more than one." ;
     ] .
 
 tmk:CorrectionShape

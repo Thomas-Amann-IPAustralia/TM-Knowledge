@@ -24,20 +24,20 @@
  "profile": "RDF 1.1 named graphs, SKOS, SHACL shapes and the approved SPARQL rules; no OWL profile is claimed and no OWL inference is licensed (ADR-0134). A direct edge is navigation only; the reified assertion is the reading (ADR-0134, R07).",
  "graphs": {
   "source": {
-   "triples": 65467,
+   "triples": 66238,
    "classes": {
-    "AdministrativeDecision": 98,
-    "Chunk": 1059,
-    "Citation": 2234,
-    "Decision": 313,
+    "AdministrativeDecision": 99,
+    "Chunk": 1088,
+    "Citation": 2264,
+    "Decision": 317,
     "Document": 1,
     "DocumentVersion": 1,
-    "JudicialDecision": 152,
+    "JudicialDecision": 154,
     "Legislation": 2,
     "LegislativeProvision": 315,
     "LegislativeUnit": 2867,
-    "ManualPassage": 1059,
-    "Page": 207
+    "ManualPassage": 1088,
+    "Page": 209
    },
    "review_status": {}
   },
@@ -60,14 +60,14 @@
    }
   },
   "authored": {
-   "triples": 28034,
+   "triples": 28655,
    "classes": {
     "AuthoredAssertion": 337,
     "ConceptScheme": 1,
     "Context": 16,
     "Correction": 37,
     "Definition": 149,
-    "EvidenceAnchor": 1009,
+    "EvidenceAnchor": 1057,
     "ExternalInstrument": 3,
     "GroundOfRefusal": 8,
     "InstrumentOrRecord": 23,
@@ -76,12 +76,14 @@
     "Principle": 3,
     "ProceduralStep": 24,
     "ProcessRole": 26,
+    "ProcessTemplate": 1,
     "SignContent": 23,
+    "StructuredTest": 3,
     "SubjectMatter": 16,
     "UseInTrade": 4
    },
    "review_status": {
-    "unreviewed": 799
+    "unreviewed": 803
    }
   },
   "inferred": {

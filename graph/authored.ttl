@@ -3417,6 +3417,151 @@ tmka:GK-0037 a tmk:Correction ;
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part46/4/4/6/1> ;
     tmk:withdrawnValue "related: GC-0018" .
 
+tmka:GL-0001 a tmk:StructuredTest ;
+    rdfs:label "Conflict with another person's earlier trade mark (section 44)"@en-AU ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Read clause by clause from section 44(1), its two exceptions in (3) and (4), and the deferment regulation. The effect of (1) is an obligation; (3) gives a discretion, which present prerequisites never turn into a must; (4) bars rejection on the other mark. Similarity of marks and of goods are evaluative."@en-AU ;
+    tmk:confidence 0.8 ;
+    tmk:evidence <https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/1>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/10>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/11>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/12>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/13>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/14>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/15>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/16>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/17>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/2>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/3>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/4>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/5>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/6>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/7>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/8>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/9> ;
+    tmk:expertShouldCheck "Whether the 'other circumstances' limb of (3) and the continuous-use limb of (4) are the right granularity for a customer explanation."@en-AU ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GL-0001" ;
+    tmk:origin "authored" ;
+    tmk:readsProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)(a)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)(a)(i)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)(a)(ii)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)(b)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(3)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(3)(a)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(3)(b)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(4)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(4)(a)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(4)(b)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/5%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.13(1)> .
+
+tmka:GL-0002 a tmk:StructuredTest ;
+    rdfs:label "A connotation likely to deceive or cause confusion (section 43)"@en-AU ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 43 is one sentence with two evaluative conditions joined: a connotation, and a likelihood of deceiving or confusing because of it. No exception in the Act; the Manual's routes are practice and scoped as the Manual scopes them."@en-AU ;
+    tmk:confidence 0.8 ;
+    tmk:evidence <https://data.ipaustralia.gov.au/tmk/assertion/GL-0002/evidence/1>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0002/evidence/2>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0002/evidence/3>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0002/evidence/4> ;
+    tmk:expertShouldCheck "Whether the geographical route should be offered for other kinds of connotation."@en-AU ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GL-0002" ;
+    tmk:origin "authored" ;
+    tmk:readsProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> .
+
+tmka:GL-0003 a tmk:StructuredTest ;
+    rdfs:label "Not capable of distinguishing (section 41)"@en-AU ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 41(2) makes (3) and (4) the only ways a mark is taken not to be capable of distinguishing, so the condition is (3) OR (4), each a conjunction of its paragraphs. Every condition is evaluative. The evidence requirements are the Manual's (Part 23), split into relevance, which a record's facts can be compared with, and sufficiency, which is the examiner's."@en-AU ;
+    tmk:confidence 0.75 ;
+    tmk:evidence <https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/1>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/10>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/11>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/12>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/13>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/2>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/3>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/4>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/5>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/6>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/7>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/8>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/9> ;
+    tmk:expertShouldCheck "Whether the evidence requirements' split into relevance and sufficiency matches how examiners read Part 23."@en-AU ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GL-0003" ;
+    tmk:origin "authored" ;
+    tmk:readsProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(1)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)(a)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)(b)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)(a)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)(b)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/2/2/1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/2/2/2/1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/4~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/3>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/5/5/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/5/5/3>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9(2)(c)> .
+
+tmka:GP-0001 a tmk:ProcessTemplate ;
+    rdfs:label "Examination report, response, further report, deferment and lapse (regulations 4.8 to 4.14, sections 33 and 37)"@en-AU ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Regulations 4.8 to 4.10 give the report, response, consideration and further report loop; 4.13 and 4.14 deferment; section 33 acceptance and rejection; section 37 and regulation 4.12 lapse. Each step and transition quotes the provision that makes it."@en-AU ;
+    tmk:confidence 0.8 ;
+    tmk:evidence <https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/1>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/10>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/11>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/12>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/13>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/14>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/2>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/3>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/4>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/5>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/6>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/7>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/8>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/9> ;
+    tmk:expertShouldCheck "Whether lapse should be drawn from the first report only, or from a further report raising new grounds as well (regulation 4.12(1)(b))."@en-AU ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GP-0001" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(1)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(4)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s37(1)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10(1)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10(2)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10(3)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10(4)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.12(1)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.12(2)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.13(1)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(2)(b)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8(1)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8(2)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9(1)> .
+
 tmka:GR-0059 a tmk:AuthoredAssertion ;
     tmk:assertionObject tmkc:GC-0003 ;
     tmk:assertionPredicate tmk:mayGiveRiseTo ;
@@ -15119,6 +15264,534 @@ tmka:GE-0062 tmk:resolvesTo tmkc:GC-0044 .
     tmk:spanEnd 268 ;
     tmk:spanStart 163 ;
     tmk:upstreamRef "TMM/Part29/9#1" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/1> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 1 ;
+    tmk:quote "Subject to subsections (3) and (4), an application for the registration of a trade mark (applicant’s trade mark) in respect of goods (applicant’s goods) must be rejected if:" ;
+    tmk:sourceContentHash "sha256:76ae56986ebf87b83c99855263706630dad583c5b4f7cf510ed114f64ea65cd8" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)> ;
+    tmk:spanEnd 177 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMA1995/s44(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/10> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 10 ;
+    tmk:quote "that, because of other circumstances, it is proper to do so" ;
+    tmk:sourceContentHash "sha256:f2721265e470e4f0abb2cb3063a909c77051ec5a0bd226a5da4604b861376e24" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(3)(b)> ;
+    tmk:spanEnd 63 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMA1995/s44(3)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/11> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 11 ;
+    tmk:quote "have continuously used the applicant’s trade mark for a period:" ;
+    tmk:sourceContentHash "sha256:770d59d5f222c3ec181d5c980baf2929bd604747dd6b9d01bbea6538aca57448" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(4)> ;
+    tmk:spanEnd 196 ;
+    tmk:spanStart 133 ;
+    tmk:upstreamRef "TMA1995/s44(4)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/12> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 12 ;
+    tmk:quote "the Registrar may not reject the application because of the existence of the other trade mark" ;
+    tmk:sourceContentHash "sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
+    tmk:spanEnd 3545 ;
+    tmk:spanStart 3452 ;
+    tmk:upstreamRef "TMA1995/s44" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/13> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 13 ;
+    tmk:quote "the applicant, or the applicant and the predecessor in title of the applicant, have continuously used the applicant’s trade mark" ;
+    tmk:sourceContentHash "sha256:770d59d5f222c3ec181d5c980baf2929bd604747dd6b9d01bbea6538aca57448" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(4)> ;
+    tmk:spanEnd 182 ;
+    tmk:spanStart 54 ;
+    tmk:upstreamRef "TMA1995/s44(4)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/14> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 14 ;
+    tmk:quote "beginning before the priority date for the registration of the other trade mark" ;
+    tmk:sourceContentHash "sha256:7dba1b51edb8eb2355ea829822e64645cda73ddf65f125581c3624d62ebcb729" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(4)(a)> ;
+    tmk:spanEnd 83 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMA1995/s44(4)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/15> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 15 ;
+    tmk:quote "ending on the priority date for the registration of the applicant’s trade mark" ;
+    tmk:sourceContentHash "sha256:22208bd3b0819e40b43ea2dfb4e9db5974e9c4b78202fef4d17aa6d15ebe137a" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(4)(b)> ;
+    tmk:spanEnd 82 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMA1995/s44(4)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/16> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 16 ;
+    tmk:quote "It may be possible for the applicant to overcome a citation by filing evidence of use or other circumstances which would allow the application to proceed under s 44(3) or 44(4) of the Act." ;
+    tmk:sourceContentHash "sha256:199a77accc7b39f779a6c480f1f0f528dda3edda07256e220dab0675abc03193" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/5%231> ;
+    tmk:spanEnd 188 ;
+    tmk:spanStart 0 ;
+    tmk:upstreamRef "TMM/Part27/5#1" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/17> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 17 ;
+    tmk:quote "The Registrar may, at the request of the applicant in writing, defer acceptance of an application for registration of a trade mark, if:" ;
+    tmk:sourceContentHash "sha256:4ba6ab35c9a92564def9ceaee0c8486e2e963bf054bbf7824b4e2f0539a313e0" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.13(1)> ;
+    tmk:spanEnd 139 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMR1995/r4.13(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/2> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 2 ;
+    tmk:quote "the applicant’s trade mark is substantially identical with, or deceptively similar to:" ;
+    tmk:sourceContentHash "sha256:3858430eb803d23764375a0e3d8b1a82d97f59678b6bb9b1f16017d5624bd2ef" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)(a)> ;
+    tmk:spanEnd 90 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMA1995/s44(1)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/3> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 3 ;
+    tmk:quote "a trade mark registered by another person" ;
+    tmk:sourceContentHash "sha256:f27b7b6aebfd2e42c8da5fd27c3e57fc44c106562c594ab6aa1a32d3d8ce8751" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)(a)(i)> ;
+    tmk:spanEnd 45 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMA1995/s44(1)(a)(i)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/4> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 4 ;
+    tmk:quote "a trade mark whose registration in respect of similar goods or closely related services is being sought by another person" ;
+    tmk:sourceContentHash "sha256:acc6c525ee1cfa395c74e4a1c48a9b30bc3c3bdf1f076e5cae550e82afa23de9" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)(a)(ii)> ;
+    tmk:spanEnd 126 ;
+    tmk:spanStart 5 ;
+    tmk:upstreamRef "TMA1995/s44(1)(a)(ii)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/5> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 5 ;
+    tmk:quote "in respect of similar goods or closely related services" ;
+    tmk:sourceContentHash "sha256:f27b7b6aebfd2e42c8da5fd27c3e57fc44c106562c594ab6aa1a32d3d8ce8751" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)(a)(i)> ;
+    tmk:spanEnd 101 ;
+    tmk:spanStart 46 ;
+    tmk:upstreamRef "TMA1995/s44(1)(a)(i)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/6> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 6 ;
+    tmk:quote "the priority date for the registration of the applicant’s trade mark in respect of the applicant’s goods is not earlier than the priority date for the registration of the other trade mark" ;
+    tmk:sourceContentHash "sha256:4da420d7ac2b8d825e9a7337903491ac1726d1b680b528276fc8d31fc10d2a72" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)(b)> ;
+    tmk:spanEnd 191 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMA1995/s44(1)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/7> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 7 ;
+    tmk:quote "If the Registrar in either case is satisfied:" ;
+    tmk:sourceContentHash "sha256:4187ec36106aa27112518ca1c507576d86e62a0de015fe7a8624e0f21db17398" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(3)> ;
+    tmk:spanEnd 49 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMA1995/s44(3)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/8> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 8 ;
+    tmk:quote "the Registrar may accept the application for the registration of the applicant’s trade mark subject to any conditions or limitations that the Registrar thinks fit to impose" ;
+    tmk:sourceContentHash "sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
+    tmk:spanEnd 2748 ;
+    tmk:spanStart 2576 ;
+    tmk:upstreamRef "TMA1995/s44" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0001/evidence/9> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 9 ;
+    tmk:quote "that there has been honest concurrent use of the 2 trade marks" ;
+    tmk:sourceContentHash "sha256:31e52977b9827efecd10221b83b4f992d820abfc15ea78b40d25206855cb7bc3" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(3)(a)> ;
+    tmk:spanEnd 66 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMA1995/s44(3)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0002/evidence/1> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 1 ;
+    tmk:quote "An application for the registration of a trade mark in respect of particular goods or services must be rejected if" ;
+    tmk:sourceContentHash "sha256:37f2c27c42b22f4448b941d9e541f979dc443b8cf2c9aff6e711f28c2e82c73c" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
+    tmk:spanEnd 114 ;
+    tmk:spanStart 0 ;
+    tmk:upstreamRef "TMA1995/s43" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0002/evidence/2> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 2 ;
+    tmk:quote "because of some connotation that the trade mark or a sign contained in the trade mark has" ;
+    tmk:sourceContentHash "sha256:37f2c27c42b22f4448b941d9e541f979dc443b8cf2c9aff6e711f28c2e82c73c" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
+    tmk:spanEnd 205 ;
+    tmk:spanStart 116 ;
+    tmk:upstreamRef "TMA1995/s43" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0002/evidence/3> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 3 ;
+    tmk:quote "the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion" ;
+    tmk:sourceContentHash "sha256:37f2c27c42b22f4448b941d9e541f979dc443b8cf2c9aff6e711f28c2e82c73c" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
+    tmk:spanEnd 317 ;
+    tmk:spanStart 207 ;
+    tmk:upstreamRef "TMA1995/s43" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0002/evidence/4> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 4 ;
+    tmk:quote "An applicant will be able to overcome a geographical section 43 objection by agreeing to a condition of registration or a specification amendment which removes the likelihood of consumers being deceived or confused." ;
+    tmk:sourceContentHash "sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> ;
+    tmk:spanEnd 215 ;
+    tmk:spanStart 0 ;
+    tmk:upstreamRef "TMM/Part29/9/9/5" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/1> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 1 ;
+    tmk:quote "An application for the registration of a trade mark must be rejected if the trade mark is not capable of distinguishing" ;
+    tmk:sourceContentHash "sha256:42edf378286a04aacd5a7217202c4fb2c177bfc1d5bd612770ee17c4880ac34a" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(1)> ;
+    tmk:spanEnd 123 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMA1995/s41(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/10> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 10 ;
+    tmk:quote "when the trade mark was first used and the period of use" ;
+    tmk:sourceContentHash "sha256:44b5cb9d54e45149faa6fa1ae221a085605a8e3ccf14390f32d457be36dbe31a" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/4~1> ;
+    tmk:spanEnd 406 ;
+    tmk:spanStart 350 ;
+    tmk:upstreamRef "TMM/Part23/3/3/4~1" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/11> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 11 ;
+    tmk:quote "and/or that the objection raised may be valid for some goods or services but not others" ;
+    tmk:sourceContentHash "sha256:c20aa6119e4e277fd1cb3ca88341d3ee5a93ab3828912fd77ce5dd8219b67767" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/2/2/1> ;
+    tmk:spanEnd 304 ;
+    tmk:spanStart 217 ;
+    tmk:upstreamRef "TMM/Part23/2/2/1" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/12> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 12 ;
+    tmk:quote "If grounds for rejection have been raised in respect of only part of the specification of goods and/or services, the applicant may be able to overcome the problem by deleting that part." ;
+    tmk:sourceContentHash "sha256:02ccd3b162dd04bf055fc7f73145272705195b60c9eb6034a18bd9313197247c" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/2/2/2/1> ;
+    tmk:spanEnd 185 ;
+    tmk:spanStart 0 ;
+    tmk:upstreamRef "TMM/Part23/2/2/2/1" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/13> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 13 ;
+    tmk:quote "provide further documents or evidence in support of the application" ;
+    tmk:sourceContentHash "sha256:92f8bf5159b6690fe61f95e45e78b33a53c7c6151d1a2ebc51325071604d0106" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9(2)(c)> ;
+    tmk:spanEnd 71 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMR1995/r4.9(2)(c)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/2> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 2 ;
+    tmk:quote "the trade mark is not to any extent inherently adapted to distinguish the designated goods or services from the goods or services of other persons" ;
+    tmk:sourceContentHash "sha256:76241011c8a8aea35c61bdeda3214d427c829977a9b8826f3448f26ead4ec629" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)(a)> ;
+    tmk:spanEnd 150 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMA1995/s41(3)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/3> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 3 ;
+    tmk:quote "the applicant has not used the trade mark before the filing date in respect of the application to such an extent that the trade mark does in fact distinguish" ;
+    tmk:sourceContentHash "sha256:a12916424e0f0382bf0700dbbd63a39f5fe5ceaf8f36592dff6fa1e4acddfa8e" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)(b)> ;
+    tmk:spanEnd 161 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMA1995/s41(3)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/4> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 4 ;
+    tmk:quote "the trade mark is, to some extent, but not sufficiently, inherently adapted to distinguish" ;
+    tmk:sourceContentHash "sha256:d57518cca8fd35a5b8d3980d85df43948532fc28b0af0fbd5f75007b0836ebde" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)(a)> ;
+    tmk:spanEnd 94 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMA1995/s41(4)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/5> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 5 ;
+    tmk:quote "the trade mark does not and will not distinguish the designated goods or services as being those of the applicant having regard to the combined effect of the following:" ;
+    tmk:sourceContentHash "sha256:555681a7276c9e1199f72d2b1f5fe2dcfa01b4b90a78b326fd3e1e356870bb09" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)(b)> ;
+    tmk:spanEnd 172 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMA1995/s41(4)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/6> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 6 ;
+    tmk:quote "To be able to demonstrate this, the use must be before the filing date. Use after that date will not be considered." ;
+    tmk:sourceContentHash "sha256:520e6b2b922f018e9e7ed89d9809b03526891208fb1ee7d533220b907da65762" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/5/5/3> ;
+    tmk:spanEnd 326 ;
+    tmk:spanStart 211 ;
+    tmk:upstreamRef "TMM/Part23/5/5/3" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/7> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 7 ;
+    tmk:quote "any evidence of use must relate to use in Australia of the trade mark applied for or a substantially identical mark" ;
+    tmk:sourceContentHash "sha256:131570a261cb96d2ed62fb8b29844c4689b37754919126369ebb08b063ae4efc" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/5/5/2> ;
+    tmk:spanEnd 685 ;
+    tmk:spanStart 570 ;
+    tmk:upstreamRef "TMM/Part23/5/5/2" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/8> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 8 ;
+    tmk:quote "should generally show extensive use as a trade mark such that it is likely to be perceived as a brand distinguishing the goods or services of the applicant in the marketplace" ;
+    tmk:sourceContentHash "sha256:131570a261cb96d2ed62fb8b29844c4689b37754919126369ebb08b063ae4efc" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/5/5/2> ;
+    tmk:spanEnd 430 ;
+    tmk:spanStart 256 ;
+    tmk:upstreamRef "TMM/Part23/5/5/2" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GL-0003/evidence/9> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 9 ;
+    tmk:quote "However, if the application is to some extent inherently adapted to distinguish, use after the filing date is also relevant to determining the potential capacity to distinguish of the trade mark as at the date of filing." ;
+    tmk:sourceContentHash "sha256:bfeca76e98baefb1ff2c3aeacdd009b316f224b7a99ef73bae11c4f5a4f8225a" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/3> ;
+    tmk:spanEnd 322 ;
+    tmk:spanStart 102 ;
+    tmk:upstreamRef "TMM/Part23/4/4/3" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/1> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 1 ;
+    tmk:quote "the Registrar reasonably believes that:" ;
+    tmk:sourceContentHash "sha256:b49812f8edb85b34c7d9821d8d3e43d097a44bcee47a642c85dbc88a8983e22d" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8(1)> ;
+    tmk:spanEnd 184 ;
+    tmk:spanStart 145 ;
+    tmk:upstreamRef "TMR1995/r4.8(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/10> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 10 ;
+    tmk:quote "when the Registrar is reasonably satisfied that there are no longer grounds for rejecting the application" ;
+    tmk:sourceContentHash "sha256:dd6143fc4f8074922838e86d03ede3ed1063c61b01070afe8bad8be54b6f950c" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.14(2)(b)> ;
+    tmk:spanEnd 141 ;
+    tmk:spanStart 36 ;
+    tmk:upstreamRef "TMR1995/r4.14(2)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/11> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 11 ;
+    tmk:quote "A report under subregulation (1) must include notification of the date on which the application will lapse if it is not accepted earlier." ;
+    tmk:sourceContentHash "sha256:8baecec255266933012c252d29fb9e4408d69c426bc956bc5ebed7238e63fb21" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8(2)> ;
+    tmk:spanEnd 141 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMR1995/r4.8(2)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/12> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 12 ;
+    tmk:quote "the prescribed period, for an application in respect of which a report is made under regulation 4.8, is:" ;
+    tmk:sourceContentHash "sha256:bf27d8157d4b05b05818e9f16532728f9d7adee114bcf613c9f77f30516c67e0" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.12(1)> ;
+    tmk:spanEnd 184 ;
+    tmk:spanStart 80 ;
+    tmk:upstreamRef "TMR1995/r4.12(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/13> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 13 ;
+    tmk:quote "no account is to be taken of a period in which acceptance of the application is deferred under regulation 4.13" ;
+    tmk:sourceContentHash "sha256:237e2fc1b2407c26d64979ec605983b49fa48e1f8d7c3ddb8a4778da191ee5e5" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.12(2)> ;
+    tmk:spanEnd 228 ;
+    tmk:spanStart 118 ;
+    tmk:upstreamRef "TMR1995/r4.12(2)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/14> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 14 ;
+    tmk:quote "Unless acceptance of an application is deferred, a report under subregulation (2) in relation to that application must include notification of the date on which the application will lapse if it is not accepted earlier." ;
+    tmk:sourceContentHash "sha256:e8af4c8fe2516964efcdd525cad12b6a970ac7d54fc86a29a04702608bddf1a6" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10(3)> ;
+    tmk:spanEnd 222 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMR1995/r4.10(3)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/2> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 2 ;
+    tmk:quote "An applicant may respond in writing to the Registrar’s report under regulation 4.8." ;
+    tmk:sourceContentHash "sha256:12980e01e8a80040cd9e26e5d736d2ffe41c0ee535fd14bbe76252c6d232ce16" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9(1)> ;
+    tmk:spanEnd 87 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMR1995/r4.9(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/3> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 3 ;
+    tmk:quote "On receipt of a response under regulation 4.9, the Registrar must consider the response." ;
+    tmk:sourceContentHash "sha256:6d942a9021c199e60f601fb583c61a349204bb4dc1ecdeaf2617aa2f80065d93" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10(1)> ;
+    tmk:spanEnd 92 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMR1995/r4.10(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/4> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 4 ;
+    tmk:quote "If the Registrar continues to believe that:" ;
+    tmk:sourceContentHash "sha256:8c371e24d270e59d46e9a2427319f0e8e5a525527649429ddc523629ba5da51b" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10(2)> ;
+    tmk:spanEnd 47 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMR1995/r4.10(2)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/5> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 5 ;
+    tmk:quote "The Registrar may, at the request of the applicant in writing, defer acceptance of an application for registration of a trade mark, if:" ;
+    tmk:sourceContentHash "sha256:4ba6ab35c9a92564def9ceaee0c8486e2e963bf054bbf7824b4e2f0539a313e0" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.13(1)> ;
+    tmk:spanEnd 139 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMR1995/r4.13(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/6> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 6 ;
+    tmk:quote "The Registrar must, after the examination, accept the application unless he or she is satisfied that:" ;
+    tmk:sourceContentHash "sha256:a071ed6dcfc5c0c8ef6f02ab77cb17839891e28ff5d1e8a8941caf2ce8eed167" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(1)> ;
+    tmk:spanEnd 105 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMA1995/s33(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/7> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 7 ;
+    tmk:quote "The Registrar may not reject an application without giving the applicant an opportunity of being heard." ;
+    tmk:sourceContentHash "sha256:bf8c0b25fc506600b605bbda09111bada1f72bcb3bbe7eb03bcb5b890decb812" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(4)> ;
+    tmk:spanEnd 107 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMA1995/s33(4)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/8> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 8 ;
+    tmk:quote "an application lapses if it is not accepted within the prescribed period or within that period as extended in accordance with the regulations" ;
+    tmk:sourceContentHash "sha256:bccbd3541a3dff5119d39d44830ebe2b78d7580a4217cfe85915ac054351b2df" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s37(1)> ;
+    tmk:spanEnd 172 ;
+    tmk:spanStart 31 ;
+    tmk:upstreamRef "TMA1995/s37(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GP-0001/evidence/9> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 9 ;
+    tmk:quote "Regulation 4.9 and this regulation apply to a report under subregulation (2) as if it were a report under regulation 4.8." ;
+    tmk:sourceContentHash "sha256:a81ec38853a73f75bbd4c4f77eecde484ff68201598e740b29eb195bec078481" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10(4)> ;
+    tmk:spanEnd 125 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMR1995/r4.10(4)" .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GR-0059/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -29089,8 +29762,6 @@ tmkc:GC-0119 a skos:Concept,
     tmk:statesThresholdFor tmkc:GC-0181 ;
     tmk:typedBy tmka:GT-0119 .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> tmk:appliesTo tmkc:GC-0168 .
-
 tmkc:GC-0058 a skos:Concept,
         tmk:LegalConcept,
         tmk:LegalTest ;
@@ -29706,6 +30377,8 @@ tmkc:GC-0093 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/4%231~1> ;
     tmk:typedBy tmka:GT-0093 .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> tmk:appliesTo tmkc:GC-0168 .
 
 tmkc:GC-0113 a skos:Concept,
         tmk:LegalConcept,

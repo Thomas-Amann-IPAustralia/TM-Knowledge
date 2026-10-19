@@ -24,11 +24,11 @@ ontology cannot do, and it is the honest half of the demonstration.
 | Trade Marks Act 1995 | compilation 48 (`C2026C00421`), in force from 19 September 2026 |
 | Trade Marks Regulations 1995 | compilation 53 (`F2026C00009`), in force from 18 December 2025 |
 | Ontology modules | 9, all draft |
-| Classes declared | 91 |
+| Classes declared | 93 |
 | Predicates defined | 53 in `ontology/predicates.py`; 14 used by a signed record, 51 by a machine-written one |
-| Source graph | 65,467 triples over 1059 chunks |
+| Source graph | 66,238 triples over 1088 chunks |
 | Approved graph | 3,644 triples — signed by a named expert |
-| Authored graph | 28,034 triples — **written by a machine, validated by nobody** |
+| Authored graph | 28,655 triples — **written by a machine, validated by nobody** |
 | Inferred graph | 2,315 triples — derived by the SPARQL rules, never a signed record |
 | SHACL result | 0 defects, 0 gaps, 259 notes — exit 0 |
 | Competency queries | 13 of 20 questions |
@@ -63,13 +63,13 @@ unreviewed, naming the owner's ruling; what serves applies it, and the yardstick
 reads the record as signed (ADR-0122). A machine-written concept sorted into a
 kind is a typing by a machine; a person has typed none.
 
-The `source` graph holds 1059 chunks from 207 pages,
-804 provisions and units and 313 decisions: the passages
+The `source` graph holds 1088 chunks from 209 pages,
+821 provisions and units and 317 decisions: the passages
 a record rests on and what they cite (ADR-0097), not the whole snapshot.
 
 ### The trust metadata survived
 
-2234 citations reached the graph as nodes rather than as bare edges, each
+2264 citations reached the graph as nodes rather than as bare edges, each
 carrying upstream's `extraction` and `certainty` verbatim. That is what makes
 CQ-0022 — *did the Manual's authors link that section themselves, or did we work
 it out from the wording?* — a query rather than a shrug. Collapsing those two
@@ -99,6 +99,8 @@ untested shape that never matches anything reads as coverage (`shapes/README.md`
 | A practice statement is not attributed to the Act (PU-0004) | `shapes/authority.ttl` |
 | A span is a well-formed interval | `shapes/provenance.ttl` |
 | A stale assertion does not stay in the approved graph | `shapes/provenance.ttl` |
+| A structured test names the provision it reads | `shapes/provenance.ttl` |
+| A structured test or process template is titled and quoted | `shapes/provenance.ttl` |
 | An approved assertion carries its whole provenance block | `shapes/provenance.ttl` |
 | An assertion about a provision keeps the passage it was read from | `shapes/authority.ttl` |
 | An authored assertion cites the corpus or says it cannot | `shapes/provenance.ttl` |
@@ -299,7 +301,7 @@ compilation of the Act or the Regulations in force after that may not be reflect
 | Part20 | Definition of a Trade Mark and Presumption of Registrability | 30 | 26 | 7 | 11 | 3 | 3 |
 | Part21 | Non-traditional Signs | 54 | 45 | 6 | 5 | 5 | 0 |
 | Part22 | Section 41 - Capable of Distinguishing | 128 | 80 | 8 | 24 | 6 | 1 |
-| Part23 | Overcoming Grounds for Rejection under Section 41 - including Evidence of Use | 57 | 20 | 1 | 6 | 0 | 1 |
+| Part23 | Overcoming Grounds for Rejection under Section 41 - including Evidence of Use | 57 | 49 | 1 | 6 | 0 | 1 |
 | Part24 | Disclaimers | 8 | 6 | 1 | 6 | 1 | 0 |
 | Part26 | Section 44 and Regulation 4.15A - Conflict with Other Signs | 55 | 52 | 5 | 14 | 1 | 0 |
 | Part27 | Overcoming Grounds for Rejection under Section 44 | 29 | 14 | 1 | 3 | 0 | 0 |

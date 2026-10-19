@@ -284,6 +284,28 @@ tmk:definitionBasis a owl:DatatypeProperty , owl:FunctionalProperty ;
     rdfs:label "definition basis"@en-AU ;
     rdfs:comment "Where the definition's words come from: `statutory_definition` (the Act's or Regulations' own definition, verbatim), `statutory_provision` (written from a provision) or `manual` (written from the Manual, which states practice, not law). Kept because a definition is where practice and law are easiest to blur (CLAUDE.md rule 5)."@en-AU .
 
+# --- structured tests and process templates (the second review response, A04, A02; ADR-0142) ---
+#
+# Records, not concepts: tmk:LegalTest is the kind of idea a test is ("the s 43 test"); a
+# tmk:StructuredTest is one machine-written reading of a provision as conditions, effect and
+# exceptions. Both record classes carry the authoring envelope. Their inner structure (the
+# condition tree, the steps) is in the record file and not yet in the graph.
+
+tmk:StructuredTest a owl:Class ;
+    rdfs:subClassOf tmk:Assertion ;
+    rdfs:label "Structured test"@en-AU ;
+    rdfs:comment "A machine-written reading of one provision as a test (`authored/legal-tests.yaml`, `GL-`): who acts, the conditions with AND and OR, each a fact or a person's assessment, the effect and its kind, and the exceptions. Every element quotes its unit. Unreviewed; it states what the law asks, never a matter's answer."@en-AU .
+
+tmk:ProcessTemplate a owl:Class ;
+    rdfs:subClassOf tmk:Assertion ;
+    rdfs:label "Process template"@en-AU ;
+    rdfs:comment "A machine-written template of one bounded procedure (`authored/processes.yaml`, `GP-`): its steps, the transitions with their conditions, and the time rules, explained and never computed. Kept apart from any matter's history. Unreviewed."@en-AU .
+
+tmk:readsProvision a owl:ObjectProperty ;
+    rdfs:domain tmk:StructuredTest ;
+    rdfs:label "reads provision"@en-AU ;
+    rdfs:comment "The provision a structured test is a reading of."@en-AU .
+
 tmk:LegalProposition a owl:Class ;
     rdfs:label "Legal proposition"@en-AU ;
     rdfs:comment """A statement that something is so, held together with the passage that states

@@ -283,6 +283,30 @@ def test_a_correction_without_its_envelope_is_a_defect():
     assert {"authoredBy", "authoredDate", "authoringReasoning", "ruling"} <= paths, paths
 
 
+@pytest.mark.parametrize("kind", ["StructuredTest", "ProcessTemplate"])
+def test_a_structured_test_or_process_without_its_envelope_is_a_defect(kind):
+    """ADR-0142's record classes are targeted by the envelope shapes as definitions are."""
+    from rdflib import URIRef
+    from rdflib.namespace import RDF
+
+    from tm_knowledge.ontology import validate
+    from tm_knowledge.ontology.namespaces import AUTHORED_GRAPH, TMK
+
+    from rdflib import Literal
+    from rdflib.namespace import RDFS
+
+    node = URIRef("https://data.ipaustralia.gov.au/tmk/assertion/GL-9999")
+    whole = [t for t in _authored_envelope(node) if t[1] != RDF.type] + [
+        (node, RDF.type, TMK[kind]), (node, RDFS.label, Literal("A fixture", lang="en-AU")), *_anchor(node)]
+    if kind == "StructuredTest":
+        whole.append((node, TMK.readsProvision, URIRef("https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44")))
+    assert not [f for f in validate.run(_dataset(AUTHORED_GRAPH, whole)).by_severity("defect") if f.node == str(node)]
+    stripped = [t for t in whole if t[1] not in (TMK.authoredBy, TMK.authoringReasoning, TMK.evidence, TMK.readsProvision)]
+    paths = {f.path for f in validate.run(_dataset(AUTHORED_GRAPH, stripped)).by_severity("defect") if f.node == str(node)}
+    assert {"authoredBy", "authoringReasoning", "evidence"} <= paths, paths
+    assert ("readsProvision" in paths) == (kind == "StructuredTest")
+
+
 def test_an_evidence_anchor_without_its_passage_or_version_is_a_defect():
     from rdflib import URIRef
 
