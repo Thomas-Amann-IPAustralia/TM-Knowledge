@@ -9,6 +9,11 @@ the picture together (A09).
   tests and the template it names.
 - `engine.py` — the three-valued reading of a test, the matter's place in the process,
   the evidence view, and `explain()` / `render_text()`.
+- `page.py` — the three views (issue card, process timeline, evidence-to-issue), each
+  with its text equivalent, as one standalone page.
+- `cli.py` — `tmk-explain [--matter FM-0001] [--html PATH]`. The page is written to a
+  file for the owner and is not deployed: nothing here is for customers until the owner
+  says so (`CLAUDE.md` §3a).
 
 What it must never do: state an outcome, compute a date, turn a "may" into a "must",
 make an evaluative assessment, or ask for a fact that would not change the explanation.

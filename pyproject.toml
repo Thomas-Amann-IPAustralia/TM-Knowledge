@@ -58,6 +58,7 @@ tmk-dashboard = "tm_knowledge.dashboard.cli:dashboard"
 tmk-ruling = "tm_knowledge.dashboard.cli:ruling"
 tmk-bulk = "tm_knowledge.bulk.cli:main"
 tmk-explorer = "tm_knowledge.explorer.cli:main"
+tmk-explain = "tm_knowledge.explain.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge"

@@ -222,3 +222,24 @@ def test_a_known_fact_is_not_asked_about():
     nothing, and is not asked."""
     asked = [a["condition"] for i in _explain(MATTERS["FM-0001"])["issues"] for a in i["test"]["asks"]]
     assert "sought_by_another" not in asked and "priority_not_earlier" not in asked
+
+
+def test_the_page_draws_every_view_with_its_text_equivalent():
+    """A09: an issue card per objection, the timeline and the evidence view, each with a
+    text equivalent from the same object; the timeline has an accessible title and
+    description; state is a mark and a word, not a colour alone."""
+    import html as html_module
+
+    from tm_knowledge.explain import page
+
+    explanations = [_explain(MATTERS[k]) for k in sorted(MATTERS)]
+    out = page.render_page(explanations)
+    assert out.count("<section>") == len(MATTERS)
+    assert out.count("<h3>Objection o") == sum(len(e["issues"]) for e in explanations)
+    assert out.count('role="img"') == len(MATTERS) and out.count("<desc") == len(MATTERS)
+    assert out.count("Text equivalent") >= len(MATTERS) + 1  # every timeline, and FM-0004's evidence
+    assert "Not for customers" in out and "recorded as met" in out
+    for e in explanations:
+        assert html_module.escape(engine.render_text(e)) in out
+    plain = re.sub(r"<[^>]+>", " ", html_module.unescape(out))
+    assert _outcomes(plain) == []
