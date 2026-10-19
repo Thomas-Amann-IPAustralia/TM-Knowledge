@@ -206,16 +206,17 @@
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0007
   concept: GC-0007
-  text: The presumption under the Act that a trade mark is registrable, so the Registrar must accept
-    unless satisfied that a ground for rejection exists.
+  text: 'The presumption under the Act that a trade mark is registrable: the Registrar must
+    accept it unless satisfied that the application has not been made in accordance with the
+    Act and Regulations, or that there are grounds for rejecting it.'
   basis: manual
   source_ref: TMM/Part20/4#1~1
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S038
-    authored_date: '2026-10-17'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part20/4#1~1
@@ -229,12 +230,25 @@
       - 57
       - 185
       content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
-      quote: The Registrar must be satisfied that a ground for rejection exists before section 33(3)
-        can be applied to reject the trade mark.
+      quote: The Registrar must be satisfied that a ground for rejection exists before section
+        33(3) can be applied to reject the trade mark.
+    - ref: TMM/Part20/4#1~1
+      span:
+      - 71
+      - 320
+      content_hash: sha256:67daa8312e2898e336753ab4fecc9acaea819f1ea3af243af1c38300cb23e6d5
+      quote: Section 33 specifies that the Registrar must accept a trade mark for registration
+        unless he or she is satisfied that the trade mark application has not been made in
+        accordance with the Act and Regulations, or that there are grounds for rejecting it.
     confidence: 0.8
-    reasoning: Neither instrument defines this term, so the definition is written from the Manual's
-      own explanation of it, which states practice, not law.
-    alternatives_considered: []
+    reasoning: The definition gave only the second of section 33's two limbs (a ground for
+      rejection) and dropped the first (an application not made in accordance with the Act
+      and Regulations), which the next sentence of the same passage states (R02 triage b).
+      The presumption's content is an obligation, so the 'must' stays.
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S038 on 2026-10-17: text ''The presumption under
+      the Act that a trade mark is registrable, so the Registrar must accept unless satisfied
+      that a ground for rejection exists.'''
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0008
   concept: GC-0008
@@ -376,17 +390,18 @@
     expert_should_check: Whether the summary drops a condition the provision attaches.
 - id: GD-0013
   concept: GC-0013
-  text: A condition entered on registration that limits how the trade mark may be used, which an applicant
-    may agree to so as to overcome a ground for rejection; under section 43 it must directly address
-    the connotation.
+  text: A condition entered on registration that limits how the trade mark may be used, which
+    an applicant may agree to so as to overcome a ground for rejection.
   basis: manual
   source_ref: TMM/Part29/9/9/5
   approved_by: null
   approved_date: null
+  scope_note: To overcome a section 43 ground, the condition must directly address the connotation
+    in the trade mark.
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S038
-    authored_date: '2026-10-17'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part29/9/9/5
@@ -394,28 +409,32 @@
       - 0
       - 215
       content_hash: sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9
-      quote: An applicant will be able to overcome a geographical section 43 objection by agreeing
-        to a condition of registration or a specification amendment which removes the likelihood of
-        consumers being deceived or confused.
+      quote: An applicant will be able to overcome a geographical section 43 objection by
+        agreeing to a condition of registration or a specification amendment which removes
+        the likelihood of consumers being deceived or confused.
     - ref: TMM/Part29/9/9/5
       span:
       - 349
       - 462
       content_hash: sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9
-      quote: The condition of registration or specification amendment must directly address the connotation
-        in the trade mark.
+      quote: The condition of registration or specification amendment must directly address
+        the connotation in the trade mark.
     - ref: TMM/Part29/5/5/5
       span:
       - 625
       - 859
       content_hash: sha256:c4235ae85720f19a20037d7a4f5a41161ef68438cf8e1ea2d8e36b90b621b1bb
-      quote: It is a condition of registration that any use in respect of pharmaceuticals will be
-        limited to such goods containing substances belonging to the pharmacological group designated
-        by the International Non- Proprietary Name stem <stem>.
+      quote: It is a condition of registration that any use in respect of pharmaceuticals
+        will be limited to such goods containing substances belonging to the pharmacological
+        group designated by the International Non- Proprietary Name stem <stem>.
     confidence: 0.8
-    reasoning: Neither instrument defines this term, so the definition is written from the Manual's
-      own explanation of it, which states practice, not law.
-    alternatives_considered: []
+    reasoning: 'The section 43 requirement is an obligation on the condition, not its meaning,
+      and holds for section 43 alone: moved to the scope note (R02 triage c).'
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S038 on 2026-10-17: text ''A condition entered
+      on registration that limits how the trade mark may be used, which an applicant may agree
+      to so as to overcome a ground for rejection; under section 43 it must directly address
+      the connotation.'''
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0014
   concept: GC-0014
@@ -605,16 +624,17 @@
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0020
   concept: GC-0020
-  text: Words in a trade mark that describe the business behind it rather than the goods or services
-    (for example A TASMANIAN COMPANY), which rarely give rise to a ground for rejection.
+  text: Words in a trade mark that indicate a characteristic of the business behind it rather
+    than of the goods or services (for example A TASMANIAN COMPANY).
   basis: manual
   source_ref: TMM/Part29/9/9/6
   approved_by: null
   approved_date: null
+  scope_note: Under section 43, a ground for rejection will rarely apply to them.
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S038
-    authored_date: '2026-10-17'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part29/9/9/6
@@ -622,13 +642,23 @@
       - 0
       - 202
       content_hash: sha256:44fd3704d94a457eeabdbb9439274b8d5f9a6922fc6fad03bca95b4a772b5184
-      quote: Where business identifiers are included in a trade mark (e.g. A TASMANIAN COMPANY, RIVERINA
-        DAIRY CO.) this tends to indicate a characteristic of a business rather than the goods or
-        services themselves.
+      quote: Where business identifiers are included in a trade mark (e.g. A TASMANIAN COMPANY,
+        RIVERINA DAIRY CO.) this tends to indicate a characteristic of a business rather than
+        the goods or services themselves.
+    - ref: TMM/Part29/9/9/6
+      span:
+      - 203
+      - 259
+      content_hash: sha256:44fd3704d94a457eeabdbb9439274b8d5f9a6922fc6fad03bca95b4a772b5184
+      quote: A ground for rejection will rarely apply in these cases.
     confidence: 0.8
-    reasoning: Neither instrument defines this term, so the definition is written from the Manual's
-      own explanation of it, which states practice, not law.
-    alternatives_considered: []
+    reasoning: '''Rarely give rise to a ground for rejection'' rested on no quoted sentence
+      and read as true of every ground; the sentence is Part 29''s, so it is section 43''s,
+      and it is now quoted and kept apart from the meaning.'
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S038 on 2026-10-17: text ''Words in a trade mark
+      that describe the business behind it rather than the goods or services (for example
+      A TASMANIAN COMPANY), which rarely give rise to a ground for rejection.'''
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0021
   concept: GC-0021
@@ -732,8 +762,8 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S038
-    authored_date: '2026-10-17'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part29/5/5/6~1
@@ -741,13 +771,24 @@
       - 0
       - 191
       content_hash: sha256:66817de6196f7150720015e718aecdc209059307b7d11869b0767ecd18e8e89a
-      quote: An examiner will need to consider whether the presence of an INN stem in a word is “meaningful”
-        enough to give rise to a connotation leading to likely deception or confusion under section
-        43.
+      quote: An examiner will need to consider whether the presence of an INN stem in a word
+        is “meaningful” enough to give rise to a connotation leading to likely deception or
+        confusion under section 43.
+    - ref: TMM/Part29/5/5/6~1
+      span:
+      - 192
+      - 373
+      content_hash: sha256:66817de6196f7150720015e718aecdc209059307b7d11869b0767ecd18e8e89a
+      quote: Some INN stems consist of simple two or three letter combinations and their presence
+        in a larger word may not be meaningful and as a result would not lead to deception
+        or confusion.
     confidence: 0.8
-    reasoning: Neither instrument defines this term, so the definition is written from the Manual's
-      own explanation of it, which states practice, not law.
-    alternatives_considered: []
+    reasoning: '''A short stem in a long word may not be'' rested on no quoted sentence; the
+      sentence that says it is now quoted.'
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S038 on 2026-10-17: text "Whether an INN stem''s
+      presence in a word is meaningful enough to give rise to a connotation leading to likely
+      deception or confusion; a short stem in a long word may not be."'
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0025
   concept: GC-0025
@@ -778,17 +819,17 @@
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0026
   concept: GC-0026
-  text: A person, or group of people, well known in relation to the specified goods or services, whose
-    name in a trade mark may lead consumers to assume the person is connected with or has endorsed
-    the goods or services.
+  text: A person, or group of people, well known in relation to the specified goods or services,
+    whose name in a trade mark may lead consumers to assume the person is connected with or
+    has endorsed the goods or services.
   basis: manual
   source_ref: TMM/Part29/6#1~1
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S038
-    authored_date: '2026-10-17'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part29/6#1~1
@@ -796,26 +837,41 @@
       - 49
       - 228
       content_hash: sha256:ac69f55b0b06f0f288ea66d5dc7029193e5cb434b4c2504d45f9e0a087588318
-      quote: If a trade mark contains a name of a person (or group of people) which is well known
-        in relation to the specified goods or services, the provisions of section 43 may be triggered.
+      quote: If a trade mark contains a name of a person (or group of people) which is well
+        known in relation to the specified goods or services, the provisions of section 43
+        may be triggered.
+    - ref: TMM/Part29/6#1~1
+      span:
+      - 549
+      - 716
+      content_hash: sha256:ac69f55b0b06f0f288ea66d5dc7029193e5cb434b4c2504d45f9e0a087588318
+      quote: such that consumers are clearly likely to assume that the person is connected
+        with or has endorsed those goods/services, or are involved in their production or
+        supply.
     confidence: 0.8
-    reasoning: Neither instrument defines this term, so the definition is written from the Manual's
-      own explanation of it, which states practice, not law.
-    alternatives_considered: []
+    reasoning: The 'assume the person is connected with or has endorsed' part rested on no
+      quoted sentence; it is now quoted.
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S038 on 2026-10-17: text ''A person, or group
+      of people, well known in relation to the specified goods or services, whose name in
+      a trade mark may lead consumers to assume the person is connected with or has endorsed
+      the goods or services.'''
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0027
   concept: GC-0027
-  text: A person who has died; for long-deceased historical figures a section 43 ground will generally
-    not arise, unless an estate or other authorised entity has continued to control use of the name
-    or image.
+  text: A person who has died.
   basis: manual
   source_ref: TMM/Part29/6/6/2~1
   approved_by: null
   approved_date: null
+  scope_note: For section 43, a ground generally will not arise for a long-deceased historical
+    figure; but a relevant connotation may arise where the person's estate or another authorised
+    entity has continued to control use of their name or image, and the better known the person
+    and the more recently they died, the more likely consumers are to expect that control.
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S038
-    authored_date: '2026-10-17'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part29/6/6/2~1
@@ -823,13 +879,34 @@
       - 0
       - 195
       content_hash: sha256:8e7a69fc516a2b4b11213363298946680a0c24f0d1bcddc9f0d803c24c151e53
-      quote: Generally, a section 43 ground for rejection will not arise in respect of long deceased
-        historical figures, even if they were well known for the same field as the specified goods/services
-        are in.
+      quote: Generally, a section 43 ground for rejection will not arise in respect of long
+        deceased historical figures, even if they were well known for the same field as the
+        specified goods/services are in.
+    - ref: TMM/Part29/6/6/2~1
+      span:
+      - 704
+      - 949
+      content_hash: sha256:8e7a69fc516a2b4b11213363298946680a0c24f0d1bcddc9f0d803c24c151e53
+      quote: However, a relevant connotation may arise if the deceased person’s estate (or
+        other authorised entity) has continued to control the use of the person’s name/image
+        after their death, e.g. by commercialising directly or licensing to third parties.
+    - ref: TMM/Part29/6/6/2~1
+      span:
+      - 950
+      - 1149
+      content_hash: sha256:8e7a69fc516a2b4b11213363298946680a0c24f0d1bcddc9f0d803c24c151e53
+      quote: The more well-known the person is, and the more recently they died (especially
+        from the mid-twentieth century onwards), the more likely consumers will be to know
+        about or expect this kind of control.
     confidence: 0.8
-    reasoning: Neither instrument defines this term, so the definition is written from the Manual's
-      own explanation of it, which states practice, not law.
-    alternatives_considered: []
+    reasoning: '''Unless an estate ... has continued to control use'' turned the Manual''s
+      ''a relevant connotation may arise if'' into a rule that the ground arises, and the
+      qualification rested on no quoted sentence. The meaning is plain; the section 43 practice,
+      with both its hedges, is in the scope note and quoted (as GR-0700, R01).'
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S038 on 2026-10-17: text ''A person who has died;
+      for long-deceased historical figures a section 43 ground will generally not arise, unless
+      an estate or other authorised entity has continued to control use of the name or image.'''
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0028
   concept: GC-0028
@@ -1032,16 +1109,18 @@
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0035
   concept: GC-0036
-  text: The name of a particular plant variety, or another plant name, which can deceive or confuse
-    when used for plants of the same or a closely related genus that are not that variety.
+  text: A word connoting a particular plant variety, or another plant name.
   basis: manual
   source_ref: TMM/Part29/1/1/2
   approved_by: null
   approved_date: null
+  scope_note: Applied to plants or plant materials of the same or a closely related genus,
+    it is likely to deceive or cause confusion as to their true nature, and a section 43 ground
+    is appropriate.
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S038
-    authored_date: '2026-10-17'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part29/1/1/2
@@ -1049,14 +1128,18 @@
       - 0
       - 292
       content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
-      quote: If a trade mark contains or consists of word/s which connote a particular plant variety
-        or other plant name, and is applied to plants or plant materials of the same or a closely
-        related genus, it is likely to deceive or cause confusion as to the true nature of those plants
-        or plant materials
+      quote: If a trade mark contains or consists of word/s which connote a particular plant
+        variety or other plant name, and is applied to plants or plant materials of the same
+        or a closely related genus, it is likely to deceive or cause confusion as to the true
+        nature of those plants or plant materials
     confidence: 0.8
-    reasoning: Neither instrument defines this term, so the definition is written from the Manual's
-      own explanation of it, which states practice, not law.
-    alternatives_considered: []
+    reasoning: '''That are not that variety'' is not in the source, which speaks of deception
+      ''as to the true nature of those plants''; the consequence is section 43''s and goes
+      in the scope note in the source''s terms.'
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S038 on 2026-10-17: text ''The name of a particular
+      plant variety, or another plant name, which can deceive or confuse when used for plants
+      of the same or a closely related genus that are not that variety.'''
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0036
   concept: GC-0037
@@ -1316,17 +1399,19 @@
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0045
   concept: GC-0051
-  text: The principle that, once a trade mark is caught by section 43, there is no discretion to accept
-    it.
+  text: The principle that, once a trade mark is caught by section 43, there is no discretion
+    to accept it.
   basis: manual
-  scope_note: Here "application" means applying a provision to a case, not an application for registration.
+  scope_note: Here "application" means applying a provision to a case, not an application
+    for registration. Being caught requires the decision maker to be clearly satisfied that
+    use for the specified goods or services would be likely to deceive or cause confusion.
   source_ref: TMM/Part29/1#1
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S038
-    authored_date: '2026-10-17'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part29/1#1
@@ -1334,25 +1419,42 @@
       - 359
       - 542
       content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
-      quote: The application of section 43 is, by the wording of the section, mandatory. There is,
-        therefore, no discretion to accept a trade mark that is caught by the provisions of this section.
+      quote: The application of section 43 is, by the wording of the section, mandatory. There
+        is, therefore, no discretion to accept a trade mark that is caught by the provisions
+        of this section.
+    - ref: TMM/Part29/1#1
+      span:
+      - 543
+      - 777
+      content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+      quote: However for a trade mark to be caught by these provisions it is necessary for
+        a decision maker to be clearly satisfied that use of the trade mark for the specified
+        goods and / or services would be likely to deceive or cause confusion.
     confidence: 0.8
-    reasoning: Neither instrument defines this term, so the definition is written from the Manual's
-      own explanation of it, which states practice, not law.
-    alternatives_considered: []
+    reasoning: 'Borderline (R02 triage b): the definition is right that there is no discretion
+      once a mark is caught, and the next sentence says what being caught takes. Added as
+      a scope note, quoted, so ''mandatory'' is not read as ''raised whenever a connotation
+      is possible''.'
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S038 on 2026-10-17: text ''The principle that,
+      once a trade mark is caught by section 43, there is no discretion to accept it.''; scope
+      note ''Here "application" means applying a provision to a case, not an application for
+      registration.'''
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0046
   concept: GC-0054
-  text: A sign that, under regulations made for section 18, is not to be used as a trade mark; a trade
-    mark containing one must be rejected, though no such regulations currently exist.
+  text: A sign that, under regulations made for the purposes of section 18, is not to be used
+    as a trade mark.
   basis: manual
   source_ref: TMM/Part31/1#1
   approved_by: null
   approved_date: null
+  scope_note: Subsection 39(1) requires the rejection of a trade mark containing one; there
+    are currently no such regulations, so the ground is not raised in examination.
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S038
-    authored_date: '2026-10-17'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part31/1#1
@@ -1360,27 +1462,33 @@
       - 0
       - 369
       content_hash: sha256:ddc789a4768f5dd8e12018c22ae4d7a867b62682584dd2ca1c03fcf53e212b0e
-      quote: Subsection 39(1) states that the Registrar must reject an application if the trade mark
-        contains or consists of a sign that, under regulations made for the purposes of section 18,
-        is not to be used as a trade mark. There are currently no regulations made for the purposes
-        of section 18, which means grounds for rejection under s 39(1) are not raised during examination.
+      quote: Subsection 39(1) states that the Registrar must reject an application if the
+        trade mark contains or consists of a sign that, under regulations made for the purposes
+        of section 18, is not to be used as a trade mark. There are currently no regulations
+        made for the purposes of section 18, which means grounds for rejection under s 39(1)
+        are not raised during examination.
     confidence: 0.8
-    reasoning: Neither instrument defines this term, so the definition is written from the Manual's
-      own explanation of it, which states practice, not law.
-    alternatives_considered: []
+    reasoning: 'The consequence and the absence of regulations are not what the sign is: moved
+      to the scope note (R02 triage c).'
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S038 on 2026-10-17: text ''A sign that, under
+      regulations made for section 18, is not to be used as a trade mark; a trade mark containing
+      one must be rejected, though no such regulations currently exist.'''
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0047
   concept: GC-0055
-  text: A sign prescribed in the Regulations for subsection 39(2); a trade mark containing one, or
-    a sign so nearly resembling it as to be likely to be taken for it, may be rejected.
+  text: A sign prescribed in the Regulations for the purposes of subsection 39(2), of which
+    there are six types.
   basis: manual
   source_ref: TMM/Part31/2#1
   approved_by: null
   approved_date: null
+  scope_note: Subsection 39(2) allows a trade mark containing one, or a sign so nearly resembling
+    it as to be likely to be taken for it, to be rejected.
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S038
-    authored_date: '2026-10-17'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part31/2#1
@@ -1388,33 +1496,37 @@
       - 311
       - 395
       content_hash: sha256:ddc32c6b14822d57cc13b56065f8a2a2ec5a602ebd231ad0faead8b8670b381e
-      quote: There are six types of signs prescribed in the regulations which are detailed below.
+      quote: There are six types of signs prescribed in the regulations which are detailed
+        below.
     - ref: TMM/Part31/2#1
       span:
       - 0
       - 310
       content_hash: sha256:ddc32c6b14822d57cc13b56065f8a2a2ec5a602ebd231ad0faead8b8670b381e
-      quote: Subsection 39(2)states that a trade mark may be rejected if it contains or consists of
-        a sign that is prescribed in the regulations for the purposes of subsection 39(2) (subparagraph
-        39(2)(a)), OR is a sign so nearly resembling the prescribed sign as to be likely to be taken
-        for it (subparagraph 39(2)(b)(i)).
+      quote: Subsection 39(2)states that a trade mark may be rejected if it contains or consists
+        of a sign that is prescribed in the regulations for the purposes of subsection 39(2)
+        (subparagraph 39(2)(a)), OR is a sign so nearly resembling the prescribed sign as
+        to be likely to be taken for it (subparagraph 39(2)(b)(i)).
     confidence: 0.8
-    reasoning: Neither instrument defines this term, so the definition is written from the Manual's
-      own explanation of it, which states practice, not law.
-    alternatives_considered: []
+    reasoning: 'The consequence is subsection 39(2)''s, not the sign''s meaning: moved to
+      the scope note (R02 triage c).'
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S038 on 2026-10-17: text ''A sign prescribed
+      in the Regulations for subsection 39(2); a trade mark containing one, or a sign so nearly
+      resembling it as to be likely to be taken for it, may be rejected.'''
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0048
   concept: GC-0056
-  text: Resembling a prescribed sign so nearly as to be likely to be taken for it; a trade mark containing
-    such a sign may be rejected under subsection 39(2).
+  text: Resembling a prescribed sign so nearly as to be likely to be taken for it.
   basis: manual
   source_ref: TMM/Part31/2#1
   approved_by: null
   approved_date: null
+  scope_note: Subsection 39(2) allows a trade mark containing such a sign to be rejected.
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S038
-    authored_date: '2026-10-17'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part31/2#1
@@ -1422,14 +1534,16 @@
       - 0
       - 310
       content_hash: sha256:ddc32c6b14822d57cc13b56065f8a2a2ec5a602ebd231ad0faead8b8670b381e
-      quote: Subsection 39(2)states that a trade mark may be rejected if it contains or consists of
-        a sign that is prescribed in the regulations for the purposes of subsection 39(2) (subparagraph
-        39(2)(a)), OR is a sign so nearly resembling the prescribed sign as to be likely to be taken
-        for it (subparagraph 39(2)(b)(i)).
+      quote: Subsection 39(2)states that a trade mark may be rejected if it contains or consists
+        of a sign that is prescribed in the regulations for the purposes of subsection 39(2)
+        (subparagraph 39(2)(a)), OR is a sign so nearly resembling the prescribed sign as
+        to be likely to be taken for it (subparagraph 39(2)(b)(i)).
     confidence: 0.8
-    reasoning: Neither instrument defines this term, so the definition is written from the Manual's
-      own explanation of it, which states practice, not law.
-    alternatives_considered: []
+    reasoning: The consequence moved to the scope note (R02 triage c).
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S038 on 2026-10-17: text ''Resembling a prescribed
+      sign so nearly as to be likely to be taken for it; a trade mark containing such a sign
+      may be rejected under subsection 39(2).'''
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0049
   concept: GC-0057
@@ -1459,16 +1573,19 @@
     expert_should_check: Whether the summary drops a condition the provision attaches.
 - id: GD-0050
   concept: GC-0058
-  text: Whether a trade mark can distinguish the applicant's goods or services from those of other
-    persons; a trade mark that cannot must be rejected under section 41.
+  text: Whether a trade mark can distinguish the applicant's goods or services from those
+    of other persons.
   basis: manual
   source_ref: TMM/Part22/1#1
   approved_by: null
   approved_date: null
+  scope_note: 'Section 41''s test: an application must be rejected if the trade mark is not
+    capable of distinguishing. Section 41 does not apply to certification trade marks; section
+    177 deals with their capacity to distinguish.'
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S038
-    authored_date: '2026-10-17'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part22/1#1
@@ -1476,13 +1593,30 @@
       - 52
       - 278
       content_hash: sha256:7d3393caf3acdaa38d4f49d067d54d629f00257a5ea6979b95a09aceb9a573b9
-      quote: Pursuant to section 41, an application for registration of a trade mark must be rejected
-        if the trade mark is not capable of distinguishing the applicant’s goods and/or services from
-        the goods and/or services of other persons.
+      quote: Pursuant to section 41, an application for registration of a trade mark must
+        be rejected if the trade mark is not capable of distinguishing the applicant’s goods
+        and/or services from the goods and/or services of other persons.
+    - ref: TMM/Part22/1#1
+      span:
+      - 279
+      - 334
+      content_hash: sha256:7d3393caf3acdaa38d4f49d067d54d629f00257a5ea6979b95a09aceb9a573b9
+      quote: Section 41 does not apply to certification trade marks.
+    - ref: TMM/Part22/1#1
+      span:
+      - 335
+      - 416
+      content_hash: sha256:7d3393caf3acdaa38d4f49d067d54d629f00257a5ea6979b95a09aceb9a573b9
+      quote: Section 177 deals with certification trade marks and the capacity to distinguish.
     confidence: 0.8
-    reasoning: Neither instrument defines this term, so the definition is written from the Manual's
-      own explanation of it, which states practice, not law.
-    alternatives_considered: []
+    reasoning: The definition said a mark that cannot distinguish 'must be rejected under
+      section 41', and the sentence after the quote says section 41 does not apply to certification
+      trade marks (R02 triage b and c; ChatGPT's R02). The meaning is kept short; the consequence
+      and its exception are in the scope note, quoted.
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S038 on 2026-10-17: text "Whether a trade mark
+      can distinguish the applicant''s goods or services from those of other persons; a trade
+      mark that cannot must be rejected under section 41."'
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0051
   concept: GC-0059
@@ -2020,16 +2154,18 @@
     expert_should_check: Whether the summary drops a condition the provision attaches.
 - id: GD-0069
   concept: GC-0080
-  text: A feature of a trade mark that is important, essential and non-trivial and likely to be recalled
-    as the trade mark, in which the marks in a series must resemble each other.
+  text: A feature of a trade mark that is important, essential and non-trivial, and is the
+    portion of the trade mark likely to be recalled as being a trade mark.
   basis: manual
   source_ref: TMM/Part13/2#1~1
   approved_by: null
   approved_date: null
+  scope_note: For a series under section 51, the trade marks must resemble each other in material
+    particulars, and each must share all of them.
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S038
-    authored_date: '2026-10-17'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part13/2#1~1
@@ -2037,13 +2173,30 @@
       - 597
       - 839
       content_hash: sha256:da73568cd8d272b341798cf47ac4902f3ea75c9588bd3affcd88dde92d47adc8
-      quote: a “material particular” in respect of a trade mark (for the purpose of section 51) must
-        be “a feature which is important, essential and non-trivial and which is also that portion
-        of the trade mark likely to be recalled as being a trade mark”.
+      quote: a “material particular” in respect of a trade mark (for the purpose of section
+        51) must be “a feature which is important, essential and non-trivial and which is
+        also that portion of the trade mark likely to be recalled as being a trade mark”.
+    - ref: TMM/Part13/2#1~1
+      span:
+      - 365
+      - 429
+      content_hash: sha256:da73568cd8d272b341798cf47ac4902f3ea75c9588bd3affcd88dde92d47adc8
+      quote: the trade marks must resemble each other in material particulars
+    - ref: TMM/Part13/2#1~1
+      span:
+      - 1108
+      - 1214
+      content_hash: sha256:da73568cd8d272b341798cf47ac4902f3ea75c9588bd3affcd88dde92d47adc8
+      quote: Rather each of the Trade Marks must share all material particulars for the mark
+        to be a valid series mark.
     confidence: 0.8
-    reasoning: Neither instrument defines this term, so the definition is written from the Manual's
-      own explanation of it, which states practice, not law.
-    alternatives_considered: []
+    reasoning: 'What a series must do with material particulars is section 51''s requirement,
+      not what a material particular is: moved to the scope note, with ''all'' from Tawfek
+      Mahmoud, quoted (R02 triage c).'
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S038 on 2026-10-17: text ''A feature of a trade
+      mark that is important, essential and non-trivial and likely to be recalled as the trade
+      mark, in which the marks in a series must resemble each other.'''
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0070
   concept: GC-0081
@@ -2564,16 +2717,19 @@
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0084
   concept: GC-0097
-  text: An extension of a time the Act or Regulations set for doing an act or filing a document, granted
-    on request, under a specific provision or the general provision in section 224.
+  text: An extension of a time the Act or Regulations set for doing an act or filing a document,
+    granted on request under the procedure the legislation sets out, or otherwise under the
+    general provision in section 224.
   basis: manual
   source_ref: TMM/Part15/1#1~1
   approved_by: null
   approved_date: null
+  scope_note: Section 224 does not apply to an act or document listed (prescribed) in reg
+    21.28.
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S038
-    authored_date: '2026-10-17'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part15/1#1~1
@@ -2581,20 +2737,25 @@
       - 0
       - 137
       content_hash: sha256:5df70de3525e8d16a4f12c342296533ecaaed281afc03f2e58bab4f442825ea7
-      quote: When the Act and Regulations set a time in which to perform an act or file a document,
-        that time can frequently be extended upon request.
+      quote: When the Act and Regulations set a time in which to perform an act or file a
+        document, that time can frequently be extended upon request.
     - ref: TMM/Part15/1#1~1
       span:
       - 138
-      - 345
+      - 458
       content_hash: sha256:5df70de3525e8d16a4f12c342296533ecaaed281afc03f2e58bab4f442825ea7
       quote: In some cases the procedure for requesting an extension is set out in the legislation.
-        If it is not, a request for an extension can be made under the general provision for an extension
-        of time in section 224
+        If it is not, a request for an extension can be made under the general provision for
+        an extension of time in section 224 unless the act or document has been listed (prescribed)
+        in reg.21.28 as one to which section 224 does not apply.
     confidence: 0.8
-    reasoning: Neither instrument defines this term, so the definition is written from the Manual's
-      own explanation of it, which states practice, not law.
-    alternatives_considered: []
+    reasoning: The quote stopped before 'unless the act or document has been listed (prescribed)
+      in reg.21.28 as one to which section 224 does not apply' (R02 triage b; S040's response).
+      The quote now runs to the end of the sentence and the exclusion is in the scope note.
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S038 on 2026-10-17: text ''An extension of a
+      time the Act or Regulations set for doing an act or filing a document, granted on request,
+      under a specific provision or the general provision in section 224.'''
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0085
   concept: GC-0098
@@ -2720,16 +2881,19 @@
     expert_should_check: Whether the summary drops a condition the provision attaches.
 - id: GD-0089
   concept: GC-0105
-  text: The amendment or cancellation of an entry in the Register, ordered by a prescribed court,
-    usually on the application of a person aggrieved.
+  text: The amendment or cancellation of an entry in the Register, ordered by a prescribed
+    court, generally when a person aggrieved brings an action for it.
   basis: manual
   source_ref: TMM/Part42/1#1
   approved_by: null
   approved_date: null
+  scope_note: The Registrar may also apply to the court under sections 86, 87 and 88, but
+    only if the Registrar considers the application desirable in the public interest (section
+    88A).
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S038
-    authored_date: '2026-10-17'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part42/1#1
@@ -2737,19 +2901,37 @@
       - 49
       - 211
       content_hash: sha256:5e2f54790c23e56bddf82edea559103e50c71337503d8e9a02383971d373a3c1
-      quote: Rectification involves the amendment or cancellation of an entry in the Register. The
-        amendment or cancellation results from an order given by a prescribed court.
+      quote: Rectification involves the amendment or cancellation of an entry in the Register.
+        The amendment or cancellation results from an order given by a prescribed court.
     - ref: TMM/Part42/1#1
       span:
       - 212
       - 360
       content_hash: sha256:5e2f54790c23e56bddf82edea559103e50c71337503d8e9a02383971d373a3c1
-      quote: This generally occurs when a person aggrieved brings an action for rectification of the
-        Register on any of the grounds set out in sections 85 to 88.
+      quote: This generally occurs when a person aggrieved brings an action for rectification
+        of the Register on any of the grounds set out in sections 85 to 88.
+    - ref: TMM/Part42/1#1
+      span:
+      - 361
+      - 464
+      content_hash: sha256:5e2f54790c23e56bddf82edea559103e50c71337503d8e9a02383971d373a3c1
+      quote: The Registrar can also make an application to the court for rectification under
+        sections 86, 87 and 88.
+    - ref: TMM/Part42/1#1
+      span:
+      - 465
+      - 636
+      content_hash: sha256:5e2f54790c23e56bddf82edea559103e50c71337503d8e9a02383971d373a3c1
+      quote: However the Registrar must not make an application under any of these provisions
+        unless he or she considers the application desirable in the public interest (section
+        88A).
     confidence: 0.8
-    reasoning: Neither instrument defines this term, so the definition is written from the Manual's
-      own explanation of it, which states practice, not law.
-    alternatives_considered: []
+    reasoning: '''Usually on the application of a person aggrieved'' left out the Registrar''s
+      own route and its public-interest condition, the next two sentences (R02 triage b).'
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S038 on 2026-10-17: text ''The amendment or cancellation
+      of an entry in the Register, ordered by a prescribed court, usually on the application
+      of a person aggrieved.'''
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0090
   concept: GC-0106
@@ -4011,18 +4193,20 @@
       in.
 - id: GD-0128
   concept: GC-0155
-  text: An application for registration from the time it is filed until it lapses, is withdrawn or
-    rejected, is finally refused, or the trade mark is registered.
+  text: An application for registration from the time it is filed until it lapses, is withdrawn
+    or is rejected; or, if the Registrar refuses to register the trade mark, until the end
+    of the period allowed for appeal where there is no appeal, or the day the refusal is confirmed
+    on appeal; or until the trade mark is registered.
   basis: statutory_provision
-  scope_note: Here "application" is the record of a request for registration, in the period it is
-    still alive.
+  scope_note: Here "application" is the record of a request for registration, in the period
+    it is still alive.
   source_ref: TMA1995/s11(1)
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S038
-    authored_date: '2026-10-17'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMA1995/s11(1)
@@ -4030,22 +4214,47 @@
       - 0
       - 114
       content_hash: sha256:3f1c389b1fc7d2e081e0d7ea96ae113b19ef1164fc4deca5ad1f2721361727ac
-      quote: '(1) An application for the registration of a trade mark under this Act is pending from
-        the time it is filed until:'
+      quote: '(1) An application for the registration of a trade mark under this Act is pending
+        from the time it is filed until:'
     - ref: TMA1995/s11(1)(a)
       span:
       - 0
       - 107
       content_hash: sha256:4dc30a9a9519c8cc85708e4ec8246be2351b8da615b145df879e59ca9fa1c230
-      quote: (a) it lapses (see sections 37 and 54A), is withdrawn (see section 214) or is rejected
-        (see section 33); or
+      quote: (a) it lapses (see sections 37 and 54A), is withdrawn (see section 214) or is
+        rejected (see section 33); or
     - ref: TMA1995/s11(1)(b)
       span:
       - 0
       - 167
       content_hash: sha256:df1cc30be008f4cc02cc91620c0469d987a7dd8deccd85b8227324ae5f5179a9
-      quote: (b) if the Registrar refuses (under section 55) to register the trade mark and there
-        is no appeal against the decision—the end of the period allowed for the appeal; or
+      quote: (b) if the Registrar refuses (under section 55) to register the trade mark and
+        there is no appeal against the decision—the end of the period allowed for the appeal;
+        or
+    - ref: TMA1995/s11(1)(c)
+      span:
+      - 0
+      - 79
+      content_hash: sha256:50cb0912a9bc7def7804c73aeb00afa1dfdfec4dcb2447d92595a89f121314e1
+      quote: '(c) if the Registrar refuses (under section 55) to register the trade mark and:'
+    - ref: TMA1995/s11(1)(c)(i)
+      span:
+      - 0
+      - 48
+      content_hash: sha256:057e3c164266ae50511b0354a302d7988ab0710231c7e2915659b28885197853
+      quote: (i) there is an appeal against the decision; and
+    - ref: TMA1995/s11(1)(c)(ii)
+      span:
+      - 0
+      - 41
+      content_hash: sha256:db163febc70e9b52dc0709e206f816b1ea65c9bf598ac917f606ed8a5953850d
+      quote: (ii) the decision is confirmed on appeal;
+    - ref: TMA1995/s11(1)~1
+      span:
+      - 0
+      - 57
+      content_hash: sha256:4f41fb3342ab1abb39124640942816aabd2b6dc105160aa9799c6bb9e434c281
+      quote: —the day on which the decision is confirmed on appeal; or
     - ref: TMA1995/s11(1)(d)
       span:
       - 0
@@ -4053,9 +4262,15 @@
       content_hash: sha256:84d77ea984fd70bbd2af91043a3fff13b090b76f78556a6421475cd82fb9e302
       quote: (d) the trade mark is registered under section 68.
     confidence: 0.85
-    reasoning: No definition section names this term, so the definition is written from the provision
-      that says what it is or does, staying within its words.
-    alternatives_considered: []
+    reasoning: The evidence quoted paragraphs (a), (b) and (d) of section 11(1) and not (c),
+      pendency to the day a refusal is confirmed on appeal; and 'finally refused' blurred
+      (b), where it runs to the end of the appeal period (R02 triage a; ChatGPT's R02). All
+      four limbs are now quoted and stated.
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S038 on 2026-10-17: text ''An application for
+      registration from the time it is filed until it lapses, is withdrawn or rejected, is
+      finally refused, or the trade mark is registered.''; scope note ''Here "application"
+      is the record of a request for registration, in the period it is still alive.'''
     expert_should_check: Whether the summary drops a condition the provision attaches.
 - id: GD-0129
   concept: GC-0156
@@ -4571,29 +4786,65 @@
       in.
 - id: GD-0146
   concept: GC-0179
-  text: A written report the Registrar issues after considering an applicant's response, when the
-    application still cannot be accepted; it must include the lapsing date.
+  text: 'A written report in which the Registrar tells an applicant that the Registrar believes
+    there are grounds for rejecting the application, or that it has not been made in accordance
+    with the Act or Regulations: issued after examination (reg 4.8), and again after considering
+    the applicant''s response if the Registrar still holds that belief (reg 4.10).'
   basis: manual
   source_ref: TMM/Part16/2#1
   approved_by: null
   approved_date: null
+  scope_note: A report after examination must state the date on which the application will
+    lapse if not accepted earlier (reg 4.8(2)); a further report must too, unless acceptance
+    of the application is deferred (reg 4.10(3)).
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S038
-    authored_date: '2026-10-17'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part16/2#1
       span:
       - 211
-      - 381
+      - 339
       content_hash: sha256:399ea7506378b653fdf6a61c07d01284871964193718817e46ead6f7d69ddef4
-      quote: Under reg 4.10 the Registrar must consider the response and either accept the application
-        or issue an adverse report in writing. The report must include the lapsing date.
+      quote: Under reg 4.10 the Registrar must consider the response and either accept the
+        application or issue an adverse report in writing.
+    - ref: TMM/Part18/3/3/1/2
+      span:
+      - 0
+      - 287
+      content_hash: sha256:46ca753283deeda71894fa6d3586ac5840989e02b258b01c3e020269b6d67192
+      quote: Reg 4.8 of the Trade Mark Regulations 1995 requires the Registrar to issue an
+        adverse report to the applicant if they reasonably believe that a ground for rejection
+        exists under the Trade Marks Act 1995 or that the application has not been made in
+        accordance with the Act or Regulations.
+    - ref: TMR1995/r4.8(2)
+      span:
+      - 0
+      - 141
+      content_hash: sha256:8baecec255266933012c252d29fb9e4408d69c426bc956bc5ebed7238e63fb21
+      quote: (2) A report under subregulation (1) must include notification of the date on
+        which the application will lapse if it is not accepted earlier.
+    - ref: TMR1995/r4.10(3)
+      span:
+      - 0
+      - 222
+      content_hash: sha256:e8af4c8fe2516964efcdd525cad12b6a970ac7d54fc86a29a04702608bddf1a6
+      quote: (3) Unless acceptance of an application is deferred, a report under subregulation
+        (2) in relation to that application must include notification of the date on which
+        the application will lapse if it is not accepted earlier.
     confidence: 0.8
-    reasoning: Neither instrument defines this term, so the definition is written from the Manual's
-      own explanation of it, which states practice, not law.
-    alternatives_considered: []
+    reasoning: The definition fixed 'adverse report' to the further report after a response,
+      its alternative label's sense, but the Manual also calls the first report under reg
+      4.8 an adverse report (Part 18.3.3.1.2); and it said the report 'must include the lapsing
+      date', where reg 4.10(3) says so 'unless acceptance of an application is deferred' (ChatGPT's
+      R02; S040's response). Both reports are now in the meaning; the contents are in the
+      scope note, from the Regulations, with the deferral.
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S038 on 2026-10-17: text "A written report the
+      Registrar issues after considering an applicant''s response, when the application still
+      cannot be accepted; it must include the lapsing date."'
     expert_should_check: Whether the wording says more, or less, than the quoted passage.
 - id: GD-0147
   concept: GC-0180

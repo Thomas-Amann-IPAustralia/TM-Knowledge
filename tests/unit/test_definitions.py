@@ -135,3 +135,75 @@ def test_the_id_allocator_counts_definitions():
 
     highest = max(int(entry.id.split("-")[1]) for entry in definitions.load().entries)
     assert jobs.next_number("GD") == highest + 1
+
+
+# --- R02's triage (S041): a definition that may omit a qualification its source states ---
+
+
+def _triage(definition, units=(), chunks=None, kinds=None):
+    from types import SimpleNamespace
+
+    entry = definitions.Definition(record=definition["record"], envelope=definition["envelope"])
+    corpus = SimpleNamespace(units=set(units), chunks=chunks or {})
+    return definitions.triage(definitions.Definitions(entries=(entry,)), corpus, kinds or {})
+
+
+def _item(ref, span, quote="q"):
+    return {"ref": ref, "span": list(span), "content_hash": "sha256:" + "0" * 64, "quote": quote}
+
+
+def test_triage_a_flags_a_subsection_quoted_in_part():
+    """GD-0128's case: s 11(1)(a), (b) and (d) quoted, (c) not."""
+    units = ["TMA1995/s11(1)", "TMA1995/s11(1)(a)", "TMA1995/s11(1)(b)", "TMA1995/s11(1)(c)",
+             "TMA1995/s11(1)(c)(i)", "TMA1995/s11(1)(d)", "TMA1995/s11(1)(d)~1"]
+    quoted = ["TMA1995/s11(1)", "TMA1995/s11(1)(a)", "TMA1995/s11(1)(b)", "TMA1995/s11(1)(d)"]
+    row = {"record": {"id": "GD-9001", "concept": "GC-0155", "text": "pending"},
+           "envelope": {"evidence": [_item(r, (0, 1)) for r in quoted]}}
+    flags = _triage(row, units)
+    assert [(f.check, "s11(1)(c)" in f.message) for f in flags] == [("a", True)]
+    row["envelope"]["evidence"].append(_item("TMA1995/s11(1)(c)", (0, 1)))
+    assert not _triage(row, units), "every paragraph quoted: no flag (the ~ continuation is not a paragraph)"
+
+
+def test_triage_b_flags_a_qualifier_just_after_a_manual_quote_unless_it_is_quoted_too():
+    """GD-0050's case: 'Section 41 does not apply to certification trade marks.'"""
+    from types import SimpleNamespace
+
+    text = "A mark must be rejected if not capable of distinguishing. Section 41 does not apply to certification marks."
+    chunks = {"TMM/Part22/1#1": SimpleNamespace(text=text)}
+    first = _item("TMM/Part22/1#1", (0, 57))
+    row = {"record": {"id": "GD-9002", "concept": "GC-0058", "text": "Whether a mark can distinguish."},
+           "envelope": {"evidence": [first]}}
+    assert [f.check for f in _triage(row, chunks=chunks)] == ["b"]
+    at = text.index("Section 41")
+    row["envelope"]["evidence"].append(_item("TMM/Part22/1#1", (at, len(text))))
+    assert not _triage(row, chunks=chunks)
+
+
+def test_triage_c_flags_an_obligation_in_a_non_ground_definition_only():
+    row = {"record": {"id": "GD-9003", "concept": "GC-0058", "text": "A mark that cannot must be rejected."},
+           "envelope": {"evidence": []}}
+    assert [f.check for f in _triage(row)] == ["c"]
+    assert not _triage(row, kinds={"GC-0058": "ground_of_refusal"}), "for a ground, rejection is the meaning"
+
+
+@pytest.mark.snapshot
+def test_the_four_named_omissions_are_repaired():
+    """GD-0050, GD-0084, GD-0128 (the triage's real flags) and GD-0146 (which no check over
+    its quote could see), re-read in S041."""
+    from tm_knowledge.config import UPSTREAM_DIR
+    from tm_knowledge.upstream.loader import load_corpus
+
+    if not UPSTREAM_DIR.exists():
+        pytest.skip("no snapshot fetched; run tmk-fetch-upstream")
+    found = definitions.load()
+    by_id = {d.id: d for d in found.sound}
+    kinds = {}
+    flags = {(f.id, f.check) for f in definitions.triage(found, load_corpus(), kinds)}
+    for rid, check in (("GD-0050", "b"), ("GD-0084", "b"), ("GD-0128", "a")):
+        assert (rid, check) not in flags, rid
+    assert "certification" in by_id["GD-0050"].record["scope_note"]
+    assert "reg 21.28" in by_id["GD-0084"].record["scope_note"]
+    assert "confirmed on appeal" in by_id["GD-0128"].record["text"]
+    adverse = by_id["GD-0146"].record
+    assert "reg 4.8" in adverse["text"] and "unless acceptance of the application is deferred" in adverse["scope_note"]

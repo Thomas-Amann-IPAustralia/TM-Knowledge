@@ -936,6 +936,24 @@ def _definition_evidence(authored: AuthoredSet, gold: GoldSet, corpus: Corpus) -
         yield from _evidence_findings(entry.id, (entry.envelope or {}).get("evidence") or [], corpus)
 
 
+def _definition_triage(authored: AuthoredSet, gold: GoldSet, corpus: Corpus) -> Iterator[Finding]:
+    """Three checks for a definition that may omit a qualification its source states
+    (the second review response, R02; `definitions.triage`). Notes, never defects: a
+    flag asks for a reading, and one that was read and stands stays a note."""
+    from tm_knowledge.authored import definitions as definitions_module
+
+    try:
+        found = definitions_module.load(authored.root, gold=gold, authored=authored)
+    except authored_store.MalformedAuthoredFile:
+        return  # reported by _authored_definitions
+    kinds = {str(r.get("concept")): str(r.get("type")) for r in gold["concept_type"]}
+    kinds.update({str(e.record.get("concept")): str(e.record.get("type"))
+                  for e in authored.of("concept_type") if e.sound})
+    for flag in definitions_module.triage(found, corpus, kinds):
+        yield Finding(Severity.NOTE, f"definition-triage-{flag.check}", flag.id,
+                      f"{flag.message}. Read the definition beside its whole source")
+
+
 def _correction_evidence(authored: AuthoredSet, gold: GoldSet, corpus: Corpus) -> Iterator[Finding]:
     """A correction's evidence is checked like any authored record's (ADR-0122):
     it changes what a signed record serves, so a quote that no longer lands is a
@@ -1372,6 +1390,7 @@ def run(
         findings.extend(_authored_evidence(authored, corpus))
         findings.extend(_correction_evidence(authored, gold, corpus))
         findings.extend(_definition_evidence(authored, gold, corpus))
+        findings.extend(_definition_triage(authored, gold, corpus))
         findings.extend(_legislative_bases(authored, gold, corpus))
     else:
         findings.append(

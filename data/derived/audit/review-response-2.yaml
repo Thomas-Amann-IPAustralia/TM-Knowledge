@@ -116,3 +116,25 @@ edges:
   hedge: usually
   why: '''usually the person named in a subpoena'' is the hedge with the object restated, not a condition; the sentence goes
     on to accept a subpoena directed to ''the proper officer'' as well.'
+concepts:
+- concept: GC-0179
+  set:
+    notes: 'A written report in which the Registrar tells an applicant of grounds for rejecting the application, or that
+      it was not made in accordance with the Act or Regulations: after examination (reg 4.8), and again after a response
+      (reg 4.10).'
+    legislative_basis:
+    - TMR1995/r4.8
+    - TMR1995/r4.10
+    definition_sources:
+    - TMM/Part16/2#1
+    - TMM/Part18/3/3/1/2
+  evidence:
+  - ref: TMM/Part18/3/3/1/2
+    quote: Reg 4.8 of the Trade Mark Regulations 1995 requires the Registrar to issue an adverse report to the applicant
+      if they reasonably believe that a ground for rejection exists under the Trade Marks Act 1995 or that the application
+      has not been made in accordance with the Act or Regulations.
+  why: 'The concept was fixed to the further report after a response: its notes, its basis (reg 4.10 alone) and its
+    definition. The Manual also calls the first report under reg 4.8 an adverse report (Part 18.3.3.1.2), so both
+    regulations are its basis and both passages its sources (S040''s response, R02). ''further adverse report'' stays
+    an alternative label: it names the reg 4.10 report, which is still an adverse report.'
+  check: Whether 'adverse report' in the Manual ever means something other than a report under reg 4.8 or reg 4.10.
