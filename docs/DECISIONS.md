@@ -6270,3 +6270,50 @@ support check (A08) and who writes and judges a new benchmark: each stays the ow
 2. A session that re-writes the prepared answers moves `PREPARED_ANSWER_VERSION`, `PREPARED_LAW`
    and the page's prepared-answer footer together, and checks the claim display on a prepared
    answer (the page today renders prepared answers as `answer-v2` prose).
+
+## ADR-0142 — the first customer slice: structured legal tests, a process template, fictional matters, one explanation object
+
+**Date** 2026-10-19 · **Authority** agent-proposed · **Status** accepted · acts on the second
+review response's Package 4 (A01, A02, A04, A05, A09), on the owner's "Let's continue with the
+next portion" (S042)
+
+**Context.** The customer explanation aid (`CLAUDE.md` §0, D4) cannot be built on binary
+edges: section 44 is a conjunction with an alternative inside it and two exceptions of different
+kinds; section 41's evidence routes differ between (3) and (4); "where am I in the process" needs
+transitions, not three `precedes` edges. ADR-0009 defers LegalRuleML and executed defeasibility,
+not structure: it permits decision tables for bounded logic. Customer and case data are an owner
+gate (§3a), so every case is fictional.
+
+**Decision (the agent's).**
+1. **`GL-` legal tests** (`authored/legal-tests.yaml`, `eval/schemas/legal-test.schema.json`): the
+   provision, actor, effect (`obligation`, `discretion` or `bar`), a condition tree of `all`/`any`
+   nodes whose leaves are `fact` or `evaluative`, exceptions with their own effect and condition,
+   the Manual's evidence requirements split into `relevance` and `sufficiency`, and response
+   routes labelled `law` or `practice`. Every element quotes its unit; every quote is in the
+   envelope's evidence and checked by the harness. Three written: s 44 (GL-0001), s 43 (GL-0002),
+   s 41 (GL-0003).
+2. **`GP-` process template** (`authored/processes.yaml`): GP-0001, regulations 4.8 to 4.14 with
+   sections 33 and 37: eight steps, eleven transitions (each with its condition, what a matter must
+   say to tell branches apart, and the grounds a branch exists for), four time rules. No date is
+   computed: A02 enables computed dates only for reviewed branches, and none is reviewed.
+3. **`FM-` fictional matters** (`scenarios/matters.yaml`, `eval/schemas/fictional-matter.schema.json`):
+   `fictional: true` is the only value the schema allows. Four, one per acceptance example (A01,
+   A02, A04, A05 with A03's unknown date). Roles are capacities a party holds in a matter, so one
+   person can be applicant and representative.
+4. **One explanation object** (`tm_knowledge.explain`): three-valued (recorded met, recorded not
+   met, open: "not established from the available facts"); an evaluative condition is reported
+   only as a named person's recorded assessment, never made; a discretion stays a "may"; a fact is
+   asked about only if either answer would change the reading; two stated dates may be compared
+   (s 44(1)(b)), never a date calculated; every source labelled law or practice; a text equivalent
+   from the same object.
+
+**What it does not decide.** Anything shown to customers: the slice is tested on fictional matters
+and no page is published (an owner gate). Graph mapping of `GL-`/`GP-` records (next). A model in
+the loop (none is called). Whether the routes' wording suits customers (the A09 comprehension
+test is the owner's gate).
+
+**Consequences.**
+1. The harness counts and checks both record types; `next_number` allocates across them.
+2. `tests/unit/test_explain.py` holds each acceptance example and each rule over every matter,
+   including an outcome-wording guard that reads unattributed sentences.
+3. Provisional; name it in the handoff's open items.

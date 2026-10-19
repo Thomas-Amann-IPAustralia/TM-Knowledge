@@ -1,10 +1,10 @@
-# Rules in force — what 128 decisions add up to
+# Rules in force — what 129 decisions add up to
 
 Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-10-19, ADR-0141 (S042).
+**As at:** 2026-10-19, ADR-0142 (S042).
 
 ## Purpose and scope
 
@@ -134,6 +134,13 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 - **Every machine-written record type carries the envelope in the RDF too**: the SHACL
   shapes target definitions and corrections as well as authored assertions, and every
   evidence item is an anchor `<record>/evidence/<n>` with ref, span, hash and quote (R03, R04).
+- **A provision a customer needs explained is a structured test** (`GL-`, ADR-0142): conditions
+  with AND and OR, each leaf a `fact` or an `evaluative` assessment quoting its unit; exceptions with
+  their own effect (`obligation`, `discretion`, `bar`). An evaluative condition is never computed,
+  a discretion never becomes a must, and an unknown stays "not established from the available
+  facts". The procedure is a template (`GP-`) of steps and transitions; no date is computed.
+  Customer explanations are built only from fictional matters (`scenarios/`, `FM-`) until the
+  owner allows real data, and never state an outcome.
 - **Roles are distinct and their power is on edges**: the Registrar (an office) is
   not a delegate, a delegate is not the Registrar, the owner is not the authorised
   user; who delegates to, directs, reviews or is consulted by whom is an edge on a

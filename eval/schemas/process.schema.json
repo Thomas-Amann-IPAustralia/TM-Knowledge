@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/authored/process/1.0.0",
+  "title": "Process template",
+  "description": "A machine-written template of one bounded procedure (the second review response, A02; ADR-0142): its steps, each with its source, actor and effect; the transitions between them, each with the condition under which it is taken; and the deadline rules, explained and never computed. Kept apart from any matter's event history. A template says what can happen next and what that depends on; it never says what will.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "steps",
+    "transitions",
+    "approved_by",
+    "approved_date"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^GP-[0-9]{4}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "$ref": "#/$defs/step"
+      }
+    },
+    "transitions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/transition"
+      }
+    },
+    "deadlines": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/deadline"
+      }
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "approved_by": {
+      "type": "null",
+      "description": "Never filled by an agent (CLAUDE.md §2)."
+    },
+    "approved_date": {
+      "type": "null"
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "ref": {
+      "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/upstream_ref"
+    },
+    "step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "label",
+        "actor",
+        "kind",
+        "text",
+        "ref",
+        "quote"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actor": {
+          "enum": [
+            "registrar",
+            "applicant",
+            "law"
+          ],
+          "description": "law: a step no one takes, which the Act makes happen (a lapse)."
+        },
+        "kind": {
+          "enum": [
+            "event",
+            "decision",
+            "end"
+          ],
+          "description": "end: the template's last step on that branch."
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "concepts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^GC-[0-9]{4}$"
+          }
+        }
+      }
+    },
+    "transition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "from",
+        "to",
+        "when",
+        "ref",
+        "quote"
+      ],
+      "properties": {
+        "from": {
+          "$ref": "#/$defs/id"
+        },
+        "to": {
+          "$ref": "#/$defs/id"
+        },
+        "when": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The condition in plain words, staying within the quote."
+        },
+        "ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "needs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "What a matter's record must say before this branch can be told apart from the others."
+        },
+        "grounds": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/upstream_ref"
+          },
+          "description": "The provisions whose ground a matter must have raised for this branch to exist at all (deferment needs a section 44 ground)."
+        }
+      }
+    },
+    "deadline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "text",
+        "ref",
+        "quote",
+        "from"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "from": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "description": "The steps after which the rule is in play."
+        }
+      }
+    }
+  }
+}

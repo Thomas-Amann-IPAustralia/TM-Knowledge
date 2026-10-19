@@ -1,0 +1,157 @@
+# Fictional matters (ADR-0142). Invented by claude-code-agent-S042 on 2026-10-19 to test the
+# customer explanation aid against the second review's acceptance examples. Nothing here is real.
+- id: FM-0001
+  fictional: true
+  title: Two objections over overlapping goods; one withdrawn, one maintained
+  exercises: A01 — two objections affecting overlapping but different goods; one resolved, the application not
+    treated as accepted; one person in two capacities.
+  written_by: claude-code-agent-S042
+  written_date: '2026-10-19'
+  parties:
+  - {id: p1, name: Wren Example (fictional)}
+  - {id: p2, name: Tallow Fictional Pty Ltd}
+  roles:
+  - {party: p1, capacity: applicant, from: '2026-01-12'}
+  - {party: p1, capacity: representative, from: '2026-01-12'}
+  - {party: p2, capacity: owner_of_cited_mark}
+  application:
+    sign: PARIS LANTERN
+    kind: word
+    filing_date: '2026-01-12'
+    priority_date: '2026-01-12'
+    items:
+    - {id: i1, class: 4, text: candles}
+    - {id: i2, class: 3, text: perfumes}
+    - {id: i3, class: 3, text: soaps}
+  events:
+  - {step: report, date: '2026-03-02', stated_lapse_date: '2027-06-02'}
+  - {step: response, date: '2026-05-10', note: 'The applicant offered a condition limiting perfumes and soaps to goods made in France, and argued the marks differ.'}
+  - {step: consideration, date: '2026-06-20'}
+  - {step: further_report, date: '2026-06-20', stated_lapse_date: '2027-06-02'}
+  objections:
+  - id: o1
+    test: GL-0001
+    items: [i1, i2]
+    reasons: The trade mark is deceptively similar to registered trade mark PARIS LANTERNE (fictional), owned by
+      another person, for similar goods.
+    status: maintained
+    cited_mark: {sign: PARIS LANTERNE, owner: p2, status: registered, priority_date: '2024-08-01'}
+    facts:
+    - {condition: registered_by_another, value: true, source: the fictional report}
+    - {condition: priority_not_earlier, value: true, source: 'the fictional report: 12 January 2026 against 1 August 2024'}
+    assessments:
+    - {condition: same_or_similar_mark, value: true, by: the examiner (fictional), recorded: '2026-06-20'}
+    - {condition: similar_goods, value: true, by: the examiner (fictional), recorded: '2026-06-20'}
+  - id: o2
+    test: GL-0002
+    items: [i2, i3]
+    reasons: PARIS connotes goods made in France; used for perfumes and soaps not made there, the trade mark would be
+      likely to deceive or cause confusion.
+    status: withdrawn
+    assessments:
+    - {condition: has_connotation, value: true, by: the examiner (fictional), recorded: '2026-03-02'}
+
+- id: FM-0002
+  fictional: true
+  title: A report, a response, then deferment
+  exercises: A02 — a first report, a response and a deferment event; the explanation names the branch and what is
+    still needed, and does not infer lapse from elapsed time.
+  written_by: claude-code-agent-S042
+  written_date: '2026-10-19'
+  parties:
+  - {id: p1, name: Ridgeback Fictional Co}
+  - {id: p2, name: Invented Owner Ltd}
+  roles:
+  - {party: p1, capacity: applicant}
+  - {party: p2, capacity: owner_of_cited_mark}
+  application:
+    sign: COPPER WREN
+    kind: word
+    filing_date: '2025-11-03'
+    priority_date: '2025-11-03'
+    items:
+    - {id: i1, class: 30, text: coffee}
+  events:
+  - {step: report, date: '2026-01-15', stated_lapse_date: '2027-04-15'}
+  - {step: response, date: '2026-03-01', note: The applicant asked for acceptance to be deferred while the cited application is finalised.}
+  - {step: deferment, date: '2026-03-01'}
+  objections:
+  - id: o1
+    test: GL-0001
+    items: [i1]
+    reasons: The trade mark is deceptively similar to COPPER WREN ROASTERS (fictional), an earlier application by another
+      person for coffee.
+    status: raised
+    cited_mark: {sign: COPPER WREN ROASTERS, owner: p2, status: pending, priority_date: '2025-06-10'}
+    facts:
+    - {condition: sought_by_another, value: true, source: the fictional report}
+    - {condition: registered_by_another, value: false, source: the fictional report}
+
+- id: FM-0003
+  fictional: true
+  title: Section 44 with a date unknown and honest concurrent use claimed
+  exercises: A04 — a missing condition gives "not established from the available facts", never a negative decision;
+    a discretion is not turned into an obligation because its prerequisites are claimed.
+  written_by: claude-code-agent-S042
+  written_date: '2026-10-19'
+  parties:
+  - {id: p1, name: Bilby Invented Bakery}
+  roles:
+  - {party: p1, capacity: applicant}
+  application:
+    sign: SALT & STONE
+    kind: word
+    filing_date: null
+    priority_date: null
+    items:
+    - {id: i1, class: 30, text: bread}
+    - {id: i2, class: 30, text: pastries}
+  events:
+  - {step: report, date: null, stated_lapse_date: null, note: The customer has pasted the report's objection text but not its dates.}
+  objections:
+  - id: o1
+    test: GL-0001
+    items: [i1, i2]
+    reasons: The trade mark is substantially identical with SALT AND STONE (fictional), registered by another person for
+      bakery goods.
+    status: raised
+    facts:
+    - {condition: registered_by_another, value: true, source: the fictional report}
+    - {condition: priority_not_earlier, value: null, source: the customer has not given either priority date}
+    assessments:
+    - {condition: same_or_similar_mark, value: true, by: the examiner (fictional), recorded: '2026-02-11'}
+    - {condition: similar_goods, value: true, by: the examiner (fictional), recorded: '2026-02-11'}
+
+- id: FM-0004
+  fictional: true
+  title: Section 41(3) with evidence of use and an unknown filing date
+  exercises: A05 and A03 — what each exhibit may help address and what is missing, never that it succeeds; an unknown
+    filing date asks for clarification instead of choosing.
+  written_by: claude-code-agent-S042
+  written_date: '2026-10-19'
+  parties:
+  - {id: p1, name: Numbat Fictional Plumbing}
+  roles:
+  - {party: p1, capacity: applicant}
+  application:
+    sign: FAST PLUMBING
+    kind: word
+    filing_date: null
+    items:
+    - {id: i1, class: 37, text: plumbing services}
+    - {id: i2, class: 37, text: drain cleaning}
+  events:
+  - {step: report, date: '2026-04-07', stated_lapse_date: '2027-07-07'}
+  objections:
+  - id: o1
+    test: GL-0003
+    items: [i1, i2]
+    reasons: The words FAST PLUMBING are not to any extent inherently adapted to distinguish plumbing services; other
+      traders are likely to want to use them.
+    status: raised
+    assessments:
+    - {condition: no_inherent_adaptation, value: true, by: the examiner (fictional), recorded: '2026-04-07'}
+    exhibits:
+    - {id: e1, description: Photograph of a signwritten van, dated, place: australia, dated: '2024-05-20', sign_shown: as_applied, items: [i1]}
+    - {id: e2, description: Invoice, place: australia, dated: '2026-08-14', sign_shown: substantially_identical, items: [i1, i2]}
+    - {id: e3, description: Brochure for a business abroad, place: overseas, dated: '2023-02-01', sign_shown: different, items: [i2]}

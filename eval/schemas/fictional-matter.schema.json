@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/scenarios/fictional-matter/1.0.0",
+  "title": "Fictional matter",
+  "description": "An invented application, its examination report and its history, for building and testing the customer explanation aid (the second review response, A01, A05; ADR-0138, ADR-0142). Every one is fictional, says so in a field a machine reads, and names the acceptance example it exercises. No real application, report, applicant or examiner appears here until the owner allows it (CLAUDE.md §3a).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "fictional", "title", "exercises", "written_by", "written_date", "parties", "roles", "application", "events", "objections"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^FM-[0-9]{4}$"},
+    "fictional": {"const": true},
+    "title": {"type": "string", "minLength": 1},
+    "exercises": {"type": "string", "minLength": 1, "description": "The acceptance example it is built to test, by the review's finding number."},
+    "written_by": {"type": "string", "minLength": 1},
+    "written_date": {"type": "string", "format": "date"},
+    "parties": {"type": "array", "minItems": 1, "items": {
+      "type": "object", "additionalProperties": false, "required": ["id", "name"],
+      "properties": {"id": {"type": "string", "pattern": "^p[0-9]+$"}, "name": {"type": "string", "minLength": 1}}}},
+    "roles": {"type": "array", "minItems": 1, "items": {
+      "type": "object", "additionalProperties": false, "required": ["party", "capacity"],
+      "description": "A capacity a party holds in this matter, from a date. One party may hold several; a capacity is not the person (ADR-0138's roles-as-capacities).",
+      "properties": {
+        "party": {"type": "string", "pattern": "^p[0-9]+$"},
+        "capacity": {"enum": ["applicant", "representative", "owner_of_cited_mark"]},
+        "from": {"type": ["string", "null"], "format": "date"}}}},
+    "application": {
+      "type": "object", "additionalProperties": false, "required": ["sign", "filing_date", "items"],
+      "properties": {
+        "sign": {"type": "string", "minLength": 1},
+        "kind": {"enum": ["word", "figurative", "shape", "colour", "sound", "scent"]},
+        "filing_date": {"type": ["string", "null"], "format": "date", "description": "null where the customer has not said: an unknown, never a default."},
+        "priority_date": {"type": ["string", "null"], "format": "date"},
+        "items": {"type": "array", "minItems": 1, "items": {
+          "type": "object", "additionalProperties": false, "required": ["id", "class", "text"],
+          "properties": {"id": {"type": "string", "pattern": "^i[0-9]+$"}, "class": {"type": "integer", "minimum": 1, "maximum": 45}, "text": {"type": "string", "minLength": 1}}}}
+      }
+    },
+    "events": {"type": "array", "items": {
+      "type": "object", "additionalProperties": false, "required": ["step"],
+      "description": "What has happened, in order, as steps of the process template. A date is recorded where the matter states it and never calculated.",
+      "properties": {
+        "step": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+        "date": {"type": ["string", "null"], "format": "date"},
+        "note": {"type": "string"},
+        "stated_lapse_date": {"type": ["string", "null"], "format": "date", "description": "The lapse date a report states (reg 4.8(2)); repeated, never recalculated."}}}},
+    "objections": {"type": "array", "items": {
+      "type": "object", "additionalProperties": false, "required": ["id", "test", "items", "reasons", "status"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^o[0-9]+$"},
+        "test": {"type": "string", "pattern": "^GL-[0-9]{4}$"},
+        "items": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^i[0-9]+$"}},
+        "reasons": {"type": "string", "minLength": 1, "description": "The fictional report's words."},
+        "status": {"enum": ["raised", "maintained", "withdrawn"], "description": "What the fictional report says of it. withdrawn is the Registrar's, recorded; never inferred from a response."},
+        "cited_mark": {"type": "object", "additionalProperties": false,
+          "properties": {"sign": {"type": "string"}, "owner": {"type": "string", "pattern": "^p[0-9]+$"}, "status": {"enum": ["registered", "pending"]}, "priority_date": {"type": ["string", "null"], "format": "date"}}},
+        "facts": {"type": "array", "items": {
+          "type": "object", "additionalProperties": false, "required": ["condition", "value", "source"],
+          "properties": {"condition": {"type": "string"}, "value": {"enum": [true, false, null]}, "source": {"type": "string", "minLength": 1}}}},
+        "assessments": {"type": "array", "items": {
+          "type": "object", "additionalProperties": false, "required": ["condition", "value", "by", "recorded"],
+          "description": "A person's assessment of an evaluative condition, as the fictional report records it. Reported, never made.",
+          "properties": {"condition": {"type": "string"}, "value": {"enum": [true, false]}, "by": {"type": "string", "minLength": 1}, "recorded": {"type": "string", "format": "date"}}}},
+        "exhibits": {"type": "array", "items": {
+          "type": "object", "additionalProperties": false, "required": ["id", "description"],
+          "properties": {
+            "id": {"type": "string", "pattern": "^e[0-9]+$"},
+            "description": {"type": "string", "minLength": 1},
+            "place": {"enum": ["australia", "overseas", null]},
+            "dated": {"type": ["string", "null"], "format": "date"},
+            "sign_shown": {"enum": ["as_applied", "substantially_identical", "different", null]},
+            "items": {"type": "array", "items": {"type": "string", "pattern": "^i[0-9]+$"}}}}}
+      }}}
+  }
+}

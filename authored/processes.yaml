@@ -1,0 +1,309 @@
+# Process templates (A02) — machine-written by claude-code-agent-S042 on 2026-10-19, unreviewed (ADR-0142).
+# Every element quotes its unit or passage; the envelope's evidence is every quote, located.
+- id: GP-0001
+  title: Examination report, response, further report, deferment and lapse (regulations 4.8 to 4.14, sections 33
+    and 37)
+  scope: An application under examination before acceptance. The regulations' times are explained, never computed.
+  steps:
+  - id: report
+    label: Examination report
+    actor: registrar
+    kind: event
+    text: The Registrar reports a belief that the application is not in accordance with the Act or that there are
+      grounds for rejecting it.
+    ref: TMR1995/r4.8(1)
+    quote: 'the Registrar reasonably believes that:'
+    concepts:
+    - GC-0179
+  - id: response
+    label: Applicant's response
+    actor: applicant
+    kind: event
+    text: 'The applicant may respond in writing: contest the belief, contest another matter, provide documents or
+      evidence, or ask to amend.'
+    ref: TMR1995/r4.9(1)
+    quote: An applicant may respond in writing to the Registrar’s report under regulation 4.8.
+  - id: consideration
+    label: The Registrar considers the response
+    actor: registrar
+    kind: decision
+    text: On receiving a response, the Registrar must consider it.
+    ref: TMR1995/r4.10(1)
+    quote: On receipt of a response under regulation 4.9, the Registrar must consider the response.
+  - id: further_report
+    label: Further report
+    actor: registrar
+    kind: event
+    text: If the Registrar continues to believe there are grounds, the Registrar reports again; the applicant may
+      respond to it as to the first.
+    ref: TMR1995/r4.10(2)
+    quote: 'If the Registrar continues to believe that:'
+  - id: deferment
+    label: Acceptance deferred
+    actor: registrar
+    kind: event
+    text: At the applicant's written request, the Registrar may defer acceptance where there are section 44 grounds
+      because of another trade mark.
+    ref: TMR1995/r4.13(1)
+    quote: 'The Registrar may, at the request of the applicant in writing, defer acceptance of an application for
+      registration of a trade mark, if:'
+    concepts:
+    - GC-0096
+  - id: acceptance
+    label: Acceptance
+    actor: registrar
+    kind: end
+    text: The Registrar must accept unless satisfied that the application is not in accordance with the Act or that
+      there are grounds for rejecting it.
+    ref: TMA1995/s33(1)
+    quote: 'The Registrar must, after the examination, accept the application unless he or she is satisfied that:'
+    concepts:
+    - GC-0093
+  - id: rejection
+    label: Rejection
+    actor: registrar
+    kind: end
+    text: If satisfied of a ground, the Registrar must reject, but not without giving the applicant an opportunity
+      of being heard.
+    ref: TMA1995/s33(4)
+    quote: The Registrar may not reject an application without giving the applicant an opportunity of being heard.
+  - id: lapse
+    label: Lapse
+    actor: law
+    kind: end
+    text: An application lapses if it is not accepted within the prescribed period, or that period as extended.
+    ref: TMA1995/s37(1)
+    quote: an application lapses if it is not accepted within the prescribed period or within that period as extended
+      in accordance with the regulations
+  transitions:
+  - from: report
+    to: response
+    when: the applicant responds in writing
+    ref: TMR1995/r4.9(1)
+    quote: An applicant may respond in writing to the Registrar’s report under regulation 4.8.
+  - from: response
+    to: consideration
+    when: the Registrar receives the response
+    ref: TMR1995/r4.10(1)
+    quote: On receipt of a response under regulation 4.9, the Registrar must consider the response.
+  - from: consideration
+    to: further_report
+    when: the Registrar continues to believe there are grounds or a defect
+    ref: TMR1995/r4.10(2)
+    quote: 'If the Registrar continues to believe that:'
+    needs:
+    - what the Registrar decides on the response
+  - from: consideration
+    to: acceptance
+    when: the Registrar is no longer satisfied that there are grounds for rejecting it
+    ref: TMA1995/s33(1)
+    quote: 'The Registrar must, after the examination, accept the application unless he or she is satisfied that:'
+    needs:
+    - what the Registrar decides on the response
+  - from: consideration
+    to: rejection
+    when: the Registrar is satisfied there are grounds, after giving the applicant an opportunity of being heard
+    ref: TMA1995/s33(4)
+    quote: The Registrar may not reject an application without giving the applicant an opportunity of being heard.
+    needs:
+    - what the Registrar decides on the response
+    - whether a hearing was offered
+  - from: further_report
+    to: response
+    when: the applicant responds to the further report, as to a first report
+    ref: TMR1995/r4.10(4)
+    quote: Regulation 4.9 and this regulation apply to a report under subregulation (2) as if it were a report under
+      regulation 4.8.
+  - from: report
+    to: deferment
+    when: the applicant asks in writing and the grounds are section 44 grounds because of another trade mark
+    ref: TMR1995/r4.13(1)
+    quote: 'The Registrar may, at the request of the applicant in writing, defer acceptance of an application for
+      registration of a trade mark, if:'
+    needs:
+    - whether a written request was made
+    grounds:
+    - TMA1995/s44
+  - from: further_report
+    to: deferment
+    when: the applicant asks in writing and the grounds are section 44 grounds because of another trade mark
+    ref: TMR1995/r4.13(1)
+    quote: 'The Registrar may, at the request of the applicant in writing, defer acceptance of an application for
+      registration of a trade mark, if:'
+    needs:
+    - whether a written request was made
+    grounds:
+    - TMA1995/s44
+  - from: deferment
+    to: consideration
+    when: the deferment period ends, for example when the Registrar is satisfied there are no longer section 44
+      grounds
+    ref: TMR1995/r4.14(2)(b)
+    quote: when the Registrar is reasonably satisfied that there are no longer grounds for rejecting the application
+    needs:
+    - why acceptance was deferred
+    - whether the deferment has ended
+  - from: report
+    to: lapse
+    when: the application is not accepted within the prescribed period, or that period as extended
+    ref: TMA1995/s37(1)
+    quote: an application lapses if it is not accepted within the prescribed period or within that period as extended
+      in accordance with the regulations
+    needs:
+    - the lapse date the report states
+    - any extension
+    - any period of deferment
+  - from: further_report
+    to: lapse
+    when: the application is not accepted within the prescribed period, or that period as extended
+    ref: TMA1995/s37(1)
+    quote: an application lapses if it is not accepted within the prescribed period or within that period as extended
+      in accordance with the regulations
+    needs:
+    - the lapse date the report states
+    - any extension
+    - any period of deferment
+  deadlines:
+  - id: lapse_date_in_report
+    from:
+    - report
+    text: The report states the date the application will lapse if not accepted earlier. Read it from the report;
+      it is not recalculated here.
+    ref: TMR1995/r4.8(2)
+    quote: A report under subregulation (1) must include notification of the date on which the application will
+      lapse if it is not accepted earlier.
+  - id: fifteen_months
+    from:
+    - report
+    - further_report
+    text: The prescribed period is generally 15 months from the first report, or from a further report that raises
+      new grounds.
+    ref: TMR1995/r4.12(1)
+    quote: 'the prescribed period, for an application in respect of which a report is made under regulation 4.8,
+      is:'
+  - id: deferment_not_counted
+    from:
+    - deferment
+    text: A period in which acceptance is deferred does not count towards the 15 months.
+    ref: TMR1995/r4.12(2)
+    quote: no account is to be taken of a period in which acceptance of the application is deferred under regulation
+      4.13
+  - id: further_report_lapse_date
+    from:
+    - further_report
+    text: A further report states a lapse date too, unless acceptance is deferred.
+    ref: TMR1995/r4.10(3)
+    quote: Unless acceptance of an application is deferred, a report under subregulation (2) in relation to that
+      application must include notification of the date on which the application will lapse if it is not accepted
+      earlier.
+  notes: 'The template is the procedure, not any matter''s history. A matter''s events are matched to its steps;
+    where a branch depends on what the Registrar decides, the template names what must be known and does not guess.
+    No date is computed: a branch''s dates are enabled only once its rules and edge cases are reviewed (A02), and
+    none is.'
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S042
+    authored_date: '2026-10-19'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMR1995/r4.8(1)
+      span:
+      - 145
+      - 184
+      content_hash: sha256:b49812f8edb85b34c7d9821d8d3e43d097a44bcee47a642c85dbc88a8983e22d
+      quote: 'the Registrar reasonably believes that:'
+    - ref: TMR1995/r4.9(1)
+      span:
+      - 4
+      - 87
+      content_hash: sha256:12980e01e8a80040cd9e26e5d736d2ffe41c0ee535fd14bbe76252c6d232ce16
+      quote: An applicant may respond in writing to the Registrar’s report under regulation 4.8.
+    - ref: TMR1995/r4.10(1)
+      span:
+      - 4
+      - 92
+      content_hash: sha256:6d942a9021c199e60f601fb583c61a349204bb4dc1ecdeaf2617aa2f80065d93
+      quote: On receipt of a response under regulation 4.9, the Registrar must consider the response.
+    - ref: TMR1995/r4.10(2)
+      span:
+      - 4
+      - 47
+      content_hash: sha256:8c371e24d270e59d46e9a2427319f0e8e5a525527649429ddc523629ba5da51b
+      quote: 'If the Registrar continues to believe that:'
+    - ref: TMR1995/r4.13(1)
+      span:
+      - 4
+      - 139
+      content_hash: sha256:4ba6ab35c9a92564def9ceaee0c8486e2e963bf054bbf7824b4e2f0539a313e0
+      quote: 'The Registrar may, at the request of the applicant in writing, defer acceptance of an application
+        for registration of a trade mark, if:'
+    - ref: TMA1995/s33(1)
+      span:
+      - 4
+      - 105
+      content_hash: sha256:a071ed6dcfc5c0c8ef6f02ab77cb17839891e28ff5d1e8a8941caf2ce8eed167
+      quote: 'The Registrar must, after the examination, accept the application unless he or she is satisfied that:'
+    - ref: TMA1995/s33(4)
+      span:
+      - 4
+      - 107
+      content_hash: sha256:bf8c0b25fc506600b605bbda09111bada1f72bcb3bbe7eb03bcb5b890decb812
+      quote: The Registrar may not reject an application without giving the applicant an opportunity of being heard.
+    - ref: TMA1995/s37(1)
+      span:
+      - 31
+      - 172
+      content_hash: sha256:bccbd3541a3dff5119d39d44830ebe2b78d7580a4217cfe85915ac054351b2df
+      quote: an application lapses if it is not accepted within the prescribed period or within that period as extended
+        in accordance with the regulations
+    - ref: TMR1995/r4.10(4)
+      span:
+      - 4
+      - 125
+      content_hash: sha256:a81ec38853a73f75bbd4c4f77eecde484ff68201598e740b29eb195bec078481
+      quote: Regulation 4.9 and this regulation apply to a report under subregulation (2) as if it were a report
+        under regulation 4.8.
+    - ref: TMR1995/r4.14(2)(b)
+      span:
+      - 36
+      - 141
+      content_hash: sha256:dd6143fc4f8074922838e86d03ede3ed1063c61b01070afe8bad8be54b6f950c
+      quote: when the Registrar is reasonably satisfied that there are no longer grounds for rejecting the application
+    - ref: TMR1995/r4.8(2)
+      span:
+      - 4
+      - 141
+      content_hash: sha256:8baecec255266933012c252d29fb9e4408d69c426bc956bc5ebed7238e63fb21
+      quote: A report under subregulation (1) must include notification of the date on which the application will
+        lapse if it is not accepted earlier.
+    - ref: TMR1995/r4.12(1)
+      span:
+      - 80
+      - 184
+      content_hash: sha256:bf27d8157d4b05b05818e9f16532728f9d7adee114bcf613c9f77f30516c67e0
+      quote: 'the prescribed period, for an application in respect of which a report is made under regulation 4.8,
+        is:'
+    - ref: TMR1995/r4.12(2)
+      span:
+      - 118
+      - 228
+      content_hash: sha256:237e2fc1b2407c26d64979ec605983b49fa48e1f8d7c3ddb8a4778da191ee5e5
+      quote: no account is to be taken of a period in which acceptance of the application is deferred under regulation
+        4.13
+    - ref: TMR1995/r4.10(3)
+      span:
+      - 4
+      - 222
+      content_hash: sha256:e8af4c8fe2516964efcdd525cad12b6a970ac7d54fc86a29a04702608bddf1a6
+      quote: Unless acceptance of an application is deferred, a report under subregulation (2) in relation to that
+        application must include notification of the date on which the application will lapse if it is not accepted
+        earlier.
+    confidence: 0.8
+    reasoning: Regulations 4.8 to 4.10 give the report, response, consideration and further report loop; 4.13 and
+      4.14 deferment; section 33 acceptance and rejection; section 37 and regulation 4.12 lapse. Each step and transition
+      quotes the provision that makes it.
+    alternatives_considered: []
+    expert_should_check: Whether lapse should be drawn from the first report only, or from a further report raising
+      new grounds as well (regulation 4.12(1)(b)).

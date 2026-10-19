@@ -1,0 +1,416 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/authored/legal-test/1.0.0",
+  "title": "Structured legal test",
+  "description": "A machine-written reading of one provision as a test (the second review response, A04; ADR-0142): who acts, the conditions with AND and OR, the legal effect and what kind of effect it is, the exceptions with their own effects, the evidence the Manual says bears on a condition, and the routes the law or the Manual names for answering it. Every element quotes its exact unit or passage. A condition marked evaluative is a person's assessment and is never computed. Nothing here states an examination outcome: a test says what the law asks, never what a matter's answer is.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "provision",
+    "title",
+    "actor",
+    "authority",
+    "effect",
+    "condition",
+    "approved_by",
+    "approved_date"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^GL-[0-9]{4}$"
+    },
+    "provision": {
+      "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/upstream_ref"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ground": {
+      "type": "string",
+      "pattern": "^GC-[0-9]{4}$",
+      "description": "The concept naming the ground, where one exists."
+    },
+    "actor": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Who the provision gives the power or the duty to."
+    },
+    "authority": {
+      "enum": [
+        "law"
+      ],
+      "description": "A test is read from legislation. The Manual's practice enters only as evidence requirements and routes, each labelled practice."
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "applies_to": {
+          "type": "string",
+          "minLength": 1
+        },
+        "proceeding": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parallel": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A provision stating the same test for another case (s 44(2) for services), named rather than repeated."
+        }
+      }
+    },
+    "effect": {
+      "$ref": "#/$defs/effect"
+    },
+    "condition": {
+      "$ref": "#/$defs/node"
+    },
+    "exceptions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/exception"
+      }
+    },
+    "evidence_requirements": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/requirement"
+      }
+    },
+    "routes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/route"
+      }
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "approved_by": {
+      "type": "null",
+      "description": "Never filled by an agent (CLAUDE.md §2)."
+    },
+    "approved_date": {
+      "type": "null"
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "quoted": {
+      "type": "object",
+      "required": [
+        "ref",
+        "quote"
+      ],
+      "properties": {
+        "ref": {
+          "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/upstream_ref"
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Verbatim text of the unit or passage at `ref`."
+        }
+      }
+    },
+    "effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "text",
+        "ref",
+        "quote"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "obligation",
+            "discretion",
+            "bar"
+          ],
+          "description": "obligation: the actor must; discretion: the actor may, and present prerequisites never turn it into a must; bar: the actor may not."
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ref": {
+          "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/upstream_ref"
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "leaf": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "text",
+        "ref",
+        "quote",
+        "kind"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The condition in plain words, staying within the quote."
+        },
+        "ref": {
+          "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/upstream_ref"
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "fact",
+            "evaluative"
+          ],
+          "description": "fact: a matter's records can say whether it holds (a date, who owns a registration). evaluative: a person's assessment; the system reports one a named person recorded and never makes one."
+        },
+        "concepts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^GC-[0-9]{4}$"
+          }
+        },
+        "ask": {
+          "type": "string",
+          "minLength": 1,
+          "description": "For a fact a customer can supply: the question to ask when it is unknown and would change the explanation."
+        },
+        "derive": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "not_earlier_than"
+          ],
+          "description": "A fact a matter's own stated dates settle: the first date is not earlier than the second. Compared, never calculated; either date unknown leaves the fact unknown.",
+          "properties": {
+            "not_earlier_than": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "enum": [
+                  "application.priority_date",
+                  "application.filing_date",
+                  "cited_mark.priority_date"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "node": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/leaf"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "all"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/id"
+            },
+            "text": {
+              "type": "string"
+            },
+            "all": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "$ref": "#/$defs/node"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "any"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/id"
+            },
+            "text": {
+              "type": "string"
+            },
+            "any": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "$ref": "#/$defs/node"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "exception": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "text",
+        "ref",
+        "quote",
+        "effect",
+        "condition"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ref": {
+          "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/upstream_ref"
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "effect": {
+          "$ref": "#/$defs/effect"
+        },
+        "condition": {
+          "$ref": "#/$defs/node"
+        }
+      }
+    },
+    "requirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "for",
+        "kind",
+        "text",
+        "ref",
+        "quote",
+        "authority"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "for": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "kind": {
+          "enum": [
+            "relevance",
+            "sufficiency"
+          ],
+          "description": "relevance: what evidence must be about to count at all; sufficiency: how much is enough, which is the examiner's assessment and never computed."
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "in_australia",
+              "before_filing_date",
+              "sign_as_applied",
+              "items_covered",
+              "dated"
+            ]
+          },
+          "description": "The relevance points a fictional exhibit's recorded facts can be compared with. A check says what is missing; it never says the evidence succeeds."
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ref": {
+          "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/upstream_ref"
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authority": {
+          "enum": [
+            "law",
+            "practice"
+          ]
+        }
+      }
+    },
+    "route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "text",
+        "ref",
+        "quote",
+        "authority"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ref": {
+          "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/upstream_ref"
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authority": {
+          "enum": [
+            "law",
+            "practice"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Where the source limits the route (\"a geographical section 43 objection\")."
+        },
+        "exception": {
+          "$ref": "#/$defs/id",
+          "description": "The exception this route asks the Registrar to apply, where it is one."
+        }
+      }
+    }
+  }
+}

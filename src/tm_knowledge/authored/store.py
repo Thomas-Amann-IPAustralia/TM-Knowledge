@@ -86,6 +86,9 @@ FILE_FOR: dict[str, str] = {value: key for key, value in AUTHORED_FILES.items()}
 NOT_RECORDS = frozenset({
     "README.md", "corrections.yaml", "retired-ids.yaml", "too-general-labels.yaml",
     "merge-candidates.yaml", "kind-of-affirmed.yaml", "definitions.yaml",
+    # Legal tests and process templates have a reader of their own, `authored.procedure`
+    # (the second review response's A04 and A02, ADR-0142).
+    "legal-tests.yaml", "processes.yaml",
 })
 
 #: The ledger of authored ids withdrawn from service — a duplicate of a signed record

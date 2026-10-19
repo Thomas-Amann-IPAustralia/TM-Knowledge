@@ -254,7 +254,8 @@ def next_number(prefix: str) -> int:
     ids = [str(r.get("id", "")) for _, r in gold.all_records()]
     ids += [entry.record_id for entry in authored.entries]
     ids += list(gold.retired_ids) + list(authored.retired_ids)
-    for name, series in (("corrections.yaml", "GK"), ("definitions.yaml", "GD")):
+    for name, series in (("corrections.yaml", "GK"), ("definitions.yaml", "GD"),
+                         ("legal-tests.yaml", "GL"), ("processes.yaml", "GP")):
         path = authored_store.AUTHORED_DIR / name
         if path.exists():
             ids += re.findall(rf"^- id: ({series}-\d+)", path.read_text(encoding="utf-8"), re.M)

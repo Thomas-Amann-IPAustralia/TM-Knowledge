@@ -955,6 +955,41 @@ def _definition_triage(authored: AuthoredSet, gold: GoldSet, corpus: Corpus) -> 
                       f"{flag.message}. Read the definition beside its whole source")
 
 
+def _procedures(authored: AuthoredSet, gold: GoldSet) -> Iterator[Finding]:
+    """Legal tests and process templates (A04, A02; ADR-0142): a refused one is a defect,
+    as any refused authored record is, and the count is a note."""
+    from tm_knowledge.authored import procedure
+
+    NAMES = {"legal-tests": "legal test", "processes": "process template"}
+    for kind, load in (("legal-tests", procedure.load_tests), ("processes", procedure.load_processes)):
+        try:
+            found = load(authored.root, gold=gold, authored=authored)
+        except authored_store.MalformedAuthoredFile as error:
+            yield Finding(Severity.DEFECT, kind, f"authored/{kind}.yaml", str(error))
+            continue
+        for entry in found.refused:
+            for error in entry.errors:
+                yield Finding(Severity.DEFECT, kind, entry.id, str(error))
+        if found.sound:
+            yield Finding(Severity.NOTE, kind, f"authored/{kind}.yaml",
+                          f"{len(found.sound)} machine-written {NAMES[kind]}(s), "
+                          "none reviewed: "
+                          + ", ".join(e.id for e in found.sound))
+
+
+def _procedure_evidence(authored: AuthoredSet, gold: GoldSet, corpus: Corpus) -> Iterator[Finding]:
+    """Every quote of a legal test or a process template lands, as any authored evidence."""
+    from tm_knowledge.authored import procedure
+
+    for load in (procedure.load_tests, procedure.load_processes):
+        try:
+            found = load(authored.root, gold=gold, authored=authored)
+        except authored_store.MalformedAuthoredFile:
+            continue  # reported by _procedures
+        for entry in found.sound:
+            yield from _evidence_findings(entry.id, (entry.envelope or {}).get("evidence") or [], corpus)
+
+
 def _correction_evidence(authored: AuthoredSet, gold: GoldSet, corpus: Corpus) -> Iterator[Finding]:
     """A correction's evidence is checked like any authored record's (ADR-0122):
     it changes what a signed record serves, so a quote that no longer lands is a
@@ -1289,6 +1324,7 @@ def _authored(authored: AuthoredSet, gold: GoldSet) -> Iterator[Finding]:
     yield from _authored_identifiers(authored, gold)
     yield from _authored_corrections(authored, gold)
     yield from _authored_definitions(authored, gold)
+    yield from _procedures(authored, gold)
     yield from _authored_predicates(authored)
     yield from _authored_kinds(authored)
     yield from _authored_conditions(authored)
@@ -1409,6 +1445,7 @@ def run(
         findings.extend(_authored_evidence(authored, corpus))
         findings.extend(_correction_evidence(authored, gold, corpus))
         findings.extend(_definition_evidence(authored, gold, corpus))
+        findings.extend(_procedure_evidence(authored, gold, corpus))
         findings.extend(_definition_triage(authored, gold, corpus))
         findings.extend(_legislative_bases(authored, gold, corpus))
     else:
