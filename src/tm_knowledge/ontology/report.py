@@ -289,14 +289,25 @@ Against the real content: **{len(validation.by_severity('defect'))} defects, {le
 {_fmt(sorted(notes.items()), ("shape", "notes"))}
 """)
 
+    contracts = {c.question_id: c for c in ask_module.contracts(dataset, queries)}
+    met = sum(1 for c in contracts.values() if c.met)
     lines = ["", "## 3. What it answers", "",
              "One query per competency question that a graph query can answer, named for",
              "the question. Each carries a `limits:` line saying what it has **not**",
              "established — a query that returns rows always looks like an answer. No",
-             "query returns a corrected signed record as current.", ""]
+             "query returns a corrected signed record as current.", "",
+             "Each is checked against its own signed question record (R06): the rows must",
+             "reach the record's required sources, name its expected concepts, and carry the",
+             "columns its answer shape needs. **Queries implemented: "
+             f"{len(queries)}; contracts met: {met}.** An unmet contract is a gap, not a failure:",
+             "it says what the graph cannot yet answer, which a structured test record (A04) or",
+             "more relationships would.", ""]
     lines.append(_fmt(
-        [(q.question_id, q.answers) for q in queries],
-        ("question", "answers"),
+        [(q.question_id, q.answers, contracts[q.question_id].rows if q.question_id in contracts else "—",
+          ("met" if contracts[q.question_id].met else "unmet: " + "; ".join(contracts[q.question_id].unmet))
+          if q.question_id in contracts else "—")
+         for q in queries],
+        ("question", "answers", "rows", "contract"),
     ))
     parts.append("\n".join(lines))
     parts.append(f"""
@@ -426,14 +437,66 @@ visible rather than hidden:
    unedited.
 2. **The practice/law distinction survives into query output.** Every passage
    is the Manual's practice or the legislation, a shape blocks the attribution
-   error the reviewer flagged (PU-0004), and an answer keeps the two apart.
+   error the reviewer flagged (PU-0004), and an answer labels each claim's
+   authority. The answer-time check on prose is a word heuristic that can miss
+   (R08): a clean result is not a verified attribution.
 3. **A prohibition became a constraint.** PU-0004 was a paragraph in a YAML
    file; it is now something that stops a publish, with a fixture proving it
    fires and a conforming twin proving it is selective.
 4. **The gaps are countable.** Section 5 is produced by the same run that
    produced the successes.
 """)
+    parts.append(_dependency_section(source))
     return "\n".join(parts).replace("\n\n\n", "\n\n") + "\n"
+
+
+def _dependency_section(source) -> str:
+    """§7: coverage by Part (R10) and what rests on each source (R05), from the
+    dependency index over every store, not the approved graph alone."""
+    from tm_knowledge.ontology import dependencies
+    from tm_knowledge.upstream.loader import load_corpus
+
+    corpus = load_corpus()
+    index = dependencies.build(corpus)
+    summary = index.summary()
+    in_graph = {str(source.value(node, TMK.upstreamRef)) for node in source.subjects(RDF.type, TMK.Chunk)}
+    rows = dependencies.coverage_by_part(corpus, index, in_graph)
+    table = _fmt([(r["part"], r["title"].removeprefix(r["part"].replace("Part", "Part ")).strip() or "—",
+                   r["chunks"], r["in_graph"], r["concepts"], r["relationships"], r["definitions"], r["signed"])
+                  for r in rows],
+                 ("Part", "title", "chunks", "in the graph", "concepts", "relationships", "definitions",
+                  "signed records"))
+    empty = [r["part"] for r in rows if not r["in_graph"]]
+    unrelated = [r["part"] for r in rows if r["in_graph"] and not r["relationships"]]
+    top = sorted(((len(set(index.records(index.touching(ref))) | set(index.records(index.via_manual(ref)))), ref)
+                  for ref in corpus.provisions), reverse=True)[:10]
+    by = lambda counts: ", ".join(f"{n:,} {k}" for k, n in counts.items())  # noqa: E731
+    return f"""
+## 7. Coverage by Part, and what rests on each source
+
+Every chunk is searchable (`search.index`), whatever this table says. A chunk is
+in the graph when a record names it; the counts are distinct records resting on a
+chunk of the Part in the current view (both stores, corrections applied), from the
+dependency index (`ontology.dependencies`, R05). A 0 is no recorded record, never
+"nothing there". The Manual was captured on {_day(max(p.crawled_at for p in corpus.pages.values())[:10])}; a
+compilation of the Act or the Regulations in force after that may not be reflected in it.
+
+{table}
+
+**{len(empty)} Parts have no chunk in the graph**: {", ".join(empty) or "none"}. **{len(unrelated)} more have
+no relationship resting on them**: {", ".join(unrelated) or "none"}.
+
+**The dependency index.** {summary['dependencies']:,} dependencies of {summary['records']:,} records on
+{summary['refs']:,} refs, current view: by record type {by(summary['by_type'])}; by review
+status {by(summary['by_status'])}; by source {by(summary['by_source'])}. Stale (a recorded hash that
+no longer matches the pin): {len(summary['stale'])}. A further {summary['history_only']} dependencies are
+history only: a signed record named the ref as signed, and a correction removed it or
+replaced the record. RULE-0002 is unchanged and is the signed-records-only view of the
+same question, from a Manual passage only.
+
+The provisions most rested on, directly or through a Manual passage that cites them:
+{", ".join(f"`{ref}` ({n})" for n, ref in top)}.
+"""
 
 
 def _shape_file(node) -> str:

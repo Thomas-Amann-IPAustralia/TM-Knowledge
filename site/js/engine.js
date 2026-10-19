@@ -236,7 +236,7 @@ export class Engine {
     const cited = [];
     for (const ref of passages.slice(0, 3)) for (const id of (this.chunks[this.row.get(ref)]?.[4] || [])) cited.push(id);
     const legislation = [];
-    for (const ref of [...trace.provisions, ...cited]) {
+    for (const ref of [...namedProvisions(question, this.legislation), ...trace.provisions, ...cited]) {
       if (!legislation.includes(ref) && this.legislation[ref]) legislation.push(ref);
     }
     const plain = this.keyword(question, 10).map((h) => h.ref);
@@ -312,10 +312,26 @@ export class Engine {
   }
 }
 
+/* Exact-reference lookup (A07) — `search.citations.named_provisions`, rule for rule:
+   "section 44(3)", "s 41(4)", "reg 4.10" name a provision, resolved at the provision
+   level, first mention first, only where it is held. */
+const CITATION = /(?<![\w'’])(?<kind>sections?|subsections?|ss?|regulations?|subregulations?|regs?|r)\.?\s?(?<number>\d+[A-Za-z]{0,2}(?:\.\d+[A-Za-z]{0,2})?)(?![\w.]*\d)/gi;
+const REGULATION = ["regulation", "regulations", "subregulation", "subregulations", "reg", "regs", "r"];
+
+export function namedProvisions(text, held) {
+  const out = [];
+  for (const m of String(text || "").matchAll(CITATION)) {
+    const ref = (REGULATION.includes(m.groups.kind.toLowerCase()) ? "TMR1995/r" : "TMA1995/s") + m.groups.number.toUpperCase();
+    if (held && Object.prototype.hasOwnProperty.call(held, ref) && !out.includes(ref)) out.push(ref);
+  }
+  return out;
+}
+
 /* PU-0004 at answer time — `search.authority.conflations`, rule for rule (review F1,
    ADR-0121). A sentence that says the legislation requires, provides or states
    something, in an answer that cites no provision of it, is flagged — never removed.
-   A sentence naming the Manual, or a negated one, is not. */
+   A clause naming the Manual before the verb, or a negated one, is not; only the
+   match's own clause is read (R08). A warning, not a guarantee. */
 export const AUTHORITY_MESSAGE = "Says the legislation requires this, but the answer cites no provision for it — only " +
   "the Manual, which states practice and does not bind the Registrar's discretion (PU-0004). Check the provision itself.";
 const VERB = "(?:requires?|provides?|states?|says|prescribes?|mandates?|obliges?|imposes?)";
@@ -324,6 +340,7 @@ const PART = new RegExp(String.raw`\b(?<kind>section|s|subsection|regulation|reg
   String.raw`(?:\([0-9a-z]+\))*[^.;:]{0,40}?\b${VERB}\b`, "i");
 const SENTENCE_BREAK = /(?<=[.!?])\s+(?=[A-Z"'“‘(])|\n+/;
 const MANUAL = /\bManual\b/;
+const CLAUSE_BREAK = /;|,\s*(?:and|but|while|whereas|although|though|yet|however)\b|\s(?:but|whereas|although)\s/gi;
 const NEGATION = /\b(?:not|no|never|neither|nor)\b|n['’]t\b/i;
 
 function supportedBy(m, cited) {
@@ -339,18 +356,22 @@ function supportedBy(m, cited) {
   return cited.some((ref) => ref.startsWith("TMA1995/") || ref.startsWith("TMR1995/"));
 }
 
+function clauseOf(sentence, m) {
+  let start = 0;
+  for (const brk of sentence.slice(0, m.index).matchAll(CLAUSE_BREAK)) start = brk.index + brk[0].length;
+  return sentence.slice(start, m.index + m[0].length);
+}
+
 export function authorityFlags(answer, cited) {
   const refs = (cited || []).map(String);
   const flags = [];
   for (let sentence of String(answer || "").split(SENTENCE_BREAK)) {
     sentence = sentence.trim();
-    if (!sentence || MANUAL.test(sentence)) continue;
-    for (const pattern of [PART, WHOLE]) {
-      const m = pattern.exec(sentence);
-      if (m && !NEGATION.test(sentence.slice(0, m.index + m[0].length)) && !supportedBy(m, refs)) {
-        flags.push({ sentence, message: AUTHORITY_MESSAGE });
-        break;
-      }
+    if (!sentence) continue;
+    const matches = [PART, WHOLE].flatMap((p) => [...sentence.matchAll(new RegExp(p.source, "gi"))]);
+    if (matches.some((m) => { const clause = clauseOf(sentence, m);
+      return !MANUAL.test(clause) && !NEGATION.test(clause) && !supportedBy(m, refs); })) {
+      flags.push({ sentence, message: AUTHORITY_MESSAGE });
     }
   }
   return flags;

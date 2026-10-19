@@ -37,6 +37,7 @@ from tm_knowledge.config import REPO_ROOT
 from tm_knowledge.ontology import hygiene
 from tm_knowledge.ontology.predicates import PREDICATES, SKOS_PREDICATES
 from tm_knowledge.search.authority import conflations
+from tm_knowledge.search.citations import named_provisions
 from tm_knowledge.stage0 import goldset
 from tm_knowledge.stage0.harness import passage_at
 from tm_knowledge.stage0.typing import GROUPS
@@ -1224,6 +1225,21 @@ def _answer_render(ctx: Context, item: Item) -> str:
         lines += ["", "LEGISLATION:"]
         lines += [source_block(ref, _source(ref), sent[ref]) for ref in p["legislation"] if ref in sent]
     return "\n".join(lines)
+
+
+def legislation_refs(corpus: Corpus, question: str, provisions: list[str], passages: list[str],
+                     k: int = 3) -> list[str]:
+    """The legislation an answer is given, at most `k`: the provisions the question names
+    (A07, `search.citations`), then those the recognised concepts rest on, then those the
+    top three passages cite; each once, and only where the snapshot holds its text.
+    `Engine.prepare` in `site/js/engine.js` is the same rule."""
+    cited = [e.id for ref in passages[:3] for e in corpus.chunks[ref].provisions if not e.needs_a_human]
+    out: list[str] = []
+    for ref in named_provisions(question, corpus.provisions) + list(provisions) + cited:
+        passage = passage_at(corpus, ref)
+        if ref not in out and passage is not None and passage.text:
+            out.append(ref)
+    return out[:k]
 
 
 def provision_units(corpus: Corpus, ref: str) -> list[tuple[str, str]] | None:

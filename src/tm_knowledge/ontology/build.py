@@ -1567,6 +1567,60 @@ def build(
     return dataset, report
 
 
+#: The release manifest's schema (A11). Bump it when a field changes meaning.
+MANIFEST_VERSION = "tmk-release/1"
+
+
+def manifest(dataset: Dataset) -> dict[str, Any]:
+    """What a downstream consumer needs to know about this build, from the build itself
+    (the second review response, A11): the pin and the compilations it holds, the record
+    schemas, the profile, and per named graph its triples, its record classes and its
+    review states. Deterministic, so it is committed beside the graph and drift-checked
+    with it; the site's `build.json` adds the date and the revision."""
+    import json
+
+    pin = json.loads((REPO_ROOT / "data" / "pin.json").read_text(encoding="utf-8"))
+    source = dataset.graph(SOURCE_GRAPH)
+    law = sorted(
+        ({"label": str(source.value(node, RDFS.label)),
+          "compilation": str(source.value(node, TMK.compilationNumber)),
+          "register_id": str(source.value(node, TMK.registerId)),
+          "in_force_from": str(source.value(node, TMK.compilationStart))}
+         for node in source.subjects(RDF.type, TMK.Legislation)
+         if source.value(node, TMK.compilationNumber) is not None),
+        key=lambda row: row["label"])
+    graphs = {}
+    for name, label in ((SOURCE_GRAPH, "source"), (APPROVED_GRAPH, "approved"),
+                        (AUTHORED_GRAPH, "authored"), (INFERRED_GRAPH, "inferred")):
+        graph = dataset.graph(name)
+        classes: dict[str, int] = {}
+        for _, kind in graph.subject_objects(RDF.type):
+            if str(kind).startswith(str(TMK)):
+                key = str(kind)[len(str(TMK)):]
+                classes[key] = classes.get(key, 0) + 1
+        states: dict[str, int] = {}
+        for status in graph.objects(None, TMK.reviewStatus):
+            states[str(status)] = states.get(str(status), 0) + 1
+        graphs[label] = {"triples": len(graph), "classes": dict(sorted(classes.items())),
+                         "review_status": dict(sorted(states.items()))}
+    schemas = sorted(json.loads(path.read_text(encoding="utf-8")).get("$id", path.name)
+                     for path in (REPO_ROOT / "eval" / "schemas").glob("*.schema.json"))
+    return {
+        "manifest": MANIFEST_VERSION,
+        "upstream": {k: pin[k] for k in ("repo", "commit", "manual_extractor_version",
+                                         "legislation_extractor_version", "tree_sha256")},
+        "law": law,
+        "profile": "RDF 1.1 named graphs, SKOS, SHACL shapes and the approved SPARQL rules; no OWL "
+                   "profile is claimed and no OWL inference is licensed (ADR-0134). A direct edge is "
+                   "navigation only; the reified assertion is the reading (ADR-0134, R07).",
+        "graphs": graphs,
+        "schemas": schemas,
+        "states": "approved: a named person signed it; unreviewed: a machine wrote it and nobody has "
+                  "read it; candidate: a rule derived it. They never share a named graph (CLAUDE.md "
+                  "rule 4). Silence never promotes a record (ADR-0085).",
+    }
+
+
 def write(
     dataset: Dataset | None = None, directory: Path | None = None
 ) -> tuple[Path, ...]:
@@ -1604,6 +1658,12 @@ def write(
     lines = sorted(line for line in serialised.splitlines() if line.strip())
     quads.write_text("\n".join(lines) + "\n", encoding="utf-8")
     written.append(quads)
+
+    import json
+
+    release = directory / "manifest.json"
+    release.write_text(json.dumps(manifest(dataset), indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    written.append(release)
     return tuple(written)
 
 

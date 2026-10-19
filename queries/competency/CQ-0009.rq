@@ -1,28 +1,35 @@
 # question: CQ-0009
 # answers: What has to be established before a standalone geographical reference in a trade mark is treated as likely to cause confusion?
-# limits: Returns the elements the Manual states as required, with the sentence stating each. It does not weigh them, and it does not say whether they are made out on any set of facts — that is the decision maker's evaluative judgement and stating it is PU-0001. Note GR-0008's own note: `requiresElement` reads plausibly and, on that record, says the wrong thing.
+# limits: Returns every relationship the Manual's section on geographical references (29.9) supports, from both graphs, with `standing` saying which: "reviewed" rows are signed records still serving, "unreviewed" rows are machine-written and nobody has read them; the two are never merged or counted together. No signed record states the criteria any more (GR-0008 said the wrong thing and was replaced, GK-0017), and the required passage lists three criteria that must all be met while the graph holds a relationship for one of them (the mitigating-elements criterion, GR-0103): the rows are not the set the question asks for, and the ontology report counts that as an unmet contract. A structured test record (A04) is what would answer it. It does not weigh the criteria or say whether they are made out on any facts — that is the decision maker's evaluative judgement, and stating it is PU-0001.
 
 PREFIX tmk:  <https://data.ipaustralia.gov.au/tmk/ns/>
 PREFIX tmkg: <https://data.ipaustralia.gov.au/tmk/graph/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-SELECT ?record ?subjectLabel ?predicate ?objectLabel ?modality ?sourceRef
+SELECT ?standing ?record ?subjectLabel ?predicate ?objectLabel ?modality ?condition ?sourceRef
 WHERE {
-  GRAPH tmkg:approved {
-    ?assertion a tmk:ApprovedAssertion ;
-               tmk:goldRecord ?record ;
+  {
+    GRAPH tmkg:approved {
+      ?assertion a tmk:ApprovedAssertion ; tmk:sourcePassage ?passage .
+      # A corrected signed record is history; its replacement serves (ADR-0122).
+      FILTER NOT EXISTS { ?assertion tmk:isCorrected true }
+    }
+    BIND ("reviewed" AS ?standing)
+  } UNION {
+    GRAPH tmkg:authored { ?assertion a tmk:AuthoredAssertion ; tmk:sourcePassage ?passage }
+    BIND ("unreviewed" AS ?standing)
+  }
+  GRAPH ?g {
+    ?assertion tmk:goldRecord ?record ;
                tmk:assertionPredicate ?predicate ;
                tmk:assertionSubject ?subject ;
-               tmk:assertionObject ?object ;
-               tmk:sourcePassage ?passage .
+               tmk:assertionObject ?object .
     OPTIONAL { ?assertion tmk:modality ?modality }
-    ?subject skos:prefLabel ?subjectLabel .
-    OPTIONAL { ?object skos:prefLabel ?objectLabel }
-    VALUES ?predicate { tmk:requiresElement tmk:extendsTo tmk:excludesBasis tmk:qualifies }
-    FILTER (CONTAINS(LCASE(?subjectLabel), "geograph") || CONTAINS(LCASE(?subjectLabel), "connotation"))
-    # A corrected signed record is history; its replacement serves (ADR-0122).
-    FILTER NOT EXISTS { ?assertion tmk:isCorrected true }
+    OPTIONAL { ?assertion tmk:appliesWhen ?condition }
   }
   GRAPH tmkg:source { ?passage tmk:upstreamRef ?sourceRef }
+  FILTER (STRSTARTS(?sourceRef, "TMM/Part29/9"))
+  OPTIONAL { GRAPH ?sg { ?subject skos:prefLabel ?subjectLabel } }
+  OPTIONAL { GRAPH ?og { ?object skos:prefLabel ?objectLabel } }
 }
-ORDER BY ?record
+ORDER BY ?standing ?record

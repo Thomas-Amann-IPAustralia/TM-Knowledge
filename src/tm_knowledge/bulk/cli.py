@@ -150,14 +150,9 @@ def _measurement_items(job: str, ctx: jobs.Context, pools_path: Path | None = No
     for q in questions.values():
         hits, trace = systems.ontology(q["question"], 8)
         passages = [h.ref for h in hits]
-        legislation: list[str] = []
-        cited = [e.id for ref in passages[:3] for e in ctx.corpus.chunks[ref].provisions if not e.needs_a_human]
-        for ref in trace.provisions + cited:
-            passage = jobs.passage_at(ctx.corpus, ref)
-            if ref not in legislation and passage is not None and passage.text:
-                legislation.append(ref)
+        legislation = jobs.legislation_refs(ctx.corpus, q["question"], trace.provisions, passages)
         items.append(jobs.Item(q["key"], {
-            **q, "passages": passages, "legislation": legislation[:3],
+            **q, "passages": passages, "legislation": legislation,
             "recognised": trace.recognised, "neighbours": trace.neighbours,
             "paths": [list(p) for p in trace.paths][:12],
             "plain": [h.ref for h in systems.keyword(q["question"], 5)],

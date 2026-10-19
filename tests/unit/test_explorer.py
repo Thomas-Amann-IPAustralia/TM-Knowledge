@@ -122,8 +122,33 @@ def files():
 
 @needs_snapshot
 def test_every_file_is_built(files):
-    assert set(files) == {"ontology.json", "search.json", "passages.json", "stability.json",
+    assert set(files) == {"build.json", "ontology.json", "search.json", "passages.json", "stability.json",
                           "tour.json", "examples.json", "chat.json", "live.json"}
+
+
+@needs_snapshot
+def test_the_release_manifest_says_what_was_built(files):
+    """A11: one file a downstream consumer reads first, naming the pin, the compilations,
+    the Manual's capture, the schemas, the profile and the review states, apart."""
+    release = files["build.json"]
+    assert release["graph"]["manifest"] == "tmk-release/1"
+    assert release["graph"]["upstream"]["commit"].startswith(files["ontology.json"]["build"]["upstream"])
+    assert {row["label"] for row in release["graph"]["law"]} == {"Trade Marks Act 1995", "Trade Marks Regulations 1995"}
+    assert set(release["graph"]["graphs"]["approved"]["review_status"]) == {"approved"}
+    assert set(release["graph"]["graphs"]["authored"]["review_status"]) == {"unreviewed"}
+    assert release["manual"]["captured"] == "2026-08-03"
+    assert release["answers"] == {"live": "answer-v4", "prepared": "answer-v2"}
+
+
+@needs_snapshot
+def test_the_change_view_reads_every_store_and_starts_from_a_provision(files):
+    """R05: definitions and corrections rest on pages too, and a provision has a view."""
+    stability = files["stability.json"]
+    assert any(page["definitions"] for page in stability["pages"])
+    assert any(page["corrections"] for page in stability["pages"])
+    s44 = stability["provisions"]["TMA1995/s44"]
+    assert s44["direct"] and s44["via_manual"] and set(s44["ambiguous"]) <= set(s44["passages"])
+    assert "TMA1995/s44" in stability["held"]
 
 
 @needs_snapshot
@@ -226,15 +251,11 @@ def test_the_browser_engine_matches_python(files, tmp_path):
         if q["prompt"]:
             hits8, trace8 = systems.ontology(q["question"], 8)
             passages = [h.ref for h in hits8]
-            cited = [e.id for ref in passages[:3] for e in corpus.chunks[ref].provisions if not e.needs_a_human]
-            legislation: list[str] = []
-            for ref in trace8.provisions + cited:
-                found = jobs.passage_at(corpus, ref)
-                if ref not in legislation and found is not None and found.text:
-                    legislation.append(ref)
+            legislation = jobs.legislation_refs(corpus, q["question"], trace8.provisions, passages)
+            assert js["legislation"] == legislation, q["key"]
             item = jobs.Item(q["key"], {"question": q["question"], "recognised": trace8.recognised,
                                         "paths": [list(p) for p in trace8.paths][:12],
-                                        "passages": passages, "legislation": legislation[:3]})
+                                        "passages": passages, "legislation": legislation})
             assert js["prompt"] == jobs._answer_render(ctx, item), q["key"]
 
 
@@ -321,7 +342,11 @@ def test_every_answer_names_the_law_it_read(files):
     assert law[0]["line"].startswith("the Act as in force from ")
     assert files["examples.json"]["law"][0]["line"] == "the Act as in force from 14 October 2024"
     ask = (SITE / "js" / "ask.js").read_text(encoding="utf-8")
-    assert "Read against ${esc(lawLine(a.live ? chat.law : examples.law))}" in ask
+    assert "lawLine(a.live ? chat.law : examples.law, a.live ? chat.manual : examples.manual)" in ask
+    # R10: the Manual's capture date beside them, and the live one says it predates compilation 48.
+    assert files["chat.json"]["manual"]["line"] == "the Manual as captured on 3 August 2026"
+    assert "may not reflect" in files["chat.json"]["manual"]["note"]
+    assert files["examples.json"]["manual"]["note"] == ""
 
 
 def test_the_page_never_reads_an_empty_map_as_an_absence():

@@ -45,6 +45,7 @@ from tm_knowledge.bulk import links as links_module
 from tm_knowledge import config
 from tm_knowledge.config import PIN_PATH, REPO_ROOT
 from tm_knowledge.dashboard import views
+from tm_knowledge.ontology import dependencies
 from tm_knowledge.ontology.predicates import RETIRED
 from tm_knowledge.search import index as search_index
 from tm_knowledge.stage0 import goldset
@@ -498,13 +499,18 @@ def _part_sort(part: str) -> tuple[int, str]:
 # ----------------------------------------------------------------- stability
 
 
-def stability(corpus: Corpus, ontology_data: dict[str, Any], links: links_module.Links) -> dict[str, Any]:
+def stability(corpus: Corpus, ontology_data: dict[str, Any], links: links_module.Links,
+              deps: dependencies.DependencyIndex | None = None) -> dict[str, Any]:
     """What changes in the Manual, and what rests on each page of it.
 
     The amendment history is upstream's, verbatim. What rests on a page is
     computed from the records' own evidence refs: if the page's text changed,
-    these are the records whose quoted span would need re-checking.
+    these are the records whose quoted span would need re-checking. Since R05 the
+    dependency index adds every relationship's evidence (not only its one `ref`),
+    the definitions and corrections, and a view from each provision: the records
+    naming it, and those resting on a Manual passage that cites it.
     """
+    deps = deps or dependencies.build(corpus)
     page_of = {ref: chunk.page_ref for ref, chunk in corpus.chunks.items()}
     concept_refs: dict[str, set[str]] = defaultdict(set)
     typing_refs: dict[str, set[str]] = defaultdict(set)
@@ -514,9 +520,19 @@ def stability(corpus: Corpus, ontology_data: dict[str, Any], links: links_module
         for item in concept["evidence"]:
             (concept_refs if item["for"] == "concept" else typing_refs)[item["ref"]].add(concept["id"])
     relation_refs: dict[str, set[str]] = defaultdict(set)
+    shown = {rel["id"] for rel in ontology_data["relations"]}
     for rel in ontology_data["relations"]:
         if rel.get("ref"):
             relation_refs[str(rel["ref"])].add(rel["id"])
+    definition_refs: dict[str, set[str]] = defaultdict(set)
+    correction_refs: dict[str, set[str]] = defaultdict(set)
+    for dep in deps.all("current"):
+        if dep.record_type == "gold_relationship" and dep.record in shown:
+            relation_refs[dep.ref].add(dep.record)
+        elif dep.record_type == "definition":
+            definition_refs[dep.ref].add(dep.record)
+        elif dep.record_type == "correction":
+            correction_refs[dep.ref].add(dep.record)
     mention_refs: dict[str, set[str]] = defaultdict(set)
     for cid, hits in links.mentions.items():
         for hit in hits:
@@ -535,6 +551,7 @@ def stability(corpus: Corpus, ontology_data: dict[str, Any], links: links_module
             "amended": [[a.get("date"), (a.get("reason") or "").strip()] for a in page.amendments],
             "concepts": gather(concept_refs), "typings": gather(typing_refs),
             "relations": gather(relation_refs), "mentioned": gather(mention_refs),
+            "definitions": gather(definition_refs), "corrections": gather(correction_refs),
             "links": sum(len(mention_refs.get(ref, ())) for ref in chunk_refs),
         })
     events = [(a.get("date") or "", (a.get("reason") or "").strip())
@@ -547,7 +564,29 @@ def stability(corpus: Corpus, ontology_data: dict[str, Any], links: links_module
         "events": len(events),
         "by_year": dict(sorted(Counter(d[:4] for d, _ in events if d).items())),
         "reasons": [[reason, n] for reason, n in Counter(r or "(no reason given)" for _, r in events).most_common(12)],
+        "provisions": provision_impact(corpus, deps),
+        "held": sorted(corpus.provisions),
     }
+
+
+def provision_impact(corpus: Corpus, deps: dependencies.DependencyIndex) -> dict[str, Any]:
+    """From each provision: the records that name it (or a part of it, or its whole), and
+    the records resting on a Manual passage that cites it, with upstream's certainty kept
+    (R05). Only provisions something rests on are listed; "no recorded dependency" is all
+    an absence means."""
+    out = {}
+    for ref in sorted(corpus.provisions):
+        direct = deps.records(deps.touching(ref))
+        via = deps.via_manual(ref)
+        if not direct and not via:
+            continue
+        out[ref] = {
+            "direct": direct,
+            "via_manual": deps.records(via),
+            "passages": sorted({r["passage"] for r in via}),
+            "ambiguous": sorted({r["passage"] for r in via if r["certainty"] == "ambiguous"}),
+        }
+    return out
 
 
 # ------------------------------------------------------------------ examples
@@ -577,7 +616,7 @@ def examples() -> dict[str, Any]:
             "ndcg": {s: row.get(f"ndcg:{s}") for s in ("keyword", "hybrid", "ontology")},
         })
     return {"kinds": QUESTION_KINDS, "answers": out, "summary": results.get("summary", {}),
-            "law": PREPARED_LAW}
+            "law": PREPARED_LAW, "manual": manual(PREPARED_MANUAL_CAPTURED, PREPARED_LAW)}
 
 
 # ---------------------------------------------------------------------- tour
@@ -711,10 +750,34 @@ def _tour_example() -> dict[str, Any] | None:
 #: pin now holds. A prepared answer re-written against a later pin changes this.
 PREPARED_LAW = [
     {"code": "TMA1995", "name": "Trade Marks Act 1995", "compilation": "47", "register_id": "C2024C00545",
-     "line": "the Act as in force from 14 October 2024"},
+     "start": "2024-10-14", "line": "the Act as in force from 14 October 2024"},
     {"code": "TMR1995", "name": "Trade Marks Regulations 1995", "compilation": "53",
-     "register_id": "F2026C00009", "line": "the Regulations as in force from 18 December 2025"},
+     "register_id": "F2026C00009", "start": "2025-12-18", "line": "the Regulations as in force from 18 December 2025"},
 ]
+
+
+#: The Manual the prepared answers read: the pin moved on 2026-10-17 without changing
+#: the Manual snapshot (`data/pin.json`'s note), so it is the capture both pins hold.
+PREPARED_MANUAL_CAPTURED = "2026-08-03"
+
+
+def _day(iso: str) -> str:
+    from datetime import date
+
+    d = date.fromisoformat(iso[:10])
+    return f"{d.day} {d:%B %Y}"
+
+
+def manual(captured: str, law_rows: list[dict[str, str]]) -> dict[str, str]:
+    """The Manual's capture date beside the compilations an answer read (R10), and,
+    where the Manual was captured before a compilation came into force, the words
+    saying it may not reflect it. Reconciling the two is for the examiners at the
+    end-of-work review (ADR-0120), never for an answer."""
+    later = [row for row in law_rows if row.get("start", "") > captured[:10]]
+    note = " ".join(
+        f"The Manual was captured before {row['line']}, so it may not reflect that compilation's changes."
+        for row in later)
+    return {"captured": captured[:10], "line": f"the Manual as captured on {_day(captured)}", "note": note}
 
 
 def law(corpus: Corpus) -> list[dict[str, str]]:
@@ -722,7 +785,7 @@ def law(corpus: Corpus) -> list[dict[str, str]]:
     an answer shows for it: "the Act as in force from 14 October 2024"."""
     return [
         {"code": i.code, "name": i.name, "compilation": i.compilation_number,
-         "register_id": i.register_id, "line": i.in_force_line}
+         "register_id": i.register_id, "start": i.compilation_start, "line": i.in_force_line}
         for i in sorted(corpus.instruments.values(), key=lambda i: i.code)
     ]
 
@@ -743,6 +806,8 @@ def chat(ctx: jobs.Context) -> dict[str, Any]:
         "prepared_prompt_version": jobs.PREPARED_ANSWER_VERSION,
         # Which compilation of each instrument a live answer reads (ADR-0136, F09).
         "law": law(ctx.corpus),
+        # The Manual's capture beside them, and whether it predates a compilation (R10).
+        "manual": manual(max(page.crawled_at for page in ctx.corpus.pages.values()), law(ctx.corpus)),
         "instructions": jobs._ANSWER_INSTRUCTIONS, "schema": jobs._ANSWER_SCHEMA,
         "ontology_map": jobs.ontology_map(ctx),
         "passages_k": 8, "legislation_k": 3, "paths_k": 12, "plain_k": 5,
@@ -790,16 +855,48 @@ def build(corpus: Corpus | None = None, *, generated: str | None = None,
     onto = ontology(corpus, gold, authored, links)
     pin = json.loads(PIN_PATH.read_text(encoding="utf-8"))
     onto["build"] = {"generated": generated or date.today().isoformat(), "upstream": pin["commit"][:12]}
+    deps = dependencies.build(corpus, authored=authored)
     return {
+        "build.json": release(corpus, deps, onto["build"]["generated"]),
         "ontology.json": onto,
         "search.json": search(corpus, gold, authored, links),
         "passages.json": passages(corpus, {r for c in links.concepts.values() for r in c.legislative_basis}
                                   | set(onto["provisions"])),
-        "stability.json": stability(corpus, onto, links),
+        "stability.json": stability(corpus, onto, links, deps),
         "tour.json": tour(corpus, onto, links),
         "examples.json": examples(),
         "chat.json": chat(ctx),
         "live.json": live_payload(endpoint),
+    }
+
+
+def _revision() -> str | None:
+    import subprocess
+
+    try:
+        out = subprocess.run(["git", "rev-parse", "HEAD"], cwd=REPO_ROOT, capture_output=True, text=True,
+                             check=True, timeout=10)
+    except (OSError, subprocess.SubprocessError):
+        return None
+    return out.stdout.strip() or None
+
+
+def release(corpus: Corpus, deps: dependencies.DependencyIndex, generated: str) -> dict[str, Any]:
+    """The release manifest a downstream consumer reads first (A11): the committed graph's
+    `graph/manifest.json` (pin, compilations, schemas, profile, per-graph classes and review
+    states) plus what only the site build knows: its date, the repository revision, the
+    Manual's capture date, the answer versions and the dependency index's counts. A field
+    that cannot be known is null, never guessed."""
+    graph_manifest = REPO_ROOT / "graph" / "manifest.json"
+    rows = law(corpus)
+    return {
+        "generated": generated,
+        "revision": _revision(),
+        "graph": json.loads(graph_manifest.read_text(encoding="utf-8")) if graph_manifest.exists() else None,
+        "manual": manual(max(page.crawled_at for page in corpus.pages.values()), rows),
+        "law": rows,
+        "answers": {"live": jobs.ANSWER_VERSION, "prepared": jobs.PREPARED_ANSWER_VERSION},
+        "dependencies": deps.summary(),
     }
 
 

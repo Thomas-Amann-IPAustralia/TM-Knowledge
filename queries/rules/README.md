@@ -1,9 +1,20 @@
 # queries/rules/ — approved CONSTRUCT rules
 
-**Neither rule here is approved.** Both say `approved-by: PENDING`, and
+**RULE-0002 is approved; RULE-0001 is not.** RULE-0002's header names the owner's
+approval of 2026-09-08 (OQ-0004); RULE-0001 says `approved-by: PENDING`, and
 `tm_knowledge.ontology.rules` enforces the consequence rather than trusting the
-line: everything a rule produces is written with `tmk:reviewStatus "candidate"`
-and `tmk:requiresHumanReview true`, into `graph/inferred.ttl` and nowhere else.
+line: everything an unapproved rule produces is written with `tmk:reviewStatus
+"candidate"` and `tmk:requiresHumanReview true`, into `graph/inferred.ttl` and
+nowhere else.
+
+**RULE-0002 is the signed-records-only view of change impact.** It walks the
+approved graph from a Manual passage, and was approved for that scope; it sees no
+definition, correction or machine-written record, and no route from a provision.
+The wider question ("what would amending section 44 touch?") is answered by the
+dependency index, `tm_knowledge.ontology.dependencies` (the second review
+response, R05), shown on the explorer's change view and in §7 of the ontology
+report. Widening RULE-0002 instead would be a different rule needing its own
+approval.
 
 Stage 9's requirement is that experts approve every reasoning template before
 deployment. These are drafted so there is something to approve.
