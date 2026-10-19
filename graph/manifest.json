@@ -1,0 +1,114 @@
+{
+ "manifest": "tmk-release/1",
+ "upstream": {
+  "repo": "Thomas-Amann-IPAustralia/manual-XtrACTor",
+  "commit": "308bfd9162ebea3e0213e6299516ee314d6f2eca",
+  "manual_extractor_version": "ingest/0.11.0",
+  "legislation_extractor_version": "legislation/0.3.0",
+  "tree_sha256": "0c51c4fa5db4c6b1897eba0e2fe92d7e90a7cbb6395da9d0531ccf8ac652b38a"
+ },
+ "law": [
+  {
+   "label": "Trade Marks Act 1995",
+   "compilation": "48",
+   "register_id": "C2026C00421",
+   "in_force_from": "2026-09-19"
+  },
+  {
+   "label": "Trade Marks Regulations 1995",
+   "compilation": "53",
+   "register_id": "F2026C00009",
+   "in_force_from": "2025-12-18"
+  }
+ ],
+ "profile": "RDF 1.1 named graphs, SKOS, SHACL shapes and the approved SPARQL rules; no OWL profile is claimed and no OWL inference is licensed (ADR-0134). A direct edge is navigation only; the reified assertion is the reading (ADR-0134, R07).",
+ "graphs": {
+  "source": {
+   "triples": 65355,
+   "classes": {
+    "AdministrativeDecision": 98,
+    "Chunk": 1057,
+    "Citation": 2227,
+    "Decision": 311,
+    "Document": 1,
+    "DocumentVersion": 1,
+    "JudicialDecision": 151,
+    "Legislation": 2,
+    "LegislativeProvision": 315,
+    "LegislativeUnit": 2867,
+    "ManualPassage": 1057,
+    "Page": 206
+   },
+   "review_status": {}
+  },
+  "approved": {
+   "triples": 3644,
+   "classes": {
+    "ApprovedAssertion": 35,
+    "CompetencyQuestion": 20,
+    "ConceptScheme": 1,
+    "EntityMention": 55,
+    "LegalConcept": 52,
+    "ProhibitedUse": 11,
+    "ReasoningExpectation": 6,
+    "RelevanceJudgement": 2,
+    "RetrievalQuestion": 10,
+    "SearchQuestion": 1
+   },
+   "review_status": {
+    "approved": 190
+   }
+  },
+  "authored": {
+   "triples": 27885,
+   "classes": {
+    "AuthoredAssertion": 337,
+    "ConceptScheme": 1,
+    "Context": 16,
+    "Correction": 37,
+    "Definition": 149,
+    "EvidenceAnchor": 996,
+    "ExternalInstrument": 3,
+    "GroundOfRefusal": 8,
+    "InstrumentOrRecord": 23,
+    "LegalConcept": 112,
+    "LegalTest": 18,
+    "Principle": 3,
+    "ProceduralStep": 24,
+    "ProcessRole": 26,
+    "SignContent": 23,
+    "SubjectMatter": 16,
+    "UseInTrade": 4
+   },
+   "review_status": {
+    "unreviewed": 799
+   }
+  },
+  "inferred": {
+   "triples": 2315,
+   "classes": {
+    "InferredAssertion": 192
+   },
+   "review_status": {
+    "approved": 187,
+    "candidate": 5
+   }
+  }
+ },
+ "schemas": [
+  "https://ipaustralia.gov.au/schemas/tmk/authored/correction/1.0.0",
+  "https://ipaustralia.gov.au/schemas/tmk/authored/definition/1.0.0",
+  "https://ipaustralia.gov.au/schemas/tmk/authored/envelope/1.0.0",
+  "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0",
+  "https://ipaustralia.gov.au/schemas/tmk/stage0/competency-question/1.0.0",
+  "https://ipaustralia.gov.au/schemas/tmk/stage0/concept-type/1.0.0",
+  "https://ipaustralia.gov.au/schemas/tmk/stage0/gold-concept/1.0.0",
+  "https://ipaustralia.gov.au/schemas/tmk/stage0/gold-entity/1.0.0",
+  "https://ipaustralia.gov.au/schemas/tmk/stage0/gold-relationship/1.0.0",
+  "https://ipaustralia.gov.au/schemas/tmk/stage0/gold-retrieval-question/1.0.0",
+  "https://ipaustralia.gov.au/schemas/tmk/stage0/gold-search-question/1.0.0",
+  "https://ipaustralia.gov.au/schemas/tmk/stage0/prohibited-use/1.0.0",
+  "https://ipaustralia.gov.au/schemas/tmk/stage0/reasoning-expectation/1.0.0"
+ ],
+ "states": "approved: a named person signed it; unreviewed: a machine wrote it and nobody has read it; candidate: a rule derived it. They never share a named graph (CLAUDE.md rule 4). Silence never promotes a record (ADR-0085)."
+}
