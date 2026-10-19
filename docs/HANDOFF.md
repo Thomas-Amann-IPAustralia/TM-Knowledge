@@ -44,8 +44,9 @@ checks" (scratch scripts; the tests named below hold the same properties):
   `eval/README.md` (agents author, in `authored/`), roles as capacities with the disjointness
   scoped, `ExaminationOutcome` represents a recorded outcome and never generates one.
 
-Graph rebuilt, ontology report rebuilt. SHACL 0 defects, 0 gaps, 259 notes; harness 0 defects.
-TESTS. Counts: 52 signed + 112 machine-written concepts; 35 signed relationships (20 serving, 15
+Graph rebuilt, ontology report rebuilt; `tmk-graph --rules --check` matches. SHACL 0 defects, 0
+gaps, 259 notes; harness 0 defects, 12 gaps, 21 notes. 817 tests pass (two stale ones, the
+relationship template and `relations_from`'s row width, fixed). Counts: 52 signed + 112 machine-written concepts; 35 signed relationships (20 serving, 15
 corrected) + 337 machine-written; 37 corrections; 149 definitions; RULE-0002 187 conclusions.
 
 ## Next actions (agent work, no spend)

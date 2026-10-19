@@ -147,5 +147,6 @@ def test_relations_carry_modality_and_condition_from_both_stores():
     from tm_knowledge.search.index import relations_from
 
     rows = relations_from(corrections.served_gold(), store.load())
-    assert rows and all(len(row) == 7 for row in rows)
+    assert rows and all(len(row) == 8 for row in rows)
     assert any(row[6] for row in rows), "no relationship states a condition"
+    assert any(row[7] for row in rows), "no relationship states a hedge (S041, R01)"
