@@ -185,15 +185,20 @@ PREDICATES: dict[str, Predicate] = {p.name: p for p in (
        None, "signed"),
     # Until S036 an exception was whatever `doesNotGiveRiseTo` a ground, which turned
     # "not on its own" into "takes the case out" (the review response, F15; ADR-0135).
+    # Until S041 the example was GR-0700's hedged sentence ("Generally ... will not
+    # arise"), and the definition admitted hedged cases, so the dictionary, which the
+    # relate prompt renders, taught the reading R01 corrected (ADR-0140).
     _p("isAnExceptionTo",
        "The subject is a case the object — a ground or test — does not reach: where the subject "
-       "is present, the ground or test does not apply, as far as the source says and qualified "
-       "as it qualifies it.",
+       "is present, the source says the ground or test does not apply. Only where the source "
+       "excludes the case; a source that says the ground rarely, generally or is not likely to "
+       "apply states a tendency, and the hedge goes on a qualifies edge.",
        "<case> is an exception to <ground or test>",
-       "Generally, a section 43 ground for rejection will not arise in respect of long deceased "
-       "historical figures.",
-       "Not for something that is only not enough on its own, which leaves the ground open; use "
-       "doesNotGiveRiseTo.",
+       "Part 29.6: if the application is submitted by the well-known person, or with their "
+       "permission, \"a section 43 ground for rejection does not arise\".",
+       "Not for a tendency ('generally', 'rarely', 'not likely'); use qualifies with the hedge. Not "
+       "for something only not enough on its own, which leaves the ground open; use "
+       "doesNotGiveRiseTo. Not for reconsideration once information is supplied, which is a step.",
        None, "owner-2026-10-09"),
     _p("excludesBasis",
        "The object may not be used as a basis for the subject.",

@@ -5985,7 +5985,7 @@ revises by its own ADR.
 
 **Date** 2026-10-16 · **Authority** agent-proposed · **Status** accepted · supersedes the
 `doesNotGiveRiseTo` mapping in ADR-0126's agent decision 2, and nothing of the owner's
-decision there
+decision there · its reading of GR-0699, GR-0700 and GR-0701 superseded by ADR-0140
 
 **Context.** ADR-0126 decided, on the owner's word, that being an exception is an edge. Its
 agent part chose `doesNotGiveRiseTo` to be that edge and declared `tmk:Exception ≡
@@ -6190,3 +6190,48 @@ agent's.
 2. Order: Package 1 first (it repairs the definitions this decision waits on), then this, then the
    rest of the response's Package 2.
 3. The session that builds it fills the ruling's `applied` and marks this ADR acted on.
+
+## ADR-0140 — an exception edge only where the source excludes the case; the hedge is its own field
+
+**Date** 2026-10-19 · **Authority** agent-proposed · **Status** accepted · supersedes ADR-0135's
+reading of GR-0699, GR-0700 and GR-0701 (and its "each hedge or condition in `applies_when`"),
+and nothing else of ADR-0135
+
+**Context.** ADR-0135 made `isAnExceptionTo` the exception edge and re-read four records onto it,
+three of them hedged ("rarely", "Generally", "not likely") with the hedge in `applies_when`.
+ChatGPT's consolidated review (R01) and S040's check found that the three state a tendency, not a
+case the ground does not reach; that GR-0700's chunk goes on "However, a relevant connotation may
+arise if the deceased person's estate ... has continued to control the use"; that GR-0699's object
+was every ground, not section 43's; that GR-0702 rested on a reconsideration sentence; and that the
+dictionary's own example for the predicate was GR-0700's hedged sentence, rendered into the relate
+prompt. Five records held a hedge or an outcome in `applies_when` (GR-0565, GR-0574, GR-0608,
+GR-0699, GR-0700).
+
+**Decision (the agent's).**
+1. `isAnExceptionTo` is used only where the source excludes the case. Its definition says so, and
+   its example is Part 29.6's "a section 43 ground for rejection does not arise" for an application
+   by the well-known person; a tendency goes on `qualifies` with its hedge.
+2. A relationship carries a `hedge` (the sentence's strength word, verbatim) apart from
+   `applies_when` (the antecedent, verbatim): schema, harness check, `tmk:hedge` in the graph, the
+   explorer's cards and table, and the answer prompt's path line (`jobs.path_line`,
+   `engine.pathLine`), which adds `hedged "…"` only where one is recorded, so every other line is
+   unchanged.
+3. S041's ledger (`data/derived/audit/review-response-2.yaml`): GR-0699 → GC-0020 `qualifies`
+   GC-0168 (where business identifiers are included; "rarely"; 29.9.5 as evidence that the ground
+   is section 43's); GR-0700 → GC-0027 `qualifies` GC-0168 ("in respect of long deceased historical
+   figures"; "Generally"; the "However" and "more recently" sentences as evidence); GR-0701 →
+   GC-0048 `qualifies` GC-0002 ("not likely"); GR-0702 kept, re-anchored to the conditional
+   sentence with the reconsideration one as second evidence and the phoneword scope as its
+   condition; the hedges of GR-0565, GR-0574 and GR-0608 moved.
+4. No likelihood or reconsideration predicate: eleven predicates already have one use, and the
+   degree belongs on the record where a test record can read it.
+
+**What it does not decide.** Structured tests with conjunctions and exceptions (A04, Package 4).
+Whether the live chatbot is told the hedge beyond its path line (the prompt shape is ADR-0139's).
+
+**Consequences.**
+1. One `isAnExceptionTo` edge remains (GR-0702); `test_predicates.py` holds the three near misses
+   the review named.
+2. A re-read keeps the chain of earlier readings in `alternatives_considered`, so no earlier ledger
+   reads a record back (Q-93).
+3. Provisional; name it in the handoff's open items.

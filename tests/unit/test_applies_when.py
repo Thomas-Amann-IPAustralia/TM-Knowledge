@@ -82,3 +82,37 @@ def test_the_explorer_carries_the_condition_with_the_edge():
     authored = SimpleNamespace(of=lambda kind: (entry,) if kind == "gold_relationship" else ())
     (relation,) = explorer._relations(gold, authored)
     assert relation["when"] == CONDITION
+
+
+# --- the hedge, split from the condition (S041, the second review response R01) -----
+
+
+def test_a_hedge_is_the_sentences_own_words_and_is_stated_apart():
+    assert not schemas.validate(_record(hedge="unless"), "gold_relationship")
+    retyped = SimpleNamespace(record_id="GR-9001", record=_record(hedge="normally"), sound=True)
+    authored = SimpleNamespace(of=lambda kind: (retyped,) if kind == "gold_relationship" else ())
+    found = list(harness._authored_conditions(authored))
+    assert found and "hedge" in found[0].message
+
+
+@pytest.mark.rdf
+def test_the_graph_states_the_hedge_beside_the_condition():
+    from rdflib import Graph, URIRef
+
+    from tm_knowledge.ontology import build
+    from tm_knowledge.ontology.namespaces import TMK
+
+    graph, node = Graph(), URIRef("https://data.ipaustralia.gov.au/tmk/assertion/GR-9001")
+    build._qualifiers(graph, node, _record(applies_when=CONDITION, hedge="unless"))
+    assert str(graph.value(node, TMK.hedge)) == "unless"
+    assert str(graph.value(node, TMK.appliesWhen)) == CONDITION
+
+
+def test_the_path_line_says_how_strongly_and_only_when_it_is_recorded():
+    from tm_knowledge.bulk import jobs
+
+    labels = {"GC-0001": "a", "GC-0002": "b"}
+    hedged = jobs.path_line(labels, ("GC-0001", "qualifies", "GC-0002", "GR-1", "authored", "", "if x", "rarely"))
+    assert hedged.endswith('applies when "if x"; hedged "rarely")')
+    plain = jobs.path_line(labels, ("GC-0001", "qualifies", "GC-0002", "GR-1", "authored", "", "if x", ""))
+    assert plain.endswith('applies when "if x")'), "a line with no hedge is unchanged"

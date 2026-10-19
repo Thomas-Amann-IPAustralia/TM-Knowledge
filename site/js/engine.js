@@ -339,9 +339,9 @@ export function authorityFlags(answer, cited) {
     relationship, its record and origin, and the modality and condition the record
     states (ADR-0136). A prepared answer's five-field path says it records none. */
 export function pathLine(label, edge) {
-  const [s, p, o, rid, origin, modality = "", when = ""] = edge;
+  const [s, p, o, rid, origin, modality = "", when = "", hedge = ""] = edge;
   const qualified = (modality ? `modality "${modality}"` : "modality not recorded") + "; " +
-    (when ? `applies when "${when}"` : "no condition recorded");
+    (when ? `applies when "${when}"` : "no condition recorded") + (hedge ? `; hedged "${hedge}"` : "");
   return `- ${label(s)} —${p}→ ${label(o)} (${rid}, ${origin}; ${qualified})`;
 }
 

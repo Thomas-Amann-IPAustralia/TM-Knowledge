@@ -197,9 +197,14 @@ carries none for them."""@en-AU .
 tmk:appliesWhen a owl:DatatypeProperty ;
     rdfs:range rdf:langString ;
     rdfs:label "applies when"@en-AU ;
-    rdfs:comment """The condition or hedge under which the supporting sentence states the relationship, in that sentence's own words: 'an application to record assignment is received after the documentation required under reg 16.2 has been sent to the Commission', 'In most cases'.
+    rdfs:comment """The condition under which the supporting sentence states the relationship, in that sentence's own words: 'an application to record assignment is received after the documentation required under reg 16.2 has been sent to the Commission'. The antecedent only; how strongly is tmk:hedge (S041).
 
-On the reified assertion only. The direct triple is a navigation edge and says nothing of when it holds, so a reader who relies on an edge reads its assertion (ADR-0058). Absent means the sentence states the relationship without a condition, not that none exists in the law (the review response, F14 and F19)."""@en-AU .
+On the reified assertion only. The direct triple is a navigation edge and says nothing of when it holds, so a reader who relies on an edge reads its assertion (ADR-0058), and nothing may be inferred from the direct edges (ADR-0134). Absent means no condition was recorded, not that none exists in the law (the review response, F14 and F19)."""@en-AU .
+
+tmk:hedge a owl:DatatypeProperty ;
+    rdfs:range rdf:langString ;
+    rdfs:label "hedge"@en-AU ;
+    rdfs:comment """How strongly the supporting sentence states the relationship, in its own words: 'usually', 'rarely', 'Generally', 'not likely'. Split from tmk:appliesWhen in S041, where five records held a hedge or an outcome in place of a condition (the second review response, R01). A hedge is not a predicate: a relationship the sentence states 'usually' is the same relationship, said less strongly, and a test record can read the word where it is copied."""@en-AU .
 
 # --- inference --------------------------------------------------------------
 

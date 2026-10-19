@@ -1133,9 +1133,10 @@ def path_line(labels: dict[str, str], edge: Any) -> str:
     review response, F14). A line from before the condition was recorded (a prepared
     answer's five-field path) says it records none, which is not the same as none."""
     s, pred, o, rid, origin = edge[:5]
-    modality, when = (list(edge[5:7]) + ["", ""])[:2]
+    modality, when, hedge = (list(edge[5:8]) + ["", "", ""])[:3]
     qualified = (f'modality "{modality}"' if modality else "modality not recorded") + "; " + (
-        f'applies when "{when}"' if when else "no condition recorded")
+        f'applies when "{when}"' if when else "no condition recorded") + (
+        f'; hedged "{hedge}"' if hedge else "")
     return f"- {labels.get(s, s)} —{pred}→ {labels.get(o, o)} ({rid}, {origin}; {qualified})"
 
 
@@ -1276,7 +1277,8 @@ def _answer_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict
         "paths": [{"subject": e[0], "subject_label": labels.get(e[0], e[0]), "predicate": e[1],
                    "object": e[2], "object_label": labels.get(e[2], e[2]), "record": e[3], "origin": e[4],
                    # Seven fields since answer-v3 (ADR-0136): the modality and condition shown.
-                   **({"modality": e[5] or None, "applies_when": e[6] or None} if len(e) >= 7 else {})}
+                   **({"modality": e[5] or None, "applies_when": e[6] or None} if len(e) >= 7 else {}),
+                   **({"hedge": e[7] or None} if len(e) >= 8 else {})}
                   for e in p.get("paths") or ()],
         "passages": [_excerpt(ctx, ref) for ref in p["passages"]],
         "legislation": [_excerpt(ctx, ref) for ref in p.get("legislation") or ()],

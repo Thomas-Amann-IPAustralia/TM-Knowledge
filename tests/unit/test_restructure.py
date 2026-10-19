@@ -203,3 +203,84 @@ def test_an_earlier_ledger_never_undoes_a_later_ones_reading(tmp_path):
     restructure.apply(restructure.plan(_ctx_from_disk(tmp_path, ctx), later), root=tmp_path)
     again = restructure.plan(_ctx_from_disk(tmp_path, ctx), first)
     assert again.ok and not again.rereads and again.done == 1
+
+
+# --- S041: hedges, withdrawn conditions and re-anchoring (the second review response, R01) ---
+
+S041 = dict(S036, authored_by="claude-code-agent-S041", date="2026-10-19",
+            review="the second review response's R01 (S041)")
+HEDGED = "The Registrar usually decides the opposition where it is defended."
+
+
+def test_a_line_may_split_a_hedge_from_its_condition_and_withdraw_a_condition(tmp_path):
+    ctx = _ctx(tmp_path, [
+        {"id": "GR-0001", "subject": "GC-0046", "predicate": "performs", "object": "GC-0040",
+         "supporting_text": HEDGED, "applies_when": "usually"},
+        {"id": "GR-0002", "subject": "GC-0040", "predicate": "resultsIn", "object": "GC-0127",
+         "supporting_text": HEDGED},
+    ])
+    result = restructure.plan(ctx, dict(S041, edges=[
+        {"edge": "GR-0001", "to": ["GC-0046", "performs", "GC-0040"], "applies_when": "where it is defended",
+         "hedge": "usually", "why": "«split»"},
+        {"edge": "GR-0002", "to": ["GC-0040", "resultsIn", "GC-0127"], "hedge": "rarely", "why": "«retyped»"},
+    ]))
+    record = result.rereads["GR-0001"]
+    assert record["applies_when"] == "where it is defended" and record["hedge"] == "usually"
+    assert "its hedge recorded" in record["notes"]
+    assert any(line.startswith("GR-0002") and "hedge 'rarely' is not in" in line for line in result.refused)
+
+    ctx = _ctx(tmp_path, [{"id": "GR-0001", "subject": "GC-0046", "predicate": "performs", "object": "GC-0040",
+                           "supporting_text": HEDGED, "applies_when": "usually"}])
+    cleared = restructure.plan(ctx, dict(S041, edges=[
+        {"edge": "GR-0001", "to": ["GC-0046", "performs", "GC-0040"], "applies_when": None, "hedge": "usually",
+         "why": "«a hedge, not a condition»"}]))
+    assert "applies_when" not in cleared.rereads["GR-0001"] and cleared.rereads["GR-0001"]["hedge"] == "usually"
+
+
+def test_a_line_may_re_anchor_a_record_on_sentences_it_locates(tmp_path, monkeypatch):
+    from tm_knowledge.bulk import jobs
+
+    passages = {"TMM/Part1/1#2": "First. The Registrar decides the opposition. Unless it is withdrawn."}
+
+    def evidence(_corpus, ref, quote):
+        text = passages.get(ref)
+        if text is None or quote not in text:
+            return None
+        start = text.index(quote)
+        return {"ref": ref, "span": [start, start + len(quote)], "content_hash": "sha256:" + "b" * 64,
+                "quote": quote}
+
+    monkeypatch.setattr(jobs, "evidence", evidence)
+    ctx = _ctx(tmp_path, [{"id": "GR-0001", "subject": "GC-0046", "predicate": "performs", "object": "GC-0040",
+                           "supporting_text": TEXT}])
+    ctx.corpus = None
+    result = restructure.plan(ctx, dict(S041, edges=[{
+        "edge": "GR-0001", "to": ["GC-0046", "performs", "GC-0040"], "why": "«the right sentence»",
+        "evidence": [{"ref": "TMM/Part1/1#2", "quote": "The Registrar decides the opposition."},
+                     {"ref": "TMM/Part1/1#2", "quote": "Unless it is withdrawn."}]}]))
+    record = result.rereads["GR-0001"]
+    assert record["source_ref"] == "TMM/Part1/1#2" and record["supporting_text"] == "The Registrar decides the opposition."
+    assert record["span"] == [7, 44] and [e["quote"] for e in record["authored"]["evidence"]][1] == "Unless it is withdrawn."
+    assert record["authored"]["authoring_basis"] == "corpus_explicit"
+    refused = restructure.plan(ctx, dict(S041, edges=[{
+        "edge": "GR-0001", "to": ["GC-0046", "performs", "GC-0040"], "why": "«»",
+        "evidence": [{"ref": "TMM/Part1/1#2", "quote": "Not there."}]}]))
+    assert refused.refused and "does not occur" in refused.refused[0]
+
+
+def test_a_third_ledger_keeps_the_first_ledgers_reading_so_neither_earlier_one_undoes_it(tmp_path):
+    """S041 re-read records S036 had re-read from S029's: unless the chain of readings is
+    kept, S029's ledger finds no trace of itself and reads them back (Q-93)."""
+    ctx = _ctx(tmp_path, [
+        {"id": "GR-0001", "subject": "GC-0046", "predicate": "related", "object": "GC-0040", "supporting_text": TEXT},
+    ])
+    first = dict(LEDGER, edges=[{"edge": "GR-0001", "to": ["GC-0046", "performs", "GC-0040"], "why": "«decides»"}])
+    restructure.apply(restructure.plan(ctx, first), root=tmp_path)
+    second = dict(S036, edges=[{"edge": "GR-0001", "to": ["GC-0046", "performs", "GC-0040"], "modality": "may",
+                                "why": "«its discretion»"}])
+    restructure.apply(restructure.plan(_ctx_from_disk(tmp_path, ctx), second), root=tmp_path)
+    third = dict(S041, edges=[{"edge": "GR-0001", "to": ["GC-0040", "resultsIn", "GC-0127"], "why": "«ends in»"}])
+    restructure.apply(restructure.plan(_ctx_from_disk(tmp_path, ctx), third), root=tmp_path)
+    for earlier in (first, second):
+        again = restructure.plan(_ctx_from_disk(tmp_path, ctx), earlier)
+        assert again.ok and not again.rereads and again.done == 1, earlier["authored_by"]

@@ -1065,16 +1065,18 @@ def _authored_conditions(authored: AuthoredSet) -> Iterator[Finding]:
     may be rewrapped.
     """
     for entry in authored.of("gold_relationship"):
-        condition = entry.record.get("applies_when")
-        if not entry.sound or not condition:
+        if not entry.sound:
             continue
         sentence = " ".join(str(entry.record.get("supporting_text") or "").split())
-        if " ".join(str(condition).split()) not in sentence:
-            yield Finding(
-                Severity.DEFECT, "authored-conditions", entry.record_id,
-                f"applies_when {condition!r} is not in the supporting sentence. A condition is "
-                "copied from the sentence that states the relationship, never retyped",
-            )
+        # The hedge (S041, the second review response R01) is evidence on the same terms.
+        for field in ("applies_when", "hedge"):
+            words = entry.record.get(field)
+            if words and " ".join(str(words).split()) not in sentence:
+                yield Finding(
+                    Severity.DEFECT, "authored-conditions", entry.record_id,
+                    f"{field} {words!r} is not in the supporting sentence. A condition or a hedge "
+                    "is copied from the sentence that states the relationship, never retyped",
+                )
 
 
 def _authored_kinds(authored: AuthoredSet) -> Iterator[Finding]:

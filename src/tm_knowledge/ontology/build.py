@@ -1059,6 +1059,8 @@ def _qualifiers(graph: Graph, node: URIRef, record: dict[str, Any]) -> None:
         graph.add((node, TMK.modality, _lit(record["modality"])))
     if record.get("applies_when"):
         graph.add((node, TMK.appliesWhen, _en(" ".join(str(record["applies_when"]).split()))))
+    if record.get("hedge"):
+        graph.add((node, TMK.hedge, _en(" ".join(str(record["hedge"]).split()))))
 
 
 def _build_relationships(

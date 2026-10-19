@@ -9758,12 +9758,13 @@
   approved_date: null
   notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0113 related GC-0136.
     Checked on 2026-10-16 in the review response''s worklist (S036): its sentence''s condition
-    added.'
-  applies_when: usually
+    added. Checked on 2026-10-19 in the second review response''s R01 (S041): its condition
+    withdrawn; its hedge recorded.'
+  hedge: usually
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S036
-    authored_date: '2026-10-16'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part60/4/3/4/3/2
@@ -9774,8 +9775,11 @@
       quote: The filing date of an IRDA is usually the date on which the international registration
         was filed with the Office of origin.
     confidence: 0.8
-    reasoning: '''Usually'': the hedge now travels with the edge.'
+    reasoning: '''usually'' is how strongly the sentence states it, not a circumstance: moved
+      from applies_when to hedge.'
     alternatives_considered:
+    - 'As first written by claude-code-agent-S036 on 2026-10-16: GC-0113 keepsEarlierDate
+      GC-0091 — ''Usually'': the hedge now travels with the edge.'
     - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0113 keepsEarlierDate
       GC-0091 — The filing date of an IRDA is the date the international registration was
       filed with the Office of origin.'
@@ -9920,15 +9924,16 @@
   notes: 'Re-read on 2026-10-09 from a second model''s audit (gemini-3.1-pro-preview, audit-v1):
     was GC-0119 appliesTo GC-0031. Re-read on 2026-10-09 in the structure review (ADR-0131):
     was GC-0031 related GC-0119. Checked on 2026-10-16 in the review response''s worklist
-    (S036): its sentence''s condition added.'
+    (S036): its sentence''s condition added. Checked on 2026-10-19 in the second review response''s
+    R01 (S041): its sentence''s condition added; its hedge recorded.'
   approved_by: null
   approved_date: null
-  applies_when: in a composite trade mark containing additional distinctive elements will
-    usually have sufficient inherent adaptation to distinguish
+  applies_when: in a composite trade mark containing additional distinctive elements
+  hedge: usually
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S036
-    authored_date: '2026-10-16'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part22/14/14/4
@@ -9940,9 +9945,13 @@
         elements will usually have sufficient inherent adaptation to distinguish and not attract
         a section 41 ground for rejection.
     confidence: 0.8
-    reasoning: Only phonewords in a composite mark with other distinctive elements, and then
-      usually; the condition now travels with the edge.
+    reasoning: applies_when held the condition and the outcome together ('... will usually
+      have sufficient inherent adaptation to distinguish'); the condition is the composite
+      mark with other distinctive elements, and 'usually' is the hedge.
     alternatives_considered:
+    - 'As first written by claude-code-agent-S036 on 2026-10-16: GC-0031 qualifies GC-0059
+      — Only phonewords in a composite mark with other distinctive elements, and then usually;
+      the condition now travels with the edge.'
     - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0031 qualifies GC-0059
       — A phoneword in a composite mark with other distinctive elements will usually be inherently
       adapted enough.'
@@ -10463,12 +10472,13 @@
   approved_date: null
   notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0144 related GC-0046.
     Checked on 2026-10-16 in the review response''s worklist (S036): its sentence''s condition
-    added.'
-  applies_when: usually the person named in a subpoena
+    added. Checked on 2026-10-19 in the second review response''s R01 (S041): its condition
+    withdrawn; its hedge recorded.'
+  hedge: usually
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S036
-    authored_date: '2026-10-16'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part54/1/1/3
@@ -10480,9 +10490,13 @@
         is also acceptable if the subpoena is directed to “the proper officer” of the Trade
         Marks Office.
     confidence: 0.8
-    reasoning: The Registrar is usually the person named; a subpoena to 'the proper officer'
-      is also acceptable.
+    reasoning: '''usually the person named in a subpoena'' is the hedge with the object restated,
+      not a condition; the sentence goes on to accept a subpoena directed to ''the proper
+      officer'' as well.'
     alternatives_considered:
+    - 'As first written by claude-code-agent-S036 on 2026-10-16: GC-0144 isServedOn GC-0046
+      — The Registrar is usually the person named; a subpoena to ''the proper officer'' is
+      also acceptable.'
     - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0144 isServedOn GC-0046
       — The Registrar is usually the person named in a subpoena.'
     expert_should_check: Whether the sentence states this relationship, read the way the predicate
@@ -12808,8 +12822,8 @@
       was judged wrong; both read the same sentence.
 - id: GR-0699
   subject: GC-0020
-  predicate: isAnExceptionTo
-  object: GC-0006
+  predicate: qualifies
+  object: GC-0168
   source_ref: TMM/Part29/9/9/6
   supporting_text: Where business identifiers are included in a trade mark (e.g. A TASMANIAN
     COMPANY, RIVERINA DAIRY CO.) this tends to indicate a characteristic of a business rather
@@ -12824,14 +12838,16 @@
   notes: 'Re-read on 2026-10-09 from a second model''s audit (gemini-3.1-pro-preview, audit-v1):
     was GC-0020 doesNotGiveRiseTo GC-0168. Re-read on 2026-10-09 in the structure review (ADR-0131):
     was GC-0020 related GC-0006. Re-read on 2026-10-16 in the review response''s worklist
-    (S036): was GC-0020 doesNotGiveRiseTo GC-0006.'
+    (S036): was GC-0020 doesNotGiveRiseTo GC-0006. Re-read on 2026-10-19 in the second review
+    response''s R01 (S041): was GC-0020 isAnExceptionTo GC-0006.'
   approved_by: null
   approved_date: null
-  applies_when: A ground for rejection will rarely apply in these cases
+  applies_when: Where business identifiers are included in a trade mark
+  hedge: rarely
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S036
-    authored_date: '2026-10-16'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part29/9/9/6
@@ -12843,10 +12859,25 @@
         RIVERINA DAIRY CO.) this tends to indicate a characteristic of a business rather than
         the goods or services themselves. A ground for rejection will rarely apply in these
         cases.
+    - ref: TMM/Part29/9/9/5
+      span:
+      - 0
+      - 215
+      content_hash: sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9
+      quote: An applicant will be able to overcome a geographical section 43 objection by
+        agreeing to a condition of registration or a specification amendment which removes
+        the likelihood of consumers being deceived or confused.
     confidence: 0.8
-    reasoning: 'A business identifier indicates a business rather than the goods, so a ground
-      will rarely apply: a hedged exception, not insufficiency (F15).'
+    reasoning: '''A ground for rejection will rarely apply'': a tendency, not an exclusion,
+      so the identifier bears on the assessment (qualifies) rather than taking the case out.
+      The paragraph is Part 29.9.6, inside section 43''s treatment of geographical references,
+      whose ground 29.9.5 calls ''a geographical section 43 objection''; the object is that
+      ground, not every ground for rejection, so a business identifier challenged on another
+      ground is not covered. The condition and the hedge travel apart.'
     alternatives_considered:
+    - 'As first written by claude-code-agent-S036 on 2026-10-16: GC-0020 isAnExceptionTo GC-0006
+      — A business identifier indicates a business rather than the goods, so a ground will
+      rarely apply: a hedged exception, not insufficiency (F15).'
     - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0020 doesNotGiveRiseTo
       GC-0006 — A business identifier indicates a business, not the goods; a ground for rejection
       will rarely apply.'
@@ -12854,7 +12885,7 @@
       reads.
 - id: GR-0700
   subject: GC-0027
-  predicate: isAnExceptionTo
+  predicate: qualifies
   object: GC-0168
   source_ref: TMM/Part29/6/6/2~1
   supporting_text: Generally, a section 43 ground for rejection will not arise in respect
@@ -12868,14 +12899,15 @@
   modality: null
   approved_by: null
   approved_date: null
-  applies_when: Generally, a section 43 ground for rejection will not arise in respect of
-    long deceased historical figures
   notes: 'Re-read on 2026-10-16 in the review response''s worklist (S036): was GC-0027 doesNotGiveRiseTo
-    GC-0168.'
+    GC-0168. Re-read on 2026-10-19 in the second review response''s R01 (S041): was GC-0027
+    isAnExceptionTo GC-0168.'
+  applies_when: in respect of long deceased historical figures
+  hedge: Generally
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S036
-    authored_date: '2026-10-16'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part29/6/6/2~1
@@ -12886,10 +12918,33 @@
       quote: Generally, a section 43 ground for rejection will not arise in respect of long
         deceased historical figures, even if they were well known for the same field as the
         specified goods/services are in.
+    - ref: TMM/Part29/6/6/2~1
+      span:
+      - 704
+      - 949
+      content_hash: sha256:8e7a69fc516a2b4b11213363298946680a0c24f0d1bcddc9f0d803c24c151e53
+      quote: However, a relevant connotation may arise if the deceased person’s estate (or
+        other authorised entity) has continued to control the use of the person’s name/image
+        after their death, e.g. by commercialising directly or licensing to third parties.
+    - ref: TMM/Part29/6/6/2~1
+      span:
+      - 950
+      - 1149
+      content_hash: sha256:8e7a69fc516a2b4b11213363298946680a0c24f0d1bcddc9f0d803c24c151e53
+      quote: The more well-known the person is, and the more recently they died (especially
+        from the mid-twentieth century onwards), the more likely consumers will be to know
+        about or expect this kind of control.
     confidence: 0.8
-    reasoning: '''Generally, a section 43 ground ... will not arise in respect of long deceased
-      historical figures'': a hedged exception, not insufficiency (F15).'
+    reasoning: '''Generally ... will not arise'' for the long deceased, and the same chunk
+      goes on: ''However, a relevant connotation may arise if the deceased person''s estate
+      ... has continued to control the use'', and the more recently they died, the more likely.
+      Being deceased bears on the section 43 assessment; it does not take the case out of
+      it, and for the recently deceased whose estate controls the name the ground may well
+      arise. Both qualifying sentences are now evidence on the record.'
     alternatives_considered:
+    - 'As first written by claude-code-agent-S036 on 2026-10-16: GC-0027 isAnExceptionTo GC-0168
+      — ''Generally, a section 43 ground ... will not arise in respect of long deceased historical
+      figures'': a hedged exception, not insufficiency (F15).'
     - 'As first written by claude-code-agent-S027 on 2026-10-09: GC-0027 doesNotGiveRiseTo
       GC-0168 — The Manual says a section 43 ground will generally not arise for a long deceased
       historical figure, even one well known in the field. Written on the owner''s ruling
@@ -12898,7 +12953,7 @@
       reads.
 - id: GR-0701
   subject: GC-0048
-  predicate: isAnExceptionTo
+  predicate: qualifies
   object: GC-0002
   source_ref: TMM/Part29/9#1
   supporting_text: Deception or confusion is not likely to occur if the geographic reference
@@ -12913,13 +12968,15 @@
   modality: null
   approved_by: null
   approved_date: null
-  applies_when: if the geographic reference is ambiguous or fanciful
   notes: 'Re-read on 2026-10-16 in the review response''s worklist (S036): was GC-0048 doesNotGiveRiseTo
-    GC-0002.'
+    GC-0002. Re-read on 2026-10-19 in the second review response''s R01 (S041): was GC-0048
+    isAnExceptionTo GC-0002.'
+  applies_when: if the geographic reference is ambiguous or fanciful
+  hedge: not likely
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S036
-    authored_date: '2026-10-16'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part29/9#1
@@ -12932,9 +12989,14 @@
         strawberries) or when a word will not be seen as a geographical reference in the eyes
         of an average consumer (MOCHA for confectionery).
     confidence: 0.8
-    reasoning: 'Deception or confusion is not likely where the geographic reference is ambiguous
-      or fanciful: a case the test does not reach (F15).'
+    reasoning: '''Deception or confusion is not likely to occur if ...'' is the test''s own
+      outcome on those facts, framed as likelihood: the closest of the four to an exclusion,
+      but the source states a tendency, and the test still supplies the reasoning. The hedge
+      is recorded beside the condition.'
     alternatives_considered:
+    - 'As first written by claude-code-agent-S036 on 2026-10-16: GC-0048 isAnExceptionTo GC-0002
+      — Deception or confusion is not likely where the geographic reference is ambiguous or
+      fanciful: a case the test does not reach (F15).'
     - 'As first written by claude-code-agent-S027 on 2026-10-09: GC-0048 doesNotGiveRiseTo
       GC-0002 — The Manual says deception or confusion is not likely where the geographical
       reference is ambiguous or fanciful — the test is not met. Written on the owner''s ruling
@@ -12946,11 +13008,12 @@
   predicate: isAnExceptionTo
   object: GC-0168
   source_ref: TMM/Part29/7#1
-  supporting_text: The section 43 ground for rejection will be reconsidered if an applicant
-    provides information confirming that they are the owner or authorised user of the phoneword.
+  supporting_text: A section 43 ground for rejection will apply if the applicant for a trade
+    mark containing material likely to be viewed as a phoneword, or the numbers representing
+    a phoneword, is not also the owner (or authorised user) of that phoneword.
   span:
-  - 995
-  - 1160
+  - 437
+  - 674
   source_content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
   tier: 3
   modality: null
@@ -12958,15 +13021,24 @@
   approved_date: null
   notes: 'Re-read on 2026-10-09 in the structure review (ADR-0131): was GC-0035 qualifies
     GC-0168. Re-read on 2026-10-16 in the review response''s worklist (S036): was GC-0035
-    doesNotGiveRiseTo GC-0168.'
-  applies_when: if an applicant provides information confirming that they are the owner or
-    authorised user of the phoneword
+    doesNotGiveRiseTo GC-0168. Checked on 2026-10-19 in the second review response''s R01
+    (S041): its sentence''s condition added; re-anchored.'
+  applies_when: a trade mark containing material likely to be viewed as a phoneword, or the
+    numbers representing a phoneword
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S036
-    authored_date: '2026-10-16'
+    authored_by: claude-code-agent-S041
+    authored_date: '2026-10-19'
     authoring_basis: corpus_explicit
     evidence:
+    - ref: TMM/Part29/7#1
+      span:
+      - 437
+      - 674
+      content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
+      quote: A section 43 ground for rejection will apply if the applicant for a trade mark
+        containing material likely to be viewed as a phoneword, or the numbers representing
+        a phoneword, is not also the owner (or authorised user) of that phoneword.
     - ref: TMM/Part29/7#1
       span:
       - 995
@@ -12975,11 +13047,18 @@
       quote: The section 43 ground for rejection will be reconsidered if an applicant provides
         information confirming that they are the owner or authorised user of the phoneword.
     confidence: 0.8
-    reasoning: 'The ground applies to a phoneword only if the applicant is not its owner or
-      authorised user (the sentence before, GR-0440), and is reconsidered once that is confirmed:
-      an exception with its condition (F15). Kept, as the only edge left on GC-0035 once GR-0140
-      and GR-0437 go.'
+    reasoning: 'Kept as an exception: the ground applies to a phoneword mark only if the applicant
+      ''is not also the owner (or authorised user) of that phoneword'', so being the owner
+      takes the case out of the phoneword ground. Re-anchored to that conditional sentence,
+      with the reconsideration sentence as second evidence: information prompting reconsideration
+      is a procedural step, not acceptance. The condition now carries the phoneword scope,
+      so the edge no longer reads as true of the owner of any mark.'
     alternatives_considered:
+    - 'As first written by claude-code-agent-S036 on 2026-10-16: GC-0035 isAnExceptionTo GC-0168
+      — The ground applies to a phoneword only if the applicant is not its owner or authorised
+      user (the sentence before, GR-0440), and is reconsidered once that is confirmed: an
+      exception with its condition (F15). Kept, as the only edge left on GC-0035 once GR-0140
+      and GR-0437 go.'
     - 'As first written by claude-code-agent-S029 on 2026-10-09: GC-0035 doesNotGiveRiseTo
       GC-0168 — An application by the owner or authorised user of the phoneword takes the
       case out of the section 43 ground; the ground is reconsidered once that is confirmed.'

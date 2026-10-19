@@ -15,7 +15,7 @@
    (ADR-0130). The text level keeps the Manual, the Act and the Regulations
    apart: a box, a colour and a mark for each. */
 
-import { esc, fmt, el, load, kindColour, kindCount, refChip, refLabel, trustBadge, kindChip, legend, isLaw, sourceOf, quoteBlock, SOURCES, openPassage, definitionBlock, hierarchyBlock } from "./app.js";
+import { esc, fmt, el, load, kindColour, kindCount, refChip, refLabel, trustBadge, kindChip, legend, isLaw, sourceOf, quoteBlock, SOURCES, openPassage, definitionBlock, hierarchyBlock, qualifiedLine } from "./app.js";
 import { KIND_POS, LOOSE, specificCount } from "./kinds.js";
 import * as lib from "./lib.js";
 
@@ -641,7 +641,7 @@ export async function render(root, { ontology, params }) {
   // (review response F14). Shown beside the connection so it never reads as more than
   // its sentence says.
   function whenLine(r) {
-    return r.when ? `<p class="small"><b>Only as the source qualifies it:</b> “${esc(r.when)}”</p>` : "";
+    return qualifiedLine(r);
   }
 
   function relationCard(r) {

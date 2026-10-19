@@ -28,6 +28,11 @@ another predicate drops the modality it copied unless the line gives one: thirty
 re-reads kept the modality of a verb their new predicate does not read (the review
 response, F05 and F16). A ledger names its report, its ruling item and its review.
 
+Since S041 (the second review response, R01) a line may also give a `hedge` (the
+sentence's own strength word, beside its condition), clear a field by setting it to
+null, and re-anchor a record with `evidence:` — a list of `{ref, quote}`, each located
+verbatim; the first becomes the record's sentence and all of them its evidence.
+
 Every record written carries the session's stamp, `unreviewed`, and the ruling. Nothing
 here calls a model, and nothing here decides: the ledger decides, and the checks refuse.
 """
@@ -95,10 +100,12 @@ def _fold(text: Any) -> str:
 
 
 def _condition_refused(row: dict[str, Any], sentence: Any) -> str | None:
-    """A line's `applies_when` must be the sentence's own words (F14), or it is refused."""
-    condition = row.get("applies_when")
-    if condition and _fold(condition) not in _fold(sentence):
-        return f"applies_when {condition!r} is not in the supporting sentence"
+    """A line's `applies_when` and `hedge` must be the sentence's own words (F14, R01),
+    or it is refused."""
+    for name in ("applies_when", "hedge"):
+        words = row.get(name)
+        if words and _fold(words) not in _fold(sentence):
+            return f"{name} {words!r} is not in the supporting sentence"
     return None
 
 
@@ -125,6 +132,17 @@ def _first(envelope: dict[str, Any], what: str) -> str:
     """The reading a re-read replaces, for `alternatives_considered`."""
     return (f"As first written by {envelope.get('authored_by')} on {envelope.get('authored_date')}: {what}"
             + (f" — {envelope.get('reasoning')}" if envelope.get("reasoning") else ""))
+
+
+def _readings(envelope: dict[str, Any], what: str) -> list[str]:
+    """The reading a re-read replaces, then every earlier reading the record kept.
+
+    The chain is what tells an earlier ledger its line is done (`_read_since`): S041's
+    re-reads of S036's re-reads of S029's records would otherwise have dropped S029's
+    reading, and the S029 ledger would have read five records back (Q-93)."""
+    earlier = [str(alt) for alt in envelope.get("alternatives_considered") or ()
+               if str(alt).startswith("As first written by ")]
+    return [_first(envelope, what), *earlier]
 
 
 def _relabelled(ledger: dict[str, Any], quote: str) -> set[str]:
@@ -234,9 +252,16 @@ def plan(ctx: jobs.Context, ledger: dict[str, Any]) -> Plan:
             out.log.append((edge, old, None, str(row["withdraw"])))
             continue
         new = tuple(str(x) for x in row["to"])
-        named = jobs._quote_names(ctx, str(entry.record.get("supporting_text") or "")) | {old[0], old[2]}
+        anchored = [jobs.evidence(ctx.corpus, str(item["ref"]), str(item["quote"]))
+                    for item in row.get("evidence") or ()]
+        if None in anchored:
+            out.refused.append(f"{edge}: the quote does not occur in {row['evidence'][anchored.index(None)]['ref']}")
+            continue
+        sentence = anchored[0]["quote"] if anchored else str(entry.record.get("supporting_text") or "")
+        named = set().union(*(jobs._quote_names(ctx, x["quote"]) for x in anchored)) if anchored else set()
+        named |= jobs._quote_names(ctx, sentence) | {old[0], old[2]}
         problem = (_refusal(ctx, kinds, new, named, affirmed)  # type: ignore[arg-type]
-                   or _condition_refused(row, entry.record.get("supporting_text")))
+                   or _condition_refused(row, sentence))
         if problem:
             out.refused.append(f"{edge} → {' '.join(new)}: {problem}")
             continue
@@ -260,23 +285,34 @@ def plan(ctx: jobs.Context, ledger: dict[str, Any]) -> Plan:
         if predicate != old[1]:
             record["modality"] = row.get("modality")
             record.pop("applies_when", None)
+            record.pop("hedge", None)
         elif "modality" in row:
             record["modality"] = row["modality"]
-        if row.get("applies_when"):
-            record["applies_when"] = _fold(row["applies_when"])
+        for name in ("applies_when", "hedge"):
+            if row.get(name):
+                record[name] = _fold(row[name])
+            elif name in row:
+                record.pop(name, None)  # null on the line: the field is withdrawn
+        if anchored:
+            first = anchored[0]
+            record.update({"source_ref": first["ref"], "supporting_text": first["quote"],
+                           "span": first["span"], "source_content_hash": first["content_hash"]})
         if new != old:
             note = f"Re-read on {today} in {_review(ledger)}: was {old[0]} {old[1]} {old[2]}."
         else:
             changed = [f"modality {entry.record.get('modality') or 'none'} → {record.get('modality') or 'none'}"
                        if record.get("modality") != entry.record.get("modality") else "",
-                       "its sentence's condition added" if row.get("applies_when") else ""]
+                       "its sentence's condition added" if row.get("applies_when") else "",
+                       "its condition withdrawn" if "applies_when" in row and not row["applies_when"] else "",
+                       "its hedge recorded" if row.get("hedge") else "",
+                       "re-anchored" if anchored else ""]
             note = f"Checked on {today} in {_review(ledger)}: {'; '.join(x for x in changed if x) or 'unchanged'}."
         record["notes"] = (str(record["notes"]) + " " + note) if record.get("notes") else note
         record["authored"] = _stamp(
-            ledger, evidence=list(envelope.get("evidence") or []),
-            basis=str(envelope.get("authoring_basis") or "corpus_inferred"),
+            ledger, evidence=anchored or list(envelope.get("evidence") or []),
+            basis="corpus_explicit" if anchored else str(envelope.get("authoring_basis") or "corpus_inferred"),
             reasoning=str(row.get("why") or ""),
-            alternatives=[_first(envelope, " ".join(old))],
+            alternatives=_readings(envelope, " ".join(old)),
             check="Whether the sentence states this relationship, read the way the predicate reads.",
             confidence=float(row.get("confidence", 0.8)),
         )
@@ -487,10 +523,10 @@ def render(result: Plan, labels: dict[str, str]) -> str:
         record = result.rereads.get(edge) or {}
         if new == old:
             now = "the same, " + (f"modality {record.get('modality') or 'none'}" if "modality" in record else "")
-            if record.get("applies_when"):
-                now += f"; only as qualified: “{record['applies_when']}”"
-        elif record.get("applies_when"):
+        if record.get("applies_when"):
             now += f"; only as qualified: “{record['applies_when']}”"
+        if record.get("hedge"):
+            now += f"; stated as “{record['hedge']}”"
         lines.append(f"| {edge} | {triple(old)} | {now.replace('|', '/')} | {why.replace('|', '/')} |")
     lines += ["", "## Withdrawn", "", "| edge | was | why |", "|---|---|---|"]
     for edge, old, _new, why in withdrawn:

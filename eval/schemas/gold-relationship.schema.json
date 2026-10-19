@@ -27,7 +27,12 @@
     "applies_when": {
       "type": ["string", "null"],
       "minLength": 1,
-      "description": "The condition or hedge under which the supporting sentence states the relationship, copied from that sentence and never retyped: 'an application to record assignment is received after …', 'In most cases'. Optional; absent means the sentence states the relationship without one. Shown wherever the edge is shown, so an edge never reads as more than its sentence says (the review response, F14)."
+      "description": "The condition under which the supporting sentence states the relationship, copied from that sentence and never retyped: 'an application to record assignment is received after …'. The antecedent only; how strongly the sentence states it is `hedge`. Optional; absent means no condition was recorded. Shown wherever the edge is shown, so an edge never reads as more than its sentence says (the review response, F14; the second response, R01)."
+    },
+    "hedge": {
+      "type": ["string", "null"],
+      "minLength": 1,
+      "description": "How strongly the supporting sentence states the relationship, its own strength word or phrase copied verbatim: 'usually', 'rarely', 'Generally', 'not likely'. Split from applies_when in S041, where five records held a hedge or an outcome in place of a condition (the second review response, R01). Optional; absent means the sentence states it without one."
     },
     "notes": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/notes" },
     "approved_by": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_by" },
