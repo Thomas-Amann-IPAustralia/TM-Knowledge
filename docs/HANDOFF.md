@@ -10,8 +10,8 @@ Rewritten every session, under 150 lines (ADR-0110). History is in the git log a
 **The purpose is ADR-0138** (`CLAUDE.md` §0): a foundation, an examiner research tool, a customer
 explanation aid. **The plan is `docs/ONTOLOGY-REVIEW-RESPONSE-2.md`'s order: Package 1, then 3,
 then 2, then 4.** S041 started from S040's branch (`claude/adoring-pascal-38ogq7`, fast-forwarded:
-it held the response and the handoff) and **did Package 1**. No model was called; spend is still
-US$9.63 against the US$9.49 cap, so every paid call is refused.
+it held the response and the handoff), **did Package 1, then Package 3**. No model was called; spend
+is still US$9.63 against the US$9.49 cap, so every paid call is refused, and nothing was measured.
 
 Package 1, each item shown done by re-running its probe from the response's "How to repeat the
 checks" (scratch scripts; the tests named below hold the same properties):
@@ -49,22 +49,18 @@ gaps, 259 notes; harness 0 defects, 12 gaps, 21 notes. 817 tests pass (two stale
 relationship template and `relations_from`'s row width, fixed). Counts: 52 signed + 112 machine-written concepts; 35 signed relationships (20 serving, 15
 corrected) + 337 machine-written; 37 corrections; 149 definitions; RULE-0002 187 conclusions.
 
-## Next actions (agent work, no spend)
+**Package 3, the live answer, is done: `answer-v4`** (ADR-0139 acted on, ruling `applied`).
+`jobs.excerpt` = `engine.excerpt`: legislation whole up to 4,000 characters (s 44 with (3) and (4));
+a longer provision gives its matched blocks plus whatever a "Subject to" lead-in names; a Manual
+chunk past 3,000 is cut around the question's first word; every cut marked (`cut="..."`, "…") and
+listed on the page. Claims, each with an authority and quotes, checked against the excerpt sent
+(`jobs.check_claims`, `Engine.verify`); "No checked support" marked; streamed as an unchecked
+draft. Definitions of the recognised concepts in the prompt (`jobs.definition_lines`, shipped in
+`chat.json`). Prepared answers labelled as read from 1,600-character cuts. Tests in
+`test_explorer.py`, including byte parity of the excerpts on every long source; a headless run of
+the Ask page with a stubbed model rendered the marks with no console errors.
 
-**Package 3: the live answer** (ADR-0139, ruling `2026-10-19-chat-approvals.yaml`, `applied: null`).
-Package 1 has repaired the definitions it waits on, so it can start. In `bulk/jobs.py` and
-`site/js/engine.js` together (`test_explorer.py` holds the prompts identical):
-- **A06.** Replace the 1,600 cut (`explorer/build.py` `passage_chars`; `jobs._answer_render`;
-  `engine.prompt`): legislation whole up to a budget, the matched units plus any unit a "Subject to
-  subsections ..." lead-in names for the largest; Manual chunks cut around the match
-  (`passage_block`'s `around`); every cut marked in the prompt and on the page. Fixture: a section
-  44 question sees (3) and (4).
-- **A08.** A new answer version (`ANSWER_VERSION`; `test_search.py` pins `answer-v3`): claims, each
-  with its quotes; `Engine.verify` against the excerpt sent, not `this.text(ref)`; `ask.js` marks an
-  unsupported claim, shows "no checked support" for an answer with none, streams as an unchecked
-  draft; the page says the check proves a quote exists, not that it supports.
-- **Definitions** in the prompt, each with basis and stamp. Label the 129 prepared answers
-  (`answer-v2`) as written from cut passages. Fill the ruling's `applied`; mark ADR-0139 acted on.
+## Next actions (agent work, no spend)
 
 **Package 2: what examiners use.** R05 dependency index keyed by any ref (reuse the staleness check),
 feeding `explorer.build.stability`; RULE-0002 left as is, labelled signed-only. R06 each competency
@@ -89,8 +85,14 @@ matter, objection, role assignment, built on roles-as-capacities; evidence for s
   sentence has two (GR-0148, GR-0309 carry their consequent with them).
 - **The proceeding lookup is coarse**: Parts 52, 54, 55, 7, 9, 15 cover several proceedings and fix
   none; a statutory source fixes none.
-- **Live answers about long provisions still read only their first 1,600 characters** (A06) until
-  Package 3; a kept citation proves a quote exists, not that it supports (A08).
+- **`answer-v4` has never run against the real model**: the cap is spent, and the live page was
+  checked only with a stubbed reply. The first real answers may show the model mis-filling
+  `authority` or quoting across a "…" (such a quote is dropped). A kept quote proves the words exist,
+  not that they support the claim (A08); a judge needs spend.
+- **The live answer is no longer the measured one**: the benchmark numbers are for `answer-v2`
+  prompts over 1,600-character cuts. Re-measuring is an owner gate (spend).
+- **The block rule fills spare budget with blocks the question does not match** (s 6's definitions,
+  in order); harmless, but not "the matched units only".
 - **A clean authority flag is not a verified attribution** (R08).
 - **GC-0179 keeps "The report must include the lapsing date."** among its evidence (the old reading's
   quote, still true of the Manual); its definition now takes the deferral from reg 4.10(3).
@@ -111,8 +113,8 @@ matter, objection, role assignment, built on roles-as-capacities; evidence for s
   a condition or a `no_condition` reason, and the harness counts the states.
 - **Read evidence through `tmk:evidence`** (anchors), not `tmk:sourcePassage` (the passage only).
 - **Probing SHACL**: `validate.run` on the loaded `Dataset`, never a flat graph (Q-97).
-- **Engines change together**: `engine.js`/`search/index.py`, `jobs.passage_block`/the
-  `engine.prompt` cut, `jobs.path_line`/`engine.pathLine` (now eight fields, the hedge last),
+- **Engines change together**: `engine.js`/`search/index.py`, `jobs.excerpt`/`engine.excerpt` and
+  `jobs.check_claims`/`Engine.verify` (and `jobs.definition_lines`, shipped in `chat.json`), `jobs.path_line`/`engine.pathLine` (now eight fields, the hedge last),
   `search.authority`/`authorityFlags`, `links.find_mentions`/`Recogniser`,
   `jobs.reading_input`/`live.readingInput`.
 - **Definitions and corrections have their own readers**; pass `authored.root` to
@@ -124,6 +126,8 @@ matter, objection, role assignment, built on roles-as-capacities; evidence for s
 ## Open items (agent-proposed, provisional)
 
 - **ADR-0140** (exceptions only where the source excludes; the hedge field), S041.
+- S041's Package 3 engineering: the 4,000 and 3,000 budgets, the block rule and lead-in pattern,
+  the claim schema's fields (`text`, `authority`, `quotes`), listing at most 12 labels in a cut.
 - S041's engineering: evidence-anchor IRIs and `checkedAgainst`; `assertionObject` as `rdf:Property`;
   the span and hash properties losing their domain; the triage's three rules and thresholds; the
   condition-state rule and the Part lookup tables; the applier's three fixes (Q-98).
