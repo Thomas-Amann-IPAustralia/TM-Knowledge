@@ -47,8 +47,14 @@ The restructure applier now keeps a concept's chain of readings, as it does a re
   page to a file; it is **not deployed and not for customers**.
   `tests/unit/test_explain.py` (31 tests) holds every acceptance example and rule.
 
-Graph rebuilt (manifest only for the slice: GL/GP records are not yet in the graph), ontology report
-checked, SHACL 0 defects, harness 0 defects. Full-suite count: the commit that records it.
+- **In the graph**: each GL/GP record is a `tmk:StructuredTest` or `tmk:ProcessTemplate` (records,
+  apart from the `tmk:LegalTest` concept kind) in the authored graph with its envelope and an anchor
+  per quote; a test `tmk:readsProvision` its provision. The envelope shapes target both, and
+  `tmk:ProcedureRecordShape`/`tmk:StructuredTestShape` require a title, anchors and one provision.
+  The condition tree and the steps are not yet in the graph.
+
+Graph rebuilt, ontology report rebuilt, SHACL 0 defects, harness 0 defects. Full-suite count: the
+commit that records it.
 
 ## Next actions
 
@@ -57,8 +63,8 @@ checked, SHACL 0 defects, harness 0 defects. Full-suite count: the commit that r
    Re-writing the prepared answers moves `PREPARED_ANSWER_VERSION`, `PREPARED_LAW`,
    `PREPARED_MANUAL_CAPTURED` and the footer together, and `explorer.build.examples` must pass
    `claims`.
-2. **Package 4, continued.** GL/GP records into the graph (classes for test, condition, exception,
-   step, transition; SHACL shapes; the envelope); D4's other two explanations: *requirements*
+2. **Package 4, continued.** The condition tree, exceptions, steps and transitions into the graph
+   (the records and envelopes are there; their inner structure is not); D4's other two explanations: *requirements*
    (a test explained with no matter) and *the application process* from filing (a second template,
    before examination); A06 step 2 (a question about s 44 retrieves GL-0001's conditions and
    exceptions); more fictional matters from A12's list (evidence covering the wrong period,
