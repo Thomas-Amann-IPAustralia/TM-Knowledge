@@ -5,7 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0001-TMM/Part29/1%231> a tmk:InferredAssertion ;
-    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionObject true ;
     tmk:assertionPredicate tmk:mixedAuthority ;
     tmk:assertionSubject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
     tmk:derivedFrom tmka:GE-0001,
@@ -20,7 +20,7 @@
     tmk:reviewStatus "candidate" .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0001-TMM/Part29/1/1/2> a tmk:InferredAssertion ;
-    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:assertionObject true ;
     tmk:assertionPredicate tmk:mixedAuthority ;
     tmk:assertionSubject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
     tmk:derivedFrom tmka:GE-0020,
@@ -34,7 +34,7 @@
     tmk:reviewStatus "candidate" .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0001-TMM/Part29/2/2/3> a tmk:InferredAssertion ;
-    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:assertionObject true ;
     tmk:assertionPredicate tmk:mixedAuthority ;
     tmk:assertionSubject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
     tmk:derivedFrom tmka:GE-0039,
@@ -48,7 +48,7 @@
     tmk:reviewStatus "candidate" .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0001-TMM/Part29/2/2/4> a tmk:InferredAssertion ;
-    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:assertionObject true ;
     tmk:assertionPredicate tmk:mixedAuthority ;
     tmk:assertionSubject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
     tmk:derivedFrom tmka:GE-0048,
@@ -62,7 +62,7 @@
     tmk:reviewStatus "candidate" .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0001-TMM/Part29/3/3/2> a tmk:InferredAssertion ;
-    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:assertionObject true ;
     tmk:assertionPredicate tmk:mixedAuthority ;
     tmk:assertionSubject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
     tmk:derivedFrom tmka:GE-0057,
