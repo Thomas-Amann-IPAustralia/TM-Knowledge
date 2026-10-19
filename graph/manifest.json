@@ -24,20 +24,20 @@
  "profile": "RDF 1.1 named graphs, SKOS, SHACL shapes and the approved SPARQL rules; no OWL profile is claimed and no OWL inference is licensed (ADR-0134). A direct edge is navigation only; the reified assertion is the reading (ADR-0134, R07).",
  "graphs": {
   "source": {
-   "triples": 65355,
+   "triples": 65467,
    "classes": {
     "AdministrativeDecision": 98,
-    "Chunk": 1057,
-    "Citation": 2227,
-    "Decision": 311,
+    "Chunk": 1059,
+    "Citation": 2234,
+    "Decision": 313,
     "Document": 1,
     "DocumentVersion": 1,
-    "JudicialDecision": 151,
+    "JudicialDecision": 152,
     "Legislation": 2,
     "LegislativeProvision": 315,
     "LegislativeUnit": 2867,
-    "ManualPassage": 1057,
-    "Page": 206
+    "ManualPassage": 1059,
+    "Page": 207
    },
    "review_status": {}
   },
@@ -60,14 +60,14 @@
    }
   },
   "authored": {
-   "triples": 27885,
+   "triples": 28034,
    "classes": {
     "AuthoredAssertion": 337,
     "ConceptScheme": 1,
     "Context": 16,
     "Correction": 37,
     "Definition": 149,
-    "EvidenceAnchor": 996,
+    "EvidenceAnchor": 1009,
     "ExternalInstrument": 3,
     "GroundOfRefusal": 8,
     "InstrumentOrRecord": 23,

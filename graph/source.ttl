@@ -7490,8 +7490,10 @@
     tmk:upstreamRef "TMA1995/s6/patent-attorney" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/pending> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:f0282ebaff4a389da43357482ab8cbdc1725af1c7a2dc9477d899f3393d932ec" ;
     tmk:ordinal 66 ;
@@ -14812,6 +14814,22 @@
     tmk:partId "Part51" ;
     tmk:text "Trade Marks Act 1995 Trade Marks Regulations 1995 The Registrar is required to notify the parties in writing when opposition proceedings have been dismissed or discontinued." ;
     tmk:upstreamRef "TMM/Part51/6#1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4/5-the-matter-of-admissibility-of-evidence-is-discussed-further-at-15-2035-of-shanahan-s-australian-law-of-trade-marks-and-passing-off-5th-ed-davison-mark-horak-ian-2012-thomson-reuters-professional-australia-ltd-pyrmont-nsw> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:cbce2820c4a0fbb0fdc9d79fd09dda0d61d35800bb9d93145d963dec5dad925d" ;
+    tmk:headingPath "5 The matter of admissibility of evidence is discussed further at 15.2035 of Shanahan's, Australian Law of Trade Marks and Passing Off. (5th ed), Davison, Mark & Horak, Ian, (2012), Thomson Reuters (Professional) Australia Ltd, Pyrmont, NSW.",
+        "Part 52 Hearings, Decisions, Reasons and Appeals",
+        "Part 52.4. Role and powers of the Registrar in hearings" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4> ;
+    tmk:ordinal 2 ;
+    tmk:partId "Part52" ;
+    tmk:text "5 The matter of admissibility of evidence is discussed further at 15.2035 of Shanahan's, Australian Law of Trade Marks and Passing Off. (5th ed), Davison, Mark & Horak, Ian, (2012), Thomson Reuters (Professional) Australia Ltd, Pyrmont, NSW." ;
+    tmk:upstreamRef "TMM/Part52/4/5-the-matter-of-admissibility-of-evidence-is-discussed-further-at-15-2035-of-shanahan-s-australian-law-of-trade-marks-and-passing-off-5th-ed-davison-mark-horak-ian-2012-thomson-reuters-professional-australia-ltd-pyrmont-nsw" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/5%231> a tmk:Chunk,
         tmk:ManualPassage ;
@@ -41833,6 +41851,54 @@
     tmk:extraction "regex" ;
     tmk:mention "Regulation 4.15A" .
 
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/case/0> a tmk:Citation ;
+    tmk:citationResolves false ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/1969/RPC/91> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4%231> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/case/1> a tmk:Citation ;
+    tmk:citationResolves false ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/1977/HCA/62> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4%231> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/internal/0> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4%231> ;
+    tmk:extraction "href" ;
+    tmk:mention "Part 54 Subponeas, Summonses and Production of Documents" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/internal/1> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part55/1> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4%231> ;
+    tmk:extraction "href" ;
+    tmk:mention "Part 55 Costs" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s202> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4%231> ;
+    tmk:extraction "regex" ;
+    tmk:mention "section 202" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/prov/1> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.15(4)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4%231> ;
+    tmk:extraction "regex" ;
+    tmk:mention "reg 21.15(4)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/prov/2> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.16> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4%231> ;
+    tmk:extraction "regex" ;
+    tmk:mention "Reg 21.16" .
+
 <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/5/5/1~1/prov/0> a tmk:Citation ;
     tmk:certainty "default" ;
     tmk:citationResolves true ;
@@ -49546,6 +49612,14 @@
     tmk:jurisdiction "UK" ;
     tmk:upstreamRef "CASE/1969/RPC/472" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/CASE/1969/RPC/91> a tmk:Decision ;
+    tmk:authorityKind "decision" ;
+    tmk:authorityStatus tmk:NotHeld ;
+    tmk:caseCitation "[1969] RPC 91" ;
+    tmk:decisionKind "unclassified" ;
+    tmk:jurisdiction "UK" ;
+    tmk:upstreamRef "CASE/1969/RPC/91" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/1973/CLR/128/417> a tmk:Decision,
         tmk:JudicialDecision ;
     tmk:authorityKind "decision" ;
@@ -49591,6 +49665,16 @@
     tmk:decisionKind "judicial" ;
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/1977/CLR/138/1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/CASE/1977/HCA/62> a tmk:Decision,
+        tmk:JudicialDecision ;
+    tmk:authorityKind "decision" ;
+    tmk:authorityStatus tmk:NotHeld ;
+    tmk:caseCitation "[1977] HCA 62" ;
+    tmk:decidedAt "High Court of Australia" ;
+    tmk:decisionKind "judicial" ;
+    tmk:jurisdiction "AU" ;
+    tmk:upstreamRef "CASE/1977/HCA/62" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/1977/RPC/529> a tmk:Decision ;
     tmk:authorityKind "decision" ;
@@ -55873,6 +55957,17 @@
     tmk:partId "Part51" ;
     tmk:text "Section 222 and reg 17A.73 provide that a person giving notice of opposition to registration/protection of a trade mark or to an extension of time or a person applying under Part 9 or Part 17A for a trade mark to be removed/protection to cease for non-use, who neither resides nor carries on business in Australia, may be required by the Registrar to give security for the costs of the proceeding. If security is not given, the Registrar may dismiss proceedings. In that case the Registrar will notify the parties in writing that opposition proceedings have been dismissed. Part 55 Costs" ;
     tmk:upstreamRef "TMM/Part51/6/6/1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4> a tmk:Page ;
+    rdfs:label "4. Role and powers of the Registrar in hearings"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:422309bd9764979c918d42330e49b962eab1844337b4691a4ef1742c09a2269a" ;
+    tmk:lastAmended "2025-04-02" ;
+    tmk:partId "Part52" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/4.-role-and-powers-of-the-registrar-in-hearings"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part52/4" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1/1/1> a tmk:Chunk,
         tmk:ManualPassage ;
@@ -66269,17 +66364,6 @@
     tmk:text "If the documents are produced during the relevant statutory period allowed for the requestor to file its evidence, the requestor should inform the Registrar and the other party that the documents form part, or all, of its evidence. PLEASE NOTE: The time allowed for the requestor to file its evidence will NOT be extended on the basis that the requestor is waiting for the documents to be produced. If the documents are produced after the period allowed for the requestor to file its evidence has ended, they may still be taken into account by the Registrar when the merits of the proceeding are determined as the Registrar is not bound by the rules of evidence (reg 21.15(4)). However the requestor needs to establish a compelling case for the documents to be considered (see part 51.2.2.6). 3 Guidance on the \"degree of particularity\" required in specifying the documents is provided in court decisions dealing with subpoenas - see for example Small v Commissioner of Railways (1938) SR (NSW) 564 at 573, Spencer Motors Ltd v LNC Industries Ltd [1982] 2 NSWLR 921 at 929 and Lucas Industries Ltd v Hewitt (1978) 18 ALR 555. 4 See notes 1 and 2 to part 54.2" ;
     tmk:upstreamRef "TMM/Part54/3/3/6" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part55/1> a tmk:Page ;
-    rdfs:label "1. Legislative Basis"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
-    tmk:authorityKind "practice" ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:2615ff239edf785708f21a722ab16392241a26118a0a9604a727aa4337cdfb09" ;
-    tmk:lastAmended "2025-04-02" ;
-    tmk:partId "Part55" ;
-    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-legislative-basis"^^xsd:anyURI ;
-    tmk:upstreamRef "TMM/Part55/1" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part55/1%231~1> a tmk:Chunk,
         tmk:ManualPassage ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -66512,17 +66596,6 @@
     tmk:contentHash "sha256:19f103d60ae43e207dd912f3c5fa3742ed01d60780f739a7f10ecda93502e6cb" ;
     tmk:text "If a person who neither resides nor carries on business in Australia: (a) files a notice of opposition to an IRDA as mentioned in subregulation 17A.32(1); or (b) applies to the Registrar under regulation 17A.48C for the cessation of the protection extended to a protected international trade mark; the Registrar may require the person to give security for the costs of the proceeding and may, if security is not given, dismiss the proceeding." ;
     tmk:upstreamRef "TMR1995/r17A.73" .
-
-<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.15(4)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.15> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:ab58c926b09ca14e42f0b138ab752d3bcf67a3a4886f043912f84aa3becb26c2" ;
-    tmk:ordinal 7 ;
-    tmk:text "(4) The Registrar is not bound by the rules of evidence, but may be informed on any matter that is before the Registrar in a way that the Registrar reasonably believes to be appropriate." ;
-    tmk:upstreamRef "TMR1995/r21.15(4)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r22.14> a tmk:LegislativeProvision ;
     rdfs:label "Definitions"@en-AU ;
@@ -67451,6 +67524,35 @@
     tmk:text "a person wanting to attend is unable to use the internet or telephone (for example due to disability and/or a lack of available infrastructure); the evidence includes physical specimens that cannot be adequately shown or seen over a video connection. As stated in the official notice published on 9 November 2022, a request to be heard in person must be in writing and should include: the agreement of any other parties (if applicable); and a brief explanation of the reasons why the matter should be heard in person. Requests to be heard in person will be considered on a case-by-case basis, noting that the Registrar has the sole discretion as to whether to hold any hearing in person. The parties present at a hearing, by whatever means, are able to make oral representations on the matter before the Registrar. Under subreg 21.16(5), the Registrar may direct a person attending a hearing to provide a written summary of submissions. In opposition hearings under reg 5.17, 6.9, 9.20, 17A.34M, 17A.48V and 21.20E, the opposing party (that is, the party which bears the onus of proof in the matter) must provide a summary of submissions at least 10 business days before the hearing and the other party must respond at least 5 business days before the hearing. The summaries of submissions must be filed with the Office and copied to the other party. It is preferable for this to be done via electronic means, given the time constraints close to the actual hearing date. In making an award of costs the Registrar is able to take into account, “as the Registrar considers appropriate” (see subreg 21.13(1)) a party’s failure to provide a written summary of submissions." ;
     tmk:upstreamRef "TMM/Part52/2#1~2" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4%231> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesCase <https://data.ipaustralia.gov.au/tmk/ref/CASE/1969/RPC/91>,
+        <https://data.ipaustralia.gov.au/tmk/ref/CASE/1977/HCA/62> ;
+    tmk:citesPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part55/1> ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s202>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.15(4)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.16> ;
+    tmk:contentHash "sha256:198aa0ced16c063647bcf12bbe915d39b669cb1dcd76c345fb4f1f8e0d546be6" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/case/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/case/1>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/internal/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/internal/1>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/prov/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/prov/1>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/prov/2> ;
+    tmk:headingPath "Part 52 Hearings, Decisions, Reasons and Appeals",
+        "Part 52.4. Role and powers of the Registrar in hearings" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4> ;
+    tmk:ordinal 1 ;
+    tmk:partId "Part52" ;
+    tmk:text "Trade Marks Act 1995 Trade Marks Regulations 1995 The Registrar performs the function of an administrative tribunal and therefore exercises an administrative, rather than a judicial, role in matters arising from the administration of the Act (see R v Quinn: Ex Parte Consolidated Foods Corporation [1977] HCA 62). The proceedings are less formal than in a court and the Registrar’s primary concern is that all parties concerned have adequate opportunity to present their case to the Registrar’s delegate. Reg 21.16 outlines the Registrar’s powers in relation to a hearing. The Hearing Officer, as the Registrar’s delegate, assumes full authority over the proceedings. Under sub-reg 21.15(4), the Registrar is not bound by the rules of evidence, as are the courts. In the words of Lord Denning MR in T.A. Miller Ltd v The Minister for Housing and Local Government, [1969] RPC 91, “A tribunal (of this kind) is master of its own procedure, provided that the rules of natural justice are applied. … Tribunals are entitled to act on any material which is logically probative, even though it is not evidence in a court of law,…. Hearsay is clearly admissible before a tribunal. No doubt in admitting it, the tribunal must observe the rules of natural justice, but this does not mean that it must be tested by cross-examination. It only means that the tribunal must give the other side a fair opportunity of commenting on it and of contradicting it … ” 5 Certain powers of the Registrar under section 202 are relevant to hearing procedures. Under this section the Registrar may, for the purposes of the Act: summon witnesses; receive written or oral evidence on oath or affirmation; require production of documents or articles; award costs against a party to proceedings brought before the Registrar; notify, as he or she considers fit, any person of any matter that, in his or her opinion, should be brought to the person’s notice. Part 54 Subponeas, Summonses and Production of Documents Part 55 Costs" ;
+    tmk:upstreamRef "TMM/Part52/4#1" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/2/4> a tmk:Page ;
     rdfs:label "2.4 Certifying Process"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -68217,6 +68319,17 @@
     tmk:text "There is also the cost and inconvenience involved in requiring a witness to attend before the Registrar. Generally the evidence filed in the proceedings establishes the facts and there is nothing more than conflict as to the interpretation of those facts, or the application of law to those facts. In those circumstances, there is no compelling reason to summons a witness. If the Registrar is not convinced that there is a very good purpose to be served she will not summons a witness. (See, for example, American Cyanamid Company v Nalco Chemical Company [1992] APO 5 in which a delegate of the Commissioner of Patents refused to issue a summons under section 210 of the Patents Act, the equivalent provision to section 202 of the Trade Marks Act.) It is usually only where there is contradictory evidence, and it appears that the conflict on facts, as opposed to opinions, could be resolved or clarified by taking oral evidence, that the Registrar will issue a summons. In deciding whether to issue a summons, the Registrar must consider whether the summons is being sought “for the purposes of this Act”. Therefore he or she must consider whether the summons is relevant and the cross-examination is likely to affect the outcome of the matter in suit. The question of relevance was judicially considered in respect of the exercise of a discretionary power under section 210 of the Patents Act. (See GS Technology Pty Ltd v The Commissioner of Patents [1997] FCA 1460.) The appropriate test to apply is one of adjectival rather than substantive relevance and the Registrar is therefore required to decide whether summoning the witness could be relevant rather than would be relevant If the Registrar intends to refuse a request to summons a witness, the person who made the request has a right under section 203 to be heard on the matter. However there is no provision in the Act for a person to object to the issue of a summons, nor is there a requirement under natural justice for the Registrar to give the other party an opportunity to comment. (See Structureco Inc v Registrar of Trade Marks [2003] FCA 1290.) Any objections he or she might have to the summons could be argued as a “reasonable excuse” for non-compliance with the summons, as per section 153 (see part 54.2.3.1 below)." ;
     tmk:upstreamRef "TMM/Part54/2#1~2" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part55/1> a tmk:Page ;
+    rdfs:label "1. Legislative Basis"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:2615ff239edf785708f21a722ab16392241a26118a0a9604a727aa4337cdfb09" ;
+    tmk:lastAmended "2025-04-02" ;
+    tmk:partId "Part55" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-legislative-basis"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part55/1" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/4/24> a tmk:Page ;
     rdfs:label "4.24 Change in Ownership of an International Registration"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -68247,6 +68360,17 @@
     tmk:contentHash "sha256:cdbfe74d5fa705941aebd3b54ab1f78df851aff2e4378e57dbb0a3c85ba4e3cd" ;
     tmk:text "If the result of an action under this Subdivision is that the Registrar decides, or is directed by a court: (a) to cease protection of a protected international trade mark in respect of some or all of the goods or services covered by the protection; or (b) that the trade mark should be protected subject to conditions or limitations; the Registrar must, if no appeal has been made at the end of any relevant appeal period, notify the International Bureau of that decision or order." ;
     tmk:upstreamRef "TMR1995/r17A.48X" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.15(4)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.15> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:ab58c926b09ca14e42f0b138ab752d3bcf67a3a4886f043912f84aa3becb26c2" ;
+    tmk:ordinal 7 ;
+    tmk:text "(4) The Registrar is not bound by the rules of evidence, but may be informed on any matter that is before the Registrar in a way that the Registrar reasonably believes to be appropriate." ;
+    tmk:upstreamRef "TMR1995/r21.15(4)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.11> a tmk:LegislativeProvision ;
     rdfs:label "Examination—additional requirements"@en-AU ;
@@ -68714,17 +68838,6 @@
     tmk:partId "Part52" ;
     tmk:text "The Trade Marks Act 1995 specifically provides for application for review by the Administrative Review Tribunal (the ART) in the following trade mark matters: Refusal by the Registrar to grant an extension of time under the terms of section 224. An unsuccessful applicant for an extension can seek a review of the refusal (section 224(7)). (See for example Gracey v Registrar of Trade (2000) AIPC 91-565) A decision by the Australian Competition and Consumer Commission in relation to a certification trade mark: not to give a certificate as to the competence of the certifying body, or the appropriateness of the rules (section 175(5)), or to approve, or not to approve, a subsequent variation of the rules governing the use of a registered certification trade mark (section 178(5)), or to refuse consent to the assignment of a registered certification trade mark (section 180(4)). A decision by the Registrar to dismiss an opposition because a statement of grounds and particulars is inadequate, or to delete material from a statement of grounds and particulars (section 99A, subregs 5.8(6), 17A.34B(6)). A review by the ART leads to a full re-decision of the matter on its merits. The tribunal stands in the shoes of the original decision maker and can exercise all of the powers open to that person. Additional evidence can be admitted. Where a right to review by the ART exists, it is not confined to the parties who were involved in the matter leading to the decision concerned any person whose interests are affected by the decision can request to be made a party. The time limits for requesting a review by the ART are set out in s 18 of the Administrative Review Tribunal Act 2024 (the ART Act). In general, the request must be filed at the ART within 28 days commencing on the date of receipt of the document setting out the decision, but the time may be extended. A delegate who, after complying with section 203, refuses an extension of time under section 224 must also comply with section 227. Section 227 requires that notice of a decision that is reviewable by the ART be given to any person affected by it and that the notice must include a statement that application may be made to the ART for review." ;
     tmk:upstreamRef "TMM/Part52/5/5/2" .
-
-<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1> a tmk:Page ;
-    rdfs:label "1. Subpoenas"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
-    tmk:authorityKind "practice" ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:6385d94d53aadf1df6ad25fb04622dd71084c96908a4be9556e7f14ff2e093b4" ;
-    tmk:lastAmended "2025-04-02" ;
-    tmk:partId "Part54" ;
-    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-subpoenas"^^xsd:anyURI ;
-    tmk:upstreamRef "TMM/Part54/1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part55/3/3/2> a tmk:Chunk,
         tmk:ManualPassage ;
@@ -69516,6 +69629,17 @@
     tmk:partId "Part52" ;
     tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/5.-rights-of-appeal-from-decisions-of-the-registrar"^^xsd:anyURI ;
     tmk:upstreamRef "TMM/Part52/5" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1> a tmk:Page ;
+    rdfs:label "1. Subpoenas"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:6385d94d53aadf1df6ad25fb04622dd71084c96908a4be9556e7f14ff2e093b4" ;
+    tmk:lastAmended "2025-04-02" ;
+    tmk:partId "Part54" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-subpoenas"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part54/1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/x-relevant-legislation20%231> a tmk:Chunk,
         tmk:ManualPassage ;
@@ -71547,16 +71671,6 @@
     tmk:text "In addition to any other ground on which: (a) an application for the registration of a trade mark as a defensive trade mark may be rejected; or (b) the registration of a trade mark as a defensive trade mark may be opposed; the application must be rejected or the registration may be opposed: (c) if the trade mark is not registered as a trade mark in the name of the applicant; or (d) in the case of a registered trade mark—if it is not likely that the use of the trade mark in relation to the goods or services in respect of which its registration as a defensive trade mark is sought will be taken to indicate that there is a connection between those goods or services and the registered owner. Note: Division 2 of Part 4 sets out the main grounds for rejecting an application but section 41 does not apply to defensive trade marks (see section 186). Division 2 of Part 5 sets out the main grounds for opposing registration." ;
     tmk:upstreamRef "TMA1995/s187" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s202> a tmk:LegislativeProvision ;
-    rdfs:label "Registrar’s powers"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:0d82e5b3873afd5df8f2844bbf38a5d147d66483b4c1727ab6bcc2d65a4a54f4" ;
-    tmk:text "The Registrar may, for the purposes of this Act: (a) summon witnesses; and (b) receive written or oral evidence on oath or affirmation; and (c) require the production of documents or articles; and (d) award costs against a party to proceedings brought before the Registrar; and (e) notify any person of any matter that, in his or her opinion, should be brought to the person’s notice. Note: For the awarding of costs see section 221." ;
-    tmk:upstreamRef "TMA1995/s202" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/2> a tmk:Page ;
     rdfs:label "2. Use 'as a trade mark'"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -71750,6 +71864,16 @@
     tmk:text "(1) In spite of section 120, a person who uses a registered trade mark in relation to goods does not infringe the trade mark if: (a) the goods are similar to goods in respect of which the trade mark is registered; and (b) before the time of use, the person had made reasonable inquiries in relation to the trade mark; and (c) at the time of use, a reasonable person, after making those inquiries, would have concluded that the trade mark had been applied to, or in relation to, the goods by, or with the consent of, a person (a relevant person) who was, at the time of the application or consent (as the case may be): (i) the registered owner of the trade mark; or (ii) an authorised user of the trade mark; or (iii) a person permitted to use the trade mark by the registered owner; or (iv) a person permitted to use the trade mark by an authorised user who has power to give such permission under paragraph 26(1)(f); or (v) a person with significant influence over the use of the trade mark by the registered owner or an authorised user; or (vi) an associated entity (within the meaning of the Corporations Act 2001) of a relevant person mentioned in subparagraph (i), (ii), (iii), (iv) or (v). Note 1: For goods that are similar, see subsection 14(1). Note 2: For subparagraph (c)(iv), an authorised user may, under paragraph 26(1)(f), subject to any agreement the authorised user has with the registered owner, permit another person to apply the trade mark to, or in relation to, goods in respect of which the trade mark is registered. (2) A reference in paragraph (1)(c) to consent to the application of a trade mark to, or in relation to, goods includes, without limitation, a reference to: (a) consent subject to a condition (for example, a condition that the goods are to be sold only in a foreign country); and (b) consent that can be reasonably inferred from the conduct of a relevant person. (3) In determining whether a relevant person mentioned in subparagraph (1)(c)(iii) or (iv) was permitted to use the trade mark, disregard how that permission arose, for example: (a) whether it arose directly or indirectly; or (b) whether it arose by way of proprietary interest, contract, arrangement, understanding, a combination of those things, or otherwise. (4) In determining whether a relevant person mentioned in subparagraph (1)(c)(v) had significant influence over the use of a trade mark, disregard how that influence arose, for example: (a) whether it arose directly or indirectly; or (b) whether it arose by way of proprietary interest, contract, arrangement, understanding, a combination of those things, or otherwise." ;
     tmk:upstreamRef "TMA1995/s122A" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s202> a tmk:LegislativeProvision ;
+    rdfs:label "Registrar’s powers"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:0d82e5b3873afd5df8f2844bbf38a5d147d66483b4c1727ab6bcc2d65a4a54f4" ;
+    tmk:text "The Registrar may, for the purposes of this Act: (a) summon witnesses; and (b) receive written or oral evidence on oath or affirmation; and (c) require the production of documents or articles; and (d) award costs against a party to proceedings brought before the Registrar; and (e) notify any person of any matter that, in his or her opinion, should be brought to the person’s notice. Note: For the awarding of costs see section 221." ;
+    tmk:upstreamRef "TMA1995/s202" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s8> a tmk:LegislativeProvision ;
     rdfs:label "Definitions of authorised user and authorised use"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
@@ -71852,16 +71976,6 @@
     tmk:contentHash "sha256:f7fc72a8e776e71bcb978f35b3ad0f0e7ba5202651095c0be8c37ee2ad987cd1" ;
     tmk:text "(1) The Registrar must notify the parties that: (a) all the evidence for an evidentiary period mentioned in this regulation has been filed; or (b) no evidence was filed for the period. (2) The Registrar must give a copy of any evidence filed by a party under this regulation to the other party: (a) before the end of the relevant evidentiary period, if the Registrar considers it appropriate to do so; or (b) after the evidentiary period ends. Evidence in support (3) An opponent must file any evidence in support of the opposition within 3 months from the day the opponent is given a copy of the notice of intention to defend the application for cessation of protection. Evidence in answer (4) If the opponent files evidence in support of the opposition, the applicant must file any evidence in answer to the opponent’s evidence within 3 months from the day the Registrar: (a) gives the applicant: (i) all the evidence in support; or (ii) if the opponent files the evidence in support in instalments—the final instalment of the evidence in support; and (b) notifies the applicant that all the evidence in support has been filed. (5) If the opponent does not file any evidence in support of the opposition, regulation 17A.48S applies. Evidence in reply (6) If the applicant files evidence in answer under subregulation (4), the opponent must file any evidence in reply to the evidence in answer within 2 months from the day the Registrar: (a) gives the opponent: (i) all the evidence in answer; or (ii) if the applicant files the evidence in answer in instalments—the final instalment of the evidence in answer; and (b) notifies the opponent that all the evidence in answer has been filed." ;
     tmk:upstreamRef "TMR1995/r17A.48R" .
-
-<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.16> a tmk:LegislativeProvision ;
-    rdfs:label "Written submissions and oral hearings"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:e8b8a8158b821b6c1256be17109a065e8d2ad1246c19e7896085e37e5ddd88fc" ;
-    tmk:text "Written submissions (1) If the Registrar decides that a person may be heard by way of written submissions, the Registrar must: (a) notify the person of the period in which the submissions must be filed (being at least 10 business days); and (b) determine the matter after considering the written submissions; and (c) notify the person of the Registrar’s decision in relation to the matter. Oral hearings (2) If the Registrar decides that a person may be heard by way of an oral hearing, the Registrar must give notification of the date, time and place of the hearing to the person at least 10 business days before the day the hearing is to begin. (3) The Registrar may adjourn an oral hearing from time to time or from place to place by notifying the person. (4) The Registrar may hold an oral hearing in which: (a) a person appears in person; or (b) a person participates by telephone or other means of telecommunications that the Registrar reasonably allows. (5) In addition to the Registrar’s other powers, the Registrar may direct a person to provide a written summary of submissions. (6) An oral hearing must be conducted with as little formality and technicality, and as quickly, as the requirements of the Act, these Regulations and a proper consideration of the matters before the Registrar, allow. (7) Subject to these Regulations, the Registrar may give a direction that is reasonably necessary for the conduct of the hearing. (8) The Registrar must notify a person who appears at the hearing of the Registrar’s decision in relation to the matter." ;
-    tmk:upstreamRef "TMR1995/r21.16" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.14> a tmk:LegislativeProvision ;
     rdfs:label "Filing of evidence"@en-AU ;
@@ -71966,6 +72080,16 @@
     tmk:partId "Part60" ;
     tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/4.7-examination-of-an-irda"^^xsd:anyURI ;
     tmk:upstreamRef "TMM/Part60/4/7" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.16> a tmk:LegislativeProvision ;
+    rdfs:label "Written submissions and oral hearings"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:e8b8a8158b821b6c1256be17109a065e8d2ad1246c19e7896085e37e5ddd88fc" ;
+    tmk:text "Written submissions (1) If the Registrar decides that a person may be heard by way of written submissions, the Registrar must: (a) notify the person of the period in which the submissions must be filed (being at least 10 business days); and (b) determine the matter after considering the written submissions; and (c) notify the person of the Registrar’s decision in relation to the matter. Oral hearings (2) If the Registrar decides that a person may be heard by way of an oral hearing, the Registrar must give notification of the date, time and place of the hearing to the person at least 10 business days before the day the hearing is to begin. (3) The Registrar may adjourn an oral hearing from time to time or from place to place by notifying the person. (4) The Registrar may hold an oral hearing in which: (a) a person appears in person; or (b) a person participates by telephone or other means of telecommunications that the Registrar reasonably allows. (5) In addition to the Registrar’s other powers, the Registrar may direct a person to provide a written summary of submissions. (6) An oral hearing must be conducted with as little formality and technicality, and as quickly, as the requirements of the Act, these Regulations and a proper consideration of the matters before the Registrar, allow. (7) Subject to these Regulations, the Registrar may give a direction that is reasonably necessary for the conduct of the hearing. (8) The Registrar must notify a person who appears at the hearing of the Registrar’s decision in relation to the matter." ;
+    tmk:upstreamRef "TMR1995/r21.16" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.6> a tmk:LegislativeProvision ;
     rdfs:label "Declarations"@en-AU ;

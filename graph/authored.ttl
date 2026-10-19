@@ -23825,6 +23825,17 @@ tmkc:GC-0039 a tmk:SignContent ;
     tmk:spanStart 292 ;
     tmk:upstreamRef "TMM/Part22/3#1~1" .
 
+<https://data.ipaustralia.gov.au/tmk/concept/GC-0060/evidence/2> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 2 ;
+    tmk:quote "consideration must be given to the ordinary signification of the phrase" ;
+    tmk:sourceContentHash "sha256:8af9dc343c20be90510d34eb02979f74bc7a0521b90639105949805307fdbad9" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/3> ;
+    tmk:spanEnd 178 ;
+    tmk:spanStart 107 ;
+    tmk:upstreamRef "TMM/Part22/13/13/3" .
+
 <https://data.ipaustralia.gov.au/tmk/concept/GC-0061/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
     tmk:isStale false ;
@@ -23835,6 +23846,17 @@ tmkc:GC-0039 a tmk:SignContent ;
     tmk:spanEnd 601 ;
     tmk:spanStart 417 ;
     tmk:upstreamRef "TMM/Part22/3#1~1" .
+
+<https://data.ipaustralia.gov.au/tmk/concept/GC-0061/evidence/2> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 2 ;
+    tmk:quote "Whether or not the trade mark is capable of distinguishing, will depend upon if the phrase is something" ;
+    tmk:sourceContentHash "sha256:8af9dc343c20be90510d34eb02979f74bc7a0521b90639105949805307fdbad9" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/3> ;
+    tmk:spanEnd 283 ;
+    tmk:spanStart 180 ;
+    tmk:upstreamRef "TMM/Part22/13/13/3" .
 
 <https://data.ipaustralia.gov.au/tmk/concept/GC-0062/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24102,6 +24124,17 @@ tmkc:GC-0065 a skos:Concept,
     tmk:spanStart 0 ;
     tmk:upstreamRef "TMM/Part21/1#1" .
 
+<https://data.ipaustralia.gov.au/tmk/concept/GC-0074/evidence/2> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 2 ;
+    tmk:quote "It is likely that section 40 may only result in grounds for rejection of some sensory trade marks" ;
+    tmk:sourceContentHash "sha256:6b7e8e1e70409f5ed1cf5d54ecf589aeeac022f8a25bbd74479811beef5be6e2" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5/5/2> ;
+    tmk:spanEnd 494 ;
+    tmk:spanStart 397 ;
+    tmk:upstreamRef "TMM/Part20/5/5/2" .
+
 <https://data.ipaustralia.gov.au/tmk/concept/GC-0075/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
     tmk:isStale false ;
@@ -24123,6 +24156,17 @@ tmkc:GC-0065 a skos:Concept,
     tmk:spanEnd 162 ;
     tmk:spanStart 0 ;
     tmk:upstreamRef "TMM/Part21/4#1" .
+
+<https://data.ipaustralia.gov.au/tmk/concept/GC-0076/evidence/2> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 2 ;
+    tmk:quote "shape, colour, sound or scent" ;
+    tmk:sourceContentHash "sha256:69ef3c32f130cfa3c12d5f89208d9be463a53bb5a3a212e459a1c01f46e22ad1" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/sign> ;
+    tmk:spanEnd 206 ;
+    tmk:spanStart 177 ;
+    tmk:upstreamRef "TMA1995/s6/sign" .
 
 <https://data.ipaustralia.gov.au/tmk/concept/GC-0077/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24146,6 +24190,17 @@ tmkc:GC-0065 a skos:Concept,
     tmk:spanStart 287 ;
     tmk:upstreamRef "TMM/Part21/6#1" .
 
+<https://data.ipaustralia.gov.au/tmk/concept/GC-0077/evidence/3> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 3 ;
+    tmk:quote "shape, colour, sound or scent" ;
+    tmk:sourceContentHash "sha256:69ef3c32f130cfa3c12d5f89208d9be463a53bb5a3a212e459a1c01f46e22ad1" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/sign> ;
+    tmk:spanEnd 206 ;
+    tmk:spanStart 177 ;
+    tmk:upstreamRef "TMA1995/s6/sign" .
+
 <https://data.ipaustralia.gov.au/tmk/concept/GC-0078/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
     tmk:isStale false ;
@@ -24156,6 +24211,28 @@ tmkc:GC-0065 a skos:Concept,
     tmk:spanEnd 82 ;
     tmk:spanStart 0 ;
     tmk:upstreamRef "TMM/Part21/7#1" .
+
+<https://data.ipaustralia.gov.au/tmk/concept/GC-0078/evidence/2> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 2 ;
+    tmk:quote "shape, colour, sound or scent" ;
+    tmk:sourceContentHash "sha256:69ef3c32f130cfa3c12d5f89208d9be463a53bb5a3a212e459a1c01f46e22ad1" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/sign> ;
+    tmk:spanEnd 206 ;
+    tmk:spanStart 177 ;
+    tmk:upstreamRef "TMA1995/s6/sign" .
+
+<https://data.ipaustralia.gov.au/tmk/concept/GC-0078/evidence/3> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 3 ;
+    tmk:quote "This requirement has the most impact in regard to sensory trade marks such as sound and scent trade marks" ;
+    tmk:sourceContentHash "sha256:d1e9be18e9686a3c1fc2ac5c85ae6116b9c81888adf6b1436f72847477395814" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/5/5/1> ;
+    tmk:spanEnd 277 ;
+    tmk:spanStart 172 ;
+    tmk:upstreamRef "TMM/Part21/5/5/1" .
 
 <https://data.ipaustralia.gov.au/tmk/concept/GC-0079/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24685,6 +24762,17 @@ tmkc:GC-0065 a skos:Concept,
     tmk:spanStart 118 ;
     tmk:upstreamRef "TMM/Part9/1#1" .
 
+<https://data.ipaustralia.gov.au/tmk/concept/GC-0124/evidence/2> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 2 ;
+    tmk:quote "amend an application for the registration of a trade mark in accordance with section 64, 65 or 65A" ;
+    tmk:sourceContentHash "sha256:256d2d6d66023fd0cd0c7744477b755447c4c51420e2c166abd530071f860692" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s63> ;
+    tmk:spanEnd 177 ;
+    tmk:spanStart 79 ;
+    tmk:upstreamRef "TMA1995/s63" .
+
 <https://data.ipaustralia.gov.au/tmk/concept/GC-0126/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
     tmk:isStale false ;
@@ -24751,6 +24839,17 @@ tmkc:GC-0065 a skos:Concept,
     tmk:spanStart 50 ;
     tmk:upstreamRef "TMM/Part52/1#1~1" .
 
+<https://data.ipaustralia.gov.au/tmk/concept/GC-0127/evidence/2> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 2 ;
+    tmk:quote "Therefore, decisions issued by the Deputy Registrar are headed" ;
+    tmk:sourceContentHash "sha256:723ee051e2a60bb61a0318cfc85969b781e67761c44ce860393db228c2d7dfec" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/1%231~2> ;
+    tmk:spanEnd 321 ;
+    tmk:spanStart 259 ;
+    tmk:upstreamRef "TMM/Part52/1#1~2" .
+
 <https://data.ipaustralia.gov.au/tmk/concept/GC-0128/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
     tmk:isStale false ;
@@ -24761,6 +24860,17 @@ tmkc:GC-0065 a skos:Concept,
     tmk:spanEnd 734 ;
     tmk:spanStart 631 ;
     tmk:upstreamRef "TMA1995/s33" .
+
+<https://data.ipaustralia.gov.au/tmk/concept/GC-0128/evidence/2> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 2 ;
+    tmk:quote "Certain powers of the Registrar under section 202 are relevant to hearing procedures." ;
+    tmk:sourceContentHash "sha256:198aa0ced16c063647bcf12bbe915d39b669cb1dcd76c345fb4f1f8e0d546be6" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4%231> ;
+    tmk:spanEnd 1534 ;
+    tmk:spanStart 1449 ;
+    tmk:upstreamRef "TMM/Part52/4#1" .
 
 <https://data.ipaustralia.gov.au/tmk/concept/GC-0130/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24882,6 +24992,17 @@ tmkc:GC-0065 a skos:Concept,
     tmk:spanEnd 91 ;
     tmk:spanStart 0 ;
     tmk:upstreamRef "TMR1995/r9.2/application-for-removal" .
+
+<https://data.ipaustralia.gov.au/tmk/concept/GC-0142/evidence/2> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 2 ;
+    tmk:quote "(section 100)" ;
+    tmk:sourceContentHash "sha256:11e9c228d44c98fde9855fadac4ead03f5a8cc4b2d5fdff6dc62b977eab5428b" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part48/1%231> ;
+    tmk:spanEnd 696 ;
+    tmk:spanStart 683 ;
+    tmk:upstreamRef "TMM/Part48/1#1" .
 
 <https://data.ipaustralia.gov.au/tmk/concept/GC-0143/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -25015,6 +25136,17 @@ tmkc:GC-0065 a skos:Concept,
     tmk:spanStart 48 ;
     tmk:upstreamRef "TMA1995/s11" .
 
+<https://data.ipaustralia.gov.au/tmk/concept/GC-0155/evidence/2> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 2 ;
+    tmk:quote "has the meaning given by section 11" ;
+    tmk:sourceContentHash "sha256:f0282ebaff4a389da43357482ab8cbdc1725af1c7a2dc9477d899f3393d932ec" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/pending> ;
+    tmk:spanEnd 112 ;
+    tmk:spanStart 77 ;
+    tmk:upstreamRef "TMA1995/s6/pending" .
+
 <https://data.ipaustralia.gov.au/tmk/concept/GC-0156/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
     tmk:isStale false ;
@@ -25091,6 +25223,17 @@ tmkc:GC-0065 a skos:Concept,
     tmk:spanEnd 56 ;
     tmk:spanStart 0 ;
     tmk:upstreamRef "TMR1995/r17A.2/change-of-ownership" .
+
+<https://data.ipaustralia.gov.au/tmk/concept/GC-0162/evidence/2> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 2 ;
+    tmk:quote "The Act requires that the Registrar be advised of this change of ownership as soon as it occurs." ;
+    tmk:sourceContentHash "sha256:09b4382be81326ed3b401eefdad95895f1072342d4d3da99ffb97d23660602f6" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part43/1%231~1> ;
+    tmk:spanEnd 299 ;
+    tmk:spanStart 203 ;
+    tmk:upstreamRef "TMM/Part43/1#1~1" .
 
 <https://data.ipaustralia.gov.au/tmk/concept/GC-0163/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -25528,15 +25671,16 @@ tmkc:GC-0077 a skos:Concept,
     skos:definition "A trade mark consisting of a sound, anything auditory, that identifies the trade source of the goods or services."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "sound trade mark"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Manual opens its section on sound marks with the definition and closes the paragraph with the functional requirement."@en-AU ;
-    tmk:confidence 0.8 ;
+    tmk:authoringReasoning "The Act's definition of a sign includes sound. Basis kept, now quoted."@en-AU ;
+    tmk:confidence 0.85 ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/6%231> ;
     tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0077/evidence/1>,
-        <https://data.ipaustralia.gov.au/tmk/concept/GC-0077/evidence/2> ;
-    tmk:expertShouldCheck "Whether the Manual's 'sensory trade marks' heading should be a broader concept over sound and scent."@en-AU ;
+        <https://data.ipaustralia.gov.au/tmk/concept/GC-0077/evidence/2>,
+        <https://data.ipaustralia.gov.au/tmk/concept/GC-0077/evidence/3> ;
+    tmk:expertShouldCheck "Whether the concept as now labelled is what the corpus uses."@en-AU ;
     tmk:goldRecord "GC-0077" ;
     tmk:labelKey "auditory trade mark",
         "sound auditory trade mark",
@@ -25549,7 +25693,8 @@ tmkc:GC-0077 a skos:Concept,
     tmk:origin "authored" ;
     tmk:prefLabelKey "sound trade mark" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/6%231> ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/sign>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/6%231> ;
     tmk:typedBy tmka:GT-0077 .
 
 tmkc:GC-0083 a skos:Concept,
@@ -25594,14 +25739,15 @@ tmkc:GC-0124 a skos:Concept,
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "amendment of an application"@en-AU ;
     skos:scopeNote "Here \"application\" is an application for registration; amendments to a registered trade mark fall under Part 8 of the Act."@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Manual states both regimes and their boundary in one sentence. Amending the specification is also one of the Manual's named ways of overcoming a section 44 ground, which is why this concept matters to examination and not only to administration."@en-AU ;
-    tmk:confidence 0.8 ;
+    tmk:authoringReasoning "Section 63 is the power to amend an application. Basis kept, now quoted."@en-AU ;
+    tmk:confidence 0.85 ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part9/1%231> ;
-    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0124/evidence/1> ;
-    tmk:expertShouldCheck "Whether amendment before and after registration are one concept. The Act's structure argues they are two."@en-AU ;
+    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0124/evidence/1>,
+        <https://data.ipaustralia.gov.au/tmk/concept/GC-0124/evidence/2> ;
+    tmk:expertShouldCheck "Whether the concept as now labelled is what the corpus uses."@en-AU ;
     tmk:goldRecord "GC-0124" ;
     tmk:labelKey "amendment",
         "amendment of an application" ;
@@ -25619,7 +25765,8 @@ tmkc:GC-0124 a skos:Concept,
     tmk:origin "authored" ;
     tmk:prefLabelKey "amendment of an application" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part9/1%231> ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s63>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part9/1%231> ;
     tmk:typedBy tmka:GT-0124 .
 
 tmkc:GC-0145 a skos:Concept,
@@ -25719,14 +25866,15 @@ tmkc:GC-0155 a skos:Concept,
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "pending application"@en-AU ;
     skos:scopeNote "Here \"application\" is the record of a request for registration, in the period it is still alive."@en-AU ;
-    tmk:authoredBy "claude-code-agent-S026" ;
-    tmk:authoredDate "2026-10-08"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Section 11 gives 'pending' its meaning only in relation to an application; the label now carries the application with it. Relabelled on the owner's ruling E3."@en-AU ;
-    tmk:confidence 0.99 ;
+    tmk:authoringReasoning "Section 6 points the word \"pending\" to section 11, which says when an application is pending. Basis kept, now quoted."@en-AU ;
+    tmk:confidence 0.85 ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> ;
-    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0155/evidence/1> ;
-    tmk:expertShouldCheck "Check whether the ontology should represent application statuses as standalone concepts or properties, and whether the historical rule in section 11(2) needs separate treatment."@en-AU ;
+    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0155/evidence/1>,
+        <https://data.ipaustralia.gov.au/tmk/concept/GC-0155/evidence/2> ;
+    tmk:expertShouldCheck "Whether the concept as now labelled is what the corpus uses."@en-AU ;
     tmk:goldRecord "GC-0155" ;
     tmk:labelKey "pending application" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11(1)>,
@@ -25741,7 +25889,8 @@ tmkc:GC-0155 a skos:Concept,
     tmk:origin "authored" ;
     tmk:prefLabelKey "pending application" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/pending> ;
     tmk:typedBy tmka:GT-0155 .
 
 tmkc:GC-0163 a skos:Concept,
@@ -26344,26 +26493,25 @@ tmkc:GC-0126 a skos:Concept,
     skos:definition "A term the Wine Australia Act 2013 protects in relation to wines and grape products; a trade mark containing one may face a contrary-to-law ground under section 42."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "term protected under the Wine Australia Act"@en-AU ;
-    tmk:authoredBy "claude-code-agent-S029" ;
-    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "\"Protected term\" is the Manual's own name for a term on the Wine Register — 20 uses, all in Part 32B — so recognition finds the concept where the Manual discusses it."@en-AU ;
-    tmk:confidence 0.8 ;
+    tmk:authoringReasoning "Section 61 is the opposition ground for a sign that is a geographical indication; it says nothing of terms protected under the Wine Australia Act, and no Manual passage citing it does. Withdrawn; sections 42(b) and 43 stay."@en-AU ;
+    tmk:confidence 0.75 ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/1/1/1> ;
     tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0126/evidence/1>,
         <https://data.ipaustralia.gov.au/tmk/concept/GC-0126/evidence/2>,
         <https://data.ipaustralia.gov.au/tmk/concept/GC-0126/evidence/3>,
         <https://data.ipaustralia.gov.au/tmk/concept/GC-0126/evidence/4>,
         <https://data.ipaustralia.gov.au/tmk/concept/GC-0126/evidence/5> ;
-    tmk:expertShouldCheck "Whether \"protected term\" is used anywhere outside wine for something else."@en-AU ;
+    tmk:expertShouldCheck "Whether any provision of the Act names terms protected under the Wine Australia Act."@en-AU ;
     tmk:goldRecord "GC-0126" ;
     tmk:isProtectedThrough tmkc:GC-0170 ;
     tmk:labelKey "protected term",
         "term on the wine register",
         "term protected under the wine australia act" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42(b)>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s61> ;
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:mayGiveRiseTo tmkc:GC-0063 ;
     tmk:notLabel "geographical indication"@en-AU,
         "geographical name"@en-AU,
@@ -26740,14 +26888,15 @@ tmkc:GC-0076 a skos:Concept,
     skos:definition "A trade mark consisting of a colour, alone or with other colours or other signs, whether applied to the goods, to a label or ticket, or as an aspect of packaging."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "colour trade mark"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Stated in terms at the head of the Manual's section on colour."@en-AU ;
-    tmk:confidence 0.8 ;
+    tmk:authoringReasoning "The Act's definition of a sign includes colour, which is what makes a colour trade mark possible. Basis kept, now quoted."@en-AU ;
+    tmk:confidence 0.85 ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/4%231> ;
-    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0076/evidence/1> ;
-    tmk:expertShouldCheck "Whether the two uses of colour the Manual distinguishes should be two concepts."@en-AU ;
+    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0076/evidence/1>,
+        <https://data.ipaustralia.gov.au/tmk/concept/GC-0076/evidence/2> ;
+    tmk:expertShouldCheck "Whether the concept as now labelled is what the corpus uses."@en-AU ;
     tmk:goldRecord "GC-0076" ;
     tmk:labelKey "colour and coloured trade mark",
         "colour trade mark",
@@ -26763,7 +26912,8 @@ tmkc:GC-0076 a skos:Concept,
     tmk:prefLabelKey "colour trade mark" ;
     tmk:requiresElement tmkc:GC-0014 ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/4%231> ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/sign>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/4%231> ;
     tmk:typedBy tmka:GT-0076 .
 
 tmkc:GC-0079 a skos:Concept,
@@ -27346,14 +27496,16 @@ tmkc:GC-0078 a skos:Concept,
     skos:definition "A trade mark consisting of a scent that identifies the goods or services of one particular proprietor; among the hardest non-traditional signs to represent graphically."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "scent trade mark"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Stated in terms. The link to section 40 is the Manual's own point and is the reason the record carries s 40 in its legislative basis."@en-AU ;
-    tmk:confidence 0.8 ;
+    tmk:authoringReasoning "The Act's definition of a sign includes scent; the Manual says section 40's requirement bears most on scent and sound marks, in a passage citing section 40 by link. Both bases kept, now quoted."@en-AU ;
+    tmk:confidence 0.85 ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/7%231> ;
-    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0078/evidence/1> ;
-    tmk:expertShouldCheck "The legislative_basis. `TMA1995/s40` is this record's inference from the phrase 'represent graphically', not a citation in the passage."@en-AU ;
+    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0078/evidence/1>,
+        <https://data.ipaustralia.gov.au/tmk/concept/GC-0078/evidence/2>,
+        <https://data.ipaustralia.gov.au/tmk/concept/GC-0078/evidence/3> ;
+    tmk:expertShouldCheck "Whether the concept as now labelled is what the corpus uses."@en-AU ;
     tmk:goldRecord "GC-0078" ;
     tmk:labelKey "olfactory trade mark",
         "scent trade mark" ;
@@ -27366,7 +27518,9 @@ tmkc:GC-0078 a skos:Concept,
     tmk:origin "authored" ;
     tmk:prefLabelKey "scent trade mark" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/7%231> ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/sign>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/5/5/1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/7%231> ;
     tmk:typedBy tmka:GT-0078 .
 
 tmkc:GC-0095 a skos:Concept,
@@ -27487,19 +27641,18 @@ tmkc:GC-0130 a skos:Concept,
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "reputation of a trade mark"@en-AU ;
     tmk:allocatesTo tmkc:GC-0117 ;
-    tmk:authoredBy "claude-code-agent-S026" ;
-    tmk:authoredDate "2026-10-08"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Relabelled on the owner's ruling A3 — reputation of a trade mark and reputation of a place are two separate concepts. This record's evidence (Part 34, sections 60 and 185) is about a trade mark's reputation, the sense the signed GC-0050 excludes."@en-AU ;
-    tmk:confidence 0.85 ;
+    tmk:authoringReasoning "Section 185 (defensive trade marks) turns on the extent of a registered mark's use, not on its reputation, and the Manual reads it that way (subsection 185(1), 34.6). Section 60, the reputation ground, stays."@en-AU ;
+    tmk:confidence 0.75 ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> ;
     tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0130/evidence/1> ;
-    tmk:expertShouldCheck "Whether reputation under section 60 and under section 185 is one idea; this record still holds both."@en-AU ;
+    tmk:expertShouldCheck "Whether a defensive registration should be linked to reputation at all."@en-AU ;
     tmk:goldRecord "GC-0130" ;
     tmk:labelKey "reputation in australia",
         "reputation of a trade mark" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s185>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s60> ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s60> ;
     tmk:mayGiveRiseTo tmkc:GC-0003 ;
     tmk:notLabel "connotation"@en-AU,
         "evidence of use"@en-AU,
@@ -27756,20 +27909,20 @@ tmkc:GC-0142 a skos:Concept,
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "application for removal"@en-AU ;
     skos:scopeNote "Here \"application\" is the request to remove a registered trade mark for non-use (s 92), not an application for registration. The definition is regulation 9.2's, for Part 9 of the Regulations."@en-AU ;
-    tmk:authoredBy "gpt-6.1-sol" ;
-    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Regulations expressly define the term. The Manual describes filing the application, opposition to it and rebuttal, supporting a distinct procedural concept rather than a generic phrase. It is provisionally distinguished from GC-0104 removal for non-use because the application initiates the process and is not itself removal. The Manual also expressly distinguishes it from an application for cessation of protection concerning a protected international trade mark."@en-AU ;
-    tmk:confidence 0.88 ;
+    tmk:authoringReasoning "Section 100 (who must prove what in an opposed removal) is cited for the application for removal by a passage whose citation is not ambiguous. Section 100(3)(c), one defence to removal, is withdrawn as a basis for what the application is; the one passage linking it (48.10) carries an ambiguous citation, which is never used as an anchor."@en-AU ;
+    tmk:confidence 0.7 ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r9.2/application-for-removal> ;
-    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0142/evidence/1> ;
-    tmk:expertShouldCheck "Check whether GC-0104 already encompasses the initiating application; the existing concept's label alone does not establish its scope."@en-AU ;
+    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0142/evidence/1>,
+        <https://data.ipaustralia.gov.au/tmk/concept/GC-0142/evidence/2> ;
+    tmk:expertShouldCheck "Whether the concept as now labelled is what the corpus uses."@en-AU ;
     tmk:goldRecord "GC-0142" ;
     tmk:labelKey "application for removal",
         "application for removal for non use",
         "non use application" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s100>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s100(3)(c)>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s92> ;
     tmk:notLabel "application for cessation of protection"@en-AU,
         "notice of opposition"@en-AU,
@@ -27781,7 +27934,8 @@ tmkc:GC-0142 a skos:Concept,
     tmk:prefLabelKey "application for removal" ;
     tmk:requiresElement tmkc:GC-0156 ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r9.2/application-for-removal> ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part48/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r9.2/application-for-removal> ;
     tmk:typedBy tmka:GT-0142 .
 
 tmkc:GC-0158 a skos:Concept,
@@ -27872,19 +28026,19 @@ tmkc:GC-0060 a skos:Concept,
     skos:definition "What a trade mark ordinarily means in the light of the goods or services applied for; the first step in deciding its inherent adaptation to distinguish."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "ordinary signification"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Manual names it as the first step of a two-part process and ties it to the goods and services applied for. It is held apart from 'connotation' — a section 43 concept this repository already holds — because the two ask different questions of the same mark and share no statutory text."@en-AU ;
-    tmk:confidence 0.8 ;
+    tmk:authoringReasoning "Section 41 never uses the phrase; the Manual uses ordinary signification to decide whether a sign is capable of distinguishing, in a passage citing section 41 as a whole. Subsections (3) and (4) are where that question is asked, but nothing quoted ties the phrase to either one, so the basis is the section."@en-AU ;
+    tmk:confidence 0.75 ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
-    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0060/evidence/1> ;
-    tmk:expertShouldCheck "The relationship to connotation. An expert may see them as two names for one underlying idea applied under different sections, which would make this a 'related' rather than a distinct concept."@en-AU ;
+    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0060/evidence/1>,
+        <https://data.ipaustralia.gov.au/tmk/concept/GC-0060/evidence/2> ;
+    tmk:expertShouldCheck "Whether ordinary signification belongs to section 41(3) or (4) in particular."@en-AU ;
     tmk:goldRecord "GC-0060" ;
     tmk:labelKey "ordinary signification",
         "ordinary signification of the trade mark" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)> ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
     tmk:notLabel "connotation"@en-AU,
         "denotation"@en-AU,
         "dictionary meaning"@en-AU ;
@@ -27896,7 +28050,8 @@ tmkc:GC-0060 a skos:Concept,
     tmk:qualifies tmkc:GC-0061,
         tmkc:GC-0119 ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/3>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
     tmk:typedBy tmka:GT-0060 .
 
 tmkc:GC-0061 a skos:Concept,
@@ -27908,20 +28063,20 @@ tmkc:GC-0061 a skos:Concept,
     skos:definition "The likelihood that other traders might legitimately wish to use the trade mark, for its ordinary signification, for their own similar goods or services; the second step in deciding inherent adaptation to distinguish."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "other traders' legitimate desire to use"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The corpus states the idea in terms but gives it no name, so the record is corpus_explicit as to the content and an invention as to the label. It is held because an examiner reasons with it constantly and a vocabulary without it cannot represent the second half of the Manual's own method."@en-AU ;
-    tmk:confidence 0.6 ;
+    tmk:authoringReasoning "The Manual ties capability of distinguishing to whether other traders are likely to want the sign, in a passage citing section 41 as a whole; section 41's own text does not mention other traders, so the basis is the section, not the two subsections nothing quoted reaches."@en-AU ;
+    tmk:confidence 0.75 ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
-    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0061/evidence/1> ;
-    tmk:expertShouldCheck "The preferred label, which no passage supports. The case law phrase is closer to 'the legitimate desire of other traders', and an expert should replace this label rather than accept it."@en-AU ;
+    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0061/evidence/1>,
+        <https://data.ipaustralia.gov.au/tmk/concept/GC-0061/evidence/2> ;
+    tmk:expertShouldCheck "Whether the other-traders test belongs to section 41(3) or (4) in particular."@en-AU ;
     tmk:goldRecord "GC-0061" ;
     tmk:labelKey "need of other trader",
         "other trader legitimate desire to use",
         "other trader might legitimately wish to use" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)> ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
     tmk:notLabel "honest concurrent use"@en-AU,
         "ordinary signification"@en-AU ;
     tmk:notLabelKey "honest concurrent use",
@@ -27929,7 +28084,8 @@ tmkc:GC-0061 a skos:Concept,
     tmk:origin "authored" ;
     tmk:prefLabelKey "other trader legitimate desire to use" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/3>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
     tmk:typedBy tmka:GT-0061 .
 
 tmkc:GC-0089 a skos:Concept,
@@ -28202,18 +28358,17 @@ tmkc:GC-0151 a skos:Concept,
     skos:definition "old register means the Register of Trade Marks kept under the repealed Act."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "old register"@en-AU ;
-    tmk:authoredBy "gpt-6.1-sol" ;
-    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Section 6 expressly defines the term. The Manual distinguishes the old register under the 1955 Act from the Register under the 1995 Act and describes the transfer of disclaimer particulars between them. This supports a distinct historical record concept, rather than a duplicate of the general Register of Trade Marks concept. The cited sections 207 and 238 concern that transition as described by the Manual; the other supplied provision references concern disclaimers or examination rather than defining the old register."@en-AU ;
-    tmk:confidence 0.97 ;
+    tmk:authoringReasoning "Section 238 is about disclaimers carried over from the old register; the only passage citing it does so with an ambiguous citation. Withdrawn; the concept's meaning is section 6's definition, already its definition source."@en-AU ;
+    tmk:confidence 0.75 ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/old-register> ;
     tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0151/evidence/1> ;
-    tmk:expertShouldCheck "Confirm the relationship to GC-0089 and verify sections 207 and 238 directly; their transitional effects are described here only through the Manual passages."@en-AU ;
+    tmk:expertShouldCheck "Whether the concept as now labelled is what the corpus uses."@en-AU ;
     tmk:goldRecord "GC-0151" ;
     tmk:labelKey "old register" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s207>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s238> ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s207> ;
     tmk:notLabel "Register kept under the 1995 Act"@en-AU,
         "new Register"@en-AU ;
     tmk:notLabelKey "new register",
@@ -28605,14 +28760,15 @@ tmkc:GC-0127 a skos:Concept,
     skos:definition "A decision of the Registrar or the Registrar's delegate in an opposition, non-use, procedural or ex parte matter; an administrative action, generally made once communicated to the persons it affects."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "Registrar's decision"@en-AU ;
-    tmk:authoredBy "claude-code-agent-S026" ;
-    tmk:authoredDate "2026-10-08"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The record's own evidence (Part 52.1) is about a decision made by the Registrar or the Registrar's delegate; the label now says so. Relabelled on the owner's ruling E3."@en-AU ;
-    tmk:confidence 0.6 ;
+    tmk:authoringReasoning "The Manual explains from section 205 why a Deputy Registrar's decision is the Registrar's, in a passage citing it. Basis kept, now quoted."@en-AU ;
+    tmk:confidence 0.7 ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/1%231~1> ;
-    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0127/evidence/1> ;
-    tmk:expertShouldCheck "This record's evidence does not define a decision. Either Part 52 defines it somewhere this pass did not reach, or the record should be redrawn or dropped."@en-AU ;
+    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0127/evidence/1>,
+        <https://data.ipaustralia.gov.au/tmk/concept/GC-0127/evidence/2> ;
+    tmk:expertShouldCheck "Whether the concept as now labelled is what the corpus uses."@en-AU ;
     tmk:goldRecord "GC-0127" ;
     tmk:labelKey "decision of the registrar",
         "delegate decision",
@@ -28629,7 +28785,8 @@ tmkc:GC-0127 a skos:Concept,
     tmk:origin "authored" ;
     tmk:prefLabelKey "registrar decision" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/1%231~1> ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/1%231~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/1%231~2> ;
     tmk:typedBy tmka:GT-0127 .
 
 tmkc:GC-0131 a skos:Concept,
@@ -28750,14 +28907,15 @@ tmkc:GC-0162 a skos:Concept,
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "change of ownership"@en-AU ;
     skos:scopeNote "Regulation 17A.2's definition, for international registrations under Part 17A."@en-AU ;
-    tmk:authoredBy "gpt-6.1-sol" ;
-    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Regulations expressly identify change of ownership as including assignment or transmission. It is a useful umbrella concept rather than a duplicate of GC-0086 assignment or GC-0087 transmission individually. The Manual explains the passing of ownership between parties, distinguishes it from a change of name by the same entity, and describes recordal under section 110. The ownership-transfer event fits procedural_step; the Manual's account of recordal is practice guidance, not itself legislation."@en-AU ;
-    tmk:confidence 0.94 ;
+    tmk:authoringReasoning "The Manual describes recording a change of ownership in a passage citing section 110 by link. Basis kept, now quoted."@en-AU ;
+    tmk:confidence 0.8 ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/change-of-ownership> ;
-    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0162/evidence/1> ;
-    tmk:expertShouldCheck "Check the scope of the regulation 17A.2 definition, which appears in the international-registration context, before applying it as a statutory definition across all trade marks."@en-AU ;
+    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0162/evidence/1>,
+        <https://data.ipaustralia.gov.au/tmk/concept/GC-0162/evidence/2> ;
+    tmk:expertShouldCheck "Whether the concept as now labelled is what the corpus uses."@en-AU ;
     tmk:goldRecord "GC-0162" ;
     tmk:labelKey "change in ownership",
         "change of ownership" ;
@@ -28771,7 +28929,8 @@ tmkc:GC-0162 a skos:Concept,
     tmk:origin "authored" ;
     tmk:prefLabelKey "change of ownership" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/change-of-ownership> ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part43/1%231~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/change-of-ownership> ;
     tmk:typedBy tmka:GT-0162 .
 
 tmkc:GC-0176 a skos:Concept,
@@ -28833,14 +28992,15 @@ tmkc:GC-0074 a skos:Concept,
     skos:definition "A sign other than a letter, word, name or device, such as a colour, scent, shape, sound or aspect of packaging; the 1995 Act added shape, sound, scent and aspect of packaging to the definition of a sign."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "non-traditional sign"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The Manual devotes a Part to the category and names it in the Part title, but never defines it — so the record is corpus_inferred and says so. It is held because the grouping drives practice: these are the signs where section 40 and the representation requirements bite hardest."@en-AU ;
-    tmk:confidence 0.7 ;
+    tmk:authoringReasoning "The Manual applies section 40 (graphical representation) to the non-traditional signs Part 21 covers, in a passage citing section 40 by link. Basis kept, now quoted."@en-AU ;
+    tmk:confidence 0.8 ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/1%231> ;
-    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0074/evidence/1> ;
-    tmk:expertShouldCheck "Which signs are inside the category. This record takes the Manual's Part 21 contents as the extension, and an expert may draw it differently."@en-AU ;
+    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0074/evidence/1>,
+        <https://data.ipaustralia.gov.au/tmk/concept/GC-0074/evidence/2> ;
+    tmk:expertShouldCheck "Whether the concept as now labelled is what the corpus uses."@en-AU ;
     tmk:goldRecord "GC-0074" ;
     tmk:labelKey "non traditional sign",
         "non traditional trade mark" ;
@@ -28855,7 +29015,8 @@ tmkc:GC-0074 a skos:Concept,
     tmk:origin "authored" ;
     tmk:prefLabelKey "non traditional sign" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/1%231> ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5/5/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/1%231> ;
     tmk:typedBy tmka:GT-0074 .
 
 tmkc:GC-0103 a skos:Concept,
@@ -28980,21 +29141,20 @@ tmkc:GC-0088 a skos:Concept,
     skos:definition "registered trade mark means a trade mark whose particulars are entered in the Register under this Act."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "registered trade mark"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Defined by the Act in terms and characterised by the Manual."@en-AU ;
-    tmk:confidence 0.85 ;
+    tmk:authoringReasoning "Section 207 establishes the Register; what a registered trade mark is comes from section 6's definition (a mark whose particulars are entered in the Register under this Act), already the first basis and already quoted. Section 207 is withdrawn as a basis for the concept; it is the Register's."@en-AU ;
+    tmk:confidence 0.8 ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19B/1%231> ;
     tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0088/evidence/1>,
         <https://data.ipaustralia.gov.au/tmk/concept/GC-0088/evidence/2> ;
-    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:expertShouldCheck "Whether the concept as now labelled is what the corpus uses."@en-AU ;
     tmk:goldRecord "GC-0088" ;
     tmk:isRecordedIn tmkc:GC-0089,
         tmkc:GC-0151 ;
     tmk:labelKey "registered trade mark" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s207>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s21(1)>,
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s21(1)>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registered-trade-mark> ;
     tmk:notLabel "pending application"@en-AU,
         "protected international trade mark"@en-AU,
@@ -29084,14 +29244,15 @@ tmkc:GC-0128 a skos:Concept,
     skos:definition "An interactive presentation before the Deputy Registrar or a Hearing Officer acting under delegation, at which a party is heard before the Registrar decides a matter."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "hearing"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoredBy "claude-code-agent-S042" ;
+    tmk:authoredDate "2026-10-19"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Section 33(4) states the entitlement in terms. The concept is drawn from the Act rather than from Part 51, because Part 51's opening is about how evidence is filed rather than about what a hearing is."@en-AU ;
-    tmk:confidence 0.7 ;
+    tmk:authoringReasoning "The Manual names section 202's powers as relevant to hearings. Basis kept, now quoted."@en-AU ;
+    tmk:confidence 0.8 ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part51/1%231~1> ;
-    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0128/evidence/1> ;
-    tmk:expertShouldCheck "Whether ex parte and inter partes hearings are one concept. The Manual gives them different procedures."@en-AU ;
+    tmk:evidence <https://data.ipaustralia.gov.au/tmk/concept/GC-0128/evidence/1>,
+        <https://data.ipaustralia.gov.au/tmk/concept/GC-0128/evidence/2> ;
+    tmk:expertShouldCheck "Whether the concept as now labelled is what the corpus uses."@en-AU ;
     tmk:goldRecord "GC-0128" ;
     tmk:isPartOf tmkc:GC-0040 ;
     tmk:labelKey "ex parte hearing",
@@ -29109,7 +29270,8 @@ tmkc:GC-0128 a skos:Concept,
     tmk:prefLabelKey "hearing" ;
     tmk:resultsIn tmkc:GC-0127 ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33> ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4%231> ;
     tmk:typedBy tmka:GT-0128 .
 
 tmkc:GC-0156 a skos:Concept,

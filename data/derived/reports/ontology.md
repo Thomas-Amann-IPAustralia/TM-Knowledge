@@ -26,9 +26,9 @@ ontology cannot do, and it is the honest half of the demonstration.
 | Ontology modules | 9, all draft |
 | Classes declared | 91 |
 | Predicates defined | 53 in `ontology/predicates.py`; 14 used by a signed record, 51 by a machine-written one |
-| Source graph | 65,355 triples over 1057 chunks |
+| Source graph | 65,467 triples over 1059 chunks |
 | Approved graph | 3,644 triples — signed by a named expert |
-| Authored graph | 27,885 triples — **written by a machine, validated by nobody** |
+| Authored graph | 28,034 triples — **written by a machine, validated by nobody** |
 | Inferred graph | 2,315 triples — derived by the SPARQL rules, never a signed record |
 | SHACL result | 0 defects, 0 gaps, 259 notes — exit 0 |
 | Competency queries | 13 of 20 questions |
@@ -63,13 +63,13 @@ unreviewed, naming the owner's ruling; what serves applies it, and the yardstick
 reads the record as signed (ADR-0122). A machine-written concept sorted into a
 kind is a typing by a machine; a person has typed none.
 
-The `source` graph holds 1057 chunks from 206 pages,
-803 provisions and units and 311 decisions: the passages
+The `source` graph holds 1059 chunks from 207 pages,
+804 provisions and units and 313 decisions: the passages
 a record rests on and what they cite (ADR-0097), not the whole snapshot.
 
 ### The trust metadata survived
 
-2227 citations reached the graph as nodes rather than as bare edges, each
+2234 citations reached the graph as nodes rather than as bare edges, each
 carrying upstream's `extraction` and `certainty` verbatim. That is what makes
 CQ-0022 — *did the Manual's authors link that section themselves, or did we work
 it out from the wording?* — a query rather than a shrug. Collapsing those two
@@ -296,7 +296,7 @@ compilation of the Act or the Regulations in force after that may not be reflect
 | Part18 | Finalisation of Application for Registration | 19 | 18 | 6 | 12 | 2 | 0 |
 | Part19A | Use of a Trade Mark | 45 | 24 | 3 | 3 | 0 | 0 |
 | Part19B | Rights Given by Registration of a Trade Mark | 14 | 9 | 2 | 2 | 0 | 0 |
-| Part20 | Definition of a Trade Mark and Presumption of Registrability | 30 | 26 | 6 | 11 | 3 | 3 |
+| Part20 | Definition of a Trade Mark and Presumption of Registrability | 30 | 26 | 7 | 11 | 3 | 3 |
 | Part21 | Non-traditional Signs | 54 | 45 | 6 | 5 | 5 | 0 |
 | Part22 | Section 41 - Capable of Distinguishing | 128 | 80 | 8 | 24 | 6 | 1 |
 | Part23 | Overcoming Grounds for Rejection under Section 41 - including Evidence of Use | 57 | 20 | 1 | 6 | 0 | 1 |
@@ -317,15 +317,15 @@ compilation of the Act or the Regulations in force after that may not be reflect
 | Part40 | Renewal of Registration | 5 | 1 | 1 | 2 | 1 | 0 |
 | Part41 | Cancellation of Registration | 5 | 0 | 0 | 0 | 0 | 0 |
 | Part42 | Rectification of the Register | 5 | 2 | 1 | 1 | 1 | 0 |
-| Part43 | Assignment and Transmission | 19 | 12 | 2 | 4 | 0 | 0 |
+| Part43 | Assignment and Transmission | 19 | 12 | 3 | 4 | 0 | 0 |
 | Part44 | Claim of Interest or Rights in a Trade Mark | 25 | 1 | 0 | 1 | 0 | 0 |
 | Part45 | Copies of Documents | 8 | 1 | 0 | 0 | 0 | 0 |
 | Part46 | Grounds for Opposition to Registration or Protection | 23 | 19 | 1 | 6 | 0 | 0 |
 | Part47 | Procedures for Opposing Registration or Protection | 37 | 32 | 2 | 7 | 0 | 1 |
-| Part48 | Removal of a Trade Mark from the Register for Non-use | 25 | 14 | 1 | 3 | 1 | 0 |
+| Part48 | Removal of a Trade Mark from the Register for Non-use | 25 | 14 | 2 | 3 | 1 | 0 |
 | Part49 | Non-use Procedures | 40 | 35 | 0 | 6 | 0 | 0 |
 | Part51 | General Opposition Proceedings | 40 | 27 | 2 | 2 | 0 | 1 |
-| Part52 | Hearings, Decisions, Reasons and Appeals | 23 | 16 | 2 | 9 | 3 | 0 |
+| Part52 | Hearings, Decisions, Reasons and Appeals | 23 | 18 | 3 | 9 | 3 | 0 |
 | Part54 | Subpoenas, Summonses and Production of Documents | 31 | 29 | 1 | 3 | 1 | 0 |
 | Part55 | Costs | 26 | 12 | 1 | 2 | 0 | 0 |
 | Part60 | The Madrid Protocol | 141 | 95 | 3 | 29 | 0 | 0 |
@@ -335,14 +335,14 @@ compilation of the Act or the Regulations in force after that may not be reflect
 **5 Parts have no chunk in the graph**: Part1, Part4, Part8, Part41, Part61. **2 more have
 no relationship resting on them**: Part7, Part45.
 
-**The dependency index.** 2,355 dependencies of 963 records on
-556 refs, current view: by record type 67 competency_question, 400 concept_type, 60 correction, 399 definition, 589 gold_concept, 66 gold_entity, 711 gold_relationship, 40 gold_retrieval_question, 5 gold_search_question, 18 reasoning_expectation; by review
-status 356 approved, 1,999 unreviewed; by source 574 act, 9 case, 1,631 manual, 141 regulations. Stale (a recorded hash that
+**The dependency index.** 2,361 dependencies of 963 records on
+557 refs, current view: by record type 67 competency_question, 400 concept_type, 60 correction, 399 definition, 595 gold_concept, 66 gold_entity, 711 gold_relationship, 40 gold_retrieval_question, 5 gold_search_question, 18 reasoning_expectation; by review
+status 356 approved, 2,005 unreviewed; by source 572 act, 9 case, 1,639 manual, 141 regulations. Stale (a recorded hash that
 no longer matches the pin): 0. A further 19 dependencies are
 history only: a signed record named the ref as signed, and a correction removed it or
 replaced the record. RULE-0002 is unchanged and is the signed-records-only view of the
 same question, from a Manual passage only.
 
 The provisions most rested on, directly or through a Manual passage that cites them:
-`TMA1995/s43` (308), `TMA1995/s6` (99), `TMA1995/s44` (95), `TMA1995/s41` (78), `TMA1995/s33` (66), `TMA1995/s39` (37), `TMA1995/s42` (28), `TMA1995/s206` (23), `TMR1995/r17A.2` (21), `TMA1995/s17` (15).
+`TMA1995/s43` (308), `TMA1995/s6` (100), `TMA1995/s44` (95), `TMA1995/s41` (78), `TMA1995/s33` (66), `TMA1995/s39` (37), `TMA1995/s42` (28), `TMA1995/s206` (23), `TMR1995/r17A.2` (21), `TMA1995/s17` (16).
 
