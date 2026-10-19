@@ -11,7 +11,7 @@
 
 import { esc, fmt, load, kindColour, refChip, refLabel, isLaw, sourceOf, srcClass, SOURCES, legend, stampIcon, srcBadge } from "./app.js";
 import { svg, curve, wrapText, wait } from "./graph.js";
-import { Engine, Recogniser, authorityFlags } from "./engine.js";
+import { Engine, Recogniser, authorityFlags, namedProvisions } from "./engine.js";
 import { miniMap } from "./minimap.js";
 import { answer as callModel, read as readModel, cost, partialFields, viaProxy, wake } from "./live.js";
 import * as lib from "./lib.js";
@@ -171,6 +171,7 @@ export async function render(root, { ontology, params }) {
       };
       explain(view, graph, { live: true });
       renderCompare(view.compare, prep.plain, prep.passages, prep.hits);
+      renderProvisions(view.compare, question, prep.legislation, eng);
       return { prep, g: graph, steps: describe(graph, { linkedCount: prep.weight ? prep.weight.size : 0, live: true }) };
     });
     const animation = animate(view, question, ready, { reading: reads });
@@ -535,6 +536,18 @@ export async function render(root, { ontology, params }) {
       strong: followed.length > shown ? new Set(g.paths.map((p) => p.record)) : null,
       help: "Hover over an idea to see what it rests on; click a line to read the sentence it rests on. Drag to move; buttons to zoom.",
     }).then((m) => { if (token === maps) mini = m; else m.destroy(); });
+  }
+
+  /** A07: the provisions the question names, and those its words match, apart from the
+      Manual's ranking. Not sent to the model; unmeasured. */
+  function renderProvisions(target, question, given, eng) {
+    const named = namedProvisions(question, eng.legislation);
+    const matched = eng.provisionSearch(question, 5).map((h) => h.ref);
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<h4>The Act and the Regulations</h4><span class="tiny">provisions named in the question, then those its words match — searched apart from the Manual, not yet measured</span>
+      <ol>${[...new Set([...named, ...matched])].map((ref) => `<li>${refChip(ref)}${named.includes(ref) ? `<span class="via">named in the question</span>` : ""}${given.includes(ref) ? `<span class="via" title="Given to the model with the passages">given to the answer</span>` : ""}</li>`).join("") || `<li class="empty">Nothing matched.</li>`}</ol>`;
+    target.appendChild(card);
   }
 
   function renderCompare(target, plain, guided, hits, prepared = false) {

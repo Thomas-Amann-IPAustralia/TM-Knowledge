@@ -82,6 +82,44 @@ export class Recogniser {
   }
 }
 
+/** BM25 postings over [heading, text] documents, as FTS5 weights them here (Q-69). */
+function bm25Index(docs) {
+  const postings = new Map();
+  const lengths = new Float64Array(docs.length);
+  let total = 0;
+  docs.forEach(([heading, text], i) => {
+    const freq = new Map();
+    const h = unicodeTokens(heading), b = unicodeTokens(text);
+    for (const t of h) freq.set(t, (freq.get(t) || 0) + 1.0);
+    for (const t of b) freq.set(t, (freq.get(t) || 0) + 1.0);
+    lengths[i] = h.length + b.length;
+    total += lengths[i];
+    for (const [t, f] of freq) {
+      if (!postings.has(t)) postings.set(t, []);
+      postings.get(t).push([i, f]);
+    }
+  });
+  return { postings, lengths, avgdl: total / Math.max(1, docs.length) };
+}
+
+/** [document index, score], best first, ties by index. */
+function bm25Rank(index, terms, k) {
+  if (!terms.length) return [];
+  const N = index.lengths.length;
+  const score = new Map();
+  for (const t of terms) {
+    const list = index.postings.get(t);
+    if (!list) continue;
+    let idf = Math.log((N - list.length + 0.5) / (list.length + 0.5));
+    if (idf <= 0) idf = 1e-6;
+    for (const [i, f] of list) {
+      const s = idf * (f * (K1 + 1)) / (f + K1 * (1 - B + (B * index.lengths[i]) / index.avgdl));
+      score.set(i, (score.get(i) || 0) + s);
+    }
+  }
+  return [...score.entries()].sort((a, b) => b[1] - a[1] || a[0] - b[0]).slice(0, k);
+}
+
 export class Engine {
   constructor(search, passages) {
     this.s = search;
@@ -104,24 +142,10 @@ export class Engine {
   }
 
   #index() {
-    const postings = new Map();
-    const lengths = new Float64Array(this.chunks.length);
-    let total = 0;
-    this.chunks.forEach(([, , heading, text], i) => {
-      const freq = new Map();
-      const h = unicodeTokens(heading), b = unicodeTokens(text);
-      for (const t of h) freq.set(t, (freq.get(t) || 0) + 1.0);
-      for (const t of b) freq.set(t, (freq.get(t) || 0) + 1.0);
-      lengths[i] = h.length + b.length;
-      total += lengths[i];
-      for (const [t, f] of freq) {
-        if (!postings.has(t)) postings.set(t, []);
-        postings.get(t).push([i, f]);
-      }
-    });
-    this.postings = postings;
-    this.lengths = lengths;
-    this.avgdl = total / this.chunks.length;
+    Object.assign(this, bm25Index(this.chunks.map(([, , heading, text]) => [heading, text])));
+    // A07: the provisions, by their words, apart from the Manual (`search.index.ProvisionIndex`).
+    this.provisionRefs = (this.s.provisions || []).filter((ref) => this.legislation[ref]);
+    this.provisionIndex = bm25Index(this.provisionRefs.map((ref) => [this.legislation[ref][2], this.legislation[ref][3]]));
   }
 
   /** The query terms, as `search.index._terms` makes them. */
@@ -134,21 +158,13 @@ export class Engine {
   }
 
   keywordRanking(query, k) {
-    const terms = this.terms(query);
-    if (!terms.length) return [];
-    const N = this.chunks.length;
-    const score = new Map();
-    for (const t of terms) {
-      const list = this.postings.get(t);
-      if (!list) continue;
-      let idf = Math.log((N - list.length + 0.5) / (list.length + 0.5));
-      if (idf <= 0) idf = 1e-6;
-      for (const [i, f] of list) {
-        const s = idf * (f * (K1 + 1)) / (f + K1 * (1 - B + (B * this.lengths[i]) / this.avgdl));
-        score.set(i, (score.get(i) || 0) + s);
-      }
-    }
-    return [...score.entries()].sort((a, b) => b[1] - a[1] || a[0] - b[0]).slice(0, k).map(([i, s]) => ({ ref: this.refs[i], score: s }));
+    return bm25Rank(this, this.terms(query), k).map(([i, score]) => ({ ref: this.refs[i], score }));
+  }
+
+  /** Provisions ranked by the question's words — `ProvisionIndex.search`. Shown apart,
+      never sent to the answer prompt. */
+  provisionSearch(query, k = 5) {
+    return bm25Rank(this.provisionIndex, this.terms(query), k).map(([i, score]) => ({ ref: this.provisionRefs[i], score, why: ["provision"] }));
   }
 
   keyword(question, k = 10) {

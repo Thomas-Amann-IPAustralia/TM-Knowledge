@@ -433,6 +433,8 @@ def search(corpus: Corpus, gold: Any, authored: Any, links: links_module.Links) 
     bases = sorted({r for c in links.concepts.values() for r in c.legislative_basis})
     return {
         "stopwords": sorted(search_index.STOPWORDS),
+        # A07: the provisions the browser's provision index holds, in `ProvisionIndex`'s order.
+        "provisions": [ref for ref, _, _ in search_index.provisions(corpus)],
         "rrf_k": search_index.RRF_K,
         "depth": search_index.DEPTH,
         "min_label": links_module.MIN_LABEL_CHARS,

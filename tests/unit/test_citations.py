@@ -43,3 +43,17 @@ def test_the_browser_finds_the_same_provisions():
     result = subprocess.run(["node", "--input-type=module", "-e", script], capture_output=True, text=True,
                             check=True)
     assert json.loads(result.stdout) == [expected for _, expected in CASES]
+
+
+@pytest.mark.skipif(not (REPO_ROOT / "data" / "upstream").exists(), reason="needs the pinned snapshot")
+def test_a_provision_is_found_by_its_words():
+    """A07's second half: the 763 provisions by keyword, apart from the Manual."""
+    from tm_knowledge.search.index import ProvisionIndex, provisions
+    from tm_knowledge.upstream.loader import load_corpus
+
+    corpus = load_corpus()
+    index = ProvisionIndex(corpus)
+    assert len(provisions(corpus)) == len(corpus.provisions)
+    hits = [h.ref for h in index.search("extension of time to respond to an adverse report", 5)]
+    assert hits[0] == "TMR1995/r4.9"
+    assert all(h.why == ("provision",) for h in index.search("deceptively similar", 3))

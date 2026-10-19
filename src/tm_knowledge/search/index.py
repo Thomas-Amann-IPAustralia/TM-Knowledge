@@ -96,6 +96,43 @@ class KeywordIndex:
         return [Hit(ref=ref, score=-score, why=("keyword",)) for ref, score in rows]
 
 
+class ProvisionIndex:
+    """BM25 over every provision of the Act and the Regulations the snapshot holds, its
+    heading path and its text (A07): legislation found by its words, beside the Manual.
+
+    The same table and weights as `KeywordIndex`, over `provisions()` in their order.
+    Shown on the Ask page apart from the Manual's ranking and never fed to the answer
+    prompt, so the measured system is unchanged; unmeasured until the next measurement.
+    `Engine.provisionSearch` in `site/js/engine.js` is the same ranking."""
+
+    def __init__(self, corpus: Corpus) -> None:
+        self.db = sqlite3.connect(":memory:")
+        self.db.execute("CREATE VIRTUAL TABLE passages USING fts5(ref UNINDEXED, heading, body)")
+        self.db.executemany("INSERT INTO passages VALUES (?, ?, ?)", provisions(corpus))
+
+    def search(self, query: str, k: int = 5) -> list[Hit]:
+        expression = _match_expression(_terms(query))
+        if not expression:
+            return []
+        rows = self.db.execute(
+            "SELECT ref, bm25(passages, 0.5, 1.0) AS s FROM passages WHERE passages MATCH ? ORDER BY s LIMIT ?",
+            (expression, k),
+        ).fetchall()
+        return [Hit(ref=ref, score=-score, why=("provision",)) for ref, score in rows]
+
+
+def provisions(corpus: Corpus) -> list[tuple[str, str, str]]:
+    """(ref, heading path, text) for every provision with text, in ref order: what the
+    provision index holds, and what `explorer.build.passages` ships as `provisions`."""
+    rows = []
+    for ref in sorted(corpus.provisions):
+        provision = corpus.provisions[ref]
+        text = getattr(provision, "text", None)
+        if text:
+            rows.append((ref, " > ".join(getattr(provision, "heading_path", ()) or ()), text))
+    return rows
+
+
 def _fuse(rankings: list[tuple[str, list[str]]], k: int) -> list[Hit]:
     fused: dict[str, float] = defaultdict(float)
     why: dict[str, list[str]] = defaultdict(list)

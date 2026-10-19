@@ -226,7 +226,7 @@ def test_the_browser_engine_matches_python(files, tmp_path):
 
     from tm_knowledge.bulk import jobs
     from tm_knowledge.bulk import links as links_module
-    from tm_knowledge.search.index import KeywordIndex, Systems, relations_from
+    from tm_knowledge.search.index import KeywordIndex, ProvisionIndex, Systems, relations_from
     from tm_knowledge.upstream.loader import load_corpus
 
     explorer.write(files, tmp_path)
@@ -242,9 +242,11 @@ def test_the_browser_engine_matches_python(files, tmp_path):
     ctx = jobs.Context(corpus=corpus, links=links)
     systems = Systems(KeywordIndex(corpus), links, None, jobs.load_aliases(corpus, links.concepts),
                       relations_from(ctx.gold, ctx.authored))
+    provision_index = ProvisionIndex(corpus)
     for q in questions:
         js = browser[q["key"]]
         assert js["keyword"] == [h.ref for h in systems.keyword(q["question"], 10)], q["key"]
+        assert js["provisions"] == [h.ref for h in provision_index.search(q["question"], 5)], q["key"]
         hits, trace = systems.ontology(q["question"], 10)
         assert js["ontology"] == [h.ref for h in hits], q["key"]
         assert js["recognised"] == trace.recognised and js["paths"] == [p[3] for p in trace.paths], q["key"]
