@@ -60,8 +60,8 @@ be able to represent a recorded decision; it does not license any product here t
   the RDF drops span, hash and quote for 634 evidence items across four record types, not 230 in one
   (R03), which matters now that downstream consumers are a stated use; and the signed
   competency-question records already contain the answer contract R06 asks someone to write.
-- **Almost all of the work is agent work that costs nothing.** Two decisions need the owner now;
-  four gates are named for later.
+- **Almost all of the work is agent work that costs nothing.** The two decisions it put to the owner
+  were approved on 2026-10-19 (ADR-0139); four gates are named for later.
 
 ## Verdicts at a glance
 
@@ -717,6 +717,10 @@ evidence covering the wrong period, ambiguous everyday wording).
 
 ## Recommended order of work
 
+Both owner decisions below were approved on 2026-10-19 (ADR-0139), so the live-answer package moves
+up: Package 1, then Package 3, then Package 2, then Packages 4 and 5. Package 3 waits on Package 1
+because the definitions it adds to the prompt are the ones Package 1 repairs.
+
 **Package 1: repair the foundation** (agent, no spend, about one session). R04 (shape targets
 including corrections, a Definition shape, RULE-0001 and the equality check); R03 (evidence anchors
 for every record type, source closure); R01 (the four re-reads, the hedge field, the dictionary
@@ -731,9 +735,10 @@ tested against its signed record; CQ-0009 and CQ-0024 rewritten); R08 (documente
 tightenings); R10 (the coverage table, the Manual's capture date); A07 (exact-reference lookup and
 provision search; the source register); A11's release manifest.
 
-**Package 3: the live answer, after decision 1.** A06 step 1 and A08's deterministic parts together
-in `jobs.py` and `engine.js`, as a new answer version; the prepared answers labelled as written from
-cut passages.
+**Package 3: the live answer, approved (ADR-0139); second, after Package 1.** A06 step 1 and A08's
+deterministic parts together in `jobs.py` and `engine.js`, as a new answer version; the definitions
+given to the model, each with its basis and stamp; the prepared answers labelled as written from cut
+passages.
 
 **Package 4: the first customer slice, fictional** (agent, no spend, one or two sessions; schema
 design may start during Package 1). Test records for sections 41, 43 and 44 (A04); the regulations
@@ -749,7 +754,8 @@ A10); normative scenarios on fictional matters (A10).
 
 ## Decisions for the owner
 
-Now:
+Both approved by the owner on 2026-10-19: *"I approve both the decision points you raised."*
+(CHAT-0087, CHAT-0088, ADR-0139).
 
 1. **Approve two changes to what the live examiner chatbot is given and how its answers are shown**:
    complete legislative units with every cut marked (A06); and claims carrying their own quotes,

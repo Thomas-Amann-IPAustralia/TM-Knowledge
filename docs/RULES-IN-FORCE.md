@@ -4,7 +4,7 @@ Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-10-19, ADR-0138 (S040).
+**As at:** 2026-10-19, ADR-0139 (S040).
 
 ## Purpose and scope
 
@@ -22,6 +22,10 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 - **The whole Manual is in scope.** There is no section 43 boundary (ADR-0081).
 - **The pitch pack and deck are left to go stale** (ADR-0138); no session reviews or
   updates them. OQ-0029's claims stand in `docs/PITCH-PACK.md` as written, unmaintained.
+- **Approved, not yet built (ADR-0139):** the live chatbot gets complete legislative units with
+  every cut marked; claims each carrying their own quotes, checked against the excerpt sent,
+  unsupported ones marked, streamed as an unchecked draft; and, once the flagged definitions are
+  re-read, the definitions, each with its basis and stamp. No model-judged support check yet.
 - **Definitions are written** and the stale documents corrected; both deferrals were lifted
   (ADR-0136). The ontology report is generated without a date and drift-checked in CI.
 - **The pinned Act is compilation 48** (`C2026C00421`, in force from 19 September 2026),

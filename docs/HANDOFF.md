@@ -7,140 +7,143 @@ Rewritten every session, under 150 lines (ADR-0110). History is in the git log a
 
 ## Where things stand
 
-**The owner stated the ontology's purpose (ADR-0138, CHAT-0085).** A foundation for future ML,
-decision-making, customer service and policy aids (simulating amendments); immediately a research
-and decision-support tool for examiners, and an explanation aid for customers (requirements, the
-application process, objections; likely a chatbot with visuals). It replaces "a pitch" (ADR-0109's
-first decision); "a working system soon" and the way of working stand. **The pitch pack and deck
-are left to go stale (CHAT-0086): spend no tokens on them.** `CLAUDE.md` §0 now has D4 as the
-customer explanation aid (its done-test is the agent's) and §3a adds the customer and real case data
-to the gates.
+**The purpose changed (ADR-0138).** In the owner's words, the ontology is "a foundational layer for
+any future machine learning, machine decision making, customer service delivery or policy writing
+aid"; immediately, an examiner research and decision-support tool, and a customer explanation aid
+(requirements, the application process, objections; likely a chatbot with visuals). `CLAUDE.md` §0
+has it verbatim, with D4 now the customer aid. **The pitch pack is stale: spend no tokens on it.**
 
-**S040 checked ChatGPT's consolidated review** (`docs/Trade-Mark-Ontology-Consolidated-Review.md`)
-and, after the owner's statement, re-evaluated it: `docs/ONTOLOGY-REVIEW-RESPONSE-2.md` (first
-version at `8d4c6ef`). Nothing in records, graph, queries, shapes, prompts or pages changed; no model
-was called; recorded spend is still US$9.63 against the US$9.49 cap, so every paid call is refused.
+**The plan is `docs/ONTOLOGY-REVIEW-RESPONSE-2.md`**, S040's check of ChatGPT's consolidated review
+(`docs/Trade-Mark-Ontology-Consolidated-Review.md`), re-judged against that purpose: all 22 findings
+stand; 17 fixes agreed, 5 in part. Its "Recommended order of work" is the backlog below.
 
-1. **All 22 findings stand** against the stated purpose (four wider than reported: R02, R03, R04,
-   R08). Fixes: 17 agreed, 5 in part (R01, R02, R06, R07, A06: a deterministic check, a signed
-   yardstick or a simpler mechanism does better), none rejected.
-2. **The main difference with ChatGPT is order**: design the customer slice's schema in parallel,
-   populate it only after the repairs, because it composes the records R01, R02 and R07 show to be
-   overstated.
-3. **Two live examiner-chatbot defects** (A06, A08) come first: the 1,600-character cut removes
-   section 44's subsections (3) and (4); the citation check runs against the full text, not the
-   excerpt sent, passes an answer with no citations, and leaves a dropped citation's sentence shown.
+**Two owner approvals wait to be built (ADR-0139, ruling `2026-10-19-chat-approvals.yaml`,
+`applied: null`):** CHAT-0087, the live chatbot gets complete provisions with marked cuts and
+claim-level quote checking against what it was sent; CHAT-0088, it gets the definitions once
+Package 1 has re-read the flagged ones. Fill the ruling's `applied` when done.
 
-**Still current from S038 and S039:** re-pin to upstream `308bfd9` (Act compilation 48); 149
-machine-written definitions; `answer-v3`; the explorer matches the graph field by field; the four
-record-stated kind-of links on the cards (Q-96).
+S040 changed documents only: no record, graph, query, shape, prompt or page. Spend is US$9.63 against
+the US$9.49 cap, so every paid call is refused. 783 tests pass; `tmk-graph --rules --check` matches;
+SHACL 0 defects, 259 notes; harness 0 defects, 12 gaps, 15 notes. Counts: 52 signed + 112
+machine-written concepts (one connected piece); 35 signed relationships (20 serving, 15 corrected) +
+337 machine-written; 37 corrections; 149 definitions.
 
-Counts (unchanged): 52 signed + 112 machine-written concepts, all 164 in one connected piece; 35
-signed relationships (20 serving, 15 corrected) + 337 machine-written; 37 corrections; 149
-definitions. S040 re-ran `tmk-graph --rules --check` (matches), `tmk-shacl` (0 defects, 259 notes)
-and `tmk-harness` (0 defects, 12 gaps, 15 notes); not the full suite (783 passed in S039).
+## Start here
 
-## For the owner
-
-- **Two decisions** (response, "Decisions for the owner"): approve the A06 and A08 changes to what
-  the live chatbot is given and shows (recommended); let the answering model see definitions once
-  Package 1 has re-read the flagged ones (recommended).
-- **Gates ahead**, asked when reached: anything published to customers or tested with them; real
-  customer or case data; spend for a support check and re-measurement; who writes the next benchmark.
-- **Revoke the old OpenAI key** and delete the unread `OPENAI_API_KEY` secret (S038).
-- **ADR-0137 and ADR-0138's agent parts are agent-proposed.** Still waiting from S034: the page's
-  blend; ADR-0131; the four disputed signed readings.
+1. `pip install -e ".[rdf,test]"`, then `tmk-fetch-upstream` (the snapshot is not committed).
+2. Read the response's R01 to R07, A06, A08 and "Recommended order of work". Its "How to repeat
+   the checks" lists every probe, so each "done" can be shown by re-running the probe.
+3. Work in order: **Package 1, then Package 3, then Package 2, then Package 4.** Package 3 waits on
+   Package 1 because the definitions it puts in the prompt are the ones Package 1 repairs.
 
 ## Next actions (agent work, no spend)
 
-The response's packages, in order; each is about one session.
+**Package 1: repair the foundation** (one session; then `tmk-graph --write --rules` and
+`tmk-ontology-report --write`).
+- **R04.** Add `tmk:Definition` and `tmk:Correction` as further `sh:targetClass` on
+  `AuthoredAssertionShape` and `AuthoredEvidenceShape` (`shapes/provenance.ttl` lines 152, 224); a
+  Definition shape (`defines`, text, basis). RULE-0001's `tmk:assertionObject ?chunk`
+  (`queries/rules/RULE-0001-mixed-authority.rq` line 17) becomes `true`. Add an equality check
+  (each reified inference matches its emitted triple, both ways). Test through `validate.run` on a
+  `Dataset`, with negative fixtures (Q-97).
+- **R03.** In `ontology/build.py`, `_origin` (line 705) writes only `tmk:sourcePassage` per
+  evidence item; spans and hashes come only from `_provenance` for a relationship's `source_ref`.
+  Add one evidence-anchor node per item (ref, span, hash, quote, version) for every store; record
+  the IRI pattern in `docs/IDENTIFIERS.md`; keep `sourcePassage` as the shortcut. Close the source
+  graph over every store's evidence refs (`record_provisions`, line 1423, reads relationships only;
+  GD-0060, GD-0112, GD-0138 dangle). A round-trip test: all 634 items reconstructable.
+- **R01.** Re-read GR-0699 to GR-0702 (`authored/relationships.yaml` from line 12809) in a
+  restructure ledger: three to `qualifies` (GR-0700 also quoting the "However" sentence), GR-0702
+  re-anchored to the conditional sentence with phoneword scope. Split `applies_when` into condition
+  and `hedge` (schema, builder, cards, `path_line`/`pathLine`); move the five hedges (GR-0565,
+  GR-0574, GR-0608, GR-0699, GR-0700). Replace `isAnExceptionTo`'s example (`predicates.py` line
+  188) with Part 29.6's "a section 43 ground for rejection does not arise". An agent-proposed ADR
+  superseding ADR-0135's reading of the three.
+- **R02.** Three triage checks as harness notes (a: statutory evidence citing some child units, not
+  all; b: Manual evidence followed by a qualifier; c: non-ground definitions stating "must" or
+  "rejected"). Re-read what they flag plus GD-0050, GD-0084, GD-0128, GD-0146, GC-0179's notes and
+  basis, and the 45 definitions of signed concepts.
+- **R07.** Condition state set by rule: no conditional marker gives `none_stated`, a marker and no
+  condition `not_assessed`; then assess the ~103 flagged. Proceeding and mark type from the Part.
+- **Small.** `graph/README.md` line 69 ("It is empty today") and the shape claim; `eval/README.md`
+  line 40; role comments as capacities and the disjointness (`examination.ttl` line 210);
+  `ExaminationOutcome`'s comment (line 45): represent a recorded outcome, never generate one.
 
-1. **Package 1, repair the foundation.** R04: `tmk:Definition` and `tmk:Correction` as extra
-   `sh:targetClass` on the two envelope shapes, a Definition shape, RULE-0001's object to `true`, an
-   inferred-triple equality check, tested through `validate.run` on a `Dataset`. R03: one
-   evidence-anchor node per evidence item for every record type (IRI pattern into
-   `docs/IDENTIFIERS.md`), source graph closed over every store's refs. R01: re-read GR-0699 to
-   GR-0702 in a ledger, split `applies_when` into condition and hedge, replace `isAnExceptionTo`'s
-   example, an ADR superseding ADR-0135's reading. R02: three triage checks as harness notes, then
-   re-read what they flag plus GD-0146, GD-0084 and the 45 definitions of signed concepts. R07:
-   condition state set by rule; proceeding and mark type from the Part. Stale `graph/README.md` and
-   `eval/README.md`; role comments as capacities; `ExaminationOutcome`'s comment (represent, never
-   generate). Then `tmk-graph --write --rules` and `tmk-ontology-report --write`.
-2. **Package 2, what examiners use.** R05: one dependency index keyed by any ref (chunk, provision,
-   unit), feeding the change view; RULE-0002 untouched, labelled signed-only. R06: each competency
-   query tested against its own signed record; rewrite CQ-0009 and CQ-0024. R08: documented limits,
-   tests of its misses, two tightenings in both engines. R10: one coverage table by Part, the
-   Manual's capture date beside the compilation. A07: exact-reference lookup and provision search,
-   a source register; raise customer pages with upstream. A11: `build.json` release manifest.
-3. **Package 3, after decision 1**: A06 step 1 and A08's deterministic parts in `jobs.py` and
-   `engine.js` together, as a new answer version; label the 129 prepared answers.
-4. **Package 4, the first customer slice, fictional**: test records for ss 41, 43 and 44 (A04, within
-   ADR-0009's decision tables); the regs 4.8 to 4.10 process template (A02); matter, objection and
-   role-assignment schema (A01); evidence requirements for s 41(3) and (4) (A05); the explanation
-   object and three views (A08, A09) on a page apart from the explorer, not published.
-5. **The blend** (S034, F10): hub concepts in expansion, ties by ref order; both engines, never
-   tuned on the benchmark; with it, the four record-stated kind-of links. Then: the 15 undefined
-   concepts; heading-only edges (GR-0270 at least); `map.js`'s `CASE/…` chip.
+**Package 3: the live answer** (ADR-0139; one session). In `bulk/jobs.py` and `site/js/engine.js`
+together (`test_explorer.py::test_the_live_prompt_is_the_measured_one` holds them identical):
+- **A06.** Replace the 1,600 cut (`explorer/build.py` line 729 `passage_chars`; `jobs.py` lines
+  1117, 1122; `engine.js` line 260): legislation whole up to a budget, the matched units plus any
+  unit a "Subject to subsections ..." lead-in names for the ten largest; Manual chunks cut around
+  the match (`passage_block`'s `around`); every cut marked in the prompt and on the page. Fixture:
+  a section 44 question sees (3) and (4).
+- **A08.** A new answer version (`ANSWER_VERSION`, line 1145; `test_search.py` pins `answer-v3`):
+  `_ANSWER_SCHEMA` (line 1166) becomes claims, each with its quotes; `Engine.verify` (line 280)
+  checks against the excerpt sent, not `this.text(ref)`; `ask.js` (around line 221) marks an
+  unsupported claim, shows "no checked support" for an answer with none, and streams as an
+  unchecked draft. Say on the page that the check proves a quote exists, not that it supports.
+- **Definitions** in the prompt, each with basis and stamp. Label the 129 prepared answers
+  (`answer-v2`) as written from cut passages. Fill the ruling's `applied`.
+
+**Package 2: what examiners use.** R05 dependency index keyed by any ref, feeding
+`explorer.build.stability` (line 482), RULE-0002 untouched and labelled signed-only; R06 each
+competency query tested against its own signed record in `eval/gold/competency-questions.yaml`,
+CQ-0009 and CQ-0024 rewritten; R08 limits, tests of its misses, two tightenings; R10 coverage table
+by Part and the Manual's capture date (3 August 2026) beside the compilation; A07 exact-reference
+lookup and provision search, a source register, customer pages raised with upstream; A11
+`build.json`.
+
+**Package 4: the first customer slice, fictional.** Test records for ss 41, 43, 44 (within
+ADR-0009's decision tables); the regs 4.8 to 4.10 process template; matter, objection and
+role-assignment schema; s 41(3) and (4) evidence requirements; the explanation object and three
+views on a page apart from the explorer, unpublished. Schema design may start during Package 1.
+
+**Afterwards:** the blend (S034, F10: hub concepts in expansion, ties by ref order, both engines,
+never tuned on the benchmark); the 15 undefined concepts; heading-only edges (GR-0270 at least).
+
+## For the owner
+
+- **Gates ahead**, asked when reached: anything published to customers or tested with them; real
+  customer or case data; spend for a support check or re-measurement; who writes the next benchmark.
+- **Revoke the old OpenAI key** and delete the unread `OPENAI_API_KEY` secret (S038).
+- Still waiting from S034: the page's blend; ADR-0131; the four disputed signed readings.
 
 ## What to distrust
 
-- **"SHACL passed" does not cover definitions or corrections** (Q-97), and the RDF holds span and
-  hash for relationships only.
-- **Live answers about long provisions are written from their first 1,600 characters** (A06);
-  section 44's exceptions are not in what the model reads.
-- **A clean authority flag is not a verified attribution** (R08); a kept citation proves the quote
-  exists, not that it supports its sentence (A08).
-- **All 149 definitions are one agent session's reading**, unreviewed; at least four omit a
-  qualification (GD-0050, GD-0084, GD-0128, GD-0146).
-- **The four `isAnExceptionTo` edges**: three state likelihood, not exclusion (R01).
-- **`docs/PITCH-PACK.md` is stale** by the owner's word; its numbers are from 9 and 12 October.
-- **GK-0037's choice** (drop "related", keep "kind of") is the agent's, on CHAT-0082.
-- **The re-anchored records** (GR-0672, GK-0003): a hash re-copied by hand; `review_history` says so.
-- **21 legislative bases are unverified** (the harness's count; earlier handoffs said 22).
-- **The published `site/data/ontology.json` still carries the reviewer's initials** (S028).
-- **The reading and the measurement** are a model's, on model-written questions (ADR-0133).
+- **"SHACL passed" does not cover definitions or corrections** (Q-97); the RDF holds span and hash
+  for relationships only.
+- **Live answers about long provisions read only their first 1,600 characters** (A06), so section
+  44's exceptions are unseen. A kept citation proves a quote exists, not that it supports (A08).
+- **A clean authority flag is not a verified attribution** (R08); two more misses are in the response.
+- **All 149 definitions are one agent session's reading**; at least four omit a qualification.
+- **Three of the four `isAnExceptionTo` edges** state likelihood, not exclusion (R01).
+- **`docs/PITCH-PACK.md` is stale**; the measurements in it are from 9 and 12 October.
+- **GK-0037's choice** is the agent's (CHAT-0082); **GR-0672 and GK-0003** carry hand-copied hashes.
+- **21 legislative bases are unverified** (the harness; older handoffs said 22).
+- **`site/data/ontology.json` still carries the reviewer's initials** (S028).
 
 ## Things a session will trip on
 
-- **`python3 -m pytest`, not `pytest`** (Q-29); `pip install -e ".[rdf,test]"`; about ten
-  minutes. owlrl is not a dependency; install it only to probe.
+- **`python3 -m pytest`, not `pytest`** (Q-29); about fourteen minutes for the full suite.
 - **After changing records, the builder or any `ontology/draft/` module**: `tmk-graph --write
-  --rules`, then `tmk-ontology-report --write` (about a minute). CI checks both.
-- **Probing SHACL**: through `validate.run` on the loaded `Dataset` (Q-97).
-- **Moving the pin**: diff the record shapes first; Q-95 has the procedure.
-- **Definitions have their own reader** (`authored.definitions`), like corrections; the store
-  skips the file. A statutory definition quotes only the instrument, a Manual one the Manual.
-- **`explorer.build.PREPARED_LAW`** is the law the 129 prepared answers read.
-- **`tmk-bulk measure --write` now writes `measure-<date>.md`** when the grades moved (Q-91).
-- **Two structure ledgers**: dry-run both after touching `restructure` (Q-93). A condition must
-  be verbatim in the sentence. **Renaming is how a site label changes** (Q-94).
-- **Test the page after `tmk-explorer --write`**, then restore a stand-in `live.json` (Q-90).
-- **`engine.js` and `search/index.py` change together**, as do `links.find_mentions` and
-  `Recogniser`, `search.authority` and `authorityFlags`, `jobs.reading_input` and
-  `live.readingInput`, `jobs.path_line` and `engine.pathLine`, `jobs.passage_block` and
-  `engine.prompt`'s cut.
-- **Off-kind edge? Check the kinds first** (Q-86). **Relabelled in a ledger?** Q-87.
-  **Edit record files block by block** (Q-76).
-- **Gemini ignores its schema** (Q-83); **price from completed calls** (Q-85); hold a paid run to
-  the owner's amount with `TMK_SPEND_CAP_USD` (ADR-0128).
-- **`tmk-graph --check` needs `--rules`.** Pass `authored.root` to `corrections.load` (Q-77).
-- **`served_gold()` for what serves; `goldset.load()` for what measures.**
-- **The explorer needs the snapshot**: `tmk-fetch-upstream`, then `tmk-explorer --write`.
+  --rules`, then `tmk-ontology-report --write`. CI checks both. `--check` needs `--rules`.
+- **Probing SHACL**: `validate.run` on the loaded `Dataset`, never a flat graph (Q-97).
+- **Definitions and corrections have their own readers**; pass `authored.root` to
+  `corrections.load` (Q-77). **`served_gold()` serves; `goldset.load()` measures.**
+- **Engines change together**: `engine.js`/`search/index.py`, `jobs.passage_block`/the
+  `engine.prompt` cut, `jobs.path_line`/`engine.pathLine`, `search.authority`/`authorityFlags`,
+  `links.find_mentions`/`Recogniser`, `jobs.reading_input`/`live.readingInput`.
+- **Two structure ledgers**: dry-run both after touching `restructure` (Q-93); a condition must be
+  verbatim in the sentence; renaming is how a site label changes (Q-94). Edit record files block by
+  block (Q-76); off-kind edge, check the kinds first (Q-86).
+- **The explorer needs the snapshot**: `tmk-explorer --write`, test the page, restore a stand-in
+  `live.json` (Q-90). `PREPARED_LAW` is the law the 129 prepared answers read.
+- **Moving the pin**: Q-95. **Measuring**: `measure-<date>.md` when grades move (Q-91); price from
+  completed calls (Q-85); Gemini ignores its schema (Q-83).
 
 ## Open items (agent-proposed, provisional)
 
-- ADR-0138's agent parts: D4's done-test; the real-data gate; the order of work; tests as data
-  within ADR-0009. S040's verdicts in the response: each the agent's until acted on or ruled.
-- S039's engineering: the record hierarchy listed on the card, not drawn (Q-96).
-- ADR-0137 (definitions), S038; ADR-0134 (no OWL profile) and ADR-0135 (`isAnExceptionTo`), S036.
-- S038's engineering: the report's drift check; the scheme's IRI kept; `answer-v3` live with the
-  prepared answers at `answer-v2`; `PREPARED_LAW`; re-anchoring with a `review_history` entry; the
-  compilation properties in `time.ttl`.
-- S036's engineering: the placement rule's class-per-graph table; S27 split; the manual Pages
-  run skipping the wait; dated reports on changed inputs; the ledger's `keep:` lines and the
-  earlier-ledger rule; new predicates admitted under CHAT-0073 as `owner-2026-10-09`.
-- The first response's other recommendations not yet done: each the agent's until done or ruled.
-- ADR-0133's measurement choices; ADR-0132's engineering; S033's proxy limits; S030's table view.
-- ADR-0131's agent parts; ADR-0130's; ADR-0127 entire; the agent parts of ADR-0125, ADR-0126,
-  ADR-0128, ADR-0129; ADR-0122; the agent parts of ADR-0120, ADR-0123, ADR-0124.
-- "Too general" labels (E1); ADR-0113, ADR-0115, ADR-0117; agent parts of ADR-0118, ADR-0119.
+- ADR-0138's agent parts (D4's done-test, the real-data gate, the order of work, tests as data
+  within ADR-0009) and S040's verdicts in the response.
+- Earlier, unchanged and listed in full in the previous handoff (`git show 8d4c6ef:docs/HANDOFF.md`):
+  ADR-0137, ADR-0134, ADR-0135, Q-96, and the agent parts of ADR-0113 to ADR-0133; S036 and S038's
+  engineering; the first response's recommendations not yet done; "too general" labels (E1).

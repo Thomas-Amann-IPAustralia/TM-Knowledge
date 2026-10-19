@@ -1,0 +1,45 @@
+# Decisions the repo owner made in a chat session, on the two "Decisions for the owner" in the
+# revised docs/ONTOLOGY-REVIEW-RESPONSE-2.md. Hand-transcribed by the S040 agent; no issue behind it.
+# The artefact is `review/returned/261019-owner-chat-approvals.md`, which carries the words verbatim
+# and the decisions as they were put. The owner said the work starts in a fresh session, so nothing
+# is applied yet: the session that builds it fills `applied`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-19T00:00:00Z'
+questions_updated: '2026-10-19'
+source:
+  kind: chat
+  artefact: review/returned/261019-owner-chat-approvals.md
+  author: Thomas-Amann-IPAustralia
+  relayed_by: S040 agent
+  title: The live chatbot's complete provisions and claim-level checking; definitions in its prompt
+applied: null
+answers:
+- id: CHAT-0087
+  item: decision 1 (A06, A08)
+  question: Approve two changes to what the live examiner chatbot is given and how its answers are
+    shown?
+  kind: choice
+  value: approved
+  label: Approved, both changes
+  quote: I approve both the decision points you raised.
+  notes: >-
+    The changes: complete legislative units with every cut marked (A06, step 1 in the response);
+    and claims carrying their own quotes, checked against the excerpt actually sent, unsupported
+    claims marked, the answer streamed as a visibly unchecked draft (A08's deterministic parts).
+    Not covered: a model-judged support check, which needs a quote and the owner's spend.
+  recorded_as:
+  - ADR-0139
+- id: CHAT-0088
+  item: decision 2 (open since S038)
+  question: Let the answering model see definitions, once Package 1 has re-read the flagged ones?
+  kind: choice
+  value: approve_with_condition
+  label: Approved, after the flagged definitions are re-read
+  quote: I approve both the decision points you raised.
+  notes: >-
+    The condition is the agent's own, approved with the decision: definitions enter the prompt only
+    after Package 1's R02 work (the triage checks and the re-reads of what they flag, GD-0050,
+    GD-0084, GD-0128, GD-0146 and the 45 definitions of signed concepts). Each definition given to
+    the model keeps its basis (statutory or Manual) and its unreviewed stamp.
+  recorded_as:
+  - ADR-0139

@@ -6155,3 +6155,38 @@ superseding ADR is owed only if a named use needs defeasibility or rule prioriti
    index says so. No session spends tokens on them.
 3. The consolidated review's A-series is in scope as foundation work, sequenced as the response
    sets out; nothing in it licenses stating an outcome.
+
+## ADR-0139 — the live chatbot gets complete provisions, claim-level checking and, after their repair, the definitions
+
+**Date** 2026-10-19 · **Authority** human · **Status** accepted, not yet acted on (the ruling's
+`applied` is null) · answers the two decisions in `docs/ONTOLOGY-REVIEW-RESPONSE-2.md`
+
+**Context.** The re-evaluated response (ADR-0138) found two live defects in the examiner chatbot:
+every passage is cut at 1,600 characters, which removes section 44's subsections (3) and (4) (A06);
+and the citation check runs against the full stored text rather than the excerpt sent, passes an
+answer with no citations, and leaves a dropped citation's sentence on the page (A08). Changing what
+the chatbot is given and shown is an owner gate (`CLAUDE.md` §3a), as is giving it definitions
+(open since S038). The owner answered in chat (CHAT-0087, CHAT-0088; words verbatim in
+`review/returned/261019-owner-chat-approvals.md`; ruling at
+`review/rulings/2026-10-19-chat-approvals.yaml`).
+
+**Decision (the owner's).** *"I approve both the decision points you raised."*
+1. **CHAT-0087.** The live answer is given complete legislative units, with every cut marked in the
+   prompt and on the page (A06 step 1); and it returns claims, each carrying its own quotes, checked
+   against the excerpt actually sent, with an unsupported claim marked as such and the answer
+   streamed as a visibly unchecked draft (A08's deterministic parts).
+2. **CHAT-0088.** The answering model is given definitions, once Package 1 has re-read the flagged
+   ones (R02). Each keeps its basis and its unreviewed stamp in the prompt.
+
+**What it does not decide.** A model-judged support check (does this quote support this claim?):
+that is a paid call and needs a quote and the owner's spend. Re-writing the 129 prepared answers,
+which stay at `answer-v2` and are labelled as written from cut passages. Anything shown to
+customers. The engineering (budgets, the schema's field names, the answer version's name) is the
+agent's.
+
+**Consequences.**
+1. A new answer version in `bulk/jobs.py` and `site/js/engine.js` together (the parity test holds
+   them identical), with the page's display in `site/js/ask.js`.
+2. Order: Package 1 first (it repairs the definitions this decision waits on), then this, then the
+   rest of the response's Package 2.
+3. The session that builds it fills the ruling's `applied` and marks this ADR acted on.
