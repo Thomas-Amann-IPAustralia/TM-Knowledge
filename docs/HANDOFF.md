@@ -53,8 +53,8 @@ The restructure applier now keeps a concept's chain of readings, as it does a re
   `tmk:ProcedureRecordShape`/`tmk:StructuredTestShape` require a title, anchors and one provision.
   The condition tree and the steps are not yet in the graph.
 
-Graph rebuilt, ontology report rebuilt, SHACL 0 defects, harness 0 defects. Full-suite count: the
-commit that records it.
+Graph rebuilt, ontology report rebuilt, SHACL 0 defects, harness 0 defects. **884 tests pass, 4
+xfail** (the authority check's known misses) at the end of S042.
 
 ## Next actions
 
