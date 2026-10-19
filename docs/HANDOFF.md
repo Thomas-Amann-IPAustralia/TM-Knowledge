@@ -58,7 +58,7 @@ Package 2, item by item:
 
 Graph rebuilt (`--rules`; only `manifest.json` new, the `.ttl` files unchanged), ontology report
 rebuilt. Headless check: the change view's provision panel and a prepared answer's footer render,
-no console errors. Test count: see the commit that records it.
+no console errors. **849 tests pass, 4 xfail** (the known misses) at the end of S042.
 
 ## Next actions
 
