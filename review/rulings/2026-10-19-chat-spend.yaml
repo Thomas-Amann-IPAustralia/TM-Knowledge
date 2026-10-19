@@ -1,0 +1,39 @@
+# A decision the repo owner made in a chat session, as the whole of S042's instruction.
+# Hand-transcribed by the S042 agent; no issue behind it. The artefact is
+# `review/returned/261019-owner-chat-spend.md`, which carries the words verbatim.
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-19T00:00:00Z'
+questions_updated: '2026-10-19'
+source:
+  kind: chat
+  artefact: review/returned/261019-owner-chat-spend.md
+  author: Thomas-Amann-IPAustralia
+  relayed_by: S042 agent
+  title: Up to US$4 of spend for the next phase of work
+applied:
+  session: S042
+  date: '2026-10-19'
+  branch: ccr-c4fac9a6-uq5d6d
+  what_changed: >-
+    config.SPEND_CAP_USD is the US$9.63 recorded plus the US$4.00, so US$13.63 (ADR-0141). Nothing
+    was spent in S042: the session's own permission layer refused the first paid call (rebuilding
+    the passage vectors, about two cents, the step before the answer job's dry-run), and the session
+    did not try to route around it. The next phase of work, the response's Package 2, needs no
+    spend and was done. The US$4 stands for the next session, for the use ADR-0141 names.
+answers:
+- id: CHAT-0089
+  item: spend for the next phase of work
+  question: How much may the next phase of work spend?
+  kind: instruction
+  value: up_to_4_usd
+  label: Up to US$4
+  quote: Please complete the next phase of work. You can spend UP to $4
+  notes: >-
+    Nothing was quoted to the owner first. The agent's reading: the amount binds (ADR-0128), it is
+    on top of the US$9.63 already recorded, and it is for the work the handoff named as waiting on
+    spend: running answer-v4 against the real model for the first time, and re-writing the 129
+    prepared answers with it so the explorer's prepared answers read complete provisions. It does
+    not extend to re-measurement or to choosing who writes and judges a benchmark, which stay the
+    owner's gates (CLAUDE.md §3a).
+  recorded_as:
+  - ADR-0141
