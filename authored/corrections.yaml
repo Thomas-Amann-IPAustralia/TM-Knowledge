@@ -121,6 +121,13 @@
       quote: For the purposes of paragraph 27(3)(b) of the Act, the following subregulations
         set out the manner of specifying, in an application for the registration of a trade
         mark, the goods and/or services in respect of which registration is sought.
+    - ref: TMA1995/s27(3)(b)
+      span:
+      - 4
+      - 134
+      content_hash: sha256:2e05a87a5ec3e156da51773dbf47d6220a158dbe72342306f71f82272164bf88
+      quote: specify, in accordance with the regulations, the goods and/or services in respect
+        of which it is sought to register the trade mark
     confidence: 0.9
     reasoning: The Manual's own form of the label, and the regulation that governs how the
       specification is framed, both from the withdrawn duplicate GC-0129 (ruling A1). The
@@ -131,7 +138,17 @@
     - status: unreviewed
       date: '2026-10-17'
       by: claude-code-agent-S038
-      round: "evidence re-anchored to the Act's compilation 48 and Regulations re-cut at legislation/0.3.0 (ADR-0136): upstream restored a hyphen in the quoted provision; the judgement is unchanged ('suboffices' now reads 'sub-offices', outside the quote)"
+      round: 'evidence re-anchored to the Act''s compilation 48 and Regulations re-cut at
+        legislation/0.3.0 (ADR-0136): upstream restored a hyphen in the quoted provision;
+        the judgement is unchanged (''suboffices'' now reads ''sub-offices'', outside the
+        quote)'
+    - status: unreviewed
+      date: '2026-10-20'
+      by: claude-code-agent-S042
+      round: 'evidence: section 27(3)(b) itself quoted, so the basis this correction adds
+        rests on the provision''s own words, not only on regulation 4.4''s reference to it;
+        every item re-located by jobs.evidence, replacing hand-copied spans and hashes; the
+        judgement is unchanged (CHAT-0090, ADR-0143)'
 - id: GK-0004
   corrects: GC-0013
   record_type: gold_concept
