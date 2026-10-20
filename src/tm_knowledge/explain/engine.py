@@ -4,6 +4,10 @@ Built from three records and nothing else: the legal test each objection names (
 the process template (`GP-`) and the matter (`FM-`). The page's views and the text are
 both drawn from the object this returns, so a changed fact changes them together.
 
+Two explanations need no matter (D4, S043): `requirements` explains one test as the law
+and the Manual state it, and `walkthrough` one process template step by step. Neither
+asks anything: with no matter there is no fact whose answer would change it.
+
 The rules it keeps, each held by a test in `tests/unit/test_explain.py`:
 
 1. **Three values, never two.** A condition is recorded as met, recorded as not met, or
@@ -28,12 +32,27 @@ from typing import Any
 from tm_knowledge.authored import procedure
 from tm_knowledge.explain.matters import Matter
 
-__all__ = ["explain", "render_text", "read_test", "position", "evidence_view", "STAMP", "OPEN"]
+__all__ = ["explain", "render_text", "read_test", "position", "evidence_view", "requirements", "render_requirements",
+           "walkthrough", "render_walkthrough", "STAMP", "GENERAL_STAMP", "ASK_GROUND", "OPEN"]
 
 STAMP = ("Written by a machine from records no trade marks expert has reviewed, for a fictional matter. It explains "
          "what the law and the Manual say and what the report records; it does not decide anything. Only the "
          "Registrar decides whether an application is accepted.")
+GENERAL_STAMP = ("Written by a machine from records no trade marks expert has reviewed. It explains what the law and "
+                 "the Manual say in general; it says nothing about any particular application. Only the Registrar decides "
+                 "whether an application is accepted.")
 OPEN = "not established from the available facts"
+#: Asked where only the customer's own words describe an objection (A12): the ground is
+#: never chosen from everyday wording, because each ground is explained differently.
+ASK_GROUND = ("Which section of the Trade Marks Act does the report cite for this objection? The report names it; the "
+              "report's own words would settle it too.")
+_KIND = {"discretion": "This is a discretion: the Registrar may, but need not.",
+         "bar": "This is a bar: if satisfied of this, the Registrar may not reject on this ground.",
+         "obligation": "This is an obligation."}
+_SETTLES = {"fact": "a fact about the application or the other trade mark",
+            "evaluative": "the Registrar's assessment, never calculated from facts"}
+_ACTOR = {"registrar": "the Registrar", "applicant": "the applicant", "any_person": "any person",
+          "law": "the Act itself"}
 _MET, _NOT, _OPEN = "met", "not_met", "open"
 
 
@@ -127,9 +146,7 @@ def read_test(test: dict[str, Any], objection: dict[str, Any],
     for exception in test.get("exceptions") or ():
         read = _node(exception["condition"], facts, assessments)
         effect = exception["effect"]
-        kind = {"discretion": "This is a discretion: the Registrar may, but need not.",
-                "bar": "This is a bar: if satisfied of this, the Registrar may not reject on this ground.",
-                "obligation": "This is an obligation."}[effect["kind"]]
+        kind = _KIND[effect["kind"]]
         exceptions.append({
             "id": exception["id"], "text": exception["text"], **_source(exception), "condition": read,
             "effect": {**_source(effect), "kind": effect["kind"], "text": effect["text"],
@@ -148,18 +165,28 @@ def read_test(test: dict[str, Any], objection: dict[str, Any],
     }
 
 
-def position(process: dict[str, Any], events: list[dict[str, Any]], raised: set[str] | None = None) -> dict[str, Any]:
+def position(process: dict[str, Any], events: list[dict[str, Any]], raised: set[str] | None = None,
+             unknown_ground: bool = False) -> dict[str, Any]:
     """Where the matter is in the template, what can happen next and on what it depends.
     Never a date the matter does not state; never lapse unless a lapse is recorded. A
     branch that exists only for some grounds (deferment, section 44) is offered only where
-    the matter raised one (`raised`: the provisions of its open objections)."""
+    the matter raised one (`raised`: the provisions of its open objections), or, where an
+    open objection's ground is not known, offered with that ground named as what it needs."""
     steps = {s["id"]: s for s in process["steps"]}
     history = [{"step": e["step"], "label": steps[e["step"]]["label"], "date": e.get("date"), "note": e.get("note")}
                for e in events]
     current = events[-1]["step"] if events else None
-    following = [{"to": t["to"], "label": steps[t["to"]]["label"], "when": t["when"], "needs": t.get("needs") or [],
-                  **_source(t)} for t in process["transitions"] if t["from"] == current
-                 and (raised is None or not t.get("grounds") or set(t["grounds"]) & raised)]
+    following = []
+    for t in process["transitions"]:
+        if t["from"] != current:
+            continue
+        needs = list(t.get("needs") or [])
+        if raised is not None and t.get("grounds") and not set(t["grounds"]) & raised:
+            if not unknown_ground:
+                continue
+            needs.insert(0, "whether the objection is under " + " or ".join(t["grounds"]))
+        following.append({"to": t["to"], "label": steps[t["to"]]["label"], "when": t["when"], "needs": needs,
+                          **_source(t)})
     done = {e["step"] for e in events}
     deadlines = [{"id": d["id"], "text": d["text"], **_source(d)} for d in process.get("deadlines") or ()
                  if done & set(d["from"])]
@@ -230,7 +257,9 @@ def evidence_view(test: dict[str, Any], objection: dict[str, Any], application: 
                 checks.append({"requirement": requirement["id"], "check": check, "result": result, "detail": detail,
                                **_source(requirement)})
         missing = [c["detail"] for c in checks if c["result"] == "missing"]
-        unclear = [c["detail"] for c in checks if c["result"] == "cannot tell"]
+        # One check finding a gap ("is not dated") makes another unable to tell for the same
+        # reason; the gap is said once.
+        unclear = [c["detail"] for c in checks if c["result"] == "cannot tell" and c["detail"] not in missing]
         exhibits.append({
             "id": exhibit["id"], "description": exhibit["description"],
             "items": [labels[i] for i in exhibit.get("items") or ()],
@@ -243,10 +272,16 @@ def evidence_view(test: dict[str, Any], objection: dict[str, Any], application: 
         })
     sufficiency = [{"id": r["id"], "text": r["text"], **_source(r)} for r in in_play if r["kind"] == "sufficiency"]
     relevance = [{"id": r["id"], "text": r["text"], **_source(r)} for r in in_play if r["kind"] == "relevance"]
+    # Shown, not hidden: a requirement under the subsection the report does not read
+    # (after-filing use under (4) when the report reads (3)) is said to be set aside, and why.
+    set_aside = [{"id": r["id"], "text": r["text"], **_source(r),
+                  "why": "not read here: the report's recorded assessment is under the other subsection"}
+                 for r in requirements if r not in in_play]
     asks = []
     if any(c["detail"] == "the filing date is not known" for e in exhibits for c in e["checks"]):
         asks.append({"condition": "filing_date", "question": "What is your application's filing date?"})
-    return {"relevance": relevance, "sufficiency": sufficiency, "exhibits": exhibits, "asks": asks}
+    return {"relevance": relevance, "sufficiency": sufficiency, "set_aside": set_aside, "exhibits": exhibits,
+            "asks": asks}
 
 
 _CAPACITY = {"applicant": "applicant", "representative": "representative",
@@ -268,18 +303,19 @@ def explain(matter: Matter, tests: dict[str, Any] | None = None, process: dict[s
     record = matter.record
     tests = tests if tests is not None else {k: v.record for k, v in procedure.load_tests().by_id().items()}
     if process is None:
-        process = procedure.load_processes().sound[0].record
+        process = procedure.load_processes().by_id()[EXAMINATION_PROCESS].record
     labels = {i["id"]: i["text"] for i in record["application"]["items"]}
     issues = []
     for objection in record["objections"]:
+        if objection["test"] is None:
+            issues.append(_unidentified(objection, tests, labels))
+            continue
         test = tests[objection["test"]]
         reading = read_test(test, objection, record["application"])
         issue = {
             "objection": objection["id"], "test": reading, "status": objection["status"],
             "items": [labels[i] for i in objection["items"]], "reasons": objection["reasons"],
-            "standing": ("The report records this objection as withdrawn." if objection["status"] == "withdrawn" else
-                         "The report records this objection as maintained after the response." if objection["status"] == "maintained"
-                         else "The report raises this objection."),
+            "standing": _standing(objection["status"]),
         }
         if test.get("evidence_requirements"):
             issue["evidence"] = evidence_view(test, objection, record["application"])
@@ -288,24 +324,15 @@ def explain(matter: Matter, tests: dict[str, Any] | None = None, process: dict[s
     clear = [labels[i] for i in labels if i not in open_items]
     asks: list[dict[str, str]] = []
     for issue in issues:
-        for ask in issue["test"]["asks"] + [a for x in issue["test"]["exceptions"] for a in x["asks"]] + (
-                issue.get("evidence", {}).get("asks") or []):
+        found = issue["asks"] if issue["test"] is None else (
+            issue["test"]["asks"] + [a for x in issue["test"]["exceptions"] for a in x["asks"]]
+            + (issue.get("evidence", {}).get("asks") or []))
+        for ask in found:
             if ask["question"] not in {a["question"] for a in asks}:
                 asks.append(ask)
-    sources: dict[str, str] = {}
-    def collect(node: Any) -> None:
-        if isinstance(node, dict):
-            if isinstance(node.get("ref"), str) and node.get("authority") in ("law", "practice"):
-                sources.setdefault(node["ref"], node["authority"])
-            for value in node.values():
-                collect(value)
-        elif isinstance(node, list):
-            for value in node:
-                collect(value)
-    raised = {tests[o["test"]]["provision"] for o in record["objections"] if o["status"] != "withdrawn"}
-    where = position(process, record["events"], raised)
-    collect(issues)
-    collect(where)
+    open_objections = [o for o in record["objections"] if o["status"] != "withdrawn"]
+    raised = {tests[o["test"]]["provision"] for o in open_objections if o["test"] is not None}
+    where = position(process, record["events"], raised, unknown_ground=any(o["test"] is None for o in open_objections))
     return {
         "matter": record["id"], "fictional": True, "title": record["title"], "sign": record["application"]["sign"],
         "roles": _roles(record), "issues": issues,
@@ -315,9 +342,167 @@ def explain(matter: Matter, tests: dict[str, Any] | None = None, process: dict[s
                        + (f"No open objection is recorded for: {', '.join(clear)}. " if clear else "")
                        + "Resolving one objection does not accept the application: only the Registrar accepts it."},
         "process": where, "asks": asks,
-        "sources": [{"ref": r, "authority": a} for r, a in sorted(sources.items())],
+        "sources": _sources(issues, where),
         "stamp": STAMP,
     }
+
+
+EXAMINATION_PROCESS = "GP-0001"
+
+
+def _standing(status: str) -> str:
+    return ("The report records this objection as withdrawn." if status == "withdrawn" else
+            "The report records this objection as maintained after the response." if status == "maintained"
+            else "The report raises this objection.")
+
+
+def _unidentified(objection: dict[str, Any], tests: dict[str, Any], labels: dict[str, str]) -> dict[str, Any]:
+    """An objection known only from the customer's own words (A12). Everyday wording can
+    fit more than one ground, and each ground is explained differently, so the explanation
+    names the grounds it holds tests for and asks for the report's; it never picks one."""
+    return {
+        "objection": objection["id"], "test": None, "status": objection["status"],
+        "items": [labels[i] for i in objection["items"]], "reasons": objection.get("reasons"),
+        "customer_words": objection["customer_words"], "standing": _standing(objection["status"]),
+        "reads": ("The words describing this objection could fit more than one ground, and they do not settle which. "
+                  "This explanation does not choose one: each ground is explained differently, so the report's own "
+                  "ground is needed."),
+        "candidates": [{"test": t["id"], "title": t["title"], "provision": t["provision"], "effect": t["effect"]["text"],
+                        "authority": "law", "ref": t["provision"]} for _, t in sorted(tests.items())],
+        "asks": [{"condition": "cited_provision", "question": ASK_GROUND}],
+    }
+
+
+def _sources(*nodes: Any) -> list[dict[str, str]]:
+    """Every source an explanation shows, each labelled law or practice."""
+    found: dict[str, str] = {}
+
+    def collect(node: Any) -> None:
+        if isinstance(node, dict):
+            if isinstance(node.get("ref"), str) and node.get("authority") in ("law", "practice"):
+                found.setdefault(node["ref"], node["authority"])
+            for value in node.values():
+                collect(value)
+        elif isinstance(node, list):
+            for value in node:
+                collect(value)
+
+    for node in nodes:
+        collect(node)
+    return [{"ref": r, "authority": a} for r, a in sorted(found.items())]
+
+
+def _general(node: dict[str, Any]) -> dict[str, Any]:
+    """A condition tree with no matter: no state, and for each leaf what settles it."""
+    if "all" in node or "any" in node:
+        join = "all" if "all" in node else "any"
+        return {"id": node.get("id"), "text": node.get("text"), "kind": join,
+                "children": [_general(child) for child in node[join]]}
+    return {"id": node["id"], "text": node["text"], "kind": node["kind"], "settled_by": _SETTLES[node["kind"]],
+            **_source(node)}
+
+
+def requirements(test: dict[str, Any]) -> dict[str, Any]:
+    """One test explained with no matter (D4: requirements): what the law asks and who
+    acts, what settles each condition (a fact, or the Registrar's assessment), each
+    exception with the kind of its effect, the Manual's evidence requirements split into
+    relevance and sufficiency, and the ways to respond. It asks nothing and reads no
+    state: whether any condition holds for an application is not its question."""
+    conditions = {leaf["id"]: leaf["text"] for leaf in procedure.leaves(test["condition"])}
+    effect = test["effect"]
+    out = {
+        "test": test["id"], "title": test["title"], "provision": test["provision"], "actor": test["actor"],
+        "scope": test.get("scope") or {},
+        "effect": {**_source(effect), "kind": effect["kind"], "text": effect["text"],
+                   "reads": f"If the conditions hold: {effect['text'][0].lower()}{effect['text'][1:]} {_KIND[effect['kind']]}"},
+        "condition": _general(test["condition"]),
+        "exceptions": [{"id": x["id"], "text": x["text"], **_source(x), "condition": _general(x["condition"]),
+                        "effect": {**_source(x["effect"]), "kind": x["effect"]["kind"], "text": x["effect"]["text"],
+                                   "reads": f"{x['effect']['text']} {_KIND[x['effect']['kind']]}"}}
+                       for x in test.get("exceptions") or ()],
+        "evidence": [{"id": r["id"], "kind": r["kind"], "text": r["text"], **_source(r),
+                      "for": [conditions[c] for c in r["for"] if c in conditions]}
+                     for r in test.get("evidence_requirements") or ()],
+        "routes": [{"id": r["id"], "text": r["text"], **_source(r), "scope": r.get("scope")}
+                   for r in test.get("routes") or ()],
+        "notes": test.get("notes"), "asks": [], "stamp": GENERAL_STAMP,
+    }
+    out["sources"] = _sources(out)
+    return out
+
+
+def walkthrough(process: dict[str, Any], templates: dict[str, Any] | None = None) -> dict[str, Any]:
+    """One process template explained with no matter (D4: the application process): each
+    step in order, who acts, the ways on from it and what each depends on, the time rules
+    it brings into play, and where another template takes over. What can happen, never
+    what will; no date."""
+    templates = templates or {}
+    by = {s["id"]: s for s in process["steps"]}
+    steps = []
+    for step in process["steps"]:
+        following = [{"to": t["to"], "label": by[t["to"]]["label"], "when": t["when"], "needs": t.get("needs") or [],
+                      "grounds": t.get("grounds") or [], **_source(t)}
+                     for t in process["transitions"] if t["from"] == step["id"]]
+        rules = [{"id": d["id"], "text": d["text"], **_source(d)} for d in process.get("deadlines") or ()
+                 if step["id"] in d["from"]]
+        other = templates.get(step.get("continues_in"))
+        steps.append({
+            "id": step["id"], "label": step["label"], "actor": _ACTOR[step["actor"]], "kind": step["kind"],
+            "text": step["text"], **_source(step), "next": following, "time_rules": rules,
+            "continues_in": {"process": other["id"], "title": other["title"],
+                             "steps": [s["label"] for s in other["steps"]]} if other else None})
+    out = {"process": process["id"], "title": process["title"], "scope": process.get("scope"), "steps": steps,
+           "note": "No date is calculated here: a date comes from the Registrar's notices.", "asks": [],
+           "stamp": GENERAL_STAMP}
+    out["sources"] = _sources(steps)
+    return out
+
+
+def _general_lines(node: dict[str, Any], depth: int) -> list[str]:
+    pad = "  " * depth
+    if node["kind"] in ("all", "any"):
+        out = [f"{pad}- {node['text']}"] if node.get("text") else []
+        out.append(f"{pad}  {'All of these' if node['kind'] == 'all' else 'Any one of these'}:")
+        for child in node["children"]:
+            out += _general_lines(child, depth + 1)
+        return out
+    return [f"{pad}- {node['text']} [settled by {node['settled_by']}] ({node['ref']}, {node['authority']})"]
+
+
+def render_requirements(r: dict[str, Any]) -> str:
+    """The text equivalent of a requirements explanation."""
+    out = [f"{r['title']} — what the law asks ({r['provision']}, law)", "",
+           f"Who acts: {r['actor']}. {r['effect']['reads']}", "The conditions:"]
+    out += _general_lines(r["condition"], 1)
+    for x in r["exceptions"]:
+        out += [f"Exception ({x['ref']}, law): {x['text']}", f"  {x['effect']['reads']}"]
+        out += _general_lines(x["condition"], 2)
+    for e in r["evidence"]:
+        label = "What evidence must show to count" if e["kind"] == "relevance" else "How much is enough"
+        out.append(f"{label} ({e['ref']}, {e['authority']}): {e['text']} (for: {'; '.join(e['for'])})")
+    for w in r["routes"]:
+        out.append(f"A way to respond ({w['ref']}, {w['authority']}{', ' + w['scope'] if w.get('scope') else ''}): {w['text']}")
+    if r["notes"]:
+        out.append(f"Note: {r['notes']}")
+    out += ["", "Sources: " + "; ".join(f"{s['ref']} ({s['authority']})" for s in r["sources"]), "", r["stamp"]]
+    return "\n".join(out) + "\n"
+
+
+def render_walkthrough(w: dict[str, Any]) -> str:
+    """The text equivalent of a process walkthrough."""
+    out = [w["title"], "", w["scope"] or "", ""]
+    for number, step in enumerate(w["steps"], start=1):
+        out.append(f"{number}. {step['label']} — {step['actor']} ({step['ref']}, {step['authority']}): {step['text']}")
+        if step["continues_in"]:
+            c = step["continues_in"]
+            out.append(f"   Set out in {c['process']} ({c['title']}), whose steps are: {'; '.join(c['steps'])}.")
+        for n in step["next"]:
+            out.append(f"   Next, possibly: {n['label']}, when {n['when']}"
+                       + (f" (depends on: {'; '.join(n['needs'])})" if n["needs"] else "") + f" ({n['ref']}, {n['authority']}).")
+        out += [f"   Time rule ({d['ref']}, {d['authority']}): {d['text']}" for d in step["time_rules"]]
+    out += ["", w["note"], "", "Sources: " + "; ".join(f"{s['ref']} ({s['authority']})" for s in w["sources"]), "",
+            w["stamp"]]
+    return "\n".join(out) + "\n"
 
 
 def render_text(explanation: dict[str, Any]) -> str:
@@ -327,6 +512,13 @@ def render_text(explanation: dict[str, Any]) -> str:
     out.append("Who is who: " + "; ".join(f"{r['party']} is the {' and the '.join(r['capacities'])}" for r in e["roles"]) + ".")
     for issue in e["issues"]:
         t = issue["test"]
+        if t is None:
+            out += ["", f"Objection {issue['objection']}: the ground is not known",
+                    f"Goods or services affected: {', '.join(issue['items'])}.", issue["standing"],
+                    f"How it was described: \u201c{issue['customer_words']}\u201d", issue["reads"],
+                    "The grounds explained here, any of which it might be:"]
+            out += [f"- {c['title']} ({c['provision']}, law)" for c in issue["candidates"]]
+            continue
         out += ["", f"Objection {issue['objection']}: {t['title']}",
                 f"Goods or services affected: {', '.join(issue['items'])}.", issue["standing"],
                 f"What the report says: {issue['reasons']}",
@@ -355,6 +547,8 @@ def render_text(explanation: dict[str, Any]) -> str:
                 out.append(f"Exhibit {x['id']} ({x['description']}): {x['reads']}")
             for s in ev["sufficiency"]:
                 out.append(f"How much is enough ({s['ref']}, practice): {s['text']}")
+            for s in ev["set_aside"]:
+                out.append(f"Set aside ({s['ref']}, practice): {s['text']} ({s['why']})")
     p = e["process"]
     out += ["", f"Where the application is: {p['current_label']}. {p['current_text']}"]
     out += [f"What can happen next: {n['label']}, when {n['when']}"
