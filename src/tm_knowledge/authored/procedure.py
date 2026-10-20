@@ -201,5 +201,14 @@ def load_tests(root: Path | None = None, gold: goldset.GoldSet | None = None,
 
 def load_processes(root: Path | None = None, gold: goldset.GoldSet | None = None,
                    authored: authored_store.AuthoredSet | None = None) -> Records:
-    """Every process template, each checked."""
-    return _load(PROCESSES_FILE, "process.schema.json", _process_errors, root, gold, authored)
+    """Every process template, each checked. A step that continues in another template
+    must name one in the same file (GP-0002's report continues in GP-0001)."""
+    found = _load(PROCESSES_FILE, "process.schema.json", _process_errors, root, gold, authored)
+    ids = {entry.id for entry in found.entries}
+    entries = []
+    for entry in found.entries:
+        missing = [f"step {s['id']} continues in {s['continues_in']}, which is no template here"
+                   for s in entry.record.get("steps") or () if isinstance(s, dict)
+                   and s.get("continues_in") and (s["continues_in"] not in ids or s["continues_in"] == entry.id)]
+        entries.append(Record(record=entry.record, envelope=entry.envelope, errors=entry.errors + tuple(missing)))
+    return Records(entries=tuple(entries), path=found.path)
