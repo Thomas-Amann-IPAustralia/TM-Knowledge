@@ -90,12 +90,12 @@ export async function render(root, { ontology, params }) {
     <section class="futures">
       ${possibility({
         k: "Policy", title: "Simulating the flow-on effects of an amendment",
-        state: ["prototype", "First layer working"],
+        state: ["prototype", "Two layers working"],
         does: "Three different questions, built in order: which guidance would need review; whether a matter would be treated differently; how applicants would behave.",
         builds: [`The first is working: ${fmt(deps.dependencies || 0)} recorded dependencies of ${fmt(deps.records || 0)} records on the Manual and the legislation`,
-          "Legal tests that state a provision's conditions, which a scenario would change"],
-        needs: ["The law at more than one point in time, so a draft can be compared with what is in force",
-          "Scenarios run on invented matters, with draft text kept out of anything operative",
+          "The second runs as a command, not on this site: three invented amendments, each read as edits to a legal test and run on invented matters, show condition by condition how each reading would change; the draft words are kept out of everything this site serves",
+          "Every explanation names the text of the law it quotes, and says when the date that matters is not known"],
+        needs: ["A second text of the Act captured, so a draft can be compared with the law as it stood at another time",
           "For behaviour: data nobody here holds; until then the answer is \"unknown\""],
       })}
       ${possibility({

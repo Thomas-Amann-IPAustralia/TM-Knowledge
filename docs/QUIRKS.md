@@ -1734,3 +1734,15 @@ on all twelve. S043 fixed all three. When a record type gets its own reader, add
 the ontology report (its §7 counts record types). One CSS trap on the way: `explorer.css` holds
 short generic classes the tour uses (`.fact`, `.bars`, `.steps`), so a new view's class named after
 its data (a leaf of kind `fact`) picks up the tour's layout; prefix new classes (`ck-fact`).
+
+### Q-102: rdflib's SPARQL is slow on `VALUES ?g` and a source-first join
+
+RULE-0003 (S045) was first written as `VALUES ?g { tmkg:approved tmkg:authored } GRAPH ?g {...}`
+with the source graph's `?passage tmk:upstreamRef ?ref` first; over `graph/dataset.nq` it ran
+past four minutes and was killed. Two fixed `GRAPH tmkg:approved {...}` / `GRAPH tmkg:authored
+{...}` blocks UNIONed, each binding the record first and the source graph looked up last, run in
+about thirty seconds inside the build. rdflib evaluates patterns roughly in the order written and
+does not reorder joins: put the selective pattern first, avoid a variable graph name, and time a
+new rule against the committed dataset before adding it (a rule runs on every `tmk-graph --rules`
+and in CI). A rule with an unbound predicate (`?dependant ?via ?passage`) is affordable only once
+the subject is bound.
