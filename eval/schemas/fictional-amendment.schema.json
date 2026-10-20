@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://ipaustralia.gov.au/schemas/tmk/scenarios/fictional-amendment/1.0.0",
   "title": "Fictional amendment (a normative scenario)",
-  "description": "An invented draft amendment to one provision, read as edits to the structured legal test of that provision, and run on fictional matters to show whether their reading would change (the second review response, A10; ADR-0146). Every one is fictional and says so in a field a machine reads; its draft words are never law, never enter the graph, the search index or the site, and are labelled draft wherever they are shown. It names the compilation it amends, so a scenario written against one text is refused against another.",
+  "description": "An invented draft amendment to one provision, read as edits to the structured legal test of that provision, and run on fictional matters to show whether their reading would change (the second review response, A10; ADR-0147). Every one is fictional and says so in a field a machine reads; its draft words are never law, never enter the graph, the search index or the site, and are labelled draft wherever they are shown. It names the compilation it amends, so a scenario written against one text is refused against another.",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "fictional", "title", "question", "written_by", "written_date", "amends", "draft_text", "changes", "runs_on"],

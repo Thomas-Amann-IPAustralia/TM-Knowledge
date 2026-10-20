@@ -16,7 +16,7 @@ the acceptance example it exercises, and is validated by
   customer's words; it may record no facts, assessments or exhibits, because those belong
   to a test.
 
-- `amendments.yaml` — fictional amendments (`FS-`, S045, ADR-0146): normative scenarios
+- `amendments.yaml` — fictional amendments (`FS-`, S045, ADR-0147): normative scenarios
   (the second review response, A10). Each is an invented draft of one provision, read as
   edits to that provision's legal test (`GL-`), naming the compilation whose text it
   amends, and run on fictional matters: `tmk-explain --scenario FS-0001` (or `all`) prints

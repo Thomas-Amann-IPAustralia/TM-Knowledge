@@ -1,4 +1,4 @@
-"""The versioning model (A03, ADR-0146): identity apart from text, legal effect apart from
+"""The versioning model (A03, ADR-0147): identity apart from text, legal effect apart from
 capture, and an explicit unknown. Selection is tested on two invented compilations, because
 the snapshot holds one per instrument."""
 

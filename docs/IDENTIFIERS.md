@@ -116,7 +116,7 @@ tmka:GP-0001/transition/3         GP-0001's third transition, by its place
 `namespaces.element_node` is the one function that mints them. Renaming an
 element id renames its node; as with anchors, that is a rebuild.
 
-**Compilations** (S045, ADR-0146, the versioning model). An instrument is enduring
+**Compilations** (S045, ADR-0147, the versioning model). An instrument is enduring
 (`tmk:doc/TMA1995`); each held compilation of it is a node of its own, numbered as the
 Federal Register numbers it, with its in-force interval and that interval's beginning
 minted from it:
@@ -159,14 +159,14 @@ concept type, `GR-` relationship, `GE-` entity mention, `GS-`/`GA-` questions, `
 reasoning, `PU-` prohibited use (`eval/schemas/common.schema.json`). Since 2026-10-08
 there is one more: **`GK-` a correction** to a signed record (`authored/corrections.yaml`,
 ADR-0122). Since 2026-10-17, **`GD-` a definition** of a concept (`authored/definitions.yaml`,
-ADR-0137): one per concept per scope since S045 (ADR-0146), its own record because a signed
+ADR-0137): one per concept per scope since S045 (ADR-0147), its own record because a signed
 concept cannot be edited. Since
 2026-10-19, **`GL-` a structured legal test** (`authored/legal-tests.yaml`) and **`GP-` a process
 template** (`authored/processes.yaml`), ADR-0142 (GP-0002, filing to registration, since S043); inside one, an element (a condition, an
 exception, a step) has a lowercase id unique within its record (`honest_concurrent_use`), never a
 project-wide id. **`FM-` a fictional matter** (`scenarios/matters.yaml`) is a fixture, not
 knowledge: its own series, never in the graph or the shared sequence. **`FS-` a fictional
-amendment** (`scenarios/amendments.yaml`, S045, ADR-0146) is the same: a fixture whose draft
+amendment** (`scenarios/amendments.yaml`, S045, ADR-0147) is the same: a fixture whose draft
 words are never law, in no graph, index or site. A withdrawn id is listed with its reason — signed ones in
 `eval/gold/retired-ids.yaml`, authored ones in `authored/retired-ids.yaml` — and
 `bulk.jobs.next_number` counts both ledgers, the corrections, the definitions, the legal tests and

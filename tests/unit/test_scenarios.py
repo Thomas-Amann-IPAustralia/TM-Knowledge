@@ -1,4 +1,4 @@
-"""Normative scenarios (A10, ADR-0146): a fictional amendment, read as edits to a legal
+"""Normative scenarios (A10, ADR-0147): a fictional amendment, read as edits to a legal
 test, run on fictional matters. Three layers never summed; the draft never operative."""
 
 from __future__ import annotations

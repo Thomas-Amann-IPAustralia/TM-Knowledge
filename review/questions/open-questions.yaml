@@ -1548,7 +1548,7 @@ questions:
     needs: owner
     urgency: low
     raised: S045
-    tracked_as: ['RULE-0003', 'ADR-0146']
+    tracked_as: ['RULE-0003', 'ADR-0147']
     title: 'Approve or reject the third automatic rule: what rests on each source'
     plain: >
       A rule here is a small, fixed instruction that adds labelled links to the data. The

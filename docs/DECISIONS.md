@@ -6073,7 +6073,7 @@ of the work. When re-measurement happens or what it may cost.
 ## ADR-0137 — definitions are their own records, `GD-`, with the source of their words stated
 
 **Date** 2026-10-17 · **Authority** agent-proposed (S038) · **Status** accepted, provisional;
-decision 1's "one per concept" superseded by ADR-0146 (one per concept per scope) ·
+decision 1's "one per concept" superseded by ADR-0147 (one per concept per scope) ·
 acts on ADR-0136 decision 2 (CHAT-0078)
 
 **Context.** The owner lifted the deferral on definitions (CHAT-0078). ADR-0136 left their
@@ -6453,7 +6453,7 @@ for, and is checked against this ruling before it is built. Nothing changes what
 results are stated in both directions on the first page a reader sees; the prototype's untested
 state is said on the page, not only in the handoff.
 
-## ADR-0146 — Package 5: the versioning model defined, the dependency index as a candidate rule, fictional amendments on fictional matters
+## ADR-0147 — Package 5: the versioning model defined, the dependency index as a candidate rule, fictional amendments on fictional matters
 
 **Date** 2026-10-20 · **Authority** agent-proposed (S045) · **Status** accepted, provisional ·
 completes the second review response's Package 5 (A03, R05, A10) on the owner's "Complete the

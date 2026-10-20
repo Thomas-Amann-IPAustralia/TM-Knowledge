@@ -10,11 +10,11 @@ Rewritten every session, under 150 lines (ADR-0110). History is in the git log a
 
 **The purpose is ADR-0138** (`CLAUDE.md` §0). **The plan is `docs/ONTOLOGY-REVIEW-RESPONSE-2.md`'s
 order, and every package in it is now built: 1 and 3 (S041), 2 (S042), 4 (S042–S043), 5 (S045,
-ADR-0146).** The owner asked S045 to "Complete the construction of package 5". Nothing was spent.
+ADR-0147).** The owner asked S045 to "Complete the construction of package 5". Nothing was spent.
 
 **Spend.** Cap **US$13.63**, recorded **US$11.61**; the remaining US$2.02 is approved for nothing.
 
-**Package 5, as it now stands (ADR-0146, all agent-proposed).**
+**Package 5, as it now stands (ADR-0147, all agent-proposed).**
 - **The versioning model (A03).** `ontology/draft/time.ttl`: an instrument is enduring
   (`tmk:doc/TMA1995`, `tmk:registerTitleId` C2004A04969); a `tmk:Compilation` is one text of it
   (`tmk:doc/TMA1995/compilation/48`), in force over an OWL-Time interval with a beginning and no
@@ -101,7 +101,7 @@ declaration failure, fixed and re-run with its neighbours).
 
 - **`python3 -m pytest`**, about twenty minutes for the full suite (Q-29).
 - **`tmk-graph --write --rules` takes about 75 seconds** now, half of it RULE-0003; a new rule
-  must be timed against the committed dataset first (Q-102: rdflib does not reorder joins).
+  must be timed against the committed dataset first (Q-103: rdflib does not reorder joins).
 - **A paid call may be refused by the session, not the cap** (Q-99).
 - **Naming a TBox property** (Q-100): not a `str` method, not a predicate's name.
 - **After changing records, the builder, a schema or `ontology/draft/`**: `tmk-graph --write
@@ -123,7 +123,7 @@ declaration failure, fixed and re-run with its neighbours).
 
 ## Open items (agent-proposed, provisional)
 
-- **ADR-0146** (the versioning vocabulary and states; the explanations' version line; one
+- **ADR-0147** (the versioning vocabulary and states; the explanations' version line; one
   definition per scope and its disambiguation rule; RULE-0003's scope and exclusions; the
   scenario format, its four edits, and the three scenarios).
 - **ADR-0145's agent parts**: the four layers and their names, the home page, the glossary.

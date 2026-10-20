@@ -92,7 +92,7 @@ def test_an_approval_written_into_a_definition_is_refused(tmp_path):
 
 
 def test_one_concept_one_definition_per_scope(tmp_path):
-    """ADR-0146 relaxed ADR-0137's "one per concept" to one per concept per scope: a
+    """ADR-0147 relaxed ADR-0137's "one per concept" to one per concept per scope: a
     second unscoped definition is still refused, and so is a second in the same scope."""
     found = _load(tmp_path, [_row(), _row(id="GD-0002")])
     assert "a second definition of GC-0001" in _refused(found)["GD-0002"]

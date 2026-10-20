@@ -10,7 +10,7 @@ concept cannot be edited, and writing a definition into it would put machine con
 inside a signature (CLAUDE.md rule 4). It follows that approving a label approves no
 definition. Ids are `GD-`, one sequence across the project (`docs/IDENTIFIERS.md` §3).
 
-**One definition per concept per scope** (the second review response, A03; ADR-0146,
+**One definition per concept per scope** (the second review response, A03; ADR-0147,
 superseding ADR-0137's "one per concept"). A word can mean different things in different
 Parts of the Regulations or in different periods, and the honest model of that is two
 scoped definitions, not one definition that blurs them or a split concept (which the
@@ -193,7 +193,7 @@ def load(
                           "one concept, one definition per scope")
         if concept in scoped and not scope:
             # Unscoped beside scoped would read as the general meaning and win by default:
-            # the very choice the disambiguation rule leaves to the context (ADR-0146).
+            # the very choice the disambiguation rule leaves to the context (ADR-0147).
             errors.append(f"{concept} has scoped definitions, and this one names no scope")
         seen_ids.add(str(record.get("id")))
         defined.add((concept, scope))

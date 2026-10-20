@@ -20,7 +20,7 @@ terms checked before any capture (Q-11).
 | Customer: the application process | the Regulations' process provisions; the forms and fees | **Held** (Regulations, fee schedule); forms and the customer pages on filing **not held** |
 | Customer: understand an objection | the ground, its tests and its ways out; an example report | Grounds and tests **held** as records; an examination report **not held**, and only a fictional one may be used until the owner says otherwise (`CLAUDE.md` §3a) |
 | Customer: respond to an objection, give evidence of use | the customer pages on responding and on evidence; ss 41(3)–(4) | ss 41(3)–(4) **held**; the customer pages **not held** — the first two to raise upstream |
-| Policy: simulate an amendment | provisions by version; dependants | One version only (compilation 48), named in every explanation; the versioning model is defined and selection is written, waiting on a second compilation captured **upstream** (A03, ADR-0146); dependants held in the graph too (RULE-0003, candidate); fictional amendments run on fictional matters (`tmk-explain --scenario`) |
+| Policy: simulate an amendment | provisions by version; dependants | One version only (compilation 48), named in every explanation; the versioning model is defined and selection is written, waiting on a second compilation captured **upstream** (A03, ADR-0147); dependants held in the graph too (RULE-0003, candidate); fictional amendments run on fictional matters (`tmk-explain --scenario`) |
 
 **Raise upstream first:** the customer pages on responding to an examination report and on
 providing evidence of use, as a source kind distinct from the Manual and the legislation. Nothing

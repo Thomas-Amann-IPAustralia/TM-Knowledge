@@ -1735,7 +1735,7 @@ the ontology report (its §7 counts record types). One CSS trap on the way: `exp
 short generic classes the tour uses (`.fact`, `.bars`, `.steps`), so a new view's class named after
 its data (a leaf of kind `fact`) picks up the tour's layout; prefix new classes (`ck-fact`).
 
-### Q-102: rdflib's SPARQL is slow on `VALUES ?g` and a source-first join
+### Q-103: rdflib's SPARQL is slow on `VALUES ?g` and a source-first join
 
 RULE-0003 (S045) was first written as `VALUES ?g { tmkg:approved tmkg:authored } GRAPH ?g {...}`
 with the source graph's `?passage tmk:upstreamRef ?ref` first; over `graph/dataset.nq` it ran
