@@ -24,6 +24,9 @@ Files written under `site/data/`:
     examples.json   the 129 prepared answers and how each search system scored
     chat.json       the measured answer prompt, so the live chat asks the same way
     live.json       whether the live chat may call the model (ADR-0118)
+    explain.json    the customer explanation preview: every invented matter's
+                    explanation, each test's requirements and each process walked
+                    through, each with its text equivalent (ADR-0145)
 """
 
 from __future__ import annotations
@@ -47,6 +50,7 @@ from tm_knowledge.bulk import links as links_module
 from tm_knowledge import config
 from tm_knowledge.config import PIN_PATH, REPO_ROOT
 from tm_knowledge.dashboard import views
+from tm_knowledge.explain import engine as explain_engine
 from tm_knowledge.explain import matters as matters_module
 from tm_knowledge.ontology import dependencies
 from tm_knowledge.ontology import hygiene
@@ -931,17 +935,22 @@ def build(corpus: Corpus | None = None, *, generated: str | None = None,
     pin = json.loads(PIN_PATH.read_text(encoding="utf-8"))
     onto["build"] = {"generated": generated or date.today().isoformat(), "upstream": pin["commit"][:12]}
     deps = dependencies.build(corpus, authored=authored)
+    explained = explain(gold, authored)
+    # Every clause a legal test, a process template or an explanation quotes opens in the
+    # drawer, so its chip never reads as "not in the snapshot".
+    quoted = _refs(onto["structures"]) | _refs(explained)
     return {
         "build.json": release(corpus, deps, onto["build"]["generated"]),
         "ontology.json": onto,
         "search.json": search(corpus, gold, authored, links),
         "passages.json": passages(corpus, {r for c in links.concepts.values() for r in c.legislative_basis}
-                                  | set(onto["provisions"])),
+                                  | set(onto["provisions"]) | {r for r in quoted if r.startswith(("TMA1995/", "TMR1995/"))}),
         "stability.json": stability(corpus, onto, links, deps),
         "tour.json": tour(corpus, onto, links),
         "examples.json": examples(),
         "chat.json": chat(ctx),
         "live.json": live_payload(endpoint),
+        "explain.json": explained,
     }
 
 
@@ -954,6 +963,107 @@ def _revision() -> str | None:
     except (OSError, subprocess.SubprocessError):
         return None
     return out.stdout.strip() or None
+
+
+def explain(gold: Any, authored: Any) -> dict[str, Any]:
+    """The customer explanation preview (ADR-0145): the same explanation objects
+    `tmk-explain --html` draws, each with its text equivalent, so the site and the
+    prototype page cannot say different things. Every matter is invented (ADR-0142);
+    nothing here is evaluated in the browser. A matter with errors is left out and
+    named, never explained."""
+    tests = {k: v.record for k, v in procedure.load_tests(gold=gold, authored=authored).by_id().items()}
+    processes = {k: v.record for k, v in procedure.load_processes(gold=gold, authored=authored).by_id().items()}
+    found = matters_module.load()
+    matters_out, broken = [], []
+    for matter in found:
+        if matter.errors:
+            broken.append(matter.id)
+            continue
+        e = explain_engine.explain(matter, tests, processes[explain_engine.EXAMINATION_PROCESS])
+        matters_out.append({**e, "text": explain_engine.render_text(e)})
+    requirements = []
+    for _, test in sorted(tests.items()):
+        r = explain_engine.requirements(test)
+        requirements.append({**r, "text": explain_engine.render_requirements(r)})
+    # The process from filing first; the report loop it continues in after it.
+    walkthroughs = []
+    for _, process in sorted(processes.items(), key=lambda kv: (kv[0] == explain_engine.EXAMINATION_PROCESS, kv[0])):
+        w = explain_engine.walkthrough(process, processes)
+        walkthroughs.append({**w, "text": explain_engine.render_walkthrough(w)})
+    return {"fictional": True, "stamp": explain_engine.STAMP, "general_stamp": explain_engine.GENERAL_STAMP,
+            "open": explain_engine.OPEN, "matters": matters_out, "left_out": broken,
+            "requirements": requirements, "walkthroughs": walkthroughs}
+
+
+def _refs(node: Any) -> set[str]:
+    """Every `ref` a nested record names."""
+    if isinstance(node, dict):
+        found = {node["ref"]} if isinstance(node.get("ref"), str) else set()
+        return found.union(*(_refs(v) for v in node.values()))
+    if isinstance(node, list):
+        return set().union(*(_refs(v) for v in node)) if node else set()
+    return set()
+
+
+def _rule_header(path: Path) -> dict[str, Any]:
+    """A rule file's own header lines (`# rule:`, `# derives:`, `# approved-by:`, `# limits:`)."""
+    head: dict[str, str] = {}
+    for line in path.read_text(encoding="utf-8").splitlines():
+        m = re.match(r"# ([a-z-]+): (.*)$", line)
+        if m:
+            head[m.group(1)] = m.group(2)
+        elif line.strip() and not line.startswith("#"):
+            break
+    approved = head.get("approved-by", "")
+    return {"id": head.get("rule", path.stem), "derives": head.get("derives"), "limits": head.get("limits"),
+            "approved": bool(approved) and not approved.startswith("PENDING")}
+
+
+def checks() -> dict[str, Any]:
+    """What every build checks the graph against, counted from the files themselves: the
+    validation shapes in `shapes/` and the inference rules in `queries/rules/`, with each
+    rule's approval as its header states it."""
+    shapes = {path.stem: len(re.findall(r"\ba sh:NodeShape\b", path.read_text(encoding="utf-8")))
+              for path in sorted((REPO_ROOT / "shapes").glob("*.ttl"))}
+    rules = [_rule_header(path) for path in sorted((REPO_ROOT / "queries" / "rules").glob("RULE-*.rq"))]
+    return {"shapes": shapes, "rules": rules}
+
+
+#: The statements the standards page shows as real examples, each the subject's own block
+#: as the committed Turtle writes it: a machine-written idea and a machine-written legal
+#: test, both from the authored graph. Not a reviewed record, whose block names the
+#: reviewer: the site never singles one out (ADR-0130).
+SAMPLES = (("concept", "authored", "tmkc:GC-0154"), ("test", "authored", "tmka:GL-0001"))
+
+
+def _turtle_block(path: Path, subject: str, limit: int = 22) -> dict[str, Any] | None:
+    """One subject's statements as the graph file writes them: its block, cut at `limit`
+    lines with the cut marked, and the prefixes the block uses."""
+    if not path.exists():
+        return None
+    text = path.read_text(encoding="utf-8")
+    m = re.search(rf"^{re.escape(subject)} .*?(?: \.\n)", text, re.M | re.S)
+    if not m:
+        return None
+    # A long list of values is shown by its first two, with the rest marked.
+    lines: list[str] = []
+    run = 0
+    for line in m.group(0).rstrip("\n").splitlines():
+        run = run + 1 if line.startswith("        ") else 0
+        if run == 2:
+            lines.append("        …")
+        if run < 2:
+            lines.append(line)
+    cut = len(lines) > limit
+    used = set(re.findall(r"\b([a-z]+):", m.group(0)))
+    prefixes = [line for line in text.splitlines() if line.startswith("@prefix ") and line.split()[1].rstrip(":") in used]
+    return {"subject": subject, "prefixes": prefixes, "lines": lines[:limit] + (["    …"] if cut else []),
+            "total": len(m.group(0).rstrip("\n").splitlines())}
+
+
+def samples() -> dict[str, Any]:
+    return {key: {"graph": graph, **(_turtle_block(REPO_ROOT / "graph" / f"{graph}.ttl", subject) or {})}
+            for key, graph, subject in SAMPLES}
 
 
 def release(corpus: Corpus, deps: dependencies.DependencyIndex, generated: str) -> dict[str, Any]:
@@ -972,6 +1082,8 @@ def release(corpus: Corpus, deps: dependencies.DependencyIndex, generated: str) 
         "law": rows,
         "answers": {"live": jobs.ANSWER_VERSION, "prepared": jobs.PREPARED_ANSWER_VERSION},
         "dependencies": deps.summary(),
+        "checks": checks(),
+        "samples": samples(),
     }
 
 

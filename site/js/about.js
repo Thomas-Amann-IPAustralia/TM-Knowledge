@@ -5,9 +5,11 @@
 
 import { esc, fmt, load, kindColour } from "./app.js";
 import * as lib from "./lib.js";
+import { term } from "./glossary.js";
 
 export async function render(root, { ontology }) {
-  const [examples, chat, Plot] = await Promise.all([load("examples"), load("chat"), lib.plot()]);
+  const [examples, chat, build, Plot] = await Promise.all([load("examples"), load("chat"), load("build"), lib.plot()]);
+  const deps = build.dependencies || {};
   const c = ontology.counts;
   const s = examples.summary || {};
   const kinds = examples.kinds;
@@ -18,12 +20,69 @@ export async function render(root, { ontology }) {
   root.innerHTML = `
   <div class="wrap about">
     <h1>Where it stands</h1>
-    <p class="lede">The state of every part of the proof of concept: what it is built from, how well the search was measured, and its
-    limits. Built for examiners to explore, test and pick holes in.</p>
+    <p class="lede">The state of every part of the proof of concept: how well the search was measured, what is still to be decided and by
+    whom, exactly what this build is, its limits, and how it works. Built for examiners to explore, test and pick holes in.</p>
+    <nav class="sd-index card" aria-label="On this page"><a href="#ab-measure" data-jump>How well the search works</a><a href="#ab-gates" data-jump>The decisions ahead</a>
+      <a href="#ab-build" data-jump>What this build is</a><a href="#ab-limits" data-jump>Limits</a><a href="#ab-records" data-jump>What it is built from</a><a href="#ab-how" data-jump>How Ask the Manual works</a></nav>
 
-    <h2>What it is</h2>
-    <p>An <b>ontology</b> is a shared, explicit description of a field: the ideas in it, what kind of thing each idea is, and how the ideas
-    relate — with each statement tied to the text it comes from. Here the field is Australian trade marks examination, and the text is the
+    <h2 id="ab-measure" tabindex="-1">How well the search works</h2>
+    <p>Three ways of searching were fixed before any result was graded, and each question's top ten passages were scored (${term("ndcg", "nDCG@10")}, out of 100):
+    <b>keyword</b> — words only, like a search box; <b>hybrid</b> — keyword plus matching by meaning, good modern search with no ontology;
+    <b>ontology</b> — hybrid plus recognising the question's ideas and following their connections. Differences are shown with ${term("interval", "95% intervals")}.</p>
+    <div class="card" style="padding:.8rem 1rem;margin:.6rem 0 1rem"><div class="measure-plot"></div>
+      <p class="tiny" style="margin:.3rem 0 0">Difference in top-ten quality (nDCG@10 × 100) with its 95% interval. Right of the line: the ontology system ranked better; left: worse. An interval crossing the line is not established.</p></div>
+    <details><summary>The same numbers as a table</summary><div style="overflow-x:auto"><table>
+      <tr><th>Questions</th><th class="num">n</th><th class="num">Keyword</th><th class="num">Hybrid</th><th class="num">Ontology</th><th class="num">Ontology − keyword</th><th class="num">Ontology − hybrid</th></tr>
+      ${row("all", "All")}${Object.entries(kinds).map(([k, label]) => row(k, label)).join("")}
+    </table></div></details>
+    <p>Read both ways. Against keyword search, the ontology-assisted search ranked better passages, most clearly for questions in everyday
+    words. Against modern search that also matches meaning, it ranked worse, by a small margin that is clearly real. Diagnosed afterwards:
+    very common ideas (such as <i>Registrar</i>, named in hundreds of passages) pull loosely related passages into the top ten.</p>
+    <p class="small muted">The ${examples.answers.length - (s.signed?.n || 0)} test questions were written by a model, and the passages graded by another model; the only human yardstick is
+    ${s.signed?.n || 10} questions a person reviewed, with the passages each must find — too few to establish a difference either way.
+    Which of these results become claims outside this project is the project owner's decision.</p>
+
+    <h2 id="ab-gates" tabindex="-1">The decisions ahead, and whose they are</h2>
+    <p>Some steps are not the system's or the team's to take. Each of these waits on the project owner, and nothing on this site goes past them:</p>
+    <ul class="ab-gates">
+      <li><b>Testing with customers.</b> The <a href="#/customers">customer preview</a> is on this site so examiners can see it. Showing it to a customer,
+        testing it with one, or publishing anything to customers needs the owner's approval first.</li>
+      <li><b>Real case data.</b> Every application in the preview is invented. Using a real application or examination report, even in a test, is the owner's decision.</li>
+      <li><b>What the answering model is given.</b> Ask the Manual shows a reached legal test beside the answer; whether the model that writes the answer
+        should see it too changes what the system may say, so it is the owner's decision.</li>
+      <li><b>Expert review.</b> Nothing machine-written becomes approved until a named expert's decision is recorded; when, and by whom, is the owner's to arrange.</li>
+      <li><b>The next measurement.</b> Who writes and judges the next set of test questions, and which results become claims.</li>
+      <li><b>Never.</b> Deciding an application, or saying how one will be decided, is out of scope, and no decision above changes that.</li>
+    </ul>
+
+    <h2 id="ab-build" tabindex="-1">What this build is</h2>
+    <p>Every publish writes a release manifest naming exactly what was built, so a result can be traced and repeated
+      (<a href="#/standards">the standards it is written in</a>).</p>
+    <dl class="ab-build card">
+      <dt>Built</dt><dd>${esc(build.generated || "")}, from revision <code>${esc((build.revision || "unknown").slice(0, 12))}</code> of the repository</dd>
+      <dt>The Manual</dt><dd>${esc(build.manual?.line || "")}. ${esc(build.manual?.note || "")}</dd>
+      ${(build.law || []).map((l) => `<dt>${esc(l.name)}</dt><dd>${esc(l.line)}: compilation ${esc(l.compilation)} (${esc(l.register_id)})</dd>`).join("")}
+      <dt>The snapshot</dt><dd><code>${esc((build.graph?.upstream?.commit || "").slice(0, 12))}</code> of the extraction project, read and never edited</dd>
+      <dt>Answers</dt><dd>prepared with instructions ${esc(build.answers?.prepared || "")}; live with ${esc(build.answers?.live || "")}</dd>
+      <dt>Dependencies</dt><dd>${fmt(deps.dependencies || 0)} recorded dependencies of ${fmt(deps.records || 0)} records on ${fmt(deps.refs || 0)} passages and provisions;
+        ${fmt(deps.stale?.length || 0)} whose quoted text has since changed</dd>
+    </dl>
+
+    <h2 id="ab-limits" tabindex="-1">Limits</h2>
+    <ul class="small">
+      <li>It explains; it never decides. It does not apply the law to an application's facts and declines when asked to.</li>
+      <li>No expert has read the machine's ideas, connections or answers.</li>
+      <li>A model suggested ${fmt((c.merges?.merged || 0) + (c.merges?.kept_apart || 0))} pairs of ideas were one idea under two records. On the project owner's rulings,
+      ${fmt(c.merges?.merged || 0)} were merged (for example <i>Registrar of Trade Marks</i> into <i>Registrar</i>) and ${fmt(c.merges?.kept_apart || 0)} kept apart as different ideas.</li>
+      <li>Recognising an idea is matching its wordings: "who has to <i>sign</i>" matches the idea <i>sign</i>.</li>
+      <li>One snapshot of the Manual. There is no update loop yet, though every record is anchored so that one can be built, and
+      <a href="#/change">When the text changes</a> already lists what rests on any page or provision.</li>
+      <li>The search over the Act and the Regulations, the legal tests, the process templates and the customer explanations have not been measured.</li>
+    </ul>
+
+    <h2 id="ab-records" tabindex="-1">What it is built from</h2>
+    <p>Everything above rests on an ${term("ontology")}: a shared, explicit description of a field, the ideas in it, what kind of thing each idea is, and how the ideas
+    relate, with each statement tied to the text it comes from. Here the field is Australian trade marks examination, and the text is the
     Manual, the <i>Trade Marks Act 1995</i> and the <i>Trade Marks Regulations 1995</i>, captured at one point in time.</p>
     <table>
       <tr><th></th><th class="num">In all</th><th class="num">Machine-written, unreviewed</th></tr>
@@ -46,7 +105,8 @@ export async function render(root, { ontology }) {
     next and its time rules. Every element quotes the unit or passage it comes from, and says whether that is practice or law.</p>
     <p class="small muted">A condition that is a person's assessment, such as whether two marks are deceptively similar, is marked as one and is never
     computed; no date is worked out from a time rule; nothing applies a test to an application. These records are machine-written and unreviewed, like
-    the rest, and are the start of a customer explanation aid that is not published. <a href="#/table/tests">See them as tables →</a></p>
+    the rest. The customer explanation aid is built from them: <a href="#/customers">its preview</a> runs on invented matters only and has not been
+    shown to customers. <a href="#/rules">See them drawn</a> or <a href="#/table/tests">as tables →</a></p>
 
     <h2>The kinds, and how they connect</h2>
     <p>A kind says what an idea is; what it does is a connection (the project owner's rule). Three kinds are the questions the law asks — grounds of
@@ -58,7 +118,7 @@ export async function render(root, { ontology }) {
     There is no "is related to": a passage that only mentions two ideas is not a connection between them.</p>
     <ul class="small" style="padding-left:0;list-style:none">${ontology.kinds.map((k) => `<li style="margin:.25rem 0"><span class="dot" style="--c:${kindColour(k.id)}"></span> <b>${esc(k.label)}</b> — ${esc(k.plain)}</li>`).join("")}</ul>
 
-    <h2>How Ask the Manual works</h2>
+    <h2 id="ab-how" tabindex="-1">How Ask the Manual works</h2>
     <ol class="small">
       <li><b>Recognise.</b> The question is matched against every idea's wordings, including everyday phrasings a machine wrote for search.</li>
       <li><b>Follow.</b> The connections those ideas hold lead to related ideas.</li>
@@ -73,34 +133,14 @@ export async function render(root, { ontology }) {
     each claim with its own quotes, and the rule never to conclude that a requirement, exception or step does not exist because the passages or connections do not mention it.
     Search in your browser runs without the meaning-vectors the measured system also used.</p>
 
-    <h2>How well the search works</h2>
-    <p>Three ways of searching were fixed before any result was graded, and each question's top ten passages were scored (nDCG@10, out of 100):
-    <b>keyword</b> — words only, like a search box; <b>hybrid</b> — keyword plus matching by meaning, good modern search with no ontology;
-    <b>ontology</b> — hybrid plus the steps above. Differences are shown with 95% intervals.</p>
-    <div class="card" style="padding:.8rem 1rem;margin:.6rem 0 1rem"><div class="measure-plot"></div>
-      <p class="tiny" style="margin:.3rem 0 0">Difference in top-ten quality (nDCG@10 × 100) with its 95% interval. Right of the line: the ontology system ranked better; left: worse. An interval crossing the line is not established.</p></div>
-    <details><summary>The same numbers as a table</summary><div style="overflow-x:auto"><table>
-      <tr><th>Questions</th><th class="num">n</th><th class="num">Keyword</th><th class="num">Hybrid</th><th class="num">Ontology</th><th class="num">Ontology − keyword</th><th class="num">Ontology − hybrid</th></tr>
-      ${row("all", "All")}${Object.entries(kinds).map(([k, label]) => row(k, label)).join("")}
-    </table></div></details>
-    <p>Read both ways. Against keyword search, the ontology-assisted search ranked better passages, most clearly for questions in everyday
-    words. Against modern search that also matches meaning, it ranked worse, by a small margin that is clearly real. Diagnosed afterwards:
-    very common ideas (such as <i>Registrar</i>, named in hundreds of passages) pull loosely related passages into the top ten.</p>
-    <p class="small muted">The ${examples.answers.length - (s.signed?.n || 0)} test questions were written by a model, and the passages graded by another model; the only human yardstick is
-    ${s.signed?.n || 10} questions a person reviewed, with the passages each must find — too few to establish a difference either way.</p>
-
-    <h2>Limits</h2>
-    <ul class="small">
-      <li>It explains; it never decides. It does not apply the law to an application's facts and declines when asked to.</li>
-      <li>No expert has read the machine's ideas, connections or answers.</li>
-      <li>A model suggested ${fmt((c.merges?.merged || 0) + (c.merges?.kept_apart || 0))} pairs of ideas were one idea under two records. On the project owner's rulings,
-      ${fmt(c.merges?.merged || 0)} were merged (for example <i>Registrar of Trade Marks</i> into <i>Registrar</i>) and ${fmt(c.merges?.kept_apart || 0)} kept apart as different ideas.</li>
-      <li>Recognising an idea is matching its wordings: "who has to <i>sign</i>" matches the idea <i>sign</i>.</li>
-      <li>One snapshot of the Manual. There is no update loop yet, though every record is anchored so that one can be built, and
-      <a href="#/change">When the text changes</a> already lists what rests on any page or provision.</li>
-      <li>The search over the Act and the Regulations, and the legal tests and process templates, have not been measured.</li>
-    </ul>
   </div>`;
+
+  root.querySelectorAll("[data-jump]").forEach((a) => a.addEventListener("click", (event) => {
+    event.preventDefault();
+    const target = root.querySelector(a.getAttribute("href"));
+    target.scrollIntoView({ block: "start" });
+    target.focus({ preventScroll: true });
+  }));
 
   // The measurement as intervals (Observable Plot): both comparisons, every kind of question.
   const groups = [["all", "All questions"], ...Object.entries(kinds)].filter(([k]) => s[k]);

@@ -4,8 +4,8 @@
 **When:** 2026-10-20, S043, after the agent brought the explorer up to date with Package 4.
 **Where:** a Claude Code chat session.
 **Relayed by:** the S043 agent, transcribed the same session.
-**Status:** recorded in S043; the rework is planned in `docs/SITE-REWORK.md` and spans S043 and
-S044. See ADR-0145 and `review/rulings/2026-10-20-chat-site-emphasis.yaml`.
+**Status:** recorded in S043; planned in `docs/SITE-REWORK.md` (deleted when done, in git) and
+carried out over S043 and S044. See ADR-0145 and `review/rulings/2026-10-20-chat-site-emphasis.yaml`.
 
 ## The owner's words
 

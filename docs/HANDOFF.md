@@ -1,7 +1,7 @@
 # HANDOFF
 
-**Last updated:** 2026-10-20 · S045 · Package 5 on branch `ccr-a421cc83-m425ob`, from `main` after
-PR #44. S044 (the site rework) is a separate session; S045 touched the site in one card only.
+**Last updated:** 2026-10-20 · S045 · Package 5 on branch `ccr-a421cc83-m425ob`, with `main` merged
+in after PR #45 (S044's site rework). S045 touched the site in one card only.
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
@@ -11,6 +11,13 @@ Rewritten every session, under 150 lines (ADR-0110). History is in the git log a
 **The purpose is ADR-0138** (`CLAUDE.md` §0). **The plan is `docs/ONTOLOGY-REVIEW-RESPONSE-2.md`'s
 order, and every package in it is now built: 1 and 3 (S041), 2 (S042), 4 (S042–S043), 5 (S045,
 ADR-0147).** The owner asked S045 to "Complete the construction of package 5". Nothing was spent.
+
+**The site rework is finished and on `main`** (S044, ADR-0145, ADR-0146, PR #45): four layers
+(what it does, what it could do, rules as code, the ontology), `#/rules` with s 44 drawn and the
+process from filing as a flow, `#/standards`, and the **customer preview** `#/customers` behind its
+banner (the owner's "Build it", CHAT-0096). `tmk-explorer` writes `site/data/explain.json` from
+`tm_knowledge.explain` itself, so S045's version line reaches the preview's text equivalents by
+itself, and `#/rules` counts RULE-0003 from its file.
 
 **Spend.** Cap **US$13.63**, recorded **US$11.61**; the remaining US$2.02 is approved for nothing.
 
@@ -55,10 +62,6 @@ declaration failure, fixed and re-run with its neighbours).
 
 ## Next actions
 
-0. **Finish the site rework (S044, by the owner's word, at high effort)** from
-   `docs/SITE-REWORK.md`; then close `review/rulings/2026-10-20-chat-site-emphasis.yaml`
-   (`applied:`), delete the plan file, and update ADR-0145's status. If S044 is already running on
-   another branch, expect one small conflict in `site/js/future.js` (the policy card).
 1. **Raise upstream: a second compilation of the Act** (the one before 48, and the transitional
    provisions), so `versions.select` can choose between texts and a scenario can compare a draft
    with an earlier law. Raising it is the owner's or a session's to do; nothing here captures it.
@@ -74,7 +77,8 @@ declaration failure, fixed and re-run with its neighbours).
   draft, is yours; a real draft is policy content (§3a: outward-facing).
 - **A decision when you want it: should the answering model see a reached structured test?**
   (unchanged from S043; recommended, with the test stamped in the prompt.)
-- **The customer preview on the site (S044's plan)**, and testing with customers: your gates.
+- **The customer preview is on the site** (your choice); showing it to customers, testing with
+  them, or real case data are still yours.
 - Still: revoke the old OpenAI key (S038); the page's blend, ADR-0131 and the four disputed signed
   readings (S034); who writes the next benchmark; re-measurement.
 
@@ -91,6 +95,9 @@ declaration failure, fixed and re-run with its neighbours).
 - **RULE-0003's residue** (pairs the index sees and the graph cannot): a correction's added and
   withdrawn values are literals in the graph, and a few signed fields (a search question's
   relevance grades, some concept fields) are not exported as links. The test caps it at 2%.
+- From S044: the site's new prose and the s 44 diagram and flow are one session's work on
+  unreviewed records; the flow cuts a step label at 34 characters; `checks.rules[].approved` reads
+  the `# approved-by:` header.
 - From S043: GP-0002 is one session's reading; the structured-test lookup is unmeasured and
   coarse; FM-0006's candidate list is every test held; the legal tests are unreviewed; the
   outcome guard reads unattributed sentences only.
@@ -119,14 +126,18 @@ declaration failure, fixed and re-run with its neighbours).
   `structuredTests`; and `jobs.definition_lines` now joins a concept's scoped definitions.
 - **The explorer needs the snapshot** (Q-90); a new record type reaches neither the site nor the
   dependency index by itself (Q-101).
-- **Checking the site**: `tmk-explorer --write`, serve `site/`, Playwright (`/opt/pw-browsers`).
+- **Checking the site**: `tmk-explorer --write`, `python3 -m http.server` in `site/`, Playwright via
+  Node (`NODE_PATH=$(npm root -g)`, Chromium in `/opt/pw-browsers`), a fresh page per route (Q-102).
+  Prefix new CSS classes (Q-101; S044 used `dg-`, `rx-`, `sd-`, `cx-`, `ab-`).
 
 ## Open items (agent-proposed, provisional)
 
 - **ADR-0147** (the versioning vocabulary and states; the explanations' version line; one
   definition per scope and its disambiguation rule; RULE-0003's scope and exclusions; the
   scenario format, its four edits, and the three scenarios).
-- **ADR-0145's agent parts**: the four layers and their names, the home page, the glossary.
+- **ADR-0146's agent parts** (`explain.json` from the engine, the preview's tabs and banner,
+  `diagrams.js`, `checks` and `samples`, the standards page, About's order) and **ADR-0145's** (the
+  four layers and their names, the home page, the glossary).
 - **ADR-0144** (elements as nodes; the two no-matter explanations; GP-0002; FM-0005, FM-0006;
   the A06 lookup rule). **ADR-0142** (the slice's record types and engine rules) and its content.
 - ADR-0141's and ADR-0143's agent parts; S042's engineering (the dependency index's views, the

@@ -61,8 +61,9 @@ export async function render(root, { ontology, params }) {
     <div class="ask-top">
       <div>
         <h1 style="margin-bottom:.3rem">Ask the Manual</h1>
-        <p class="lede">Ask in your own words. Watch the question find the ideas in it, follow their connections and gather passages —
-        then read an answer that cites them, each claim labelled as the Manual's or the legislation's.</p>
+        <p class="lede">Ask in your own words and get the passages of the Manual, the Act and the Regulations that bear on it, with an answer
+        whose every claim is cited and labelled as the Manual's practice or the legislation. Underneath, you can watch how it got there: the
+        ideas it recognised in the question, the connections it followed and the passages it gathered.</p>
       </div>
       <form class="ask-form">
         <textarea name="q" maxlength="600" rows="2" placeholder="e.g. Can I register a mark that includes someone's name without their consent?" aria-label="Your question"></textarea>

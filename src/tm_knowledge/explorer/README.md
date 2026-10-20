@@ -8,7 +8,11 @@ kind-to-kind roll-ups, what rests on each page, the browser's search index.
 What belongs here: building the explorer's JSON, and nothing the workbench
 (`tm_knowledge.dashboard`) or the pipeline (`tm_knowledge.bulk`) already owns. The
 answer prompt is read from `bulk.jobs`, never restated; the search patterns from
-`bulk.links`; the rankings' constants from `search.index`.
+`bulk.links`; the rankings' constants from `search.index`; the customer preview's
+explanations (`explain.json`) from `tm_knowledge.explain`, with their text equivalents, so the
+site and `tmk-explain --html` cannot say different things (ADR-0146). `build.json` also counts
+the validation shapes and inference rules from their files (`checks`) and carries two
+machine-written blocks of the committed graph for the standards page (`samples`).
 
 What must not: write into the stores or the snapshot, fill `approved_by`, or put a key in
 any file. Live answers go through the proxy named by `TMK_LIVE_ENDPOINT`, which holds the

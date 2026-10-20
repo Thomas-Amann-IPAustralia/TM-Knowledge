@@ -71825,7 +71825,7 @@
 <https://data.ipaustralia.gov.au/tmk/ns/decisionKind> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>  .
 <https://data.ipaustralia.gov.au/tmk/ns/defines> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/defines> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty>  .
-<https://data.ipaustralia.gov.au/tmk/ns/defines> <http://www.w3.org/2000/01/rdf-schema#comment> "The concept a definition record defines. Functional because a definition defines one concept; it never said a concept has one definition, which is the reader's rule, now one per concept per scope (ADR-0146): a concept may have several definitions, each with its own tmk:definitionScope."@en-AU  .
+<https://data.ipaustralia.gov.au/tmk/ns/defines> <http://www.w3.org/2000/01/rdf-schema#comment> "The concept a definition record defines. Functional because a definition defines one concept; it never said a concept has one definition, which is the reader's rule, now one per concept per scope (ADR-0147): a concept may have several definitions, each with its own tmk:definitionScope."@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/defines> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/Definition>  .
 <https://data.ipaustralia.gov.au/tmk/ns/defines> <http://www.w3.org/2000/01/rdf-schema#label> "defines"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/defines> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.ipaustralia.gov.au/tmk/ns/LegalConcept>  .
@@ -71837,7 +71837,7 @@
 <https://data.ipaustralia.gov.au/tmk/ns/definitionBasis> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>  .
 <https://data.ipaustralia.gov.au/tmk/ns/definitionScope> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty>  .
 <https://data.ipaustralia.gov.au/tmk/ns/definitionScope> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty>  .
-<https://data.ipaustralia.gov.au/tmk/ns/definitionScope> <http://www.w3.org/2000/01/rdf-schema#comment> "The context a definition holds in, as a key (`TMR1995/Part17`, `sense:...`, `period:...`), where its concept has more than one definition (the second review response, A03; ADR-0146). A consumer picks a definition only when its context names the scope; otherwise every candidate is shown and none chosen. Absent on a concept's only definition."@en-AU  .
+<https://data.ipaustralia.gov.au/tmk/ns/definitionScope> <http://www.w3.org/2000/01/rdf-schema#comment> "The context a definition holds in, as a key (`TMR1995/Part17`, `sense:...`, `period:...`), where its concept has more than one definition (the second review response, A03; ADR-0147). A consumer picks a definition only when its context names the scope; otherwise every candidate is shown and none chosen. Absent on a concept's only definition."@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/definitionScope> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.ipaustralia.gov.au/tmk/ns/Definition>  .
 <https://data.ipaustralia.gov.au/tmk/ns/definitionScope> <http://www.w3.org/2000/01/rdf-schema#label> "definition scope"@en-AU  .
 <https://data.ipaustralia.gov.au/tmk/ns/definitionScope> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>  .

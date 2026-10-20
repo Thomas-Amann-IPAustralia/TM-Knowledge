@@ -6422,7 +6422,7 @@ would still have to ask). An opposition template.
 ## ADR-0145 — the explorer leads with what the ontology enables, and discloses the ontology last
 
 **Date** 2026-10-20 · **Authority** human (the direction), agent-proposed (the plan) ·
-**Status** accepted; being carried out over S043 and S044
+**Status** accepted; carried out over S043 and S044 (the ruling's `applied`); the customer preview is ADR-0146
 
 **Context.** The explorer opened on the ontology: "The Manual, as a map of the ideas you reason
 with", a four-level ladder of kinds, ideas, connections and passages, and a tour titled "Why an
@@ -6452,6 +6452,43 @@ for, and is checked against this ruling before it is built. Nothing changes what
 **Consequences.** The home page stops leading with counts of concepts and connections; the measured
 results are stated in both directions on the first page a reader sees; the prototype's untested
 state is said on the page, not only in the handoff.
+
+## ADR-0146 — the customer explanation preview goes on the examiner site, and the site rework is finished
+
+**Date** 2026-10-20 · **Authority** human (the preview), agent-proposed (the rest) ·
+**Status** accepted
+
+**Context.** ADR-0145 planned a customer preview on the examiner site and made it wait on a check
+that the owner still wanted it: it puts the prototype's explanations of invented matters on a public
+page. S044 asked, with the option to keep it a file (CHAT-0096,
+`review/returned/261020-owner-chat-customer-preview.md`). The owner: *"Build it (Recommended)"*. The
+prototype then held six invented matters, three tests' requirements and two process walkthroughs.
+
+**Decision (the owner's).** The preview is on the examiner site, behind a banner that says invented
+matters only, not tested with customers, not advice, never an outcome, and that whether it is shown
+to customers is the owner's decision.
+
+**Decision (the agent's).** `tmk-explorer` writes `site/data/explain.json` from
+`tm_knowledge.explain` itself (the objects `tmk-explain --html` draws, each with its text
+equivalent), so the site and the prototype page cannot diverge; a matter with errors is left out and
+named. `#/customers` draws the three explanations (requirements, the process, an objection), and
+evaluates nothing. Alongside it S044 finished the rework: the brand "Trade Marks Manual · proof of
+concept"; `#/rules` with section 44 drawn as a diagram and the process from filing as a step flow,
+each with a text equivalent (`diagrams.js`, shared with the preview); `#/standards`, each standard
+in three parts with real blocks of the committed graph; and "Where it stands" with the decisions
+ahead and the release manifest. `build.json` gains `checks` (shapes and inference rules, counted
+from their files) and `samples` (machine-written blocks only: a reviewed block names its reviewer,
+whom the site never singles out, ADR-0130). `passages.json` carries every clause a structured
+record or explanation quotes, so its chip opens.
+
+**What it does not decide.** Showing the preview to customers, testing with them, publishing to
+them, or using real case data: all remain owner gates (CLAUDE.md §3a). Nothing changes what Ask the
+Manual's answering model is given.
+
+**Consequences.**
+1. Merging to `main` publishes the preview; until then it is on the branch only.
+2. A new invented matter, test or template reaches the preview on the next build with no page change.
+3. The agent parts are provisional; named in the handoff's open items.
 
 ## ADR-0147 — Package 5: the versioning model defined, the dependency index as a candidate rule, fictional amendments on fictional matters
 

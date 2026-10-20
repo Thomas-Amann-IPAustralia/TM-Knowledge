@@ -26,8 +26,12 @@ the picture together (A09).
   with its text equivalent, then the general views (each test's requirements, and the
   process from filing drawn as a flow), as one standalone page.
 - `cli.py` — `tmk-explain [--matter FM-0001] [--test GL-0001] [--process GP-0002]
-  [--html PATH] [--scenario FS-0001|all]`. The page is written to a file for the owner and is not deployed:
-  nothing here is for customers until the owner says so (`CLAUDE.md` §3a).
+  [--html PATH] [--scenario FS-0001|all]`. The page is written to a file for the owner.
+
+The same objects are on the examiner site as a preview (`#/customers`, ADR-0146):
+`tmk-explorer` writes them to `site/data/explain.json` and the page draws them under a
+banner. That is not showing them to customers; testing with customers or publishing to
+them stays the owner's decision (`CLAUDE.md` §3a).
 
 What it must never do: state an outcome, compute a date, turn a "may" into a "must",
 make an evaluative assessment, or ask for a fact that would not change the explanation.

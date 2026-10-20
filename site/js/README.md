@@ -1,7 +1,11 @@
 # site/js/ — the explorer's modules
 
 Plain ES modules, loaded by `../index.html` through `app.js`. One module per view
-(`home`, `tour`, `map`, `circles`, `ask`, `change`, `about`), plus `engine.js` (search and the answer
+(`home`, `future`, `customers`, `rules`, `model`, `standards`, `glossary-view`, `tour`, `map`,
+`circles`, `table`, `ask`, `change`, `about`), plus `layers.js` (the four layers, the depth strip,
+the go-deeper card, ADR-0145), `glossary.js` (every term explained, and `term()`), `diagrams.js`
+(a legal test drawn as a diagram and a process as a step flow, each with its text equivalent,
+shared by Rules as code and the customer preview), `engine.js` (search and the answer
 prompt — kept identical to Python by `tests/explorer_parity.mjs`), `live.js` (the
 streamed model calls: the reading of a typed question, then the answer), `lib.js`
 (loads vendored libraries per view, ADR-0119), `kinds.js`

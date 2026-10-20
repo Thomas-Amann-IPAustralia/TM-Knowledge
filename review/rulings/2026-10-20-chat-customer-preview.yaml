@@ -1,0 +1,32 @@
+# A decision the repo owner made in a chat session. Hand-transcribed by the S044 agent; no issue
+# behind it. The artefact is `review/returned/261020-owner-chat-customer-preview.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-20T00:00:00Z'
+questions_updated: '2026-10-20'
+source:
+  kind: chat
+  artefact: review/returned/261020-owner-chat-customer-preview.md
+  author: Thomas-Amann-IPAustralia
+  relayed_by: S044 agent
+  title: The customer explanation preview goes on the examiner site, loudly labelled
+applied:
+  session: S044
+  date: '2026-10-20'
+  branch: claude/zealous-mccarthy-2r7uvs
+  what_changed: >-
+    #/customers draws data/explain.json, which tmk-explorer writes from tm_knowledge.explain:
+    every invented matter's explanation, each test's requirements and each process walked
+    through, each with its text equivalent and stamp, under a banner saying invented matters
+    only, not tested with customers, not advice, never an outcome, and that showing it to
+    customers is the owner's decision. ADR-0146 records it.
+answers:
+- id: CHAT-0096
+  item: the customer explanation preview on the examiner site
+  question: Should the prototype explanations of the invented matters go on the public examiner site?
+  kind: instruction
+  value: build_it
+  label: Build it, with the loud banner; it deploys only when the owner merges
+  quote: Build it (Recommended)
+  notes: The examiner site is already public; this is not showing it to customers, testing it with
+    them, or publishing to them, which stay owner gates (CLAUDE.md §3a).
+  recorded_as: [ADR-0146]
