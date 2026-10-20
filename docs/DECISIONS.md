@@ -6357,3 +6357,37 @@ session by the owner.
    rests on Manual quotes alone; 12 decline the outcome part of a question. A kept quote proves the
    words exist, not that they support the claim.
 3. The "answer-v4 has never run against the real model" caution is retired.
+
+## ADR-0144 — the explorer leads with what the ontology enables, and discloses the ontology last
+
+**Date** 2026-10-20 · **Authority** human (the direction), agent-proposed (the plan) ·
+**Status** accepted; being carried out over S043 and S044
+
+**Context.** The explorer opened on the ontology: "The Manual, as a map of the ideas you reason
+with", a four-level ladder of kinds, ideas, connections and passages, and a tour titled "Why an
+ontology". Package 4 had just added structured legal tests and a process template, and the
+customer explanation aid existed only as a file. The owner (CHAT-0093 to CHAT-0095,
+`review/returned/261020-owner-chat-site-emphasis.md`): *"I'd like to change the emphasis of the site
+[…] to focus more on what the ontology enables"*, in the order *"current PoC outcomes -> potential
+future outcomes -> rules as code […] -> the conceptual model the rules as code constructs (the
+ontology)"*; *"transparent about the current state including what we may eventually test with
+customers"*; and no standard's name assumed known, so that *"an executive and a data engineer"*
+finish with a similar understanding. Two sessions.
+
+**Decision (the owner's).** The site's order and emphasis as quoted; most existing views stay.
+
+**Decision (the agent's, inside it).** Four layers, each a nav entry and a depth step on every page:
+*What it does* (home, Ask, Change, a customer preview), *What it could do* (`#/future`), *Rules as
+code* (`#/rules`), *The ontology* (`#/model` and the existing map, glance, table and tour, plus
+`#/standards` and `#/glossary`); *Where it stands* (`#/about`) across them. One glossary, and a
+term is explained inline the first time a page uses it. The plan and its checklist are
+`docs/SITE-REWORK.md`.
+
+**What it does not decide.** Testing with customers, publishing anything to them, or using real
+customer data: all remain owner gates (CLAUDE.md §3a). Putting the customer explanation preview of
+the four invented matters on the examiner site is planned for S044 as transparency the owner asked
+for, and is checked against this ruling before it is built. Nothing changes what an answer may say.
+
+**Consequences.** The home page stops leading with counts of concepts and connections; the measured
+results are stated in both directions on the first page a reader sees; the prototype's untested
+state is said on the page, not only in the handoff.

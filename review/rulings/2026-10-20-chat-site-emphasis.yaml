@@ -1,0 +1,46 @@
+# A decision the repo owner made in a chat session. Hand-transcribed by the S043 agent; no issue
+# behind it. The artefact is `review/returned/261020-owner-chat-site-emphasis.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-20T00:00:00Z'
+questions_updated: '2026-10-20'
+source:
+  kind: chat
+  artefact: review/returned/261020-owner-chat-site-emphasis.md
+  author: Thomas-Amann-IPAustralia
+  relayed_by: S043 agent
+  title: The explorer leads with outcomes, discloses the ontology last, and is open about customer testing
+applied: null
+answers:
+- id: CHAT-0093
+  item: the site's emphasis and order
+  question: What should the examiner site lead with, and in what order should it disclose the rest?
+  kind: instruction
+  value: outcomes_first
+  label: PoC outcomes, then future outcomes, then rules as code, then the ontology
+  quote: >-
+    I'd like to change the emphasis of the site, instead of putting the ontology as the front and
+    center talking piece, instead, I'd like to focus more on what the ontology enables.
+  recorded_as: [ADR-0144]
+- id: CHAT-0094
+  item: transparency about the current state and customer testing
+  question: What should the site say about its state and about customers?
+  kind: instruction
+  value: transparent
+  label: Say plainly what exists, and what may eventually be tested with customers
+  quote: >-
+    I'd like the site to be transparent about the current state including what we may eventually
+    test with customers.
+  notes: Describing possible customer testing on the examiner site is not testing with customers or
+    publishing to them; those stay owner gates (CLAUDE.md §3a).
+  recorded_as: [ADR-0144]
+- id: CHAT-0095
+  item: standards explained for every reader
+  question: How should the site treat technical standards?
+  kind: instruction
+  value: explain_every_term
+  label: Never assume a reader knows a standard; executive and engineer finish alike
+  quote: >-
+    it should not assume that the user knows what these things mean. An executive and a data
+    engineer should be able to finish with a similar level of understanding about how the system
+    operates
+  recorded_as: [ADR-0144]
