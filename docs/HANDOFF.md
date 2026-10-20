@@ -2,7 +2,8 @@
 
 **Last updated:** 2026-10-20 · S044 · branch `claude/zealous-mccarthy-2r7uvs` (from `main` after
 PR [Thomas-Amann-IPAustralia/TM-Knowledge#44](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/pull/44)
-merged). No pull request opened yet: merging this branch to `main` publishes the site changes below.
+merged), PR [Thomas-Amann-IPAustralia/TM-Knowledge#45](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/pull/45).
+Merging it to `main` publishes the site changes below.
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
@@ -53,8 +54,8 @@ own explanation; every quoted clause opens; the standards page reads its example
 
 ## Next actions
 
-1. **Open a pull request for this branch and merge it** when the owner is happy; that publishes
-   the rework and the customer preview (Pages deploys from `main` only).
+1. **Merge PR #45** when the owner is happy; that publishes the rework and the customer preview
+   (Pages deploys from `main` only).
 2. **Package 5** (the response's order): the versioning model defined (A03), with version selection
    once upstream holds a second compilation; the dependency index in the graph as a candidate rule
    (R05, A10); normative scenarios on fictional matters (A10).
