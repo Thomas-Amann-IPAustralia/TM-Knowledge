@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.016439,
+ "created_utc": "2026-10-20T00:34:42Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0103",
+ "job": "answer",
+ "key": "d3badeaff900e17a94b6650e5fd0b8c42df0dab3f35c9cb71826e9fd4543a744",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The Manual describes an inter partes matter as one in which the Registrar’s decision determines one party’s rights relative to another party.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part52/2/2/1\",\n          \"quote\": \"Matters arising under the Act in which the Registrar is required to make a decision which will determine the rights of one of the parties involved relative to another party are referred to as “inter partes” matters.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Both interested parties have the opportunity to be heard before the decision is made.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part52/2/2/1\",\n          \"quote\": \"Both of the interested parties have the opportunity to be heard before the decision is made, and the hearing is referred to as an inter partes hearing.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual’s express examples include oppositions to trade mark registration under section 52, oppositions to non-use removal applications under section 96, and oppositions to extensions of time exceeding three months under section 224.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part52/2/2/1\",\n          \"quote\": \"These include oppositions to registration of trade marks under section 52, oppositions under section 96 to applications for removal for non-use, and oppositions to extensions of time under section 224 which are for a period greater than three months.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual also identifies opposition proceedings concerning amendment of a trade mark application, protection of an international registration designating Australia, and cessation of protection of a protected international trade mark for non-use.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part55/2#1\",\n          \"quote\": \"The legislation provides that the following actions may be opposed: Amendment of a trade mark application (s 65A) Registration of another party’s trade mark (s 52) Protection of an International Registration Designating Australia held by another party (reg 17A.33) Removal of a registered trade mark for non-use (s 96) Cessation of protection of a Protected International Trade Mark for non-use (reg 17A.48D) Grant of an extension of time of more than three months (s 224).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"An opportunity to be heard need not involve an oral hearing: the Manual says the Registrar may invite written submissions or provide an opportunity for an oral hearing.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part52/2#1~1\",\n          \"quote\": \"Subreg 21.15(2) allows that the Registrar may give a person an opportunity to be heard by asking them for written submissions, or notifying that they may request an oral hearing, or simply notifying them of the date, time and place of an oral hearing.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual distinguishes the opportunity to be heard from a requirement to hold a hearing: in opposition matters, a hearing is not required where the Registrar has allowed a reasonable time for all parties to indicate whether they wish to be heard, or all parties indicate that they do not wish to be heard.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part52/3#1\",\n          \"quote\": \"In opposition matters, where the Registrar has allowed a reasonable time for all parties to indicate whether they wish to be heard, or where all parties indicate that they do not wish to be heard - per paragraph 21.15(5)(a) - the Registrar is not required to hold a hearing.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Hearing both parties does not necessarily make a proceeding inter partes: the Manual gives the example of a proposed refusal of an extension of time to oppose, where both parties may be heard but the proceeding is initiated by the Registrar.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part52/2/2/2\",\n          \"quote\": \"Where, for instance, the Registrar intends to refuse a request by party A for an extension of time to oppose registration of an application filed by party B, the Registrar is obliged, by section 203, to give A an explicit opportunity to be heard.\"\n        },\n        {\n          \"ref\": \"TMM/Part52/2/2/2\",\n          \"quote\": \"In such a case, while the matter has all the appearance of an inter partes hearing it is nonetheless a proceeding initiated by the Registrar and costs would be unlikely to be awarded.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0128\",\n    \"GC-0046\",\n    \"GC-0040\",\n    \"GC-0104\",\n    \"GC-0097\",\n    \"GC-0124\",\n    \"GC-0113\",\n    \"GC-0114\",\n    \"GC-0135\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "d20a8dedb36a341f95161d5ac26308e6fb57697adeda4e23ec56c9c6b35aec41",
+ "response_id": "resp_08bb9051b47bde1f006ad6b706c99487d2b3039c4fb63eeb83",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8184,
+  "input_tokens_details": {
+   "cache_write_tokens": 8181,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1242,
+  "output_tokens_details": {
+   "reasoning_tokens": 90
+  },
+  "total_tokens": 9426
+ }
+}

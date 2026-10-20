@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.016623,
+ "created_utc": "2026-10-20T00:34:54Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0105",
+ "job": "answer",
+ "key": "ef80bb6fc57e26dea549c83a9a2de55c38110419733f483756249641b7390350",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"I cannot predict whether your particular trade mark would be accepted or rejected; I can explain the relevant Manual practice.\",\n  \"claims\": [\n    {\n      \"text\": \"The Manual focuses on the identifier within the web address when assessing inherent adaptation to distinguish, rather than standard address material such as “www.” or “com”.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/14/14/2~1\",\n          \"quote\": \"Examples of standard address code material are: \\\"http://\\\", \\\"www.\\\", \\\"net\\\", \\\"org\\\", \\\"com\\\", \\\"shop\\\" or \\\"au\\\" and punctuation symbols \\\"~\\\", \\\".\\\" or \\\"/\\\".\"\n        },\n        {\n          \"ref\": \"TMM/Part22/14/14/2~1\",\n          \"quote\": \"In other words, it is the identifier which is the distinguishing element of a domain name, and this is the element which should be considered when assessing the inherent adaptation to distinguish.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Under the Manual, a mark consisting only of standard address material and an identifier is not prima facie capable of distinguishing if other traders would wish to use that identifier in the normal course of their trade.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/14/14/2~1\",\n          \"quote\": \"Where a trade mark consists only of standard address code material and an identifier it will not be prima facie capable of distinguishing if the identifier is a word, phrase or combination of letters and/or numbers which other traders would wish to use in the normal course of their trade.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual gives SMITH.COM and BESTPRICE.COM as examples that should attract a ground for rejection because their identifiers are a common surname and a laudatory expression respectively.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/14/14/2~1\",\n          \"quote\": \"Similarly trade marks such as SMITH.COM or BESTPRICE.COM should attract a ground for rejection as Smith is a common surname and best price is a laudatory expression.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"If the domain name forms part of a composite trade mark, the Manual says the overall presentation may make the mark prima facie capable of distinguishing.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/14/14/2~1\",\n          \"quote\": \"If a domain name is part of a composite trade mark, the trade mark may be prima facie capable of distinguishing due to the overall presentation, depending on the relative proportions, arrangement etc. of the material within the trade mark as a whole.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Separately, the Manual provides for a section 43 objection where the mark consists of, or contains, material likely to be viewed as a domain name and the applicant is neither its registrant nor its authorised user.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part29/8#1\",\n          \"quote\": \"A section 43 ground for rejection will apply if the applicant for a trade mark consisting of, or containing, material likely to be viewed as an Internet domain name is not also the registrant or authorised user of that Internet domain name.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Section 43 itself requires rejection where a connotation of the mark or a sign within it makes use for the specified goods or services likely to deceive or cause confusion.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s43\",\n          \"quote\": \"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"These passages explain relevant issues, but are not a complete account of all possible requirements or grounds for rejection.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": true,\n  \"concepts_used\": [\n    \"GC-0072\",\n    \"GC-0032\",\n    \"GC-0059\",\n    \"GC-0061\",\n    \"GC-0119\",\n    \"GC-0006\",\n    \"GC-0038\",\n    \"GC-0035\",\n    \"GC-0168\",\n    \"GC-0001\",\n    \"GC-0002\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "0ad11218bb7fdb28e432bc0071bed69297df42da2452014e39e055cded5553b6",
+ "response_id": "resp_0f953ea71c368d1e006ad6b7121db487d28a6e30bf593c6a58",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8743,
+  "input_tokens_details": {
+   "cache_write_tokens": 8740,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1139,
+  "output_tokens_details": {
+   "reasoning_tokens": 97
+  },
+  "total_tokens": 9882
+ }
+}

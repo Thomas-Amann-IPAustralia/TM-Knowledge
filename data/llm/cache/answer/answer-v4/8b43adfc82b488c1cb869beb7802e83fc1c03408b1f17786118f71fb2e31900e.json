@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012192,
+ "created_utc": "2026-10-20T00:35:57Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0005",
+ "job": "answer",
+ "key": "8b43adfc82b488c1cb869beb7802e83fc1c03408b1f17786118f71fb2e31900e",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The Manual suggests the following endorsement for the relevant INN stem: “It is a condition of registration that any use in respect of pharmaceuticals will be limited to such goods containing substances belonging to the pharmacological group designated by the International Non- Proprietary Name stem <stem>.”\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part29/5/5/5\",\n          \"quote\": \"The endorsement suggested by the Registrar in these circumstances is: It is a condition of registration that any use in respect of pharmaceuticals will be limited to such goods containing substances belonging to the pharmacological group designated by the International Non- Proprietary Name stem <stem>.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"This is suggested where a mark for pharmaceuticals or veterinary substances consists of an INN stem, or meaningfully contains a notified INN stem, and the goods covered by the specification are not restricted to substances indicated by that stem.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part29/5/5/5\",\n          \"quote\": \"A ground for rejection under section 43 exists where a trade mark to be used in relation to pharmaceuticals or veterinary substances consists of an INN stem, or contains a notified INN stem in a meaningful way, and use of the trade mark in respect of the goods covered by the specification are not restricted to substances indicated by the INN stem.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Under the Manual's practice, the applicant's agreement to that condition of registration may overcome the section 43 ground for rejection.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part29/5/5/5\",\n          \"quote\": \"A section 43 ground for rejection may be overcome by the applicant agreeing to a condition of registration limiting use of the trade mark to goods containing substances belonging to the relevant INN stem.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0014\",\n    \"GC-0023\",\n    \"GC-0013\",\n    \"GC-0024\",\n    \"GC-0025\",\n    \"GC-0012\",\n    \"GC-0168\",\n    \"GC-0072\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "4e70032f38c9e4e9fe13b75d62e7adb7687d161e7cd12bdd1be3b7c82fcbbded",
+ "response_id": "resp_069c62521e233667006ad6b762cdc087d2b34ca8e0feb7084c",
+ "seconds": 11.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7650,
+  "input_tokens_details": {
+   "cache_write_tokens": 7647,
+   "cached_tokens": 0
+  },
+  "output_tokens": 526,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 8176
+ }
+}

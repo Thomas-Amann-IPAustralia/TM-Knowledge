@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.015578,
+ "created_utc": "2026-10-20T00:30:38Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0040",
+ "job": "answer",
+ "key": "037885dcd2d4c3c88c8adc0cc021917432afec6cd576feb7910b93c6a7fbb513",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"No intention to use is required for the particular goods or services covered by the defensive registration: section 185(2) permits registration even without use or intended use for those goods or services.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s185\",\n          \"quote\": \"(2) A trade mark may be registered as a defensive trade mark in respect of particular goods or services even if the registered owner does not use or intend to use the trade mark in relation to those goods or services.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual states that a defensive trade mark cannot be removed directly on grounds of non-use.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part34/8#1\",\n          \"quote\": \"A defensive trade mark may not be removed from the Register on grounds of non-use.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Nevertheless, section 185(1) bases eligibility for defensive registration on sufficiently extensive use of an existing registered trade mark to make use on the other goods or services likely to indicate a connection with its registered owner.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s185\",\n          \"quote\": \"(1) If, because of the extent to which a registered trade mark has been used in relation to all or any of the goods or services in respect of which it is registered, it is likely that its use in relation to other goods or services will be taken to indicate that there is a connection between those other goods or services and the registered owner of the trade mark, the trade mark may, on the application of the registered owner, be registered as a defensive trade mark in respect of any or all of those other goods or services.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual warns that non-use proceedings against the primary registration may indirectly expose the defensive registration to cancellation under sections 88 and 189.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part34/10#1\",\n          \"quote\": \"Although Part 9 (Removal of Trade Mark from Register for Non-use) is not directly applicable to defensive trade marks, it may indirectly be used to attack the defensive registration. An action to cancel or remove the primary trade mark registration upon which the defensive registration is based may be brought, thus enabling the provisions of sections 88 and 189 of the Act to be invoked for the purpose of cancelling the defensive registration.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"In its account of section 189, the Manual says the Registrar may cancel a defensive registration if the trade mark is not otherwise registered in the defensive owner's name; this is not an automatic consequence of non-use.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part34/10#1\",\n          \"quote\": \"Section 189 states that the Registrar may cancel registration of a trade mark as a defensive trade mark if the trade mark is not otherwise registered in the name of the registered owner of the defensive trade mark.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0109\",\n    \"GC-0081\",\n    \"GC-0084\",\n    \"GC-0088\",\n    \"GC-0104\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "de43e69c8f1dce939f35bb6e5e96e991e97157571ef3ca703aae886d9c52e178",
+ "response_id": "resp_0aedfc89a9cd7895006ad6b612a1f087d2aab2a9b9d1d813a2",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8759,
+  "input_tokens_details": {
+   "cache_write_tokens": 8756,
+   "cached_tokens": 0
+  },
+  "output_tokens": 926,
+  "output_tokens_details": {
+   "reasoning_tokens": 162
+  },
+  "total_tokens": 9685
+ }
+}

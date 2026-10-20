@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014412,
+ "created_utc": "2026-10-20T00:35:34Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0114",
+ "job": "answer",
+ "key": "3d70d8f4ad53c6d6cfacb2cbb64ba2f2660540044eeaff8384d9c040dfee0592",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Yes—in many instances, the Manual says a section 43 objection can be overcome by narrowing the goods and services to those for which the trade mark’s connotation is not deceptive or confusing.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part20/5/5/5/2\",\n          \"quote\": \"In many instances a ground for rejecting an application under section 43 can be overcome by restricting the specification of goods and services so that the application only covers goods for which the connotation in the trade mark is not deceptive or confusing.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The statutory test is whether, because of a connotation of the trade mark or a sign it contains, use in relation to the particular goods or services would be likely to deceive or cause confusion.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s43\",\n          \"quote\": \"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual says the mere presence of a person’s name or geographical place name does not automatically establish a connotation sufficient to trigger section 43.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part29/3#1~1\",\n          \"quote\": \"However, the mere presence within a trade mark of a person's name, a descriptive term, a geographical place name or a reference to the size of packages or intended use of a product does not automatically demonstrate a connotation sufficient to trigger section 43.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For an explicit geographical claim about the goods, the Manual says a suitably specific endorsement or an amendment or limitation to the specification can mitigate the risk of deception.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part29/9/9/2\",\n          \"quote\": \"If a trade mark contains an explicit claim about the goods which relates to a geographic location and that claim is not reflected in the specification or an endorsement, the trade mark is likely to deceive consumers if that claim turns out to be false.\"\n        },\n        {\n          \"ref\": \"TMM/Part29/9/9/2\",\n          \"quote\": \"The risk of deception can be mitigated by a suitably specific endorsement or an amendment or limitation to the specification of goods or services.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For a name or representation suggesting a connection with a particular person or organisation, the Manual says evidence that the connection exists would usually be sufficient to overcome the objection.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part20/5/5/5/2\",\n          \"quote\": \"Where the trade mark contains or consists of a name or representation which is likely to lead the purchaser to the conclusion that there is a connection between a particular person or organisation and the goods or services bearing the trade mark, evidence that there is such a connection would usually be sufficient to overcome the ground for rejection.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"These passages support narrowing as a possible response to a section 43 objection, not a guarantee that narrowing will resolve every objection to registration.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0001\",\n    \"GC-0002\",\n    \"GC-0012\",\n    \"GC-0014\",\n    \"GC-0015\",\n    \"GC-0017\",\n    \"GC-0019\",\n    \"GC-0041\",\n    \"GC-0072\",\n    \"GC-0168\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "72939cd15b1b92bf683ecdf46682f1eb5beb6ae7ec6879c37c2ded588fb118d6",
+ "response_id": "resp_0751f2a70fd182e3006ad6b73a22f487d2b5125d0cbf19edcb",
+ "seconds": 28.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7214,
+  "input_tokens_details": {
+   "cache_write_tokens": 7211,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1079,
+  "output_tokens_details": {
+   "reasoning_tokens": 188
+  },
+  "total_tokens": 8293
+ }
+}

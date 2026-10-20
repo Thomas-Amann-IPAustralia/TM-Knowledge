@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014868,
+ "created_utc": "2026-10-20T00:32:08Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0065",
+ "job": "answer",
+ "key": "f221fc86b03c76e3ef0aaa508353eb54c1816cb9502ce2b47968d80db6c8e845",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The internal review described in these passages is review of an FOI decision by the agency that made it.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part61/2/2/4\",\n          \"quote\": \"Two categories of FOI decision can be internally reviewed under the FOI Act by the agency who made the decision\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For an access refusal decision, the Manual says the FOI applicant may apply for internal review.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part61/2/2/4\",\n          \"quote\": \"an ‘access refusal decision’ (Section 53A) in respect of which the FOI applicant may apply for internal review (Section 54)\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For an access grant decision, the Manual says an affected third party may apply for internal review.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part61/2/2/4\",\n          \"quote\": \"an ‘access grant decision’ (Section 53B) in respect of which an affected third party may apply for internal review (Section 54A).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual gives a general deadline of 30 calendar days after notification of an access refusal or access grant decision.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part61/2/2/4/2\",\n          \"quote\": \"A person generally has 30 calendar days after being notified of an agency’s access refusal or access grant decision to apply for internal review (Section 54B(1)(a)).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For access refusal decisions involving incomplete access or purported access that was not actually given, the Manual records a potentially longer deadline: 30 calendar days after notification or 15 calendar days after access is given or purportedly given, whichever period is longer.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part61/2/2/4/2\",\n          \"quote\": \"A longer period may apply for the following access refusal decisions: a decision giving access to documents in accordance with a request but not giving access to all the documents covered by the request, or a decision purporting to give access to documents in accordance with a request but not in fact doing so.\"\n        },\n        {\n          \"ref\": \"TMM/Part61/2/2/4\",\n          \"quote\": \"The time limit for applying for internal review is either 30 calendar days after notification of the decision or 15 calendar days after access to documents is given or purported to be given, whichever period is longer (Section 54B(1)(b)).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual says the agency can extend the period for applying for internal review, even after the statutory period has expired.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part61/2/2/4\",\n          \"quote\": \"Under Section 54B(2), it is possible for an agency to extend the period for an applicant to apply for internal review, even if the statutory period has already expired.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"No FOI Act text was supplied, so this answer reports the Manual’s account rather than independently verifying the legislation; if you mean internal review of a trade mark decision rather than an FOI decision, the supplied passages do not establish the deadline or eligibility.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": []\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "ec1c3d4ac0edb0567f38d8f1bfa2cab36e2ad0eb853bb4021879b08bdb406a0b",
+ "response_id": "resp_0eb5f5336970f905006ad6b676c2f087d2a377a99440be7bb8",
+ "seconds": 18.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7971,
+  "input_tokens_details": {
+   "cache_write_tokens": 7968,
+   "cached_tokens": 0
+  },
+  "output_tokens": 981,
+  "output_tokens_details": {
+   "reasoning_tokens": 125
+  },
+  "total_tokens": 8952
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010983,
+ "created_utc": "2026-10-20T00:34:49Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0108",
+ "job": "answer",
+ "key": "4147056c5272e13ee44526cbb5aa0a9ab6fc525fde7b7d01c559b2a51ab01f6c",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"For examiners, the Manual gives this access path: RIO Dashboard > Register Search > ‘Classification search’, available in the drop-down menu at the top right of the screen.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/searching-for-goods-and-services\",\n          \"quote\": \"The Trade Marks Classification Search is available to examiners via RIO Dashboard > Register Search, under the heading ‘Classification search’ accessible from the drop-down menu in the top right corner of the screen.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For external users, the Manual identifies the Advanced Search screen of the Australian Trade Mark Search as an access point.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/searching-for-goods-and-services\",\n          \"quote\": \"For external users, the Trade Marks Classification Search is also available from the Advanced Search screen of the Australian Trade Mark Search.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0121\",\n    \"GC-0044\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "cd19630aa25b29f67bddf8dc5bf5f40773e3961819d9a12ebcd94cd8f950df4e",
+ "response_id": "resp_0ef274984c94dcc3006ad6b71f1c8c87d2889ceae5b4391f73",
+ "seconds": 10.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7567,
+  "input_tokens_details": {
+   "cache_write_tokens": 7564,
+   "cached_tokens": 0
+  },
+  "output_tokens": 305,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 7872
+ }
+}

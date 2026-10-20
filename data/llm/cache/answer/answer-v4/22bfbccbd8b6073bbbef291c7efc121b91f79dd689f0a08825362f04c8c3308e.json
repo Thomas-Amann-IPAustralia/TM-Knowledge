@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014864,
+ "created_utc": "2026-10-20T00:34:07Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0095",
+ "job": "answer",
+ "key": "22bfbccbd8b6073bbbef291c7efc121b91f79dd689f0a08825362f04c8c3308e",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Under the Manual’s practice, anyone filing an application, notice or request must include an address for service in Australia or New Zealand, subject to the stated exception for International Registrations Designating Australia (IRDAs).\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part10/6#1\",\n          \"quote\": \"Every application, notice or request filed (with the exception of International Registrations Designating Australia (IRDAs)) must contain details of an address for service in Australia or New Zealand (subsection 215(5)).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The statutory geographical requirement is that an address for service must be in Australia or New Zealand.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s215(5)\",\n          \"quote\": \"(5) An address for service must be an address in Australia or New Zealand.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual also identifies trade mark owners and people whose claims to an interest or right in a trade mark are recorded in the Register as people who must supply that address.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part2/3/2/3/5\",\n          \"quote\": \"Section 215 provides that a person making an application, notice or request or the owner of a trade mark, or a person whose claim to an interest or right in a trade mark is recorded in the Register must supply an address for service in Australia or New Zealand.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The address need not be the applicant’s own address: the Manual says it is usually the applicant’s address or that of an intellectual property attorney or solicitor acting as agent.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part10/6#1\",\n          \"quote\": \"Usually the address for service is that of the applicant itself or that of an intellectual property attorney or solicitor who is acting as the applicant's agent.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For an IRDA, the Manual says the holder must provide an Australian or New Zealand address for service if they wish to respond to a provisional refusal.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part60/4/9/4/9/2\",\n          \"quote\": \"The provisional refusal will be sent to the International Bureau and will contain advice that the holder must provide an address for service in Australia or New Zealand if they wish to respond to the provisional refusal.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual also says an IRDA holder should notify an Australian or New Zealand address for service when filing a notice of intention to defend an opposition.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part47/3/3/2\",\n          \"quote\": \"However, as explained above, it is very important that an IRDA holder also provides notification of their address for service in Australia or New Zealand when they file a notice of intention to defend.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0072\",\n    \"GC-0116\",\n    \"GC-0084\",\n    \"GC-0089\",\n    \"GC-0178\",\n    \"GC-0148\",\n    \"GC-0113\",\n    \"GC-0132\",\n    \"GC-0158\",\n    \"GC-0040\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "aa1fec139326599a15f81a4bc2facd6feaaae367a72fc1528e1145244fa9e8b7",
+ "response_id": "resp_038c549996d91103006ad6b6e358e087d2872e49d1964c444c",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7972,
+  "input_tokens_details": {
+   "cache_write_tokens": 7969,
+   "cached_tokens": 0
+  },
+  "output_tokens": 980,
+  "output_tokens_details": {
+   "reasoning_tokens": 170
+  },
+  "total_tokens": 8952
+ }
+}

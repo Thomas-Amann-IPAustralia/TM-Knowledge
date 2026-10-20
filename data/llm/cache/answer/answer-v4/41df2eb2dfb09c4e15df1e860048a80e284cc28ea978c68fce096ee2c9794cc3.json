@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012703,
+ "created_utc": "2026-10-20T00:31:47Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0058",
+ "job": "answer",
+ "key": "41df2eb2dfb09c4e15df1e860048a80e284cc28ea978c68fce096ee2c9794cc3",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Yes, in principle: the Manual treats versions of a trade mark differing by city names or numbers as potentially forming a valid series—a ‘set’ in the terms of your question.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part13/6/6/4\",\n          \"quote\": \"Example 2 IDAK IDAK SYDNEY IDAK SYDNEY 1 IDAK $500 This example is a valid series because the trade marks differ by the presence or absence of statements as to place name and number.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The versions must nevertheless resemble each other in material particulars; changing the relative prominence of the shared trade mark can make a series invalid.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part13/7/7/1\",\n          \"quote\": \"The below are examples of invalid series, because the trade marks do not resemble each other in material particulars.\"\n        },\n        {\n          \"ref\": \"TMM/Part13/7/7/1\",\n          \"quote\": \"The large difference in the relative size of the words in each trade mark significantly changes the prominence of the shared IDAK, as well as the overall visual impression.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"A difference consisting only of city names does not itself establish a valid series: the Manual treats SYDNEY CLOTHING and MELBOURNE CLOTHING for clothing as invalid because their shared descriptive word is not an identifying feature.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part13/7/7/1\",\n          \"quote\": \"CLOTHING is not likely to be taken by consumers as an identifying feature of these trade marks. Therefore, they do not resemble each other in material particulars.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"These passages explain Manual practice but do not provide the full statutory requirements or filing procedure for a series application.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0072\",\n    \"GC-0079\",\n    \"GC-0080\",\n    \"GC-0017\",\n    \"GC-0047\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "0ff52b91927cb7e23711d322943a2716cf1eee9b4a712e55dea745e23b945cb9",
+ "response_id": "resp_049ac670900dbf2a006ad6b661d63c87d29a83cdf2e79f63a7",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7447,
+  "input_tokens_details": {
+   "cache_write_tokens": 7444,
+   "cached_tokens": 0
+  },
+  "output_tokens": 679,
+  "output_tokens_details": {
+   "reasoning_tokens": 150
+  },
+  "total_tokens": 8126
+ }
+}

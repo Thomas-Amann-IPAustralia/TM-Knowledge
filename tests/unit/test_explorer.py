@@ -137,7 +137,7 @@ def test_the_release_manifest_says_what_was_built(files):
     assert set(release["graph"]["graphs"]["approved"]["review_status"]) == {"approved"}
     assert set(release["graph"]["graphs"]["authored"]["review_status"]) == {"unreviewed"}
     assert release["manual"]["captured"] == "2026-08-03"
-    assert release["answers"] == {"live": "answer-v4", "prepared": "answer-v2"}
+    assert release["answers"] == {"live": "answer-v4", "prepared": "answer-v4"}
 
 
 @needs_snapshot
@@ -342,13 +342,14 @@ def test_every_answer_names_the_law_it_read(files):
     assert [row["line"] for row in law] == [i.in_force_line for i in sorted(
         load_corpus().instruments.values(), key=lambda i: i.code)]
     assert law[0]["line"].startswith("the Act as in force from ")
-    assert files["examples.json"]["law"][0]["line"] == "the Act as in force from 14 October 2024"
+    assert files["examples.json"]["law"][0]["line"] == "the Act as in force from 19 September 2026"
     ask = (SITE / "js" / "ask.js").read_text(encoding="utf-8")
     assert "lawLine(a.live ? chat.law : examples.law, a.live ? chat.manual : examples.manual)" in ask
     # R10: the Manual's capture date beside them, and the live one says it predates compilation 48.
     assert files["chat.json"]["manual"]["line"] == "the Manual as captured on 3 August 2026"
     assert "may not reflect" in files["chat.json"]["manual"]["note"]
-    assert files["examples.json"]["manual"]["note"] == ""
+    # The prepared answers read compilation 48 too since ADR-0143, so theirs says the same.
+    assert "may not reflect" in files["examples.json"]["manual"]["note"]
 
 
 def test_the_page_never_reads_an_empty_map_as_an_absence():

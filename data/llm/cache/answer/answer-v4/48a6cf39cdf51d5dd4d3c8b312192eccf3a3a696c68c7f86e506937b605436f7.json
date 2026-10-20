@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.009485,
+ "created_utc": "2026-10-20T00:31:46Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0060",
+ "job": "answer",
+ "key": "48a6cf39cdf51d5dd4d3c8b312192eccf3a3a696c68c7f86e506937b605436f7",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"decline_reason\":\"\",\"claims\":[{\"text\":\"At examination, the examiner receives evidence about instances of confusion; the Manual says the applicant should provide it if available.\",\"quotes\":[{\"ref\":\"TMM/Part28/3/3/3\",\"quote\":\"It is not usual for evidence of instances of confusion to be provided to the examiner. However, the applicant should provide this information if it is available.\"}],\"authority\":\"manual\"},{\"text\":\"Section 44(3) identifies the Registrar as the person who must be satisfied.\",\"quotes\":[{\"ref\":\"TMA1995/s44(3)\",\"quote\":\"(3) If the Registrar in either case is satisfied:\"}],\"authority\":\"legislation\"},{\"text\":\"The supplied passages do not expressly say who reviews “all the evidence”; the section 44(3) excerpt does not include the conditions for the Registrar’s satisfaction.\",\"quotes\":[],\"authority\":\"none\"}],\"declined\":false,\"concepts_used\":[\"GC-0044\",\"GC-0046\",\"GC-0041\",\"GC-0004\",\"GC-0092\"]}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "ce7c1fe65e5c8c378f3f8145dfd431ae9637cddaf948b7dc48dddae8843a4d71",
+ "response_id": "resp_091e170aba50c650006ad6b667d2c087d280fcad034bcf47ef",
+ "seconds": 10.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5897,
+  "input_tokens_details": {
+   "cache_write_tokens": 5894,
+   "cached_tokens": 0
+  },
+  "output_tokens": 423,
+  "output_tokens_details": {
+   "reasoning_tokens": 193
+  },
+  "total_tokens": 6320
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013479,
+ "created_utc": "2026-10-20T00:34:25Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0101",
+ "job": "answer",
+ "key": "c31cf245620b5687b271378994004ae0bf79420bfdbadaa4cee4bbb663587fa9",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Yes, in principle: the Manual permits an international application based on an existing application or registration in a Madrid Protocol Contracting Party, with the same owner(s), an identical mark and only some of the basic mark’s goods or services.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part60/1/1/7\",\n          \"quote\": \"An international application must be based on an existing application(s) or registration(s) (basic trade mark) in a Contracting Party to the Madrid Protocol. The international application must have the same owner(s) as the basic trade mark, the identical trade mark as the basic trade mark(s) and cover the same, or some only of the goods and/or services as the basic trade mark(s).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual also requires the international application to contain any indications in the basic mark, such as a claim to colour as a distinctive feature.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part60/1/1/7\",\n          \"quote\": \"It must also contain any indications, such as a claim to colour as a distinctive feature of the mark, that are contained in the basic trade mark(s).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For filing in Australia, the Manual states that the owner must be an Australian national, be domiciled in Australia, or have a real and effective industrial or commercial establishment in Australia.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part60/1/1/1\",\n          \"quote\": \"The owner of an existing national trade mark may only file an international application in Australia if they are an Australian national, are domiciled in Australia, or have a real and effective industrial or commercial establishment in Australia.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"These are requirements for the international application, not an assurance of protection: the Manual states that each designated Contracting Party examines the international registration under its own trade mark legislation.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part60/1/1/5\",\n          \"quote\": \"Each designated Contracting Party examines the international registration in accordance with its own trade mark legislation.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0131\",\n    \"GC-0072\",\n    \"GC-0112\",\n    \"GC-0012\",\n    \"GC-0084\",\n    \"GC-0136\",\n    \"GC-0150\",\n    \"GC-0092\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "ffd8f72d10c06726cd83bd8615680f707b4044378ee13429fc9f2dab4320fb92",
+ "response_id": "resp_0e5447db0b6af824006ad6b6ffdab087d28bb4110f8731f086",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7920,
+  "input_tokens_details": {
+   "cache_write_tokens": 7917,
+   "cached_tokens": 0
+  },
+  "output_tokens": 716,
+  "output_tokens_details": {
+   "reasoning_tokens": 107
+  },
+  "total_tokens": 8636
+ }
+}

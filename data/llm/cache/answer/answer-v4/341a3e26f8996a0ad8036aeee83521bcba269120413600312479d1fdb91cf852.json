@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011775,
+ "created_utc": "2026-10-20T00:32:59Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0078",
+ "job": "answer",
+ "key": "341a3e26f8996a0ad8036aeee83521bcba269120413600312479d1fdb91cf852",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Yes. The Manual recognises that one trade mark application can cover more than one class—a multi-class application.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/4/4/5/2\",\n          \"quote\": \"If an item can fall in more than one class it may be nominated in more than one class in a multi-class application.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For an item that can fall in more than one class, the Manual permits that item to be nominated in more than one class.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/4/4/5/2\",\n          \"quote\": \"If an item can fall in more than one class it may be nominated in more than one class in a multi-class application.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"If only one class is nominated for such an item, the Manual says the application is treated at the first report stage as covering only the goods or services falling within that class.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/4/4/5/2\",\n          \"quote\": \"The application will be treated at the first report stage as only covering the goods or services which fall in that particular class.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0131\",\n    \"GC-0121\",\n    \"GC-0012\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "4ee4a29afae042c7f5b909efe8bef5268ff7eb1e2d9177993057009f08927d9d",
+ "response_id": "resp_0d39402db1513fb4006ad6b6a9c95c87d2b9cbc536c79b0951",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7941,
+  "input_tokens_details": {
+   "cache_write_tokens": 7938,
+   "cached_tokens": 0
+  },
+  "output_tokens": 370,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 8311
+ }
+}

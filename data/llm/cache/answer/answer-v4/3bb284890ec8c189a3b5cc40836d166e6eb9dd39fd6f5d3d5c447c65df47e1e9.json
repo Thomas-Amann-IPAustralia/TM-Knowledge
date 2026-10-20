@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.017861,
+ "created_utc": "2026-10-20T00:31:47Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0057",
+ "job": "answer",
+ "key": "3bb284890ec8c189a3b5cc40836d166e6eb9dd39fd6f5d3d5c447c65df47e1e9",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The supplied passages do not establish the specific grounds you must show to obtain more time to file opposition evidence. I cannot give a complete test from these materials.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    },\n    {\n      \"text\": \"For a late request to extend time for filing evidence in support in a non-use opposition, the Manual directs readers to Part 51, section 2, ‘Reasons for the extension for evidentiary periods’; that section has not been supplied.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part48/4#1~1\",\n          \"quote\": \"When a late application is filed to extend the time for filing evidence in support, see: Part 51 General Opposition Proceedings – 2. Reasons for the extension for evidentiary periods.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Section 224 is a general extension provision, but its definition of ‘relevant act’ excludes prescribed acts and documents; the supplied passages do not establish whether it applies to your opposition evidence deadline.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s224\",\n          \"quote\": \"(8) In this section: relevant act means: (a) any act (other than a prescribed act) done in relation to a trade mark; or (b) the filing of any document (other than a prescribed document); or (c) any proceedings (other than court proceedings).\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"If section 224(2) applies, the applicant must establish that an error or omission by them or their agent, or circumstances beyond their control, caused the relevant act not to be, or to be unable to be, done within time; the Registrar may then extend time.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s224\",\n          \"quote\": \"(2) If, because of: (a) an error or omission by the person concerned or by his or her agent; or (b) circumstances beyond the control of the person concerned; a relevant act that is required by this Act to be done within a certain time is not, or cannot be, done within that time, the Registrar may, on application made by the person concerned in accordance with the regulations, extend the time for doing the act.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"If section 224(3) applies, the Registrar may extend time where the relevant act is not, or cannot be, done within time and the Registrar considers that special circumstances justify an extension.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s224\",\n          \"quote\": \"(3) If: (a) a relevant act that a person is required by this Act to do within a certain time is not, or cannot be, done within that time; and (b) on application made by that person in accordance with the regulations, the Registrar is of the opinion that special circumstances exist that justify an extension of that time; the Registrar may extend the time for doing the act.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"For an application under section 224(2) or (3), regulation 21.25 requires an approved form and a declaration stating the facts supporting the grounds, plus the reason the extension request was not made before the deadline if it has already passed.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMR1995/r21.25\",\n          \"quote\": \"For the purposes of subsections 224(2) and (3) of the Act (which deal with extensions of time), an application for an extension of time for doing a relevant act: (a) must be in an approved form; and (b) must be accompanied by a declaration stating: (i) the facts on which the grounds specified in the application are based; and (ii) if the period for doing the relevant act has ended—the reason why the application was not made before the period ended.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0097\",\n    \"GC-0040\",\n    \"GC-0041\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "bb64afbb2d9f22689b9530d72cb4355e62a090fdee3e7d0f8d6981be113eb518",
+ "response_id": "resp_0463cd0790a65661006ad6b6573f0087d2a5744331700cd713",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 9861,
+  "input_tokens_details": {
+   "cache_write_tokens": 9858,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1107,
+  "output_tokens_details": {
+   "reasoning_tokens": 155
+  },
+  "total_tokens": 10968
+ }
+}

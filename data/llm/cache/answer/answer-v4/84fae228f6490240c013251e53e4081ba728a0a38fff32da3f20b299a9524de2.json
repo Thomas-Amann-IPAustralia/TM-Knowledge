@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014745,
+ "created_utc": "2026-10-20T00:32:44Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0074",
+ "job": "answer",
+ "key": "84fae228f6490240c013251e53e4081ba728a0a38fff32da3f20b299a9524de2",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Usually, yes—if the shared surname and initial are identifying features of both marks. The Manual says it is usually appropriate to focus on shared identifying elements when comparing material particulars, even where those elements have low distinctiveness.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part13/2#1~2\",\n          \"quote\": \"Typically, each trade mark in a series will consist of [shared identifying features, comprising the material particulars] + [allowable differences]. As a result, it is usually appropriate to focus on the shared elements when assessing the resemblance of material particulars. This approach may apply even where the identifying element is of low distinctiveness.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"That is not automatic: the Manual requires differences to be considered in the context of the marks as a whole, because they may change whether the material particulars remain the same.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part13/2#1~2\",\n          \"quote\": \"However, the effect of any differences between trade marks must be considered in the context of the trade marks as a whole. Even if the differences are of a kind allowed under paragraphs 51(1)(a), (b) or (c), the differences may be such that the material particulars can no longer be considered the same.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Under section 51(1), sharing identifying features is not enough by itself: the marks must resemble each other in material particulars and differ only in the specified ways.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s51\",\n          \"quote\": \"(1) A person may make a single application under subsection 27(1) for the registration of 2 or more trade marks in respect of goods and/or services if the trade marks resemble each other in material particulars and differ only in respect of one or more of the following matters: (a) statements or representations as to the goods or services in relation to which the trade marks are used or are intended to be used; (b) statements or representations as to number, price, quality or names of places; (c) the colour of any part of the trade mark.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The supplied passages do not establish a surname-and-initial-specific rule about consumer focus; the qualified answer above applies the Manual’s general approach, rather than predicting how consumers would perceive any particular pair of marks.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0079\",\n    \"GC-0080\",\n    \"GC-0038\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "84b88bf3a2c589b162930a13a53e8fff67bb60c8574b371a493a53ff186a0b95",
+ "response_id": "resp_03c25b0c208fbe4d006ad6b69b0ef487d2be2e9c61a0f1bbc3",
+ "seconds": 18.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8705,
+  "input_tokens_details": {
+   "cache_write_tokens": 8702,
+   "cached_tokens": 0
+  },
+  "output_tokens": 773,
+  "output_tokens_details": {
+   "reasoning_tokens": 149
+  },
+  "total_tokens": 9478
+ }
+}

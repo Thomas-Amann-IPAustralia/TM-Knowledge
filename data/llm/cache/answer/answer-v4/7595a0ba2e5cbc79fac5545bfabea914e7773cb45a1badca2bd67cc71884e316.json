@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013366,
+ "created_utc": "2026-10-20T00:33:38Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0089",
+ "job": "answer",
+ "key": "7595a0ba2e5cbc79fac5545bfabea914e7773cb45a1badca2bd67cc71884e316",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Yes—as a matter of Manual practice, if costs have been awarded against you, you are sent a copy of the bill of costs and allowed 21 days to comment as part of the taxation process.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part55/4#1\",\n          \"quote\": \"A copy of the bill of costs is sent to the party against whom costs have been awarded and 21 days allowed for their comments.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"That opportunity to comment on the bill is distinct from the statutory requirement to give each party a reasonable opportunity to be heard before costs are awarded.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part55/4#1\",\n          \"quote\": \"A copy of the bill of costs is sent to the party against whom costs have been awarded and 21 days allowed for their comments.\"\n        },\n        {\n          \"ref\": \"TMR1995/r21.12(3)\",\n          \"quote\": \"(3) Before awarding costs in respect of the proceedings, the Registrar must give each party to the proceedings a reasonable opportunity to be heard in relation to the award of costs.\"\n        }\n      ],\n      \"authority\": \"both\"\n    },\n    {\n      \"text\": \"Under regulation 21.13, costs must be taxed, allowed and certified by an employee appointed by the Registrar.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMR1995/r21.13\",\n          \"quote\": \"(2) The costs must be taxed, allowed and certified by an employee appointed by the Registrar.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"If the amount is challenged, the Manual says the Registrar may review the taxation taking account of the parties’ submissions; the Regulations confer a power to review, rather than requiring a review.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part55/4#1\",\n          \"quote\": \"If the amount of costs is challenged, the Registrar may review the taxation of costs taking into account any submissions from the parties (subreg 21.13(4)).\"\n        },\n        {\n          \"ref\": \"TMR1995/r21.13\",\n          \"quote\": \"(3) The Registrar may review the taxation of costs by the employee.\"\n        }\n      ],\n      \"authority\": \"both\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0046\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "86cf54540e29386fcbd0ef9a6a513088bdd5438a5e795448d5bffb3c710a7c0e",
+ "response_id": "resp_07e1ccdec68fe8d6006ad6b6d1679087d2b6d59ef335e1d98b",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7657,
+  "input_tokens_details": {
+   "cache_write_tokens": 7654,
+   "cached_tokens": 0
+  },
+  "output_tokens": 759,
+  "output_tokens_details": {
+   "reasoning_tokens": 191
+  },
+  "total_tokens": 8416
+ }
+}

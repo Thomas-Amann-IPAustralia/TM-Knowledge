@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014923,
+ "created_utc": "2026-10-20T00:33:27Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0086",
+ "job": "answer",
+ "key": "c8e426a66485cd3170d4d5750ca7cb63a7dfe040b4a4cfb6d522ab9879948579",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The supplied passages do not address the effect of a design registration, so they do not establish whether it changes the divisional-citation check.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    },\n    {\n      \"text\": \"Under the Manual’s practice, before accepting or recommending acceptance where a citation has lapsed or been amended to delete the conflicting goods or services, the examiner must check whether a divisional application based on that citation has been filed.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part12/8#1\",\n          \"quote\": \"Before accepting, or recommending acceptance of, an application where a citation has lapsed or has been amended to delete the conflicting goods and/or services, it is always necessary to check whether a divisional application based on a citation has been filed.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual requires late grounds for rejection based on that divisional application if its goods or services are still similar to those of the trade mark under examination.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part12/8#1\",\n          \"quote\": \"If a divisional application based on a cited mark has been filed, late grounds for rejection must be raised based on the divisional application against the application under examination if the goods and/or services are still similar to the subject trade mark.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For those late grounds, the Manual states that the applicant must be given an additional 15 months, referring to paragraph 4.12(1)(b) of the Regulations; that provision itself is not supplied here.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part12/8#1\",\n          \"quote\": \"This means that, under the provisions of paragraph 4.12(1)(b) of the Regulations, an additional 15 months must be given to the applicant.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0043\",\n    \"GC-0064\",\n    \"GC-0093\",\n    \"GC-0012\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "d8c2e71c1ba47032f86895d87b02f4f670b628f4f3cb3117455c1f90d4712a58",
+ "response_id": "resp_072ddbd0cafb118e006ad6b6c61c4887d28d122cf5943ed779",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 9287,
+  "input_tokens_details": {
+   "cache_write_tokens": 9284,
+   "cached_tokens": 0
+  },
+  "output_tokens": 663,
+  "output_tokens_details": {
+   "reasoning_tokens": 156
+  },
+  "total_tokens": 9950
+ }
+}

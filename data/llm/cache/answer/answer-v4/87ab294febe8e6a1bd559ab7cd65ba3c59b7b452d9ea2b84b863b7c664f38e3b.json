@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012596,
+ "created_utc": "2026-10-20T00:35:43Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0118",
+ "job": "answer",
+ "key": "87ab294febe8e6a1bd559ab7cd65ba3c59b7b452d9ea2b84b863b7c664f38e3b",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"A trading name does not itself own the trade mark: the Manual identifies the owner as the legal entity, not its trading style or business name.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part10/1/1/1/1\",\n          \"quote\": \"The owner of the trade mark right ultimately is the legal entity in question, not the trading style or business name.\"\n        },\n        {\n          \"ref\": \"TMM/Part10/1/1/1/1\",\n          \"quote\": \"If a trading style or business name is included on the application in addition to the name of an applicant with legal personality (e.g. Joe Dover t/a Joe's Plumbing), those details will be entered on to the register, however it will have no bearing on the ownership of the trade mark right.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual states that cancellation ends the registration and the rights given by that registration, including exclusive use, authorising use and seeking relief under the Act for infringement.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part41/1#1\",\n          \"quote\": \"Cancellation of a trade mark registration results in the cessation of the registration (section 73).\"\n        },\n        {\n          \"ref\": \"TMM/Part41/1#1\",\n          \"quote\": \"After cancellation, the owner no longer has the rights given by registration of the trade mark including the exclusive right to use or to authorise the use of the trade mark and the right to seek relief under this Act if the trade mark is infringed (section 20).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied passages do not establish whether the legal entity retains any rights outside registration after cancellation, so they do not support a broader conclusion that all ownership rights either survive or end.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0020\",\n    \"GC-0072\",\n    \"GC-0084\",\n    \"GC-0088\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "5fdc60f31b9be9a41500ad46f5bd51adb5e41f3e43e27ee24cbd37dea9151007",
+ "response_id": "resp_03606f9680c573b9006ad6b74dd66087d2875f9f6006666242",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7637,
+  "input_tokens_details": {
+   "cache_write_tokens": 7634,
+   "cached_tokens": 0
+  },
+  "output_tokens": 610,
+  "output_tokens_details": {
+   "reasoning_tokens": 117
+  },
+  "total_tokens": 8247
+ }
+}

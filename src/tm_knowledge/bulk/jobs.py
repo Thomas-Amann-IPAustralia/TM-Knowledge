@@ -1315,9 +1315,10 @@ def path_line(labels: dict[str, str], edge: Any) -> str:
 #: complete provisions with every cut marked, the definitions of the concepts
 #: recognised, and asks for claims, each with its own quotes, checked against what was
 #: sent. The 129 prepared answers were written with answer-v2, from passages cut at
-#: 1,600 characters, and the page says so.
+#: 1,600 characters, until the owner approved re-writing them with answer-v4 on
+#: 2026-10-20 (CHAT-0092, ADR-0143): gpt-6.1-sol at medium effort, as before.
 ANSWER_VERSION = "answer-v4"
-PREPARED_ANSWER_VERSION = "answer-v2"
+PREPARED_ANSWER_VERSION = "answer-v4"
 AUTHORITIES = ("legislation", "manual", "both", "none")
 
 _ANSWER_INSTRUCTIONS = PREAMBLE + """

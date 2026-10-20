@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.015359,
+ "created_utc": "2026-10-20T00:33:09Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0081",
+ "job": "answer",
+ "key": "a095c15d5cd9fe379c1f839f496671348ce383b085b87c827fb9b8c0aa1efdfa",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Lack of knowledge matters: section 121(4)(a) provides that the trade mark is not infringed if the owner acquired the goods both in good faith and without being aware of the prohibition notice; lack of awareness alone is not the full condition.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s121\",\n          \"quote\": \"(4) The trade mark is not infringed if the owner of the goods: (a) acquired them in good faith and without being aware of the notice of prohibition;\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"Section 121 concerns a notice displayed by the registered owner, or an authorised user with power to do so, on registered goods, their packaging or their container, prohibiting an act specified in subsection (2).\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s121\",\n          \"quote\": \"(1) This section applies to a registered trade mark if the registered owner, or an authorised user of the trade mark having power to do so, has caused to be displayed on goods (registered goods) in respect of which the trade mark is registered, or on their package, or on the container in which they are offered to the public, a notice (notice of prohibition) prohibiting any act that is under subsection (2) a prohibited act in relation to the goods.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"Buying the goods is not itself the infringement described in section 121(3): subject to subsection (4), the owner must do or authorise an act prohibited by the notice, in the course of trade or with a view to a dealing with the goods in the course of trade.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s121\",\n          \"quote\": \"(3) Subject to subsection (4), a person infringes a trade mark to which this section applies if the person: (a) is the owner of registered goods; and (b) in the course of trade, or with a view to a dealing with the goods in the course of trade: (i) does an act that is prohibited under the notice of prohibition; or (ii) authorises that act to be done.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The exception also covers an owner whose title derives from someone who acquired the goods in good faith and without awareness of the notice.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s121\",\n          \"quote\": \"(4) The trade mark is not infringed if the owner of the goods: (a) acquired them in good faith and without being aware of the notice of prohibition; or (b) became the owner of the goods by virtue of a title derived from a person who had so acquired them.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0072\",\n    \"GC-0088\",\n    \"GC-0084\",\n    \"GC-0083\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "2986ee8c1af7fe9a608e97530ba805123d247186bd84450b69b01bf5221c9f82",
+ "response_id": "resp_0bc2039320141a97006ad6b6b429ec87d2bb62bd365cf1d2ba",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8884,
+  "input_tokens_details": {
+   "cache_write_tokens": 8881,
+   "cached_tokens": 0
+  },
+  "output_tokens": 851,
+  "output_tokens_details": {
+   "reasoning_tokens": 150
+  },
+  "total_tokens": 9735
+ }
+}

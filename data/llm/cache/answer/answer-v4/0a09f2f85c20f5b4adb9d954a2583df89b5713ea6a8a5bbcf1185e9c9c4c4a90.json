@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014754,
+ "created_utc": "2026-10-20T00:31:29Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0050",
+ "job": "answer",
+ "key": "0a09f2f85c20f5b4adb9d954a2583df89b5713ea6a8a5bbcf1185e9c9c4c4a90",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Yes—under the Manual’s practice, relevant website statistics or other metrics may be used instead of sales figures where they more accurately demonstrate the trade mark’s capacity to distinguish.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part23/4/4/1/1\",\n          \"quote\": \"It is not always appropriate to insist on provision of turnover and/or marketing figures.\"\n        },\n        {\n          \"ref\": \"TMM/Part23/4/4/1/1\",\n          \"quote\": \"Sometimes, the capacity to distinguish of a trade mark might be more accurately demonstrated by metrics other than revenue or promotional expenditure figures.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The relevance of alternative figures depends on the commercial realities of the claimed goods or services, rather than low turnover alone.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part23/4/4/1/1\",\n          \"quote\": \"Examiners must always consider the commercial realities relevant to the claimed goods and/or services when assessing evidence and maintaining grounds for rejection.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For website evidence, the Manual identifies Australian visitor figures since first use, broken down periodically if possible, together with references to websites where the trade mark is used.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part23/3/3/4~2\",\n          \"quote\": \"references to Internet website/s where trade mark is used, together with analytic figures which assist in determining the number of visitors to the website from Australia since the date of first use (if possible, broken down periodically)\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Other potentially relevant metrics include social media analytics, funds managed, raised or distributed, and video or podcast viewership.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part23/4/4/1/1\",\n          \"quote\": \"Other metrics that are relevant may include website and social media analytic figures, funds managed, raised, or distributed by an entity (e.g. in the case of a investment company or a charity), or viewership figures for videos, podcasts etc.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Small turnover may be compensated for by long use, especially where the trade mark has some inherent adaptation to distinguish.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part23/4/4/1~1\",\n          \"quote\": \"Massive turnover may compensate for short use, likewise, long use may compensate for small turnover, especially in relation to trade marks with some inherent adaptation to distinguish.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Any turnover figures provided should be assessed in the context of the relevant market and unit cost, with market-share information potentially supporting the evidence.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part23/4/4/1~1\",\n          \"quote\": \"However, total turnover must be considered in the context of the relevant market and balanced against unit cost before a decision can be made on this issue. Applicants should be encouraged to supply information on unit costs and perhaps market share to help support their case.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Alternative metrics are not an automatic substitute sufficient in every case: the Manual requires the strength of the evidence to be balanced against the trade mark’s level of inherent adaptation to distinguish.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part23/4/4/1~2\",\n          \"quote\": \"As a general comment, it is necessary to balance the level of inherent adaptation of the trade mark with the strength of the evidence provided.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0041\",\n    \"GC-0058\",\n    \"GC-0059\",\n    \"GC-0009\",\n    \"GC-0012\",\n    \"GC-0081\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "1f20b458b592d78c52209681af486989baeae500c1b3369184b6bd74bd056238",
+ "response_id": "resp_0d1970668a3d7028006ad6b635e92487d2a8a4f7096c8be5c1",
+ "seconds": 43.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7760,
+  "input_tokens_details": {
+   "cache_write_tokens": 7757,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1011,
+  "output_tokens_details": {
+   "reasoning_tokens": 81
+  },
+  "total_tokens": 8771
+ }
+}

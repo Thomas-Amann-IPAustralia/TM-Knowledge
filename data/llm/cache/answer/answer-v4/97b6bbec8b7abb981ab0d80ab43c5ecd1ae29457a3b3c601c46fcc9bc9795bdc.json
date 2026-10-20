@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014464,
+ "created_utc": "2026-10-20T00:32:05Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0064",
+ "job": "answer",
+ "key": "97b6bbec8b7abb981ab0d80ab43c5ecd1ae29457a3b3c601c46fcc9bc9795bdc",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Under section 43, the application must be rejected if a connotation of the trade mark, or a sign within it, makes its use for the specified goods or services likely to deceive or cause confusion.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s43\",\n          \"quote\": \"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual says the decision maker must be clearly satisfied that use for the specified goods or services would be likely to deceive or cause confusion.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part29/1#1\",\n          \"quote\": \"However for a trade mark to be caught by these provisions it is necessary for a decision maker to be clearly satisfied that use of the trade mark for the specified goods and / or services would be likely to deceive or cause confusion.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual's examination practice is to raise a ground for rejection where the mark contains a connotation likely to deceive or confuse consumers in the relevant market.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part29/1#1\",\n          \"quote\": \"If the trade mark, or some part of the trade mark, contains a connotation that would be likely to deceive or confuse consumers within the relevant market, then a ground for rejection should be raised.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Raising that ground does not necessarily end the application: the Manual says it can often be overcome by restricting the specification to goods and services for which the connotation is not deceptive or confusing.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part20/5/5/5/2\",\n          \"quote\": \"In many instances a ground for rejecting an application under section 43 can be overcome by restricting the specification of goods and services so that the application only covers goods for which the connotation in the trade mark is not deceptive or confusing.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"As to who formally refuses the application, the supplied passages refer to a decision maker but do not identify the statutory office-holder responsible for rejection; they are insufficient to establish that allocation of responsibility.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0072\",\n    \"GC-0001\",\n    \"GC-0002\",\n    \"GC-0012\",\n    \"GC-0015\",\n    \"GC-0009\",\n    \"GC-0045\",\n    \"GC-0168\",\n    \"GC-0131\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "5f9a4282bac70f92b920bc3a0513e3a236f6c7d24050689f1d4fac949ff97440",
+ "response_id": "resp_0df154e7b1d8672d006ad6b673d2f087d2bcba2f0314dd7432",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8152,
+  "input_tokens_details": {
+   "cache_write_tokens": 8149,
+   "cached_tokens": 0
+  },
+  "output_tokens": 855,
+  "output_tokens_details": {
+   "reasoning_tokens": 173
+  },
+  "total_tokens": 9007
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014734,
+ "created_utc": "2026-10-20T00:34:03Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0093",
+ "job": "answer",
+ "key": "1ec4e93bc6a36640fca5af75cc06b238d3b86e70609fcc04d735b964235cb0a0",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Describe the type of powder and, where relevant, its intended use rather than just saying “powder”: Manual practice requires an adequate description so the classification can be checked.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/3#1~2\",\n          \"quote\": \"In order to accord with regulation 4.4(7) and regulation 4.2(1)(c) it is office practice to also not allow terms such as “all products in the class” or vague, non-specific descriptions.\"\n        },\n        {\n          \"ref\": \"TMM/Part14/3#1~2\",\n          \"quote\": \"Examiners must check that goods and services are adequately described and that they are, on the basis of the description supplied, correctly classified.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For plastic powder, the Manual suggests “Plastics in the form of powder” in Class 1.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder\",\n          \"quote\": \"Class 1: Plastics in the form of powder\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For powdered paint, the Manual suggests “Paint in powder form” in Class 2.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder\",\n          \"quote\": \"Class 2: Paint in powder form\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For cosmetic face powder, the Manual suggests “Cosmetic face powder” in Class 3.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder\",\n          \"quote\": \"Class 3: Cosmetic face powder\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For industrial wax powder, the Manual suggests “Wax powder for industrial purposes” in Class 4.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder\",\n          \"quote\": \"Class 4: Wax powder for industrial purposes\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For medicated baby powder, the Manual suggests “Medicated baby powder” in Class 5.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder\",\n          \"quote\": \"Class 5: Medicated baby powder\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For common metal powder, the Manual suggests “Common metals in powder form” in Class 6.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder\",\n          \"quote\": \"Class 6: Common metals in powder form\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For explosive powder, the Manual suggests “Explosive powder” in Class 13.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder\",\n          \"quote\": \"Class 13: Explosive powder\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For milk shake powder, the Manual suggests “Powder for making milk shakes” in Class 29.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder\",\n          \"quote\": \"Class 29: Powder for making milk shakes\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For curry powder, the Manual suggests “Curry powder” in Class 30.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder\",\n          \"quote\": \"Class 30: Curry powder\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For powder for effervescing beverages, the Manual suggests “Powder for effervescing beverages” in Class 32.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder\",\n          \"quote\": \"Class 32: Powder for effervescing beverages\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"I cannot identify the appropriate wording and class from “powder” alone; these examples may not cover your goods. What is your powder made of, and what is it used for?\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0012\",\n    \"GC-0121\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "d8c708297de73067f4b334f98f7e36a33f38027ab2781b942999228cfb045269",
+ "response_id": "resp_08285cbdf9613edd006ad6b6df716487d2b1a6c2d106640b8d",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6084,
+  "input_tokens_details": {
+   "cache_write_tokens": 6081,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1426,
+  "output_tokens_details": {
+   "reasoning_tokens": 194
+  },
+  "total_tokens": 7510
+ }
+}

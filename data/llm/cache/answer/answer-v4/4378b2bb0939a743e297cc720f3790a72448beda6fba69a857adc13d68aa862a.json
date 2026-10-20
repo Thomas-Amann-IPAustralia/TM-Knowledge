@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013305,
+ "created_utc": "2026-10-20T00:31:18Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0053",
+ "job": "answer",
+ "key": "4378b2bb0939a743e297cc720f3790a72448beda6fba69a857adc13d68aa862a",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The Manual states that, before registration, the Registrar may revoke acceptance if satisfied of both conditions below; revocation is discretionary, not automatic.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part38/2#1\",\n          \"quote\": \"Before a trade mark is registered, the Registrar may revoke the acceptance of the application for registration of the trade mark if he or she is satisfied that:\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"First, the Registrar must be satisfied that the application should not have been accepted, considering all circumstances existing when it was accepted—including circumstances unknown to the Registrar at that time.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part38/2#1\",\n          \"quote\": \"a. the application should not have been accepted, taking account of all the circumstances that existed when the application was accepted (whether or not the Registrar knew then of their existence); and\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Second, the Registrar must be satisfied that revoking acceptance is reasonable, taking account of all the circumstances.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part38/2#1\",\n          \"quote\": \"b. it is reasonable to revoke the acceptance, taking account of all the circumstances.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"These conditions are reported from the Manual's account of subsection 38(1); the supplied legislation does not include section 38, so its statutory wording and any further procedural requirements cannot be verified from the supplied legislative passages.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0093\",\n    \"GC-0131\",\n    \"GC-0042\",\n    \"GC-0046\",\n    \"GC-0011\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "ab974b4235e4848aadb1e309fe6bf6eb2fe95f2bfb7cd08443c9d141a3378560",
+ "response_id": "resp_0f5361080b0965a6006ad6b645215c87d2bbfb869342329e09",
+ "seconds": 18.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7925,
+  "input_tokens_details": {
+   "cache_write_tokens": 7922,
+   "cached_tokens": 0
+  },
+  "output_tokens": 680,
+  "output_tokens_details": {
+   "reasoning_tokens": 231
+  },
+  "total_tokens": 8605
+ }
+}

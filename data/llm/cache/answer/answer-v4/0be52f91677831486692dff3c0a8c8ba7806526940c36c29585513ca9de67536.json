@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011589,
+ "created_utc": "2026-10-20T00:30:45Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0049",
+ "job": "answer",
+ "key": "0be52f91677831486692dff3c0a8c8ba7806526940c36c29585513ca9de67536",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Under the Manual’s practice, a voluntarily requested disclaimer will be prefaced on the Register by: “The following disclaimer has been requested under subsection 74(1):”.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part24/2#1~2\",\n          \"quote\": \"Entry in the Register will make it clear the disclaimer is voluntary and to that end will be prefaced by the words: The following disclaimer has been requested under subsection 74(1):\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"This wording distinguishes voluntary disclaimers from compulsory disclaimers imposed under the repealed legislation.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part24/2#1~2\",\n          \"quote\": \"This will differentiate such disclaimers from the compulsory disclaimers imposed under the repealed legislation.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0099\",\n    \"GC-0089\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "a60d85e30d526d9a3b61d7e8255f2c2c9d6bca398c6eab92951d3b699c91cf3e",
+ "response_id": "resp_03d1f55af26b4e98006ad6b62f613c87d28ab9085974de8b69",
+ "seconds": 6.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8236,
+  "input_tokens_details": {
+   "cache_write_tokens": 8233,
+   "cached_tokens": 0
+  },
+  "output_tokens": 259,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 8495
+ }
+}

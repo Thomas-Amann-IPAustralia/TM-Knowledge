@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013227,
+ "created_utc": "2026-10-20T00:33:34Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0087",
+ "job": "answer",
+ "key": "1499153bbe6d02b8ce8f860731150da65974d94eacf769229efef5bf3a38da2d",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The Manual explains that the registered owner of a well-known trade mark can take infringement action against someone using, as a trade mark, a substantially identical or deceptively similar sign on unrelated goods or services.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part19B/4/4/2\",\n          \"quote\": \"Under subsection 120(3), a registered owner of a well known trade mark can take infringement action against a person who uses, as a trade mark, a substantially identical or deceptively similar sign in relation to goods or services unrelated to those in respect of which the well known trade mark is registered.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"According to the Manual, the owner must establish that, because the trade mark is well known, use of the sign would likely indicate a connection between the unrelated goods or services and the registered owner.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part19B/4/4/2\",\n          \"quote\": \"The registered owner will be required to establish that, because the trade mark is well known, use of the sign would be likely to be taken as indicating a connection between the unrelated goods or services and the registered owner\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The interests affected are the registered owner's: the Manual says the owner must also establish that those interests are likely to be adversely affected because of that perceived connection.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part19B/4/4/2\",\n          \"quote\": \"and for this reason the interests of the registered owner are likely to be adversely affected.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"This account rests on the Manual's explanation of subsection 120(3); the supplied legislation does not include that subsection, so its full statutory requirements cannot be checked here.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0072\",\n    \"GC-0084\",\n    \"GC-0081\",\n    \"GC-0065\",\n    \"GC-0154\",\n    \"GC-0130\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "e9f18ae671e9a6a10d56ac66d875554e3d5200c0da1f0a913028bd4838990c4b",
+ "response_id": "resp_044f3ee710274d95006ad6b6cd910487d297532ef35f518303",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7886,
+  "input_tokens_details": {
+   "cache_write_tokens": 7883,
+   "cached_tokens": 0
+  },
+  "output_tokens": 674,
+  "output_tokens_details": {
+   "reasoning_tokens": 156
+  },
+  "total_tokens": 8560
+ }
+}

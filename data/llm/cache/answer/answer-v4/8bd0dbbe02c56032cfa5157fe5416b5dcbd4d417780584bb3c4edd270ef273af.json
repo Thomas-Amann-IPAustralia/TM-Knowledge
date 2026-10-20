@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013812,
+ "created_utc": "2026-10-20T00:33:55Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0094",
+ "job": "answer",
+ "key": "8bd0dbbe02c56032cfa5157fe5416b5dcbd4d417780584bb3c4edd270ef273af",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"I cannot determine whether your particular application would be accepted. The passages explain honest concurrent use in relation to conflicting trade marks, but do not resolve misleading meaning inherent in the mark itself.\",\n  \"claims\": [\n    {\n      \"text\": \"Under the Manual, evidence of honest concurrent use in Australia may overcome grounds for rejection under ss 44(1) or 44(2), which concern conflicting trade marks.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part28/2#1\",\n          \"quote\": \"In order to overcome grounds for rejection under ss 44(1) or 44(2) of the Act, an applicant may, under para 44(3)(a), file evidence to establish honest concurrent use of their trade mark in Australia.\"\n        },\n        {\n          \"ref\": \"TMM/Part28/1#1\",\n          \"quote\": \"Subsections 44(1) and (2) set out the circumstances in which grounds for rejection must be raised where conflicting trade marks are identified.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual treats honesty as a threshold requirement, not as sufficient by itself: examiners must then consider the remaining criteria.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part28/3#1\",\n          \"quote\": \"The honesty of the use is a threshold requirement, without which s 44(3)(a) cannot be satisfied (‘Zip Co’, [42]). Following an assessment of honesty, examiners need to consider the remainder of the criteria listed at paragraph 28.2, with no single criterion being determinative.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual's honest concurrent use criteria include both likely confusion between the trade marks and whether confusion has actually occurred.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part28/2#1\",\n          \"quote\": \"the degree of confusion likely between the trade marks in question whether instances of confusion have in fact occurred\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Those criteria address confusion between trade marks; the supplied passages do not establish whether honest concurrent use can overcome a separate objection arising from the mark's own misleading meaning.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    },\n    {\n      \"text\": \"Accordingly, these passages do not provide a basis for treating honest concurrent use as an answer to the concern about your mark's own meaning; further relevant passages would be needed to explain that issue.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": true,\n  \"concepts_used\": [\n    \"GC-0066\",\n    \"GC-0064\",\n    \"GC-0004\",\n    \"GC-0001\",\n    \"GC-0072\",\n    \"GC-0044\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "04d6901b2bd96c7b2ee108d561a5d6fec07acc82bcdb71ab6e05fb2a0ab09309",
+ "response_id": "resp_0112798c80603f3f006ad6b6e1ac9087d286f9c764cd2f084a",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8078,
+  "input_tokens_details": {
+   "cache_write_tokens": 8075,
+   "cached_tokens": 0
+  },
+  "output_tokens": 743,
+  "output_tokens_details": {
+   "reasoning_tokens": 102
+  },
+  "total_tokens": 8821
+ }
+}

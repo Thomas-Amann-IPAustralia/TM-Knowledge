@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013359,
+ "created_utc": "2026-10-20T00:33:03Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0080",
+ "job": "answer",
+ "key": "1e8bcad7cbf6548f516c100b2241777e640ae9015437e3e2c2d9444cf5203d83",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Under the Manual’s search-indexing practice, the constituent LTR indicates a letter or letters.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part5/x-word-constituents/letters\",\n          \"quote\": \"To indicate a letter or letters the constituent LTR is used.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For a single letter in a trade mark, # is added to the constituents as well as LTR.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part5/x-word-constituents/letters\",\n          \"quote\": \"Where there is a single letter in the trade mark, # is added to the constituents as well as LTR.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For groups of letters, an additional constituent prefixed with an equals sign is used to distinguish the letter group from the same letters used as a word.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part5/x-word-constituents/letters\",\n          \"quote\": \"A constituent with an equals sign prefix is added to the constituent for groups of letters. It is useful in enabling searchers to distinguish between a group of letters and the same letters used as a word.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"A group clearly recognised as an acronym is indexed as letters even if it spells a word.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part5/x-word-constituents/letters\",\n          \"quote\": \"In addition, when a group of letters is clearly an acronym, although it spells a word, it is indexed as letters.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Letters attached to the beginning or end of a word are indexed separately if they remain recognisable as letters; for example, TDELTA receives the additional constituents T and LTR.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part5/x-word-constituents/letters-which-occur-within-a-word-or-attached-to-words\",\n          \"quote\": \"Letters which are joined to the beginning or ending of a word (so long as they are still recognised as letters) are indexed as separate constituents. For example the mark TDELTA would be indexed with the additional constituents T and LTR.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"A letter appearing as a separate entity within a word is also indexed, but an insignificant central letter is not, subject to discretion for specially represented letters.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part5/x-word-constituents/letters-which-occur-within-a-word-or-attached-to-words\",\n          \"quote\": \"Letters which feature as a separate entity in the middle of words are also indexed (eg. RED-I-BEAM indexing would include I and LTR). However if the central letter is an insignificant feature such as the letter N in RUFF-N-READY or the letter A in DIAL-A-PIZZA, the letter is not indexed.\"\n        },\n        {\n          \"ref\": \"TMM/Part5/x-word-constituents/letters-which-occur-within-a-word-or-attached-to-words\",\n          \"quote\": \"However, discretion needs to be used in case of specially represented letters.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The usual test for separately indexing a prefix as letters is whether it would be pronounced as a letter or letters given the nature of the goods or services.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part5/x-word-constituents/letters-which-occur-within-a-word-or-attached-to-words\",\n          \"quote\": \"The test for rendering a character or character string as letters is usually based on pronunciation. If you would expect the prefix to be pronounced as a letter or letters because of the nature of the goods or services, then the prefix will be indexed separately.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0072\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "2472231416780dce243fa0f4f9c319f8cd68f84b20a2437389ec6a057b5ee95f",
+ "response_id": "resp_00469eb20c971fc6006ad6b6ad5fe887d2bfcaa8c869c8396c",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6880,
+  "input_tokens_details": {
+   "cache_write_tokens": 6877,
+   "cached_tokens": 0
+  },
+  "output_tokens": 952,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 7832
+ }
+}

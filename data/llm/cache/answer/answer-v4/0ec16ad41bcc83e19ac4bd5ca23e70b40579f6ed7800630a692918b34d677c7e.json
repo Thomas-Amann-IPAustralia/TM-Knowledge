@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.016118,
+ "created_utc": "2026-10-20T00:35:17Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0110",
+ "job": "answer",
+ "key": "0ec16ad41bcc83e19ac4bd5ca23e70b40579f6ed7800630a692918b34d677c7e",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Yes—at examination, the Manual permits the examiner to request additional information to clearly define a movement mark’s scope, keeping section 65 in mind.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part10/3/3/6/3\",\n          \"quote\": \"At the time of examination, the examiner may need to request additional information from the applicant in order to clearly define the scope of the trade mark, keeping in mind the requirements of section 65.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual identifies a video clip or sufficient still representations demonstrating the full range of the claimed movement as material the applicant could provide.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part10/3/3/6/3\",\n          \"quote\": \"For each of these signs, the applicant should expect to have to provide a copy of the actual trade mark as would be perceived by consumers, in the form of a video clip for a movement mark or gesture, or an actual example of a hologram. Alternatively, the applicant could provide sufficient still representations of the movement or gesture to demonstrate the full range of the claimed movement.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"If clarification involves amending the representation after publication under section 30, section 65 permits that amendment only if it does not substantially affect the trade mark’s identity as at publication.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s65\",\n          \"quote\": \"(1) If the particulars of the application have been published under section 30, the application may be amended as provided in this section. (2) An amendment may be made to the representation of the trade mark if the amendment does not substantially affect the identity of the trade mark as at the time when the particulars of the application were published.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"Where outside information calls acceptance into question, the Manual says the delegate can act on it to begin the revocation process, but should not institute proceedings merely because another party requests revocation.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part38/2/2/1\",\n          \"quote\": \"If information is received from examination staff, third parties or others with specialised knowledge that calls into question the acceptance of the trade mark the delegate can act on this information to begin the revocation process but should not institute revocation proceedings merely because another party is requesting revocation.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Under the Manual, reasons for revoking acceptance must clearly explain why revocation is considered reasonable in the circumstances, rather than merely use generic wording.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part38/3/3/2\",\n          \"quote\": \"In giving reasons for revocation, reciting a standard paragraph or a generic set of words does not constitute a full explanation of circumstances. It is necessary to clearly and unambiguously outline why it is considered reasonable in the circumstances of the case to revoke acceptance.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied passages support requesting clarification at examination, but do not expressly establish whether that request can precede every revocation step once acceptance has occurred; that sequencing remains uncertain on these materials, which may not be complete.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0072\",\n    \"GC-0074\",\n    \"GC-0044\",\n    \"GC-0092\",\n    \"GC-0124\",\n    \"GC-0093\",\n    \"GC-0042\",\n    \"GC-0171\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "b906e830acebb560fbe5f43cc277f61ccdfe6445e2ecadbc4151f1a03d14002c",
+ "response_id": "resp_09f4d0b430bd427c006ad6b72a33f487d29a2347b2b8a22ade",
+ "seconds": 28.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 9191,
+  "input_tokens_details": {
+   "cache_write_tokens": 9188,
+   "cached_tokens": 0
+  },
+  "output_tokens": 926,
+  "output_tokens_details": {
+   "reasoning_tokens": 75
+  },
+  "total_tokens": 10117
+ }
+}

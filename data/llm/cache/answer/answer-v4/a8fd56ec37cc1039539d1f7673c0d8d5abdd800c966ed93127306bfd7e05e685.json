@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014408,
+ "created_utc": "2026-10-20T00:33:40Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0090",
+ "job": "answer",
+ "key": "a8fd56ec37cc1039539d1f7673c0d8d5abdd800c966ed93127306bfd7e05e685",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"For an international application filed through IP Australia, IP Australia acts as the Office of origin.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part60/2/4/2/4/2~1\",\n          \"quote\": \"Certification by IP Australia as the Office of origin will mean that:\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual states that the International Bureau (IB) checks the classification of goods and services in an international application.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part60/1/1/5\",\n          \"quote\": \"The IB checks the formalities, fees and classification of the goods and/or services of an international application.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For a classification dispute between the Office of origin and the IB, the Manual states that the IB’s opinion prevails, attributing this rule to Article 3(2) of the Madrid Protocol.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part60/4/6/4/6/2\",\n          \"quote\": \"The Madrid Protocol (Article 3(2)) stipulates that the IB exercises control as to the classification of goods and services and in the event of a dispute between an Office of origin and the IB, the opinion of the latter shall prevail.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Section 32 of the Act provides that the Registrar decides questions about the class in which goods or services are comprised, and that the decision is not appealable or open to challenge in proceedings under the Act.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s32\",\n          \"quote\": \"If a question arises as to the class in which goods or services are comprised: (a) that question is to be decided by the Registrar; and (b) the decision of the Registrar is not subject to appeal and may not be called into question in an appeal or other proceedings under this Act.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual expressly distinguishes Madrid Protocol export applications from that section 32 position: where the Office of origin and the IB disagree, the IB’s opinion stands.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/2/2/2/2\",\n          \"quote\": \"This does not apply to Madrid Protocol export applications where in the event of a dispute between an Office of origin and the International Bureau (IB) the opinion of the IB stands.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied legislation does not include Article 3(2) itself, so the Madrid-specific rule above is supported here by the Manual’s account, not by a supplied quotation of the Protocol.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0177\",\n    \"GC-0136\",\n    \"GC-0138\",\n    \"GC-0121\",\n    \"GC-0046\",\n    \"GC-0127\",\n    \"GC-0112\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "a92bc2d69fd2ff130181ac9593bc46a4f7f0ca7751876f8f4ea760ed9425820f",
+ "response_id": "resp_06a508415033b1cb006ad6b6d23ee887d2af52e44d8dc41268",
+ "seconds": 18.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8607,
+  "input_tokens_details": {
+   "cache_write_tokens": 8604,
+   "cached_tokens": 0
+  },
+  "output_tokens": 730,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 9337
+ }
+}

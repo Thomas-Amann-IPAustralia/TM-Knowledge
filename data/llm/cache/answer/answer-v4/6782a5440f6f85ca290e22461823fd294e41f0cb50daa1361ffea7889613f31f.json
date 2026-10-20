@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011419,
+ "created_utc": "2026-10-20T00:31:50Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0059",
+ "job": "answer",
+ "key": "6782a5440f6f85ca290e22461823fd294e41f0cb50daa1361ffea7889613f31f",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Under the Manual’s practice, you do not necessarily need a picture for a scent mark: a precise word description can satisfy the graphical representation requirement.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part10/3/3/4/3\",\n          \"quote\": \"A precise word description of the trade mark would be a satisfactory representation of a scent trade mark\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"You must provide a precise and accurate written description identifying both the scent and how it is to be used for the claimed goods or services.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part21/7/7/1\",\n          \"quote\": \"The applicant must include a precise and accurate description of the scent that will be entered as an endorsement of the application. The description must include both what the scent is, and how it is to be used in respect of the goods or services claimed.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The same description may serve as the representation where there is no other form of graphic representation.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part10/3/3/4/3\",\n          \"quote\": \"In some cases the description may also be used as the representation where there is no other form of graphic representation.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The description is entered as an endorsement of the application and helps define the scope of registration.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part10/3/3/4/3\",\n          \"quote\": \"The description will be entered as an endorsement of the application (subreg 4.3(7)) and will thereby help to define the scope of the registration.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0078\",\n    \"GC-0072\",\n    \"GC-0012\",\n    \"GC-0014\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "f3eab8c8b6b24869bd9404482be90f553f1ceb33dc3f0a715f43a6e1a9da7e55",
+ "response_id": "resp_0f7f879bc783c5bc006ad6b664dec887d2824a4f399523f5b9",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6348,
+  "input_tokens_details": {
+   "cache_write_tokens": 6345,
+   "cached_tokens": 0
+  },
+  "output_tokens": 697,
+  "output_tokens_details": {
+   "reasoning_tokens": 211
+  },
+  "total_tokens": 7045
+ }
+}

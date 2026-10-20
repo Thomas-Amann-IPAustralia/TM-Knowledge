@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014561,
+ "created_utc": "2026-10-20T00:35:05Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0107",
+ "job": "answer",
+ "key": "fc5fc022c9298063b7cea99c755c8eb6e46d5c910c21359f14e4c0a1d24327e2",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"For the supplied section 41 model declaration, the signatory is the person making the declaration, who identifies their company position and source of information and declares that they are duly authorised to speak on the company’s behalf.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part23/x-annex-a3---model-layout-for-supporting-statutory-declaration#1\",\n          \"quote\": \"I, [name], of [address], being the [position] of [company], a position which I have held since [year], solemnly declare that the evidence herein comes from [source of information] and I am duly authorised to speak on my company's behalf in support of the acceptance for registration of application [number] for the trade mark [nominate or describe] in respect of [designated goods/services] in the name of [the applicant/name of authorised user].\"\n        },\n        {\n          \"ref\": \"TMM/Part23/x-annex-a3---model-layout-for-supporting-statutory-declaration#1\",\n          \"quote\": \"[SIGNATURE] [INSERT DATE] [Place where declaration is made]\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The model asks the declarant to state that they identify the mark only with the applicant’s goods or services and consider that another trader’s use on the designated or similar goods or services could result only from a competitor’s improper motive and would cause confusion and deception within the trade.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part23/x-annex-a3---model-layout-for-supporting-statutory-declaration#1\",\n          \"quote\": \"I identify this trade mark with the goods/services of the applicant only. I consider that its use by any trader other than the applicant on the goods/services designated, or on similar goods/services, could result only from an improper motive on the part of a competitor and would result in confusion and deception within the trade.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Where a declaration is required with an application, notice or request, the Manual says it should conform with regulations 21.6 and 21.7.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part2/3/2/3/6\",\n          \"quote\": \"If a declaration is required to be filed with an application, notice or request, it should conform with the provisions of regs 21.6 and 21.7.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied passages do not establish a universal rule about who must sign every supporting declaration: the section 41 passage is a model, and the text of regulations 21.6 and 21.7 is not supplied, so I cannot confirm the complete formal signing requirements.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0041\",\n    \"GC-0061\",\n    \"GC-0003\",\n    \"GC-0004\",\n    \"GC-0131\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "08441a9a9d99a118fae50bbd5bfebb733e773ca91d57e8ff0322b02945bcad21",
+ "response_id": "resp_0eabfa38209cee97006ad6b71d763087d281f6021dc0812137",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8025,
+  "input_tokens_details": {
+   "cache_write_tokens": 8022,
+   "cached_tokens": 0
+  },
+  "output_tokens": 906,
+  "output_tokens_details": {
+   "reasoning_tokens": 208
+  },
+  "total_tokens": 8931
+ }
+}

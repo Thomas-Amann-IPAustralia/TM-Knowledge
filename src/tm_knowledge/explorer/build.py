@@ -613,6 +613,9 @@ def examples() -> dict[str, Any]:
             "plain": [p["ref"] for p in a.get("plain_search") or ()],
             "keyword10": list(pools.get(a["key"], {}).get("systems", {}).get("keyword", [])),
             "citations": [{"ref": c["ref"], "quote": c.get("quote")} for c in a.get("citations") or ()],
+            # answer-v4: each claim with its checked quotes; the page shows them as a live answer's.
+            **({"claims": [{k: c[k] for k in ("text", "authority", "quotes", "supported")} for c in a["claims"]]}
+               if a.get("claims") is not None else {}),
             "declined": bool(a.get("declined")), "decline_reason": a.get("decline_reason") or "",
             "model": a.get("model"), "date": str(a.get("date") or ""), "review_status": a.get("review_status"),
             "ndcg": {s: row.get(f"ndcg:{s}") for s in ("keyword", "hybrid", "ontology")},
@@ -746,13 +749,13 @@ def _tour_example() -> dict[str, Any] | None:
 
 # ---------------------------------------------------------------------- chat
 
-#: The law the 129 prepared answers read. All were written against the snapshot
-#: pinned from 18 August to 17 October 2026 (`c490a9927f1a`), before the pin moved
-#: to the Act's compilation 48; so their footer names compilation 47, whatever the
-#: pin now holds. A prepared answer re-written against a later pin changes this.
+#: The law the 129 prepared answers read. Until 2026-10-20 they were the answer-v2
+#: answers written against compilation 47; S042 re-wrote all 129 with answer-v4 against
+#: the pin `308bfd9162eb`, compilation 48 (ADR-0143). Fixed here rather than read from
+#: the pin, because the next pin move does not re-write them.
 PREPARED_LAW = [
-    {"code": "TMA1995", "name": "Trade Marks Act 1995", "compilation": "47", "register_id": "C2024C00545",
-     "start": "2024-10-14", "line": "the Act as in force from 14 October 2024"},
+    {"code": "TMA1995", "name": "Trade Marks Act 1995", "compilation": "48", "register_id": "C2026C00421",
+     "start": "2026-09-19", "line": "the Act as in force from 19 September 2026"},
     {"code": "TMR1995", "name": "Trade Marks Regulations 1995", "compilation": "53",
      "register_id": "F2026C00009", "start": "2025-12-18", "line": "the Regulations as in force from 18 December 2025"},
 ]
@@ -814,8 +817,9 @@ def chat(ctx: jobs.Context) -> dict[str, Any]:
         "ontology_map": jobs.ontology_map(ctx),
         "passages_k": 8, "legislation_k": 3, "paths_k": 12, "plain_k": 5,
         # answer-v4 (A06): legislation whole up to law_chars, a Manual chunk cut around the
-        # question's words past manual_chars. The prepared answers read 1,600 of each.
-        "law_chars": jobs.LAW_CHARS, "manual_chars": jobs.MANUAL_CHARS, "prepared_passage_chars": 1600,
+        # question's words past manual_chars. The prepared answers, re-written with
+        # answer-v4 (ADR-0143), were given the same.
+        "law_chars": jobs.LAW_CHARS, "manual_chars": jobs.MANUAL_CHARS,
         # The definitions of the concepts a question names, as the prompt states them
         # (CHAT-0088): one line each, written by `jobs.definition_lines`.
         "definitions": jobs.definition_lines(ctx),

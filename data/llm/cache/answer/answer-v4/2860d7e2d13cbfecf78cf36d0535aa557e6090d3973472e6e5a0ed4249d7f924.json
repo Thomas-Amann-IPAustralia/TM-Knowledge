@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013419,
+ "created_utc": "2026-10-20T00:34:52Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0104",
+ "job": "answer",
+ "key": "2860d7e2d13cbfecf78cf36d0535aa557e6090d3973472e6e5a0ed4249d7f924",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Generally, an ordinary picture of the goods themselves is not prima facie capable of distinguishing one trader’s goods from another’s, according to the Manual.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/25/25/1\",\n          \"quote\": \"A device which is an ordinary depiction of the goods upon which, or in connection with which, it will be used is generally not prima facie capable of distinguishing.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The difficulty is that consumers ordinarily understand such pictures as indicating the kind or intended purpose of the goods or services, rather than their trade source.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/25/25/1\",\n          \"quote\": \"For the consumer such pictures ordinarily signify the kind or intended purpose of goods and services (Note 1 to s 41(4)).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual directs examiners to assess the picture’s ordinary meaning to the target audience, then whether other traders would want to use it or a deceptively similar variant for that meaning.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/25#1\",\n          \"quote\": \"The first step of the enquiry is to determine the “ordinary signification” of the device. This is to be determined by reference to the “target audience” of the goods and services. Once that signification has been determined, the second step is to enquire as to the likelihood of other traders wanting to use that device or some deceptively similar variant for the sake of that signification.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"A special or fanciful depiction may alter the assessment: the Manual qualifies its practice concerning devices common to the trade where they are depicted in that manner.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/25/25/1\",\n          \"quote\": \"A trade mark which consists solely of a device which is common to the trade will be considered to have insufficient inherent adaptation to distinguish unless it is depicted in a special or fanciful manner.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied legislative passages contain only the introductory words of subsections 41(3) and 41(4), so they do not establish the full statutory requirements or possible routes to registration.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s41(3)\",\n          \"quote\": \"(3) This subsection applies to a trade mark if:\"\n        },\n        {\n          \"ref\": \"TMA1995/s41(4)\",\n          \"quote\": \"(4) This subsection applies to a trade mark if:\"\n        }\n      ],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0119\",\n    \"GC-0059\",\n    \"GC-0060\",\n    \"GC-0061\",\n    \"GC-0009\",\n    \"GC-0058\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "b9697649c9c3fb16bdff5c294ace807f27d007c4ed492f691038107f0d77cf75",
+ "response_id": "resp_06b1b6ba57209899006ad6b710e5a487d2b0d98beca371e121",
+ "seconds": 28.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6884,
+  "input_tokens_details": {
+   "cache_write_tokens": 6881,
+   "cached_tokens": 0
+  },
+  "output_tokens": 963,
+  "output_tokens_details": {
+   "reasoning_tokens": 257
+  },
+  "total_tokens": 7847
+ }
+}

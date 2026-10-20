@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.015806,
+ "created_utc": "2026-10-20T00:35:40Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0116",
+ "job": "answer",
+ "key": "016a57cc95eb4b7d9b1cd109adbe3d093da2105331e645989c349a575251cade",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Use wording that identifies the type of goods, rather than just “powders”; the Manual’s suggested alternatives are listed below.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/3#1~2\",\n          \"quote\": \"Examiners must check that goods and services are adequately described and that they are, on the basis of the description supplied, correctly classified.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For plastics: Class 1 — “Plastics in the form of powders”.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders\",\n          \"quote\": \"Class 1: Plastics in the form of powders\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For paint: Class 2 — “Paint powders”.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders\",\n          \"quote\": \"Class 2: Paint powders\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For cosmetic face powders: Class 3 — “Cosmetic face powders”.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders\",\n          \"quote\": \"Class 3: Cosmetic face powders\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For industrial wax powders: Class 4 — “Wax powders for industrial purposes”.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders\",\n          \"quote\": \"Class 4: Wax powders for industrial purposes\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For medicated baby powders: Class 5 — “Medicated baby powders”.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders\",\n          \"quote\": \"Class 5: Medicated baby powders\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For common metal powders: Class 6 — “Common metal powders”.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders\",\n          \"quote\": \"Class 6: Common metal powders\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For explosive powders: Class 13 — “Explosive powders”.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders\",\n          \"quote\": \"Class 13: Explosive powders\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For powders for making milk shakes: Class 29 — “Powders for making milk shakes”.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders\",\n          \"quote\": \"Class 29: Powders for making milk shakes\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For curry powders: Class 30 — “Curry powders”.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders\",\n          \"quote\": \"Class 30: Curry powders\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For powders for effervescing beverages: Class 32 — “Powders for effervescing beverages”.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders\",\n          \"quote\": \"Class 32: Powders for effervescing beverages\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"I cannot select the appropriate wording without knowing what kind of powders you mean; these suggestions may not cover every type.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0012\",\n    \"GC-0121\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "64bb8bc24f63a1c182064873444b846f76aae27e98a651c056ffbf6c49f98d55",
+ "response_id": "resp_09f3266214c8af2d006ad6b74118f887d2a692a7284a383814",
+ "seconds": 28.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7597,
+  "input_tokens_details": {
+   "cache_write_tokens": 7594,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1262,
+  "output_tokens_details": {
+   "reasoning_tokens": 164
+  },
+  "total_tokens": 8859
+ }
+}

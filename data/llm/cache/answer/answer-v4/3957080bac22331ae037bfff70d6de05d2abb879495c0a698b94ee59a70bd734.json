@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.017252,
+ "created_utc": "2026-10-20T00:35:46Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0117",
+ "job": "answer",
+ "key": "3957080bac22331ae037bfff70d6de05d2abb879495c0a698b94ee59a70bd734",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Yes, in principle: the Manual permits reliance on a predecessor’s use or an authorised user’s use, subject to the requirements below.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part23/3/3/1\",\n          \"quote\": \"Evidence of use is not always restricted to use by the current proprietor of a trade mark. The Act specifies that use of the trade mark includes use by a predecessor in title of the applicant (s 41) and use by an authorised user (s 8).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For section 41 specifically, the Act treats use by an applicant’s predecessor in title as use by the applicant.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s41\",\n          \"quote\": \"(5) For the purposes of this section, the use of a trade mark by a predecessor in title of an applicant for the registration of the trade mark is taken to be a use of the trade mark by the applicant.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"To rely on a predecessor’s use before an application for registration was filed, the Manual requires the applicant to demonstrate succession to the associated goodwill of the business that used the mark.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part23/3/3/1\",\n          \"quote\": \"If the applicant seeks to rely on use of the trade mark by a predecessor before an application for registration is filed, they must also demonstrate they are the successor in title to the associated goodwill of the business that used the trade mark.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Where the claimed use occurred while the mark was subject to a pending application or registration, the Manual requires the applicant to show assignment of the trade mark rights; section 106 permits assignment of those marks with or without the relevant business goodwill.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part23/3/3/1\",\n          \"quote\": \"Where the trade mark was the subject of a pending application (or another registration) at the time the claimed use of the trade mark occurred, then the applicant needs to show that rights in the trade mark subject of the application were simply assigned to them.\"\n        },\n        {\n          \"ref\": \"TMA1995/s106\",\n          \"quote\": \"(1) A registered trade mark, or a trade mark whose registration is being sought, may be assigned or transmitted in accordance with this section.\"\n        },\n        {\n          \"ref\": \"TMA1995/s106\",\n          \"quote\": \"(3) The assignment or transmission may be with or without the goodwill of the business concerned in the relevant goods and/or services.\"\n        }\n      ],\n      \"authority\": \"both\"\n    },\n    {\n      \"text\": \"For another person’s use, permission alone is insufficient under the Manual: reliance on authorised use requires actual control over that use.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part23/3/3/1\",\n          \"quote\": \"An applicant can rely on their evidence of use or use by an authorised user. Authorised use requires some form of actual control by the applicant over the use by the authorised user.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual identifies quality control over the goods or services and financial control over the relevant trading activities as two non-exclusive forms of control.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part48/7#1\",\n          \"quote\": \"Subsections 8(3) and 8(4) provide two non-exclusive examples of where such control is taken to exist. These are: where the owner of a trade mark exercises quality control over the goods or services in relation to which the trade mark is used by the authorised user (subsection 8(3)), and where the owner of the trade mark exercises financial control over the authorised user’s relevant trading activities (subsection 8(4)).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"At examination, the Manual generally accepts sufficient declaratory information addressing control at face value and says examiners should not routinely request further information or documents such as licence agreements.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part19A/6/6/3\",\n          \"quote\": \"Provided that an applicant provides sufficient declaratory information addressing the issue of control, this will generally be taken at face value and the examiner should not routinely request further information or documents such as copies of licence agreements.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0072\",\n    \"GC-0081\",\n    \"GC-0082\",\n    \"GC-0083\",\n    \"GC-0085\",\n    \"GC-0086\",\n    \"GC-0041\",\n    \"GC-0155\",\n    \"GC-0088\",\n    \"GC-0116\",\n    \"GC-0092\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "ef89bfe51563c3ed489e84ac2a8b3f8af67e3d1771f71e09e019f9da698e9a17",
+ "response_id": "resp_06daf4e4e0e8efaf006ad6b7466c7c87d29df9bdc271457920",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8670,
+  "input_tokens_details": {
+   "cache_write_tokens": 8667,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1283,
+  "output_tokens_details": {
+   "reasoning_tokens": 151
+  },
+  "total_tokens": 9953
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014478,
+ "created_utc": "2026-10-20T00:33:02Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0076",
+ "job": "answer",
+ "key": "99ffafef6602ac2d2dd048d171ea0b1b5ef98fb6eb36e4aedc0961e303e93f78",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Advertising alone is not enough: the Manual states that advertising goods not immediately available for sale does not constitute use within the meaning of the Act.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part19A/3/3/2~1\",\n          \"quote\": \"Use of a trade mark in advertising must be concurrent with the placing of the goods or services on the market. Advertisement where the goods/services are not immediately available for sale does not constitute use within the meaning of the Act\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"This differs from goods being available but not yet sold: the Manual says a genuine offering for sale can suffice without an actual sale.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part19A/3/3/2~1\",\n          \"quote\": \"It is not necessary for goods or services to have actually been sold for use ‘in the course of trade’ to have occurred. The offering for sale of goods or services, if genuine, will suffice.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Advertising can nevertheless be relevant to establishing an objective commitment to use the trade mark.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part19A/3/3/2~1\",\n          \"quote\": \"However, it is important to note that while advertising by itself will not constitute an offer for sale, it will be relevant in determining an objective commitment to use (see 3.3 below).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual recognises a separate route to use in the course of trade through preparatory steps demonstrating an objective commitment to use, going beyond mere investigation or planning even before goods are offered for sale.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part19A/3#1\",\n          \"quote\": \"use through an intention to offer the goods and/or services which is manifested through preparatory steps showing an objective commitment to using the trade mark\"\n        },\n        {\n          \"ref\": \"TMM/Part19A/3/3/3~1\",\n          \"quote\": \"This third category of use ‘in the course of trade’ encompasses situations where an owner has not dealt in goods or services or offered them for sale as at the priority date of the application, but has gone beyond mere preliminary activities.\"\n        },\n        {\n          \"ref\": \"TMM/Part19A/3/3/3~1\",\n          \"quote\": \"…the owner will not use its mark unless it has so acted to show that it has gone beyond investigating whether to use the mark and beyond planning to use the mark and has got to the stage where it can be seen objectively to have committed itself to using the mark, that is, to carrying its intention to use the mark into effect.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Whether that objective commitment exists depends on all relevant circumstances, and may be difficult to establish if the goods are not subsequently sold or offered for sale.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part19A/3/3/3~2\",\n          \"quote\": \"Whether an objective commitment has been demonstrated will depend on all the relevant circumstances. A case for objective commitment to use the mark at a particular date may also be difficult to establish where the person claiming use has not subsequently sold or offered for sale the goods or services in question (see Woolly Bull Enterprises Pty Ltd v Reynolds [2001] FCA 261).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0081\",\n    \"GC-0072\",\n    \"GC-0011\",\n    \"GC-0016\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "30b782b8879871cda40b9e6a08d004aa327b0d3e5a1f1ed9618deafdd549cff1",
+ "response_id": "resp_0edf6b8488b9b4cf006ad6b6a3061887d28b235f8e23b33bc6",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7411,
+  "input_tokens_details": {
+   "cache_write_tokens": 7408,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1043,
+  "output_tokens_details": {
+   "reasoning_tokens": 183
+  },
+  "total_tokens": 8454
+ }
+}
