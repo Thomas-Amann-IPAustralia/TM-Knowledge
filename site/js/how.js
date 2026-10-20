@@ -49,7 +49,7 @@ export async function render(root, { ontology, params }) {
       note: "Coloured squares name the idea; the darker ones use its formal name." },
     { k: "Connections", h: "Ideas are connected, and say how", p: path ? `Each idea is joined to others, and every connection says what it means and quotes the sentence it rests on. Here,
       <b>${esc(path.subject_label)}</b> <i>${esc(ontology.predicates[path.predicate]?.label || path.predicate)}</i> <b>${esc(path.object_label)}</b>${path.applies_when ? `, but only when ${esc(path.applies_when)}` : ""}.
-      The condition travels with the connection, and a “may” never becomes a “must”.` : "Each idea is joined to others, and every connection says what it means and quotes the sentence it rests on.",
+      The condition travels with the connection${path.modality ? `, and so does the word its sentence uses (“${esc(path.modality)}”)` : ""}: a “may” never becomes a “must”.` : "Each idea is joined to others, and every connection says what it means and quotes the sentence it rests on.",
       note: "Machine-written and unreviewed, like most connections; its card says so wherever it is shown." },
     { k: "Guidance the words miss", h: "Connections find guidance the words miss", p: `Following the connection, the search adds the passages that name the connected ideas, and merges them with the keyword
       results. On this question its top ten held <b>${fmt(only.size)} relevant passages</b> that neither keyword search nor search by meaning had in theirs.`,

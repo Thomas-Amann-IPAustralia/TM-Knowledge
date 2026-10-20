@@ -1047,6 +1047,7 @@ circle.ch-dot:hover { stroke: var(--ink); stroke-width: 2; }
 .hw-canvas .L { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none; transition: opacity .55s var(--ease), transform .55s var(--ease); }
 .hw-canvas[data-scene="0"] .L-grid, .hw-canvas[data-scene="1"] .L-grid, .hw-canvas[data-scene="2"] .L-grid, .hw-canvas[data-scene="4"] .L-grid { opacity: 1; pointer-events: auto; }
 .hw-canvas[data-scene="3"] .L-grid { opacity: .16; }
+.hw-canvas[data-scene="3"] .L-grid .hw-gk { opacity: 0; }
 .hw-canvas[data-scene="1"] .L-q, .hw-canvas[data-scene="2"] .L-q, .hw-canvas[data-scene="3"] .L-q, .hw-canvas[data-scene="4"] .L-q { opacity: 1; }
 .hw-canvas[data-scene="2"] .L-idea, .hw-canvas[data-scene="3"] .L-conn, .hw-canvas[data-scene="4"] .L-cmp,
 .hw-canvas[data-scene="5"] .L-test, .hw-canvas[data-scene="6"] .L-ans, .hw-canvas[data-scene="7"] .L-net, .hw-canvas[data-scene="8"] .L-trust { opacity: 1; pointer-events: auto; }
