@@ -43,8 +43,8 @@ the remaining stage 4 work", read as the handoff's Package 4. Nothing was spent.
   questions. **Not given to the answering model.** `search.json` carries the tests; parity is held
   on all 129 benchmark questions.
 
-Graph rebuilt, ontology report rebuilt, SHACL 0 defects, harness 0 defects. Full test suite: see
-the commit that closes S043 for the count (the run is recorded in its body).
+Graph rebuilt, ontology report rebuilt, SHACL 0 defects, harness 0 defects. **913 tests pass, 4
+xfail** (the authority check's known misses) at the end of S043.
 
 ## Next actions
 
