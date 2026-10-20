@@ -57,8 +57,8 @@ none left unverified), provision keyword search (`ProvisionIndex` = `Engine.prov
 - **In the graph**: `tmk:StructuredTest` / `tmk:ProcessTemplate` with envelopes and anchors; the
   condition tree and the steps are not yet in the graph.
 
-Graph and ontology report match a rebuild; SHACL 0 defects. See the S043 commit for the final test
-count.
+Graph and ontology report match a rebuild; SHACL 0 defects. **886 tests pass, 4 xfail** (the
+authority check's known misses) at the end of S043.
 
 ## Next actions
 
