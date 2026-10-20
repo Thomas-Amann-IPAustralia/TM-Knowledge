@@ -6317,3 +6317,43 @@ test is the owner's gate).
 2. `tests/unit/test_explain.py` holds each acceptance example and each rule over every matter,
    including an outcome-wording guard that reads unattributed sentences.
 3. Provisional; name it in the handoff's open items.
+
+## ADR-0143 — GK-0003 anchored, gpt-6.1-sol at medium for the answer job, and the prepared answers re-written with answer-v4
+
+**Date** 2026-10-20 · **Authority** human (the approvals), agent-proposed (how they were carried out) ·
+**Status** accepted, acted on in S042
+
+**Context.** S042 reported that GC-0012's s 27(3)(b) was in the signed record and could change only by
+an owner-ruled correction. It was wrong: the signed GC-0012 has no legislative basis; the
+machine-written correction GK-0003 added s 27(3)(b) under ruling A1, quoting regulation 4.4 but not
+the paragraph. Separately, the answer job's model is the owner's to choose (`CLAUDE.md` §3a), and
+ADR-0141's US$4 had not been spent because the session's permission layer refused the first paid
+call. The agent put both to the owner and proposed `gpt-6.1-sol` at medium effort, as the answer-v2
+answers were written. The owner (CHAT-0090 to CHAT-0092,
+`review/returned/261020-owner-chat-approvals.md`): *"I approve all of the above. Please execute all
+aforementioned tasks."*
+
+**Decision (the owner's).** GK-0003 quotes s 27(3)(b). The answer job runs on `gpt-6.1-sol` at medium
+effort. The paid run is executed within ADR-0141's US$4.
+
+**Decision (the agent's, inside it).**
+1. GK-0003's judgement and author stay; the quote is added and every evidence item re-located by
+   `jobs.evidence`, with a `review_history` entry (the S038 precedent for re-anchoring).
+2. The run: vectors rebuilt (US$0.0095), a three-question smoke run read by hand (US$0.0457), then all
+   129 on the flex tier (US$1.9286), held by `TMK_SPEND_CAP_USD` to the cap. **US$1.98 of the US$4
+   spent; recorded spend US$11.61 of US$13.63.** The remaining US$2.02 is approved for nothing else.
+3. The re-written answers replace the answer-v2 ones as the prepared answers: `PREPARED_ANSWER_VERSION`
+   is `answer-v4`, `PREPARED_LAW` names compilation 48, and the page shows prepared answers claim by
+   claim, as it shows live ones.
+
+**What it does not decide.** Re-measurement (CHAT-0084): the benchmark grades passages, not answers,
+and nothing was re-graded. A model-judged support check (A08). Anything about Package 4, left to a new
+session by the owner.
+
+**Consequences.**
+1. No legislative basis is unverified (the harness note is gone).
+2. 129 answers, 810 claims, 729 with a checked quote, 84 stating what the passages do not cover, one
+   quote dropped (BN-0048: a stray parenthesis in a quotation of s 44(2)); none labelled legislation
+   rests on Manual quotes alone; 12 decline the outcome part of a question. A kept quote proves the
+   words exist, not that they support the claim.
+3. The "answer-v4 has never run against the real model" caution is retired.

@@ -9,7 +9,16 @@ source:
   author: Thomas-Amann-IPAustralia
   relayed_by: S042 agent
   title: GK-0003 anchored, gpt-6.1-sol at medium for the answer job, the paid run executed
-applied: null
+applied:
+  session: S042
+  date: '2026-10-20'
+  branch: ccr-c4fac9a6-uq5d6d
+  what_changed: >-
+    GK-0003 quotes s 27(3)(b), every item re-located, with a review_history entry; the bases ledger's
+    intro and report corrected. The answer job ran on gpt-6.1-sol at medium: vectors rebuilt, a
+    three-question smoke run read by hand, then all 129 benchmark questions with answer-v4, US$1.98
+    of the US$4 in all. The prepared answers are now answer-v4 against compilation 48, shown claim
+    by claim. ADR-0143.
 answers:
 - id: CHAT-0090
   item: GK-0003's s 27(3)(b)

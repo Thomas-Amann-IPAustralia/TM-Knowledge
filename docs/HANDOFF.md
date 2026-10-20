@@ -1,6 +1,6 @@
 # HANDOFF
 
-**Last updated:** 2026-10-19 · S042 (end, second portion) · branch `ccr-c4fac9a6-uq5d6d`
+**Last updated:** 2026-10-20 · S042 (end) · branch `ccr-c4fac9a6-uq5d6d`
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
@@ -9,18 +9,26 @@ Rewritten every session, under 150 lines (ADR-0110). History is in the git log a
 
 **The purpose is ADR-0138** (`CLAUDE.md` §0). **The plan is `docs/ONTOLOGY-REVIEW-RESPONSE-2.md`'s
 order: Packages 1 and 3 done (S041); Package 2 done (S042); Package 4, the first customer slice,
-started (S042).** The owner asked for "the next phase of work", then "the next portion".
+started (S042) and left for a new session by the owner.** The owner asked for "the next phase of
+work", then "the next portion", then approved the paid run and GK-0003's fix (ADR-0143).
 
-**Spend.** The owner gave up to US$4 (CHAT-0089, ADR-0141); the cap is **US$13.63**. **None spent.**
-The first paid call (the vector rebuild the answer job needs) was refused by the session's
-permission layer, not the cap, and was not routed around (Q-99). Recorded spend stays US$9.63.
+**Spend.** The owner gave up to US$4 (ADR-0141); the cap is **US$13.63**. After a first refusal by
+the session's permission layer (Q-99), the owner chose `gpt-6.1-sol` at medium for the answer job and
+had the run executed (ADR-0143): vectors US$0.01, smoke run US$0.05, 129 answers US$1.93. **Recorded
+spend US$11.61**; the remaining US$2.02 is approved for nothing.
+
+**The 129 prepared answers are now `answer-v4`** against compilation 48: complete provisions, every
+cut marked, claims with checked quotes (810 claims, 729 with a checked quote, 84 saying what the
+passages do not cover, 1 quote dropped: BN-0048 misquoted s 44(2)). The page shows them claim by
+claim, with compilation 48 and the Manual-predates note in the footer.
 
 **Package 2, complete.** R05 the dependency index (`ontology/dependencies.py`; change view, report
 §7); R06 query contracts (`ask.contracts`; CQ-0009 and CQ-0024 rewritten); R08 clause-scoped
 authority check with strict-xfail known misses; R10 coverage by Part, the Manual's capture date on
 every answer, and **the 21 unverified legislative bases re-read** (ledger
-`data/derived/audit/bases-r10.yaml`: 11 quoted, 4 re-cited, 5 withdrawn; the harness note is down
-to 1, GC-0012's s 27(3)(b), signed, which only an owner-ruled correction can change); A07
+`data/derived/audit/bases-r10.yaml`: 11 quoted, 4 re-cited, 5 withdrawn; the 21st, GC-0012's
+s 27(3)(b), came from the machine-written correction GK-0003, now quoting the paragraph: **none is
+unverified**); A07
 exact-reference lookup and **keyword search over the 763 provisions** (`search.index.ProvisionIndex`
 = `Engine.provisionSearch`, parity on all 129 questions, shown on the Ask page in its own card, not
 in the prompt); A11 `graph/manifest.json` and the site's `build.json`; `docs/SOURCE-REGISTER.md`.
@@ -58,29 +66,22 @@ xfail** (the authority check's known misses) at the end of S042.
 
 ## Next actions
 
-1. **Paid run, if the owner allows it** (US$4 approved): `tmk-bulk embed --confirm`, `tmk-bulk run
-   answer --dry-run`, a `--limit 3 --confirm` smoke run read by hand, then the 129 if it fits.
-   Re-writing the prepared answers moves `PREPARED_ANSWER_VERSION`, `PREPARED_LAW`,
-   `PREPARED_MANUAL_CAPTURED` and the footer together, and `explorer.build.examples` must pass
-   `claims`.
-2. **Package 4, continued.** The condition tree, exceptions, steps and transitions into the graph
+1. **Package 4, continued (a new session, by the owner's word).** The condition tree, exceptions, steps and transitions into the graph
    (the records and envelopes are there; their inner structure is not); D4's other two explanations: *requirements*
    (a test explained with no matter) and *the application process* from filing (a second template,
    before examination); A06 step 2 (a question about s 44 retrieves GL-0001's conditions and
    exceptions); more fictional matters from A12's list (evidence covering the wrong period,
    ambiguous everyday wording that should be asked about, not chosen).
-3. **Afterwards:** Package 5 (versioning model A03; the dependency index as a candidate rule; scenarios
+2. **Afterwards:** Package 5 (versioning model A03; the dependency index as a candidate rule; scenarios
    A10); the blend (S034); the 15 undefined concepts; heading-only edges (GR-0270).
 
 ## For the owner
 
-- **The US$4 is unspent.** Allow `tmk-bulk` paid calls in the session's permissions (or run
-  `tmk-bulk embed --confirm` yourself) and say so.
 - **The customer prototype page** (`tmk-explain --html`) is sent to you as a file; it shows four
   invented matters. Showing anything like it to customers, or testing it with them, is your gate.
-- **GC-0012's s 27(3)(b)** stays unverified unless you rule that a correction may anchor it.
 - Still: revoke the old OpenAI key (S038); the page's blend, ADR-0131 and the four disputed signed
-  readings (S034); who writes the next benchmark.
+  readings (S034); who writes the next benchmark; re-measurement (the answers changed, the graded
+  search did not).
 
 ## What to distrust
 
@@ -96,10 +97,12 @@ xfail** (the authority check's known misses) at the end of S042.
 - From earlier in S042: the dependency index sees only what a record names; a contract "met" is a
   property of rows; the clause rule and the citation pattern are heuristics; the provision search
   is unmeasured. The 20 base re-reads are one session's judgement.
-- From S041, unchanged: R07 and R02 readings; the coarse proceeding lookup; **`answer-v4` has never
-  run against the real model**; the live answer is not the measured one; GC-0179's old quote;
-  `docs/PITCH-PACK.md` stale; GK-0037; hand-copied hashes on GR-0672, GK-0003; the reviewer's
-  initials in `site/data/ontology.json`.
+- **The re-written answers are checked, not judged**: a kept quote proves the words exist where the
+  claim says, not that they support it (A08); nobody has read the 810 claims. Live answers run at
+  low effort without vectors; the prepared ones at medium with them.
+- From S041, unchanged: R07 and R02 readings; the coarse proceeding lookup; GC-0179's old quote;
+  `docs/PITCH-PACK.md` stale; GK-0037; a hand-copied hash on GR-0672 (GK-0003's were re-located and
+  matched); the reviewer's initials in `site/data/ontology.json`.
 
 ## Things a session will trip on
 
@@ -126,7 +129,7 @@ xfail** (the authority check's known misses) at the end of S042.
 
 - **ADR-0142** (the slice's record types, the engine's rules, fictional-only), and its content: the
   three tests, the template, the four matters.
-- **ADR-0141's agent part** (what the US$4 is for).
+- **ADR-0141's and ADR-0143's agent parts** (how the run was held and what the prepared answers now are).
 - S042's engineering: the dependency index's views and ref walk; the clause-break and citation
   patterns; contracts and `SHAPE_COLUMNS`; CQ-0009 by section 29.9; the manifest's fields; the
   source register; provision search shown apart; the bases ledger's 20 judgements; the outcome
