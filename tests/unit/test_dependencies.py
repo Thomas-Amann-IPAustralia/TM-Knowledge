@@ -33,7 +33,8 @@ def test_every_record_type_and_both_stores_are_in_it(index):
     """RULE-0002 sees signed records only; the index sees definitions, corrections and
     machine-written records too, each with its review status."""
     summary = index.summary()
-    for kind in ("definition", "correction", "gold_concept", "gold_relationship", "concept_type"):
+    for kind in ("definition", "correction", "gold_concept", "gold_relationship", "concept_type",
+                 "legal_test", "process"):
         assert summary["by_type"].get(kind), kind
     assert set(summary["by_status"]) == {"approved", "unreviewed"}
     assert summary["stale"] == []  # the harness's staleness check agrees: nothing has moved
@@ -56,6 +57,9 @@ def test_a_provision_reaches_records_directly_and_through_the_manual(index):
     # upstream's certainty passes through; an ambiguous citation is listed, not dropped
     assert {r["certainty"] for r in via} >= {None, "ambiguous"}
     assert any(r["type"] == "definition" for r in via)
+    # Package 4's structured test of section 44 rests on its units, and the process
+    # template's deferment branch names it as the grounds it exists for.
+    assert {"GL-0001", "GP-0001"} <= {r["record"] for r in direct}
 
 
 @needs_snapshot
