@@ -306,6 +306,206 @@ tmk:StructuredTestShape
         sh:message "A structured test that reads no provision, or more than one." ;
     ] .
 
+# The inside of a structured test or process template (S043, ADR-0144). Each element is
+# a part of its record, stamped as the record is and never approved apart from it; each
+# quotes its source through an anchor of its record, and says whether that source is law
+# or practice. A condition is a group with a join or a leaf of one of two kinds; an
+# evaluative leaf is never asked as a fact; an effect says which of three kinds it is.
+
+tmk:StructuredTestStructureShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:StructuredTest ;
+    rdfs:label "A structured test has one condition and one effect"@en-AU ;
+    sh:property [
+        sh:path tmk:hasCondition ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:class tmk:Condition ;
+        sh:message "A structured test with no condition tree in the graph, or more than one root." ;
+    ] ;
+    sh:property [
+        sh:path tmk:hasEffect ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:class tmk:LegalEffect ;
+        sh:message "A structured test with no effect: nothing says what follows when its condition holds." ;
+    ] .
+
+tmk:RecordElementShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:RecordElement ;
+    rdfs:label "An element belongs to one record and is stamped as it is"@en-AU ;
+    sh:property [
+        sh:path tmk:elementOf ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "An element with no record, so no envelope: nothing says who wrote it or on what." ;
+    ] ;
+    sh:property [
+        sh:path tmk:origin ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:hasValue "authored" ;
+        sh:message "An element of a machine-written record not stamped as authored." ;
+    ] ;
+    sh:property [
+        sh:path tmk:reviewStatus ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "unreviewed" "rejected" ) ;
+        sh:message "An element claiming a review its record never had (ADR-0086)." ;
+    ] ;
+    sh:property [
+        sh:path tmk:approvedBy ;
+        sh:maxCount 0 ;
+        sh:message "A name in approvedBy on an element of a machine-written record (ADR-0079 guard 3)." ;
+    ] .
+
+tmk:QuotedElementShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:FactCondition, tmk:EvaluativeCondition, tmk:LegalEffect, tmk:TestException,
+        tmk:EvidenceRequirement, tmk:ResponseRoute, tmk:ProcessStep, tmk:ProcessTransition, tmk:TimeRule ;
+    rdfs:label "An element quotes its source and says whether it is law or practice"@en-AU ;
+    sh:property [
+        sh:path tmk:anchoredBy ;
+        sh:minCount 1 ;
+        sh:class tmk:EvidenceAnchor ;
+        sh:message "An element with no anchor: its words cannot be checked against the unit it says it reads (ADR-0142)." ;
+    ] ;
+    sh:property [
+        sh:path tmk:sourceAuthority ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "law" "practice" ) ;
+        sh:message "An element that does not say whether its source is law or practice (CLAUDE.md rule 5)." ;
+    ] ;
+    sh:property [
+        sh:path tmk:statement ;
+        sh:minCount 1 ;
+        sh:message "An element that says nothing." ;
+    ] .
+
+tmk:ConditionGroupShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:ConditionGroup ;
+    rdfs:label "A condition group joins its parts by all or any"@en-AU ;
+    sh:property [
+        sh:path tmk:conditionJoin ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "all" "any" ) ;
+        sh:message "A condition group that does not say whether all its parts or any one must hold." ;
+    ] ;
+    sh:property [
+        sh:path tmk:conditionPart ;
+        sh:minCount 1 ;
+        sh:class tmk:Condition ;
+        sh:message "A condition group joining nothing." ;
+    ] .
+
+tmk:EvaluativeConditionShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:EvaluativeCondition ;
+    rdfs:label "An evaluative condition is assessed, never asked as a fact"@en-AU ;
+    sh:property [
+        sh:path tmk:clarifyingQuestion ;
+        sh:maxCount 0 ;
+        sh:message "A question that would settle an evaluative condition from the customer's answer. Only a person's assessment settles it (ADR-0142)." ;
+    ] .
+
+tmk:LegalEffectShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:LegalEffect ;
+    rdfs:label "An effect is an obligation, a discretion or a bar"@en-AU ;
+    sh:property [
+        sh:path tmk:effectKind ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "obligation" "discretion" "bar" ) ;
+        sh:message "An effect that does not say whether it is a must, a may or a may not: a discretion read as an obligation is the error this field exists to stop." ;
+    ] .
+
+tmk:TestExceptionShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:TestException ;
+    rdfs:label "An exception has its own condition and effect"@en-AU ;
+    sh:property [
+        sh:path tmk:hasCondition ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:class tmk:Condition ;
+        sh:message "An exception with no condition." ;
+    ] ;
+    sh:property [
+        sh:path tmk:hasEffect ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:class tmk:LegalEffect ;
+        sh:message "An exception with no effect of its own." ;
+    ] .
+
+tmk:EvidenceRequirementShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:EvidenceRequirement ;
+    rdfs:label "An evidence requirement says its kind and the condition it bears on"@en-AU ;
+    sh:property [
+        sh:path tmk:requirementKind ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "relevance" "sufficiency" ) ;
+        sh:message "An evidence requirement that does not say whether it is about relevance or sufficiency." ;
+    ] ;
+    sh:property [
+        sh:path tmk:requirementFor ;
+        sh:minCount 1 ;
+        sh:class tmk:Condition ;
+        sh:message "An evidence requirement for no condition of its test." ;
+    ] .
+
+tmk:ProcessTemplateStructureShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:ProcessTemplate ;
+    rdfs:label "A process template has steps"@en-AU ;
+    sh:property [
+        sh:path tmk:hasStep ;
+        sh:minCount 1 ;
+        sh:class tmk:ProcessStep ;
+        sh:message "A process template with no steps in the graph." ;
+    ] .
+
+tmk:ProcessStepShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:ProcessStep ;
+    rdfs:label "A step says its kind and who acts"@en-AU ;
+    sh:property [
+        sh:path tmk:stepKind ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "start" "event" "decision" "end" ) ;
+        sh:message "A step that does not say what kind of step it is." ;
+    ] ;
+    sh:property [
+        sh:path tmk:actorCapacity ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "A step with no capacity acting." ;
+    ] .
+
+tmk:ProcessTransitionShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:ProcessTransition ;
+    rdfs:label "A transition joins two steps of its template"@en-AU ;
+    sh:property [
+        sh:path tmk:fromStep ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:class tmk:ProcessStep ;
+        sh:message "A transition from no step." ;
+    ] ;
+    sh:property [
+        sh:path tmk:toStep ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:class tmk:ProcessStep ;
+        sh:message "A transition to no step." ;
+    ] .
+
+tmk:TimeRuleShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:TimeRule ;
+    rdfs:label "A time rule runs from a step"@en-AU ;
+    sh:property [
+        sh:path tmk:timeRuleFrom ;
+        sh:minCount 1 ;
+        sh:class tmk:ProcessStep ;
+        sh:message "A time rule no step brings into play." ;
+    ] .
+
 tmk:CorrectionShape
     a sh:NodeShape ;
     sh:targetClass tmk:Correction ;
