@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013581,
+ "created_utc": "2026-10-20T00:29:25Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0022",
+ "job": "answer",
+ "key": "e8bd82829d3256a0570681362eba8c13cc82af59b4266a3e9b292a0276b79455",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"I cannot determine whether your particular brand name would be registered. The supplied Manual passages explain the examination approach but do not specifically determine the effect of a slight spelling change.\",\n  \"claims\": [\n    {\n      \"text\": \"A slight spelling change is not, by itself, a reliable way to avoid an objection: the Manual says a ground for rejection may apply to a trade mark that resembles a Wine Register entry where the application claims relevant Class 33 grape products.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part32B/2/1#1\",\n          \"quote\": \"A ground for rejection under this section may apply when a trade mark or part of a trade mark is identical to, or resembles, an entry on the Register of Protected Geographical Indications and Other Terms (‘the Wine Register’) , and the application claims grape products relevant to Class 33.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For that Wine Register issue, the Manual requires consent to a condition restricting use to the relevant Wine Register conditions and compliance with the Wine Australia Act; consent allows the section 42 objection to be withdrawn, rather than determining overall registrability.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part32B/2/1#1\",\n          \"quote\": \"To be satisfied that use of the trade mark will comply with the provisions of the Wine Australia Act, the Registrar will require the applicant to consent to the following condition of registration: It is a condition of registration that the trade mark will only be used under the conditions entered on the Register of Protected Geographical Indications and Other Terms for use of the <Geographical Indication/ Traditional Expression/ Quality Wine Term/ Additional Term> <> and that the use will accord with the Wine Australia Act 2013. Consent to this endorsement will allow the section 42 ground for rejection to be withdrawn.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"A geographical reference also calls for consideration under section 43 where its connotation, in relation to the claimed goods or services, is likely to deceive or confuse consumers.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part32B/2/2#1\",\n          \"quote\": \"Where a trade mark includes a geographic reference, regardless of whether this reference is a known geographical indication or not, a section 43 ground for rejection should be considered on the basis that the reference denotes a particular location, and when applied to the goods and / or services claimed, the connotation associated with the reference is likely to deceive or confuse the relevant consumer.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual’s section 43 assessment considers other meanings and the mark’s written and visual context, rather than the geographical wording in isolation.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part32B/2/2#1\",\n          \"quote\": \"If a geographical reference is included, but also has other meanings and / or associations, this should be considered as part of assessing whether there is a real likelihood of deception or confusion.\"\n        },\n        {\n          \"ref\": \"TMM/Part32B/2/2#1\",\n          \"quote\": \"The manner in which this geographical reference is included as part of a trade mark, whilst also considering any other written or visual features that have been included, will influence consumer perception and connotation.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied passages do not provide a spelling-change threshold or a complete account of registrability, and no legislative passages have been supplied to verify the statutory position independently.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": true,\n  \"concepts_used\": [\n    \"GC-0169\",\n    \"GC-0170\",\n    \"GC-0063\",\n    \"GC-0013\",\n    \"GC-0017\",\n    \"GC-0168\",\n    \"GC-0001\",\n    \"GC-0002\",\n    \"GC-0012\",\n    \"GC-0038\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "dfff075e2a99248e4ddecf5c62411b5f88de57827dfe066f44b0e6884e9bcac3",
+ "response_id": "resp_01d03a238672a8fb006ad6b5d4197487d2a634126dbf55f102",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6989,
+  "input_tokens_details": {
+   "cache_write_tokens": 6986,
+   "cached_tokens": 0
+  },
+  "output_tokens": 969,
+  "output_tokens_details": {
+   "reasoning_tokens": 68
+  },
+  "total_tokens": 7958
+ }
+}

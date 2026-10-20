@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.017375,
+ "created_utc": "2026-10-20T00:28:39Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0005",
+ "job": "answer",
+ "key": "06abf778104f478463a7652bdad5d47060c4d46b02ad81bc1635ccd1120f2933",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Yes—under the Manual’s practice, suspension for settlement negotiations is available in certain circumstances once the two six-month cooling-off provisions have been fully utilised, following filing of the notice of intention to oppose and supporting statement of grounds and particulars.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part51/4/4/1~1\",\n          \"quote\": \"Suspension of the opposition proceedings is available (in certain circumstances) once the option of the (two 6 month) cooling-off provisions has been fully utilised, following the filing of a Notice of Intention to Oppose and a supporting Statement of Grounds and Particulars.\"\n        },\n        {\n          \"ref\": \"TMM/Part51/4/4/1~1\",\n          \"quote\": \"A direction may be made for the evidence stage of opposition proceedings to be temporarily suspended in order to give the parties the opportunity to conduct settlement negotiations without the need to apply and pay for successive extensions of the period within which to file evidence.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For that settlement-negotiation suspension, both sides must agree: the request must be made jointly or accompanied by the other side’s written consent.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part51/4/4/1~1\",\n          \"quote\": \"The Registrar will only suspend proceedings if the request is made by both parties or if the party requesting suspension provides the written consent of the other side.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The parties may request an initial suspension of up to six months, or one year in exceptional circumstances.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part51/4/4/1~1\",\n          \"quote\": \"The parties may request the Registrar to suspend proceedings for an initial period of up to six months and in exceptional circumstances one year.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Continuation of the initial suspension depends on the Registrar being satisfied that negotiations have progressed sufficiently to establish a real likelihood of settlement, assessed case by case.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part51/4/4/1~1\",\n          \"quote\": \"The initial suspension may be continued provided the Registrar is satisfied negotiations have progressed such that there is a real likelihood of settlement. That will be determined on a case by case basis.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"There is no fee for requesting suspension.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part51/4/4/1~1\",\n          \"quote\": \"There is no fee for requesting suspension.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The agreement requirement for settlement suspension should not be generalised to every suspension: the Manual separately records that the Registrar may suspend an opposition timetable on request or at her discretion pending completion of a related matter that may affect the substantive opposition.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part51/4/4/3\",\n          \"quote\": \"The Registrar may on request or at Her discretion suspend the timetable of an opposition pending the completion of a related matter that may impact on the outcome of the substantive opposition.\"\n        },\n        {\n          \"ref\": \"TMM/Part51/4/4/3\",\n          \"quote\": \"Each request or circumstance will be decided on its merits and on a case by case basis and if appropriate the parties given an opportunity to make representations on a proposed direction in accordance with the relevant provisions of the Trade Marks Regulations 1995.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied passages establish the Manual’s practice, not the complete legislative requirements: the relevant suspension regulations are identified in the Manual but their text is not supplied, so I cannot independently confirm their full conditions or exceptions here.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0040\",\n    \"GC-0041\",\n    \"GC-0046\",\n    \"GC-0103\",\n    \"GC-0153\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "4b43f03314cecd173213d4dfa66772c3f4bd84a49cf2fcdf2c5c66d091905a2d",
+ "response_id": "resp_0441220054ec9c2c006ad6b5a6195487d2a66b14a4153c6d18",
+ "seconds": 18.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 9653,
+  "input_tokens_details": {
+   "cache_write_tokens": 9650,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1062,
+  "output_tokens_details": {
+   "reasoning_tokens": 107
+  },
+  "total_tokens": 10715
+ }
+}

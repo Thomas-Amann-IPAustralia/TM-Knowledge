@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.016688,
+ "created_utc": "2026-10-20T00:30:10Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0036",
+ "job": "answer",
+ "key": "3d9178792be15782d793ffcb08dc560b564ae27d0075c3d504c2c3738702e3b9",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The opponent goes first: the Manual places the onus on the opponent to establish its case and gives it the first opportunity to file evidence in support.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part51/1/1/1\",\n          \"quote\": \"The onus is on the opponent to establish its case in any opposition action. Accordingly the opponent is the first party in the Regulations to be given an opportunity to prepare evidence in support of its opposition.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual states that evidence in support must be filed with IP Australia within three months from the day the opponent is given a copy of the notice of intention to defend.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part51/1/1/1\",\n          \"quote\": \"Evidence in support must be filed with IP Australia within 3 months from the day the opponent is given a copy of the notice of intention to defend (regs 5.14, 9.16, 17A.34J, 17A.48R).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"If the opponent does not intend to rely on evidence in support, the Manual says they should notify IP Australia in writing.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part51/1/1/1\",\n          \"quote\": \"If the opponent does not intend to rely on evidence in support they should notify IP Australia in writing\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For an opposition to registration, if no evidence in support is filed, the Manual gives the applicant three months from the Registrar’s notification of that fact to file any evidence in answer to the statement of grounds and particulars.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part51/1/1/2\",\n          \"quote\": \"If the opponent does not file any evidence in support, the applicant must file any evidence in answer to the statement of grounds and particulars within 3 months from the day the Registrar notifies the applicant that no evidence in support was filed (regs 5.14(5), 17A.34J(5)).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"There is an important exception for opposition to removal or cessation of protection for non-use: the Manual says proceedings are taken to have ended if the opponent neither files evidence in support nor asks to be heard within the time allowed for filing that evidence.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part49/6#1\",\n          \"quote\": \"If no evidence is filed in support of the opposition to removal and the opponent does not ask to be heard within the time allowed for filing evidence in support, the opposition proceedings are taken to have ended (regs 9.17, 17A.48S).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"In that non-use situation, the Manual states that, provided the Registrar is satisfied the non-use application is in order, section 97 applies and the trade mark is removed to the extent specified in the non-use application.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part49/6#1\",\n          \"quote\": \"Provided the Registrar is satisfied the non-use application is in order, section 97 will then apply (subregs 9.17(3), 17A.48S(3)). The trade mark will be removed from the Register to the extent specified in the non-use application.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0040\",\n    \"GC-0117\",\n    \"GC-0041\",\n    \"GC-0158\",\n    \"GC-0116\",\n    \"GC-0153\",\n    \"GC-0128\",\n    \"GC-0104\",\n    \"GC-0135\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "79a16a3f89f18e159d1d830c6a66739046f20dbbd489531643dc1e42175ed921",
+ "response_id": "resp_03ff9a88e00fbec5006ad6b6002a6487d282cbd0ac46aff460",
+ "seconds": 18.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 9335,
+  "input_tokens_details": {
+   "cache_write_tokens": 9332,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1004,
+  "output_tokens_details": {
+   "reasoning_tokens": 96
+  },
+  "total_tokens": 10339
+ }
+}

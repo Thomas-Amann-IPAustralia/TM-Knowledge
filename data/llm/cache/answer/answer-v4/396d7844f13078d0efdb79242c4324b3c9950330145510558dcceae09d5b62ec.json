@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.015706,
+ "created_utc": "2026-10-20T00:30:03Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0033",
+ "job": "answer",
+ "key": "396d7844f13078d0efdb79242c4324b3c9950330145510558dcceae09d5b62ec",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"For filing an application, the Manual identifies regulations 4.1 (approved form), 4.2 (filing requirements) and 4.3 (representation of trade marks).\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part2/1/trade-mark-regulations-1995\",\n          \"quote\": \"Regulation 4.1 Applications - approved form Regulation 4.2 Applications in approved form - requirements for filing Regulation 4.3 Representation of trade marks\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For general document-filing requirements, the Manual identifies regulations 21.1 to 21.5.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part2/1/trade-mark-regulations-1995\",\n          \"quote\": \"Regulation 21.1 Compliance with instruction on approved forms Regulation 21.2 Requirements for filing documents\"\n        },\n        {\n          \"ref\": \"TMM/Part2/1/trade-mark-regulations-1995\",\n          \"quote\": \"Regulation 21.3 Filing of documents - common requirements Regulation 21.4 Consequences for documents not meeting filing requirements Regulation 21.5 Filing of documents - date of receipt to be marked\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Regulation 4.4 sets out how an application must specify the goods and/or services for the purposes of paragraph 27(3)(b) of the Act.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMR1995/r4.4\",\n          \"quote\": \"(1) For the purposes of paragraph 27(3)(b) of the Act, the following subregulations set out the manner of specifying, in an application for the registration of a trade mark, the goods and/or services in respect of which registration is sought.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"For classification associated with the specification, the Manual also identifies regulation 3.1 and Schedule 1.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-relevant-legislation10#1\",\n          \"quote\": \"Reg 3.1 Classification of goods and services\"\n        },\n        {\n          \"ref\": \"TMM/Part14/x-relevant-legislation10#1\",\n          \"quote\": \"Schedule 1 Classification of goods and services\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For priority claims, the Manual identifies regulation 4.5 (period for claiming priority) and regulation 4.6 (how to claim priority).\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part2/1/trade-mark-regulations-1995\",\n          \"quote\": \"Regulation 4.5 Period for claiming priority of an application Regulation 4.6 How to claim priority\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For declarations, the Manual identifies regulation 21.6 (declarations) and regulation 21.7 (additional material).\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part2/1/trade-mark-regulations-1995\",\n          \"quote\": \"Regulation 21.6 Declarations Regulation 21.7 Declarations - additional material\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For notices of non-payment of a fee, the Manual identifies regulation 21.23.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part2/1/trade-mark-regulations-1995\",\n          \"quote\": \"Regulation 21.23 Notice of non-payment of fee\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For a TM Headstart request, the Manual identifies regulation 3A.3 as covering filing requirements.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part2/3/2/3/2/1\",\n          \"quote\": \"The requirements for filing a TM Headstart request are covered in reg 3A.3\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"These are provision references supported by the supplied passages, not an exhaustive account of applicable requirements; apart from regulation 4.4, the text of the identified Regulations is not supplied.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0131\",\n    \"GC-0012\",\n    \"GC-0121\",\n    \"GC-0111\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "c9b38182c6e61fa582559169a06e9a5fb6e4fd62af33c440845c3826f8cbb8f1",
+ "response_id": "resp_0b837f85be6fa49b006ad6b5f95b4087d2bd7114afa3c4376c",
+ "seconds": 18.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7757,
+  "input_tokens_details": {
+   "cache_write_tokens": 7754,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1202,
+  "output_tokens_details": {
+   "reasoning_tokens": 148
+  },
+  "total_tokens": 8959
+ }
+}

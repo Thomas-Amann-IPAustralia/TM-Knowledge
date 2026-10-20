@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.015407,
+ "created_utc": "2026-10-20T00:27:07Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0002",
+ "job": "answer",
+ "key": "c7061fa9d0b5a57f77f1678e3dc53e5e337444016577163793948f3b708ff8ea",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Yes: section 202(c) empowers the Registrar to require production of documents or articles, but the statutory power is expressly exercisable “for the purposes of this Act”.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s202\",\n          \"quote\": \"The Registrar may, for the purposes of this Act: (a) summon witnesses; and (b) receive written or oral evidence on oath or affirmation; and (c) require the production of documents or articles;\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual describes the Registrar’s role as administrative rather than judicial.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part52/4#1\",\n          \"quote\": \"The Registrar performs the function of an administrative tribunal and therefore exercises an administrative, rather than a judicial, role in matters arising from the administration of the Act\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For hearing procedure, the Manual identifies natural justice—including a fair opportunity to comment on and contradict material—as a constraint on the tribunal’s procedural freedom.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part52/4#1\",\n          \"quote\": \"A tribunal (of this kind) is master of its own procedure, provided that the rules of natural justice are applied.\"\n        },\n        {\n          \"ref\": \"TMM/Part52/4#1\",\n          \"quote\": \"It only means that the tribunal must give the other side a fair opportunity of commenting on it and of contradicting it\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual states that the Registrar is not bound by the rules of evidence as courts are; those court rules should therefore not simply be assumed to govern the Registrar’s proceedings.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part52/4#1\",\n          \"quote\": \"Under sub-reg 21.15(4), the Registrar is not bound by the rules of evidence, as are the courts.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The passage about a subpoena served on the Registrar concerns court-issued process for obtaining documents held by the Trade Marks Office, rather than the Registrar requiring you to produce your documents.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part54/1/1/3\",\n          \"quote\": \"A subpoena served on the Registrar of Trade Marks is almost always in relation to the production of documents held in the Trade Marks Office rather than requiring attendance to give evidence.\"\n        },\n        {\n          \"ref\": \"TMM/Part54/1/1/3\",\n          \"quote\": \"Unless the court directs otherwise, the court registrar issues the subpoena under seal to the requesting party for service on the person named.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"These passages do not provide a detailed test for when a production requirement is excessively broad, burdensome or otherwise improper, or explain privilege objections, consequences of non-compliance or how to challenge the requirement; I cannot determine those limits from the supplied material, and this does not mean such protections or procedures do not exist.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0046\",\n    \"GC-0092\",\n    \"GC-0128\",\n    \"GC-0144\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "958b556b346912e3f5081f6a94b80df79eee1937163bb472936fe1264635fc12",
+ "response_id": "resp_03b97932370762d0006ad6b54a633887d2b331d7b5ee399eb2",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8442,
+  "input_tokens_details": {
+   "cache_write_tokens": 8439,
+   "cached_tokens": 0
+  },
+  "output_tokens": 971,
+  "output_tokens_details": {
+   "reasoning_tokens": 182
+  },
+  "total_tokens": 9413
+ }
+}

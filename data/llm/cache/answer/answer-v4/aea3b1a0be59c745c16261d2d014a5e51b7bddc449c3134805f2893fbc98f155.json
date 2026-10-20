@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.015241,
+ "created_utc": "2026-10-20T00:27:07Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0003",
+ "job": "answer",
+ "key": "aea3b1a0be59c745c16261d2d014a5e51b7bddc449c3134805f2893fbc98f155",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The supplied passages do not establish a general rule that restricting the specification can overcome confusion between closely related goods and services under section 44; they do not provide the relevant amendment procedure or establish when a restriction would suffice.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    },\n    {\n      \"text\": \"The Manual requires the confusion assessment to address the full specification and the rights registration would confer, rather than only the applicant’s proposed immediate use.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part26/2#1\",\n          \"quote\": \"The question of deceptive similarity must be considered in respect of goods and services coming within the specification in the application and in respect of which registration is desired, not only in respect of those goods or services on which it is proposed to immediately use the mark. The question is not limited to whether a particular use will give rise to deception or confusion. It must be based upon what the applicant can do if registration is obtained.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Under the Manual, assessing confusion between goods and services is a practical exercise considering the signs, the relationship between the goods and services, the context of use and prospective purchasers.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part26/4/4/3~3\",\n          \"quote\": \"This is a practical exercise that considers the degree of similarity between the signs, the relationship of the goods and services, the context of use, and the character of prospective purchasers.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual does identify a specific section 43 remedy involving a condition limiting use to goods containing the substance indicated by a relevant INN; this is a condition of registration, not a general rule about restricting specifications under section 44.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part29/5/5/4\",\n          \"quote\": \"A section 43 ground for rejection may be overcome by the applicant agreeing to a condition of registration limiting use of the trade mark to goods containing the substance indicated by the relevant INN.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual cautions that this INN endorsement is unlikely to assist with objections raised for other reasons, including under section 44.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part29/5/5/4\",\n          \"quote\": \"However such an endorsement is unlikely to assist in overcoming grounds for rejection which have been raised for other reasons (e.g. under section 41 or section 44 of the Trade Marks Act 1995).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0012\",\n    \"GC-0015\",\n    \"GC-0004\",\n    \"GC-0064\",\n    \"GC-0071\",\n    \"GC-0013\",\n    \"GC-0014\",\n    \"GC-0022\",\n    \"GC-0168\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "907f3b4c96c749c7614113ae6d631f1661ee0c7fa133774222d9ecdf81b7b13c",
+ "response_id": "resp_0e36bf563242ef88006ad6b54a515c87d281e39bc7e21764d2",
+ "seconds": 18.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8885,
+  "input_tokens_details": {
+   "cache_write_tokens": 8882,
+   "cached_tokens": 0
+  },
+  "output_tokens": 827,
+  "output_tokens_details": {
+   "reasoning_tokens": 132
+  },
+  "total_tokens": 9712
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.009132,
+ "created_utc": "2026-10-20T00:28:46Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0013",
+ "job": "answer",
+ "key": "f72710da704fbd94b2df090dfe8c6509904cf281381f5822091093d4d38a8d9a",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The supplied passages do not include the G entries, so they do not establish which INN stems are listed under G.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    },\n    {\n      \"text\": \"The Manual’s alphabetical index includes a G section in its list of common stems.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part29/x-annex-a1---table-of-inn-stems/inn-stems\",\n          \"quote\": \"A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0023\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "2849e37bd0e5300bef9b560b37db9defb416caf3926d8129d8d3161b3f070a12",
+ "response_id": "resp_056dedecfddea1a5006ad6b5b83cb487d2a9ee6f61a2f3da41",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6434,
+  "input_tokens_details": {
+   "cache_write_tokens": 6431,
+   "cached_tokens": 0
+  },
+  "output_tokens": 218,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 6652
+ }
+}

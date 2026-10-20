@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.017582,
+ "created_utc": "2026-10-20T00:30:12Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0032",
+ "job": "answer",
+ "key": "86dd0f26544b55c3523bc99f0d33e457932bda919ce98d16e8a74b1e4130923f",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The Act requires the Registrar to give an applicant an opportunity to be heard before rejecting an application.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s33\",\n          \"quote\": \"(4) The Registrar may not reject an application without giving the applicant an opportunity of being heard.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"Under the Manual’s practice, requesting an ex parte hearing on an examination matter defers acceptance automatically: you do not need to apply separately for an extension of time or deferment.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part16/1/1/1\",\n          \"quote\": \"If an applicant requests an ex parte hearing on an exam matter, the Registrar will defer acceptance of that application. The applicant need not separately apply for an extension of time or deferment.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The hearing-related deferment ends when you withdraw the hearing request or when the Registrar decides to accept or reject the application, whichever happens first.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part17/5/5/2\",\n          \"quote\": \"5.3.1 Where the applicant has made a request to the Registrar to be heard in relation to the application, the Registrar will defer acceptance of the application until the earlier of: (i) the day the applicant withdraws the request to be heard; and (ii) the day the Registrar decides to accept or reject the application.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Deferment preserves the balance of your acceptance period remaining before deferment; it does not give you a fresh full acceptance period.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1\",\n          \"quote\": \"Applicant has requested ex parte hearing When the applicant withdraws the request, or the Registrar decides to accept or reject the application Balance of time remaining prior to deferment\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"If a court appeal has begun or an ART review application has been made, the Manual says acceptance is deferred until three months after determination or other disposal, or until expiry of any further time allowed by the relevant court or ART.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part17/5/5/2\",\n          \"quote\": \"5.2.1 Where an appeal to a court has begun or an application to the ART for review has been made, the Registrar will defer acceptance of the application up until 3 months after the determination or other disposal of the appeal or review or until the expiration of such further time as the court to which the appeal, or any further appeal is brought, or the ART, or the court to which any appeal, arising out of the decision of the ART, is brought, allows.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual says the appeal or review deferment is entered when the Registrar is notified, provided the application is still pending.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part17/5/5/2\",\n          \"quote\": \"On such notification, as long as the application is still pending, the deferment will be entered on the system.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual’s annex also records that the balance of time remaining before deferment is preserved for an application under appeal or review.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1\",\n          \"quote\": \"TM application under appeal or pending review of Registrar's decision in a court or in the ART, or where a rectification action or appeal or appeal period in relation to such an action is pending 3 months after decision or such time as the prescribed court or ART may allow or, where decision is appealable, 2 months after the issue of that decision Balance of time remaining prior to deferment\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied passages do not establish whether an examiner’s report itself is appealable; the appeal guidance concerns decisions of the Registrar, and these passages may not cover every applicable procedural requirement.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0093\",\n    \"GC-0128\",\n    \"GC-0096\",\n    \"GC-0097\",\n    \"GC-0092\",\n    \"GC-0127\",\n    \"GC-0046\",\n    \"GC-0134\",\n    \"GC-0155\",\n    \"GC-0044\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "19d8f16ce2a1854a92eaeeaa0102be1d5b4162f4799342ed3d39af1c699b17a6",
+ "response_id": "resp_0a6deddfba24ad14006ad6b5f9075c87d2aa4733f6037d2159",
+ "seconds": 28.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8782,
+  "input_tokens_details": {
+   "cache_write_tokens": 8779,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1321,
+  "output_tokens_details": {
+   "reasoning_tokens": 221
+  },
+  "total_tokens": 10103
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.015005,
+ "created_utc": "2026-10-20T00:27:18Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0001",
+ "job": "answer",
+ "key": "ba18922c7282ca386b871f0aa86af465eea460b2fcd99dd80b30d2d85626a139",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Start with the Manual’s collective trade marks checklist: section 27 (Application – how made), sections 161–167 in Part 15, and section 41 (Trade mark not distinguishing applicant's goods).\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part33/x-relevant-legislation27#1\",\n          \"quote\": \"The Act Section 27 Application – how made Section 161 Object of Part Section 162 Definition of a collective trade mark Section 163 Application of Act Section 164 Application for registration Section 165 Limitations on rights Section 166 Assignment Section 167 Infringement Section 41 Trade mark not distinguishing applicant's goods\"\n        },\n        {\n          \"ref\": \"TMM/Part60/4/7/4/7/14/1\",\n          \"quote\": \"Trade Marks Act 1995 Part 15 Collective trade marks\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual’s collective trade marks checklist also identifies regulation 17A.49, headed ‘Collective trade marks’, in Division 6.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part33/x-relevant-legislation27#1\",\n          \"quote\": \"Trade Marks Regulations 1995 Division 6 17A.49 Collective trade marks\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For the general examination duty, check section 31: the Registrar must examine and report on compliance with the Act and whether there are grounds under the Act for rejection.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s31\",\n          \"quote\": \"The Registrar must, in accordance with the regulations, examine and report on: (a) whether the application has been made in accordance with this Act; and (b) whether there are grounds under this Act for rejecting it.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"For minimum filing requirements, check regulation 4.2(1), which requires an approved-form application to identify the request for registration, the trade mark, the goods and/or services, the applicant and contact information.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMR1995/r4.2\",\n          \"quote\": \"(1) To be taken to be filed, an application for registration of a trade mark that is in an approved form must: (a) state that the application is for registration of the trade mark, or contain a clear indication to that effect; and (b) include a representation of the trade mark that is sufficient to identify the trade mark; and (c) specify the goods and/or services in relation to which the application is made; and (d) include sufficient information to enable the Registrar to establish the identity of the applicant; and (e) contain sufficient information to enable the Registrar to contact the applicant.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual cautions that the minimum filing check does not cover all formality requirements considered during examination.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part10/x-introduction#1\",\n          \"quote\": \"However, the check for compliance with minimum filing requirements does not cover all formality requirements which are dealt with later as part of the examination process.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For reporting and dealing with uncorrected formal deficiencies, the Manual directs attention to regulation 4.8 and subsection 33(3).\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part10/x-introduction#1\",\n          \"quote\": \"If the Registrar reasonably believes that the application has not been made in accordance with the Act or Regulations, the Registrar must report that belief in writing to the applicant (reg 4.8). If any reported deficiencies are not corrected, the application must be rejected under sub-section 33(3).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For substantive grounds for rejection, the Manual identifies Part 4 Division 2, sections 39–44, in its general examination guidance.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part18/3#1\",\n          \"quote\": \"A point of 'impasse' may be reached in the course of examining an application when the matter impeding acceptance is a ground for rejection under Part 4 Division 2 of the Act (sections 39 through 44).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"This is a source-based starting checklist, not a confirmed exhaustive list: the supplied passages do not reproduce sections 161–167 or regulation 17A.49, so their detailed requirements, modifications and conditions cannot be established here.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0131\",\n    \"GC-0108\",\n    \"GC-0092\",\n    \"GC-0046\",\n    \"GC-0006\",\n    \"GC-0181\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "7efa788735d0bff2995bc76f4773e56b3c36b63bfcafc46a07065bc1415f13f6",
+ "response_id": "resp_02938976203dbebd006ad6b54a4e0c87d28a364c1cfdeb2d8f",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6837,
+  "input_tokens_details": {
+   "cache_write_tokens": 6834,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1292,
+  "output_tokens_details": {
+   "reasoning_tokens": 149
+  },
+  "total_tokens": 8129
+ }
+}

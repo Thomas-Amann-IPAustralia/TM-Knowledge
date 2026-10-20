@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013602,
+ "created_utc": "2026-10-20T00:30:32Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0038",
+ "job": "answer",
+ "key": "ff2f07e63869d47b075f0cc0ab1c8592f92aaa22181a3880e9879390c39fd096",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"I cannot say whether your particular extension request would be granted or refused. The passages explain how inadequate supporting reasons may be treated, but the applicable procedure and your evidence would need to be identified.\",\n  \"claims\": [\n    {\n      \"text\": \"The Manual says the declaration should set out facts supporting the grounds for the extension and, for a late request, explain why the request is late.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part15/5/5/2\",\n          \"quote\": \"The declaration should support the grounds for the application by setting out the facts on which the grounds for requiring the extension are based. If the application is made after the period has expired, the declaration should also set out why the application is late.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Under the Manual’s practice, failure of the declaration’s facts to establish the grounds claimed is a possible reason for refusing an extension, not an automatic outcome.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part49/2/2/3/4\",\n          \"quote\": \"Reasons for refusing extension requests may include the finding that the facts contained in the supporting declaration do not establish the grounds set out in the application.\"\n        },\n        {\n          \"ref\": \"TMM/Part47/1/1/3/4\",\n          \"quote\": \"Reasons for refusing extension requests may include the following: the facts contained in the declaration do not support, or make out, the grounds set out in the application.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For the late requests discussed in these Manual passages, the reasons given may fail to satisfy the Registrar that the request could not have been made before the period ended.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part49/2/2/3/4\",\n          \"quote\": \"In the event of a late extension being applied for, the reasons provided in terms of regs 9.12(2) or 17A.48M(2) may not satisfy the Registrar that the application could not have been made before the end of the period.\"\n        },\n        {\n          \"ref\": \"TMM/Part47/1/1/3/4\",\n          \"quote\": \"In the event of a late extension being applied for, the reasons provided in terms of regs 5.10(2) or 17A.34D(2) may not satisfy the Registrar that the application could not have been made before the end of the period.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied legislation—regulations 9.12(2) and 17A.48M(2)—expressly requires the Registrar to be satisfied that there is sufficient reason for the delay in making a late request; without that satisfaction, the Registrar must not grant the extension.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMR1995/r9.12(2)\",\n          \"quote\": \"(2) However, if the request is made after the period for filing the notice or statement of grounds and particulars has ended, the Registrar must not grant the extension unless the Registrar is satisfied that there is sufficient reason for the delay in making the request.\"\n        },\n        {\n          \"ref\": \"TMR1995/r17A.48M(2)\",\n          \"quote\": \"(2) However, if the request is made after the period for filing the notice or statement of grounds and particulars has ended, the Registrar must not grant the extension unless the Registrar is satisfied that there is sufficient reason for the delay in making the request.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"I am unsure which extension procedure applies to your request, so these passages do not establish the complete requirements applicable to it.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": true,\n  \"concepts_used\": [\n    \"GC-0097\",\n    \"GC-0046\",\n    \"GC-0180\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "6bc7ae556324d5a3527b5ce5e91b407431d1a90d7f19fbfdba7ff54eb7c3c3c3",
+ "response_id": "resp_0b52f50474b653bf006ad6b60bcdc887d2a84dfb47d967555b",
+ "seconds": 28.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6670,
+  "input_tokens_details": {
+   "cache_write_tokens": 6667,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1053,
+  "output_tokens_details": {
+   "reasoning_tokens": 158
+  },
+  "total_tokens": 7723
+ }
+}

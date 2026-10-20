@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014248,
+ "created_utc": "2026-10-20T00:30:24Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0039",
+ "job": "answer",
+ "key": "2b12fab6589c7d2ecb046a305796f7496b38b9323985be421097448b89cbee59",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Generally, yes: under the Manual’s practice for prescribed signs, the Registrar considers whether use of the mark would be likely to confuse the relevant public, rather than treating the sign’s presence alone as sufficient.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part31/3#1~1\",\n          \"quote\": \"In practice, a ground for rejection will be raised if the Registrar is satisfied that use of a trade mark containing or consisting of a prescribed sign would give rise to a likelihood of confusion.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"That assessment generally concerns confusion about a legislative status of the goods or services, or a connection between the applicant and the person, body or organisation associated with the sign.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part31/3#1~1\",\n          \"quote\": \"As such, and taking into account the presumption of registrability, a ground for rejection will generally only be appropriate under subsection 39(2) if a trade mark contains or consists of one or more of the signs prescribed and the presence of that sign would be likely to confuse the relevant public as to whether: the goods and services bearing the trade mark have a particular status given by legislation, or there is a connection between the applicant and the person, body, or organisation with whom the sign is associated.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"However, this is not an absolute requirement expressed in the supplied legislative wording: subsection 39(2) permits rejection for containing a prescribed sign, and the Manual preserves discretion to consider rejection in other appropriate circumstances.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s39(2)\",\n          \"quote\": \"(2) An application for the registration of a trade mark may be rejected if the trade mark contains or consists of:\"\n        },\n        {\n          \"ref\": \"TMA1995/s39(2)(a)\",\n          \"quote\": \"(a) a sign that is prescribed for the purposes of this subsection; or\"\n        },\n        {\n          \"ref\": \"TMM/Part31/3#1~1\",\n          \"quote\": \"However, the Registrar can also consider raising grounds for rejection in other circumstances where it may be appropriate to do so.\"\n        }\n      ],\n      \"authority\": \"both\"\n    },\n    {\n      \"text\": \"Separately, section 43 requires rejection where a connotation of the mark or a sign within it makes use for the specified goods or services likely to deceive or cause confusion; its test is likelihood, not whether deception or confusion has already occurred.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s43\",\n          \"quote\": \"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0072\",\n    \"GC-0055\",\n    \"GC-0182\",\n    \"GC-0002\",\n    \"GC-0007\",\n    \"GC-0001\",\n    \"GC-0168\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "392e25bff1d240186e01836b226a96c06993f642519cdefd56391b25a4f55eee",
+ "response_id": "resp_0b2d20d0418ea952006ad6b60e3ac487d28bcd21184bd55a3c",
+ "seconds": 18.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7735,
+  "input_tokens_details": {
+   "cache_write_tokens": 7732,
+   "cached_tokens": 0
+  },
+  "output_tokens": 916,
+  "output_tokens_details": {
+   "reasoning_tokens": 158
+  },
+  "total_tokens": 8651
+ }
+}

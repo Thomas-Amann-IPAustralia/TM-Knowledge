@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014217,
+ "created_utc": "2026-10-20T00:30:38Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0043",
+ "job": "answer",
+ "key": "9081e83e82d27ad84bb2124885e8f5c4ff4db4928aad31915a5e91bb4f6e3b3d",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Check that the existing trade mark is registered in the applicant’s name: the Manual requires this at the filing date of the defensive application, and section 185(1) provides for an application by the registered owner.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part34/2#1\",\n          \"quote\": \"the trade mark must, at the time the application for a defensive registration is filed, already be registered in the name of the applicant\"\n        },\n        {\n          \"ref\": \"TMA1995/s185(1)\",\n          \"quote\": \"the trade mark may, on the application of the registered owner, be registered as a defensive trade mark in respect of any or all of those other goods or services.\"\n        }\n      ],\n      \"authority\": \"both\"\n    },\n    {\n      \"text\": \"If by the company’s ‘legal status’ you mean its incorporation, continued existence or legal capacity, the supplied passages do not establish what separate checks are required; this is not a conclusion that no such requirement exists.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    },\n    {\n      \"text\": \"The existing registration alone is not the substantive test: section 185(1) requires that, because of the extent of use on registered goods or services, use on the other goods or services is likely to indicate a connection with the registered owner.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s185(1)\",\n          \"quote\": \"If, because of the extent to which a registered trade mark has been used in relation to all or any of the goods or services in respect of which it is registered, it is likely that its use in relation to other goods or services will be taken to indicate that there is a connection between those other goods or services and the registered owner of the trade mark\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual also says that the underlying registration number should be entered on the application form and supporting evidence must be filed at filing or as soon as practicable afterwards.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part34/2#1\",\n          \"quote\": \"the registration number of the registered trade mark upon which the defensive application is based should be entered on the application form and, evidence in support of the application must be filed. In accordance with regulation 17.1, this evidence must be filed at the time of filing the application, or as soon as practicable after filing.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0109\",\n    \"GC-0088\",\n    \"GC-0084\",\n    \"GC-0116\",\n    \"GC-0081\",\n    \"GC-0041\",\n    \"GC-0091\",\n    \"GC-0160\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "3386d8c05e157dd85fe5506379a6b7cf3875ef71f8a34c1fc0efeb208873102b",
+ "response_id": "resp_0f2d19ce6720c34a006ad6b61c7fac87d29a4a8cdd07679ffc",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8206,
+  "input_tokens_details": {
+   "cache_write_tokens": 8203,
+   "cached_tokens": 0
+  },
+  "output_tokens": 792,
+  "output_tokens_details": {
+   "reasoning_tokens": 146
+  },
+  "total_tokens": 8998
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.015849,
+ "created_utc": "2026-10-20T00:28:39Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0006",
+ "job": "answer",
+ "key": "f8836cfe6b70ffa518b658527d7a2de6206be8a14f7e9a00275cc9da2f6073fd",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"To request more time to file a notice of intention to oppose or a statement of grounds and particulars, the Manual says to lodge an extension application with the Trade Marks Office in an approved form, accompanied by the relevant fee.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part49/2/2/3/2\",\n          \"quote\": \"The application for an extension of time to file a notice of intention to oppose or a statement of grounds and particulars must be filed with the Trade Marks Office in an approved form and accompanied by the relevant fee (see item 6 in Schedule 9 of the Trade Marks Regulations 1995).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual says the application will not be processed until the fee is paid.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part49/2/2/3/2\",\n          \"quote\": \"The application will not be processed until the fee is paid.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Include a declaration complying with regulation 21.6 that sets out the reasons supporting the grounds for your extension request.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part49/2/2/3/2\",\n          \"quote\": \"The application must be accompanied by a declaration in terms of reg 21.6, setting out the reasons in support of the grounds on which the application is made.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Because the deadline has passed, the Manual says your declaration should also explain why the extension application was not made within the original period.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part49/2/2/3/2\",\n          \"quote\": \"If the initial period has expired, the declaration should also include the reason why the application was not made within the period (regs 9.11, 17A.48L).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"IP Australia’s website has a form you can use as a guide; the Manual says using that particular form is not compulsory, although the application must still be in an approved form.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part49/2/2/3/2\",\n          \"quote\": \"A form is available on IP Australia’s website. A potential opponent is not required to use this form, however it may be useful as a guide.\"\n        },\n        {\n          \"ref\": \"TMM/Part49/2/2/3/2\",\n          \"quote\": \"The application for an extension of time to file a notice of intention to oppose or a statement of grounds and particulars must be filed with the Trade Marks Office in an approved form\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied passages do not give the fee amount or reproduce the opposition-specific extension grounds and timing rules referred to in regulations 9.11 and 17A.48L, so I cannot confirm those details from this material; this is not necessarily a complete filing checklist.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0097\",\n    \"GC-0040\",\n    \"GC-0153\",\n    \"GC-0156\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "e97b6708b2d7eda2b715e1ff64bb203d8e3bdd4e280234f821525916e93e6806",
+ "response_id": "resp_0c39b2a92a0820d7006ad6b5a5f88887d28b5323711749e169",
+ "seconds": 18.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8564,
+  "input_tokens_details": {
+   "cache_write_tokens": 8561,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1029,
+  "output_tokens_details": {
+   "reasoning_tokens": 251
+  },
+  "total_tokens": 9593
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014803,
+ "created_utc": "2026-10-20T00:29:18Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0020",
+ "job": "answer",
+ "key": "63ea31ff3f8d823bd675639cdfa4ffeaeb5fd7d87fba04f770a0162fc0b5670f",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Deleting particular goods narrows the claim, but the remaining specification still needs to be assessed for conflict: broad wording may continue to cover goods similar or closely related to those of the conflicting trade mark.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part27/3/3/2~1\",\n          \"quote\": \"For instance, in the example above, while the specific goods covered by the earlier registration are excluded, the specification is still broad and likely to contain other software similar to the accounting software of the earlier registration (e.g. apps for filing tax returns).\"\n        },\n        {\n          \"ref\": \"TMM/Part27/3/3/2~1\",\n          \"quote\": \"If an applicant offers to exclude goods and/or services, examiners need to carefully assess whether the proposed amendment excludes goods and/or services which are similar or closely related to the goods and/or services claimed by the conflicting trade mark.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual says that specifying the particular goods of interest may be more appropriate than retaining a broad claim with an exclusion.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part27/3/3/2~1\",\n          \"quote\": \"In such cases, specifying the particular software of interest to the applicant (e.g. computer game software) is a more appropriate means of removing the conflict with the earlier registration.\"\n        },\n        {\n          \"ref\": \"TMM/Part27/3/3/3\",\n          \"quote\": \"An applicant may overcome grounds for rejection by limiting their specification to particular goods of interest.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"If an exclusion is used, the Manual says it should be specific and will usually need to extend beyond the exact goods or services covered by the conflicting trade mark to address similar and closely related goods or services.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part27/3/3/2~1\",\n          \"quote\": \"An exclusion to a specification of goods and/or services should be written in specific terms and treated with extreme caution.\"\n        },\n        {\n          \"ref\": \"TMM/Part27/3/3/2~1\",\n          \"quote\": \"The exclusion required will usually be broader than the goods or services covered by the conflicting trade mark as it is necessary to remove any conflict which may result from the coexistence of similar and closely related goods and/or services.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Any accompanying rewording of the remaining specification must not extend the goods or services claimed, according to the Manual's account of section 65.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/6/6/3/2\",\n          \"quote\": \"Any amendment to the specification must not have the effect of extending the goods or services claimed as this is not allowed under section 65.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0012\",\n    \"GC-0015\",\n    \"GC-0064\",\n    \"GC-0070\",\n    \"GC-0071\",\n    \"GC-0124\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "1ab4bc2d896e428b12329163beee22b77a3e9a5ea3ddd4b96de256b213fb6992",
+ "response_id": "resp_0aad571a9c8cb9b7006ad6b5ccf37c87d28ed772b3897c6b3d",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8123,
+  "input_tokens_details": {
+   "cache_write_tokens": 8120,
+   "cached_tokens": 0
+  },
+  "output_tokens": 930,
+  "output_tokens_details": {
+   "reasoning_tokens": 189
+  },
+  "total_tokens": 9053
+ }
+}
