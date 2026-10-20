@@ -3,7 +3,7 @@
   "package": "d3",
   "version": "7.9.0",
   "licence": "ISC",
-  "use": "global d3 \u2014 home circle-packing, change treemap, tour transitions",
+  "use": "global d3 \u2014 the knowledge map's layout and zoom, How it works",
   "sha256": "f2094bbf6141b359722c4fe454eb6c4b0f0e42cc10cc7af921fc158fceb86539",
   "bytes": 279706
  },
@@ -11,23 +11,15 @@
   "package": "@observablehq/plot",
   "version": "0.6.17",
   "licence": "ISC",
-  "use": "global Plot \u2014 charts; needs d3 first",
+  "use": "global Plot \u2014 the stability chart in Trace a change; needs d3 first",
   "sha256": "4358086467740777dd788d6b27a95cebdbaefdd50c730a3060117073bd7134cb",
   "bytes": 209183
- },
- "cytoscape.min.js": {
-  "package": "cytoscape",
-  "version": "3.34.3",
-  "licence": "MIT",
-  "use": "global cytoscape \u2014 the map",
-  "sha256": "5f3b5b529546d5af1fc5628590af033b74511a5b6f789f5f4682845863228b91",
-  "bytes": 435503
  },
  "fuse.min.mjs": {
   "package": "fuse.js",
   "version": "7.5.0",
   "licence": "Apache-2.0",
-  "use": "ES module \u2014 fuzzy idea search",
+  "use": "ES module \u2014 finding an idea on the knowledge map",
   "sha256": "5ab524d12492bb233568e9600046e1aaa9623d36ebe689589144f7dc9b1da6f7",
   "bytes": 26095
  },
