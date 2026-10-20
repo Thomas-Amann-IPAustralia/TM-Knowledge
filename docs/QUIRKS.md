@@ -1758,3 +1758,23 @@ does not reorder joins: put the selective pattern first, avoid a variable graph 
 new rule against the committed dataset before adding it (a rule runs on every `tmk-graph --rules`
 and in CI). A rule with an unbound predicate (`?dependant ?via ?passage`) is affordable only once
 the subject is bound.
+
+### Q-104: a stylesheet utility class collides with a view's own class of the same word
+
+The S046 redesign gave `explorer.css` a layout utility, `.row { display: flex }`, and the tables
+view (`table.js`) already marked every table row `<tr class="row">`. Each row became a flex box:
+cells lost their columns and every table looked broken, with no error anywhere. Q-101's prefixes
+protect view classes from each other, not from a shared utility with a common name. The tables
+are fixed by `.tbl tr.row { display: table-row }`; when adding a utility class, grep `site/js/` for
+the word first (`class="row`, `"row${`), and when a view needs a class, prefix it.
+
+### Q-105: Playwright from an ES module ignores `NODE_PATH`, and the knowledge map measures before fonts load
+
+Checking the site with Playwright (Q-102) needs the globally installed package, found through
+`NODE_PATH=$(npm root -g)`. Node's ES-module loader ignores `NODE_PATH`, so a `.mjs` script fails
+with "Cannot find package 'playwright'"; write the script as CommonJS (`.cjs`, `require`). Two
+reading notes for the screenshots: a full-page capture draws the sticky header once at the top and
+the skip link off screen, both as intended. And the map places its names by their width, measured
+once on a canvas: measured before the web font loads, every width is the fallback font's and names
+overlap a little. `map.js` waits for `document.fonts.ready` first; keep that wait if the measuring
+moves.

@@ -1,10 +1,10 @@
-# Rules in force — what 134 decisions add up to
+# Rules in force — what 135 decisions add up to
 
 Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-10-20, ADR-0147 (S045).
+**As at:** 2026-10-20, ADR-0148 (S046).
 
 ## Purpose and scope
 
@@ -52,9 +52,12 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   it has the model read a typed question for ideas named in other words, each checked and
   marked "read by the model"; the owner approved it and its cost per question (ADR-0133).
 - **The site leads with outcomes and discloses the ontology last** (ADR-0145): what it does,
-  what it could do, rules as code, the ontology; every standard explained in plain words. The
-  customer explanation preview is on it, on invented matters, loudly labelled (ADR-0146);
-  showing it to customers, testing with them or using real case data stays the owner's.
+  what it could do, how it works, then under the hood; every standard explained in plain words.
+  Redesigned on the owner's word (ADR-0148): visual, interactive where it helps, details behind a
+  disclosure, desktop and laptop only, light theme; the map is a picture to explore. A redesign
+  never changes the ontology or what the system may say. The customer explanation preview is on
+  it, on invented matters, loudly labelled (ADR-0146); showing it to customers, testing with them
+  or using real case data stays the owner's.
 - **On the site, an expert's review is marked, never featured.** Machine-written
   records keep "Machine · unreviewed" everywhere; reviewed ones say "Reviewed", grey,
   with no name; pictures draw every record alike. The Manual, the Act and the

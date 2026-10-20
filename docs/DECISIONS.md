@@ -6556,3 +6556,63 @@ an assumption each scenario names, never a reading.
    conclusions (21,733 triples, about half a minute of the build). SHACL 0 defects.
 2. `tests/unit/test_versions.py`, `test_scenarios.py`, and RULE-0003's three in `test_rules.py`.
 3. Provisional; name it in the handoff's open items.
+
+## ADR-0148 — the explorer redesigned around the outcome: a visual system, a story of how it works, and a map to explore
+
+**Date** 2026-10-20 · **Authority** human (the direction), agent-proposed (the design) ·
+**Status** accepted
+
+**Context.** S044 finished ADR-0145's rework: outcomes first, four layers, the ontology last. The
+pages still spoke in the earlier views' language: long text, a Cytoscape map of boxes that opened
+into passages, a tour, a circle packing, a hub page for the model. The owner (CHAT-0097,
+`review/returned/261020-owner-chat-site-redesign.md`): *"I'd like you to completely re-design the
+front end of this repo. The primary purpose of the front end is to communicate the value of the
+underlying ontology. It ought to communicate the outcome first, the ontology isn't the focus its a
+means to an end"*; *"we still should communicate how it works (and explain it in an easy to
+understand way)"*; visually wherever possible; interactive where that helps, *"The knowledge graph,
+for instance, is a thing that's useful to interact with"*; progressive disclosure; no clutter; a
+ChatGPT mock-up (`docs/tm-knowledge-redesign.html`) whose vibe they liked, *"happy for you to make
+it your own"*; any library; desktop and laptop only; and *"This work must not impact or change the
+shape of the underlying ontology."*
+
+**Decision (the owner's).** As quoted: `site/` redesigned end to end on those terms.
+
+**Decision (the agent's, inside it).**
+1. **Order.** The header names the outcome pages first (Overview, Research, Explain, Trace a
+   change, What's next), then How it works and the Knowledge map. ADR-0145's four layers stand;
+   layer 3 is now "How it works" (the story, the map, rules as code) and layer 4 "Under the hood"
+   (the standards, the glossary, the tables). `#/tour` and `#/model` open How it works, `#/circles`
+   the map's Kinds view, so no old link breaks.
+2. **One visual system.** The mock-up's paper, deep green and lime, with Source Serif 4 and Inter.
+   Ideas are coloured by their family (three hues) and passages by their source, each source with
+   its mark (ADR-0130's square, diamond and hexagon), so the two never compete for one channel: no
+   six hues pass every colour-blind pair check together, and each set passes on its own and against
+   the other. **Light theme only:** no dark palette passed the same checks, and the readers are at
+   office desktops; the page does not follow the system's dark setting.
+3. **Outcome first, then the working.** The Overview opens on one real question answered with and
+   without the map of meaning, labelled as chosen because it shows the connections at work most
+   clearly, with the measurement in both directions on the same page. How it works is a nine-step
+   scrolling story over one picture, from the text to the answer and who wrote what. The detail on
+   every page sits behind a disclosure or a "Why?".
+4. **The map is a picture to explore, not a ladder of boxes.** Every idea and connection in D3,
+   placed once by a seeded force layout run to rest and shaped to its frame (`netlayout.js`, shared
+   with How it works, measured offline as Q-62 asks); hover shows a neighbourhood; focusing an idea
+   labels its connections with what they say and gathers the passages and provisions it rests on
+   round it in their sources' marks; names are placed so none overlaps; a Kinds view rolls the
+   connections up. The old map's passage level is replaced by those marks and the idea's card.
+5. **Retired:** `tour.js`, `circles.js`, `model.js`, `minimap.js`, `kinds.js`, and the Cytoscape
+   library with its licence and manifest entry. Ask keeps its hop diagram without the mini map;
+   Trace a change draws its ripple in SVG.
+
+**What it does not decide.** Nothing in the ontology, its records, the graph or the data
+`tmk-explorer` writes changes, and neither does the answering model's prompt or an explanation
+object, so nothing changes what the system may say to an examiner or a customer (CLAUDE.md §3a).
+Every phrase the tests pin stays. Publishing: the site goes live when the branch is merged to
+`main` (ADR-0112), and merging is the owner's. Showing the customer preview to customers stays the
+owner's (ADR-0146). The mock-up stays in `docs/` as the owner's reference and is not served.
+
+**Consequences.**
+1. `site/explorer.css` and every view rewritten; `site/README.md` describes the design system and
+   the views; the class prefixes (Q-101) now cover every view.
+2. The vendored libraries are D3, Observable Plot, marked, DOMPurify, Fuse.js and two fonts.
+3. The agent parts are provisional; named in the handoff's open items.
