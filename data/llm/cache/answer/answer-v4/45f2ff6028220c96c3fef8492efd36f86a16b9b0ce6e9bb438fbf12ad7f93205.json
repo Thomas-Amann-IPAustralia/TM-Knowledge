@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013923,
+ "created_utc": "2026-10-20T00:29:00Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0016",
+ "job": "answer",
+ "key": "45f2ff6028220c96c3fef8492efd36f86a16b9b0ce6e9bb438fbf12ad7f93205",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"According to the Manual, participation in an available ART review is not confined to the original parties: any person whose interests are affected by the decision can request to be made a party.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part52/5/5/2\",\n          \"quote\": \"Where a right to review by the ART exists, it is not confined to the parties who were involved in the matter leading to the decision concerned any person whose interests are affected by the decision can request to be made a party.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual describes ART review as a full re-decision of the matter on its merits.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part52/5/5/2\",\n          \"quote\": \"A review by the ART leads to a full re-decision of the matter on its merits.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"In that review, the Manual says the ART stands in the original decision maker’s shoes and can exercise all powers available to that decision maker.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part52/5/5/2\",\n          \"quote\": \"The tribunal stands in the shoes of the original decision maker and can exercise all of the powers open to that person.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual says additional evidence can be admitted in the ART review.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part52/5/5/2\",\n          \"quote\": \"Additional evidence can be admitted.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied passages do not establish whether requesting review automatically suspends the original refusal, or specify the formal orders by which the ART disposes of that decision; those details remain uncertain on these sources.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0107\",\n    \"GC-0134\",\n    \"GC-0045\",\n    \"GC-0041\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "3c53be45a733fc566fa730819e84e1cfe9039ef8d60477b62a3027b5b2a666bc",
+ "response_id": "resp_0d91f936a0ddfd73006ad6b5c1fd9487d2a6e9e67087f7657a",
+ "seconds": 10.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8799,
+  "input_tokens_details": {
+   "cache_write_tokens": 8796,
+   "cached_tokens": 0
+  },
+  "output_tokens": 585,
+  "output_tokens_details": {
+   "reasoning_tokens": 72
+  },
+  "total_tokens": 9384
+ }
+}

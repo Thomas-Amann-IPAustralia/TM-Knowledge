@@ -1,0 +1,47 @@
+# Decisions the repo owner made in a chat session. Hand-transcribed by the S042 agent; no issue
+# behind it. The artefact is `review/returned/261020-owner-chat-approvals.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-20T00:00:00Z'
+questions_updated: '2026-10-20'
+source:
+  kind: chat
+  artefact: review/returned/261020-owner-chat-approvals.md
+  author: Thomas-Amann-IPAustralia
+  relayed_by: S042 agent
+  title: GK-0003 anchored, gpt-6.1-sol at medium for the answer job, the paid run executed
+applied:
+  session: S042
+  date: '2026-10-20'
+  branch: ccr-c4fac9a6-uq5d6d
+  what_changed: >-
+    GK-0003 quotes s 27(3)(b), every item re-located, with a review_history entry; the bases ledger's
+    intro and report corrected. The answer job ran on gpt-6.1-sol at medium: vectors rebuilt, a
+    three-question smoke run read by hand, then all 129 benchmark questions with answer-v4, US$1.98
+    of the US$4 in all. The prepared answers are now answer-v4 against compilation 48, shown claim
+    by claim. ADR-0143.
+answers:
+- id: CHAT-0090
+  item: GK-0003's s 27(3)(b)
+  question: Add the s 27(3)(b) quote to GK-0003 and correct the ledger, its report and the handoff?
+  kind: choice
+  value: approved
+  label: Approved
+  quote: I approve all of the above. Please execute all aforementioned tasks.
+  recorded_as: [ADR-0143]
+- id: CHAT-0091
+  item: the answer job's model
+  question: Which model writes the answers in the US$4 run?
+  kind: choice
+  value: gpt-6.1-sol_medium
+  label: gpt-6.1-sol at medium effort, as the prepared answers were written
+  quote: I approve all of the above.
+  recorded_as: [ADR-0143]
+- id: CHAT-0092
+  item: the paid run
+  question: Run answer-v4 against the real model and re-write the 129 prepared answers within the US$4?
+  kind: instruction
+  value: execute
+  label: Execute it
+  quote: Please execute all aforementioned tasks.
+  notes: The amount is ADR-0141's US$4. The remainder of Package 4 is left for a new session.
+  recorded_as: [ADR-0143]

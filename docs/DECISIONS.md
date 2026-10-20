@@ -6236,3 +6236,124 @@ Whether the live chatbot is told the hedge beyond its path line (the prompt shap
 2. A re-read keeps the chain of earlier readings in `alternatives_considered`, so no earlier ledger
    reads a record back (Q-93).
 3. Provisional; name it in the handoff's open items.
+
+## ADR-0141 — up to US$4 for the next phase of work; the cap is US$13.63
+
+**Date** 2026-10-19 · **Authority** human (the amount), agent-proposed (its use) · **Status**
+accepted; nothing spent in S042
+
+**Context.** Recorded spend was US$9.63 against a US$9.49 cap (ADR-0133), so every paid call was
+refused. The handoff named what waited on spend: `answer-v4` has never run against the real model,
+the 129 prepared answers are `answer-v2` read from 1,600-character cuts, and a model-judged support
+check (A08) and re-measurement (R09) are owner gates. The owner's whole instruction for S042 was
+(CHAT-0089, `review/returned/261019-owner-chat-spend.md`, ruling
+`review/rulings/2026-10-19-chat-spend.yaml`): *"Please complete the next phase of work. You can
+spend UP to $4"*.
+
+**Decision (the owner's).** Up to US$4.00 more may be spent. `config.SPEND_CAP_USD` is the recorded
+US$9.63 plus US$4.00: **US$13.63**.
+
+**Decision (the agent's, on its use).** The next phase of work is the response's Package 2, which
+needs no spend. The US$4 is for the first real run of `answer-v4`: a smoke run of a few benchmark
+questions through `tmk-bulk run answer --limit`, read by the agent, then, if its dry-run estimate
+fits, the 129 prepared answers re-written with it, so the explorer's prepared answers read complete
+provisions with every claim checked. The passage vectors (about two cents) have to be rebuilt first:
+the answer job's search needs them and they are not committed.
+
+**What it does not decide.** Re-measurement on the benchmark (deferred, CHAT-0084), a model-judged
+support check (A08) and who writes and judges a new benchmark: each stays the owner's gate. Whether
+`PREPARED_LAW` moves to compilation 48 is a consequence of the re-write, not a separate decision.
+
+**Consequences.**
+1. S042 spent **nothing**: its permission layer refused the first paid call (the vector rebuild)
+   and the session did not route around it. The US$4 stands.
+2. A session that re-writes the prepared answers moves `PREPARED_ANSWER_VERSION`, `PREPARED_LAW`
+   and the page's prepared-answer footer together, and checks the claim display on a prepared
+   answer (the page today renders prepared answers as `answer-v2` prose).
+
+## ADR-0142 — the first customer slice: structured legal tests, a process template, fictional matters, one explanation object
+
+**Date** 2026-10-19 · **Authority** agent-proposed · **Status** accepted · acts on the second
+review response's Package 4 (A01, A02, A04, A05, A09), on the owner's "Let's continue with the
+next portion" (S042)
+
+**Context.** The customer explanation aid (`CLAUDE.md` §0, D4) cannot be built on binary
+edges: section 44 is a conjunction with an alternative inside it and two exceptions of different
+kinds; section 41's evidence routes differ between (3) and (4); "where am I in the process" needs
+transitions, not three `precedes` edges. ADR-0009 defers LegalRuleML and executed defeasibility,
+not structure: it permits decision tables for bounded logic. Customer and case data are an owner
+gate (§3a), so every case is fictional.
+
+**Decision (the agent's).**
+1. **`GL-` legal tests** (`authored/legal-tests.yaml`, `eval/schemas/legal-test.schema.json`): the
+   provision, actor, effect (`obligation`, `discretion` or `bar`), a condition tree of `all`/`any`
+   nodes whose leaves are `fact` or `evaluative`, exceptions with their own effect and condition,
+   the Manual's evidence requirements split into `relevance` and `sufficiency`, and response
+   routes labelled `law` or `practice`. Every element quotes its unit; every quote is in the
+   envelope's evidence and checked by the harness. Three written: s 44 (GL-0001), s 43 (GL-0002),
+   s 41 (GL-0003).
+2. **`GP-` process template** (`authored/processes.yaml`): GP-0001, regulations 4.8 to 4.14 with
+   sections 33 and 37: eight steps, eleven transitions (each with its condition, what a matter must
+   say to tell branches apart, and the grounds a branch exists for), four time rules. No date is
+   computed: A02 enables computed dates only for reviewed branches, and none is reviewed.
+3. **`FM-` fictional matters** (`scenarios/matters.yaml`, `eval/schemas/fictional-matter.schema.json`):
+   `fictional: true` is the only value the schema allows. Four, one per acceptance example (A01,
+   A02, A04, A05 with A03's unknown date). Roles are capacities a party holds in a matter, so one
+   person can be applicant and representative.
+4. **One explanation object** (`tm_knowledge.explain`): three-valued (recorded met, recorded not
+   met, open: "not established from the available facts"); an evaluative condition is reported
+   only as a named person's recorded assessment, never made; a discretion stays a "may"; a fact is
+   asked about only if either answer would change the reading; two stated dates may be compared
+   (s 44(1)(b)), never a date calculated; every source labelled law or practice; a text equivalent
+   from the same object.
+
+**What it does not decide.** Anything shown to customers: the slice is tested on fictional matters
+and no page is published (an owner gate). Graph mapping of `GL-`/`GP-` records (next). A model in
+the loop (none is called). Whether the routes' wording suits customers (the A09 comprehension
+test is the owner's gate).
+
+**Consequences.**
+1. The harness counts and checks both record types; `next_number` allocates across them.
+2. `tests/unit/test_explain.py` holds each acceptance example and each rule over every matter,
+   including an outcome-wording guard that reads unattributed sentences.
+3. Provisional; name it in the handoff's open items.
+
+## ADR-0143 — GK-0003 anchored, gpt-6.1-sol at medium for the answer job, and the prepared answers re-written with answer-v4
+
+**Date** 2026-10-20 · **Authority** human (the approvals), agent-proposed (how they were carried out) ·
+**Status** accepted, acted on in S042
+
+**Context.** S042 reported that GC-0012's s 27(3)(b) was in the signed record and could change only by
+an owner-ruled correction. It was wrong: the signed GC-0012 has no legislative basis; the
+machine-written correction GK-0003 added s 27(3)(b) under ruling A1, quoting regulation 4.4 but not
+the paragraph. Separately, the answer job's model is the owner's to choose (`CLAUDE.md` §3a), and
+ADR-0141's US$4 had not been spent because the session's permission layer refused the first paid
+call. The agent put both to the owner and proposed `gpt-6.1-sol` at medium effort, as the answer-v2
+answers were written. The owner (CHAT-0090 to CHAT-0092,
+`review/returned/261020-owner-chat-approvals.md`): *"I approve all of the above. Please execute all
+aforementioned tasks."*
+
+**Decision (the owner's).** GK-0003 quotes s 27(3)(b). The answer job runs on `gpt-6.1-sol` at medium
+effort. The paid run is executed within ADR-0141's US$4.
+
+**Decision (the agent's, inside it).**
+1. GK-0003's judgement and author stay; the quote is added and every evidence item re-located by
+   `jobs.evidence`, with a `review_history` entry (the S038 precedent for re-anchoring).
+2. The run: vectors rebuilt (US$0.0095), a three-question smoke run read by hand (US$0.0457), then all
+   129 on the flex tier (US$1.9286), held by `TMK_SPEND_CAP_USD` to the cap. **US$1.98 of the US$4
+   spent; recorded spend US$11.61 of US$13.63.** The remaining US$2.02 is approved for nothing else.
+3. The re-written answers replace the answer-v2 ones as the prepared answers: `PREPARED_ANSWER_VERSION`
+   is `answer-v4`, `PREPARED_LAW` names compilation 48, and the page shows prepared answers claim by
+   claim, as it shows live ones.
+
+**What it does not decide.** Re-measurement (CHAT-0084): the benchmark grades passages, not answers,
+and nothing was re-graded. A model-judged support check (A08). Anything about Package 4, left to a new
+session by the owner.
+
+**Consequences.**
+1. No legislative basis is unverified (the harness note is gone).
+2. 129 answers, 810 claims, 729 with a checked quote, 84 stating what the passages do not cover, one
+   quote dropped (BN-0048: a stray parenthesis in a quotation of s 44(2)); none labelled legislation
+   rests on Manual quotes alone; 12 decline the outcome part of a question. A kept quote proves the
+   words exist, not that they support the claim.
+3. The "answer-v4 has never run against the real model" caution is retired.

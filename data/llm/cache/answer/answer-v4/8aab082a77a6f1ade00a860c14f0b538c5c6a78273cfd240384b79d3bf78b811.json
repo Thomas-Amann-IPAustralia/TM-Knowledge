@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01597,
+ "created_utc": "2026-10-20T00:36:26Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0011",
+ "job": "answer",
+ "key": "8aab082a77a6f1ade00a860c14f0b538c5c6a78273cfd240384b79d3bf78b811",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Not merely because two marks are similar. Section 43 requires likely deception or confusion because of a connotation of the mark, or a sign contained in it, when used for the specified goods or services.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s43\",\n          \"quote\": \"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"Confusion arising from similarity between two marks is instead a section 44 issue to consider: the Manual identifies section 44 considerations as involving deceptive similarity between marks.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part26/6/6/4~1\",\n          \"quote\": \"Some of the more difficult section 44 considerations involve two trade marks sharing the same element (or elements that are very similar). However, the same general principles apply when considering deceptive similarity in such cases.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Under the Manual's section 44 practice, sharing an element is not sufficient: assess the marks as a whole and whether their similarities and differences create a real and tangible danger of confusion for the ordinary consumer.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part26/6/6/4~1\",\n          \"quote\": \"In particular, in evaluating the likelihood of confusion, the marks must be judged as a whole\"\n        },\n        {\n          \"ref\": \"TMM/Part26/6/6/4~1\",\n          \"quote\": \"While a real and tangible danger of confusion can arise if one mark is contained in another, the existence of a common element is not sufficient to conclude the marks are deceptively similar.\"\n        },\n        {\n          \"ref\": \"TMM/Part26/6/6/4~1\",\n          \"quote\": \"What needs to be assessed is the effect of the similarities and differences on the impression or recollection an ordinary consumer of the goods or services would have of the trade marks and whether this creates a real and tangible danger of confusion.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0001\",\n    \"GC-0002\",\n    \"GC-0008\",\n    \"GC-0010\",\n    \"GC-0038\",\n    \"GC-0064\",\n    \"GC-0154\",\n    \"GC-0168\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "eebabdd93bef22b4cb5b3a3c318c74b44797670cb26169813aaad7c9f4b4f071",
+ "response_id": "resp_0164e08959a8ded1006ad6b76e43d487d28dd7d0d804e45e5a",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8917,
+  "input_tokens_details": {
+   "cache_write_tokens": 8914,
+   "cached_tokens": 0
+  },
+  "output_tokens": 965,
+  "output_tokens_details": {
+   "reasoning_tokens": 349
+  },
+  "total_tokens": 9882
+ }
+}

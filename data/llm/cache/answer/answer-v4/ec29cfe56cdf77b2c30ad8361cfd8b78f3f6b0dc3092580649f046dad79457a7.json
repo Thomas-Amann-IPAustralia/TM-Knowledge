@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014844,
+ "created_utc": "2026-10-20T00:32:33Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0072",
+ "job": "answer",
+ "key": "ec29cfe56cdf77b2c30ad8361cfd8b78f3f6b0dc3092580649f046dad79457a7",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Yes, in principle: the Manual says a section 43 ground for rejection is appropriate where a mark connotes a particular plant variety or other plant name and covers plants or plant materials of the same or a closely related genus.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part29/1/1/2\",\n          \"quote\": \"If a trade mark contains or consists of word/s which connote a particular plant variety or other plant name, and is applied to plants or plant materials of the same or a closely related genus, it is likely to deceive or cause confusion as to the true nature of those plants or plant materials and a ground for rejection under section 43 of the Act will be appropriate.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The statutory test requires rejection if, because of a connotation of the mark or a sign within it, use for the particular goods or services would be likely to deceive or cause confusion.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s43\",\n          \"quote\": \"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual explains that the connotation must be immediate and that a known variety name may create that connotation, with deception or confusion likely when the mark is used on a different variety of the same or a closely related genus.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part32A/2/4/2/4/1\",\n          \"quote\": \"Section 43 requires that the connotation is immediate.\"\n        },\n        {\n          \"ref\": \"TMM/Part32A/2/4/2/4/1\",\n          \"quote\": \"Therefore, if the trade mark contains or consists of a known variety name, the connotation may be immediate, and deception or confusion is likely if the trade mark is used on a different variety of the same or a closely related genus.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The examiner must nevertheless consider the variety name within the mark as a whole: a dictionary word appearing in a phrase may not convey an immediate variety connotation.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part32A/2/4/2/4/1\",\n          \"quote\": \"However, the examiner needs to consider how the variety name appears within the trade mark as a whole. For example, if the plant name is a dictionary word appearing in a phrase then connotation may not be immediate.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0072\",\n    \"GC-0036\",\n    \"GC-0001\",\n    \"GC-0002\",\n    \"GC-0168\",\n    \"GC-0038\",\n    \"GC-0044\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "34430c54810dc0161dbdd33e3f9ca62a228678b1f0cd82390a788e531d2fdcaf",
+ "response_id": "resp_04da94a4a1b606f4006ad6b68ffa0887d293bc4c410f484d86",
+ "seconds": 18.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8252,
+  "input_tokens_details": {
+   "cache_write_tokens": 8249,
+   "cached_tokens": 0
+  },
+  "output_tokens": 906,
+  "output_tokens_details": {
+   "reasoning_tokens": 188
+  },
+  "total_tokens": 9158
+ }
+}

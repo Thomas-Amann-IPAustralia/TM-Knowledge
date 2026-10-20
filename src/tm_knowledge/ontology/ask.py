@@ -31,7 +31,8 @@ from tm_knowledge.config import DEFAULT_BASE_IRI, REPO_ROOT, base_iri
 from tm_knowledge.ontology.build import build
 from tm_knowledge.ontology.namespaces import APPROVED_GRAPH, TMK
 
-__all__ = ["QUERY_DIR", "CompetencyQuery", "load_queries", "run", "coverage"]
+__all__ = ["QUERY_DIR", "CompetencyQuery", "Contract", "load_queries", "run", "coverage", "contract",
+           "contracts"]
 
 QUERY_DIR = REPO_ROOT / "queries" / "competency"
 
@@ -164,6 +165,66 @@ def coverage(dataset: Dataset, queries: tuple[CompetencyQuery, ...]) -> dict[str
         ),
         "unknown": sorted(asked - set(questions)),
     }
+
+
+#: What of a signed answer shape a query's rows can show, as the columns they must
+#: carry (R06). CQ-0024's shape asks that the Act's requirements and the Manual's
+#: practice be told apart; CQ-0009's that reviewed and unreviewed rows be.
+SHAPE_COLUMNS = {
+    "CQ-0009": ("standing",),
+    "CQ-0024": ("standing", "authority"),
+}
+
+
+@dataclass(frozen=True)
+class Contract:
+    """A query against its own signed question record (the second review response, R06).
+
+    The record already holds the contract: the sources an answer must reach, the
+    concepts it must name, and an answer shape. An agent writing expected results for
+    its own queries would be machine output grading machine output, so the record is
+    the yardstick. An unmet contract is a gap the ontology report counts, never a
+    failing or skipped test."""
+
+    question_id: str
+    rows: int
+    unmet: tuple[str, ...]
+
+    @property
+    def met(self) -> bool:
+        return not self.unmet
+
+
+def contract(query: CompetencyQuery, dataset: Dataset, record: dict) -> Contract:
+    from tm_knowledge.ontology.dependencies import SEPARATORS
+    from tm_knowledge.ontology.hygiene import fold
+
+    result = query.run(dataset)
+    names = [str(v) for v in result.vars or ()]
+    cells = [str(value) for row in result for value in row if value is not None]
+    rows = len(list(result))
+    unmet = []
+    required = (record.get("expected_sources") or {}).get("required") or []
+    for ref in required:
+        if not any(cell == ref or cell.startswith(tuple(ref + s for s in SEPARATORS)) for cell in cells):
+            unmet.append(f"required source {ref}")
+    folded = [fold(cell) for cell in cells]
+    for concept in record.get("expected_concepts") or ():
+        if not any(fold(concept) in cell for cell in folded):
+            unmet.append(f"concept “{concept}”")
+    for column in SHAPE_COLUMNS.get(query.question_id, ()):
+        if column not in names:
+            unmet.append(f"a `{column}` column")
+    return Contract(query.question_id, rows, tuple(unmet))
+
+
+def contracts(dataset: Dataset, queries: tuple[CompetencyQuery, ...] | None = None) -> list[Contract]:
+    """Every query that names a signed competency question, checked against it."""
+    from tm_knowledge.stage0 import goldset
+
+    records = {str(r["id"]): r for r in goldset.load()["competency_question"]}
+    queries = queries if queries is not None else load_queries()
+    return [contract(q, dataset, records[q.question_id]) for q in queries if q.question_id in records]
 
 
 def run(

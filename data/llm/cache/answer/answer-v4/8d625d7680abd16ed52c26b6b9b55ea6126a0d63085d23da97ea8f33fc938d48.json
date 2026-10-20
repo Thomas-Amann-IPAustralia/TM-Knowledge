@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01519,
+ "created_utc": "2026-10-20T00:30:05Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0035",
+ "job": "answer",
+ "key": "8d625d7680abd16ed52c26b6b9b55ea6126a0d63085d23da97ea8f33fc938d48",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Yes—a published application may be corrected in some circumstances: the Manual describes section 65A as permitting correction of clerical errors or obvious mistakes, where fair and reasonable, when section 65 does not allow the amendment.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part9/4/4/7\",\n          \"quote\": \"Section 65A provides the Registrar with more scope, when this is fair and reasonable, to correct clerical errors or obvious mistakes in published applications, in cases where such amendments are not allowable under section 65.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Under the Manual’s practice, if the Registrar is satisfied that a section 65A amendment request would be granted, the request must be published on Australian Trade Mark Search so that other parties can oppose it.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part9/4/4/7\",\n          \"quote\": \"Because these changes may result in an extension of the rights the applicant would otherwise have in the application, if the Registrar is satisfied that the request for amendment would be granted, it must be published on Australian Trade Mark Search, to give other parties an opportunity to oppose the amendment.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Correction is not an unrestricted opportunity to expand the specification: the Manual says section 65 does not provide for adding items or classes where the original items were clearly specified or qualified and correctly classified.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/4/4/2/6\",\n          \"quote\": \"There is no provision under section 65 for items or classes to be added to applications where the items initially claimed have been clearly specified or qualified and are correctly classified.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Yes—according to the Manual, if the specification cannot practicably use the NICE classification and picklist terms, the applicant must provide sufficient information to determine the classification of the goods or services.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/3#1~1\",\n          \"quote\": \"Under regulation 4.4(6) specifications should, if practicable, be framed using the terms listed in the NICE classification and the picklist. Where this cannot be done the applicant is required to provide sufficient information to allow the classification of the goods or services to be determined (reg 4.4(7)).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Where a specification is so vague or unclear that it cannot be classified, the Manual directs the examiner to request further information directly relevant to the application, such as material from the applicant’s website, trade brochures or pamphlets.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/4/4/6/2\",\n          \"quote\": \"If part or all of the specification is vague or unclear to the extent that it cannot be classified, the Examiner should request further information from the applicant.\"\n        },\n        {\n          \"ref\": \"TMM/Part14/4/4/6/2\",\n          \"quote\": \"The request should be for further information in the form of information from the applicant's website, or trade brochures or pamphlets published by the applicant, which are directly relevant to the application (reg 4.4(7)).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual says the examiner should not suggest adding classes at that initial information-gathering stage.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/4/4/6/2\",\n          \"quote\": \"It should not be suggested to the applicant at this stage that they may be able to add a class or classes.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied passages describe these correction routes and information requirements, but do not reproduce sections 65 or 65A or regulation 4.4, so this is not a complete account of their legislative conditions.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0012\",\n    \"GC-0124\",\n    \"GC-0121\",\n    \"GC-0040\",\n    \"GC-0044\",\n    \"GC-0046\",\n    \"GC-0116\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "70ade45536eec8e1aca7d66ba696d957665fdb9d40abe4886ffb9a893c325953",
+ "response_id": "resp_0137b142be6487e1006ad6b5fc3bb887d290691c6d257b0739",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7677,
+  "input_tokens_details": {
+   "cache_write_tokens": 7674,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1119,
+  "output_tokens_details": {
+   "reasoning_tokens": 119
+  },
+  "total_tokens": 8796
+ }
+}

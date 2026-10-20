@@ -127,9 +127,15 @@ concept type, `GR-` relationship, `GE-` entity mention, `GS-`/`GA-` questions, `
 reasoning, `PU-` prohibited use (`eval/schemas/common.schema.json`). Since 2026-10-08
 there is one more: **`GK-` a correction** to a signed record (`authored/corrections.yaml`,
 ADR-0122). Since 2026-10-17, **`GD-` a definition** of a concept (`authored/definitions.yaml`,
-ADR-0137): one per concept, its own record because a signed concept cannot be edited. A withdrawn id is listed with its reason — signed ones in
+ADR-0137): one per concept, its own record because a signed concept cannot be edited. Since
+2026-10-19, **`GL-` a structured legal test** (`authored/legal-tests.yaml`) and **`GP-` a process
+template** (`authored/processes.yaml`), ADR-0142; inside one, an element (a condition, an
+exception, a step) has a lowercase id unique within its record (`honest_concurrent_use`), never a
+project-wide id. **`FM-` a fictional matter** (`scenarios/matters.yaml`) is a fixture, not
+knowledge: its own series, never in the graph or the shared sequence. A withdrawn id is listed with its reason — signed ones in
 `eval/gold/retired-ids.yaml`, authored ones in `authored/retired-ids.yaml` — and
-`bulk.jobs.next_number` counts both ledgers, the corrections and the definitions before allocating.
+`bulk.jobs.next_number` counts both ledgers, the corrections, the definitions, the legal tests and
+the process templates before allocating.
 
 **Machine-generated candidates, content-addressed** — so that re-running a
 pipeline over unchanged input produces the same identifiers and does not litter

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011662,
+ "created_utc": "2026-10-20T00:32:26Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0069",
+ "job": "answer",
+ "key": "55eb99e45edda6101cc8f6dfe30578b1f10337b5c64ddacb9ee94255e4f44fa2",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Yes. As a matter of Manual examination practice, examiners should check the trade mark—not the goods themselves—against both the INN list and the INN stems list when examining class 5 applications covering pharmaceuticals or veterinary substances.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part29/5/5/3\",\n          \"quote\": \"When examining applications for registration of trade marks in class 5 covering pharmaceuticals or veterinary substances, examiners should check the trade mark against the INN list using the Search for International Nonproprietary Names for Pharmaceutical Substances and the list of INN stems found at Annex 1 in this Part of the Manual.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual also identifies specific class 5 claims that may trigger section 43 concerns relating to INNs and INN stems, including analgesics, pain relieving preparations, and goods that could be pharmaceutical or veterinary in nature, such as dietary or nutritional supplements.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part29/5/5/3\",\n          \"quote\": \"Claims for specific pharmaceutical or veterinary goods in Class 5 may also trigger the provisions of section 43 in relation to INNs and INN stems. Examples include classes of pharmaceutical or veterinary substances (e.g. analgesics or pain relieving preparations) as well as goods which could be pharmaceutical or veterinary in nature (e.g. dietary or nutritional supplements).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0022\",\n    \"GC-0023\",\n    \"GC-0025\",\n    \"GC-0044\",\n    \"GC-0092\",\n    \"GC-0168\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "e1721b69e22a30c36ac626ffd27a41a1f0a53467e70138e80d6d5606f316054a",
+ "response_id": "resp_0848207bbd14445d006ad6b688ef8087d2b2998c430868977d",
+ "seconds": 18.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7058,
+  "input_tokens_details": {
+   "cache_write_tokens": 7055,
+   "cached_tokens": 0
+  },
+  "output_tokens": 568,
+  "output_tokens_details": {
+   "reasoning_tokens": 156
+  },
+  "total_tokens": 7626
+ }
+}

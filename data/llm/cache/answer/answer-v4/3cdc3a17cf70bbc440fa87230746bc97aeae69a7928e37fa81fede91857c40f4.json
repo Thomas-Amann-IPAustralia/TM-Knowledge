@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013518,
+ "created_utc": "2026-10-20T00:32:51Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0075",
+ "job": "answer",
+ "key": "3cdc3a17cf70bbc440fa87230746bc97aeae69a7928e37fa81fede91857c40f4",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Yes. The Manual states that registration may be opposed on the same grounds used to reject an application during examination, except the section 40 ground that the trade mark cannot be represented graphically.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part46/4#1\",\n          \"quote\": \"Registration may be opposed on the same grounds for rejecting an application during examination, with the exception of the ground under section 40 that the trade mark cannot be represented graphically (section 57).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual also identifies grounds specific to opposition in Division 2 of Part 5 of the Act.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part46/4#1\",\n          \"quote\": \"Grounds specific to opposition are detailed in Division 2 of Part 5 of the Act and are discussed below.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"According to the Manual, the opponent bears the onus of establishing a ground of opposition.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part46/4#1\",\n          \"quote\": \"The onus is upon the opponent to establish a ground of opposition\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual states that the standard of proof is the balance of probabilities.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part46/4#1\",\n          \"quote\": \"the standard of proof is on the balance of probabilities\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0092\",\n    \"GC-0006\",\n    \"GC-0057\",\n    \"GC-0040\",\n    \"GC-0117\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "44f3c5a508e25a3bc691c85a3173acbbd8e76201b17ebb35994f26579be1015e",
+ "response_id": "resp_09e79d04431019f6006ad6b6a224a487d2a1f692cfdef7f36a",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8519,
+  "input_tokens_details": {
+   "cache_write_tokens": 8516,
+   "cached_tokens": 0
+  },
+  "output_tokens": 574,
+  "output_tokens_details": {
+   "reasoning_tokens": 132
+  },
+  "total_tokens": 9093
+ }
+}

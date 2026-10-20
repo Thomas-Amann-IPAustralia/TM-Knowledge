@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.015249,
+ "created_utc": "2026-10-20T00:31:35Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0055",
+ "job": "answer",
+ "key": "416817e2234696758f355121ad288fbdf7a2604a693689085c70e39cdb385fb0",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Yes, in principle: the Manual states that a defensive trade mark pending or registered in Australia can form the basis for an international application.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part60/2/2/2/2/4~2\",\n          \"quote\": \"However, a defensive trade mark that is pending or registered in Australia can still form the basis for an international application.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"However, the Manual states that the international registration cannot itself be indicated as being for a defensive trade mark.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part60/2/2/2/2/4~2\",\n          \"quote\": \"The Protocol also makes no provision for defensive trade marks, and as such, an international registration cannot be indicated as being for a defensive trade mark.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Under subsection 185(2), Australian defensive registration is permitted even if the registered owner does not use or intend to use the mark for the particular goods or services.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s185\",\n          \"quote\": \"(2) A trade mark may be registered as a defensive trade mark in respect of particular goods or services even if the registered owner does not use or intend to use the trade mark in relation to those goods or services.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"By contrast, the Manual warns that the international application will effectively be treated as a standard trade mark, potentially attracting intention-to-use and ongoing use requirements in designated jurisdictions.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part60/2/2/2/2/4~2\",\n          \"quote\": \"However, the trade mark subject of the international application will be effectively treated as a ‘standard’ trade mark by the International Bureau and designated jurisdictions. This means the applicant may be subject to ‘intention to use’ and ongoing use requirements in designated jurisdictions that they are not subject to in Australia as the owner/applicant of a defensive trade mark.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual permits an earlier priority claim for the international application where the applicant first filed the same trade mark in a Paris Convention country within the six months before filing the international application.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part60/2/2/2/2/4~2\",\n          \"quote\": \"The applicant may claim a priority date earlier than the actual filing date of the international application if they have filed the same trade mark for the first time in a country party to the Paris Convention within 6 months prior to filing the international application (see Part 11 Convention Applications).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The basic Australian trade mark can itself support that priority claim if the Australian application was the mark's first filing and the international application is filed within six months of that Australian filing.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part60/2/2/2/2/4~2\",\n          \"quote\": \"A convention claim can be based on the basic Australian trade mark where this international application is filed within 6 months of filing the Australian application and the Australian application was the first filing of the mark.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0109\",\n    \"GC-0150\",\n    \"GC-0111\",\n    \"GC-0016\",\n    \"GC-0081\",\n    \"GC-0084\",\n    \"GC-0157\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "56c3f903a7774f48e45b2901c48cab8bd59319a743a1044b8410720877a9f02e",
+ "response_id": "resp_06b0ac525ffbece9006ad6b64b590087d28d52a3fc9cb5000d",
+ "seconds": 28.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8028,
+  "input_tokens_details": {
+   "cache_write_tokens": 8025,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1043,
+  "output_tokens_details": {
+   "reasoning_tokens": 190
+  },
+  "total_tokens": 9071
+ }
+}

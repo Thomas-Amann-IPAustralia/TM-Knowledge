@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.015123,
+ "created_utc": "2026-10-20T00:28:57Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0012",
+ "job": "answer",
+ "key": "5c0f5d22fd84d099614b0de3eed5a863783a0d05a55403877897362db30b72ed",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"For the consent-based condition described in the Manual, the trade mark owner must agree to an endorsement recording consent from the Plant Breeder’s Rights (PBR) titleholder.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part32A/2/1/2-1-2-c-letter-of-consent\",\n          \"quote\": \"In this circumstance, the owner of the trade mark will need to agree to an endorsement to that effect.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual’s example condition requires the applicant to have the PBR titleholder’s consent to use the variety name or synonym in a trade mark for the duration of the PBR right.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part32A/2/1/2-1-2-c-letter-of-consent\",\n          \"quote\": \"It is a condition of registration that the applicant has the consent of the PBR titleholder to use the <plant variety name/synonym> ‘xxxx’ in a trade mark for the duration of the PBR right.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"In that consent-based arrangement, the Manual also requires the registered goods to be restricted to accord with the plant variety name or synonym.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part32A/2/1/2-1-2-c-letter-of-consent\",\n          \"quote\": \"The goods will also need to be restricted to accord with the plant variety name or synonym.\"\n        },\n        {\n          \"ref\": \"TMM/Part32A/2/1/2-1-2-c-letter-of-consent\",\n          \"quote\": \"<Specification>; all the foregoing being plants or plant material of <genus> < variety name/synonym ‘xxxx’>\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Separately, the Manual explains that, in use, the trade mark needs to be clearly differentiated from the variety name rather than used instead of it.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1\",\n          \"quote\": \"However, both agree that trade marks in use need to be clearly differentiated from the variety name and not used instead of it.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual identifies acceptable presentation formats as placing the trade designation before the genus/variety information or otherwise clearly separating it from that information.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1\",\n          \"quote\": \"Acceptable formats for trade mark purposes are where the trade designation precedes the genus/variety information or is otherwise clearly separated from it.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied passages do not establish who else is legally bound by a registration condition—for example, authorised users or later owners—or the consequences of breach; the exact condition and further legislative provisions would be needed to answer that part.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0072\",\n    \"GC-0013\",\n    \"GC-0014\",\n    \"GC-0015\",\n    \"GC-0036\",\n    \"GC-0029\",\n    \"GC-0084\",\n    \"GC-0116\",\n    \"GC-0081\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "37c113f976e9d1092ae751f3bb47dfc50729dc5441ac1bbf98e8c56e5d1fe650",
+ "response_id": "resp_08fa644489747ac0006ad6b5b8154c87d280d46041617ac790",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8495,
+  "input_tokens_details": {
+   "cache_write_tokens": 8492,
+   "cached_tokens": 0
+  },
+  "output_tokens": 901,
+  "output_tokens_details": {
+   "reasoning_tokens": 70
+  },
+  "total_tokens": 9396
+ }
+}

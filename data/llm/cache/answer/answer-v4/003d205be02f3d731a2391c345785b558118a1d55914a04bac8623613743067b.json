@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014423,
+ "created_utc": "2026-10-20T00:33:19Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0083",
+ "job": "answer",
+ "key": "003d205be02f3d731a2391c345785b558118a1d55914a04bac8623613743067b",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The supplied passages do not expressly identify who must pay the extra fee, so they do not establish whether the opponent or another party is liable.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    },\n    {\n      \"text\": \"The Manual says that seeking to amend a statement of grounds and particulars may attract a fee if the amendment takes the number of grounds nominated or trade marks particularised under s 44/reg 4.15A above the relevant threshold.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part47/2/2/2\",\n          \"quote\": \"Seeking amendment to a statement of grounds and particulars may attract a fee, depending on whether the amendment sought would take the number of grounds nominated, and/or the number of trade marks particularised under s 44/reg 4.15A above the threshold.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual refers readers to Part 47.1.2.2 for the thresholds, but that discussion is not supplied here.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part47/2/2/2\",\n          \"quote\": \"Please see the discussion at 47.1.2.2 for an explanation of the thresholds.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0040\",\n    \"GC-0153\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "a2e7d7c123d788a97b28e6cd89013ee54bf4c7af670ebe064a1b56a777a13c88",
+ "response_id": "resp_0e9ce89440cb1b79006ad6b6bd48c887d2b1cda5cfc22ad99c",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 9559,
+  "input_tokens_details": {
+   "cache_write_tokens": 9556,
+   "cached_tokens": 0
+  },
+  "output_tokens": 495,
+  "output_tokens_details": {
+   "reasoning_tokens": 150
+  },
+  "total_tokens": 10054
+ }
+}

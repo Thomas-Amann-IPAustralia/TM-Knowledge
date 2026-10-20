@@ -311,3 +311,28 @@ def test_a_line_may_record_why_a_conditional_word_conditions_nothing(tmp_path):
         {"edge": "GR-0001", "to": ["GC-0046", "performs", "GC-0040"], "no_condition": "«the where is another clause's»",
          "why": "«assessed»"}]))
     assert again.done == 1 and not again.rereads
+
+
+def test_an_earlier_ledger_never_undoes_a_later_ones_concept_reading(tmp_path):
+    """S042 (R10): the concept path kept only the reading it replaced and counted a line
+    done only under its own stamp, so re-reading a concept S029 had relabelled made S029's
+    ledger want to relabel it again. A concept re-read keeps the chain of readings, and a
+    line is done once a later ledger has read the record since (Q-93, Q-98)."""
+    concept = {"id": "GC-0126", "pref_label": "protected term", "alt_labels": [], "not_labels": [],
+               "narrower": [], "related": [], "definition_sources": ["TMM/Part1/1#1"],
+               "legislative_basis": ["TMA1995/s61"], "notes": None, "approved_by": None,
+               "approved_date": None, "authored": dict(ENV)}
+    (tmp_path / "concepts.yaml").write_text(yaml.dump([concept], sort_keys=False), encoding="utf-8")
+    ctx = _ctx(tmp_path, [])
+    first = dict(LEDGER, concepts=[{"concept": "GC-0126", "set": {"alt_labels": ["term on the Wine Register"]},
+                                    "why": "«the Manual's name»"}])
+    restructure.apply(restructure.plan(_ctx_from_disk(tmp_path, ctx), first), root=tmp_path)
+    later = dict(S041, authored_by="claude-code-agent-S042", concepts=[
+        {"concept": "GC-0126", "set": {"legislative_basis": []}, "why": "«s 61 says nothing of it»"}])
+    restructure.apply(restructure.plan(_ctx_from_disk(tmp_path, ctx), later), root=tmp_path)
+    stored = yaml.safe_load((tmp_path / "concepts.yaml").read_text(encoding="utf-8"))[0]["authored"]
+    chain = stored["alternatives_considered"]
+    assert chain[0].startswith("As first written by claude-code-agent-S000 ")
+    assert chain[1].startswith("As first written by gpt-6.1-sol ")
+    again = restructure.plan(_ctx_from_disk(tmp_path, ctx), first)
+    assert again.ok and not again.concepts and again.done == 1

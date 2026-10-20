@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013109,
+ "created_utc": "2026-10-20T00:28:32Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0008",
+ "job": "answer",
+ "key": "3c6e3ec430ec6439675e10aa99890fbf1905e09c51efdb5e8dee82420cb4920b",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Under the Manual’s practice, when deferment terminates, the acceptance period resumes with the same amount of time remaining as was left when the deferment request was filed; it does not restart as a fresh acceptance period.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part17/1#1\",\n          \"quote\": \"After termination of deferment, the amount of time that is left of the time period for acceptance will be the amount of time that was left at the date the request for deferment of acceptance was filed.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"If deferment rests on multiple grounds, it terminates only when the last ground has been finalised.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part17/3#1~3\",\n          \"quote\": \"3.14 Where the deferment is based on multiple grounds, the deferment will be terminated when the last ground for deferment has been finalised.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"On termination, an automatic notice to the address for service provides the new acceptance due date and advises on further submissions or extensions of time if needed.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part17/3#1~3\",\n          \"quote\": \"3.16 On termination of deferment, a standard notice will be automatically sent to the address for service stating that deferment has been terminated. The notice will also provide the new acceptance due date and advise the applicant to notify the Registrar if the application is now clear to be accepted or make further submissions, if there are still outstanding matters, or to apply for further extensions of time for acceptance, if needed.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0096\",\n    \"GC-0093\",\n    \"GC-0097\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "a946de59ffa3630c651764a64739cfddafa2e37b6beff390ec86f677e0311c2d",
+ "response_id": "resp_02911632ce82c33b006ad6b5a5d5c087d299f5fca10b29b81a",
+ "seconds": 11.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8676,
+  "input_tokens_details": {
+   "cache_write_tokens": 8673,
+   "cached_tokens": 0
+  },
+  "output_tokens": 453,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 9129
+ }
+}

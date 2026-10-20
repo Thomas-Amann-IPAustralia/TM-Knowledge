@@ -1,0 +1,161 @@
+# Written by S042 from its reading of each provision and passage (the second review response, R10), then kept as the ledger.
+# Edit lines here, not records: `tmk-bulk restructure --ledger` checks and applies them.
+note: 'S042''s reading of the 21 legislative-basis citations the harness could not anchor (R10): each machine-written one is now
+  quoted from the provision or from a Manual passage that cites it, re-cited, or withdrawn with its reason. A Manual passage
+  counts only where upstream''s citation of the provision is href, explicit or default: an ambiguous one is upstream''s refusal
+  to choose and is never used as an anchor (CLAUDE.md rule 6). On the owner''s instruction of 2026-10-19 to complete the next
+  phase of work (CHAT-0089). Machine-written, unreviewed: a judgement per line.'
+session: S042
+authored_by: claude-code-agent-S042
+date: '2026-10-19'
+ruling: review/rulings/2026-10-19-chat-spend.yaml
+ruling_item: CHAT-0089
+review: the second review response's R10 (S042)
+report: data/derived/reports/bases-r10.md
+ledger_path: data/derived/audit/bases-r10.yaml
+title: Legislative bases re-read (S042, R10)
+intro: 'The harness listed 21 legislative-basis citations resting on nothing the record quotes, names as a source or finds its
+  labels in. Twenty sit on machine-written concepts and are read here: eleven anchored by a quote, four re-cited (on two
+  concepts, from subsections of section 41 to the section the quoted passage cites) and five withdrawn where the provision does
+  not say what the concept is. The twenty-first, TMA1995/s27(3)(b) on the signed GC-0012, is not in the
+  signature: the machine-written correction GK-0003 added it (ruling A1), quoting regulation 4.4, which names the
+  paragraph, but not the paragraph itself. S042 first misreported it here as the signature''s; on the owner''s
+  approval (CHAT-0090, ADR-0143) GK-0003 now quotes section 27(3)(b) too, and no basis is left unverified. Every line is an agent session''s judgement (`claude-code-agent-S042`),
+  machine-written and unreviewed.'
+concepts:
+- concept: GC-0060
+  set:
+    legislative_basis: [TMA1995/s41]
+  evidence:
+  - ref: TMM/Part22/13/13/3
+    quote: consideration must be given to the ordinary signification of the phrase
+  why: Section 41 never uses the phrase; the Manual uses ordinary signification to decide whether a sign is capable of
+    distinguishing, in a passage citing section 41 as a whole. Subsections (3) and (4) are where that question is asked, but
+    nothing quoted ties the phrase to either one, so the basis is the section.
+  check: Whether ordinary signification belongs to section 41(3) or (4) in particular.
+  confidence: 0.75
+- concept: GC-0061
+  set:
+    legislative_basis: [TMA1995/s41]
+  evidence:
+  - ref: TMM/Part22/13/13/3
+    quote: Whether or not the trade mark is capable of distinguishing, will depend upon if the phrase is something
+  why: The Manual ties capability of distinguishing to whether other traders are likely to want the sign, in a passage citing
+    section 41 as a whole; section 41's own text does not mention other traders, so the basis is the section, not the two
+    subsections nothing quoted reaches.
+  check: Whether the other-traders test belongs to section 41(3) or (4) in particular.
+  confidence: 0.75
+- concept: GC-0074
+  set:
+    legislative_basis: [TMA1995/s6/sign, TMA1995/s40]
+  evidence:
+  - ref: TMM/Part20/5/5/2
+    quote: It is likely that section 40 may only result in grounds for rejection of some sensory trade marks
+  why: The Manual applies section 40 (graphical representation) to the non-traditional signs Part 21 covers, in a passage
+    citing section 40 by link. Basis kept, now quoted.
+  confidence: 0.8
+- concept: GC-0076
+  set:
+    legislative_basis: [TMA1995/s6/sign]
+  evidence:
+  - ref: TMA1995/s6/sign
+    quote: shape, colour, sound or scent
+  why: The Act's definition of a sign includes colour, which is what makes a colour trade mark possible. Basis kept, now quoted.
+  confidence: 0.85
+- concept: GC-0077
+  set:
+    legislative_basis: [TMA1995/s6/sign]
+  evidence:
+  - ref: TMA1995/s6/sign
+    quote: shape, colour, sound or scent
+  why: The Act's definition of a sign includes sound. Basis kept, now quoted.
+  confidence: 0.85
+- concept: GC-0078
+  set:
+    legislative_basis: [TMA1995/s6/sign, TMA1995/s40]
+  evidence:
+  - ref: TMA1995/s6/sign
+    quote: shape, colour, sound or scent
+  - ref: TMM/Part21/5/5/1
+    quote: This requirement has the most impact in regard to sensory trade marks such as sound and scent trade marks
+  why: The Act's definition of a sign includes scent; the Manual says section 40's requirement bears most on scent and sound
+    marks, in a passage citing section 40 by link. Both bases kept, now quoted.
+  confidence: 0.85
+- concept: GC-0088
+  set:
+    legislative_basis: [TMA1995/s6/registered-trade-mark, TMA1995/s21(1)]
+  why: Section 207 establishes the Register; what a registered trade mark is comes from section 6's definition (a mark whose
+    particulars are entered in the Register under this Act), already the first basis and already quoted. Section 207 is
+    withdrawn as a basis for the concept; it is the Register's.
+  confidence: 0.8
+- concept: GC-0124
+  set:
+    legislative_basis: [TMA1995/s63, TMA1995/s64, TMA1995/s65, TMA1995/s83]
+  evidence:
+  - ref: TMA1995/s63
+    quote: amend an application for the registration of a trade mark in accordance with section 64, 65 or 65A
+  why: Section 63 is the power to amend an application. Basis kept, now quoted.
+  confidence: 0.85
+- concept: GC-0126
+  set:
+    legislative_basis: [TMA1995/s42(b), TMA1995/s43]
+  why: Section 61 is the opposition ground for a sign that is a geographical indication; it says nothing of terms protected
+    under the Wine Australia Act, and no Manual passage citing it does. Withdrawn; sections 42(b) and 43 stay.
+  check: Whether any provision of the Act names terms protected under the Wine Australia Act.
+  confidence: 0.75
+- concept: GC-0127
+  set:
+    legislative_basis: [TMA1995/s205, TMA1995/s35]
+  evidence:
+  - ref: TMM/Part52/1#1~2
+    quote: Therefore, decisions issued by the Deputy Registrar are headed
+  why: The Manual explains from section 205 why a Deputy Registrar's decision is the Registrar's, in a passage citing it.
+    Basis kept, now quoted.
+  confidence: 0.7
+- concept: GC-0128
+  set:
+    legislative_basis: [TMA1995/s33(4), TMA1995/s202]
+  evidence:
+  - ref: TMM/Part52/4#1
+    quote: Certain powers of the Registrar under section 202 are relevant to hearing procedures.
+  why: The Manual names section 202's powers as relevant to hearings. Basis kept, now quoted.
+  confidence: 0.8
+- concept: GC-0130
+  set:
+    legislative_basis: [TMA1995/s60]
+  why: Section 185 (defensive trade marks) turns on the extent of a registered mark's use, not on its reputation, and the
+    Manual reads it that way (subsection 185(1), 34.6). Section 60, the reputation ground, stays.
+  check: Whether a defensive registration should be linked to reputation at all.
+  confidence: 0.75
+- concept: GC-0142
+  set:
+    legislative_basis: [TMA1995/s92, TMA1995/s100]
+  evidence:
+  - ref: TMM/Part48/1#1
+    quote: (section 100)
+  why: Section 100 (who must prove what in an opposed removal) is cited for the application for removal by a passage whose
+    citation is not ambiguous. Section 100(3)(c), one defence to removal, is withdrawn as a basis for what the application
+    is; the one passage linking it (48.10) carries an ambiguous citation, which is never used as an anchor.
+  confidence: 0.7
+- concept: GC-0151
+  set:
+    legislative_basis: [TMA1995/s207]
+  why: Section 238 is about disclaimers carried over from the old register; the only passage citing it does so with an
+    ambiguous citation. Withdrawn; the concept's meaning is section 6's definition, already its definition source.
+  confidence: 0.75
+- concept: GC-0155
+  set:
+    legislative_basis: [TMA1995/s6, TMA1995/s11(1)]
+  evidence:
+  - ref: TMA1995/s6/pending
+    quote: has the meaning given by section 11
+  why: Section 6 points the word "pending" to section 11, which says when an application is pending. Basis kept, now quoted.
+  confidence: 0.85
+- concept: GC-0162
+  set:
+    legislative_basis: [TMA1995/s110]
+  evidence:
+  - ref: TMM/Part43/1#1~1
+    quote: The Act requires that the Registrar be advised of this change of ownership as soon as it occurs.
+  why: The Manual describes recording a change of ownership in a passage citing section 110 by link. Basis kept, now quoted.
+  confidence: 0.8

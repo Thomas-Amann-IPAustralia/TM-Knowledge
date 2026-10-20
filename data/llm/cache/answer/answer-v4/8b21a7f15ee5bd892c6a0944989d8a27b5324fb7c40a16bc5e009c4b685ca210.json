@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014564,
+ "created_utc": "2026-10-20T00:31:55Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0061",
+ "job": "answer",
+ "key": "8b21a7f15ee5bd892c6a0944989d8a27b5324fb7c40a16bc5e009c4b685ca210",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The Manual suggests “Market demand monitoring services” in Class 35 as an alternative to “monitoring services”.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/monitoring-services\",\n          \"quote\": \"Class 35: Market demand monitoring services\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Monitoring of investment portfolios” in Class 36.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/monitoring-services\",\n          \"quote\": \"Class 36: Monitoring of investment portfolios\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Monitoring of package shipments” in Class 39.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/monitoring-services\",\n          \"quote\": \"Class 39: Monitoring of package shipments\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Monitoring of computer system operation by remote access” in Class 42.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/monitoring-services\",\n          \"quote\": \"Class 42: Monitoring of computer system operation by remote access\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Monitoring of patients” in Class 44.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/monitoring-services\",\n          \"quote\": \"Class 44: Monitoring of patients\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Monitoring of alarms” in Class 45.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/monitoring-services\",\n          \"quote\": \"Class 45: Monitoring of alarms\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Monitoring intellectual property rights for legal advisory purposes” in Class 45.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/monitoring-services\",\n          \"quote\": \"Class 45: Monitoring intellectual property rights for legal advisory purposes\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"If the services cannot be specified using terms in the Registrar’s listing referred to in regulation 4.4(6), regulation 4.4(7) requires sufficient information to enable the Registrar to decide their classification.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMR1995/r4.4\",\n          \"quote\": \"(7) If any of the goods and/or services cannot be specified using terms referred to in subregulation (6), the applicant must provide sufficient information to enable the Registrar to decide the classification of the goods and/or services.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0121\",\n    \"GC-0012\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "b9979cbf89bc3fbd4a2668213bd2d120bbc7bb09bc1d771456c5b964ca280007",
+ "response_id": "resp_05eaa849388ae3f7006ad6b669739087d2bfccd14b266a69a1",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8348,
+  "input_tokens_details": {
+   "cache_write_tokens": 8345,
+   "cached_tokens": 0
+  },
+  "output_tokens": 826,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 9174
+ }
+}

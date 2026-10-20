@@ -10,13 +10,26 @@ The check is deterministic and deliberately narrow. A sentence of the answer is
 flagged when it says the legislation requires, provides, states or prescribes
 something — "the Act requires", "section 43 provides", "regulation 4.4 states" —
 and the answer cites no provision of that legislation (or of that section, where
-the sentence names one). A sentence that names the Manual is attributing the
-point to the Manual, which is the right attribution, and a negated one ("the
-passages do not include section 57 or state…") says the opposite; neither is
-flagged. The Manual quotes the Act in places, so an answer can
-appear to cite the Act while having read only the Manual (CQ-0001's caveat); the
-flag says so, and nothing is removed. `site/js/engine.js` (`authorityFlags`) runs
-the same check on live answers.
+the sentence names one). A clause that names the Manual before the verb is
+attributing the point to the Manual, which is the right attribution, and a negated
+one ("the passages do not include section 57 or state…") says the opposite;
+neither is flagged. Both exemptions look only at the clause the match is in, from
+its last break ("; ", ", but", " whereas" and the like) to the verb, so "The Act
+does not say more, but section 41 requires use evidence" is flagged (R08). The
+Manual quotes the Act in places, so an answer can appear to cite the Act while
+having read only the Manual (CQ-0001's caveat); the flag says so, and nothing is
+removed. Every match in a sentence is read, not only the first. `site/js/engine.js`
+(`authorityFlags`) runs the same check on live answers.
+
+**It is a warning, not a guarantee (R08).** A clean result means no sentence used
+one of the listed verbs about legislation it did not cite. It does not mean every
+attribution is right. Known misses, held as strict xfail tests in
+`tests/unit/test_authority_check.py`: any citation of the named section clears it,
+whether or not the cited text says the thing; "the Act requires" clears on any
+citation of the Act, section 6 included; and wording outside the verb list ("the
+connotation must be obvious", "it is a legal requirement that") is never examined.
+Claim-level authority (`answer-v4`'s `authority` field, checked against the quotes
+kept) is the stronger check; this one stays for the prose.
 """
 
 from __future__ import annotations
@@ -43,6 +56,11 @@ _PART = re.compile(
 #: the point inside "regulation 4.4" — or at a line break.
 _SENTENCE_BREAK = re.compile(r"(?<=[.!?])\s+(?=[A-Z\"'“‘(])|\n+")
 _MANUAL = re.compile(r"\bManual\b")
+#: Where a clause ends inside a sentence: a semicolon, or a comma or space before a
+#: contrasting conjunction. "According to the Manual, section 43 requires" stays one
+#: clause; "…, but section 41 requires" starts a new one.
+_CLAUSE_BREAK = re.compile(r";|,\s*(?:and|but|while|whereas|although|though|yet|however)\b"
+                           r"|\s(?:but|whereas|although)\s", re.I)
 _NEGATION = re.compile(r"\b(?:not|no|never|neither|nor)\b|n['’]t\b", re.I)
 
 
@@ -60,17 +78,24 @@ def _supported(match: re.Match[str], cited: list[str]) -> bool:
     return any(ref.startswith(("TMA1995/", "TMR1995/")) for ref in cited)
 
 
+def _clause(sentence: str, match: re.Match[str]) -> str:
+    """The match's clause, from the last clause break before it to the end of the verb."""
+    start = 0
+    for brk in _CLAUSE_BREAK.finditer(sentence, 0, match.start()):
+        start = brk.end()
+    return sentence[start:match.end()]
+
+
 def conflations(answer: str, cited: Iterable[str]) -> list[dict[str, str]]:
     """The answer's sentences that attribute a requirement to legislation it does not cite."""
     refs = [str(ref) for ref in cited]
     flags = []
     for sentence in _SENTENCE_BREAK.split(answer or ""):
         sentence = sentence.strip()
-        if not sentence or _MANUAL.search(sentence):
+        if not sentence:
             continue
-        for pattern in (_PART, _WHOLE):
-            match = pattern.search(sentence)
-            if match and not _NEGATION.search(sentence[:match.end()]) and not _supported(match, refs):
-                flags.append({"sentence": sentence, "message": MESSAGE})
-                break
+        if any(not _MANUAL.search(clause := _clause(sentence, match)) and not _NEGATION.search(clause)
+               and not _supported(match, refs)
+               for pattern in (_PART, _WHOLE) for match in pattern.finditer(sentence)):
+            flags.append({"sentence": sentence, "message": MESSAGE})
     return flags

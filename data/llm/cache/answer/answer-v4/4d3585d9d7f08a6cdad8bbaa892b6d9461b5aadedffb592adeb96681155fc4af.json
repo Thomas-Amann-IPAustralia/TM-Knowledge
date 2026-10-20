@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.017259,
+ "created_utc": "2026-10-20T00:29:47Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0025",
+ "job": "answer",
+ "key": "4d3585d9d7f08a6cdad8bbaa892b6d9461b5aadedffb592adeb96681155fc4af",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The Manual suggests “Lipstick cases” in Class 3.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 3: Lipstick cases\"}],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Medicine cases (portable) (filled)” in Class 5.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 5: Medicine cases (portable) (filled)\"}],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Door cases of metal” in Class 6.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 6: Door cases of metal\"}],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Razor cases” in Class 8.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 8: Razor cases\"}],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Cases for smartphones” in Class 9.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 9: Cases for smartphones\"}],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Cases fitted for medical tools” in Class 10.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 10: Cases fitted for medical tools\"}],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Roof cases for vehicles” in Class 12.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 12: Roof cases for vehicles\"}],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Gun cases” in Class 13.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 13: Gun cases\"}],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Jewellery cases” in Class 14.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 14: Jewellery cases\"}],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Cases for musical instruments” in Class 15.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 15: Cases for musical instruments\"}],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Pencil cases” in Class 16.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 16: Pencil cases\"}],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Travelling cases” in Class 18.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 18: Travelling cases\"}],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Display cases” in Class 20.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 20: Display cases\"}],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Toothbrush cases” in Class 21.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 21: Toothbrush cases\"}],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Pillow cases” in Class 24.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 24: Pillow cases\"}],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Needle cases” in Class 26.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 26: Needle cases\"}],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Cases adapted for sporting articles” in Class 28.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 28: Cases adapted for sporting articles\"}],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Pastry cases” in Class 30.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 30: Pastry cases\"}],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests “Cigar cases” in Class 34.\",\n      \"quotes\": [{\"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\", \"quote\": \"Class 34: Cigar cases\"}],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\"GC-0121\", \"GC-0012\"]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "bd494cfa3978f18c62263e6aef4256a0184f338d0033164d56f66675c3b0d730",
+ "response_id": "resp_026e4f404acb27f8006ad6b5df899487d29eed56c73bb2f09b",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7108,
+  "input_tokens_details": {
+   "cache_write_tokens": 7105,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1675,
+  "output_tokens_details": {
+   "reasoning_tokens": 166
+  },
+  "total_tokens": 8783
+ }
+}

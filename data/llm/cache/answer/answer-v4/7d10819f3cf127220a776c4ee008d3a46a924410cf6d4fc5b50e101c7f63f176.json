@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.016263,
+ "created_utc": "2026-10-20T00:29:03Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0015",
+ "job": "answer",
+ "key": "7d10819f3cf127220a776c4ee008d3a46a924410cf6d4fc5b50e101c7f63f176",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The supplied passages do not expressly resolve whether an application may be filed in a business name, or whether a business name itself qualifies for registration as a certification trade mark.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    },\n    {\n      \"text\": \"Under section 169, a certification trade mark distinguishes goods or services certified in relation to quality, accuracy or another characteristic from goods or services not so certified.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s169\",\n          \"quote\": \"A certification trade mark is a sign used, or intended to be used, to distinguish goods or services: (a) dealt with or provided in the course of trade; and (b) certified by a person (owner of the certification trade mark), or by another person approved by that person, in relation to quality, accuracy or some other characteristic, including (in the case of goods) origin, material or mode of manufacture; from other goods or services dealt with or provided in the course of trade but not so certified.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual distinguishes certification from ordinary business identification: use of a certification trade mark on goods does not indicate who made or manufactured them.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part35/1/1/5\",\n          \"quote\": \"For example, use of a certification trade mark on goods does not indicate who made or manufactured the goods.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual states that the registered owner has the exclusive right to use the certification trade mark and to allow others to use it, with the owner's use subject to the rules governing its use.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part35/5#1~1\",\n          \"quote\": \"5.1 A registered owner of a certification trade mark has the exclusive right to use, and to allow other persons to use, the certification trade mark. Use of a certification trade mark by the owner must be in accordance with the rules governing its use (section 171).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual calls a person whom the registered owner allows to use the mark an approved user, whose use must also comply with the rules.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part35/5#1~1\",\n          \"quote\": \"5.2 An approved user of a certification trade mark is a person who the registered owner has allowed to use the trade mark. The certification trade mark must be used in accordance with the rules governing its use (section 172).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Section 169 expressly permits the certified goods or services to be those of any person, including the owner or a person approved by the owner to certify goods or services.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s169\",\n          \"quote\": \"Note: The goods or services certified may be those of any person, including the owner of the certification trade mark or any person approved by the owner for the purpose of certifying goods or services.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual requires the rules governing use to be assessed and approved by the ACCC before the certification trade mark can be accepted for registration.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part35/1#1\",\n          \"quote\": \"1.4 The rules governing use of a certification trade mark must be assessed and approved by the Australian Competition and Consumer Commission (Commission) before the trade mark can be accepted for registration.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0107\",\n    \"GC-0072\",\n    \"GC-0084\",\n    \"GC-0081\",\n    \"GC-0133\",\n    \"GC-0093\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "25430824daa3ef3ba505a08465727dd92bd39ba42e7c3fe29ab23cfc91ea178f",
+ "response_id": "resp_0370590ec968dc08006ad6b5be87c887d2b685f726547dd807",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8639,
+  "input_tokens_details": {
+   "cache_write_tokens": 8636,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1093,
+  "output_tokens_details": {
+   "reasoning_tokens": 186
+  },
+  "total_tokens": 9732
+ }
+}

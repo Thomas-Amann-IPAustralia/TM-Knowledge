@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012587,
+ "created_utc": "2026-10-20T00:33:20Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0084",
+ "job": "answer",
+ "key": "1d4c9b200f2310a74aa39fee71942ad804af298036a4246019dd43913634db53",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The Manual suggests Class 5: Moulding wax for dentists.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mouldings\",\n          \"quote\": \"Class 5: Moulding wax for dentists\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests Class 6: Mouldings made of metal for building.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mouldings\",\n          \"quote\": \"Class 6: Mouldings made of metal for building\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests Class 16: Moulding preparations for modelling (artists' materials).\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mouldings\",\n          \"quote\": \"Class 16: Moulding preparations for modelling (artists' materials)\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests Class 17: Mouldings of plastics for packing.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mouldings\",\n          \"quote\": \"Class 17: Mouldings of plastics for packing\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests Class 19: Mouldings, not of metal, for building.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mouldings\",\n          \"quote\": \"Class 19: Mouldings, not of metal, for building\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests Class 20: Non-metallic mouldings for furniture.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mouldings\",\n          \"quote\": \"Class 20: Non-metallic mouldings for furniture\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests Class 21: Moulds (kitchen utensils).\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mouldings\",\n          \"quote\": \"Class 21: Moulds (kitchen utensils)\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests Class 37: Moulding of concrete for construction purposes.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mouldings\",\n          \"quote\": \"Class 37: Moulding of concrete for construction purposes\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual suggests Class 40: Moulding of metals.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mouldings\",\n          \"quote\": \"Class 40: Moulding of metals\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"These suggested alternatives are non-exhaustive.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification#1\",\n          \"quote\": \"Please note that the suggested alternatives are not intended to be exhaustive.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual directs examiners to use the list with other resources, including class headings and IP Australia Classification Search, to determine appropriate alternatives.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification#1\",\n          \"quote\": \"Examiners should use this list in conjunction with other resources, including the class headings and IP Australia Classification Search, to determine appropriate alternatives.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0121\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "694d877cd6dc540febec215be3a12818ce2684d265a2d70932c774c78b7b118b",
+ "response_id": "resp_0ea7bb64b077bab2006ad6b6bf692c87d2b5a64f52bdad00dd",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5750,
+  "input_tokens_details": {
+   "cache_write_tokens": 5747,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1080,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 6830
+ }
+}

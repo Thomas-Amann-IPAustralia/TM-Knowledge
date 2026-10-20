@@ -37,6 +37,7 @@ from tm_knowledge.config import REPO_ROOT
 from tm_knowledge.ontology import hygiene
 from tm_knowledge.ontology.predicates import PREDICATES, SKOS_PREDICATES
 from tm_knowledge.search.authority import conflations
+from tm_knowledge.search.citations import named_provisions
 from tm_knowledge.stage0 import goldset
 from tm_knowledge.stage0.harness import passage_at
 from tm_knowledge.stage0.typing import GROUPS
@@ -253,7 +254,8 @@ def next_number(prefix: str) -> int:
     ids = [str(r.get("id", "")) for _, r in gold.all_records()]
     ids += [entry.record_id for entry in authored.entries]
     ids += list(gold.retired_ids) + list(authored.retired_ids)
-    for name, series in (("corrections.yaml", "GK"), ("definitions.yaml", "GD")):
+    for name, series in (("corrections.yaml", "GK"), ("definitions.yaml", "GD"),
+                         ("legal-tests.yaml", "GL"), ("processes.yaml", "GP")):
         path = authored_store.AUTHORED_DIR / name
         if path.exists():
             ids += re.findall(rf"^- id: ({series}-\d+)", path.read_text(encoding="utf-8"), re.M)
@@ -1226,6 +1228,21 @@ def _answer_render(ctx: Context, item: Item) -> str:
     return "\n".join(lines)
 
 
+def legislation_refs(corpus: Corpus, question: str, provisions: list[str], passages: list[str],
+                     k: int = 3) -> list[str]:
+    """The legislation an answer is given, at most `k`: the provisions the question names
+    (A07, `search.citations`), then those the recognised concepts rest on, then those the
+    top three passages cite; each once, and only where the snapshot holds its text.
+    `Engine.prepare` in `site/js/engine.js` is the same rule."""
+    cited = [e.id for ref in passages[:3] for e in corpus.chunks[ref].provisions if not e.needs_a_human]
+    out: list[str] = []
+    for ref in named_provisions(question, corpus.provisions) + list(provisions) + cited:
+        passage = passage_at(corpus, ref)
+        if ref not in out and passage is not None and passage.text:
+            out.append(ref)
+    return out[:k]
+
+
 def provision_units(corpus: Corpus, ref: str) -> list[tuple[str, str]] | None:
     """A provision's units, in order, where it has any and is too long to give whole."""
     provision = corpus.provisions.get(ref)
@@ -1298,9 +1315,10 @@ def path_line(labels: dict[str, str], edge: Any) -> str:
 #: complete provisions with every cut marked, the definitions of the concepts
 #: recognised, and asks for claims, each with its own quotes, checked against what was
 #: sent. The 129 prepared answers were written with answer-v2, from passages cut at
-#: 1,600 characters, and the page says so.
+#: 1,600 characters, until the owner approved re-writing them with answer-v4 on
+#: 2026-10-20 (CHAT-0092, ADR-0143): gpt-6.1-sol at medium effort, as before.
 ANSWER_VERSION = "answer-v4"
-PREPARED_ANSWER_VERSION = "answer-v2"
+PREPARED_ANSWER_VERSION = "answer-v4"
 AUTHORITIES = ("legislation", "manual", "both", "none")
 
 _ANSWER_INSTRUCTIONS = PREAMBLE + """

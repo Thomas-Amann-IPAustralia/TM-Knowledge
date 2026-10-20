@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.015924,
+ "created_utc": "2026-10-20T00:32:15Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0063",
+ "job": "answer",
+ "key": "ea72ce1b49531da3e507d15752ed09f81de41f655ee9f3f03b799ef3b2b30657",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The key is to describe the drinks sufficiently to determine their classification: use the Registrar’s published terms as far as practicable, and otherwise provide enough information for the Registrar to classify them.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMR1995/r4.4\",\n          \"quote\": \"(6) The goods and/or services must, as far as practicable, be specified in terms appearing in any listing of goods and services that is: (a) published by the Registrar; and (b) made available for inspection by the public at the Trade Marks Office and its sub-offices (if any).\"\n        },\n        {\n          \"ref\": \"TMR1995/r4.4\",\n          \"quote\": \"(7) If any of the goods and/or services cannot be specified using terms referred to in subregulation (6), the applicant must provide sufficient information to enable the Registrar to decide the classification of the goods and/or services.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual’s suggested alternatives for ‘drinks’ illustrate why more detail matters: medicinal, milk and coffee drinks are allocated to classes 5, 29 and 30 respectively, rather than classes 32 or 33.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/drinks\",\n          \"quote\": \"Suggested Alternatives Class 5: Medicinal drinks Class 29: Milk drinks Class 30: Coffee drinks Class 32: Non-alcoholic carbonated drinks\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For carbonated drinks, the Manual gives these class-specific alternatives: class 32, ‘non-alcoholic carbonated drinks’; class 33, ‘Alcoholic carbonated drinks, except beer’.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/carbonated-drinks\",\n          \"quote\": \"Suggested Alternatives Class 32: non-alcoholic carbonated drinks Class 33: Alcoholic carbonated drinks, except beer\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"If both classes are claimed, the Regulations require separate groups under the appropriate class numbers, listed in numerical order.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMR1995/r4.4\",\n          \"quote\": \"(3) The goods and/or services must be grouped according to the appropriate classes described in Schedule 1. (4) The applicant must nominate the class number that is appropriate to the goods or services in each group. (5) The groups must be listed in the order of their class numbers.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Regulations prohibit using ‘all goods’ or ‘all other goods’ to specify the goods sought.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMR1995/r4.4\",\n          \"quote\": \"(2) The expression ‘all goods’, ‘all services’, ‘all other goods’, or ‘all other services’ must not be used in an application for registration of a trade mark to specify the goods and/or services in respect of which registration is sought.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"Under the Manual’s practice, unclear wording that is not based on a general or generic term requires clarification.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/4/4/4\",\n          \"quote\": \"Is it clear what the applicant's proposed specification covers? If it is not, and if the specification is not based on a general or generic term, the applicant will have to be asked for clarification - see paragraph 4.6.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Classification into two classes does not itself separate the goods for similarity assessment: the Manual treats a broad class 32 claim for non-alcoholic beverages as similar to a broad class 33 claim for alcoholic beverages.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part32B/2/4/2/4/3~1\",\n          \"quote\": \"Similarly, a broad claim for alcoholic beverages in class 33 is similar to a broad claim for non-alcoholic beverages in class 32. This is because goods such as non-alcoholic apéritifs and non-alcoholic cocktails, in class 32, are similar goods to apéritifs and cocktails in class 33.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"These passages provide classification requirements and examples, but do not establish a complete goods list for your intended drinks without further information about what those drinks are.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0121\",\n    \"GC-0012\",\n    \"GC-0070\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "950efcf9d678659047db6d23def9c1900855b31ecce4ec67610f90c7f6a3b20f",
+ "response_id": "resp_0218eaf9502b965a006ad6b6739bc087d2a26dc6db8570321f",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7676,
+  "input_tokens_details": {
+   "cache_write_tokens": 7673,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1266,
+  "output_tokens_details": {
+   "reasoning_tokens": 135
+  },
+  "total_tokens": 8942
+ }
+}

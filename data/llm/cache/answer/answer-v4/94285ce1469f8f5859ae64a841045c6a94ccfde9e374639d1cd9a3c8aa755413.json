@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01442,
+ "created_utc": "2026-10-20T00:29:51Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0030",
+ "job": "answer",
+ "key": "94285ce1469f8f5859ae64a841045c6a94ccfde9e374639d1cd9a3c8aa755413",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Under the Manual’s practice, amending a shape or colour mark’s description to include words already shown in the filed representations may be appropriate where the combination is what is claimed to be registrable.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part21/2/2/3\",\n          \"quote\": \"On occasions, an applicant may claim the trade mark as a shape or colour mark, but the representations filed also include words and/or other material.\"\n        },\n        {\n          \"ref\": \"TMM/Part21/2/2/3\",\n          \"quote\": \"In these cases, it may be appropriate for the applicant to amend the description to clearly refer to all the individual elements in a way which leaves no doubt that it is the combination being claimed that is registrable - not its independent parts.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"If the existing description is broad, vague or absent, the Manual says such a change does not necessarily extend the applicant’s rights, but still requires careful consideration.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part21/2/2/3\",\n          \"quote\": \"If the description is broad, vague or absent, a change of this nature does not necessarily extend the applicant's rights but will still need to be considered carefully.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"If the existing description already clearly specifies the trade mark’s scope, the Manual says the claim cannot be extended to include items outside that description, even if they appear in the representation.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part21/2/2/3\",\n          \"quote\": \"If, however, there is a description which already clearly specifies the scope of the trade mark, it is not possible to extend the claim to include items not in the existing description.\"\n        },\n        {\n          \"ref\": \"TMM/Part21/2/2/3\",\n          \"quote\": \"Any specific change to include the words appearing on the building is likely to be outside the scope of the trade mark claim, and therefore not allowable.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For a shape or colour trade mark, the Manual expects the description and representation together to define clearly all the details constituting the mark.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part21/3/3/1\",\n          \"quote\": \"The description and pictorial representation of a shape trade mark should together clearly define all the details which constitute the trade mark.\"\n        },\n        {\n          \"ref\": \"TMM/Part21/4/4/1~1\",\n          \"quote\": \"The description and the pictorial representation of the colour trade mark should together clearly define all the details which constitute the trade mark.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Without the existing description and filed representations, I cannot assess whether the proposed change would clarify the existing claim or extend it; the guidance above is Manual practice, and no legislation passage has been supplied.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0072\",\n    \"GC-0075\",\n    \"GC-0076\",\n    \"GC-0124\",\n    \"GC-0014\",\n    \"GC-0038\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "00f34e107cf54c7f3763e311bd470b57039aff9e4f6c2b1b48d5cdca7793bf5b",
+ "response_id": "resp_0cbf3e32f948dfb4006ad6b5ed752087d2869ed62c6ba1274c",
+ "seconds": 18.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7777,
+  "input_tokens_details": {
+   "cache_write_tokens": 7774,
+   "cached_tokens": 0
+  },
+  "output_tokens": 940,
+  "output_tokens_details": {
+   "reasoning_tokens": 165
+  },
+  "total_tokens": 8717
+ }
+}

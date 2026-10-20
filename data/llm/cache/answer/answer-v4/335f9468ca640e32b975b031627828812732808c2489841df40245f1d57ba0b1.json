@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014542,
+ "created_utc": "2026-10-20T00:35:29Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0115",
+ "job": "answer",
+ "key": "335f9468ca640e32b975b031627828812732808c2489841df40245f1d57ba0b1",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The supplied passages do not identify who must receive a notice to produce issued by the Registrar, or the subsequent service and compliance steps or deadlines; those parts of the question cannot be answered from these passages.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    },\n    {\n      \"text\": \"Before issuing a notice for production of documents or articles on request, the Manual requires the Registrar to be satisfied that the request relates to proceedings under the Act and that the material sought is relevant to those proceedings.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part54/3/3/1\",\n          \"quote\": \"Before acceding to a request for the issue of a notice for production of documents (or articles), the Registrar must be satisfied that the request relates to proceedings under the Act and that the documents (or articles) sought are relevant to those proceedings.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For that relevance assessment, the Manual says the Registrar considers whether the documents could be relevant, rather than whether they would be relevant.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part54/3/3/1\",\n          \"quote\": \"That is, the Registrar is required to consider whether the documents could be relevant rather than would be relevant to the issues to be determined in the proceedings.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied Manual guidance about serving a subpoena concerns a different process: a court-issued subpoena, usually naming the Registrar as its recipient.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part54/1/1/3\",\n          \"quote\": \"Unless the court directs otherwise, the court registrar issues the subpoena under seal to the requesting party for service on the person named.\"\n        },\n        {\n          \"ref\": \"TMM/Part54/1/1/3\",\n          \"quote\": \"The Registrar of Trade Marks is usually the person named in a subpoena but it is also acceptable if the subpoena is directed to “the proper officer” of the Trade Marks Office.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0046\",\n    \"GC-0144\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "120243ac76516144f2f1081d409b7eb709c59f4c0c23a83ecab69cb51345f6cf",
+ "response_id": "resp_0706b7ccb9d6a998006ad6b73ffe9087d28196736bf56fa0ef",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8834,
+  "input_tokens_details": {
+   "cache_write_tokens": 8831,
+   "cached_tokens": 0
+  },
+  "output_tokens": 700,
+  "output_tokens_details": {
+   "reasoning_tokens": 179
+  },
+  "total_tokens": 9534
+ }
+}

@@ -169,9 +169,40 @@ def test_cq_0024_reports_the_missing_modalities_as_missing(dataset):
     """Five approved relationships have no modality and the answer says so in
     those words. A default here would certify a legal reading nobody made."""
     query = next(q for q in QUERIES if q.question_id == "CQ-0024")
-    rows = {str(row[0]): int(row[1]) for row in query.run(dataset)}
-    blank = [key for key in rows if "not supplied" in key]
-    assert len(blank) == 1 and rows[blank[0]] == 5
+    rows = [[str(v) if v is not None else None for v in row] for row in query.run(dataset)]
+    reviewed = [row for row in rows if row[0] == "reviewed"]
+    assert len({row[3] for row in reviewed if "not supplied" in row[2]}) == 5
+
+
+def test_cq_0024_tells_the_act_from_the_manual_and_reviewed_from_unreviewed(dataset):
+    """R06: the signed answer shape asks that the Act's requirements be told from the
+    Manual's practice. Every row says whose words it rests on, and which store."""
+    query = next(q for q in QUERIES if q.question_id == "CQ-0024")
+    rows = [[str(v) for v in row] for row in query.run(dataset)]
+    assert {row[0] for row in rows} == {"reviewed", "unreviewed"}
+    assert {"practice", "law"} <= {row[1] for row in rows}
+    assert all(row[1] == "practice" for row in rows if row[-1].startswith("TMM/"))
+
+
+def test_cq_0009_keeps_reviewed_and_unreviewed_rows_apart_and_reaches_its_passage(dataset):
+    """R06: CQ-0009 used to return GR-0005 and GR-0052 and neither required element.
+    Its required passage is now reached (by GR-0103, machine-written, so marked), and
+    no row is a corrected signed record."""
+    query = next(q for q in QUERIES if q.question_id == "CQ-0009")
+    rows = [[str(v) if v is not None else None for v in row] for row in query.run(dataset)]
+    assert {row[0] for row in rows} <= {"reviewed", "unreviewed"}
+    assert any(row[-1] == "TMM/Part29/9/9/3~1" and row[1] == "GR-0103" and row[0] == "unreviewed" for row in rows)
+    assert all(row[-1].startswith("TMM/Part29/9") for row in rows)
+
+
+def test_every_query_is_checked_against_its_signed_record(dataset):
+    """R06: the contract is the signed record's own (sources, concepts, answer shape).
+    An unmet one is a gap the report counts, so this asserts only that every query is
+    checked and that the checks the rewrites were for now hold."""
+    found = {c.question_id: c for c in ask.contracts(dataset, QUERIES)}
+    assert set(found) == {q.question_id for q in QUERIES}
+    assert not any("required source" in u or "column" in u for u in found["CQ-0009"].unmet)
+    assert not any("required source" in u or "column" in u for u in found["CQ-0024"].unmet)
 
 
 def test_coverage_separates_unqueried_from_undeliverable(dataset):

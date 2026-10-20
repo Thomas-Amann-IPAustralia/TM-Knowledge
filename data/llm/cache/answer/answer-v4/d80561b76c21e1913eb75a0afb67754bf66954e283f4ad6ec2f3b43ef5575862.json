@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013443,
+ "created_utc": "2026-10-20T00:35:52Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0001",
+ "job": "answer",
+ "key": "d80561b76c21e1913eb75a0afb67754bf66954e283f4ad6ec2f3b43ef5575862",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The test comes directly from section 43 of the Trade Marks Act 1995: an application must be rejected if, because of a connotation of the trade mark or a sign it contains, use of the mark in relation to the particular goods or services would be likely to deceive or cause confusion.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s43\",\n          \"quote\": \"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The supplied Manual discussion of a ‘real tangible danger’ rather than a mere possibility appears in its section 44 discussion, where it attributes that formulation to French J in Registrar of Trade Marks v Woolworths Limited, restating propositions from Kitto J in Southern Cross Refrigerating Co v Toowoomba Foundry Pty Ltd.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part26/2#1\",\n          \"quote\": \"A presumption of registrability applies to section 44 of the Act.\"\n        },\n        {\n          \"ref\": \"TMM/Part26/2#1\",\n          \"quote\": \"In Registrar of Trade Marks v Woolworths Limited [1999] FCA 1020, French J referred to the tests set out in Southern Cross Refrigerating Co v Toowoomba Foundry Pty Ltd [1954] HCA 82 (Southern Cross), where Kitto J set out a number of propositions often used to assess the likelihood of deception or confusion.\"\n        },\n        {\n          \"ref\": \"TMM/Part26/2#1\",\n          \"quote\": \"French J restated these as follows at [50]: (i) To show that a trade mark is deceptively similar to another it is necessary to show that a real tangible danger of deception and confusion occurring. A mere possibility is not sufficient.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied passages do not establish the judicial provenance of an interpretation of section 43, or establish that the quoted section 44 propositions apply to section 43; further source material would be needed to answer that aspect.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0001\",\n    \"GC-0002\",\n    \"GC-0008\",\n    \"GC-0012\",\n    \"GC-0064\",\n    \"GC-0168\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "521cc10e562c5a90a2d2c6d6ca203c4e53d46c160c882fe3bf24229bf352adf9",
+ "response_id": "resp_0990fff0c1818607006ad6b757074087d2a1eaddd65638a924",
+ "seconds": 18.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7659,
+  "input_tokens_details": {
+   "cache_write_tokens": 7656,
+   "cached_tokens": 0
+  },
+  "output_tokens": 774,
+  "output_tokens_details": {
+   "reasoning_tokens": 162
+  },
+  "total_tokens": 8433
+ }
+}

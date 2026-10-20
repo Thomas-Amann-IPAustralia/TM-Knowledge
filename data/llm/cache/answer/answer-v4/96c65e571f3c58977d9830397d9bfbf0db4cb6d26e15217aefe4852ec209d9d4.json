@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012798,
+ "created_utc": "2026-10-20T00:34:00Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0092",
+ "job": "answer",
+ "key": "96c65e571f3c58977d9830397d9bfbf0db4cb6d26e15217aefe4852ec209d9d4",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"For an FOI request, the Manual says third-party consultation is required if a document contains business information or personal information relating to a third party.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part61/2/2/3\",\n          \"quote\": \"2.3.3 If a document contains business information or personal information relating to a third party, under the FOI Act, third party consultation is required\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For documents containing sensitive business or personal information, the Manual says the trade mark applicant or their representative may be contacted and given an opportunity to argue that some or all of the information is exempt from release; this particular passage uses “may”, rather than guaranteeing contact in every case.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part61/3/3/3\",\n          \"quote\": \"To the extent that these documents contain sensitive business and/or personal information, the trade mark applicant or their representative may be contacted and given the opportunity to contend that all or part of the information is exempt from release.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Where the affected party argues that information is exempt, the Manual says they have the right to request internal review and/or OAIC review before the documents are released to the FOI applicant.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part61/3/3/3\",\n          \"quote\": \"Where the affected party contends information is exempt, they will have the right to request an internal review and/or a review conducted by the Office of the Australian Information Commissioner (OAIC) – before documents are released to the FOI applicant.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Simply claiming confidentiality is not enough to secure confidential treatment: the Manual separately states that the Registrar will not accept or acknowledge an applicant’s claim that information in particular documents is confidential.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part61/3/3/4\",\n          \"quote\": \"A claim from the applicant that the information in particular documents is confidential will not be accepted or acknowledged by the Registrar.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Public inspection under section 217A is a separate access route: the Act requires the Registrar to make prescribed trade mark documents available for public inspection while held in the Trade Marks Office at or after publication of the application particulars under section 30.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s217A\",\n          \"quote\": \"(1) The Registrar must make available for public inspection prescribed documents that relate to a trade mark while they are held in the Trade Marks Office at or after the time particulars of the application for registration of the trade mark are published under section 30.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The supplied passages therefore support an opportunity to object and seek review in the stated FOI circumstances, but do not establish a universal right to consultation before every form of document access; they do not provide enough information to determine whether particular documents would be released.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0116\",\n    \"GC-0046\",\n    \"GC-0131\",\n    \"GC-0072\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "852f138cbc8ef02611177b1fdc92affdbff0cd727cd0b49c7d526e694dddc1e4",
+ "response_id": "resp_0ba283dfd153b8b3006ad6b6dc02c887d2a015cd271208c562",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6519,
+  "input_tokens_details": {
+   "cache_write_tokens": 6516,
+   "cached_tokens": 0
+  },
+  "output_tokens": 930,
+  "output_tokens_details": {
+   "reasoning_tokens": 150
+  },
+  "total_tokens": 7449
+ }
+}

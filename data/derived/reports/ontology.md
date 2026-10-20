@@ -24,11 +24,11 @@ ontology cannot do, and it is the honest half of the demonstration.
 | Trade Marks Act 1995 | compilation 48 (`C2026C00421`), in force from 19 September 2026 |
 | Trade Marks Regulations 1995 | compilation 53 (`F2026C00009`), in force from 18 December 2025 |
 | Ontology modules | 9, all draft |
-| Classes declared | 91 |
+| Classes declared | 93 |
 | Predicates defined | 53 in `ontology/predicates.py`; 14 used by a signed record, 51 by a machine-written one |
-| Source graph | 65,355 triples over 1057 chunks |
+| Source graph | 66,238 triples over 1088 chunks |
 | Approved graph | 3,644 triples — signed by a named expert |
-| Authored graph | 27,885 triples — **written by a machine, validated by nobody** |
+| Authored graph | 28,667 triples — **written by a machine, validated by nobody** |
 | Inferred graph | 2,315 triples — derived by the SPARQL rules, never a signed record |
 | SHACL result | 0 defects, 0 gaps, 259 notes — exit 0 |
 | Competency queries | 13 of 20 questions |
@@ -63,13 +63,13 @@ unreviewed, naming the owner's ruling; what serves applies it, and the yardstick
 reads the record as signed (ADR-0122). A machine-written concept sorted into a
 kind is a typing by a machine; a person has typed none.
 
-The `source` graph holds 1057 chunks from 206 pages,
-803 provisions and units and 311 decisions: the passages
+The `source` graph holds 1088 chunks from 209 pages,
+821 provisions and units and 317 decisions: the passages
 a record rests on and what they cite (ADR-0097), not the whole snapshot.
 
 ### The trust metadata survived
 
-2227 citations reached the graph as nodes rather than as bare edges, each
+2264 citations reached the graph as nodes rather than as bare edges, each
 carrying upstream's `extraction` and `certainty` verbatim. That is what makes
 CQ-0022 — *did the Manual's authors link that section themselves, or did we work
 it out from the wording?* — a query rather than a shrug. Collapsing those two
@@ -99,6 +99,8 @@ untested shape that never matches anything reads as coverage (`shapes/README.md`
 | A practice statement is not attributed to the Act (PU-0004) | `shapes/authority.ttl` |
 | A span is a well-formed interval | `shapes/provenance.ttl` |
 | A stale assertion does not stay in the approved graph | `shapes/provenance.ttl` |
+| A structured test names the provision it reads | `shapes/provenance.ttl` |
+| A structured test or process template is titled and quoted | `shapes/provenance.ttl` |
 | An approved assertion carries its whole provenance block | `shapes/provenance.ttl` |
 | An assertion about a provision keeps the passage it was read from | `shapes/authority.ttl` |
 | An authored assertion cites the corpus or says it cannot | `shapes/provenance.ttl` |
@@ -136,21 +138,27 @@ the question. Each carries a `limits:` line saying what it has **not**
 established — a query that returns rows always looks like an answer. No
 query returns a corrected signed record as current.
 
-| question | answers |
-|---|---|
-| CQ-0007 | Confusion between my mark and someone else's — which section is that? |
-| CQ-0009 | What has to be established before a standalone geographical reference in a trade mark is treated as likely to cause confusion? |
-| CQ-0011 | Does a descriptive term inside a trade mark trigger section 43 on its own? |
-| CQ-0012 | Is the connotation in this trade mark strong enough to warrant a ground for rejection? — and the answer is that the system must not say. |
-| CQ-0015 | At what point in time is the marketplace assessed when deciding whether a sign is likely to deceive or cause confusion? |
-| CQ-0017 | If section 43 were amended, which parts of the Manual would need reviewing? |
-| CQ-0018 | The WHO has notified a new International Non-Proprietary Name. What in our practice material is affected? |
-| CQ-0019 | If the practice on connotation in Part 29.2 changed, what else would have to change with it? |
-| CQ-0020 | Which citations in the section 43 material point at legislation we do not hold? |
-| CQ-0021 | Which exact passage does that statement come from, and is it the Act or the Manual? |
-| CQ-0022 | Did the Manual's authors link that section themselves, or did we work it out from the wording? |
-| CQ-0023 | Which decisions does the Manual rely on for the proposition that a connotation must arise from the mark itself? |
-| CQ-0024 | Is that a requirement, or is it how we usually do it? |
+Each is checked against its own signed question record (R06): the rows must
+reach the record's required sources, name its expected concepts, and carry the
+columns its answer shape needs. **Queries implemented: 13; contracts met: 1.** An unmet contract is a gap, not a failure:
+it says what the graph cannot yet answer, which a structured test record (A04) or
+more relationships would.
+
+| question | answers | rows | contract |
+|---|---|---|---|
+| CQ-0007 | Confusion between my mark and someone else's — which section is that? | 2 | unmet: concept “deceptively similar” |
+| CQ-0009 | What has to be established before a standalone geographical reference in a trade mark is treated as likely to cause confusion? | 14 | unmet: concept “average consumer” |
+| CQ-0011 | Does a descriptive term inside a trade mark trigger section 43 on its own? | 1 | unmet: required source TMM/Part29/4#1; concept “real and tangible danger”; concept “specification” |
+| CQ-0012 | Is the connotation in this trade mark strong enough to warrant a ground for rejection? — and the answer is that the system must not say. | 3 | unmet: required source TMM/Part29/2/2/4; required source TMM/Part29/3#1~2; concept “presumption of registrability”; concept “obvious, direct and immediate” |
+| CQ-0015 | At what point in time is the marketplace assessed when deciding whether a sign is likely to deceive or cause confusion? | 3 | unmet: concept “priority date” |
+| CQ-0017 | If section 43 were amended, which parts of the Manual would need reviewing? | 13 | unmet: required source TMM/Part29/1#1; required source TMM/Part32A/2/4/2/4/1; required source TMM/Part32B/2/2#1; concept “ground for rejection” |
+| CQ-0018 | The WHO has notified a new International Non-Proprietary Name. What in our practice material is affected? | 2 | unmet: required source TMM/Part29/5/5/1; required source TMM/Part29/5/5/4 |
+| CQ-0019 | If the practice on connotation in Part 29.2 changed, what else would have to change with it? | 34 | unmet: required source TMM/Part29/3#1~1 |
+| CQ-0020 | Which citations in the section 43 material point at legislation we do not hold? | 46 | unmet: required source TMM/Part29/3/3/1~2; concept “superseded legislation” |
+| CQ-0021 | Which exact passage does that statement come from, and is it the Act or the Manual? | 3 | unmet: required source TMA1995/s43 |
+| CQ-0022 | Did the Manual's authors link that section themselves, or did we work it out from the wording? | 27 | unmet: required source TMM/Part29/1#1 |
+| CQ-0023 | Which decisions does the Manual rely on for the proposition that a connotation must arise from the mark itself? | 1 | unmet: required source TMM/Part29/3/3/3 |
+| CQ-0024 | Is that a requirement, or is it how we usually do it? | 358 | met |
 
 **Modality of the signed relationships still serving, from CQ-0024:**
 5 `may`, 9 `must`, 5 `not supplied`, 1 `should`. The blank is not a default and is not filled:
@@ -251,10 +259,92 @@ visible rather than hidden:
    unedited.
 2. **The practice/law distinction survives into query output.** Every passage
    is the Manual's practice or the legislation, a shape blocks the attribution
-   error the reviewer flagged (PU-0004), and an answer keeps the two apart.
+   error the reviewer flagged (PU-0004), and an answer labels each claim's
+   authority. The answer-time check on prose is a word heuristic that can miss
+   (R08): a clean result is not a verified attribution.
 3. **A prohibition became a constraint.** PU-0004 was a paragraph in a YAML
    file; it is now something that stops a publish, with a fixture proving it
    fires and a conforming twin proving it is selective.
 4. **The gaps are countable.** Section 5 is produced by the same run that
    produced the successes.
+
+## 7. Coverage by Part, and what rests on each source
+
+Every chunk is searchable (`search.index`), whatever this table says. A chunk is
+in the graph when a record names it; the counts are distinct records resting on a
+chunk of the Part in the current view (both stores, corrections applied), from the
+dependency index (`ontology.dependencies`, R05). A 0 is no recorded record, never
+"nothing there". The Manual was captured on 3 August 2026; a
+compilation of the Act or the Regulations in force after that may not be reflected in it.
+
+| Part | title | chunks | in the graph | concepts | relationships | definitions | signed records |
+|---|---|---|---|---|---|---|---|
+| Part1 | Introduction, Quality | 3 | 0 | 0 | 0 | 0 | 0 |
+| Part2 | Filing Requirements | 14 | 8 | 1 | 2 | 0 | 0 |
+| Part4 | Fees | 62 | 0 | 0 | 0 | 0 | 0 |
+| Part5 | Data Capture and Indexing | 84 | 7 | 0 | 2 | 0 | 0 |
+| Part6 | Expedited Examination | 5 | 3 | 1 | 2 | 1 | 0 |
+| Part7 | Withdrawal of Applications, Notices and Requests | 6 | 1 | 1 | 0 | 0 | 0 |
+| Part8 | Amalgamation (Linking) of Trade Marks | 4 | 0 | 0 | 0 | 0 | 0 |
+| Part9 | Amendments and Changes to Name and Address | 33 | 13 | 2 | 1 | 1 | 0 |
+| Part10 | Details of Formality Requirements | 70 | 62 | 4 | 11 | 1 | 0 |
+| Part11 | Convention Applications | 36 | 15 | 3 | 5 | 1 | 0 |
+| Part12 | Divisional Applications | 19 | 13 | 1 | 7 | 0 | 2 |
+| Part13 | Application to Register a Series of Trade Marks | 20 | 7 | 2 | 3 | 1 | 0 |
+| Part14 | Classification of Goods and Services | 743 | 46 | 3 | 2 | 2 | 0 |
+| Part15 | General Provision for Extensions of Time | 44 | 28 | 1 | 7 | 1 | 0 |
+| Part16 | Time Limits for Acceptance of an Application for Registration | 11 | 10 | 2 | 3 | 1 | 0 |
+| Part17 | Deferment of Acceptance | 18 | 14 | 1 | 4 | 1 | 0 |
+| Part18 | Finalisation of Application for Registration | 19 | 18 | 6 | 12 | 2 | 0 |
+| Part19A | Use of a Trade Mark | 45 | 24 | 3 | 3 | 0 | 0 |
+| Part19B | Rights Given by Registration of a Trade Mark | 14 | 9 | 2 | 2 | 0 | 0 |
+| Part20 | Definition of a Trade Mark and Presumption of Registrability | 30 | 26 | 7 | 11 | 3 | 3 |
+| Part21 | Non-traditional Signs | 54 | 45 | 6 | 5 | 5 | 0 |
+| Part22 | Section 41 - Capable of Distinguishing | 128 | 80 | 8 | 24 | 6 | 1 |
+| Part23 | Overcoming Grounds for Rejection under Section 41 - including Evidence of Use | 57 | 49 | 1 | 6 | 0 | 1 |
+| Part24 | Disclaimers | 8 | 6 | 1 | 6 | 1 | 0 |
+| Part26 | Section 44 and Regulation 4.15A - Conflict with Other Signs | 55 | 52 | 5 | 14 | 1 | 0 |
+| Part27 | Overcoming Grounds for Rejection under Section 44 | 29 | 14 | 1 | 3 | 0 | 0 |
+| Part28 | Honest Concurrent Use, Prior Use or Other Circumstances | 34 | 30 | 4 | 4 | 3 | 0 |
+| Part29 | Section 43 - Trade Marks likely to Deceive or Cause Confusion | 75 | 50 | 52 | 90 | 37 | 162 |
+| Part30 | Signs that are Scandalous and Use Contrary to Law | 42 | 39 | 3 | 3 | 0 | 0 |
+| Part31 | Prescribed and Prohibited Signs | 25 | 19 | 4 | 2 | 3 | 0 |
+| Part32A | Examination of Trade Marks for Plants (in Class 31) | 61 | 22 | 1 | 7 | 0 | 3 |
+| Part32B | Examination of Trade Marks for Wines (in Class 33) | 30 | 29 | 4 | 7 | 3 | 2 |
+| Part33 | Collective Trade Marks | 16 | 9 | 1 | 1 | 0 | 0 |
+| Part34 | Defensive Trade Marks | 28 | 20 | 2 | 5 | 0 | 1 |
+| Part35 | Certification Trade Marks | 20 | 4 | 1 | 4 | 0 | 0 |
+| Part38 | Revocation of Acceptance | 13 | 5 | 1 | 2 | 0 | 0 |
+| Part39 | Registration of a Trade Mark | 23 | 10 | 1 | 2 | 0 | 0 |
+| Part40 | Renewal of Registration | 5 | 1 | 1 | 2 | 1 | 0 |
+| Part41 | Cancellation of Registration | 5 | 0 | 0 | 0 | 0 | 0 |
+| Part42 | Rectification of the Register | 5 | 2 | 1 | 1 | 1 | 0 |
+| Part43 | Assignment and Transmission | 19 | 12 | 3 | 4 | 0 | 0 |
+| Part44 | Claim of Interest or Rights in a Trade Mark | 25 | 1 | 0 | 1 | 0 | 0 |
+| Part45 | Copies of Documents | 8 | 1 | 0 | 0 | 0 | 0 |
+| Part46 | Grounds for Opposition to Registration or Protection | 23 | 19 | 1 | 6 | 0 | 0 |
+| Part47 | Procedures for Opposing Registration or Protection | 37 | 32 | 2 | 7 | 0 | 1 |
+| Part48 | Removal of a Trade Mark from the Register for Non-use | 25 | 14 | 2 | 3 | 1 | 0 |
+| Part49 | Non-use Procedures | 40 | 35 | 0 | 6 | 0 | 0 |
+| Part51 | General Opposition Proceedings | 40 | 27 | 2 | 2 | 0 | 1 |
+| Part52 | Hearings, Decisions, Reasons and Appeals | 23 | 18 | 3 | 9 | 3 | 0 |
+| Part54 | Subpoenas, Summonses and Production of Documents | 31 | 29 | 1 | 3 | 1 | 0 |
+| Part55 | Costs | 26 | 12 | 1 | 2 | 0 | 0 |
+| Part60 | The Madrid Protocol | 141 | 95 | 3 | 29 | 0 | 0 |
+| Part61 | Availability of Documents | 18 | 0 | 0 | 0 | 0 | 0 |
+| Part62 | Revocation of Registration | 11 | 3 | 1 | 3 | 1 | 0 |
+
+**5 Parts have no chunk in the graph**: Part1, Part4, Part8, Part41, Part61. **2 more have
+no relationship resting on them**: Part7, Part45.
+
+**The dependency index.** 2,362 dependencies of 963 records on
+557 refs, current view: by record type 67 competency_question, 400 concept_type, 61 correction, 399 definition, 595 gold_concept, 66 gold_entity, 711 gold_relationship, 40 gold_retrieval_question, 5 gold_search_question, 18 reasoning_expectation; by review
+status 356 approved, 2,006 unreviewed; by source 573 act, 9 case, 1,639 manual, 141 regulations. Stale (a recorded hash that
+no longer matches the pin): 0. A further 19 dependencies are
+history only: a signed record named the ref as signed, and a correction removed it or
+replaced the record. RULE-0002 is unchanged and is the signed-records-only view of the
+same question, from a Manual passage only.
+
+The provisions most rested on, directly or through a Manual passage that cites them:
+`TMA1995/s43` (308), `TMA1995/s6` (100), `TMA1995/s44` (95), `TMA1995/s41` (78), `TMA1995/s33` (66), `TMA1995/s39` (37), `TMA1995/s42` (28), `TMA1995/s206` (23), `TMR1995/r17A.2` (21), `TMA1995/s17` (16).
 

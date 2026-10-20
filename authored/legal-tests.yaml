@@ -1,0 +1,599 @@
+# Structured legal tests (A04) — machine-written by claude-code-agent-S042 on 2026-10-19, unreviewed (ADR-0142).
+# Every element quotes its unit or passage; the envelope's evidence is every quote, located.
+- id: GL-0001
+  provision: TMA1995/s44
+  title: Conflict with another person's earlier trade mark (section 44)
+  ground: GC-0006
+  actor: the Registrar
+  authority: law
+  scope:
+    applies_to: an application for goods, item by item (subsection (1))
+    proceeding: application_and_examination
+    parallel: TMA1995/s44(2) states the same test for services, with similar services or closely related goods
+  effect:
+    kind: obligation
+    text: The application must be rejected for the goods affected, subject to subsections (3) and (4).
+    ref: TMA1995/s44(1)
+    quote: 'Subject to subsections (3) and (4), an application for the registration of a trade mark (applicant’s
+      trade mark) in respect of goods (applicant’s goods) must be rejected if:'
+  condition:
+    all:
+    - id: same_or_similar_mark
+      text: The applicant's trade mark is substantially identical with, or deceptively similar to, the other trade
+        mark.
+      ref: TMA1995/s44(1)(a)
+      quote: 'the applicant’s trade mark is substantially identical with, or deceptively similar to:'
+      kind: evaluative
+      concepts:
+      - GC-0065
+      - GC-0154
+    - id: other_mark_is_anothers
+      text: The other trade mark is another person's, registered or applied for.
+      any:
+      - id: registered_by_another
+        text: The other trade mark is registered by another person.
+        ref: TMA1995/s44(1)(a)(i)
+        quote: a trade mark registered by another person
+        kind: fact
+        ask: Is the trade mark the report cites registered, or still an application?
+      - id: sought_by_another
+        text: Registration of the other trade mark is being sought by another person.
+        ref: TMA1995/s44(1)(a)(ii)
+        quote: a trade mark whose registration in respect of similar goods or closely related services is being
+          sought by another person
+        kind: fact
+        ask: Is the cited trade mark still an application, not yet registered?
+    - id: similar_goods
+      text: The other trade mark is for similar goods or closely related services.
+      ref: TMA1995/s44(1)(a)(i)
+      quote: in respect of similar goods or closely related services
+      kind: evaluative
+      concepts:
+      - GC-0071
+    - id: priority_not_earlier
+      text: The applicant's priority date is not earlier than the other trade mark's.
+      ref: TMA1995/s44(1)(b)
+      quote: the priority date for the registration of the applicant’s trade mark in respect of the applicant’s
+        goods is not earlier than the priority date for the registration of the other trade mark
+      kind: fact
+      concepts:
+      - GC-0016
+      ask: What is your application's priority date, and the cited trade mark's?
+      derive:
+        not_earlier_than:
+        - application.priority_date
+        - cited_mark.priority_date
+  exceptions:
+  - id: honest_concurrent_use
+    text: Honest concurrent use, or other circumstances that make it proper to accept (subsection (3)).
+    ref: TMA1995/s44(3)
+    quote: 'If the Registrar in either case is satisfied:'
+    effect:
+      kind: discretion
+      text: The Registrar may accept the application, subject to any conditions or limitations the Registrar thinks
+        fit.
+      ref: TMA1995/s44
+      quote: the Registrar may accept the application for the registration of the applicant’s trade mark subject
+        to any conditions or limitations that the Registrar thinks fit to impose
+    condition:
+      any:
+      - id: hcu
+        text: The Registrar is satisfied that there has been honest concurrent use of the two trade marks.
+        ref: TMA1995/s44(3)(a)
+        quote: that there has been honest concurrent use of the 2 trade marks
+        kind: evaluative
+        concepts:
+        - GC-0066
+      - id: other_circumstances
+        text: The Registrar is satisfied that, because of other circumstances, it is proper to accept.
+        ref: TMA1995/s44(3)(b)
+        quote: that, because of other circumstances, it is proper to do so
+        kind: evaluative
+        concepts:
+        - GC-0068
+  - id: prior_continuous_use
+    text: Continuous use from before the other trade mark's priority date (subsection (4)).
+    ref: TMA1995/s44(4)
+    quote: 'have continuously used the applicant’s trade mark for a period:'
+    effect:
+      kind: bar
+      text: The Registrar may not reject the application because of the other trade mark.
+      ref: TMA1995/s44
+      quote: the Registrar may not reject the application because of the existence of the other trade mark
+    condition:
+      all:
+      - id: continuous_use
+        text: The Registrar is satisfied that the applicant (with any predecessor in title) has used the trade mark
+          continuously over the period.
+        ref: TMA1995/s44(4)
+        quote: the applicant, or the applicant and the predecessor in title of the applicant, have continuously
+          used the applicant’s trade mark
+        kind: evaluative
+      - id: use_began_before
+        text: The period of use began before the other trade mark's priority date.
+        ref: TMA1995/s44(4)(a)
+        quote: beginning before the priority date for the registration of the other trade mark
+        kind: fact
+        concepts:
+        - GC-0016
+        ask: When did you first use the trade mark in Australia, and has the use been continuous since?
+      - id: use_runs_to_priority
+        text: The period of use runs to the applicant's own priority date.
+        ref: TMA1995/s44(4)(b)
+        quote: ending on the priority date for the registration of the applicant’s trade mark
+        kind: fact
+        ask: Has that use continued up to your application's priority date?
+  routes:
+  - id: evidence_for_3_or_4
+    text: File evidence of use or of other circumstances, so the application can proceed under subsection (3) or
+      (4).
+    ref: TMM/Part27/5#1
+    quote: It may be possible for the applicant to overcome a citation by filing evidence of use or other circumstances
+      which would allow the application to proceed under s 44(3) or 44(4) of the Act.
+    authority: practice
+  - id: defer
+    text: Ask the Registrar in writing to defer acceptance, for example while the cited application is finalised
+      or while you gather what subsection (3) or (4) needs.
+    ref: TMR1995/r4.13(1)
+    quote: 'The Registrar may, at the request of the applicant in writing, defer acceptance of an application for
+      registration of a trade mark, if:'
+    authority: law
+  notes: 'Subsection (2) is the same test for services and is named in the scope rather than repeated. Whether two
+    marks are deceptively similar, and whether goods are similar, are the examiner''s assessments: the test never
+    computes them.'
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S042
+    authored_date: '2026-10-19'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s44(1)
+      span:
+      - 4
+      - 177
+      content_hash: sha256:76ae56986ebf87b83c99855263706630dad583c5b4f7cf510ed114f64ea65cd8
+      quote: 'Subject to subsections (3) and (4), an application for the registration of a trade mark (applicant’s
+        trade mark) in respect of goods (applicant’s goods) must be rejected if:'
+    - ref: TMA1995/s44(1)(a)
+      span:
+      - 4
+      - 90
+      content_hash: sha256:3858430eb803d23764375a0e3d8b1a82d97f59678b6bb9b1f16017d5624bd2ef
+      quote: 'the applicant’s trade mark is substantially identical with, or deceptively similar to:'
+    - ref: TMA1995/s44(1)(a)(i)
+      span:
+      - 4
+      - 45
+      content_hash: sha256:f27b7b6aebfd2e42c8da5fd27c3e57fc44c106562c594ab6aa1a32d3d8ce8751
+      quote: a trade mark registered by another person
+    - ref: TMA1995/s44(1)(a)(ii)
+      span:
+      - 5
+      - 126
+      content_hash: sha256:acc6c525ee1cfa395c74e4a1c48a9b30bc3c3bdf1f076e5cae550e82afa23de9
+      quote: a trade mark whose registration in respect of similar goods or closely related services is being sought
+        by another person
+    - ref: TMA1995/s44(1)(a)(i)
+      span:
+      - 46
+      - 101
+      content_hash: sha256:f27b7b6aebfd2e42c8da5fd27c3e57fc44c106562c594ab6aa1a32d3d8ce8751
+      quote: in respect of similar goods or closely related services
+    - ref: TMA1995/s44(1)(b)
+      span:
+      - 4
+      - 191
+      content_hash: sha256:4da420d7ac2b8d825e9a7337903491ac1726d1b680b528276fc8d31fc10d2a72
+      quote: the priority date for the registration of the applicant’s trade mark in respect of the applicant’s
+        goods is not earlier than the priority date for the registration of the other trade mark
+    - ref: TMA1995/s44(3)
+      span:
+      - 4
+      - 49
+      content_hash: sha256:4187ec36106aa27112518ca1c507576d86e62a0de015fe7a8624e0f21db17398
+      quote: 'If the Registrar in either case is satisfied:'
+    - ref: TMA1995/s44
+      span:
+      - 2576
+      - 2748
+      content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
+      quote: the Registrar may accept the application for the registration of the applicant’s trade mark subject
+        to any conditions or limitations that the Registrar thinks fit to impose
+    - ref: TMA1995/s44(3)(a)
+      span:
+      - 4
+      - 66
+      content_hash: sha256:31e52977b9827efecd10221b83b4f992d820abfc15ea78b40d25206855cb7bc3
+      quote: that there has been honest concurrent use of the 2 trade marks
+    - ref: TMA1995/s44(3)(b)
+      span:
+      - 4
+      - 63
+      content_hash: sha256:f2721265e470e4f0abb2cb3063a909c77051ec5a0bd226a5da4604b861376e24
+      quote: that, because of other circumstances, it is proper to do so
+    - ref: TMA1995/s44(4)
+      span:
+      - 133
+      - 196
+      content_hash: sha256:770d59d5f222c3ec181d5c980baf2929bd604747dd6b9d01bbea6538aca57448
+      quote: 'have continuously used the applicant’s trade mark for a period:'
+    - ref: TMA1995/s44
+      span:
+      - 3452
+      - 3545
+      content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
+      quote: the Registrar may not reject the application because of the existence of the other trade mark
+    - ref: TMA1995/s44(4)
+      span:
+      - 54
+      - 182
+      content_hash: sha256:770d59d5f222c3ec181d5c980baf2929bd604747dd6b9d01bbea6538aca57448
+      quote: the applicant, or the applicant and the predecessor in title of the applicant, have continuously used
+        the applicant’s trade mark
+    - ref: TMA1995/s44(4)(a)
+      span:
+      - 4
+      - 83
+      content_hash: sha256:7dba1b51edb8eb2355ea829822e64645cda73ddf65f125581c3624d62ebcb729
+      quote: beginning before the priority date for the registration of the other trade mark
+    - ref: TMA1995/s44(4)(b)
+      span:
+      - 4
+      - 82
+      content_hash: sha256:22208bd3b0819e40b43ea2dfb4e9db5974e9c4b78202fef4d17aa6d15ebe137a
+      quote: ending on the priority date for the registration of the applicant’s trade mark
+    - ref: TMM/Part27/5#1
+      span:
+      - 0
+      - 188
+      content_hash: sha256:199a77accc7b39f779a6c480f1f0f528dda3edda07256e220dab0675abc03193
+      quote: It may be possible for the applicant to overcome a citation by filing evidence of use or other circumstances
+        which would allow the application to proceed under s 44(3) or 44(4) of the Act.
+    - ref: TMR1995/r4.13(1)
+      span:
+      - 4
+      - 139
+      content_hash: sha256:4ba6ab35c9a92564def9ceaee0c8486e2e963bf054bbf7824b4e2f0539a313e0
+      quote: 'The Registrar may, at the request of the applicant in writing, defer acceptance of an application
+        for registration of a trade mark, if:'
+    confidence: 0.8
+    reasoning: Read clause by clause from section 44(1), its two exceptions in (3) and (4), and the deferment regulation.
+      The effect of (1) is an obligation; (3) gives a discretion, which present prerequisites never turn into a
+      must; (4) bars rejection on the other mark. Similarity of marks and of goods are evaluative.
+    alternatives_considered:
+    - 'Modelling (3) and (4) as conditions of (1) rather than exceptions: rejected, because the Act frames them
+      as what the Registrar may do despite (1) (''Subject to subsections (3) and (4)'').'
+    expert_should_check: Whether the 'other circumstances' limb of (3) and the continuous-use limb of (4) are the
+      right granularity for a customer explanation.
+- id: GL-0002
+  provision: TMA1995/s43
+  title: A connotation likely to deceive or cause confusion (section 43)
+  ground: GC-0168
+  actor: the Registrar
+  authority: law
+  scope:
+    applies_to: an application, for the particular goods or services the connotation concerns
+    proceeding: application_and_examination
+  effect:
+    kind: obligation
+    text: The application must be rejected for those goods or services.
+    ref: TMA1995/s43
+    quote: An application for the registration of a trade mark in respect of particular goods or services must be
+      rejected if
+  condition:
+    all:
+    - id: has_connotation
+      text: The trade mark, or a sign in it, has a connotation.
+      ref: TMA1995/s43
+      quote: because of some connotation that the trade mark or a sign contained in the trade mark has
+      kind: evaluative
+      concepts:
+      - GC-0001
+    - id: likely_to_deceive
+      text: Because of that connotation, using the trade mark for those goods or services would be likely to deceive
+        or cause confusion.
+      ref: TMA1995/s43
+      quote: the use of the trade mark in relation to those goods or services would be likely to deceive or cause
+        confusion
+      kind: evaluative
+      concepts:
+      - GC-0002
+  routes:
+  - id: condition_or_amendment
+    text: Agree to a condition of registration, or amend the goods or services, so the likelihood of deceiving or
+      confusing is removed.
+    ref: TMM/Part29/9/9/5
+    quote: An applicant will be able to overcome a geographical section 43 objection by agreeing to a condition
+      of registration or a specification amendment which removes the likelihood of consumers being deceived or confused.
+    authority: practice
+    scope: a geographical section 43 objection
+  notes: Section 43 has no exception in the Act. The Manual describes ways an objection may be answered; they are
+    practice, and the one quoted is scoped to geographical references.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S042
+    authored_date: '2026-10-19'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s43
+      span:
+      - 0
+      - 114
+      content_hash: sha256:37f2c27c42b22f4448b941d9e541f979dc443b8cf2c9aff6e711f28c2e82c73c
+      quote: An application for the registration of a trade mark in respect of particular goods or services must
+        be rejected if
+    - ref: TMA1995/s43
+      span:
+      - 116
+      - 205
+      content_hash: sha256:37f2c27c42b22f4448b941d9e541f979dc443b8cf2c9aff6e711f28c2e82c73c
+      quote: because of some connotation that the trade mark or a sign contained in the trade mark has
+    - ref: TMA1995/s43
+      span:
+      - 207
+      - 317
+      content_hash: sha256:37f2c27c42b22f4448b941d9e541f979dc443b8cf2c9aff6e711f28c2e82c73c
+      quote: the use of the trade mark in relation to those goods or services would be likely to deceive or cause
+        confusion
+    - ref: TMM/Part29/9/9/5
+      span:
+      - 0
+      - 215
+      content_hash: sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9
+      quote: An applicant will be able to overcome a geographical section 43 objection by agreeing to a condition
+        of registration or a specification amendment which removes the likelihood of consumers being deceived or
+        confused.
+    confidence: 0.8
+    reasoning: 'Section 43 is one sentence with two evaluative conditions joined: a connotation, and a likelihood
+      of deceiving or confusing because of it. No exception in the Act; the Manual''s routes are practice and scoped
+      as the Manual scopes them.'
+    alternatives_considered: []
+    expert_should_check: Whether the geographical route should be offered for other kinds of connotation.
+- id: GL-0003
+  provision: TMA1995/s41
+  title: Not capable of distinguishing (section 41)
+  ground: GC-0181
+  actor: the Registrar
+  authority: law
+  scope:
+    applies_to: an application, for the designated goods or services
+    proceeding: application_and_examination
+  effect:
+    kind: obligation
+    text: The application must be rejected.
+    ref: TMA1995/s41(1)
+    quote: An application for the registration of a trade mark must be rejected if the trade mark is not capable
+      of distinguishing
+  condition:
+    id: subsection_3_or_4
+    text: A trade mark is taken not to be capable of distinguishing only if subsection (3) or (4) applies (subsection
+      (2)).
+    any:
+    - id: subsection_3
+      text: 'Subsection (3): no inherent adaptation, and not shown to distinguish by use before filing.'
+      all:
+      - id: no_inherent_adaptation
+        text: The trade mark is not to any extent inherently adapted to distinguish.
+        ref: TMA1995/s41(3)(a)
+        quote: the trade mark is not to any extent inherently adapted to distinguish the designated goods or services
+          from the goods or services of other persons
+        kind: evaluative
+        concepts:
+        - GC-0120
+      - id: not_distinguishing_by_use
+        text: The applicant has not used the trade mark before the filing date so much that it does in fact distinguish.
+        ref: TMA1995/s41(3)(b)
+        quote: the applicant has not used the trade mark before the filing date in respect of the application to
+          such an extent that the trade mark does in fact distinguish
+        kind: evaluative
+        concepts:
+        - GC-0041
+        - GC-0091
+    - id: subsection_4
+      text: 'Subsection (4): some but not enough inherent adaptation, and it does not and will not distinguish on
+        the combined effect of everything.'
+      all:
+      - id: some_inherent_adaptation
+        text: The trade mark is to some extent, but not sufficiently, inherently adapted to distinguish.
+        ref: TMA1995/s41(4)(a)
+        quote: the trade mark is, to some extent, but not sufficiently, inherently adapted to distinguish
+        kind: evaluative
+        concepts:
+        - GC-0059
+      - id: does_not_and_will_not
+        text: The trade mark does not and will not distinguish, having regard to its inherent adaptation, its use
+          or intended use, and any other circumstances.
+        ref: TMA1995/s41(4)(b)
+        quote: 'the trade mark does not and will not distinguish the designated goods or services as being those
+          of the applicant having regard to the combined effect of the following:'
+        kind: evaluative
+  evidence_requirements:
+  - id: before_filing
+    for:
+    - not_distinguishing_by_use
+    kind: relevance
+    checks:
+    - before_filing_date
+    - dated
+    text: Under subsection (3), only use before the filing date counts.
+    ref: TMM/Part23/5/5/3
+    quote: To be able to demonstrate this, the use must be before the filing date. Use after that date will not
+      be considered.
+    authority: practice
+  - id: in_australia_same_mark
+    for:
+    - not_distinguishing_by_use
+    kind: relevance
+    checks:
+    - in_australia
+    - sign_as_applied
+    text: Under subsection (3), the use must be in Australia, of the trade mark applied for or a substantially identical
+      one.
+    ref: TMM/Part23/5/5/2
+    quote: any evidence of use must relate to use in Australia of the trade mark applied for or a substantially
+      identical mark
+    authority: practice
+  - id: extensive_use
+    for:
+    - not_distinguishing_by_use
+    kind: sufficiency
+    text: Under subsection (3), the evidence should generally show extensive use as a trade mark; how much is enough
+      is the examiner's assessment.
+    ref: TMM/Part23/5/5/2
+    quote: should generally show extensive use as a trade mark such that it is likely to be perceived as a brand
+      distinguishing the goods or services of the applicant in the marketplace
+    authority: practice
+  - id: after_filing_relevant
+    for:
+    - does_not_and_will_not
+    kind: relevance
+    checks:
+    - dated
+    text: Under subsection (4), use after the filing date is also relevant.
+    ref: TMM/Part23/4/4/3
+    quote: However, if the application is to some extent inherently adapted to distinguish, use after the filing
+      date is also relevant to determining the potential capacity to distinguish of the trade mark as at the date
+      of filing.
+    authority: practice
+  - id: goods_and_dates
+    for:
+    - not_distinguishing_by_use
+    - does_not_and_will_not
+    kind: relevance
+    checks:
+    - items_covered
+    - dated
+    text: Say which goods or services the trade mark has been used for, and when it was first used and for how long.
+    ref: TMM/Part23/3/3/4~1
+    quote: when the trade mark was first used and the period of use
+    authority: practice
+  routes:
+  - id: submissions
+    text: Write to the Registrar with legal arguments, for example that the objection is valid for some goods or
+      services but not others.
+    ref: TMM/Part23/2/2/1
+    quote: and/or that the objection raised may be valid for some goods or services but not others
+    authority: practice
+  - id: delete_part
+    text: Delete the goods or services the objection is raised against.
+    ref: TMM/Part23/2/2/2/1
+    quote: If grounds for rejection have been raised in respect of only part of the specification of goods and/or
+      services, the applicant may be able to overcome the problem by deleting that part.
+    authority: practice
+  - id: evidence_of_use
+    text: File evidence of use, in a declaration.
+    ref: TMR1995/r4.9(2)(c)
+    quote: provide further documents or evidence in support of the application
+    authority: law
+  notes: 'Every condition of section 41 is evaluative: the system reports what the report records and what evidence
+    is missing, never whether the trade mark is capable of distinguishing.'
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S042
+    authored_date: '2026-10-19'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s41(1)
+      span:
+      - 4
+      - 123
+      content_hash: sha256:42edf378286a04aacd5a7217202c4fb2c177bfc1d5bd612770ee17c4880ac34a
+      quote: An application for the registration of a trade mark must be rejected if the trade mark is not capable
+        of distinguishing
+    - ref: TMA1995/s41(3)(a)
+      span:
+      - 4
+      - 150
+      content_hash: sha256:76241011c8a8aea35c61bdeda3214d427c829977a9b8826f3448f26ead4ec629
+      quote: the trade mark is not to any extent inherently adapted to distinguish the designated goods or services
+        from the goods or services of other persons
+    - ref: TMA1995/s41(3)(b)
+      span:
+      - 4
+      - 161
+      content_hash: sha256:a12916424e0f0382bf0700dbbd63a39f5fe5ceaf8f36592dff6fa1e4acddfa8e
+      quote: the applicant has not used the trade mark before the filing date in respect of the application to such
+        an extent that the trade mark does in fact distinguish
+    - ref: TMA1995/s41(4)(a)
+      span:
+      - 4
+      - 94
+      content_hash: sha256:d57518cca8fd35a5b8d3980d85df43948532fc28b0af0fbd5f75007b0836ebde
+      quote: the trade mark is, to some extent, but not sufficiently, inherently adapted to distinguish
+    - ref: TMA1995/s41(4)(b)
+      span:
+      - 4
+      - 172
+      content_hash: sha256:555681a7276c9e1199f72d2b1f5fe2dcfa01b4b90a78b326fd3e1e356870bb09
+      quote: 'the trade mark does not and will not distinguish the designated goods or services as being those of
+        the applicant having regard to the combined effect of the following:'
+    - ref: TMM/Part23/5/5/3
+      span:
+      - 211
+      - 326
+      content_hash: sha256:520e6b2b922f018e9e7ed89d9809b03526891208fb1ee7d533220b907da65762
+      quote: To be able to demonstrate this, the use must be before the filing date. Use after that date will not
+        be considered.
+    - ref: TMM/Part23/5/5/2
+      span:
+      - 570
+      - 685
+      content_hash: sha256:131570a261cb96d2ed62fb8b29844c4689b37754919126369ebb08b063ae4efc
+      quote: any evidence of use must relate to use in Australia of the trade mark applied for or a substantially
+        identical mark
+    - ref: TMM/Part23/5/5/2
+      span:
+      - 256
+      - 430
+      content_hash: sha256:131570a261cb96d2ed62fb8b29844c4689b37754919126369ebb08b063ae4efc
+      quote: should generally show extensive use as a trade mark such that it is likely to be perceived as a brand
+        distinguishing the goods or services of the applicant in the marketplace
+    - ref: TMM/Part23/4/4/3
+      span:
+      - 102
+      - 322
+      content_hash: sha256:bfeca76e98baefb1ff2c3aeacdd009b316f224b7a99ef73bae11c4f5a4f8225a
+      quote: However, if the application is to some extent inherently adapted to distinguish, use after the filing
+        date is also relevant to determining the potential capacity to distinguish of the trade mark as at the date
+        of filing.
+    - ref: TMM/Part23/3/3/4~1
+      span:
+      - 350
+      - 406
+      content_hash: sha256:44b5cb9d54e45149faa6fa1ae221a085605a8e3ccf14390f32d457be36dbe31a
+      quote: when the trade mark was first used and the period of use
+    - ref: TMM/Part23/2/2/1
+      span:
+      - 217
+      - 304
+      content_hash: sha256:c20aa6119e4e277fd1cb3ca88341d3ee5a93ab3828912fd77ce5dd8219b67767
+      quote: and/or that the objection raised may be valid for some goods or services but not others
+    - ref: TMM/Part23/2/2/2/1
+      span:
+      - 0
+      - 185
+      content_hash: sha256:02ccd3b162dd04bf055fc7f73145272705195b60c9eb6034a18bd9313197247c
+      quote: If grounds for rejection have been raised in respect of only part of the specification of goods and/or
+        services, the applicant may be able to overcome the problem by deleting that part.
+    - ref: TMR1995/r4.9(2)(c)
+      span:
+      - 4
+      - 71
+      content_hash: sha256:92f8bf5159b6690fe61f95e45e78b33a53c7c6151d1a2ebc51325071604d0106
+      quote: provide further documents or evidence in support of the application
+    confidence: 0.75
+    reasoning: Section 41(2) makes (3) and (4) the only ways a mark is taken not to be capable of distinguishing,
+      so the condition is (3) OR (4), each a conjunction of its paragraphs. Every condition is evaluative. The evidence
+      requirements are the Manual's (Part 23), split into relevance, which a record's facts can be compared with,
+      and sufficiency, which is the examiner's.
+    alternatives_considered:
+    - 'Listing (4)(b)''s three factors as separate conditions: rejected, because the Act weighs their combined effect,
+      which is one assessment.'
+    expert_should_check: Whether the evidence requirements' split into relevance and sufficiency matches how examiners
+      read Part 23.

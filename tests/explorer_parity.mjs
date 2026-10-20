@@ -14,6 +14,7 @@ for (const q of JSON.parse(readFileSync(questionsPath, "utf8"))) {
   const prepared = engine.prepare(q.question, chat);
   out[q.key] = {
     keyword: engine.keyword(q.question, 10).map((h) => h.ref),
+    provisions: engine.provisionSearch(q.question, 5).map((h) => h.ref),
     ontology: hits.map((h) => h.ref),
     recognised: trace.ids,
     neighbours: trace.neighbours,

@@ -51,6 +51,7 @@ from rdflib.namespace import DCTERMS, OWL, PROV, RDF, RDFS, SKOS, XSD
 
 from tm_knowledge.authored import corrections as corrections_module
 from tm_knowledge.authored import definitions as definitions_module
+from tm_knowledge.authored import procedure as procedure_module
 from tm_knowledge.authored import store as authored_module
 from tm_knowledge.config import REPO_ROOT
 from tm_knowledge.ontology import conditions
@@ -134,6 +135,8 @@ class StoreReport:
     #: Concepts this store's graph defines (ADR-0137). Always 0 for the approved
     #: store: every definition is machine-written.
     definitions: int = 0
+    #: Structured tests and process templates (ADR-0142). Always 0 for the approved store.
+    procedures: int = 0
     #: Records whose recorded hash no longer matches the snapshot.
     stale: list[str] = field(default_factory=list)
     #: Records naming a source the corpus does not hold at all.
@@ -572,8 +575,9 @@ def _evidence_refs(
     envelopes = [entry.envelope for entry in authored.all_entries() if entry.sound] if authored else []
     for _, record, envelope in extra:
         envelopes.append(envelope)
-        if isinstance(record.get("source_ref"), str):
-            found.add(record["source_ref"])
+        for key in ("source_ref", "provision"):  # a structured test's provision (ADR-0142)
+            if isinstance(record.get(key), str):
+                found.add(record[key])
     for envelope in envelopes:
         for item in (envelope or {}).get("evidence") or ():
             if isinstance(item, dict) and isinstance(item.get("ref"), str):
@@ -1437,6 +1441,33 @@ def _build_definitions(
     counts.definitions = len(definitions.sound)
 
 
+def _build_procedures(graph: Graph, tests: Any, processes: Any, counts: StoreReport,
+                      corpus: Corpus | None = None) -> None:
+    """Structured tests and process templates (ADR-0142), as records in the authored graph.
+
+    The record and its envelope, each evidence item an anchor, as a definition's are, so
+    every machine-written record type carries its envelope in the RDF (R03, R04). The
+    condition tree and the steps stay in the record file for now; mapping them is a
+    design of its own (the handoff's next action)."""
+    for found, kind in ((tests, TMK.StructuredTest), (processes, TMK.ProcessTemplate)):
+        store = Store(
+            name="authored", records=None, graph_name=AUTHORED_GRAPH,
+            assertion_class=TMK.AuthoredAssertion,
+            envelopes={entry.id: entry.envelope for entry in found.sound if entry.envelope},
+            corpus=corpus,
+        )
+        for entry in found.sound:
+            node = assertion_node(entry.id)
+            graph.add((node, RDF.type, kind))
+            graph.add((node, TMK.goldRecord, _lit(entry.id)))
+            graph.add((node, RDFS.label, _en(entry.record["title"])))
+            graph.add((node, TMK.extractionMethod, _lit(AUTHORING)))
+            if entry.record.get("provision"):
+                graph.add((node, TMK.readsProvision, ref_node(entry.record["provision"])))
+            _origin(graph, node, entry.record, store)
+        counts.procedures += len(found.sound)
+
+
 def _build_store(
     corpus: Corpus,
     store: Store,
@@ -1502,6 +1533,8 @@ def build(
     report.corrections_refused = [entry.id for entry in corrections.refused]
     definitions = definitions_module.load(authored.root, gold=gold, authored=authored)
     report.definitions_refused = [entry.id for entry in definitions.refused]
+    tests = procedure_module.load_tests(authored.root, gold=gold, authored=authored)
+    processes = procedure_module.load_processes(authored.root, gold=gold, authored=authored)
     signed = approved_store(
         corrections_module.in_force_gold(gold, corrections), corrections.replacements()
     )
@@ -1522,6 +1555,8 @@ def build(
     extra = [
         *(("correction", c.record, c.envelope) for c in corrections.sound),
         *(("definition", d.record, d.envelope) for d in definitions.sound),
+        *(("legal_test", t.record, t.envelope) for t in tests.sound),
+        *(("process", p.record, p.envelope) for p in processes.sound),
     ]
     if chunks is None:
         chunks = source_chunks(corpus, gold, authored, extra)
@@ -1538,6 +1573,7 @@ def build(
     authored_graph = _build_store(corpus, machine, report.authored, labels, excluded, signed_labels)
     _build_corrections(authored_graph, corrections, report.authored, corpus)
     _build_definitions(authored_graph, definitions, report.authored, corpus)
+    _build_procedures(authored_graph, tests, processes, report.authored, corpus)
 
     in_scope = {
         str(ref) for ref in source.subjects(RDF.type, TMK.Chunk)
@@ -1565,6 +1601,60 @@ def build(
         "tbox": len(load_tbox()),
     }
     return dataset, report
+
+
+#: The release manifest's schema (A11). Bump it when a field changes meaning.
+MANIFEST_VERSION = "tmk-release/1"
+
+
+def manifest(dataset: Dataset) -> dict[str, Any]:
+    """What a downstream consumer needs to know about this build, from the build itself
+    (the second review response, A11): the pin and the compilations it holds, the record
+    schemas, the profile, and per named graph its triples, its record classes and its
+    review states. Deterministic, so it is committed beside the graph and drift-checked
+    with it; the site's `build.json` adds the date and the revision."""
+    import json
+
+    pin = json.loads((REPO_ROOT / "data" / "pin.json").read_text(encoding="utf-8"))
+    source = dataset.graph(SOURCE_GRAPH)
+    law = sorted(
+        ({"label": str(source.value(node, RDFS.label)),
+          "compilation": str(source.value(node, TMK.compilationNumber)),
+          "register_id": str(source.value(node, TMK.registerId)),
+          "in_force_from": str(source.value(node, TMK.compilationStart))}
+         for node in source.subjects(RDF.type, TMK.Legislation)
+         if source.value(node, TMK.compilationNumber) is not None),
+        key=lambda row: row["label"])
+    graphs = {}
+    for name, label in ((SOURCE_GRAPH, "source"), (APPROVED_GRAPH, "approved"),
+                        (AUTHORED_GRAPH, "authored"), (INFERRED_GRAPH, "inferred")):
+        graph = dataset.graph(name)
+        classes: dict[str, int] = {}
+        for _, kind in graph.subject_objects(RDF.type):
+            if str(kind).startswith(str(TMK)):
+                key = str(kind)[len(str(TMK)):]
+                classes[key] = classes.get(key, 0) + 1
+        states: dict[str, int] = {}
+        for status in graph.objects(None, TMK.reviewStatus):
+            states[str(status)] = states.get(str(status), 0) + 1
+        graphs[label] = {"triples": len(graph), "classes": dict(sorted(classes.items())),
+                         "review_status": dict(sorted(states.items()))}
+    schemas = sorted(json.loads(path.read_text(encoding="utf-8")).get("$id", path.name)
+                     for path in (REPO_ROOT / "eval" / "schemas").glob("*.schema.json"))
+    return {
+        "manifest": MANIFEST_VERSION,
+        "upstream": {k: pin[k] for k in ("repo", "commit", "manual_extractor_version",
+                                         "legislation_extractor_version", "tree_sha256")},
+        "law": law,
+        "profile": "RDF 1.1 named graphs, SKOS, SHACL shapes and the approved SPARQL rules; no OWL "
+                   "profile is claimed and no OWL inference is licensed (ADR-0134). A direct edge is "
+                   "navigation only; the reified assertion is the reading (ADR-0134, R07).",
+        "graphs": graphs,
+        "schemas": schemas,
+        "states": "approved: a named person signed it; unreviewed: a machine wrote it and nobody has "
+                  "read it; candidate: a rule derived it. They never share a named graph (CLAUDE.md "
+                  "rule 4). Silence never promotes a record (ADR-0085).",
+    }
 
 
 def write(
@@ -1604,6 +1694,12 @@ def write(
     lines = sorted(line for line in serialised.splitlines() if line.strip())
     quads.write_text("\n".join(lines) + "\n", encoding="utf-8")
     written.append(quads)
+
+    import json
+
+    release = directory / "manifest.json"
+    release.write_text(json.dumps(manifest(dataset), indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    written.append(release)
     return tuple(written)
 
 

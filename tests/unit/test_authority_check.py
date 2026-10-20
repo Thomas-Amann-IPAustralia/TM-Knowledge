@@ -23,12 +23,37 @@ CASES = [
     ("The passages do not include section 57 or state the burden.", [], 0),
     ("Examiners should consider the current marketplace.", [], 0),
     ("First sentence. The Regulations require an approved form.\nThe Act says nothing more.", [], 2),
+    # R08's two tightenings: each exemption reads only the match's own clause.
+    ("The legislation does not say anything else, but section 41 requires use evidence.", [], 1),
+    ("Section 41 requires use evidence, as the Manual explains.", ["TMM/Part18/2#1"], 1),
+    ("According to the Manual, section 41 requires use evidence.", ["TMM/Part18/2#1"], 0),
+    ("The Act does not require a search; the Regulations require a fee.", [], 1),
+    ("Section 44 does not require identical goods.", [], 0),
+]
+
+#: Known misses (R08): each should be flagged and is not. Strict, so a change that
+#: catches one fails here and moves it up into CASES on purpose.
+KNOWN_MISSES = [
+    pytest.param("Section 43 requires the Registrar to refuse every surname.", ["TMA1995/s43"],
+                 id="any-citation-of-the-named-section-clears-it"),
+    pytest.param("The Act requires evidence of use in every case.", ["TMA1995/s6"],
+                 id="a-definition-citation-clears-the-whole-act"),
+    pytest.param("Under section 43 the connotation must be obvious, direct and immediate.", [],
+                 id="must-is-outside-the-verb-list"),
+    pytest.param("It is a legal requirement that the applicant files evidence.", [],
+                 id="no-legislation-named"),
 ]
 
 
 @pytest.mark.parametrize("answer, cited, flagged", CASES)
 def test_a_statutory_attribution_needs_a_provision_behind_it(answer, cited, flagged):
     assert len(conflations(answer, cited)) == flagged
+
+
+@pytest.mark.xfail(strict=True, reason="a known miss of a warning heuristic (R08); see the module docstring")
+@pytest.mark.parametrize("answer, cited", KNOWN_MISSES)
+def test_the_known_misses_stay_documented(answer, cited):
+    assert conflations(answer, cited)
 
 
 @pytest.mark.skipif(shutil.which("node") is None, reason="needs Node to run the browser engine")

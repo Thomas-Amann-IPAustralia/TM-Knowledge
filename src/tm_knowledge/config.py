@@ -56,11 +56,13 @@ AUTHORING_API_KEY_VAR = "OPENAI_API_KEY"
 #: the $6.00 above the $3.49 recorded before it (ADR-0125). D5 spent $3.21; the
 #: prepared answers' re-run came out of what it left, in two approvals: $0.28 of "re-run
 #: the prepared answers for $0.40" (ADR-0128) and $1.39 for "all the rest" (ADR-0129).
-#: What remains under the cap is approved for nothing.
+#: Recorded spend then stood at $9.63, above the $9.49 cap (ADR-0133). On 2026-10-19
+#: the owner gave "You can spend UP to $4" for the next phase of work (ADR-0141), so the
+#: cap is the $9.63 recorded plus $4.00. Nothing else is approved.
 #: Raising it again is the owner's decision, made on a quote — overridable for one run
 #: by `TMK_SPEND_CAP_USD`, and only on the owner's word (lowering it for one run, to
 #: hold a run to an amount the owner named, needs no word).
-SPEND_CAP_USD = 9.49
+SPEND_CAP_USD = 13.63
 
 #: US dollars per million tokens, from OpenAI's pricing page on 2026-10-07
 #: (ADR-0111). `flex` and `batch` are half of `default`. Reasoning tokens bill as

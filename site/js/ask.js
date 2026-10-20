@@ -11,7 +11,7 @@
 
 import { esc, fmt, load, kindColour, refChip, refLabel, isLaw, sourceOf, srcClass, SOURCES, legend, stampIcon, srcBadge } from "./app.js";
 import { svg, curve, wrapText, wait } from "./graph.js";
-import { Engine, Recogniser, authorityFlags } from "./engine.js";
+import { Engine, Recogniser, authorityFlags, namedProvisions } from "./engine.js";
 import { miniMap } from "./minimap.js";
 import { answer as callModel, read as readModel, cost, partialFields, viaProxy, wake } from "./live.js";
 import * as lib from "./lib.js";
@@ -62,7 +62,7 @@ export async function render(root, { ontology, params }) {
       <div>
         <h1 style="margin-bottom:.3rem">Ask the Manual</h1>
         <p class="lede">Ask in your own words. Watch the question find the ideas in it, follow their connections and gather passages —
-        then read an answer that cites them, with the Manual and the legislation kept apart.</p>
+        then read an answer that cites them, each claim labelled as the Manual's or the legislation's.</p>
       </div>
       <form class="ask-form">
         <textarea name="q" maxlength="600" rows="2" placeholder="e.g. Can I register a mark that includes someone's name without their consent?" aria-label="Your question"></textarea>
@@ -171,6 +171,7 @@ export async function render(root, { ontology, params }) {
       };
       explain(view, graph, { live: true });
       renderCompare(view.compare, prep.plain, prep.passages, prep.hits);
+      renderProvisions(view.compare, question, prep.legislation, eng);
       return { prep, g: graph, steps: describe(graph, { linkedCount: prep.weight ? prep.weight.size : 0, live: true }) };
     });
     const animation = animate(view, question, ready, { reading: reads });
@@ -537,6 +538,18 @@ export async function render(root, { ontology, params }) {
     }).then((m) => { if (token === maps) mini = m; else m.destroy(); });
   }
 
+  /** A07: the provisions the question names, and those its words match, apart from the
+      Manual's ranking. Not sent to the model; unmeasured. */
+  function renderProvisions(target, question, given, eng) {
+    const named = namedProvisions(question, eng.legislation);
+    const matched = eng.provisionSearch(question, 5).map((h) => h.ref);
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<h4>The Act and the Regulations</h4><span class="tiny">provisions named in the question, then those its words match — searched apart from the Manual, not yet measured</span>
+      <ol>${[...new Set([...named, ...matched])].map((ref) => `<li>${refChip(ref)}${named.includes(ref) ? `<span class="via">named in the question</span>` : ""}${given.includes(ref) ? `<span class="via" title="Given to the model with the passages">given to the answer</span>` : ""}</li>`).join("") || `<li class="empty">Nothing matched.</li>`}</ol>`;
+    target.appendChild(card);
+  }
+
   function renderCompare(target, plain, guided, hits, prepared = false) {
     const plainTop = (plain || []).slice(0, 10);
     const plainSet = new Set(plainTop);
@@ -593,22 +606,26 @@ export async function render(root, { ontology, params }) {
       </div>
       <div class="stamp" style="margin-top:1rem">${stampIcon}<span>Written by a machine (<code>${esc(a.model || "")}</code>${a.live ? "" : `, ${esc(a.when || "")}`}) from the passages shown, and not reviewed by a trade marks expert.
         The Manual states the Registrar's practice; it is not law. This is not advice and not an examination decision.
-        It says what these passages and connections record, and they may not be complete: a requirement, exception or step they do not mention may still exist.</span></div>
+        It says what these passages and connections record, and they may not be complete: a requirement, exception or step they do not mention may still exist.
+        A "Practice or law?" warning comes from a word check that can miss: no warning does not mean every attribution to the legislation is right.</span></div>
       <p class="tiny" style="margin-top:.5rem">${a.live ? `Live answer · ${a.seconds ? a.seconds.toFixed(0) + " s" : ""}${a.cost != null ? ` · about US${(a.cost * 100).toFixed(1)}¢${a.readingCost ? `, ${(a.readingCost * 100).toFixed(1)}¢ of it reading the question` : ""}` : ""} · ${esc(chat.effort)} reasoning effort (the prepared answers used ${esc(chat.measured_effort)}) · search ran without the meaning-vectors the measured system also used${a.reading?.kept?.length ? `, and started from ${a.reading.kept.length === 1 ? "an idea" : `${a.reading.kept.length} ideas`} the model read in the question, which the measured system did not do` : ""}.`
-        : `Prepared answer, written ${esc(a.when || "")} with ${esc(chat.measured_effort)} reasoning effort by the same pipeline (${esc(chat.prepared_prompt_version)}), from passages and provisions cut at ${esc(chat.prepared_passage_chars)} characters: a long provision's later subsections, section 44's exceptions among them, were not in front of it. A live answer is given complete provisions, with every cut marked.`}
-        Read against ${esc(lawLine(a.live ? chat.law : examples.law))}.</p>`;
+        : `Prepared answer, written ${esc(a.when || "")} with ${esc(chat.measured_effort)} reasoning effort by the same pipeline (${esc(chat.prepared_prompt_version)}): given complete provisions with every cut marked, as a live answer is, and each claim's quotes checked against what it was given.`}
+        Read against ${esc(lawLine(a.live ? chat.law : examples.law, a.live ? chat.manual : examples.manual))}.</p>`;
   }
 
   if (params[0] && prepared.has(params[0])) showPrepared(prepared.get(params[0]));
   return () => { maps++; mini?.destroy(); controller?.abort(); };
 }
 
-/** "the Act as in force from 14 October 2024 and the Regulations as in force from …":
-    which compilation of each instrument an answer read (ADR-0136, F09). A live answer
-    reads the pinned snapshot's; a prepared one, the snapshot it was written against. */
-function lawLine(law) {
+/** "the Manual as captured on 3 August 2026, the Act as in force from 14 October 2024 and
+    the Regulations as in force from …": which compilation of each instrument an answer
+    read (ADR-0136, F09), and when the Manual was captured (R10). A live answer reads the
+    pinned snapshot's; a prepared one, the snapshot it was written against. */
+function lawLine(law, manual) {
   const lines = (law || []).map((l) => l.line);
-  return lines.length ? lines.join(" and ") : "the legislation the snapshot holds";
+  const read = lines.length ? lines.join(" and ") : "the legislation the snapshot holds";
+  // R10: the Manual's capture date beside the compilations, and whether it predates one.
+  return manual ? `${manual.line}, ${read}${manual.note ? `. ${manual.note.replace(/\.$/, "")}` : ""}` : read;
 }
 
 function spread(i, n, top, bottom) {

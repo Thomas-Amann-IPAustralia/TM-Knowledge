@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01655,
+ "created_utc": "2026-10-20T00:30:01Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0031",
+ "job": "answer",
+ "key": "7e86d5476c900d7aac3776b5e4ef6c6e39e22d23812d3067e789280d4e27c3c5",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The supplied passages do not establish whether the other side can obtain the earlier application papers; they address sharing opposition evidence, not access to the earlier application file.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    },\n    {\n      \"text\": \"For opposition evidence, the Manual generally requires parties to file and receive it electronically through Objective Connect, unless exceptional circumstances apply.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part51/1#1~1\",\n          \"quote\": \"Parties are required, except where exceptional circumstances are shown to apply, to file and be given evidence in opposition proceedings electronically via Objective Connect.\"\n        },\n        {\n          \"ref\": \"TMM/Part51/1#1~1\",\n          \"quote\": \"Objective Connect is an electronic data management tool which allows evidence to be securely shared between parties in an opposition proceeding.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual contemplates late applications to extend the time for filing evidence in support, but the supplied passages do not set out the criteria for granting such an extension.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part48/4#1~1\",\n          \"quote\": \"When a late application is filed to extend the time for filing evidence in support, see: Part 51 General Opposition Proceedings – 2. Reasons for the extension for evidentiary periods.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For opposition to registration or protection, the Manual says that refusal of an extension for filing evidence in reply brings the evidentiary period to an end and gives the parties an opportunity to request a hearing.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part51/2/2/4\",\n          \"quote\": \"Opposition to registration or protection\"\n        },\n        {\n          \"ref\": \"TMM/Part51/2/2/4\",\n          \"quote\": \"If the extension was for filing evidence in reply, the period allowed for the parties to file their evidence concludes and the parties will have the opportunity to request a hearing.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual records a general flexibility in how the Registrar may be informed, quoting regulation 21.15(4); this is a statement of Manual practice here, because the regulation itself has not been supplied.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part51/1#1~1\",\n          \"quote\": \"Furthermore reg 21.15(4) provides that '[t]he Registrar is not bound by the rules of evidence, but may be informed on any matter that is before the Registrar in a way that the Registrar reasonably believes to be appropriate.'\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied passages therefore do not establish whether late evidence can be considered without an extension, or after an extension is refused; the general flexibility recorded in the Manual does not expressly answer that timing question.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0040\",\n    \"GC-0041\",\n    \"GC-0046\",\n    \"GC-0097\",\n    \"GC-0128\",\n    \"GC-0131\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "4c5ee0ed484d836e2259498d03c5510ccb9f89f6b588b958478d2c94271a6a30",
+ "response_id": "resp_0fb953e56038faec006ad6b5f8317c87d2a165be03497de1c8",
+ "seconds": 18.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 9693,
+  "input_tokens_details": {
+   "cache_write_tokens": 9690,
+   "cached_tokens": 0
+  },
+  "output_tokens": 887,
+  "output_tokens_details": {
+   "reasoning_tokens": 129
+  },
+  "total_tokens": 10580
+ }
+}

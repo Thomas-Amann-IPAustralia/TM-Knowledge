@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.016036,
+ "created_utc": "2026-10-20T00:29:19Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0017",
+ "job": "answer",
+ "key": "7d12a58972e4c521c616fdc5ff2f3cdb13061b89b486ba74ce4476e3f205391d",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Yes, it may raise a section 43 ground for rejection under the Manual’s practice where consumers are clearly likely to assume that the well-known person is connected with, has endorsed, or is involved in producing or supplying the goods or services.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part29/6#1~1\",\n          \"quote\": \"For example, a section 43 ground for rejection may arise if a trade mark is the name of a well-known person, and the goods/services are in the field for which they are well known, such that consumers are clearly likely to assume that the person is connected with or has endorsed those goods/services, or are involved in their production or supply.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The statutory test requires rejection if a connotation of the trade mark, or a sign within it, makes use for the specified goods or services likely to deceive or cause confusion.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s43\",\n          \"quote\": \"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"Under the Manual, a close connection with the person’s field increases the likelihood of an assumed association, but must be weighed with how well known the person was among relevant Australian consumers at the priority date and whether consumers would identify the name specifically with that person.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part29/6#1~2\",\n          \"quote\": \"Firstly, how well known is the person among relevant Australian consumers, as at the priority date? Secondly, are consumers likely to see the name as referring specifically to the well-known person, rather than someone else with the same name?\"\n        },\n        {\n          \"ref\": \"TMM/Part29/6#1~2\",\n          \"quote\": \"The closer the link between the goods/services and the particular field in which the name is well-known, the more likely that consumers will assume that use of the trade mark is associated with the well-known person. Of course, this should be weighed together with the other factors.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual states that this section 43 ground does not arise where the well-known person submits the application or available information clearly shows permission from that person or their representative.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part29/6#1~1\",\n          \"quote\": \"If the trade mark application is submitted by the well-known person, or it is clear from other available information that the application was made with permission from the well-known person or their representative, a section 43 ground for rejection does not arise.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual says an applicant may overcome a name-based section 43 ground by providing the person’s written permission to use their name as a trade mark, with that permission recorded by an endorsement.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part29/6#1~2\",\n          \"quote\": \"An applicant may overcome a section 43 ground for rejection in relation to a name by providing the well-known person’s written permission to use their name as a trade mark. Where permission is provided, this should be made clear by way of an endorsement.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0026\",\n    \"GC-0072\",\n    \"GC-0168\",\n    \"GC-0001\",\n    \"GC-0002\",\n    \"GC-0028\",\n    \"GC-0009\",\n    \"GC-0016\",\n    \"GC-0012\",\n    \"GC-0029\",\n    \"GC-0014\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "9777d2555b8fbdd48302e2d22de2c5c2befac3eeca076ade4e05a0fc2d2856e3",
+ "response_id": "resp_0bb9f3a1f65282d8006ad6b5c2f89087d28d814777fd040bab",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8321,
+  "input_tokens_details": {
+   "cache_write_tokens": 8318,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1127,
+  "output_tokens_details": {
+   "reasoning_tokens": 207
+  },
+  "total_tokens": 9448
+ }
+}

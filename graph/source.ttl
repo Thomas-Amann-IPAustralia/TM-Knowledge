@@ -5740,8 +5740,10 @@
     tmk:upstreamRef "TMA1995/s41(2)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)(a)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:76241011c8a8aea35c61bdeda3214d427c829977a9b8826f3448f26ead4ec629" ;
     tmk:ordinal 5 ;
@@ -5749,8 +5751,10 @@
     tmk:upstreamRef "TMA1995/s41(3)(a)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)(b)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:a12916424e0f0382bf0700dbbd63a39f5fe5ceaf8f36592dff6fa1e4acddfa8e" ;
     tmk:ordinal 6 ;
@@ -5758,8 +5762,10 @@
     tmk:upstreamRef "TMA1995/s41(3)(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)(a)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:d57518cca8fd35a5b8d3980d85df43948532fc28b0af0fbd5f75007b0836ebde" ;
     tmk:ordinal 8 ;
@@ -5767,8 +5773,10 @@
     tmk:upstreamRef "TMA1995/s41(4)(a)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)(b)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:555681a7276c9e1199f72d2b1f5fe2dcfa01b4b90a78b326fd3e1e356870bb09" ;
     tmk:ordinal 9 ;
@@ -5884,8 +5892,10 @@
     tmk:upstreamRef "TMA1995/s43~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)(a)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:3858430eb803d23764375a0e3d8b1a82d97f59678b6bb9b1f16017d5624bd2ef" ;
     tmk:ordinal 2 ;
@@ -5893,8 +5903,10 @@
     tmk:upstreamRef "TMA1995/s44(1)(a)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)(a)(i)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:f27b7b6aebfd2e42c8da5fd27c3e57fc44c106562c594ab6aa1a32d3d8ce8751" ;
     tmk:ordinal 3 ;
@@ -5902,8 +5914,10 @@
     tmk:upstreamRef "TMA1995/s44(1)(a)(i)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)(a)(ii)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:acc6c525ee1cfa395c74e4a1c48a9b30bc3c3bdf1f076e5cae550e82afa23de9" ;
     tmk:ordinal 4 ;
@@ -5911,8 +5925,10 @@
     tmk:upstreamRef "TMA1995/s44(1)(a)(ii)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)(b)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:4da420d7ac2b8d825e9a7337903491ac1726d1b680b528276fc8d31fc10d2a72" ;
     tmk:ordinal 5 ;
@@ -6028,8 +6044,10 @@
     tmk:upstreamRef "TMA1995/s44(2)(b)~4" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(4)(a)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:7dba1b51edb8eb2355ea829822e64645cda73ddf65f125581c3624d62ebcb729" ;
     tmk:ordinal 25 ;
@@ -6055,8 +6073,10 @@
     tmk:upstreamRef "TMA1995/s44(4)(a)(ii)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(4)(b)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:22208bd3b0819e40b43ea2dfb4e9db5974e9c4b78202fef4d17aa6d15ebe137a" ;
     tmk:ordinal 28 ;
@@ -7490,8 +7510,10 @@
     tmk:upstreamRef "TMA1995/s6/patent-attorney" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/pending> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:f0282ebaff4a389da43357482ab8cbdc1725af1c7a2dc9477d899f3393d932ec" ;
     tmk:ordinal 66 ;
@@ -13208,6 +13230,222 @@
     tmk:text "An applicant may provide the examiner information which provides context to the meaning or use of a particular term in the marketplace. For example, information showing that the applicant’s industry is highly specialised or that the relevant market is very narrow, or that references to a term that appear descriptive are actually ‘trade mark’ use by the applicant, may have a bearing on whether the trade mark actually lacks the necessary capacity to distinguish." ;
     tmk:upstreamRef "TMM/Part23/2/2/3" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/2/2> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:4fd71d7ffcc55bb016f3f71371b06f3c2f8dc42df90c5d7e740d28a2ee4ab59e" ;
+    tmk:headingPath "3.2 Evidence should be in a declaration",
+        "3.2.2 Who may make the declaration:",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.3. Evidence of use - general requirements" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3> ;
+    tmk:ordinal 6 ;
+    tmk:partId "Part23" ;
+    tmk:text "The declaration is usually made by the applicant (if an individual), a senior officer, or an employee of the applicant company, but the Registrar will consider a declaration from anyone who declares themselves authorised to make it on behalf of the applicant. Generally, more weight is given to declarations made by persons in a position to have first-hand knowledge or direct access to records of a company that relate to the use of the trade mark." ;
+    tmk:upstreamRef "TMM/Part23/3/3/2/2" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/3> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:bb734ea010af7ec93427088eb9ecbbf01a7f5a614c2dbce0c3f8b5229b5d83a2" ;
+    tmk:headingPath "3.3 When may evidence be submitted?",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.3. Evidence of use - general requirements" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3> ;
+    tmk:ordinal 8 ;
+    tmk:partId "Part23" ;
+    tmk:text "Evidence of use of the trade mark may be submitted: prior to examination in the course of examination prior to a hearing." ;
+    tmk:upstreamRef "TMM/Part23/3/3/3" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/3/1> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:d14e41235d4431e16ddae00c8803e6075712486705c2c1a7943c4367c32d4984" ;
+    tmk:headingPath "3.3 When may evidence be submitted?",
+        "3.3.1 When should an examiner suggest evidence of use?",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.3. Evidence of use - general requirements" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3> ;
+    tmk:ordinal 9 ;
+    tmk:partId "Part23" ;
+    tmk:text "Where evidence of use is likely to assist the trade mark owner in the prosecution of the application, examiners will suggest evidence as an option in the first examination report. Evidence may be expensive and time-consuming for an applicant to prepare. If it is unlikely to allow acceptance of the particular trade mark, it should only be suggested if it is made clear that the amount of evidence needed may need to be very substantial. In cases where the examiner is aware that the trade mark has not been used or has had minimal use, then the submission of evidence should not be suggested." ;
+    tmk:upstreamRef "TMM/Part23/3/3/3/1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/3/2> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:292738da9248be20c5c8ae2c3bda7308278c42019cb0c14062589ff3279af827" ;
+    tmk:headingPath "3.3 When may evidence be submitted?",
+        "3.3.2 Can an examiner require that evidence be submitted?",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.3. Evidence of use - general requirements" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3> ;
+    tmk:ordinal 10 ;
+    tmk:partId "Part23" ;
+    tmk:text "The Registrar may suggest evidence be filed, but it can never be required: the onus and initiative rest with the applicant. If the applicant declines to submit evidence of use, and the Registrar is satisfied that a ground for rejection exists, the examiner may need to consider rejecting the application if an impasse has been reached." ;
+    tmk:upstreamRef "TMM/Part23/3/3/3/2" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/4~1> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:44b5cb9d54e45149faa6fa1ae221a085605a8e3ccf14390f32d457be36dbe31a" ;
+    tmk:headingPath "3.3 When may evidence be submitted?",
+        "3.4 What information should an applicant supply?",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.3. Evidence of use - general requirements" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3> ;
+    tmk:ordinal 11 ;
+    tmk:partId "Part23" ;
+    tmk:text "The content of evidence of use will vary depending on the trade mark. Generally, the following information would be considered useful: the trade mark number the applicant's name and the declarant's name the declarant’s position (if the applicant is a company) and whether they have access or personal knowledge of the relevant affairs of the company when the trade mark was first used and the period of use (for intended use, see paragraph 4.3.1), with the relevant dates corroborated by illustrative representative examples of use annexed as exhibits the goods/services in respect of which the trade mark has been used annual turnover figures (in Australian dollars). Where a wide range of classes or very varied goods or services have been claimed, turnover should ideally be broken down to show figures for goods or services subject of the application . Alternatively, the applicant may be able to indicate the proportions of the designated goods or services which make up the total turnover any advertising or promotional expenditure (in Australian dollars) associated with use of the trade mark exhibits showing actual use of the trade mark, or digital photographs of the exhibits. These items should be dated, or an estimate of their date of use provided. Social media pages are often useful resources as they are generally dated, although caution must be exercised relying on profile or account pictures for social media. The following information is also useful (this is not an exhaustive list):" ;
+    tmk:upstreamRef "TMM/Part23/3/3/4~1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/4~2> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:cf462fcbfaf1d95be804116630f4c2b2449d869934ee4f6da1d0fc23386428f3" ;
+    tmk:headingPath "3.3 When may evidence be submitted?",
+        "3.4 What information should an applicant supply?",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.3. Evidence of use - general requirements" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3> ;
+    tmk:ordinal 12 ;
+    tmk:partId "Part23" ;
+    tmk:text "indication of market share individual item cost (this should be considered in the context of turnover figures. Inexpensive goods or services are likely to have a wider market and more competitors than expensive, specialised items) indication of advertising types e.g. social media, SEO, other Internet use, television, radio, and print etc. publications/articles mentioning the trade mark indication of customer base (who are the applicant's major customers in Australia or overseas?) indication of distributors (if the applicant sells their goods via a 3rd party, how much presence does the 3rd party have in the market place?) references to Internet website/s where trade mark is used, together with analytic figures which assist in determining the number of visitors to the website from Australia since the date of first use (if possible, broken down periodically) download figures for any relevant app used by the applicant that features the trade mark being used for the relevant goods and services third party social media and/or SEO reports declarations from persons of standing within the relevant trade; consumer surveys and/or questionnaires." ;
+    tmk:upstreamRef "TMM/Part23/3/3/4~2" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/1/1> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:85682fc198c313fbb5d484698e4b09d1fa2e8adadedb6c9206f171cb80b948ac" ;
+    tmk:headingPath "4.1 How much turnover and marketing expenditure needs to be associated with use of the trade mark?",
+        "4.1.1 Other metrics",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.4. Examining evidence - general" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4> ;
+    tmk:ordinal 4 ;
+    tmk:partId "Part23" ;
+    tmk:text "It is not always appropriate to insist on provision of turnover and/or marketing figures. Examiners must always consider the commercial realities relevant to the claimed goods and/or services when assessing evidence and maintaining grounds for rejection. Sometimes, the capacity to distinguish of a trade mark might be more accurately demonstrated by metrics other than revenue or promotional expenditure figures. For example, it would not be practical for a not-for-profit organisation to supply sales figures, or for a specialised ‘word-of-mouth' business-to-business service to have extensive marketing figures. Other metrics that are relevant may include website and social media analytic figures, funds managed, raised, or distributed by an entity (e.g. in the case of a investment company or a charity), or viewership figures for videos, podcasts etc." ;
+    tmk:upstreamRef "TMM/Part23/4/4/1/1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/1/2> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:e2a9c7808f4807059790242ffc0f0f0a034f22703a310303ad72f42740873cb2" ;
+    tmk:headingPath "4.1 How much turnover and marketing expenditure needs to be associated with use of the trade mark?",
+        "4.1.2 Assessing metrics when there is use of multiple trade marks",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.4. Examining evidence - general" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4> ;
+    tmk:ordinal 5 ;
+    tmk:partId "Part23" ;
+    tmk:text "It is common for traders to use multiple trade marks representing different levels of branding. Where such use is generally co-extensive, it may be inappropriate and unrealistic for examiners to insist on separate metrics for each trade mark. However, the weight that can be given to metrics in these situations will depend on the context of use of the various trade marks, and the extent of inherent adaptation of the trade mark being considered. The use of a highly descriptive trade mark in close proximity to a highly distinctive trade mark will be directly relevant to the weight that can be given to the metrics provided. In many cases, metrics may demonstrate that while a descriptive trade mark is widely used, the context of its use renders it unlikely that it has become, or is likely to become, an indicator of trade origin." ;
+    tmk:upstreamRef "TMM/Part23/4/4/1/2" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/1~2> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:24919bd4196a217039214c9d2ed5c30c31e29fa4f6d8814f36f3ab12f1fcbda3" ;
+    tmk:headingPath "4.1 How much turnover and marketing expenditure needs to be associated with use of the trade mark?",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.4. Examining evidence - general" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4> ;
+    tmk:ordinal 3 ;
+    tmk:partId "Part23" ;
+    tmk:text "As a general comment, it is necessary to balance the level of inherent adaptation of the trade mark with the strength of the evidence provided. For example, a trade mark consisting of the surname EDDOWES will need less evidence of use than a more common surname such as SMITH when used for the same, fairly commonplace goods or services and where surnames are generally used as trade marks for such goods or services. Conversely, if a surname is to be used on very specialised goods, such as magnetic resonance imaging scanners (MRI scanners), the amount of evidence required will not be as great as what would be required for cheap, mass marketed goods such as t-shirts." ;
+    tmk:upstreamRef "TMM/Part23/4/4/1~2" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/2> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:d421b57562ee76c8358fec228a50d49a7c421638e3327fc522d737fd22ad85d7" ;
+    tmk:headingPath "4.2 What length of use is enough?",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.4. Examining evidence - general" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4> ;
+    tmk:ordinal 6 ;
+    tmk:partId "Part23" ;
+    tmk:text "There is no prescribed length of use which would indicate a sign has acquired, or will acquire, capacity to distinguish. Generally, the longer a trade mark has been in use, the more likely it is to be capable of distinguishing the applicant's designated goods or services. The length of time likely to support an application very much depends on the degree of inherent adaptation of the trade mark. The mere fact a trade mark has been used in the trade does not mean it is capable of distinguishing or is likely to become so. For example, a canned food producer might use the words 'Baked Beans' on their labels for a long period of time. The effect of this use must be considered. If the use is purely descriptive, then it is not use ‘as a trade mark’, and not relevant for determining whether the words are capable of distinguishing. Even if the use is considered to be ‘as a trade mark’, the words are highly descriptive and the examiner must consider the likelihood that they have come to distinguish the applicant’s goods from those of other traders who also sell baked beans. The applicant would face significant practical obstacles to doing this. The extent of trade activity also correlates with the length of use. For example, a shorter length of use can still indicate distinctiveness is acquired, or will be acquired, if it is demonstrated in combination with a significant market share. The length of time therefore, is only one factor which the examiner must consider in making their ultimate decision." ;
+    tmk:upstreamRef "TMM/Part23/4/4/2" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/3> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:bfeca76e98baefb1ff2c3aeacdd009b316f224b7a99ef73bae11c4f5a4f8225a" ;
+    tmk:headingPath "4.3 When should the use have occurred?",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.4. Examining evidence - general" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4> ;
+    tmk:ordinal 7 ;
+    tmk:partId "Part23" ;
+    tmk:text "In most cases, there is an expectation that the trade mark was used before the application was filed. However, if the application is to some extent inherently adapted to distinguish, use after the filing date is also relevant to determining the potential capacity to distinguish of the trade mark as at the date of filing. If the use has not been continuous, the capability of the trade mark to designate a trade source may have been diminished. An indication that the use has been continuous, or if that is not the case, information describing the actual periods of use, should be included in the declaration and corroborated by evidence." ;
+    tmk:upstreamRef "TMM/Part23/4/4/3" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/4> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:0aa5f604057acfcd7466855f70963210ac6cb348d3654e7e2b34dac00767c22c" ;
+    tmk:headingPath "4.3 When should the use have occurred?",
+        "4.4 Does the applicant have to show use in all States of Australia?",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.4. Examining evidence - general" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4> ;
+    tmk:ordinal 9 ;
+    tmk:partId "Part23" ;
+    tmk:text "The greater the demonstrated geographical extent of the use, the more likely it is that the trade mark will distinguish the applicant's designated goods or services throughout Australia. If it is clear from the evidence that the use has only been in a relatively small geographical area, the application may be accepted with a geographical limitation. However, in many cases, if it is shown that a trade mark is capable of distinguishing the applicant’s goods and/or services in one state, then this may be sufficient to show that capacity nationally. Geographical limitations should be the exception, rather than the rule. In the past, services were more likely to be localised than goods, and quite localised use would allow acceptance of a trade mark for services, perhaps limited to a particular state. However, with the growth of franchising as a method of business organisation and development, and with technological changes (such as electronic communications and the Internet) which overcome barriers of distance, many services are becoming national or international in market access. This should be taken into account in assessing evidence. Note: A geographical limitation is entered onto the Register as an endorsement. The form of the endorsement is: Registration of this trade mark is limited to the State of < >." ;
+    tmk:upstreamRef "TMM/Part23/4/4/4" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/6> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:7dc297bd147054d3350130d02b74cb388d32c9a48bdfcc678e6425a983dcc603" ;
+    tmk:headingPath "4.6 What if the evidence does not cover all the goods/services claimed?",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.4. Examining evidence - general" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4> ;
+    tmk:ordinal 11 ;
+    tmk:partId "Part23" ;
+    tmk:text "For trade marks which are to some extent inherently adapted to distinguish, there is no requirement for the application to be restricted only to those goods/services demonstrated in the evidence. The legislative requirement is for the trade mark to be capable of distinguishing, not that it demonstrate it is already distinctive. The evidence needs a commercially realistic assessment to determine whether the trade mark has a capacity to distinguish a broad range of goods, or only something narrower. For example, evidence demonstrating use on children's pyjamas and underwear in class 25, may support a capability to distinguish on a broader range of related goods, such as children's clothing; clothing for pre-teens and teens. The same evidence, however, may not support the applicant for a diverse range of goods and services, such as jewellery, backpacks, toys, and games. If the evidence does not support the applicant's complete claim, the examiner should consider suggesting the specification be restricted to include only the range of goods/services for which the mark is demonstrated to be capable of distinguishing and to which the grounds for rejection do not pertain." ;
+    tmk:upstreamRef "TMM/Part23/4/4/6" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/5/5/3> a tmk:Chunk,
         tmk:ManualPassage ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -14812,6 +15050,22 @@
     tmk:partId "Part51" ;
     tmk:text "Trade Marks Act 1995 Trade Marks Regulations 1995 The Registrar is required to notify the parties in writing when opposition proceedings have been dismissed or discontinued." ;
     tmk:upstreamRef "TMM/Part51/6#1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4/5-the-matter-of-admissibility-of-evidence-is-discussed-further-at-15-2035-of-shanahan-s-australian-law-of-trade-marks-and-passing-off-5th-ed-davison-mark-horak-ian-2012-thomson-reuters-professional-australia-ltd-pyrmont-nsw> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:cbce2820c4a0fbb0fdc9d79fd09dda0d61d35800bb9d93145d963dec5dad925d" ;
+    tmk:headingPath "5 The matter of admissibility of evidence is discussed further at 15.2035 of Shanahan's, Australian Law of Trade Marks and Passing Off. (5th ed), Davison, Mark & Horak, Ian, (2012), Thomson Reuters (Professional) Australia Ltd, Pyrmont, NSW.",
+        "Part 52 Hearings, Decisions, Reasons and Appeals",
+        "Part 52.4. Role and powers of the Registrar in hearings" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4> ;
+    tmk:ordinal 2 ;
+    tmk:partId "Part52" ;
+    tmk:text "5 The matter of admissibility of evidence is discussed further at 15.2035 of Shanahan's, Australian Law of Trade Marks and Passing Off. (5th ed), Davison, Mark & Horak, Ian, (2012), Thomson Reuters (Professional) Australia Ltd, Pyrmont, NSW." ;
+    tmk:upstreamRef "TMM/Part52/4/5-the-matter-of-admissibility-of-evidence-is-discussed-further-at-15-2035-of-shanahan-s-australian-law-of-trade-marks-and-passing-off-5th-ed-davison-mark-horak-ian-2012-thomson-reuters-professional-australia-ltd-pyrmont-nsw" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/5%231> a tmk:Chunk,
         tmk:ManualPassage ;
@@ -24169,8 +24423,10 @@
     tmk:upstreamRef "TMR1995/r3A.3(7)(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10(1)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:6d942a9021c199e60f601fb583c61a349204bb4dc1ecdeaf2617aa2f80065d93" ;
     tmk:ordinal 1 ;
@@ -24178,8 +24434,10 @@
     tmk:upstreamRef "TMR1995/r4.10(1)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10(2)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:8c371e24d270e59d46e9a2427319f0e8e5a525527649429ddc523629ba5da51b" ;
     tmk:ordinal 2 ;
@@ -24216,8 +24474,10 @@
     tmk:upstreamRef "TMR1995/r4.10(3)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10(4)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:a81ec38853a73f75bbd4c4f77eecde484ff68201598e740b29eb195bec078481" ;
     tmk:ordinal 7 ;
@@ -24306,8 +24566,10 @@
     tmk:upstreamRef "TMR1995/r4.12(1)(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.12(2)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.12> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.12> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:237e2fc1b2407c26d64979ec605983b49fa48e1f8d7c3ddb8a4778da191ee5e5" ;
     tmk:ordinal 4 ;
@@ -25008,8 +25270,10 @@
     tmk:upstreamRef "TMR1995/r4.5~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8(1)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:b49812f8edb85b34c7d9821d8d3e43d097a44bcee47a642c85dbc88a8983e22d" ;
     tmk:ordinal 1 ;
@@ -25064,8 +25328,10 @@
     tmk:upstreamRef "TMR1995/r4.8~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9(1)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:12980e01e8a80040cd9e26e5d736d2ffe41c0ee535fd14bbe76252c6d232ce16" ;
     tmk:ordinal 1 ;
@@ -25100,8 +25366,10 @@
     tmk:upstreamRef "TMR1995/r4.9(2)(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9(2)(c)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:92f8bf5159b6690fe61f95e45e78b33a53c7c6151d1a2ebc51325071604d0106" ;
     tmk:ordinal 5 ;
@@ -32979,6 +33247,214 @@
     tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/2/2/5> ;
     tmk:extraction "regex" ;
     tmk:mention "s 41(4)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3%231/case/0> a tmk:Citation ;
+    tmk:citationResolves false ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/1965/CLR/112/517> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3%231> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3%231/case/1> a tmk:Citation ;
+    tmk:citationResolves false ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/1998/FCA/440> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3%231> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3%231/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3%231> ;
+    tmk:extraction "regex" ;
+    tmk:mention "s 41" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/1/case/0> a tmk:Citation ;
+    tmk:citationResolves false ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/2020/FCAFC/65> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/1> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/1/internal/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/6> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/1> ;
+    tmk:extraction "regex" ;
+    tmk:mention "Part 19A.6" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/1/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s106> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/1> ;
+    tmk:extraction "regex" ;
+    tmk:mention "s 106" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/1/prov/1> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s228> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/1> ;
+    tmk:extraction "regex" ;
+    tmk:mention "s 228" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/1/prov/2> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/1> ;
+    tmk:extraction "regex" ;
+    tmk:mention "s 41" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/1/prov/3> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s8> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/1> ;
+    tmk:extraction "regex" ;
+    tmk:mention "s 8" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/2/1/case/0> a tmk:Citation ;
+    tmk:citationResolves false ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/2020/ATMO/23> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/2/1> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/2/3/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.2> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/2/3> ;
+    tmk:extraction "regex" ;
+    tmk:mention "Regulation 21.2" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/2~1/prov/0> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.6> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/2~1> ;
+    tmk:extraction "href" ;
+    tmk:mention "Regulation 21.6" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/2~2/internal/0> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/x-annex-a1-information-for-applicants-on-the-preparation-and-presentation-of-a-declaration-including-model-layout> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/2~2> ;
+    tmk:extraction "href" ;
+    tmk:mention "Annex A1" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/5/case/0> a tmk:Citation ;
+    tmk:citationResolves false ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/2019/FCA/1552> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/5> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4%231/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4%231> ;
+    tmk:extraction "regex" ;
+    tmk:mention "s 41(3)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4%231/prov/1> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s5> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4%231> ;
+    tmk:extraction "regex" ;
+    tmk:mention "paragraph 5" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/1~1/case/0> a tmk:Citation ;
+    tmk:citationResolves false ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/2000/IPR/51/102> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/1~1> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/1~1/case/1> a tmk:Citation ;
+    tmk:citationResolves false ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/2019/FCA/923> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/1~1> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/3/1/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/3/1> ;
+    tmk:extraction "regex" ;
+    tmk:mention "s 41(4)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/5/internal/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/4> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/5> ;
+    tmk:extraction "regex" ;
+    tmk:mention "Part 19A.4" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/5/internal/1> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/5> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/5> ;
+    tmk:extraction "href" ;
+    tmk:mention "5.3" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/7/1/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s65> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/7/1> ;
+    tmk:extraction "regex" ;
+    tmk:mention "s 65" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/7/internal/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/7> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/7> ;
+    tmk:extraction "regex" ;
+    tmk:mention "Part 19A.7" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/7/internal/1> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/5> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/7> ;
+    tmk:extraction "regex" ;
+    tmk:mention "Part 26.5" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/7/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/7> ;
+    tmk:extraction "regex" ;
+    tmk:mention "s 41(4)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/7/prov/1> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s7(1)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/7> ;
+    tmk:extraction "regex" ;
+    tmk:mention "s 7(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/8~1/case/0> a tmk:Citation ;
+    tmk:citationResolves false ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/2021/FCAFC/31> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/8~1> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/8~2/case/0> a tmk:Citation ;
+    tmk:citationResolves false ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/2017/FCA/823> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/8~2> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/9/prov/0> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/9> ;
+    tmk:extraction "href" ;
+    tmk:mention "41(4)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/9/prov/1> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(5)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/9> ;
+    tmk:extraction "href" ;
+    tmk:mention "s 41(5)" .
 
 <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/5%231/prov/0> a tmk:Citation ;
     tmk:certainty "default" ;
@@ -41833,6 +42309,54 @@
     tmk:extraction "regex" ;
     tmk:mention "Regulation 4.15A" .
 
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/case/0> a tmk:Citation ;
+    tmk:citationResolves false ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/1969/RPC/91> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4%231> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/case/1> a tmk:Citation ;
+    tmk:citationResolves false ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/1977/HCA/62> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4%231> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/internal/0> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4%231> ;
+    tmk:extraction "href" ;
+    tmk:mention "Part 54 Subponeas, Summonses and Production of Documents" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/internal/1> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part55/1> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4%231> ;
+    tmk:extraction "href" ;
+    tmk:mention "Part 55 Costs" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s202> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4%231> ;
+    tmk:extraction "regex" ;
+    tmk:mention "section 202" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/prov/1> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.15(4)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4%231> ;
+    tmk:extraction "regex" ;
+    tmk:mention "reg 21.15(4)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/prov/2> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.16> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4%231> ;
+    tmk:extraction "regex" ;
+    tmk:mention "Reg 21.16" .
+
 <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/5/5/1~1/prov/0> a tmk:Citation ;
     tmk:certainty "default" ;
     tmk:citationResolves true ;
@@ -46055,6 +46579,172 @@
     tmk:text "Punctuation may take the form of full stops, stars, hearts or other graphic elements. Punctuated words consisting of three or more letters will normally be treated as words rather than letters. The longer the word, the more likely it is that it will be read as a word rather than as a series of initials (see Re Appn by Waterbed Association of Retailers and Manufacturers (1990) 20 IPR 605 (‘W.A.R.M.’)). This is particularly so if the word in question is a known dictionary word." ;
     tmk:upstreamRef "TMM/Part22/8/8/7" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/2/1> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesCase <https://data.ipaustralia.gov.au/tmk/ref/CASE/2020/ATMO/23> ;
+    tmk:contentHash "sha256:2e37d404b6538e85192a65cd2c4d845c31e86c4875f9e27f3e8acf49407b347e" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/2/1/case/0> ;
+    tmk:headingPath "3.2 Evidence should be in a declaration",
+        "3.2.1 Exhibits must be incorporated in the declaration:",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.3. Evidence of use - general requirements" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3> ;
+    tmk:ordinal 5 ;
+    tmk:partId "Part23" ;
+    tmk:text "The declaration must annex any exhibits or appendices and should be submitted in electronic format via the online services page. If the exhibits or appendices are not annexed, they do not form part of the declaration. It is preferable that the annexes form a single electronic document together with the declaration. Statements made in a declaration should ideally be supported by relevant annexes where possible. For example, if an applicant states the date of first use of a trade mark in the declaration, a relevant dated exhibit demonstrating the use significantly increases the weight that can be given to the applicant’s statement. Declarations from an applicant’s legal counsel may need to be treated with caution. In Australian Institute of Management v The Australian Institute of Music Limited [2020] ATMO 23, Hearing Officer Smith said (of evidence provided by the Opponent’s attorney): These very broad statements are not supported by any material attached to the Declaration, nor are they statements that I would expect the Deponent would have the direct personal knowledge to make. The Deponent does not provide any reference to notes or other materials that she has had access to that enable her to make these statements, nor does she identify in any way any individual with direct knowledge who has provided her with information enabling her to make these statements. In short, these statements amount to unsupported assertions that I would not expect a party’s representative to make, and have been discounted accordingly. However, declarations from legal counsel may be more appropriate where the content relates to matters external to the applicant, e.g. the results of Internet or other research conducted by counsel." ;
+    tmk:upstreamRef "TMM/Part23/3/3/2/1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/2/3> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.2> ;
+    tmk:contentHash "sha256:2eafa11e5db6a8b49f8564de24d252ff8b534598459882b8c2520ee9c57f5bf2" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/2/3/prov/0> ;
+    tmk:headingPath "3.2 Evidence should be in a declaration",
+        "3.2.3 Translations required:",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.3. Evidence of use - general requirements" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3> ;
+    tmk:ordinal 7 ;
+    tmk:partId "Part23" ;
+    tmk:text "If the declaration is not in English, it must be accompanied by a certified translation into English (Regulation 21.2)." ;
+    tmk:upstreamRef "TMM/Part23/3/3/2/3" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/2~1> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.6> ;
+    tmk:contentHash "sha256:52547de2c5d820ea54c51470401748bea3aa86e47b7e00c85f0ef5e71710bbff" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/2~1/prov/0> ;
+    tmk:headingPath "3.2 Evidence should be in a declaration",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.3. Evidence of use - general requirements" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3> ;
+    tmk:ordinal 3 ;
+    tmk:partId "Part23" ;
+    tmk:text "Formal evidence of use of the trade mark by the applicant, predecessor in title, and/or authorised user/s must be in declaratory form. IP Australia’s role is to facilitate the registration of trade marks without imposing undue formalities requirements. The purpose of a declaration is to allow the Registrar to accept statements at face value unless there is some other information or reason why the Registrar considers that declaratory information may be inaccurate or misleading. A declaration is intended to be evidence of fact. It is not appropriate that a declaration contain legal arguments or opinions on the law. However, it may be appropriate that a declarant express an opinion about a matter of fact. For example, it may be appropriate for a declarant to declare their belief that based on their experience or expertise, a particular term is not commonly used in an industry for descriptive purposes. Conversely, it would not be helpful for a declarant to include arguments citing case law that a trade mark is capable of distinguishing. Such arguments should be included in covering submissions. Regulation 21.6 states that a declaration must be in an approved form. Declaration forms that are in the approved form are available on IP Australia’s website. As stated in the Official Journal of Trade Marks on 28 June 2012, to be in an approved form, the declaration should: be headed with the title of the matter for which the declaration is made; and be expressed in the first person; and state the name and address of the person making the declaration; and state the date on which the declaration is made; and state the place at which the declaration is made; and be divided into paragraphs, each of which should be numbered consecutively and as far as practicable, confined to one subject; and be signed by the person making the declaration; and state that the person believes the declaration to be true and correct. If the declaration is being made on behalf of a company or business, it should also: state the office or position held by the person making the declaration; and state the address of the place at which the business is conducted or principally conducted. Declarations should substantially comply with the above requirements. For a declaration to be considered substantially compliant it should:" ;
+    tmk:upstreamRef "TMM/Part23/3/3/2~1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/2~2> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/x-annex-a1-information-for-applicants-on-the-preparation-and-presentation-of-a-declaration-including-model-layout> ;
+    tmk:contentHash "sha256:3986a53d22f7b5a23c68773f3327f5126c991e3ae643a55d1540cef629373384" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/2~2/internal/0> ;
+    tmk:headingPath "3.2 Evidence should be in a declaration",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.3. Evidence of use - general requirements" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3> ;
+    tmk:ordinal 4 ;
+    tmk:partId "Part23" ;
+    tmk:text "be expressed in the first person; and state the name and address of the person making the declaration; and state the date on which, and the place at which, the declaration is made; and be signed by the person making the declaration; and state that the person believes the declaration to be true and correct or words to this effect. For example, a declaration which was not headed with the title of the matter for which the declaration is made but included all of the other above requirements, would substantially comply. The Registrar will also generally accept statutory declarations or affidavits in place of a declaration under the Trade Marks Act 1995. For more information on the preparation of a declaration see Annex A1 of this part." ;
+    tmk:upstreamRef "TMM/Part23/3/3/2~2" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/5> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesCase <https://data.ipaustralia.gov.au/tmk/ref/CASE/2019/FCA/1552> ;
+    tmk:contentHash "sha256:150f6fff7172c40f98511a7bf4d25ee36c90d80815dc22e9dd811529af1a795f" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/5/case/0> ;
+    tmk:headingPath "3.5 Websites as evidence",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.3. Evidence of use - general requirements" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3> ;
+    tmk:ordinal 13 ;
+    tmk:partId "Part23" ;
+    tmk:text "Content on the internet is constantly changing. Consequently, web pages can have very short lifespans. This may pose difficulties for applicants where they are seeking to provide evidence of use of their trade mark on the internet from several months, or in some instances years, prior to the time they attempt to assemble their evidence. In this situation, applicants may provide documentation from a web archiving service. Documentation of this nature typically gives a snapshot of what a particular web page looked like on a certain date. Where an applicant provides evidence of this sort (in the usual declaratory form) examiners should consider this prima facie evidence of the existence and appearance of the web page at the date indicated. Evidence in the form of captures from the ‘Internet Archive Wayback Machine’ tool was considered acceptable in Dyno Nobel Inc v Orica Explosives Technology Pty Ltd (No 2) [2019] FCA 1552 at [21] where Burley J said: [The Wayback Machine] operates to capture and date the ephemera of the internet. I accept that the Wayback materials are likely to be a reliable indication of the content of the i-kon website at different points of time… The Registrar’s policy is to accept evidence from Internet Archive Wayback Machine unless there is some reason to doubt its veracity." ;
+    tmk:upstreamRef "TMM/Part23/3/3/5" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/3/1> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)> ;
+    tmk:contentHash "sha256:69a463a4dc1388fd0bb25dbda922d0feb0c825b8d0ef3fbf7e372324ccfadd7f" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/3/1/prov/0> ;
+    tmk:headingPath "4.3 When should the use have occurred?",
+        "4.3.1 Evidence of intended use",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.4. Examining evidence - general" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4> ;
+    tmk:ordinal 8 ;
+    tmk:partId "Part23" ;
+    tmk:text "The examiner may also consider evidence of intended use if the application is being considered under s 41(4). Such evidence should provide a clear and reasoned basis for the applicant's commercial plans to use the trade mark. A mere indication that use is intended, or vague statements as to the applicant’s ambitions for use, will not be sufficient. The applicant may choose to provide, for example, pre-launch market research and market estimates, product launch plans, and information about advertising and sales plans. Evidence of actual use after the filing date of the application can also give additional weight to statements regarding intended use." ;
+    tmk:upstreamRef "TMM/Part23/4/4/3/1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/7/1> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s65> ;
+    tmk:contentHash "sha256:495e38b01241ccbc091ad113cadef426e4219934aaa9064b2858ddee0442a646" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/7/1/prov/0> ;
+    tmk:headingPath "4.7 What if the trade mark shown in the evidence is not identical to the trade mark on the application form?",
+        "4.7.1 Should the trade mark be amended to conform with demonstrated use?",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.4. Examining evidence - general" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4> ;
+    tmk:ordinal 13 ;
+    tmk:partId "Part23" ;
+    tmk:text "If the differences between the trade mark as applied for and as used do not affect its identity, there is no requirement for the application to be amended to conform with the use shown in the evidence. This may also not be possible under s 65 (see Part 9)." ;
+    tmk:upstreamRef "TMM/Part23/4/4/7/1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/8~1> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesCase <https://data.ipaustralia.gov.au/tmk/ref/CASE/2021/FCAFC/31> ;
+    tmk:contentHash "sha256:04d9bdd8adbaa8e56438d517dc1b1404c1df99ac67439a4853d1bbf87c3de771" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/8~1/case/0> ;
+    tmk:headingPath "4.8 What if the trade mark is always used alongside another trade mark?",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.4. Examining evidence - general" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4> ;
+    tmk:ordinal 14 ;
+    tmk:partId "Part23" ;
+    tmk:text "Sometimes evidence clearly shows that the trade mark applied for is not used as the only brand for a product or service, but often in combination with another trade mark. It is common commercial practice to have multiple levels of branding (e.g. house brand, product brand, tagline etc) for a single product. Customers also expect to be exposed to multiple trade marks on labels and advertising material. For example, multiple trade marks are almost the norm for canned and packaged foods (e.g. Campbell's® Velish® soups), motor vehicles (e.g. Holden® Commodore® sedans and wagons), and children's toys (e.g. Mattel® Barbie® dolls and accessories). The question to be answered is always whether the trade mark under examination is capable, in its own right, of distinguishing the applicant's goods or services from those of other traders in the market. If we accept that consumers expect to see multiple trade marks on packaging, the mere fact of use with another device or trade mark should not automatically go against the applicant. But neither should the simple submission of evidence give an automatic right to acceptance. An important consideration for these kinds of trade marks is the context of the use demonstrated. Consumers may not perceive a highly descriptive term as a brand if it is used with more distinctive elements. In Bendigo and Adelaide Bank Limited v Community First Credit Union Limited [2021] FCAFC 31, the Full Court discussed this type of circumstance at [159]: In the present case, to adopt the words of Kitto J in Shell, the words “community bank” were presented in a setting where those words would not have appeared to the viewer as possessing the character of a brand for the purpose of indicating a connection in the course of trade. That connection was instead accomplished by the Bendigo branding. It was the Bendigo branding (and not the term “community bank”) that was used to distinguish the Services from those of other traders and to clearly indicate a connection between the Services and Bendigo." ;
+    tmk:upstreamRef "TMM/Part23/4/4/8~1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/8~2> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesCase <https://data.ipaustralia.gov.au/tmk/ref/CASE/2017/FCA/823> ;
+    tmk:contentHash "sha256:f994d660b3af9b03089a7d2b0c859bab3b1ab0c21c015cd1208cbbbf71edbdd7" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/8~2/case/0> ;
+    tmk:headingPath "4.8 What if the trade mark is always used alongside another trade mark?",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.4. Examining evidence - general" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4> ;
+    tmk:ordinal 15 ;
+    tmk:partId "Part23" ;
+    tmk:text "While, the courts have observed that there is no clear distinction between descriptive use and use as a trade mark (See Moroccanoil Israel Ltd v Aldi Foods Pty Ltd [2017] FCA 823 at [146]), even if the use of a particular descriptive sign is considered to be ‘trade mark use’, the impact of other more distinctive trade marks on a product may diminish the weight that can be given to the evidence. When determining capacity to distinguish, the effect of use on the consumer is generally more relevant than the intention of the trade mark owner in using a particular term." ;
+    tmk:upstreamRef "TMM/Part23/4/4/8~2" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/5%231> a tmk:Chunk,
         tmk:ManualPassage ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -49482,16 +50172,6 @@
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/1964/HCA/55" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/CASE/1965/CLR/112/517> a tmk:Decision,
-        tmk:JudicialDecision ;
-    tmk:authorityKind "decision" ;
-    tmk:authorityStatus tmk:NotHeld ;
-    tmk:caseCitation "(1965) 112 CLR 517" ;
-    tmk:decidedAt "High Court of Australia (Commonwealth Law Reports)" ;
-    tmk:decisionKind "judicial" ;
-    tmk:jurisdiction "AU" ;
-    tmk:upstreamRef "CASE/1965/CLR/112/517" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/1965/CLR/112/537> a tmk:Decision,
         tmk:JudicialDecision ;
     tmk:authorityKind "decision" ;
@@ -49546,6 +50226,14 @@
     tmk:jurisdiction "UK" ;
     tmk:upstreamRef "CASE/1969/RPC/472" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/CASE/1969/RPC/91> a tmk:Decision ;
+    tmk:authorityKind "decision" ;
+    tmk:authorityStatus tmk:NotHeld ;
+    tmk:caseCitation "[1969] RPC 91" ;
+    tmk:decisionKind "unclassified" ;
+    tmk:jurisdiction "UK" ;
+    tmk:upstreamRef "CASE/1969/RPC/91" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/1973/CLR/128/417> a tmk:Decision,
         tmk:JudicialDecision ;
     tmk:authorityKind "decision" ;
@@ -49591,6 +50279,16 @@
     tmk:decisionKind "judicial" ;
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/1977/CLR/138/1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/CASE/1977/HCA/62> a tmk:Decision,
+        tmk:JudicialDecision ;
+    tmk:authorityKind "decision" ;
+    tmk:authorityStatus tmk:NotHeld ;
+    tmk:caseCitation "[1977] HCA 62" ;
+    tmk:decidedAt "High Court of Australia" ;
+    tmk:decisionKind "judicial" ;
+    tmk:jurisdiction "AU" ;
+    tmk:upstreamRef "CASE/1977/HCA/62" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/1977/RPC/529> a tmk:Decision ;
     tmk:authorityKind "decision" ;
@@ -50018,16 +50716,6 @@
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/1998/FCA/1614" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/CASE/1998/FCA/440> a tmk:Decision,
-        tmk:JudicialDecision ;
-    tmk:authorityKind "decision" ;
-    tmk:authorityStatus tmk:NotHeld ;
-    tmk:caseCitation "[1998] FCA 440" ;
-    tmk:decidedAt "Federal Court of Australia" ;
-    tmk:decisionKind "judicial" ;
-    tmk:jurisdiction "AU" ;
-    tmk:upstreamRef "CASE/1998/FCA/440" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/1998/FCA/776> a tmk:Decision,
         tmk:JudicialDecision ;
     tmk:authorityKind "decision" ;
@@ -50243,6 +50931,14 @@
     tmk:decisionKind "unclassified" ;
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/2000/IPR/47/579" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/CASE/2000/IPR/51/102> a tmk:Decision ;
+    tmk:authorityKind "decision" ;
+    tmk:authorityStatus tmk:NotHeld ;
+    tmk:caseCitation "(2000) 51 IPR 102" ;
+    tmk:decisionKind "unclassified" ;
+    tmk:jurisdiction "AU" ;
+    tmk:upstreamRef "CASE/2000/IPR/51/102" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/2001/ATMO/123> a tmk:AdministrativeDecision,
         tmk:Decision ;
@@ -51188,6 +51884,16 @@
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/2017/FCA/60" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/CASE/2017/FCA/823> a tmk:Decision,
+        tmk:JudicialDecision ;
+    tmk:authorityKind "decision" ;
+    tmk:authorityStatus tmk:NotHeld ;
+    tmk:caseCitation "[2017] FCA 823" ;
+    tmk:decidedAt "Federal Court of Australia" ;
+    tmk:decisionKind "judicial" ;
+    tmk:jurisdiction "AU" ;
+    tmk:upstreamRef "CASE/2017/FCA/823" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/2017/FCAFC/56> a tmk:Decision,
         tmk:JudicialDecision ;
     tmk:authorityKind "decision" ;
@@ -51278,16 +51984,6 @@
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/2019/ATMO/26" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/CASE/2019/FCA/1552> a tmk:Decision,
-        tmk:JudicialDecision ;
-    tmk:authorityKind "decision" ;
-    tmk:authorityStatus tmk:NotHeld ;
-    tmk:caseCitation "[2019] FCA 1552" ;
-    tmk:decidedAt "Federal Court of Australia" ;
-    tmk:decisionKind "judicial" ;
-    tmk:jurisdiction "AU" ;
-    tmk:upstreamRef "CASE/2019/FCA/1552" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/2019/FCA/1553> a tmk:Decision,
         tmk:JudicialDecision ;
     tmk:authorityKind "decision" ;
@@ -51308,6 +52004,16 @@
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/2019/FCA/719" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/CASE/2019/FCA/923> a tmk:Decision,
+        tmk:JudicialDecision ;
+    tmk:authorityKind "decision" ;
+    tmk:authorityStatus tmk:NotHeld ;
+    tmk:caseCitation "[2019] FCA 923" ;
+    tmk:decidedAt "Federal Court of Australia" ;
+    tmk:decisionKind "judicial" ;
+    tmk:jurisdiction "AU" ;
+    tmk:upstreamRef "CASE/2019/FCA/923" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/2019/FCAFC/100> a tmk:Decision,
         tmk:JudicialDecision ;
     tmk:authorityKind "decision" ;
@@ -51317,6 +52023,16 @@
     tmk:decisionKind "judicial" ;
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/2019/FCAFC/100" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/CASE/2020/ATMO/23> a tmk:AdministrativeDecision,
+        tmk:Decision ;
+    tmk:authorityKind "decision" ;
+    tmk:authorityStatus tmk:NotHeld ;
+    tmk:caseCitation "[2020] ATMO 23" ;
+    tmk:decidedAt "the Registrar's delegate (Australian Trade Marks Office)" ;
+    tmk:decisionKind "administrative" ;
+    tmk:jurisdiction "AU" ;
+    tmk:upstreamRef "CASE/2020/ATMO/23" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/2020/FCA/1078> a tmk:Decision,
         tmk:JudicialDecision ;
@@ -51367,16 +52083,6 @@
     tmk:decisionKind "judicial" ;
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/2020/FCAFC/186" .
-
-<https://data.ipaustralia.gov.au/tmk/ref/CASE/2020/FCAFC/65> a tmk:Decision,
-        tmk:JudicialDecision ;
-    tmk:authorityKind "decision" ;
-    tmk:authorityStatus tmk:NotHeld ;
-    tmk:caseCitation "[2020] FCAFC 65" ;
-    tmk:decidedAt "Full Court of the Federal Court of Australia" ;
-    tmk:decisionKind "judicial" ;
-    tmk:jurisdiction "AU" ;
-    tmk:upstreamRef "CASE/2020/FCAFC/65" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/2021/ATMO/21> a tmk:AdministrativeDecision,
         tmk:Decision ;
@@ -52588,17 +53294,6 @@
     tmk:ordinal 10 ;
     tmk:text "(3) If 2 or more persons applied together for the registration of the trade mark (see section 28), the applicants must be registered as joint owners of the trade mark." ;
     tmk:upstreamRef "TMA1995/s69(3)" .
-
-<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s7(1)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s7> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:86a28c43974a39d74a1d79dc67c1af7b84f14118f1c0d4eb207fa5278ccfc430" ;
-    tmk:ordinal 1 ;
-    tmk:text "(1) If the Registrar or a prescribed court, having regard to the circumstances of a particular case, thinks fit, the Registrar or the court may decide that a person has used a trade mark if it is established that the person has used the trade mark with additions or alterations that do not substantially affect the identity of the trade mark." ;
-    tmk:upstreamRef "TMA1995/s7(1)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s70(3)> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
@@ -54181,6 +54876,85 @@
     tmk:partId "Part22" ;
     tmk:text "a. if the Registrar is then satisfied that the trade mark does or will so distinguish the designated goods or services-the trade mark is taken to be capable of distinguishing the applicant's goods or services from the goods or services of other persons; and b. if the Registrar is not satisfied that the trade mark does or will so distinguish the designated goods or services-the trade mark is taken not to be capable of distinguishing the applicant's goods or services from the goods or services of other persons. Note 1: For goods of a person and services of a person see section 6. Note 2: Use of a trade mark by a predecessor in title of an applicant and an authorised use of a trade mark by another person are each taken to be use of the trade mark by the applicant (see subsections (1) and 7(3) and section 8). 6. If the Registrar finds that the trade mark is not to any extent inherently adapted to distinguish the designated goods or services from the goods or services of other persons, the following provisions apply: a. if the applicant establishes that, because of the extent to which the applicant has used the trade mark before the filing date in respect of the application, it does distinguish the designated goods or services as being those of the applicant-the trade mark is taken to be capable of distinguishing the designated goods or services from the goods or services of other persons; b. in any other case-the trade mark is taken not to be capable of distinguishing the designated goods or services from the goods or services of other persons. Note 1: Trade marks that are not to any extent inherently adapted to distinguish goods or services are mostly trade marks that consist wholly of a sign that is ordinarily used to indicate: a. the kind, quality, quantity, intended purpose, value, geographical origin, or some other characteristic, of goods or services; or b. the time of production of goods or of the rendering of services. Note 2: Use of a trade mark by a predecessor in title of an applicant and an authorised use of a trade mark by another person are each taken to be use of the trade mark by the applicant (see subsections (1) and 7(3) and section 8)." ;
     tmk:upstreamRef "TMM/Part22/x-annex-a1-section-41-prior-to-raising-the-bar#1~2" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4%231> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s5> ;
+    tmk:contentHash "sha256:1c3992b93ee25fccf0cef30bb04cd8c37a5239d7ddab791c12fb48d961acc5c4" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4%231/prov/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4%231/prov/1> ;
+    tmk:headingPath "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.4. Examining evidence - general" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4> ;
+    tmk:ordinal 1 ;
+    tmk:partId "Part23" ;
+    tmk:text "Trade Marks Act 1995 Trade Mark Regulations 1995 The onus is on the examiner, having assessed the evidence, to be satisfied that the trade mark is not capable of distinguishing, having regard to the material provided and whether the trade mark is being considered under s 41(3) or (4). If the examiner, after considering the evidence, is not satisfied that the trade mark is not capable of distinguishing, the trade mark must be accepted. The following paragraphs give some guidance on particular issues to be conscious of when assessing evidence. Most of the comments are relevant to evidence irrespective of which subsection the ground for rejection is in relation to. However, there are some specific comments pertinent to trade marks with no inherent adaptation to distinguish which are set out in paragraph 5." ;
+    tmk:upstreamRef "TMM/Part23/4#1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/1~1> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesCase <https://data.ipaustralia.gov.au/tmk/ref/CASE/2000/IPR/51/102>,
+        <https://data.ipaustralia.gov.au/tmk/ref/CASE/2019/FCA/923> ;
+    tmk:contentHash "sha256:f5fc27b9ba5bcc4b91ed05887cf962149714b7a8d25cbf56a50926158bdff86f" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/1~1/case/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/1~1/case/1> ;
+    tmk:headingPath "4.1 How much turnover and marketing expenditure needs to be associated with use of the trade mark?",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.4. Examining evidence - general" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4> ;
+    tmk:ordinal 2 ;
+    tmk:partId "Part23" ;
+    tmk:text "Metrics associated with the use of a trade mark provide a relatively objective means for an examiner to assess the extent and effect of use of the trade mark in the market. The most commonly provided metrics are revenue and promotional expenditure figures. The greater the turnover associated with the provision of goods or services under the trade mark, the more likely it is that the trade mark is capable of distinguishing the applicant's designated goods or services. Massive turnover may compensate for short use, likewise, long use may compensate for small turnover, especially in relation to trade marks with some inherent adaptation to distinguish. However, total turnover must be considered in the context of the relevant market and balanced against unit cost before a decision can be made on this issue. Applicants should be encouraged to supply information on unit costs and perhaps market share to help support their case. Similarly, marketing expenditure figures may demonstrate significant exposure of the trade mark to consumers. Extensive marketing figures may supplement comparatively lower turnover and/or duration of use, and vice versa. There is a distinction between the reputation associated with a trade mark, and whether a trade mark is capable of distinguishing. The two concepts are not strictly synonymous. However, in most cases, evidence that would establish reputation in the trade mark will also assist an applicant in establishing that a trade mark is or will become capable of distinguishing. The effectiveness of turnover and marketing expenditure is considered by O’Bryan J in Rodney Jane Racing Pty Ltd v Monster Energy Company [2019] FCA 923 at [83]: The ordinary meaning of the word “reputation” is the recognition of a person or thing by the public generally or the estimation in which a person or thing is held by the public generally: McCormick & Co Inc v McCormick (2000) 51 IPR 102 at [81] (McCormick). The reputation of a trade mark has quantitative and qualitative dimensions. The quantitative dimension concerns the breadth of the public that are likely to be aware of the mark, which can be evidenced by the quantum of sales, advertising and promotion of goods or services to which the mark is applied." ;
+    tmk:upstreamRef "TMM/Part23/4/4/1~1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/5> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/4>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/5> ;
+    tmk:contentHash "sha256:9e6a2a4287c77f6d5475c1ac4579d5e1d4d1966266501ad7b6e91a80252b6ba9" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/5/internal/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/5/internal/1> ;
+    tmk:headingPath "4.5 Can the applicant rely on use from overseas?",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.4. Examining evidence - general" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4> ;
+    tmk:ordinal 10 ;
+    tmk:partId "Part23" ;
+    tmk:text "In some cases, use of a trade mark online that originates from a foreign country may constitute direct use of a trade mark in the Australian market (see Part 19A.4). Even where such use is not considered direct use in the Australian market, a relevant ‘other circumstance’ may include the use of a trade mark in another country, particularly one where goods or services bearing the trade mark have likely been exposed to many Australian consumers. Similarly, a strong Australian following of a foreign brand on social media may assist an applicant even before goods or services are provided in the Australian market. As always, the weight to be given to such evidence must be given on a case-by-case basis. For example, the capacity to distinguish of a particular trade mark used overseas is likely to be higher in cases where that trade mark has attracted significant attention in Australia. Conversely, a trade mark used extensively overseas but in a manner not particularly memorable to Australian consumers is unlikely to provide much assistance to an applicant. It would be unlikely that evidence of use and reputation overseas would suffice to allow acceptance in Australia where the applicant also does not provide some indication of their plans to trade in Australia. Use of a trade mark overseas in most cases will be a complimentary rather than determinative factor. Note: Refer to para 5.3 for acceptable use when the trade mark is not to any extent inherently adapted to distinguish." ;
+    tmk:upstreamRef "TMM/Part23/4/4/5" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/9> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(5)> ;
+    tmk:contentHash "sha256:f050829be444b2ae7692836a49c3f0d1446c1841f8b78798bd292c18d501e1b0" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/9/prov/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/9/prov/1> ;
+    tmk:headingPath "4.9 Evidence of use in relation to tobacco products",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.4. Examining evidence - general" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4> ;
+    tmk:ordinal 16 ;
+    tmk:partId "Part23" ;
+    tmk:text "The Tobacco Plain Packaging Act 2011 (TPP Act) came into effect on 1 December 2012 and restricts the way trade marks are used in relation to tobacco products in Australia. For example, cigarette packaging must be a generic drab dark brown and cannot feature logos, stylisation, embossing, decorative features or any other embellishments. The TPP Act may affect how an applicant is able to demonstrate use of a trade mark in relation to tobacco products. The following points may be helpful when assessing evidence of use for a period on or after 1 December 2012: Stylised trade marks were permitted on tobacco products in Australia prior to the commencement of the TPP Act (1 December 2012) Tobacco products produced in Australia can be exported in packaging featuring stylised trade marks. Such use can be taken into account when assessing evidence for the purposes of s 41(5) or 41(4) for applications with a filing date on or after 15 April 2013 Whilst the TPP Act restricts the use of trade marks in Australia in a retail context, there may be exposure of the trade mark in Australia via the internet Where evidence of use of the trade mark in Australia ceases at 1 December 2012, the applicant should provide a statement, in declaratory form, stating that the discontinuation of use is due to the TPP Act." ;
+    tmk:upstreamRef "TMM/Part23/4/4/9" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/x-annex-a6---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-414---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013> a tmk:Page ;
     rdfs:label "Annex A6 - How to supply evidence of use of a trade mark under subsection 41(4) - for trade marks with a filing date on or after 15 April 2013"@en-AU ;
@@ -55873,6 +56647,17 @@
     tmk:partId "Part51" ;
     tmk:text "Section 222 and reg 17A.73 provide that a person giving notice of opposition to registration/protection of a trade mark or to an extension of time or a person applying under Part 9 or Part 17A for a trade mark to be removed/protection to cease for non-use, who neither resides nor carries on business in Australia, may be required by the Registrar to give security for the costs of the proceeding. If security is not given, the Registrar may dismiss proceedings. In that case the Registrar will notify the parties in writing that opposition proceedings have been dismissed. Part 55 Costs" ;
     tmk:upstreamRef "TMM/Part51/6/6/1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4> a tmk:Page ;
+    rdfs:label "4. Role and powers of the Registrar in hearings"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:422309bd9764979c918d42330e49b962eab1844337b4691a4ef1742c09a2269a" ;
+    tmk:lastAmended "2025-04-02" ;
+    tmk:partId "Part52" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/4.-role-and-powers-of-the-registrar-in-hearings"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part52/4" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1/1/1> a tmk:Chunk,
         tmk:ManualPassage ;
@@ -58859,6 +59644,27 @@
     tmk:text "Internet research often forms the basis for an examiner’s objection under s 41. Such research where appropriate should be provided to an applicant where it underpins the ground for rejection raised by the examiner. Grounds for rejection should not be raised or maintained solely on the basis of simple captures of Internet search engine search results, or by broad reference to common use on the Internet. Search engine results are produced by complex algorithms and at face value can provide a misleading indication of the meaning of a sign and the context of its use. The examiner must take steps to understand the context in which use of a term appears. If the basis for the s 41 finding is the results of Internet searches, this should be supported where possible by examples of use by traders on the Internet, or other research which confirms both the ordinary signification and the legitimate desire of other traders to use the trade mark (See Part 22.7). In some cases, where an applicant has filed evidence of use or other circumstances, an examiner may rely on their own research to resolve minor ambiguities with the evidence or to verify claims made by an applicant. Resources such as the Internet Archive Wayback Machine may be useful in some cases. However, examiners generally should not accept trade marks under s 41(4) or (3) based solely on the outcome of their own research." ;
     tmk:upstreamRef "TMM/Part23/2/2/4" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3%231> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesCase <https://data.ipaustralia.gov.au/tmk/ref/CASE/1965/CLR/112/517>,
+        <https://data.ipaustralia.gov.au/tmk/ref/CASE/1998/FCA/440> ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:contentHash "sha256:33c56e7eda49174e63a0f03536399f589496bde63f5d82e0f1141bdc312ca4bd" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3%231/case/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3%231/case/1>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3%231/prov/0> ;
+    tmk:headingPath "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.3. Evidence of use - general requirements" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3> ;
+    tmk:ordinal 1 ;
+    tmk:partId "Part23" ;
+    tmk:text "Trade Marks Act 1995 Trade Mark Regulations 1995 When grounds for rejection under s 41 have been raised and the Registrar remains satisfied (after considering any submissions or proposed amendments filed by the applicant) that the trade mark is not capable of distinguishing the applicant's goods and/or services, the trade mark owner may provide formal evidence of use. Requirements common to all evidence are set out in the following paragraphs. Decisions made on the basis of evidence of use involve weighing up the evidence provided, and deciding whether this information, in combination with the trade mark's extent of inherent adaptation to distinguish, indicate that the Registrar cannot be satisfied that the trade mark should be rejected. Justice Branson in Blount Inc v The Registrar of Trade Marks [1998] FCA 440 (‘Oregon’) said: Where the Act requires the registrar to be \"satisfied\" of any matter, it is to be understood as requiring that he or she be persuaded of the matter according to the balance of probabilities (Rejfek v McElroy (1965) 112 CLR 517, 521). That is, that the Registrar be persuaded, having given proper consideration to those factors and circumstances that the Act requires him or her to give consideration to, that such matter is more probable than not." ;
+    tmk:upstreamRef "TMM/Part23/3#1" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part24/3> a tmk:Page ;
     rdfs:label "Part 24.3. Effect of a disclaimer on registration"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -60676,6 +61482,16 @@
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/1964/CLR/111/511" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/CASE/1965/CLR/112/517> a tmk:Decision,
+        tmk:JudicialDecision ;
+    tmk:authorityKind "decision" ;
+    tmk:authorityStatus tmk:NotHeld ;
+    tmk:caseCitation "(1965) 112 CLR 517" ;
+    tmk:decidedAt "High Court of Australia (Commonwealth Law Reports)" ;
+    tmk:decisionKind "judicial" ;
+    tmk:jurisdiction "AU" ;
+    tmk:upstreamRef "CASE/1965/CLR/112/517" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/1968/HCA/72> a tmk:Decision,
         tmk:JudicialDecision ;
     tmk:authorityKind "decision" ;
@@ -60721,6 +61537,16 @@
     tmk:decisionKind "unclassified" ;
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/1993/IPR/26/577" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/CASE/1998/FCA/440> a tmk:Decision,
+        tmk:JudicialDecision ;
+    tmk:authorityKind "decision" ;
+    tmk:authorityStatus tmk:NotHeld ;
+    tmk:caseCitation "[1998] FCA 440" ;
+    tmk:decidedAt "Federal Court of Australia" ;
+    tmk:decisionKind "judicial" ;
+    tmk:jurisdiction "AU" ;
+    tmk:upstreamRef "CASE/1998/FCA/440" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/1998/IPR/40/498> a tmk:Decision ;
     tmk:authorityKind "decision" ;
@@ -60870,6 +61696,16 @@
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/2017/FCAFC/83" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/CASE/2019/FCA/1552> a tmk:Decision,
+        tmk:JudicialDecision ;
+    tmk:authorityKind "decision" ;
+    tmk:authorityStatus tmk:NotHeld ;
+    tmk:caseCitation "[2019] FCA 1552" ;
+    tmk:decidedAt "Federal Court of Australia" ;
+    tmk:decisionKind "judicial" ;
+    tmk:jurisdiction "AU" ;
+    tmk:upstreamRef "CASE/2019/FCA/1552" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/2020/FCA/1808> a tmk:Decision,
         tmk:JudicialDecision ;
     tmk:authorityKind "decision" ;
@@ -60879,6 +61715,16 @@
     tmk:decisionKind "judicial" ;
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/2020/FCA/1808" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/CASE/2020/FCAFC/65> a tmk:Decision,
+        tmk:JudicialDecision ;
+    tmk:authorityKind "decision" ;
+    tmk:authorityStatus tmk:NotHeld ;
+    tmk:caseCitation "[2020] FCAFC 65" ;
+    tmk:decidedAt "Full Court of the Federal Court of Australia" ;
+    tmk:decisionKind "judicial" ;
+    tmk:jurisdiction "AU" ;
+    tmk:upstreamRef "CASE/2020/FCAFC/65" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/2021/FCA/1512> a tmk:Decision,
         tmk:JudicialDecision ;
@@ -61204,17 +62050,6 @@
     tmk:text "(i) a sign referred to in paragraph (a); or" ;
     tmk:upstreamRef "TMA1995/s39(2)(b)(i)" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(5)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:b91a28293b2c879c780d7777a8bd8d87ee16227262ed0e31223d4168d6f28eec" ;
-    tmk:ordinal 18 ;
-    tmk:text "(5) For the purposes of this section, the use of a trade mark by a predecessor in title of an applicant for the registration of the trade mark is taken to be a use of the trade mark by the applicant." ;
-    tmk:upstreamRef "TMA1995/s41(5)" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s4A> a tmk:LegislativeProvision ;
     rdfs:label "Application of the Criminal Code"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
@@ -61296,6 +62131,17 @@
     tmk:ordinal 3 ;
     tmk:text "(3) An amendment may be made to an application to which section 51 applies to remove one or more trade marks from the application." ;
     tmk:upstreamRef "TMA1995/s65(3)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s7(1)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s7> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:86a28c43974a39d74a1d79dc67c1af7b84f14118f1c0d4eb207fa5278ccfc430" ;
+    tmk:ordinal 1 ;
+    tmk:text "(1) If the Registrar or a prescribed court, having regard to the circumstances of a particular case, thinks fit, the Registrar or the court may decide that a person has used a trade mark if it is established that the person has used the trade mark with additions or alterations that do not substantially affect the identity of the trade mark." ;
+    tmk:upstreamRef "TMA1995/s7(1)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s7(2)> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
@@ -61924,6 +62770,30 @@
     tmk:partId "Part23" ;
     tmk:text "When assessing trade marks which are to some extent, but not sufficiently, inherently adapted to distinguish (i.e. s 41(4)), the Act specifies that the Registrar is to consider 'any other circumstances' in combination with the trade mark's inherent adaptation and evidence of use provided by the applicant. Relevant circumstances are not limited by the Act and include any information, including the examiner's own research, which assist the Registrar in determining whether the trade mark is capable of distinguishing. In some cases, the use of a similar trade mark that is not substantially identical to the trade mark applied for may be a relevant circumstance that can be given weight under s 41(4). For example, if an applicant has applied for a word mark, but the use of the word mark solus is co-extensive with use of other versions of the mark where the word features prominently, the use of the latter may assist the examiner in determining that the word itself has acquired reputation and capacity to distinguish in the market (see: Sports Warehouse, Inc v Fry Consulting Pty Ltd [2010] FCA 664, [133] and SJT Enterprises [2021] ATMO 65). Earlier registrations in Australia that reflect the ‘state of the register’, may be a relevant other circumstance. However, the weight given to previous registrations must be tempered by other relevant considerations under s 41(4). In Ocean Spray Cranberries Inc v Registrar of Trade Marks [2000] FCA 177, Wilcox J held at [35]: …although consistency in public administration is desirable, a public officer is not justified in persisting with error. Marks may, in the past, have been wrongly registered. It would be an unwarranted distraction from the task at hand to investigate, in a particular case, whether they were or not. While the Registrar is not justified in persisting with clear error, a line of consistent and recent acceptances of analogous marks should not also be arbitrarily dismissed." ;
     tmk:upstreamRef "TMM/Part23/2/2/5" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4/4/7> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/7>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/5> ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s7(1)> ;
+    tmk:contentHash "sha256:2f08533a88b35f8e213885eaa0c6515249da05b5b89433d7e8f3566fa5219b34" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/7/internal/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/7/internal/1>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/7/prov/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/4/4/7/prov/1> ;
+    tmk:headingPath "4.7 What if the trade mark shown in the evidence is not identical to the trade mark on the application form?",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.4. Examining evidence - general" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4> ;
+    tmk:ordinal 12 ;
+    tmk:partId "Part23" ;
+    tmk:text "The Registrar has discretion under s 7(1) to consider that a trade mark applied for has been used if it is used with additions or alterations not substantially affecting its identity. What constitutes a substantially identical trade mark is discussed in Part 19A.7 and Part 26.5. The use of a similar trade mark that is not substantially identical to the trade mark subject of the application may also in some cases be a relevant ‘other circumstance’ that can be considered under s 41(4) as discussed above." ;
+    tmk:upstreamRef "TMM/Part23/4/4/7" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/6/6/3~1> a tmk:Chunk,
         tmk:ManualPassage ;
@@ -65186,16 +66056,6 @@
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/2019/ATMO/41" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/CASE/2021/FCAFC/31> a tmk:Decision,
-        tmk:JudicialDecision ;
-    tmk:authorityKind "decision" ;
-    tmk:authorityStatus tmk:NotHeld ;
-    tmk:caseCitation "[2021] FCAFC 31" ;
-    tmk:decidedAt "Full Court of the Federal Court of Australia" ;
-    tmk:decisionKind "judicial" ;
-    tmk:jurisdiction "AU" ;
-    tmk:upstreamRef "CASE/2021/FCAFC/31" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/2023/FCAFC/44> a tmk:Decision,
         tmk:JudicialDecision ;
     tmk:authorityKind "decision" ;
@@ -65316,6 +66176,17 @@
     tmk:contentHash "sha256:ecf843a502d95cd02974fec8a61c0e86740818500621aa5710a5c9c4ffb34fd0" ;
     tmk:text "The applicant may appeal to the Federal Court or the Federal Circuit and Family Court of Australia (Division 2) against a decision of the Registrar: (a) to accept the application subject to conditions or limitations; or (b) to reject the application. Note: For applicant see section 6." ;
     tmk:upstreamRef "TMA1995/s35" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(5)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:b91a28293b2c879c780d7777a8bd8d87ee16227262ed0e31223d4168d6f28eec" ;
+    tmk:ordinal 18 ;
+    tmk:text "(5) For the purposes of this section, the use of a trade mark by a predecessor in title of an applicant for the registration of the trade mark is taken to be a use of the trade mark by the applicant." ;
+    tmk:upstreamRef "TMA1995/s41(5)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s46(2)> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
@@ -65631,6 +66502,34 @@
     tmk:partId "Part19B" ;
     tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/4.-the-right-to-take-infringement-action"^^xsd:anyURI ;
     tmk:upstreamRef "TMM/Part19B/4" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3/3/1> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesCase <https://data.ipaustralia.gov.au/tmk/ref/CASE/2020/FCAFC/65> ;
+    tmk:citesPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/6> ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s106>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s228>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s8> ;
+    tmk:contentHash "sha256:202039bd266177bd37b8c149ffe529f5741b0d1ceba7091b5e86a3d25ef09b8b" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/1/case/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/1/internal/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/1/prov/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/1/prov/1>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/1/prov/2>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part23/3/3/1/prov/3> ;
+    tmk:headingPath "3.1 Who has used the trade mark?",
+        "Part 23 Overcoming Grounds for Rejection under Section 41 - including Evidence of Use",
+        "Part 23.3. Evidence of use - general requirements" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3> ;
+    tmk:ordinal 2 ;
+    tmk:partId "Part23" ;
+    tmk:text "Evidence of use is not always restricted to use by the current proprietor of a trade mark. The Act specifies that use of the trade mark includes use by a predecessor in title of the applicant (s 41) and use by an authorised user (s 8). It also includes use on goods or services for export (s 228). Predecessor in title The use of a trade mark by a predecessor in title will be treated differently depending on whether such use occurred when an application for registration was pending, or whether the trade mark was not subject to an application or registration at the time of use. Where the trade mark was the subject of a pending application (or another registration) at the time the claimed use of the trade mark occurred, then the applicant needs to show that rights in the trade mark subject of the application were simply assigned to them. Such rights can be assigned without the underlying goodwill of the business (s 106). If the applicant seeks to rely on use of the trade mark by a predecessor before an application for registration is filed, they must also demonstrate they are the successor in title to the associated goodwill of the business that used the trade mark. This reflects the common law rule that an unregistered trade mark cannot be assigned without the goodwill of the business that used it (Kraft Foods Group Brands LLC v Bega Cheese Limited [2020] FCAFC 65, [122]). Authorised user An applicant can rely on their evidence of use or use by an authorised user. Authorised use requires some form of actual control by the applicant over the use by the authorised user. This is discussed in more detail in Part 19A.6." ;
+    tmk:upstreamRef "TMM/Part23/3/3/1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/6/6/5~1> a tmk:Chunk,
         tmk:ManualPassage ;
@@ -66269,17 +67168,6 @@
     tmk:text "If the documents are produced during the relevant statutory period allowed for the requestor to file its evidence, the requestor should inform the Registrar and the other party that the documents form part, or all, of its evidence. PLEASE NOTE: The time allowed for the requestor to file its evidence will NOT be extended on the basis that the requestor is waiting for the documents to be produced. If the documents are produced after the period allowed for the requestor to file its evidence has ended, they may still be taken into account by the Registrar when the merits of the proceeding are determined as the Registrar is not bound by the rules of evidence (reg 21.15(4)). However the requestor needs to establish a compelling case for the documents to be considered (see part 51.2.2.6). 3 Guidance on the \"degree of particularity\" required in specifying the documents is provided in court decisions dealing with subpoenas - see for example Small v Commissioner of Railways (1938) SR (NSW) 564 at 573, Spencer Motors Ltd v LNC Industries Ltd [1982] 2 NSWLR 921 at 929 and Lucas Industries Ltd v Hewitt (1978) 18 ALR 555. 4 See notes 1 and 2 to part 54.2" ;
     tmk:upstreamRef "TMM/Part54/3/3/6" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part55/1> a tmk:Page ;
-    rdfs:label "1. Legislative Basis"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
-    tmk:authorityKind "practice" ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:2615ff239edf785708f21a722ab16392241a26118a0a9604a727aa4337cdfb09" ;
-    tmk:lastAmended "2025-04-02" ;
-    tmk:partId "Part55" ;
-    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-legislative-basis"^^xsd:anyURI ;
-    tmk:upstreamRef "TMM/Part55/1" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part55/1%231~1> a tmk:Chunk,
         tmk:ManualPassage ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -66512,17 +67400,6 @@
     tmk:contentHash "sha256:19f103d60ae43e207dd912f3c5fa3742ed01d60780f739a7f10ecda93502e6cb" ;
     tmk:text "If a person who neither resides nor carries on business in Australia: (a) files a notice of opposition to an IRDA as mentioned in subregulation 17A.32(1); or (b) applies to the Registrar under regulation 17A.48C for the cessation of the protection extended to a protected international trade mark; the Registrar may require the person to give security for the costs of the proceeding and may, if security is not given, dismiss the proceeding." ;
     tmk:upstreamRef "TMR1995/r17A.73" .
-
-<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.15(4)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.15> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:ab58c926b09ca14e42f0b138ab752d3bcf67a3a4886f043912f84aa3becb26c2" ;
-    tmk:ordinal 7 ;
-    tmk:text "(4) The Registrar is not bound by the rules of evidence, but may be informed on any matter that is before the Registrar in a way that the Registrar reasonably believes to be appropriate." ;
-    tmk:upstreamRef "TMR1995/r21.15(4)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r22.14> a tmk:LegislativeProvision ;
     rdfs:label "Definitions"@en-AU ;
@@ -67451,6 +68328,35 @@
     tmk:text "a person wanting to attend is unable to use the internet or telephone (for example due to disability and/or a lack of available infrastructure); the evidence includes physical specimens that cannot be adequately shown or seen over a video connection. As stated in the official notice published on 9 November 2022, a request to be heard in person must be in writing and should include: the agreement of any other parties (if applicable); and a brief explanation of the reasons why the matter should be heard in person. Requests to be heard in person will be considered on a case-by-case basis, noting that the Registrar has the sole discretion as to whether to hold any hearing in person. The parties present at a hearing, by whatever means, are able to make oral representations on the matter before the Registrar. Under subreg 21.16(5), the Registrar may direct a person attending a hearing to provide a written summary of submissions. In opposition hearings under reg 5.17, 6.9, 9.20, 17A.34M, 17A.48V and 21.20E, the opposing party (that is, the party which bears the onus of proof in the matter) must provide a summary of submissions at least 10 business days before the hearing and the other party must respond at least 5 business days before the hearing. The summaries of submissions must be filed with the Office and copied to the other party. It is preferable for this to be done via electronic means, given the time constraints close to the actual hearing date. In making an award of costs the Registrar is able to take into account, “as the Registrar considers appropriate” (see subreg 21.13(1)) a party’s failure to provide a written summary of submissions." ;
     tmk:upstreamRef "TMM/Part52/2#1~2" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4%231> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:chunkKind "body" ;
+    tmk:citesCase <https://data.ipaustralia.gov.au/tmk/ref/CASE/1969/RPC/91>,
+        <https://data.ipaustralia.gov.au/tmk/ref/CASE/1977/HCA/62> ;
+    tmk:citesPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part55/1> ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s202>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.15(4)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.16> ;
+    tmk:contentHash "sha256:198aa0ced16c063647bcf12bbe915d39b669cb1dcd76c345fb4f1f8e0d546be6" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/case/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/case/1>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/internal/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/internal/1>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/prov/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/prov/1>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part52/4%231/prov/2> ;
+    tmk:headingPath "Part 52 Hearings, Decisions, Reasons and Appeals",
+        "Part 52.4. Role and powers of the Registrar in hearings" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/4> ;
+    tmk:ordinal 1 ;
+    tmk:partId "Part52" ;
+    tmk:text "Trade Marks Act 1995 Trade Marks Regulations 1995 The Registrar performs the function of an administrative tribunal and therefore exercises an administrative, rather than a judicial, role in matters arising from the administration of the Act (see R v Quinn: Ex Parte Consolidated Foods Corporation [1977] HCA 62). The proceedings are less formal than in a court and the Registrar’s primary concern is that all parties concerned have adequate opportunity to present their case to the Registrar’s delegate. Reg 21.16 outlines the Registrar’s powers in relation to a hearing. The Hearing Officer, as the Registrar’s delegate, assumes full authority over the proceedings. Under sub-reg 21.15(4), the Registrar is not bound by the rules of evidence, as are the courts. In the words of Lord Denning MR in T.A. Miller Ltd v The Minister for Housing and Local Government, [1969] RPC 91, “A tribunal (of this kind) is master of its own procedure, provided that the rules of natural justice are applied. … Tribunals are entitled to act on any material which is logically probative, even though it is not evidence in a court of law,…. Hearsay is clearly admissible before a tribunal. No doubt in admitting it, the tribunal must observe the rules of natural justice, but this does not mean that it must be tested by cross-examination. It only means that the tribunal must give the other side a fair opportunity of commenting on it and of contradicting it … ” 5 Certain powers of the Registrar under section 202 are relevant to hearing procedures. Under this section the Registrar may, for the purposes of the Act: summon witnesses; receive written or oral evidence on oath or affirmation; require production of documents or articles; award costs against a party to proceedings brought before the Registrar; notify, as he or she considers fit, any person of any matter that, in his or her opinion, should be brought to the person’s notice. Part 54 Subponeas, Summonses and Production of Documents Part 55 Costs" ;
+    tmk:upstreamRef "TMM/Part52/4#1" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/2/4> a tmk:Page ;
     rdfs:label "2.4 Certifying Process"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -67583,15 +68489,15 @@
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/2002/FCA/1551" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s106> a tmk:LegislativeProvision ;
-    rdfs:label "Assignment etc. of trade mark"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:a3e2bb115e3a7480288c366a8729160798d7682dcbea077fa85f6e6068b99bf9" ;
-    tmk:text "(1) A registered trade mark, or a trade mark whose registration is being sought, may be assigned or transmitted in accordance with this section. (2) The assignment or transmission may be partial, that is, it may apply to some only of the goods and/or services in respect of which registration is sought or the trade mark is registered, but it may not be partial in relation to the use of a trade mark in a particular area. (3) The assignment or transmission may be with or without the goodwill of the business concerned in the relevant goods and/or services. Note: For assignment and transmission see section 6." ;
-    tmk:upstreamRef "TMA1995/s106" .
+<https://data.ipaustralia.gov.au/tmk/ref/CASE/2021/FCAFC/31> a tmk:Decision,
+        tmk:JudicialDecision ;
+    tmk:authorityKind "decision" ;
+    tmk:authorityStatus tmk:NotHeld ;
+    tmk:caseCitation "[2021] FCAFC 31" ;
+    tmk:decidedAt "Full Court of the Federal Court of Australia" ;
+    tmk:decisionKind "judicial" ;
+    tmk:jurisdiction "AU" ;
+    tmk:upstreamRef "CASE/2021/FCAFC/31" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s108> a tmk:LegislativeProvision ;
     rdfs:label "Recording of assignment etc. of trade mark whose registration is sought"@en-AU ;
@@ -67821,17 +68727,6 @@
     tmk:partId "Part19A" ;
     tmk:text "Not all use of a particular sign will constitute use ‘as a trade mark’. In Coca-Cola Co v All-Fect Distributors Ltd [1999] FCA 1721 at [19], the Full Bench of the Federal Court held : Use 'as a trade mark' is use of the mark as a 'badge of origin' in the sense that it indicates a connection in the course of trade between goods and the person who applies the mark to the goods ... That is the concept embodied in the definition of 'trade mark' in s 17 – a sign used to distinguish goods dealt with in the course of trade by a person from goods so dealt with by someone else. This statement was expressly approved by a majority of the High Court in E. & J. Gallo Winery v Lion Nathan Australia Pty Limited [2010] HCA 15 at [43]. In Self Care at [24], the High Court said: Whether a sign has been \"use[d] as a trade mark\" is assessed objectively without reference to the subjective trading intentions of the user. As the meaning of a sign, such as a word, varies with the context in which the sign is used, the objective purpose and nature of use are assessed by reference to context. That context includes the relevant trade, the way in which the words have been displayed, and how the words would present themselves to persons who read them and form a view about what they connote. The use of a trade mark to indicate a connection in the course of trade has been referred to as the ‘branding function’ of the trade mark (see Anheuser-Busch, Inc v Budejovický Budvar, Národní Podnik & Ors [2002] FCA 390 and Alcon Inc v Bausch & Lomb (Australia) Pty Ltd [2009] FCA 1299). In Nature's Blend Pty Ltd v Nestlé Australia Ltd [2010] FCAFC 117 at [19], the Full Court held: The appropriate question to ask is whether the impugned words would appear to consumers as possessing the character of the brand: Shell Company of Australia Ltd v Esso Standard Oil (Australia) Ltd [1963] HCA 66; (1963) 109 CLR 407 at 422. Use that is solely descriptive or laudatory is unlikely to be use of a sign as a ‘badge of origin’. Such use is therefore not use of a sign ‘as a trade mark’. However, the High Court in Self Care at [25] cautioned:" ;
     tmk:upstreamRef "TMM/Part19A/2#1~1" .
-
-<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/6> a tmk:Page ;
-    rdfs:label "6. Use by the trade mark owner, predecessor in title or an authorised user"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
-    tmk:authorityKind "practice" ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:30bab028c4669cbb69eaf6a16403d83ec197320b8c9fc0208361ee5fef40872b" ;
-    tmk:lastAmended "2023-10-09" ;
-    tmk:partId "Part19A" ;
-    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/6.-use-by-the-trade-mark-owner-predecessor-in-title-or-an-authorised-user"^^xsd:anyURI ;
-    tmk:upstreamRef "TMM/Part19A/6" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part2/3> a tmk:Page ;
     rdfs:label "Part 2.3 Who may apply, and filing requirements for trade mark applications, notices and requests"@en-AU ;
@@ -68217,6 +69112,17 @@
     tmk:text "There is also the cost and inconvenience involved in requiring a witness to attend before the Registrar. Generally the evidence filed in the proceedings establishes the facts and there is nothing more than conflict as to the interpretation of those facts, or the application of law to those facts. In those circumstances, there is no compelling reason to summons a witness. If the Registrar is not convinced that there is a very good purpose to be served she will not summons a witness. (See, for example, American Cyanamid Company v Nalco Chemical Company [1992] APO 5 in which a delegate of the Commissioner of Patents refused to issue a summons under section 210 of the Patents Act, the equivalent provision to section 202 of the Trade Marks Act.) It is usually only where there is contradictory evidence, and it appears that the conflict on facts, as opposed to opinions, could be resolved or clarified by taking oral evidence, that the Registrar will issue a summons. In deciding whether to issue a summons, the Registrar must consider whether the summons is being sought “for the purposes of this Act”. Therefore he or she must consider whether the summons is relevant and the cross-examination is likely to affect the outcome of the matter in suit. The question of relevance was judicially considered in respect of the exercise of a discretionary power under section 210 of the Patents Act. (See GS Technology Pty Ltd v The Commissioner of Patents [1997] FCA 1460.) The appropriate test to apply is one of adjectival rather than substantive relevance and the Registrar is therefore required to decide whether summoning the witness could be relevant rather than would be relevant If the Registrar intends to refuse a request to summons a witness, the person who made the request has a right under section 203 to be heard on the matter. However there is no provision in the Act for a person to object to the issue of a summons, nor is there a requirement under natural justice for the Registrar to give the other party an opportunity to comment. (See Structureco Inc v Registrar of Trade Marks [2003] FCA 1290.) Any objections he or she might have to the summons could be argued as a “reasonable excuse” for non-compliance with the summons, as per section 153 (see part 54.2.3.1 below)." ;
     tmk:upstreamRef "TMM/Part54/2#1~2" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part55/1> a tmk:Page ;
+    rdfs:label "1. Legislative Basis"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:2615ff239edf785708f21a722ab16392241a26118a0a9604a727aa4337cdfb09" ;
+    tmk:lastAmended "2025-04-02" ;
+    tmk:partId "Part55" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-legislative-basis"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part55/1" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/4/24> a tmk:Page ;
     rdfs:label "4.24 Change in Ownership of an International Registration"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -68247,6 +69153,17 @@
     tmk:contentHash "sha256:cdbfe74d5fa705941aebd3b54ab1f78df851aff2e4378e57dbb0a3c85ba4e3cd" ;
     tmk:text "If the result of an action under this Subdivision is that the Registrar decides, or is directed by a court: (a) to cease protection of a protected international trade mark in respect of some or all of the goods or services covered by the protection; or (b) that the trade mark should be protected subject to conditions or limitations; the Registrar must, if no appeal has been made at the end of any relevant appeal period, notify the International Bureau of that decision or order." ;
     tmk:upstreamRef "TMR1995/r17A.48X" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.15(4)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.15> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:ab58c926b09ca14e42f0b138ab752d3bcf67a3a4886f043912f84aa3becb26c2" ;
+    tmk:ordinal 7 ;
+    tmk:text "(4) The Registrar is not bound by the rules of evidence, but may be informed on any matter that is before the Registrar in a way that the Registrar reasonably believes to be appropriate." ;
+    tmk:upstreamRef "TMR1995/r21.15(4)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.11> a tmk:LegislativeProvision ;
     rdfs:label "Examination—additional requirements"@en-AU ;
@@ -68489,17 +69406,6 @@
     tmk:text "Section 44 is intended to prevent registration of trade marks if the use of the two trade marks in the market would likely lead to confusion. Under s 44(1) or (2), an application for a trade mark must be rejected if the applicant's trade mark is substantially identical with or deceptively similar to: a trade mark registered by another person in respect of similar goods or closely related services, or similar services or closely related goods; OR a trade mark whose registration is being sought by another person in respect of similar goods or closely related services or similar services or closely related goods; AND the priority date of the applicant's trade mark is not earlier than the priority date of the other trade mark in respect of the similar goods or closely related services, or the similar services or closely related goods. The two key enquiries under s 44 are whether the respective trade marks are substantially identical or deceptively similar, and whether the respective goods/services are similar or closely related. A ground for rejection can be raised regardless of whether the earlier trade mark is registered or is subject of a pending application. Section 44 allows co-existence of substantially identical or deceptively similar trade marks for dissimilar or unrelated goods and services. Section 44 itself makes no reference to International Registrations Designating Australia (IRDAs) or Protected International Trade Marks (PITMs). Provision for considering a PITM or IRDA as a ground for rejection against a national filed application is made under regulation 4.15A which mirrors the requirements of section 44. When an earlier conflicting PITM or IRDA acts as a barrier to the acceptance of a national filed mark, grounds for rejection are therefore raised under regulation 4.15A. Provision is made under subregulations 4.15A(3) and 4.15A(5) for the acceptance of trade marks which would otherwise be rejected under subregulations 4.15A(1) and 4.15A(2). Given the similar operation and effect of the two provisions, a reference to s 44 in the rest of this Part is to be also taken as a reference to regulation 4.15A. The provisions of subsections 44(3) and (4) may, in certain circumstances, also permit the acceptance of trade marks which would otherwise be rejected under subsections 44(1) and (2). Part 28 Honest Concurrent Use, Prior Use and Other Circumstances" ;
     tmk:upstreamRef "TMM/Part26/1#1" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/5> a tmk:Page ;
-    rdfs:label "5. Similarity of trade marks"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
-    tmk:authorityKind "practice" ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:692756147da1cca32d762bdf8b6bcc0a25458f78df0d28baa1b0f33cda44d9ad" ;
-    tmk:lastAmended "2024-05-23" ;
-    tmk:partId "Part26" ;
-    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/5.-similarity-of-trade-marks"^^xsd:anyURI ;
-    tmk:upstreamRef "TMM/Part26/5" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/3> a tmk:Page ;
     rdfs:label "3. Amending the goods and/or services of the applicant's specification"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -68715,17 +69621,6 @@
     tmk:text "The Trade Marks Act 1995 specifically provides for application for review by the Administrative Review Tribunal (the ART) in the following trade mark matters: Refusal by the Registrar to grant an extension of time under the terms of section 224. An unsuccessful applicant for an extension can seek a review of the refusal (section 224(7)). (See for example Gracey v Registrar of Trade (2000) AIPC 91-565) A decision by the Australian Competition and Consumer Commission in relation to a certification trade mark: not to give a certificate as to the competence of the certifying body, or the appropriateness of the rules (section 175(5)), or to approve, or not to approve, a subsequent variation of the rules governing the use of a registered certification trade mark (section 178(5)), or to refuse consent to the assignment of a registered certification trade mark (section 180(4)). A decision by the Registrar to dismiss an opposition because a statement of grounds and particulars is inadequate, or to delete material from a statement of grounds and particulars (section 99A, subregs 5.8(6), 17A.34B(6)). A review by the ART leads to a full re-decision of the matter on its merits. The tribunal stands in the shoes of the original decision maker and can exercise all of the powers open to that person. Additional evidence can be admitted. Where a right to review by the ART exists, it is not confined to the parties who were involved in the matter leading to the decision concerned any person whose interests are affected by the decision can request to be made a party. The time limits for requesting a review by the ART are set out in s 18 of the Administrative Review Tribunal Act 2024 (the ART Act). In general, the request must be filed at the ART within 28 days commencing on the date of receipt of the document setting out the decision, but the time may be extended. A delegate who, after complying with section 203, refuses an extension of time under section 224 must also comply with section 227. Section 227 requires that notice of a decision that is reviewable by the ART be given to any person affected by it and that the notice must include a statement that application may be made to the ART for review." ;
     tmk:upstreamRef "TMM/Part52/5/5/2" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1> a tmk:Page ;
-    rdfs:label "1. Subpoenas"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
-    tmk:authorityKind "practice" ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:6385d94d53aadf1df6ad25fb04622dd71084c96908a4be9556e7f14ff2e093b4" ;
-    tmk:lastAmended "2025-04-02" ;
-    tmk:partId "Part54" ;
-    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-subpoenas"^^xsd:anyURI ;
-    tmk:upstreamRef "TMM/Part54/1" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part55/3/3/2> a tmk:Chunk,
         tmk:ManualPassage ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -68905,6 +69800,16 @@
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/2017/FCAFC/174" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s106> a tmk:LegislativeProvision ;
+    rdfs:label "Assignment etc. of trade mark"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:a3e2bb115e3a7480288c366a8729160798d7682dcbea077fa85f6e6068b99bf9" ;
+    tmk:text "(1) A registered trade mark, or a trade mark whose registration is being sought, may be assigned or transmitted in accordance with this section. (2) The assignment or transmission may be partial, that is, it may apply to some only of the goods and/or services in respect of which registration is sought or the trade mark is registered, but it may not be partial in relation to the use of a trade mark in a particular area. (3) The assignment or transmission may be with or without the goodwill of the business concerned in the relevant goods and/or services. Note: For assignment and transmission see section 6." ;
+    tmk:upstreamRef "TMA1995/s106" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s107> a tmk:LegislativeProvision ;
     rdfs:label "Applications for record to be made of assignment etc. of trade mark whose registration is sought"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
@@ -69051,6 +69956,17 @@
     tmk:partId "Part18" ;
     tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/3.-rejection-of-an-application-for-registration"^^xsd:anyURI ;
     tmk:upstreamRef "TMM/Part18/3" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/6> a tmk:Page ;
+    rdfs:label "6. Use by the trade mark owner, predecessor in title or an authorised user"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:30bab028c4669cbb69eaf6a16403d83ec197320b8c9fc0208361ee5fef40872b" ;
+    tmk:lastAmended "2023-10-09" ;
+    tmk:partId "Part19A" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/6.-use-by-the-trade-mark-owner-predecessor-in-title-or-an-authorised-user"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part19A/6" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/6/6/3> a tmk:Chunk,
         tmk:ManualPassage ;
@@ -69356,16 +70272,6 @@
     tmk:text "(1) Before a trade mark is registered, the Registrar may revoke the acceptance of the application for registration of the trade mark if he or she is satisfied that: (a) the application should not have been accepted, taking account of all the circumstances that existed when the application was accepted (whether or not the Registrar knew then of their existence); and (b) it is reasonable to revoke the acceptance, taking account of all the circumstances. (2) If the Registrar revokes the acceptance: (a) the application is taken to have never been accepted; and (b) the Registrar must examine, and report on, the application as necessary under section 31; and (c) sections 33 and 34 again apply in relation to the application." ;
     tmk:upstreamRef "TMA1995/s38" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s5> a tmk:LegislativeProvision ;
-    rdfs:label "Repeal of Trade Marks Act 1994"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:2f626969184bc0e8434520db87e9a9c78ee06aa8b5f00c90a22df3c193c70d3a" ;
-    tmk:text "The Trade Marks Act 1994 is repealed." ;
-    tmk:upstreamRef "TMA1995/s5" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s63> a tmk:LegislativeProvision ;
     rdfs:label "Amendment of application for registration of trade mark"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
@@ -69447,16 +70353,16 @@
     tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-registrability-under-section-41-of-the-trade-marks-act-1995"^^xsd:anyURI ;
     tmk:upstreamRef "TMM/Part22/1" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/5> a tmk:Page ;
-    rdfs:label "Part 23.5 Specific evidence requirements for trade marks with no inherent adaptation to distinguish"@en-AU ;
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/5> a tmk:Page ;
+    rdfs:label "5. Similarity of trade marks"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
     tmk:authorityKind "practice" ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:4010f76803f2393c3a4a2b36ee39ac5e729941d766818a2545b0213e290c364c" ;
-    tmk:lastAmended "2025-02-11" ;
-    tmk:partId "Part23" ;
-    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/5.-specific-evidence-requirements-for-trade-marks-with-no-inherent-adaptation-to-distinguish"^^xsd:anyURI ;
-    tmk:upstreamRef "TMM/Part23/5" .
+    tmk:contentHash "sha256:692756147da1cca32d762bdf8b6bcc0a25458f78df0d28baa1b0f33cda44d9ad" ;
+    tmk:lastAmended "2024-05-23" ;
+    tmk:partId "Part26" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/5.-similarity-of-trade-marks"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part26/5" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/2%231> a tmk:Chunk,
         tmk:ManualPassage ;
@@ -69516,6 +70422,17 @@
     tmk:partId "Part52" ;
     tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/5.-rights-of-appeal-from-decisions-of-the-registrar"^^xsd:anyURI ;
     tmk:upstreamRef "TMM/Part52/5" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1> a tmk:Page ;
+    rdfs:label "1. Subpoenas"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:6385d94d53aadf1df6ad25fb04622dd71084c96908a4be9556e7f14ff2e093b4" ;
+    tmk:lastAmended "2025-04-02" ;
+    tmk:partId "Part54" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-subpoenas"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part54/1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/x-relevant-legislation20%231> a tmk:Chunk,
         tmk:ManualPassage ;
@@ -70100,6 +71017,16 @@
     tmk:text "The Registrar may not exercise a power under this Act in any way that adversely affects a person applying for the exercise of that power without first giving that person a reasonable opportunity of being heard." ;
     tmk:upstreamRef "TMA1995/s203" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s5> a tmk:LegislativeProvision ;
+    rdfs:label "Repeal of Trade Marks Act 1994"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:2f626969184bc0e8434520db87e9a9c78ee06aa8b5f00c90a22df3c193c70d3a" ;
+    tmk:text "The Trade Marks Act 1994 is repealed." ;
+    tmk:upstreamRef "TMA1995/s5" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s53> a tmk:LegislativeProvision ;
     rdfs:label "Circumstances in which opposition may proceed in name of a person other than the person who filed the notice"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
@@ -70139,6 +71066,28 @@
     tmk:contentHash "sha256:4a66925d3b8f9edae54999dda0ea82a2a23e305685350dfd6d27b664b2472d22" ;
     tmk:text "(1) If: (a) there is no opposition to an application to the Registrar under subsection 92(1); or (b) an opposition to an application under that subsection has been dismissed (see section 99A); the Registrar must remove the trade mark from the Register in respect of the goods and/or services specified in the application. (2) If there is no opposition to an application to a court under subsection 92(3), the court must order the Registrar to remove the trade mark from the Register in respect of the goods and/or services specified in the application. The court must cause a copy of the order to be served on the Registrar and the Registrar must comply with the order." ;
     tmk:upstreamRef "TMA1995/s97" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3> a tmk:Page ;
+    rdfs:label "Part 23.3 Evidence of use - general requirements"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:a78becb363723f0f09bf0a868ddd249df2bcf603cfc321e8c243b89056cde93a" ;
+    tmk:lastAmended "2025-02-10" ;
+    tmk:partId "Part23" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/3.-evidence-of-use---general-requirements"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part23/3" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/5> a tmk:Page ;
+    rdfs:label "Part 23.5 Specific evidence requirements for trade marks with no inherent adaptation to distinguish"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:4010f76803f2393c3a4a2b36ee39ac5e729941d766818a2545b0213e290c364c" ;
+    tmk:lastAmended "2025-02-11" ;
+    tmk:partId "Part23" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/5.-specific-evidence-requirements-for-trade-marks-with-no-inherent-adaptation-to-distinguish"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part23/5" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part30/3/3/5~6> a tmk:Chunk,
         tmk:ManualPassage ;
@@ -70273,16 +71222,6 @@
     tmk:text "(1) This regulation applies if: (a) a trade mark that is a registered trade mark becomes a protected international trade mark; and (b) the registered owner of the trade mark is the holder of the protected international trade mark; and (c) some or all of the goods or services covered by the registered trade mark are covered by the protected international trade mark. (2) The date of effect of protection of the protected international trade mark in respect of particular goods or services that are covered by the registered trade mark and the protected international trade mark is taken to be the date of registration of the registered trade mark in respect of those particular goods or services. (3) However, subregulation (2) does not apply if the date of registration of the registered trade mark in respect of those particular goods or services is later than the date of effect of the protection of the protected international trade mark under subregulation 17A.4(1) or (2). (4) The holder of the protected international trade mark may file an application in the approved form for particulars of the international registration of the trade mark to be entered in the Register. (5) If the Registrar receives an application under subregulation (4), the Registrar must: (a) enter the particulars in the Register; and (b) notify the International Bureau in accordance with rule 21 of the Madrid Regulations. (6) This regulation does not affect the rights and protections conferred under the Act in respect of the registered trade mark." ;
     tmk:upstreamRef "TMR1995/r17A.54" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.2> a tmk:LegislativeProvision ;
-    rdfs:label "Requirements for filing documents"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:4a0fcf95896c3b52f549db608b9346897c11e41119aad9cc1db090414fe1e7d8" ;
-    tmk:text "(1) A document that is required to be in an approved form and that is filed must be in English and be legible. (2) If any other document is filed: (a) the document must be in English, be in the form (if any) specified in a direction under section 213B of the Act and be legible; or (b) the following apply: (i) the document (the original document) must be filed with a document (the translated document) that is a translation of the original document into English; (ii) the original document must be filed with a certificate of verification; (iii) the translated document must be in the form (if any) specified in a direction under section 213B of the Act and be legible. (3) Subregulation (2) does not apply in relation to an application mentioned in paragraph 4.11(1)(a), 5.18(2)(a) or 17A.19(1)(a). Note: Regulations 4.11, 5.18 and 17A.19 have specific rules about applications filed in trade marks offices (however described) of Convention countries." ;
-    tmk:upstreamRef "TMR1995/r21.2" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.20C> a tmk:LegislativeProvision ;
     rdfs:label "Notification and opportunity to make representations"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
@@ -70372,16 +71311,6 @@
     tmk:contentHash "sha256:e980838af49c77ab4c2fab99493b83e583feaf914980ea5a992b0572fa980a5c" ;
     tmk:text "(1) A person who has filed an application, notice or request may withdraw it, in accordance with the regulations, at any time while it is still being considered by the Registrar. (2) If: (a) the right or interest on which the person relied to file the application, notice or request has become vested in another person; and (b) the other person notifies the Registrar in writing that the right or interest is vested in him or her; the other person may withdraw the application, notice or request as provided in subsection (1). Note: For file see section 6." ;
     tmk:upstreamRef "TMA1995/s214" .
-
-<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s228> a tmk:LegislativeProvision ;
-    rdfs:label "Use of trade mark for export trade"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:33b0979a5b3e1fe859bc1fd9a9268b35901cb664c7ec595b18add4dbf9afdf4e" ;
-    tmk:text "(1) If: (a) a trade mark is applied in Australia: (i) to, or in relation to goods that are to be exported from Australia (export goods); or (ii) in relation to services that are to be exported from Australia (export services); or (b) any other act is done in Australia to export goods or export services which, if done in relation to goods or services to be dealt with or provided in the course of trade in Australia, would constitute a use of the trade mark in Australia; the application of the trade mark or the other act is taken, for the purposes of this Act, to constitute use of the trade mark in relation to the export goods or export services. Note: For applied to or in relation to goods and applied in relation to services see section 9. (2) Subsection (1) applies to an act done before 1 January 1996 as it applies to an act done on or after that day, but it does not affect: (a) a decision of a court made before that day; or (b) the determination of an appeal from such a decision." ;
-    tmk:upstreamRef "TMA1995/s228" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39(2)> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
@@ -70716,6 +71645,16 @@
     tmk:text "(1) For the purposes of section 221 of the Act (which deals with costs), a party to proceedings before the Registrar may apply to the Registrar, in an approved form, for an award of costs in relation to the proceedings. (2) An application must be made: (a) during the proceedings; or (b) within 3 months from: (i) the day on which the Registrar makes a decision in the proceedings that ends those proceedings; or (ii) the date of the Registrar’s notice to the party that the proceedings have been discontinued or dismissed; as the case requires. (3) Before awarding costs in respect of the proceedings, the Registrar must give each party to the proceedings a reasonable opportunity to be heard in relation to the award of costs. (4) If a bill of costs is filed in relation to the proceedings, the bill of costs must be filed within 3 months from the day on which the costs are awarded." ;
     tmk:upstreamRef "TMR1995/r21.12" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.2> a tmk:LegislativeProvision ;
+    rdfs:label "Requirements for filing documents"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:4a0fcf95896c3b52f549db608b9346897c11e41119aad9cc1db090414fe1e7d8" ;
+    tmk:text "(1) A document that is required to be in an approved form and that is filed must be in English and be legible. (2) If any other document is filed: (a) the document must be in English, be in the form (if any) specified in a direction under section 213B of the Act and be legible; or (b) the following apply: (i) the document (the original document) must be filed with a document (the translated document) that is a translation of the original document into English; (ii) the original document must be filed with a certificate of verification; (iii) the translated document must be in the form (if any) specified in a direction under section 213B of the Act and be legible. (3) Subregulation (2) does not apply in relation to an application mentioned in paragraph 4.11(1)(a), 5.18(2)(a) or 17A.19(1)(a). Note: Regulations 4.11, 5.18 and 17A.19 have specific rules about applications filed in trade marks offices (however described) of Convention countries." ;
+    tmk:upstreamRef "TMR1995/r21.2" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.2> a tmk:LegislativeProvision ;
     rdfs:label "Application in approved form—requirements for filing"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
@@ -70765,6 +71704,16 @@
     tmk:contentHash "sha256:7616fa92fa1ab350de397590a153993cc894cf7be24733d962313419b1d4b5c8" ;
     tmk:text "A trade mark is a sign used, or intended to be used, to distinguish goods or services dealt with or provided in the course of trade by a person from goods or services so dealt with or provided by any other person. Note: For sign see section 6." ;
     tmk:upstreamRef "TMA1995/s17" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s228> a tmk:LegislativeProvision ;
+    rdfs:label "Use of trade mark for export trade"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:33b0979a5b3e1fe859bc1fd9a9268b35901cb664c7ec595b18add4dbf9afdf4e" ;
+    tmk:text "(1) If: (a) a trade mark is applied in Australia: (i) to, or in relation to goods that are to be exported from Australia (export goods); or (ii) in relation to services that are to be exported from Australia (export services); or (b) any other act is done in Australia to export goods or export services which, if done in relation to goods or services to be dealt with or provided in the course of trade in Australia, would constitute a use of the trade mark in Australia; the application of the trade mark or the other act is taken, for the purposes of this Act, to constitute use of the trade mark in relation to the export goods or export services. Note: For applied to or in relation to goods and applied in relation to services see section 9. (2) Subsection (1) applies to an act done before 1 January 1996 as it applies to an act done on or after that day, but it does not affect: (a) a decision of a court made before that day; or (b) the determination of an appeal from such a decision." ;
+    tmk:upstreamRef "TMA1995/s228" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
@@ -71213,6 +72162,17 @@
     tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/4.-colour-and-coloured-trade-marks"^^xsd:anyURI ;
     tmk:upstreamRef "TMM/Part21/4" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/4> a tmk:Page ;
+    rdfs:label "Part 23.4 Examining evidence - general"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:8153c4a8a955c1ea698f4b43bc3a8d3b51fc61bfbc844a53d6ed5e1a71235e1e" ;
+    tmk:lastAmended "2025-02-18" ;
+    tmk:partId "Part23" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/4.-examining-evidence---general"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part23/4" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/6/6/4~2> a tmk:Chunk,
         tmk:ManualPassage ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -71377,17 +72337,6 @@
     tmk:text "(1) In addition to any other ground on which: (a) an application for the registration of a certification trade mark may be rejected; or (b) the registration of a certification trade mark may be opposed; the application must be rejected or the registration may be opposed if the trade mark is not capable of distinguishing goods or services certified by the applicant or an approved certifier from goods or services not so certified. Note 1: For applicant see section 6. Note 2: For approved certifier see paragraph 173(2)(c). Note 3: Division 2 of Part 4 sets out the main grounds for rejecting an application, but section 41 does not apply to certification trade marks (see section 170). (2) In deciding whether or not the certification trade mark is capable of so distinguishing goods or services certified by the applicant or an approved certifier, the Registrar must take into account: (a) the extent to which the certification trade mark is inherently adapted so to distinguish those goods or services; or (b) the extent to which, because of its use or of any other circumstances, the certification trade mark has become adapted so to distinguish those goods or services." ;
     tmk:upstreamRef "TMA1995/s177" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:8b656a68f583151cbe7df3a69c46c63cbdce4975127544744834633d08f8da7b" ;
-    tmk:ordinal 7 ;
-    tmk:text "(4) This subsection applies to a trade mark if:" ;
-    tmk:upstreamRef "TMA1995/s41(4)" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(3)(b)> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
@@ -71546,16 +72495,6 @@
     tmk:contentHash "sha256:bc10c8300a6664cc9347560b370ba2fb88be1616ea5ba061a47841d97441fb6a" ;
     tmk:text "In addition to any other ground on which: (a) an application for the registration of a trade mark as a defensive trade mark may be rejected; or (b) the registration of a trade mark as a defensive trade mark may be opposed; the application must be rejected or the registration may be opposed: (c) if the trade mark is not registered as a trade mark in the name of the applicant; or (d) in the case of a registered trade mark—if it is not likely that the use of the trade mark in relation to the goods or services in respect of which its registration as a defensive trade mark is sought will be taken to indicate that there is a connection between those goods or services and the registered owner. Note: Division 2 of Part 4 sets out the main grounds for rejecting an application but section 41 does not apply to defensive trade marks (see section 186). Division 2 of Part 5 sets out the main grounds for opposing registration." ;
     tmk:upstreamRef "TMA1995/s187" .
-
-<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s202> a tmk:LegislativeProvision ;
-    rdfs:label "Registrar’s powers"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:0d82e5b3873afd5df8f2844bbf38a5d147d66483b4c1727ab6bcc2d65a4a54f4" ;
-    tmk:text "The Registrar may, for the purposes of this Act: (a) summon witnesses; and (b) receive written or oral evidence on oath or affirmation; and (c) require the production of documents or articles; and (d) award costs against a party to proceedings brought before the Registrar; and (e) notify any person of any matter that, in his or her opinion, should be brought to the person’s notice. Note: For the awarding of costs see section 221." ;
-    tmk:upstreamRef "TMA1995/s202" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/2> a tmk:Page ;
     rdfs:label "2. Use 'as a trade mark'"@en-AU ;
@@ -71750,15 +72689,15 @@
     tmk:text "(1) In spite of section 120, a person who uses a registered trade mark in relation to goods does not infringe the trade mark if: (a) the goods are similar to goods in respect of which the trade mark is registered; and (b) before the time of use, the person had made reasonable inquiries in relation to the trade mark; and (c) at the time of use, a reasonable person, after making those inquiries, would have concluded that the trade mark had been applied to, or in relation to, the goods by, or with the consent of, a person (a relevant person) who was, at the time of the application or consent (as the case may be): (i) the registered owner of the trade mark; or (ii) an authorised user of the trade mark; or (iii) a person permitted to use the trade mark by the registered owner; or (iv) a person permitted to use the trade mark by an authorised user who has power to give such permission under paragraph 26(1)(f); or (v) a person with significant influence over the use of the trade mark by the registered owner or an authorised user; or (vi) an associated entity (within the meaning of the Corporations Act 2001) of a relevant person mentioned in subparagraph (i), (ii), (iii), (iv) or (v). Note 1: For goods that are similar, see subsection 14(1). Note 2: For subparagraph (c)(iv), an authorised user may, under paragraph 26(1)(f), subject to any agreement the authorised user has with the registered owner, permit another person to apply the trade mark to, or in relation to, goods in respect of which the trade mark is registered. (2) A reference in paragraph (1)(c) to consent to the application of a trade mark to, or in relation to, goods includes, without limitation, a reference to: (a) consent subject to a condition (for example, a condition that the goods are to be sold only in a foreign country); and (b) consent that can be reasonably inferred from the conduct of a relevant person. (3) In determining whether a relevant person mentioned in subparagraph (1)(c)(iii) or (iv) was permitted to use the trade mark, disregard how that permission arose, for example: (a) whether it arose directly or indirectly; or (b) whether it arose by way of proprietary interest, contract, arrangement, understanding, a combination of those things, or otherwise. (4) In determining whether a relevant person mentioned in subparagraph (1)(c)(v) had significant influence over the use of a trade mark, disregard how that influence arose, for example: (a) whether it arose directly or indirectly; or (b) whether it arose by way of proprietary interest, contract, arrangement, understanding, a combination of those things, or otherwise." ;
     tmk:upstreamRef "TMA1995/s122A" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s8> a tmk:LegislativeProvision ;
-    rdfs:label "Definitions of authorised user and authorised use"@en-AU ;
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s202> a tmk:LegislativeProvision ;
+    rdfs:label "Registrar’s powers"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
     tmk:authorityKind "law" ;
     tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:a4ece48fa93452ed39793b89addc69db826bebe10d8ee6f4818903ab8351a823" ;
-    tmk:text "(1) A person is an authorised user of a trade mark if the person uses the trade mark in relation to goods or services under the control of the owner of the trade mark. (2) The use of a trade mark by an authorised user of the trade mark is an authorised use of the trade mark to the extent only that the user uses the trade mark under the control of the owner of the trade mark. (3) If the owner of a trade mark exercises quality control over goods or services: (a) dealt with or provided in the course of trade by another person; and (b) in relation to which the trade mark is used; the other person is taken, for the purposes of subsection (1), to use the trade mark in relation to the goods or services under the control of the owner. (4) If: (a) a person deals with or provides, in the course of trade, goods or services in relation to which a trade mark is used; and (b) the owner of the trade mark exercises financial control over the other person’s relevant trading activities; the other person is taken, for the purposes of subsection (1), to use the trade mark in relation to the goods or services under the control of the owner. (5) Subsections (3) and (4) do not limit the meaning of the expression under the control of in subsections (1) and (2)." ;
-    tmk:upstreamRef "TMA1995/s8" .
+    tmk:contentHash "sha256:0d82e5b3873afd5df8f2844bbf38a5d147d66483b4c1727ab6bcc2d65a4a54f4" ;
+    tmk:text "The Registrar may, for the purposes of this Act: (a) summon witnesses; and (b) receive written or oral evidence on oath or affirmation; and (c) require the production of documents or articles; and (d) award costs against a party to proceedings brought before the Registrar; and (e) notify any person of any matter that, in his or her opinion, should be brought to the person’s notice. Note: For the awarding of costs see section 221." ;
+    tmk:upstreamRef "TMA1995/s202" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/4/4/3/1~4> a tmk:Chunk,
         tmk:ManualPassage ;
@@ -71853,16 +72792,6 @@
     tmk:text "(1) The Registrar must notify the parties that: (a) all the evidence for an evidentiary period mentioned in this regulation has been filed; or (b) no evidence was filed for the period. (2) The Registrar must give a copy of any evidence filed by a party under this regulation to the other party: (a) before the end of the relevant evidentiary period, if the Registrar considers it appropriate to do so; or (b) after the evidentiary period ends. Evidence in support (3) An opponent must file any evidence in support of the opposition within 3 months from the day the opponent is given a copy of the notice of intention to defend the application for cessation of protection. Evidence in answer (4) If the opponent files evidence in support of the opposition, the applicant must file any evidence in answer to the opponent’s evidence within 3 months from the day the Registrar: (a) gives the applicant: (i) all the evidence in support; or (ii) if the opponent files the evidence in support in instalments—the final instalment of the evidence in support; and (b) notifies the applicant that all the evidence in support has been filed. (5) If the opponent does not file any evidence in support of the opposition, regulation 17A.48S applies. Evidence in reply (6) If the applicant files evidence in answer under subregulation (4), the opponent must file any evidence in reply to the evidence in answer within 2 months from the day the Registrar: (a) gives the opponent: (i) all the evidence in answer; or (ii) if the applicant files the evidence in answer in instalments—the final instalment of the evidence in answer; and (b) notifies the opponent that all the evidence in answer has been filed." ;
     tmk:upstreamRef "TMR1995/r17A.48R" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.16> a tmk:LegislativeProvision ;
-    rdfs:label "Written submissions and oral hearings"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:e8b8a8158b821b6c1256be17109a065e8d2ad1246c19e7896085e37e5ddd88fc" ;
-    tmk:text "Written submissions (1) If the Registrar decides that a person may be heard by way of written submissions, the Registrar must: (a) notify the person of the period in which the submissions must be filed (being at least 10 business days); and (b) determine the matter after considering the written submissions; and (c) notify the person of the Registrar’s decision in relation to the matter. Oral hearings (2) If the Registrar decides that a person may be heard by way of an oral hearing, the Registrar must give notification of the date, time and place of the hearing to the person at least 10 business days before the day the hearing is to begin. (3) The Registrar may adjourn an oral hearing from time to time or from place to place by notifying the person. (4) The Registrar may hold an oral hearing in which: (a) a person appears in person; or (b) a person participates by telephone or other means of telecommunications that the Registrar reasonably allows. (5) In addition to the Registrar’s other powers, the Registrar may direct a person to provide a written summary of submissions. (6) An oral hearing must be conducted with as little formality and technicality, and as quickly, as the requirements of the Act, these Regulations and a proper consideration of the matters before the Registrar, allow. (7) Subject to these Regulations, the Registrar may give a direction that is reasonably necessary for the conduct of the hearing. (8) The Registrar must notify a person who appears at the hearing of the Registrar’s decision in relation to the matter." ;
-    tmk:upstreamRef "TMR1995/r21.16" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.14> a tmk:LegislativeProvision ;
     rdfs:label "Filing of evidence"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
@@ -71892,17 +72821,6 @@
     tmk:contentHash "sha256:d7b284402e8d44ef30d7950b85ee6eb304ed286bd680b5c0893b31551d655af5" ;
     tmk:text "(1) The Registrar must notify the parties that: (a) all the evidence for an evidentiary period mentioned in this regulation has been filed; or (b) no evidence was filed for the period. (2) The Registrar must give a copy of any evidence filed by a party under this regulation to the other party: (a) before the end of the relevant evidentiary period, if the Registrar considers it appropriate to do so; or (b) after the evidentiary period ends. Evidence in support (3) An opponent must file any evidence in support of the opposition within 3 months from the day the opponent is given a copy of the notice of intention to defend the application for removal. Evidence in answer (4) If the opponent files evidence in support of the opposition, the applicant must file any evidence in answer to the opponent’s evidence within 3 months from the day the Registrar: (a) gives the applicant: (i) all the evidence in support; or (ii) if the opponent files the evidence in support in instalments—the final instalment of the evidence in support; and (b) notifies the applicant that all the evidence in support has been filed. (5) If the opponent does not file any evidence in support of the opposition, regulation 9.17 applies. Evidence in reply (6) If the applicant files evidence in answer under subregulation (4), the opponent must file any evidence in reply to the evidence in answer within 2 months from the day the Registrar: (a) gives the opponent: (i) all the evidence in answer; or (ii) if the applicant files the evidence in answer in instalments—the final instalment of the evidence in answer; and (b) notifies the opponent that all the evidence in answer has been filed." ;
     tmk:upstreamRef "TMR1995/r9.16" .
-
-<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:48904844d1e5ed90a77992727ff78209bd126de4c14f6fa6b4f0ef8dfb28c2a9" ;
-    tmk:ordinal 4 ;
-    tmk:text "(3) This subsection applies to a trade mark if:" ;
-    tmk:upstreamRef "TMA1995/s41(3)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/6> a tmk:Page ;
     rdfs:label "6. Factors to consider when comparing trade marks"@en-AU ;
@@ -71945,6 +72863,16 @@
     tmk:text "(1) A person who intends to oppose an application under subsection 52(1) of the Act may request the Registrar to extend: (a) the period for filing a notice of intention to oppose under subregulation 5.6(1); or (b) the period for filing a statement of grounds and particulars under subregulation 5.7(1). (2) A request under paragraph (1)(a) or (b) may be made: (a) within the period for filing the document in question; or (b) before the trade mark is entered on the Register under section 69 of the Act. Note: See subparagraph (3)(b)(ii) and subregulation 5.10(2) in relation to the consequences of making the request after the filing period has ended. (3) The request must: (a) be in an approved form; and (b) be accompanied by a declaration stating: (i) the facts and circumstances forming the basis for the grounds; and (ii) if the period for filing the notice or the statement of grounds and particulars has ended—the reason why the request was not made within the period. Note: Regulations 21.6 and 21.7 deal with making and filing declarations. (4) The request may be made only on either or both of the following grounds: (a) an error or omission by the person, the person’s agent, the Registrar or an employee; (b) circumstances beyond the control of the person, other than an error or omission by the person, the person’s agent, the Registrar or an employee." ;
     tmk:upstreamRef "TMR1995/r5.9" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s8> a tmk:LegislativeProvision ;
+    rdfs:label "Definitions of authorised user and authorised use"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:a4ece48fa93452ed39793b89addc69db826bebe10d8ee6f4818903ab8351a823" ;
+    tmk:text "(1) A person is an authorised user of a trade mark if the person uses the trade mark in relation to goods or services under the control of the owner of the trade mark. (2) The use of a trade mark by an authorised user of the trade mark is an authorised use of the trade mark to the extent only that the user uses the trade mark under the control of the owner of the trade mark. (3) If the owner of a trade mark exercises quality control over goods or services: (a) dealt with or provided in the course of trade by another person; and (b) in relation to which the trade mark is used; the other person is taken, for the purposes of subsection (1), to use the trade mark in relation to the goods or services under the control of the owner. (4) If: (a) a person deals with or provides, in the course of trade, goods or services in relation to which a trade mark is used; and (b) the owner of the trade mark exercises financial control over the other person’s relevant trading activities; the other person is taken, for the purposes of subsection (1), to use the trade mark in relation to the goods or services under the control of the owner. (5) Subsections (3) and (4) do not limit the meaning of the expression under the control of in subsections (1) and (2)." ;
+    tmk:upstreamRef "TMA1995/s8" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part30/3> a tmk:Page ;
     rdfs:label "3. Use contrary to law"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -71967,15 +72895,37 @@
     tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/4.7-examination-of-an-irda"^^xsd:anyURI ;
     tmk:upstreamRef "TMM/Part60/4/7" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.6> a tmk:LegislativeProvision ;
-    rdfs:label "Declarations"@en-AU ;
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.16> a tmk:LegislativeProvision ;
+    rdfs:label "Written submissions and oral hearings"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
     tmk:authorityKind "law" ;
     tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
-    tmk:contentHash "sha256:e732a278717ed78d65b1598ee0306dfe63bde71dadec74a5017fd54f398c6c1b" ;
-    tmk:text "(1) A declaration required or permitted by the Act or these Regulations must be in an approved form. Note: Declaration forms in the approved form are available on the IP Australia website at www.ipaustralia.gov.au. (2) A declaration in the form of a statutory declaration, required or permitted to be given to a person mentioned in subregulation (3), may be given to the person in an electronic form by a means of electronic communication approved by the Registrar. Note: A declaration that is not in the form of statutory declaration may also be given in an electronic form by means of an electronic communication: see section 11 of the Electronic Transactions Act 1999. (3) For subregulation (2), the following persons may be given declarations, including statutory declarations, in electronic form by electronic means: (a) the Registrar of Trade Marks; (b) the Designated Manager; (c) in relation to a Panel of the Disciplinary Tribunal—the Panel Chair; (d) the Board." ;
-    tmk:upstreamRef "TMR1995/r21.6" .
+    tmk:contentHash "sha256:e8b8a8158b821b6c1256be17109a065e8d2ad1246c19e7896085e37e5ddd88fc" ;
+    tmk:text "Written submissions (1) If the Registrar decides that a person may be heard by way of written submissions, the Registrar must: (a) notify the person of the period in which the submissions must be filed (being at least 10 business days); and (b) determine the matter after considering the written submissions; and (c) notify the person of the Registrar’s decision in relation to the matter. Oral hearings (2) If the Registrar decides that a person may be heard by way of an oral hearing, the Registrar must give notification of the date, time and place of the hearing to the person at least 10 business days before the day the hearing is to begin. (3) The Registrar may adjourn an oral hearing from time to time or from place to place by notifying the person. (4) The Registrar may hold an oral hearing in which: (a) a person appears in person; or (b) a person participates by telephone or other means of telecommunications that the Registrar reasonably allows. (5) In addition to the Registrar’s other powers, the Registrar may direct a person to provide a written summary of submissions. (6) An oral hearing must be conducted with as little formality and technicality, and as quickly, as the requirements of the Act, these Regulations and a proper consideration of the matters before the Registrar, allow. (7) Subject to these Regulations, the Registrar may give a direction that is reasonably necessary for the conduct of the hearing. (8) The Registrar must notify a person who appears at the hearing of the Registrar’s decision in relation to the matter." ;
+    tmk:upstreamRef "TMR1995/r21.16" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:48904844d1e5ed90a77992727ff78209bd126de4c14f6fa6b4f0ef8dfb28c2a9" ;
+    tmk:ordinal 4 ;
+    tmk:text "(3) This subsection applies to a trade mark if:" ;
+    tmk:upstreamRef "TMA1995/s41(3)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:8b656a68f583151cbe7df3a69c46c63cbdce4975127544744834633d08f8da7b" ;
+    tmk:ordinal 7 ;
+    tmk:text "(4) This subsection applies to a trade mark if:" ;
+    tmk:upstreamRef "TMA1995/s41(4)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.48> a tmk:LegislativeProvision ;
     rdfs:label "Definitions"@en-AU ;
@@ -72026,6 +72976,16 @@
     tmk:contentHash "sha256:5cab6f1d58b8bb4ee61a2e3d18513788d084fb154525639ebe0f9187cbf4109f" ;
     tmk:text "In this Subdivision: extension of protection means the extension of protection in Australia to the trade mark that is the subject of the IRDA. notice of intention to defend means a notice filed under regulation 17A.34H. notice of intention to oppose means a notice filed under regulation 17A.33. notice of opposition means: (a) a notice of intention to oppose; and (b) a statement of grounds and particulars. opponent means a person who files: (a) a notice of intention to oppose; and (b) a statement of grounds and particulars. party means an IRDA holder or opponent. statement of grounds and particulars means a statement by an opponent that sets out: (a) the grounds on which the opponent intends to rely; and (b) the facts and circumstances forming the basis for the grounds. Note: The following terms are defined in section 6 of the Act: (a) applicant; (b) approved form; (c) employee; (d) file; (e) month; (f) person." ;
     tmk:upstreamRef "TMR1995/r17A.29" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.6> a tmk:LegislativeProvision ;
+    rdfs:label "Declarations"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-308bfd9162eb ;
+    tmk:contentHash "sha256:e732a278717ed78d65b1598ee0306dfe63bde71dadec74a5017fd54f398c6c1b" ;
+    tmk:text "(1) A declaration required or permitted by the Act or these Regulations must be in an approved form. Note: Declaration forms in the approved form are available on the IP Australia website at www.ipaustralia.gov.au. (2) A declaration in the form of a statutory declaration, required or permitted to be given to a person mentioned in subregulation (3), may be given to the person in an electronic form by a means of electronic communication approved by the Registrar. Note: A declaration that is not in the form of statutory declaration may also be given in an electronic form by means of an electronic communication: see section 11 of the Electronic Transactions Act 1999. (3) For subregulation (2), the following persons may be given declarations, including statutory declarations, in electronic form by electronic means: (a) the Registrar of Trade Marks; (b) the Designated Manager; (c) in relation to a Panel of the Disciplinary Tribunal—the Panel Chair; (d) the Board." ;
+    tmk:upstreamRef "TMR1995/r21.6" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r3A.3> a tmk:LegislativeProvision ;
     rdfs:label "Request for filing assistance—form of request"@en-AU ;

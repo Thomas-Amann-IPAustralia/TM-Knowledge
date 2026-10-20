@@ -1,10 +1,10 @@
-# Rules in force — what 127 decisions add up to
+# Rules in force — what 130 decisions add up to
 
 Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-10-19, ADR-0139 (S040).
+**As at:** 2026-10-20, ADR-0143 (S042).
 
 ## Purpose and scope
 
@@ -123,7 +123,8 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   cut around the question past 3,000, every cut marked in the prompt and on the page
   (`jobs.excerpt` = `engine.excerpt`); the answer is claims, each quote checked against the
   excerpt sent, unsupported claims marked; the definitions of the concepts recognised, stamped.
-  The 129 prepared answers stay `answer-v2`, labelled as read from 1,600-character cuts.
+  The 129 prepared answers were re-written with `answer-v4` against compilation 48 (ADR-0143) and
+  are shown claim by claim, as live answers are.
 - **A definition is its own record** (`GD-`, `authored/definitions.yaml`), never a field on a
   concept, and says where its words come from: the instrument's own definition, verbatim
   (preferred, CHAT-0045), a provision, or the Manual. A concept its sources do not define gets
@@ -134,6 +135,13 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 - **Every machine-written record type carries the envelope in the RDF too**: the SHACL
   shapes target definitions and corrections as well as authored assertions, and every
   evidence item is an anchor `<record>/evidence/<n>` with ref, span, hash and quote (R03, R04).
+- **A provision a customer needs explained is a structured test** (`GL-`, ADR-0142): conditions
+  with AND and OR, each leaf a `fact` or an `evaluative` assessment quoting its unit; exceptions with
+  their own effect (`obligation`, `discretion`, `bar`). An evaluative condition is never computed,
+  a discretion never becomes a must, and an unknown stays "not established from the available
+  facts". The procedure is a template (`GP-`) of steps and transitions; no date is computed.
+  Customer explanations are built only from fictional matters (`scenarios/`, `FM-`) until the
+  owner allows real data, and never state an outcome.
 - **Roles are distinct and their power is on edges**: the Registrar (an office) is
   not a delegate, a delegate is not the Registrar, the owner is not the authorised
   user; who delegates to, directs, reviews or is consulted by whom is an edge on a
@@ -163,13 +171,16 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   to me first with a quote for expenditure" (ADR-0121, D5). Gemini 3.1 Pro was
   approved for the D5 audit (ADR-0125); Gemini goes through its Batch API only, and
   its answers ignore the schema they are sent (Q-83).
-- **Spend cap: US$9.49** — the US$6.60 quote plus the owner's US$2.89 for D5, which
+- **Spend cap: US$13.63** (ADR-0141); before it US$9.49 — the US$6.60 quote plus the owner's US$2.89 for D5, which
   spent US$3.21 of its US$6.00 (`config.SPEND_CAP_USD`, ADR-0114, ADR-0125, ADR-0127).
   An amount the owner names binds, not the count a quote estimated: hold the run to it
   with `TMK_SPEND_CAP_USD` (ADR-0128, ADR-0129). Price from completed calls, never
   attempts (Q-85). Recorded US$9.63 — S034's unasked US$0.12 smoke test (ADR-0132) and
   US$1.13 of the US$1.60 the owner approved to measure the reading (ADR-0133) — above the
-  US$9.49 cap, so every paid call is refused until the owner names an amount.
+  US$9.49 cap. **On 2026-10-19 the owner gave up to US$4 more: the cap is US$13.63** (ADR-0141); on
+  2026-10-20 the owner chose `gpt-6.1-sol` at medium for the answer job and had the 129 prepared
+  answers re-written with `answer-v4`: US$1.98 spent, recorded US$11.61 (ADR-0143). The rest is
+  approved for nothing.
   Re-measurement is deferred until more re-work is done (ADR-0136).
   Every paid call goes through `tm_knowledge.bulk`: dry-run, `--confirm`,
   `--limit`, a committed cache, the cap checked before each call. **One exception:**
@@ -199,7 +210,9 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 - **Practice and law at answer time**: every Manual chunk is a `tmk:ManualPassage`;
   an answer sentence that says the legislation requires something it cites no
   provision for is flagged as PU-0004, never silently removed (`search.authority`,
-  `engine.js`). A cited case is administrative (the Registrar's delegate), judicial
+  `engine.js`). It is a warning, not a guarantee: each exemption reads only the match's own
+  clause, and its known misses are strict-xfail tests (R08). Nothing on the site or in a
+  document may describe the separation as guaranteed. A cited case is administrative (the Registrar's delegate), judicial
   or unclassified by its series, never guessed (`ontology.decisions`) (ADR-0121).
 - **The graph reads both stores through one mapping**, every node stamped with its
   origin; an authored relationship is a `tmk:AuthoredAssertion`, never a
@@ -210,6 +223,17 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 - **No OWL profile is claimed and no OWL inference is licensed**: the contract is RDF, SKOS,
   SHACL and the approved SPARQL rules; `owl:` terms are vocabulary, and a test holds the
   graph to its own functional, datatype and domain declarations (ADR-0134).
+- **What rests on a source is the dependency index** (`ontology.dependencies`, R05): every
+  store and record type, keyed by any ref, a current view and an as-signed view never summed, a
+  provision's route through the Manual passages citing it with upstream's certainty kept. An
+  absence is "no recorded dependency", never "no impact". RULE-0002 stays the approved,
+  signed-records-only view.
+- **Each competency query is checked against its own signed record** (R06, `ask.contracts`); an
+  unmet contract is a gap in the ontology report, never a failing test, and no agent writes
+  expected results for its own queries. CQ-0009 and CQ-0024 return reviewed and unreviewed rows
+  apart.
+- **The build carries a release manifest** (A11): `graph/manifest.json`, committed and
+  drift-checked with the graph, and `build.json` on the site.
 - **What serves reads corrections; so do the queries.** The workbench's map and tree read
   `served_gold()`, and no competency query returns a corrected signed record (S036).
 - **Pages deploys only after the harness passes** on the same push to `main`

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014218,
+ "created_utc": "2026-10-20T00:29:29Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0024",
+ "job": "answer",
+ "key": "5d70213709c652c64c3bd1753f2fa7eff3ef7f5cfb533376284459f94cf87886",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Yes—when a Deputy Registrar exercises a power or function of the Registrar, section 205(3) treats it as having been exercised by the Registrar.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s205\",\n          \"quote\": \"(3) A power or function of the Registrar, when exercised by a Deputy Registrar, is taken to have been exercised by the Registrar.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"A Deputy Registrar has all the Registrar’s powers and functions, subject to any direction by the Registrar, except the powers of delegation under section 206.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s205\",\n          \"quote\": \"(2) Subject to any direction by the Registrar, a Deputy Registrar has all the powers and functions of the Registrar, except the powers of delegation under section 206.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"Consistently with that statutory treatment, the Manual says decisions issued by a Deputy Registrar are headed “Decision of the Registrar of Trade Marks, with Reasons”, rather than as decisions of a delegate.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part52/1#1~2\",\n          \"quote\": \"Therefore, decisions issued by the Deputy Registrar are headed \\\"Decision of the Registrar of Trade Marks, with Reasons\\\" rather than “Decision of a delegate of the Registrar of Trade marks” (emphasis added).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0159\",\n    \"GC-0046\",\n    \"GC-0127\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "bab5c93b58c503e9e5c3d14adf1d63975ed01f3252fe0fc3b3b93e98156e77ac",
+ "response_id": "resp_049922c0377d5392006ad6b5df281887d29ed9810a229194e3",
+ "seconds": 10.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 9771,
+  "input_tokens_details": {
+   "cache_write_tokens": 9768,
+   "cached_tokens": 0
+  },
+  "output_tokens": 401,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 10172
+ }
+}

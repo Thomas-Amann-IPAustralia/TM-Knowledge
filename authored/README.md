@@ -55,6 +55,13 @@ schemas:
 | `reasoning-expected.yaml` | reasoning expectation |
 | `prohibited-uses.yaml` | prohibited use |
 
+Beside them, record types with a reader of their own: `definitions.yaml` (`GD-`,
+`authored.definitions`), `corrections.yaml` (`GK-`, `authored.corrections`), and since
+2026-10-19 `legal-tests.yaml` (`GL-`) and `processes.yaml` (`GP-`), read by
+`authored.procedure` (ADR-0142): a provision as a test with AND/OR conditions, each quoting
+its unit, and the regulations 4.8 to 4.14 procedure as steps and transitions. An evaluative
+condition is never computed; a time rule is explained, never computed.
+
 **What is in it today** (2026-10-17): `concepts.yaml` 112 records, `concept-types.yaml`
 164 — one typing per concept in the project, signed and authored alike — and
 `relationships.yaml` 337; beside them 37 corrections and 149 definitions. Written by the

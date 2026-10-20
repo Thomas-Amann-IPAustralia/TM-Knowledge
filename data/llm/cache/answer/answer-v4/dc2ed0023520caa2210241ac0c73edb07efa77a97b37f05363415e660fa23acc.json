@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.015883,
+ "created_utc": "2026-10-20T00:33:37Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0088",
+ "job": "answer",
+ "key": "dc2ed0023520caa2210241ac0c73edb07efa77a97b37f05363415e660fa23acc",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Under the Manual’s practice, if an extension to file evidence in reply is refused, the period allowed for the parties to file evidence concludes.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part51/2/2/4\",\n          \"quote\": \"If the extension was for filing evidence in reply, the period allowed for the parties to file their evidence concludes and the parties will have the opportunity to request a hearing.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The parties then have the opportunity to request a hearing; the Manual records this for both opposition to registration or protection and opposition to removal or cessation of protection.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part51/2/2/4\",\n          \"quote\": \"If the extension was for filing evidence in reply, the period allowed for the parties to file their evidence concludes and the parties will have the opportunity to request a hearing.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"If neither party has requested a hearing, the Manual says the Registrar will write to both sides to give them an opportunity to do so.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part51/5#1~1\",\n          \"quote\": \"If neither party has requested a hearing, the Registrar will write to both sides to give them an opportunity to do so (reg 21.15).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual states that, once the evidence period has ended, the Registrar must decide the opposition, provided the relevant fees are paid.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part51/5#1~1\",\n          \"quote\": \"Once the period for the parties to serve their evidence has ended the Registrar must decide the opposition (ss 55, 101 and 102 and regs 17A.34N and 17A.48X) provided the relevant fees are paid.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0040\",\n    \"GC-0097\",\n    \"GC-0128\",\n    \"GC-0046\",\n    \"GC-0127\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "c861cab039368f04e479379cf4ac0c64f9bcaaf87d19f2ceb7146eaf5ea7cccd",
+ "response_id": "resp_05bfde83156b5746006ad6b6cf897887d2a008b5e4fc5dd85a",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 9795,
+  "input_tokens_details": {
+   "cache_write_tokens": 9792,
+   "cached_tokens": 0
+  },
+  "output_tokens": 728,
+  "output_tokens_details": {
+   "reasoning_tokens": 196
+  },
+  "total_tokens": 10523
+ }
+}

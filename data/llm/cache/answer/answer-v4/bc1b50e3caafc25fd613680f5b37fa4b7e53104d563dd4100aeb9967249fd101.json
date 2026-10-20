@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012396,
+ "created_utc": "2026-10-20T00:28:39Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0004",
+ "job": "answer",
+ "key": "bc1b50e3caafc25fd613680f5b37fa4b7e53104d563dd4100aeb9967249fd101",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Under the Manual, a goods list is unrealistically broad if, in commercial terms, you would be unlikely to deal in the range claimed.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/6/6/6\",\n          \"quote\": \"An applicant may not claim as part of the specification of goods and/or services a range of goods or services in a particular class which is unrealistically broad so that in commercial terms it is unlikely that the applicant would deal in or provide that range of goods or services (reg 4.8(3)).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"In those circumstances, the Manual says you should be asked either to provide a declaration confirming your intention to use the trade mark on all the specified goods, or to propose a narrower list limited to the goods on which the mark is used or intended to be used.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/6/6/6\",\n          \"quote\": \"In these circumstances the applicant should be asked to provide a declaration to confirm an intention to use the trade mark on all the goods or services specified, or to propose an amended specification which is limited to the actual range of goods and services in relation to which the trade mark is used or intended to be used.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The legislative power in regulation 4.8(3) allows the Registrar, where the stated reasonable suspicion exists, to require a declaration that paragraph 27(1)(b) of the Act applies to all the specified goods and/or services.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMR1995/r4.8(3)\",\n          \"quote\": \"(3) If the Registrar reasonably suspects that the provisions of paragraph 27(1)(b) of the Act do not apply in relation to all of the goods and/or services specified in an application for registration of a trade mark, the Registrar may require the applicant to make a declaration to the Registrar that those provisions apply to all of those goods and/or services.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"If you amend the list, the Manual says an amendment widening the specification as filed will not be allowed.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/4/4/4\",\n          \"quote\": \"Would a proposed amendment widen the scope of the specification as filed? If so it will not be allowed under section 65 - see paragraph 4.8.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0012\",\n    \"GC-0015\",\n    \"GC-0081\",\n    \"GC-0116\",\n    \"GC-0124\",\n    \"GC-0046\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "be0c31cf946fa43b33b9dfdc3ca55ca4df3f4fa0f1a6c5d4d2eedc9659c021d4",
+ "response_id": "resp_08dfbb32da005212006ad6b5a5c25887d2af47a4d5676e3975",
+ "seconds": 18.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6501,
+  "input_tokens_details": {
+   "cache_write_tokens": 6498,
+   "cached_tokens": 0
+  },
+  "output_tokens": 854,
+  "output_tokens_details": {
+   "reasoning_tokens": 198
+  },
+  "total_tokens": 7355
+ }
+}

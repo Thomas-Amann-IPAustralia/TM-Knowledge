@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.016015,
+ "created_utc": "2026-10-20T00:34:57Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0106",
+ "job": "answer",
+ "key": "5706fbdf9992598b7327c8b09e4086f1c214327037f4ee97657302d562c3f884",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"I cannot determine whether your particular sign would overcome a place-based objection after narrowing the goods or services. The passages support the general guidance below but do not explain when a specification amendment would overcome that objection.\",\n  \"claims\": [\n    {\n      \"text\": \"Under section 17, a trade mark is a sign used, or intended to be used, to distinguish one person's goods or services from those of others.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s17\",\n          \"quote\": \"A trade mark is a sign used, or intended to be used, to distinguish goods or services dealt with or provided in the course of trade by a person from goods or services so dealt with or provided by any other person.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual recognises that a descriptive element can also function as a trade mark: where a sign serves several purposes, a distinguishing purpose can suffice to establish trade mark use.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part19A/2#1~2\",\n          \"quote\": \"The existence of a descriptive element or purpose does not necessarily preclude the sign being used as a trade mark. Where there are several purposes for the use of the sign, if one purpose is to distinguish the goods provided in the course of trade that will be sufficient to establish use as a trade mark.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual nevertheless treats examination under section 41 separately from deciding, on evidence of use, whether the sign actually functions as a trade mark.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/x-registrability-of-various-kinds-of-signs#1\",\n          \"quote\": \"Whether this sign will function as a trade mark cannot be assessed at the initial stage of examination. Each application must be taken on face value, and be considered under section 41 in the usual fashion. The question of whether a sign in fact functions as a trade mark will only become an issue on consideration of evidence of use, should this be supplied during the course of examination\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For geographical names, the Manual recognises that the nature of the goods or other circumstances may remove the geographical signification where an honest competitor would not think of using that name for those goods or in those circumstances.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/15/15/1~1\",\n          \"quote\": \"It is well settled that a geographical name, when used as a trade mark for a particular category of goods, may be saved by the nature of the goods or by some other circumstance from carrying its prima facie geographical signification, and that for that reason it may be held to be adapted to distinguish the applicant's goods. Where that is so it is because to an honest competitor the idea of using that name in relation to such goods or in such circumstances would simply not occur\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"In assessing inherent adaptation, the Manual also requires consideration of other traders' potential desire to use words nearly resembling the sign, not merely the exact sign applied for.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/7/22/7/10\",\n          \"quote\": \"When assessing a sign’s inherent adaptation, we need to consider more than just the exact sign being applied for.\"\n        },\n        {\n          \"ref\": \"TMM/Part22/7/22/7/10\",\n          \"quote\": \"it is not just the desire of traders to use the word which is relevant; it is also their potential desire to use words nearly resembling that word.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied passages therefore make the goods relevant to geographical distinctiveness, but do not establish that brand use or narrowing the specification will overcome a place-based objection; they provide neither specification-amendment rules nor guidance on a geographical deception objection, so the available guidance is incomplete.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": true,\n  \"concepts_used\": [\n    \"GC-0073\",\n    \"GC-0072\",\n    \"GC-0081\",\n    \"GC-0047\",\n    \"GC-0041\",\n    \"GC-0059\",\n    \"GC-0061\",\n    \"GC-0017\",\n    \"GC-0012\",\n    \"GC-0015\",\n    \"GC-0181\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "181f5ed993ff5fad6a88366c07a98bad957ba1da22e9acb45bb35d06e75713a0",
+ "response_id": "resp_0294e7bfb59cb419006ad6b714e0cc87d2bceb0e2eeb299d1e",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8325,
+  "input_tokens_details": {
+   "cache_write_tokens": 8322,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1122,
+  "output_tokens_details": {
+   "reasoning_tokens": 112
+  },
+  "total_tokens": 9447
+ }
+}

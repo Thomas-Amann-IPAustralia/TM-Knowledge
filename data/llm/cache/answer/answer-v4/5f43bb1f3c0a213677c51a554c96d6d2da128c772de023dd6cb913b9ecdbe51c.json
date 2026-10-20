@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.016623,
+ "created_utc": "2026-10-20T00:30:52Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0046",
+ "job": "answer",
+ "key": "5f43bb1f3c0a213677c51a554c96d6d2da128c772de023dd6cb913b9ecdbe51c",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Permission alone is not enough for authorised use: you need to show actual control over the other person's use of your trade mark.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s8(1)\",\n          \"quote\": \"(1) A person is an authorised user of a trade mark if the person uses the trade mark in relation to goods or services under the control of the owner of the trade mark.\"\n        },\n        {\n          \"ref\": \"TMM/Part23/3/3/1\",\n          \"quote\": \"Authorised use requires some form of actual control by the applicant over the use by the authorised user.\"\n        }\n      ],\n      \"authority\": \"both\"\n    },\n    {\n      \"text\": \"Authorised use counts as use by you, as owner, for the purposes of the Act.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s7(3)\",\n          \"quote\": \"(3) An authorised use of a trade mark by a person (see section 8) is taken, for the purposes of this Act, to be a use of the trade mark by the owner of the trade mark.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual identifies exercising quality control over the relevant goods or services as one way to establish control.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part48/7#1\",\n          \"quote\": \"where the owner of a trade mark exercises quality control over the goods or services in relation to which the trade mark is used by the authorised user (subsection 8(3))\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual also identifies exercising financial control over the user's relevant trading activities as a way to establish control.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part48/7#1\",\n          \"quote\": \"where the owner of the trade mark exercises financial control over the authorised user’s relevant trading activities (subsection 8(4)).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual treats quality control and financial control as non-exclusive examples, not the only possible forms of control.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part48/7#1\",\n          \"quote\": \"Subsections 8(3) and 8(4) provide two non-exclusive examples of where such control is taken to exist.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Within a corporate group, the Manual says control may be demonstrated by sufficient unity of purpose between the entities.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part19A/6/6/3\",\n          \"quote\": \"In the context of a corporate group, control may be demonstrated where two entities act with a sufficient unity of purpose - Trident Seafoods Corporation v Trident Foods Pty Ltd [2019] FCAFC 100 (‘Trident’).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For examination, the Manual says sufficient declaratory information addressing control will generally be taken at face value, without routine requests for further information or documents such as licence agreements.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part19A/6/6/3\",\n          \"quote\": \"Provided that an applicant provides sufficient declaratory information addressing the issue of control, this will generally be taken at face value and the examiner should not routinely request further information or documents such as copies of licence agreements.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0072\",\n    \"GC-0081\",\n    \"GC-0082\",\n    \"GC-0083\",\n    \"GC-0084\",\n    \"GC-0041\",\n    \"GC-0092\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "893aa63792d7794be7a47d999ef56ba55d97a565b65806d044c7625a959e250f",
+ "response_id": "resp_0d967d601c0fbe90006ad6b62a884087d2b3302c23d2373621",
+ "seconds": 18.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 9295,
+  "input_tokens_details": {
+   "cache_write_tokens": 9292,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1001,
+  "output_tokens_details": {
+   "reasoning_tokens": 113
+  },
+  "total_tokens": 10296
+ }
+}

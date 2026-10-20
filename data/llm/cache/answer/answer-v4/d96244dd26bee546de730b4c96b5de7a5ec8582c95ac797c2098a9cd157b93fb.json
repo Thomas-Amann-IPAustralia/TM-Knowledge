@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.016064,
+ "created_utc": "2026-10-20T00:31:11Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0051",
+ "job": "answer",
+ "key": "d96244dd26bee546de730b4c96b5de7a5ec8582c95ac797c2098a9cd157b93fb",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"I cannot determine whether your particular application requires a priority-claim amendment or whether its goods are closely related to retail services. The supplied passages support general guidance on divisional applications and priority claims, but do not address the goods–retail services comparison.\",\n  \"claims\": [\n    {\n      \"text\": \"Under the Manual’s practice, narrowing the specification does not routinely require changing the convention priority claim: examiners request deletion or amendment only in the rare circumstances where no goods or services remain for which the earliest priority date is claimed.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part11/5/5/2/3\",\n          \"quote\": \"Examiners are required to request deletion of, or amendments to, convention claims arising from a narrowing of the specification only in the rare circumstances where there are no goods or services remaining in the specification for which the earliest priority date is claimed.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Separately, the Manual says that retaining the parent’s convention priority date in a divisional requires making that convention priority claim in the divisional when filing or within the stated two-working-day period; otherwise, the divisional’s priority date is the parent’s filing date.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part12/5#1\",\n          \"quote\": \"A divisional application will have the filing date of its parent application as the priority date, unless the convention priority claim of the parent is also made when filing the divisional application or within the period provided for in regulation 4.5, that is, within two working days after filing the application.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"A divisional is a separate application continuing part of the parent application, rather than merely a narrowing amendment to that application.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part12/1#1\",\n          \"quote\": \"Division 3 of Part 4 of the Act sets out a process whereby a trade mark applicant may file an application (divisional application) as a limited continuation of their current application (parent application) under certain circumstances.\"\n        },\n        {\n          \"ref\": \"TMM/Part12/1#1\",\n          \"quote\": \"Divisional applications claim the priority date of the original parent application, however, they receive a new trade mark number and must meet the conditions specified in sections 45 and 46 of the Act.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Where submissions request deletion of goods or services and also state that a divisional will be filed, the Manual says the deletion or amendment should be delayed until the divisional has been filed.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part12/2#1\",\n          \"quote\": \"If submissions are received requesting the deletion of certain goods/services from an application that also state that a divisional application is to be filed from that application, any deletion or amendment to the specification of goods/services should be delayed until the divisional application has been filed.\"\n        },\n        {\n          \"ref\": \"TMM/Part12/2#1\",\n          \"quote\": \"Premature deletion or amendment of the goods/services of the parent may invalidate a subsequent divisional application.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied passages do not establish whether goods sold through wholesalers or shops are automatically closely related to retail services; that part of the question remains unanswered by these sources.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": true,\n  \"concepts_used\": [\n    \"GC-0043\",\n    \"GC-0012\",\n    \"GC-0015\",\n    \"GC-0016\",\n    \"GC-0091\",\n    \"GC-0111\",\n    \"GC-0071\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "c0a7f79a76d3e76a3ac53621bed2d82606d93dad8591518cef1f533feb5e2016",
+ "response_id": "resp_030b2dcb690d4486006ad6b63d274887d2bd451a93def296ff",
+ "seconds": 18.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8716,
+  "input_tokens_details": {
+   "cache_write_tokens": 8713,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1034,
+  "output_tokens_details": {
+   "reasoning_tokens": 178
+  },
+  "total_tokens": 9750
+ }
+}

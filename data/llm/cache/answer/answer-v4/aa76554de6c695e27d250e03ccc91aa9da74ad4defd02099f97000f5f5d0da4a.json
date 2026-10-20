@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.009964,
+ "created_utc": "2026-10-20T00:29:32Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0026",
+ "job": "answer",
+ "key": "aa76554de6c695e27d250e03ccc91aa9da74ad4defd02099f97000f5f5d0da4a",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Under the Manual’s practice, “virtual goods” on its own is not an acceptable description because it lacks specificity.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/5/5/2/15~1\",\n          \"quote\": \"However, terms such as “virtual goods” or “downloadable goods” alone lack specificity and are not acceptable.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"You need to specify the exact nature of the virtual goods, such as software, image files, music or clothing.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/5/5/2/15~1\",\n          \"quote\": \"Applications must specify the exact nature of the virtual goods (such as software, image files, music, or clothing).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual classifies virtual goods in Class 9 and gives “Downloadable virtual clothing” as an example.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part14/5/5/2/15~1\",\n          \"quote\": \"Virtual goods are correctly classified in class 9 because the goods to which they relate consist essentially of data.\"\n        },\n        {\n          \"ref\": \"TMM/Part14/5/5/2/15~1\",\n          \"quote\": \"For example: Class 9: Downloadable virtual clothing\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0012\",\n    \"GC-0121\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "53708b2b3a30a5ab8cfed82ea60fafe52672e7d187f12f4984446aff03eff887",
+ "response_id": "resp_061e168bbe6c79d8006ad6b5e24a4887d29ebf6d498883c7e6",
+ "seconds": 11.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6412,
+  "input_tokens_details": {
+   "cache_write_tokens": 6409,
+   "cached_tokens": 0
+  },
+  "output_tokens": 390,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 6802
+ }
+}

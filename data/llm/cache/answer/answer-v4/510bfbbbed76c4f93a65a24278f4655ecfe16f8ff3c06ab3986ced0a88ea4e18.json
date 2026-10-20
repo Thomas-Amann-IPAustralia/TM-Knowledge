@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.015952,
+ "created_utc": "2026-10-20T00:32:23Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0067",
+ "job": "answer",
+ "key": "510bfbbbed76c4f93a65a24278f4655ecfe16f8ff3c06ab3986ced0a88ea4e18",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Under the Manual’s practice, an invalid divisional application may be capable of correction in some cases under section 65A for a clerical error or obvious mistake, potentially supported by a declaration.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part12/3/3/7\",\n          \"quote\": \"In some cases an amendment to the application under section 65A may be possible because of a clerical error or obvious mistake, but this may need to be supported by a declaration.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual says a section 65 amendment cannot be used to make an invalid divisional application valid because it would extend the applicant’s rights if registration were granted.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part12/3/3/7\",\n          \"quote\": \"If a valid divisional application has not been filed a section 65 amendment cannot be made to the divisional application in order to make it valid. This is because such an amendment would extend the rights the applicant would have if registration were granted.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For the section 65A route, the Manual says the proposed amendment will be published for opposition if the Registrar considers that clerical error or obvious mistake is established and that making the amendment is fair and reasonable in all the circumstances.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part12/3/3/7\",\n          \"quote\": \"If the Registrar considers that a case for clerical error or obvious mistake is made out, and that it is fair and reasonable in all the circumstances to make such an amendment, the proposed amendment will be published for the purposes of opposition.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"That publication is of the proposed amendment, not a statement that the application has already been corrected and accepted for registration.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part12/3/3/7\",\n          \"quote\": \"the proposed amendment will be published for the purposes of opposition.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual separately permits a section 65(7) amendment to the divisional application, parent application or both to render the claims complete where the divisional application is otherwise valid.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part12/3/3/7\",\n          \"quote\": \"Note: If the divisional application is otherwise valid (see Annex A1), an amendment can be made under section 65(7) to the divisional application, the parent application, or both, to give effect to section 46(2) and render the claims complete.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual also records a distinct situation where a later extension of time for the parent removes invalidity based on the parent not being pending when the divisional was filed.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part12/3/3/1~2\",\n          \"quote\": \"Should an EOT be granted later, the application will be taken to have never lapsed, the divisional will no longer be invalid on that basis, and that issue can be withdrawn.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied legislation does not include sections 65 or 65A, so this answer describes the Manual’s practice rather than independently confirming the statutory requirements or a complete procedure for correction and subsequent publication of acceptance.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0043\",\n    \"GC-0124\",\n    \"GC-0040\",\n    \"GC-0046\",\n    \"GC-0097\",\n    \"GC-0155\",\n    \"GC-0093\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "49e8beb5f7fe566469d718515fee888fe7046123e08b8f343b712d3ff55fce13",
+ "response_id": "resp_0af8a46d23a959dd006ad6b685eb1487d2bf5ff04d0c2046dc",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8770,
+  "input_tokens_details": {
+   "cache_write_tokens": 8767,
+   "cached_tokens": 0
+  },
+  "output_tokens": 998,
+  "output_tokens_details": {
+   "reasoning_tokens": 101
+  },
+  "total_tokens": 9768
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013129,
+ "created_utc": "2026-10-20T00:33:56Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0091",
+ "job": "answer",
+ "key": "a8f35f9f6d5648b15c1b78f4b85f1078b0c481fbc584a18dbd210c1f6a80d327",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The Manual explains that goods need not be identical to be ‘similar’ under subsection 14(1): they may instead be ‘of the same description’.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part26/4/4/1\",\n          \"quote\": \"Sub-section 14(1) of the Act defines goods as being similar to other goods if they are the same as those other goods or if they are of the same description as those other goods.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For assessing whether goods are of the same description, the Manual identifies three primary criteria: their nature, their respective uses, and the trade channels through which they are bought and sold.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part26/4/4/1\",\n          \"quote\": \"In Jellinek's Application (1946) 63 RPC 59 (Jellinek), Romer J. set out the following matters for enquiry in assessing whether goods are of the same description: the nature of the goods; the respective uses of the articles; the trade channels through which the commodities are respectively bought and sold. These are the primary criteria.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual cautions that any single factor is unlikely to be conclusive.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part26/4/4/1\",\n          \"quote\": \"However, it is unlikely that any single factor is conclusive.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual’s fuller list directs attention to the goods’ characteristics, origin and purpose, common manufacture and distribution, shared selling circumstances and customers, and whether their manufacturers and distributors are regarded as belonging to the same trade.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part26/4/4/1\",\n          \"quote\": \"the nature and characteristics of the goods; the origin of the goods; the purpose of the goods; whether the goods are usually produced by one and the same manufacturer; whether the goods are distributed by the same wholesale houses; whether the goods are sold in the same shops, over the same counter, during the same season and to the same class or classes of customer; whether those engaged in the manufacture and distribution of the goods are regarded as belonging to the same trade.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied legislative passage stops at the introduction to subsection 14(1), so it does not itself show the statutory limbs; the explanation above relies on the Manual’s account and examination guidance, not a complete quotation of the Act.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s14(1)\",\n          \"quote\": \"(1) For the purposes of this Act, goods are similar to other goods:\"\n        }\n      ],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0070\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "a4133bcb93abaec66c3b2ffb1cfec4d9693cbd710654a094992ceedd765e3b5f",
+ "response_id": "resp_0ba2816e794b88e6006ad6b6d803ec87d2bc05e90e6e4e3691",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7220,
+  "input_tokens_details": {
+   "cache_write_tokens": 7217,
+   "cached_tokens": 0
+  },
+  "output_tokens": 821,
+  "output_tokens_details": {
+   "reasoning_tokens": 124
+  },
+  "total_tokens": 8041
+ }
+}

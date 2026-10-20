@@ -5,9 +5,12 @@
    Parts in reading order with their titles in full, tiles as wide as the page is
    long. What rests on a page is computed by tmk-explorer from each record's
    evidence refs: the records whose quoted text sits on that page. The chosen
-   page's ideas and connections are drawn on a mini map (Cytoscape). */
+   page's ideas and connections are drawn on a mini map (Cytoscape). Since R05 the
+   same dependency index answers from a provision too: the records naming it, and
+   those resting on a Manual passage that cites it. */
 
 import { esc, fmt, load, kindColour, refChip, trustBadge } from "./app.js";
+import { namedProvisions } from "./engine.js";
 import { wait } from "./graph.js";
 import { miniMap } from "./minimap.js";
 import * as lib from "./lib.js";
@@ -51,6 +54,17 @@ export async function render(root, { ontology, params }) {
           ${fmt(holding.length)} of ${fmt(pages.length)} pages hold a passage at least one connection quotes. Click a page.</p>
       </div>
       <div class="card ripple" aria-live="polite"></div>
+    </div>
+    <div class="card provision-impact" style="margin-top:1rem">
+      <h3 style="margin:0 0 .3rem">Or start from the Act or the Regulations</h3>
+      <form class="prov-form" style="display:flex;gap:.5rem;flex-wrap:wrap">
+        <input name="p" type="text" placeholder="e.g. section 44, s 41(4), reg 4.10" aria-label="A section of the Act or a regulation" style="flex:1;min-width:12rem">
+        <button class="btn small" type="submit">Show what rests on it</button>
+      </form>
+      <div class="prov-out" aria-live="polite"></div>
+      <p class="tiny" style="margin-top:.5rem">From every record's own citations, in both stores: the records that name the provision (or a part of it), and those
+        resting on a Manual passage that cites it, as upstream found the citation. What no record names is not shown, so an empty answer means
+        no recorded dependency, never no impact.</p>
     </div>
   </div>`;
 
@@ -155,7 +169,13 @@ export async function render(root, { ontology, params }) {
           ${p.typings.length ? ` The quote behind ${p.typings.length} idea${p.typings.length > 1 ? "s'" : "'s"} kind is here too.` : ""}</span>
           ${p.concepts.length ? `<div class="meta" style="display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.4rem">${p.concepts.map((id) => byId.get(id)).filter(Boolean).map((c) => `<a class="chip" href="#/map/ideas/${c.id}"><i class="dot" style="--c:${kindColour(c.kind)}"></i>${esc(c.label)}</a>`).join("")}</div>` : ""}</div>
       </div>
-      <div class="layer safe" data-layer="4">
+      <div class="layer" data-layer="4">
+        <span class="lnum num">${p.definitions.length + p.corrections.length}</span>
+        <div><b>Definitions and corrections to re-check</b><span class="what">${p.definitions.length || p.corrections.length
+          ? "Each quotes this page, so a rewrite sends it back to be re-read against the new words." : "No definition or correction quotes this page."}</span>
+          ${p.definitions.length || p.corrections.length ? `<div class="meta" style="display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.4rem">${[...p.definitions, ...p.corrections].map((id) => `<code class="chip">${esc(id)}</code>`).join("")}</div>` : ""}</div>
+      </div>
+      <div class="layer safe" data-layer="5">
         <span class="lnum num">0</span>
         <div><b>Kinds of idea affected, of ${kinds}</b><span class="what">No kind rests on a passage. Grounds, tests, factors, exceptions, roles, steps and
           records stay what they are, whatever this page says next.</span></div>
@@ -181,7 +201,7 @@ export async function render(root, { ontology, params }) {
     for (const [i, l] of layers.entries()) {
       await wait(i ? 380 : 0);
       l.classList.add("pulse");
-      if (i < 4 && Number(l.querySelector(".lnum").textContent.replace(/,/g, "")) > 0) l.classList.add("hit");
+      if (i < 5 && Number(l.querySelector(".lnum").textContent.replace(/,/g, "")) > 0) l.classList.add("hit");
       // The map shows the same ripple: the connections to re-check, then the ideas.
       if (i === 2) mini?.flash(p.relations, 0);
       if (i === 3) mini?.pulse(p.concepts);
@@ -193,6 +213,31 @@ export async function render(root, { ontology, params }) {
     root.querySelectorAll("[data-mode]").forEach((x) => x.classList.toggle("on", x === b));
     drawHeat();
   }));
+  // ---- from a provision (R05)
+  const held = Object.fromEntries((stability.held || []).map((ref) => [ref, 1]));
+  const out = root.querySelector(".prov-out");
+  const chipFor = (id) => byId.has(id) ? `<a class="chip" href="#/map/ideas/${id}"><i class="dot" style="--c:${kindColour(byId.get(id).kind)}"></i>${esc(byId.get(id).label)}</a>`
+    : `<code class="chip">${esc(id)}</code>`;
+  root.querySelector(".prov-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const text = e.target.p.value;
+    const refs = namedProvisions(text, held);
+    if (!refs.length) {
+      out.innerHTML = `<p class="small muted">No section of the Act or regulation this snapshot holds is named in “${esc(text.slice(0, 80))}”. Try “section 44” or “reg 4.10”.</p>`;
+      return;
+    }
+    out.innerHTML = refs.map((ref) => {
+      const hit = stability.provisions[ref];
+      if (!hit) return `<div class="layer"><div>${refChip(ref)} <span class="small">No record names it or rests on a Manual passage citing it: no recorded dependency, which is not the same as no impact.</span></div></div>`;
+      return `<div class="layer"><div>${refChip(ref)}
+        <p class="small" style="margin:.3rem 0"><b>${fmt(hit.direct.length)}</b> record${hit.direct.length === 1 ? "" : "s"} name it or a part of it${hit.direct.length ? ":" : "."}</p>
+        ${hit.direct.length ? `<div class="meta" style="display:flex;flex-wrap:wrap;gap:.3rem">${hit.direct.map(chipFor).join("")}</div>` : ""}
+        <p class="small" style="margin:.5rem 0 .3rem"><b>${fmt(hit.via_manual.length)}</b> more rest on the ${fmt(hit.passages.length)} Manual passage${hit.passages.length === 1 ? "" : "s"} that cite it${hit.ambiguous.length ? ` (upstream marked its citation in ${fmt(hit.ambiguous.length)} of them ambiguous: listed, never resolved)` : ""}.</p>
+        ${hit.via_manual.length ? `<details><summary class="tiny">Show them</summary><div class="meta" style="display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.3rem">${hit.via_manual.map(chipFor).join("")}</div></details>` : ""}
+      </div></div>`;
+    }).join("");
+  });
+
   drawTimeline();
   drawHeat();
   select(current);

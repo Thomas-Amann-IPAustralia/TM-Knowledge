@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.015777,
+ "created_utc": "2026-10-20T00:31:32Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0054",
+ "job": "answer",
+ "key": "92c18d97d9133605c1645fa8b45d93498b933923b37def1014a2d65c69c11d98",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The statutory baseline is that the Registrar must examine and report on compliance with the Act and whether there are grounds for rejecting the application.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s31\",\n          \"quote\": \"The Registrar must, in accordance with the regulations, examine and report on: (a) whether the application has been made in accordance with this Act; and (b) whether there are grounds under this Act for rejecting it.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual describes a quality management system that monitors, manages and reviews the ongoing suitability and efficiency of IP Australia’s processes and procedures.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part1/2#1\",\n          \"quote\": \"IP Australia’s quality management system, whilst monitoring, managing and reviewing the ongoing suitability and efficiency of our processes and procedures, also includes a strong focus on consistently delivering quality IP products and services.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"IP Australia uses Quality Standards as benchmarks to assess or review all aspects of trade mark examination work.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part1/2#1\",\n          \"quote\": \"As part of meeting the above objectives, a set of Quality Standards is applicable to all aspects of an examination of a trade mark application. They provide us IP Australia with benchmarks against which to assess (or review) the quality of the work we produced.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The search-strategy benchmark is whether the strategy would find all citations.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part1/2#1\",\n          \"quote\": \"TS1: The search strategy would find all citations.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The extract-list benchmark is whether it included all relevant signs that should be considered.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part1/2#1\",\n          \"quote\": \"TS2: The extract list included all relevant signs which should be considered.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Examination reporting is assessed against the requirement to raise and maintain all valid objections.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part1/2#1\",\n          \"quote\": \"TE1: All valid objections are raised and maintained.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Examination reporting is also assessed against the requirement not to raise or maintain invalid objections.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part1/2#1\",\n          \"quote\": \"TE2: Invalid objections are not raised or maintained.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The legal basis for an examination decision must be recorded and/or communicated under the quality standards.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part1/2#1\",\n          \"quote\": \"TE3: The legal basis for the decision is recorded and/or communicated.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The quality standards require clear and appropriate options for addressing objections to be identified and communicated.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part1/2#1\",\n          \"quote\": \"TE4: Clear and appropriate options to address objections are identified and communicated.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The record-keeping benchmark requires decision reasons to be recorded and all material or comments informing the decision to be on file.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part1/2#1\",\n          \"quote\": \"TR1: Reasons for any decisions are recorded and all material/comments which have informed the decision are on file.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual supports implementation of these standards but remains a guide to be interpreted in the context of legislation and relevant court and tribunal decisions.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part1/2#1\",\n          \"quote\": \"The Manual is fundamental to implementing the quality standards, but must always be considered as a guide and interpreted in the context of the Act, Regulations and the relevant decisions of courts and tribunals.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied passages do not specify who conducts quality reviews, how work is selected, how often reviews occur or what corrective action follows; they therefore do not establish the complete operational checking process.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0177\",\n    \"GC-0092\",\n    \"GC-0046\",\n    \"GC-0131\",\n    \"GC-0006\",\n    \"GC-0179\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "47d545037b3a8bec8e0d10830111769000900567cbd9d2ac3a624193c3848663",
+ "response_id": "resp_00d13589e648cd79006ad6b648858887d2a1c9425ccf8ee670",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7506,
+  "input_tokens_details": {
+   "cache_write_tokens": 7503,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1279,
+  "output_tokens_details": {
+   "reasoning_tokens": 133
+  },
+  "total_tokens": 8785
+ }
+}

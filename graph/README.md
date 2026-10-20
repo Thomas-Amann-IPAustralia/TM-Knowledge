@@ -41,6 +41,8 @@ graph/approved.ttl     expert-approved assertions                               
 graph/authored.ttl     machine-authored assertions, validated by nobody         committed
 graph/inferred.ttl     produced by the CONSTRUCT rules — never authored         committed
 graph/dataset.nq       all of the above as quads                                committed
+graph/manifest.json    the release manifest: pin, compilations, schemas, profile,
+                       and per graph its triples, classes and review states (A11)  committed
 graph/candidates.nq    machine-extracted, unapproved  (mirrors review/)         does not exist
 graph/superseded.nq    retired assertions, kept for audit                       does not exist
 ```

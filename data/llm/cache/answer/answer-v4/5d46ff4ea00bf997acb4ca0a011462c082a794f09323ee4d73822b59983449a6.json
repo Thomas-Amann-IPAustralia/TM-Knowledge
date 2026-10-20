@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013689,
+ "created_utc": "2026-10-20T00:35:12Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0112",
+ "job": "answer",
+ "key": "5d46ff4ea00bf997acb4ca0a011462c082a794f09323ee4d73822b59983449a6",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"In principle, a certification trade mark can be used to distinguish goods certified as to their origin from goods not so certified.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s169\",\n          \"quote\": \"A certification trade mark is a sign used, or intended to be used, to distinguish goods or services: (a) dealt with or provided in the course of trade; and (b) certified by a person (owner of the certification trade mark), or by another person approved by that person, in relation to quality, accuracy or some other characteristic, including (in the case of goods) origin, material or mode of manufacture; from other goods or services dealt with or provided in the course of trade but not so certified.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual describes a geographical indication as identifying goods whose quality, reputation or other characteristic is essentially attributable to their geographical origin.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part46/4/4/6/1\",\n          \"quote\": \"a sign that identifies the goods as originating in a country, or in a region or locality in that country, where a given quality, reputation or other characteristic of the goods is essentially attributable to their geographical origin.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"These passages support certification of geographical origin as a possible function of a certification trade mark, but do not expressly answer whether, on what conditions, or with what scope of protection a geographical indication can be registered as one in Australia.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0018\",\n    \"GC-0107\",\n    \"GC-0019\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "6e045b937a627e26bd64f9d0a3d43924f229fa48d286a16bf5df1a397b575cf5",
+ "response_id": "resp_0c6e571f9fb406c6006ad6b72ebcd887d2aa7288a7eab6c5ef",
+ "seconds": 18.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8056,
+  "input_tokens_details": {
+   "cache_write_tokens": 8053,
+   "cached_tokens": 0
+  },
+  "output_tokens": 724,
+  "output_tokens_details": {
+   "reasoning_tokens": 305
+  },
+  "total_tokens": 8780
+ }
+}

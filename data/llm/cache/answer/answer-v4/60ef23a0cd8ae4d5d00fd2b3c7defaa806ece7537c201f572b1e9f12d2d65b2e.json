@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013376,
+ "created_utc": "2026-10-20T00:30:20Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0037",
+ "job": "answer",
+ "key": "60ef23a0cd8ae4d5d00fd2b3c7defaa806ece7537c201f572b1e9f12d2d65b2e",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"I cannot determine whether the term can remain in your particular application, but can explain the Manual’s practice.\",\n  \"claims\": [\n    {\n      \"text\": \"The Manual does not treat intended use as a style description as an automatic reason to retain “champagne”: it expressly gives replacement with “sparkling wine” as an example.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part32B/3#1\",\n          \"quote\": \"One such example would be replacing champagne, where it is being used to describe the style of wine, with sparkling wine.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Under the Manual’s practice, protected terms appearing in the goods specification will not usually result in a ground for rejection during examination.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part32B/3#1\",\n          \"quote\": \"In the course of examination this will not usually result in a ground for rejection when protected terms appear in specification of goods.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Nevertheless, the Manual calls for careful consideration of specifications containing protected terms, even though the specification wording may not be used commercially on a label.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part32B/3#1\",\n          \"quote\": \"However, although terminology contained in the specification may not be what is actually used commercially on a label, it is appropriate for the Registrar to carefully consider any specifications that contain protected terms.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"If a specification term is clearly inconsistent with the trade mark application, the Manual says to raise it with the applicant; appropriate action could include deleting or replacing the term.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part32B/3#1\",\n          \"quote\": \"If the specification of goods contains a term which is clearly inconsistent with the trade mark application this should be raised with the applicant. Appropriate action could include deleting the term from the specification of goods or replacing it with a more acceptable term.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": true,\n  \"concepts_used\": [\n    \"GC-0012\",\n    \"GC-0015\",\n    \"GC-0126\",\n    \"GC-0046\",\n    \"GC-0131\",\n    \"GC-0006\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "d3906ff05e9024e504fc27411c24c3c52f019a0c63780ec4cb29ecbc2d93ade4",
+ "response_id": "resp_07ce91ce769fa580006ad6b60a628087d29e6ba08211b8f284",
+ "seconds": 18.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7605,
+  "input_tokens_details": {
+   "cache_write_tokens": 7602,
+   "cached_tokens": 0
+  },
+  "output_tokens": 774,
+  "output_tokens_details": {
+   "reasoning_tokens": 227
+  },
+  "total_tokens": 8379
+ }
+}

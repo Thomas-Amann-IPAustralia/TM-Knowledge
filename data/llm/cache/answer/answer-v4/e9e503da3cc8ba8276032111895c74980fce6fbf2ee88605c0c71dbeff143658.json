@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014624,
+ "created_utc": "2026-10-20T00:28:40Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0009",
+ "job": "answer",
+ "key": "e9e503da3cc8ba8276032111895c74980fce6fbf2ee88605c0c71dbeff143658",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Under the Manual’s practice, if the Registrar does not notify the person of an underpayment within 14 working days of making an application, notice or request, it is treated as filed despite the unpaid fee.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid\",\n          \"quote\": \"Where the Registrar fails to notify the person of an underpayment within 14 working days of the person making an application, notice or request, then the application, notice or request is treated as filed despite the failure to pay the relevant fee (reg 21.21A(2)).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual states that, where notification is not given within the allowed period, the document is taken to be filed on the date it is received.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part4/6/6/3/3\",\n          \"quote\": \"If the Registrar does not notify the person within the 14 days allowed by subsection 223(5) (reg 21.23), the document is taken to be filed on the date it is received.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The missed notification deadline does not waive the fee: the Manual states that the unpaid amount remains a debt owed to the Commonwealth.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid\",\n          \"quote\": \"However, reg 21.21A(2) does not have the effect of waiving the fee. The fee or amount unpaid remains a debt owed to the Commonwealth.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Deemed filing does not permit the Registrar to perform an act for which a fee is payable until that fee has been paid.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMR1995/r21.21A(1)\",\n          \"quote\": \"(1) If a fee is payable in respect of the doing of an act by the Registrar or the Comptroller-General of Customs, the Registrar or Comptroller-General of Customs must not do the act until the fee has been paid.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual also requires written notification of the fee deficiency as soon as practicable even where the initial notification deadline was missed.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part4/1/1/3/1\",\n          \"quote\": \"If the Registrar does not notify an applicant within 14 days of the underpayment or non-payment of the fee,the request is taken to be made, but the applicant must still be notified in writing of the deficiency in the fee as soon as practicable.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied Manual passages use both ‘14 working days’ and ‘14 days’; regulation 21.23 is not supplied, so the precise statutory calculation of that period cannot be verified from these passages.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0046\",\n    \"GC-0091\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "b62ba7d22ebff7c5b95d5462c1c168592e170fde8df7233ef9baec92e2c3c3ab",
+ "response_id": "resp_02d67042b34618d6006ad6b5a64f5087d2b821f367943f85af",
+ "seconds": 18.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8236,
+  "input_tokens_details": {
+   "cache_write_tokens": 8233,
+   "cached_tokens": 0
+  },
+  "output_tokens": 866,
+  "output_tokens_details": {
+   "reasoning_tokens": 101
+  },
+  "total_tokens": 9102
+ }
+}

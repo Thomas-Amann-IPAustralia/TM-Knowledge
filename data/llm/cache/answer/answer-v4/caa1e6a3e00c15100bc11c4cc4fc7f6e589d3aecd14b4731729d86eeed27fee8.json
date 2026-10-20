@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.016644,
+ "created_utc": "2026-10-20T00:28:58Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0014",
+ "job": "answer",
+ "key": "caa1e6a3e00c15100bc11c4cc4fc7f6e589d3aecd14b4731729d86eeed27fee8",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"A pictorial logo can be a ‘sign’: the Act’s definition includes a device.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s6/sign\",\n          \"quote\": \"sign includes the following or any combination of the following, namely, any letter, word, name, signature, numeral, device, brand, heading, label, ticket, aspect of packaging, shape, colour, sound or scent.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"Under the Manual’s practice, the application is initially taken on face value and assessed under section 41, rather than deciding at that stage whether the logo actually functions as a trade mark.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/x-registrability-of-various-kinds-of-signs#1\",\n          \"quote\": \"Whether this sign will function as a trade mark cannot be assessed at the initial stage of examination. Each application must be taken on face value, and be considered under section 41 in the usual fashion.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"For a logo consisting solely of a picture common to the trade, the Manual treats its inherent adaptation to distinguish as insufficient unless the picture is depicted in a special or fanciful manner.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/25/25/1\",\n          \"quote\": \"A trade mark which consists solely of a device which is common to the trade will be considered to have insufficient inherent adaptation to distinguish unless it is depicted in a special or fanciful manner.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The assessment relates the picture to the particular goods or services: ordinary trade imagery can convey their kind or intended purpose rather than distinguish one trader’s offering.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/25/25/1\",\n          \"quote\": \"Other examples of devices common to the trade are cats and dogs for pet food, orchard scenes for fruit, pictures of aeroplanes for travel services, pictures of dogs for kennel services and simple depictions of a knife and fork for restaurant/catering services. For the consumer such pictures ordinarily signify the kind or intended purpose of goods and services (Note 1 to s 41(4)).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"An ordinary depiction of the goods themselves is generally not regarded by the Manual as prima facie capable of distinguishing.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/25/25/1\",\n          \"quote\": \"A device which is an ordinary depiction of the goods upon which, or in connection with which, it will be used is generally not prima facie capable of distinguishing.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"In assessing inherent adaptation to distinguish, the Manual considers any use another trader is likely fairly to want to make of the sign, including descriptive use and not just trade mark use.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/7/22/7/9\",\n          \"quote\": \"This language makes clear that what must be contemplated in assessing the inherent adaptation of a sign is any use a trader is likely to fairly desire to make of it, be it as a trade mark or to describe their goods and services.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"If the application relies on use, the Manual asks whether the particular sign sought to be registered has itself been used as a trade mark so as to become capable of distinguishing the relevant goods or services.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part19A/8#1~2\",\n          \"quote\": \"Where an application for registration relies on use, the question is whether the particular sign for which registration is sought has itself been used as a trade mark so as to become capable of distinguishing the relevant goods or services.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied legislation does not include section 41 itself, so this account of its assessment follows the supplied Manual passages and is not a complete statement of the statutory requirements.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0073\",\n    \"GC-0072\",\n    \"GC-0058\",\n    \"GC-0059\",\n    \"GC-0060\",\n    \"GC-0061\",\n    \"GC-0119\",\n    \"GC-0041\",\n    \"GC-0081\",\n    \"GC-0092\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "eb63441ba8e298a6a2bac06462e7160ad7348e5bc6caeb9a301c26946d56d811",
+ "response_id": "resp_02299d26c6bbf5ce006ad6b5b8e4e887d2acf16124d4dc667e",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8728,
+  "input_tokens_details": {
+   "cache_write_tokens": 8725,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1147,
+  "output_tokens_details": {
+   "reasoning_tokens": 91
+  },
+  "total_tokens": 9875
+ }
+}

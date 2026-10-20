@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.015395,
+ "created_utc": "2026-10-20T00:33:17Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0082",
+ "job": "answer",
+ "key": "889d8929406668ce402406009862a902c04f1a40e95139aa84e7b5b6430d27ee",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Not necessarily: the supplied passages do not expressly establish that displaying a prohibition notice itself constitutes use of the trade mark; instead, section 121 provides a specific infringement mechanism involving such notices.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    },\n    {\n      \"text\": \"For infringement under subsection 120(1), the Manual states that the person must use the relevant sign as a trade mark.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part19B/4/4/1\",\n          \"quote\": \"Subsection 120(1) provides that a registered trade mark is infringed if a person uses, as a trade mark, a sign that is substantially identical with, or deceptively similar to, the trade mark in relation to the goods or services in respect of which the trade mark is registered.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Section 121 applies where the registered owner, or an authorised user having power to do so, causes a notice prohibiting an act specified in subsection (2) to be displayed on registered goods, their package or their container.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s121\",\n          \"quote\": \"(1) This section applies to a registered trade mark if the registered owner, or an authorised user of the trade mark having power to do so, has caused to be displayed on goods (registered goods) in respect of which the trade mark is registered, or on their package, or on the container in which they are offered to the public, a notice (notice of prohibition) prohibiting any act that is under subsection (2) a prohibited act in relation to the goods.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"Under subsection 121(3), subject to subsection (4), infringement occurs when the owner of registered goods does or authorises an act prohibited by the notice, in the course of trade or with a view to dealing with the goods in the course of trade—not merely because the notice is displayed.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s121\",\n          \"quote\": \"(3) Subject to subsection (4), a person infringes a trade mark to which this section applies if the person: (a) is the owner of registered goods; and (b) in the course of trade, or with a view to a dealing with the goods in the course of trade: (i) does an act that is prohibited under the notice of prohibition; or (ii) authorises that act to be done.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"Subsection 121(4) excludes infringement where the owner acquired the goods in good faith without awareness of the notice, or derived title from someone who acquired them in that way.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s121\",\n          \"quote\": \"(4) The trade mark is not infringed if the owner of the goods: (a) acquired them in good faith and without being aware of the notice of prohibition; or (b) became the owner of the goods by virtue of a title derived from a person who had so acquired them.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0072\",\n    \"GC-0081\",\n    \"GC-0088\",\n    \"GC-0084\",\n    \"GC-0083\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "1c4f4e16583cf4c45c8d6a03367d9d38dfd10c6eef599bac3113a64d3d1a045a",
+ "response_id": "resp_09c543881df2d235006ad6b6bbcf1487d2a04966ecd60fa7f8",
+ "seconds": 17.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8517,
+  "input_tokens_details": {
+   "cache_write_tokens": 8514,
+   "cached_tokens": 0
+  },
+  "output_tokens": 950,
+  "output_tokens_details": {
+   "reasoning_tokens": 165
+  },
+  "total_tokens": 9467
+ }
+}

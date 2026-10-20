@@ -82,6 +82,44 @@ export class Recogniser {
   }
 }
 
+/** BM25 postings over [heading, text] documents, as FTS5 weights them here (Q-69). */
+function bm25Index(docs) {
+  const postings = new Map();
+  const lengths = new Float64Array(docs.length);
+  let total = 0;
+  docs.forEach(([heading, text], i) => {
+    const freq = new Map();
+    const h = unicodeTokens(heading), b = unicodeTokens(text);
+    for (const t of h) freq.set(t, (freq.get(t) || 0) + 1.0);
+    for (const t of b) freq.set(t, (freq.get(t) || 0) + 1.0);
+    lengths[i] = h.length + b.length;
+    total += lengths[i];
+    for (const [t, f] of freq) {
+      if (!postings.has(t)) postings.set(t, []);
+      postings.get(t).push([i, f]);
+    }
+  });
+  return { postings, lengths, avgdl: total / Math.max(1, docs.length) };
+}
+
+/** [document index, score], best first, ties by index. */
+function bm25Rank(index, terms, k) {
+  if (!terms.length) return [];
+  const N = index.lengths.length;
+  const score = new Map();
+  for (const t of terms) {
+    const list = index.postings.get(t);
+    if (!list) continue;
+    let idf = Math.log((N - list.length + 0.5) / (list.length + 0.5));
+    if (idf <= 0) idf = 1e-6;
+    for (const [i, f] of list) {
+      const s = idf * (f * (K1 + 1)) / (f + K1 * (1 - B + (B * index.lengths[i]) / index.avgdl));
+      score.set(i, (score.get(i) || 0) + s);
+    }
+  }
+  return [...score.entries()].sort((a, b) => b[1] - a[1] || a[0] - b[0]).slice(0, k);
+}
+
 export class Engine {
   constructor(search, passages) {
     this.s = search;
@@ -104,24 +142,10 @@ export class Engine {
   }
 
   #index() {
-    const postings = new Map();
-    const lengths = new Float64Array(this.chunks.length);
-    let total = 0;
-    this.chunks.forEach(([, , heading, text], i) => {
-      const freq = new Map();
-      const h = unicodeTokens(heading), b = unicodeTokens(text);
-      for (const t of h) freq.set(t, (freq.get(t) || 0) + 1.0);
-      for (const t of b) freq.set(t, (freq.get(t) || 0) + 1.0);
-      lengths[i] = h.length + b.length;
-      total += lengths[i];
-      for (const [t, f] of freq) {
-        if (!postings.has(t)) postings.set(t, []);
-        postings.get(t).push([i, f]);
-      }
-    });
-    this.postings = postings;
-    this.lengths = lengths;
-    this.avgdl = total / this.chunks.length;
+    Object.assign(this, bm25Index(this.chunks.map(([, , heading, text]) => [heading, text])));
+    // A07: the provisions, by their words, apart from the Manual (`search.index.ProvisionIndex`).
+    this.provisionRefs = (this.s.provisions || []).filter((ref) => this.legislation[ref]);
+    this.provisionIndex = bm25Index(this.provisionRefs.map((ref) => [this.legislation[ref][2], this.legislation[ref][3]]));
   }
 
   /** The query terms, as `search.index._terms` makes them. */
@@ -134,21 +158,13 @@ export class Engine {
   }
 
   keywordRanking(query, k) {
-    const terms = this.terms(query);
-    if (!terms.length) return [];
-    const N = this.chunks.length;
-    const score = new Map();
-    for (const t of terms) {
-      const list = this.postings.get(t);
-      if (!list) continue;
-      let idf = Math.log((N - list.length + 0.5) / (list.length + 0.5));
-      if (idf <= 0) idf = 1e-6;
-      for (const [i, f] of list) {
-        const s = idf * (f * (K1 + 1)) / (f + K1 * (1 - B + (B * this.lengths[i]) / this.avgdl));
-        score.set(i, (score.get(i) || 0) + s);
-      }
-    }
-    return [...score.entries()].sort((a, b) => b[1] - a[1] || a[0] - b[0]).slice(0, k).map(([i, s]) => ({ ref: this.refs[i], score: s }));
+    return bm25Rank(this, this.terms(query), k).map(([i, score]) => ({ ref: this.refs[i], score }));
+  }
+
+  /** Provisions ranked by the question's words — `ProvisionIndex.search`. Shown apart,
+      never sent to the answer prompt. */
+  provisionSearch(query, k = 5) {
+    return bm25Rank(this.provisionIndex, this.terms(query), k).map(([i, score]) => ({ ref: this.provisionRefs[i], score, why: ["provision"] }));
   }
 
   keyword(question, k = 10) {
@@ -236,7 +252,7 @@ export class Engine {
     const cited = [];
     for (const ref of passages.slice(0, 3)) for (const id of (this.chunks[this.row.get(ref)]?.[4] || [])) cited.push(id);
     const legislation = [];
-    for (const ref of [...trace.provisions, ...cited]) {
+    for (const ref of [...namedProvisions(question, this.legislation), ...trace.provisions, ...cited]) {
       if (!legislation.includes(ref) && this.legislation[ref]) legislation.push(ref);
     }
     const plain = this.keyword(question, 10).map((h) => h.ref);
@@ -312,10 +328,26 @@ export class Engine {
   }
 }
 
+/* Exact-reference lookup (A07) — `search.citations.named_provisions`, rule for rule:
+   "section 44(3)", "s 41(4)", "reg 4.10" name a provision, resolved at the provision
+   level, first mention first, only where it is held. */
+const CITATION = /(?<![\w'’])(?<kind>sections?|subsections?|ss?|regulations?|subregulations?|regs?|r)\.?\s?(?<number>\d+[A-Za-z]{0,2}(?:\.\d+[A-Za-z]{0,2})?)(?![\w.]*\d)/gi;
+const REGULATION = ["regulation", "regulations", "subregulation", "subregulations", "reg", "regs", "r"];
+
+export function namedProvisions(text, held) {
+  const out = [];
+  for (const m of String(text || "").matchAll(CITATION)) {
+    const ref = (REGULATION.includes(m.groups.kind.toLowerCase()) ? "TMR1995/r" : "TMA1995/s") + m.groups.number.toUpperCase();
+    if (held && Object.prototype.hasOwnProperty.call(held, ref) && !out.includes(ref)) out.push(ref);
+  }
+  return out;
+}
+
 /* PU-0004 at answer time — `search.authority.conflations`, rule for rule (review F1,
    ADR-0121). A sentence that says the legislation requires, provides or states
    something, in an answer that cites no provision of it, is flagged — never removed.
-   A sentence naming the Manual, or a negated one, is not. */
+   A clause naming the Manual before the verb, or a negated one, is not; only the
+   match's own clause is read (R08). A warning, not a guarantee. */
 export const AUTHORITY_MESSAGE = "Says the legislation requires this, but the answer cites no provision for it — only " +
   "the Manual, which states practice and does not bind the Registrar's discretion (PU-0004). Check the provision itself.";
 const VERB = "(?:requires?|provides?|states?|says|prescribes?|mandates?|obliges?|imposes?)";
@@ -324,6 +356,7 @@ const PART = new RegExp(String.raw`\b(?<kind>section|s|subsection|regulation|reg
   String.raw`(?:\([0-9a-z]+\))*[^.;:]{0,40}?\b${VERB}\b`, "i");
 const SENTENCE_BREAK = /(?<=[.!?])\s+(?=[A-Z"'“‘(])|\n+/;
 const MANUAL = /\bManual\b/;
+const CLAUSE_BREAK = /;|,\s*(?:and|but|while|whereas|although|though|yet|however)\b|\s(?:but|whereas|although)\s/gi;
 const NEGATION = /\b(?:not|no|never|neither|nor)\b|n['’]t\b/i;
 
 function supportedBy(m, cited) {
@@ -339,18 +372,22 @@ function supportedBy(m, cited) {
   return cited.some((ref) => ref.startsWith("TMA1995/") || ref.startsWith("TMR1995/"));
 }
 
+function clauseOf(sentence, m) {
+  let start = 0;
+  for (const brk of sentence.slice(0, m.index).matchAll(CLAUSE_BREAK)) start = brk.index + brk[0].length;
+  return sentence.slice(start, m.index + m[0].length);
+}
+
 export function authorityFlags(answer, cited) {
   const refs = (cited || []).map(String);
   const flags = [];
   for (let sentence of String(answer || "").split(SENTENCE_BREAK)) {
     sentence = sentence.trim();
-    if (!sentence || MANUAL.test(sentence)) continue;
-    for (const pattern of [PART, WHOLE]) {
-      const m = pattern.exec(sentence);
-      if (m && !NEGATION.test(sentence.slice(0, m.index + m[0].length)) && !supportedBy(m, refs)) {
-        flags.push({ sentence, message: AUTHORITY_MESSAGE });
-        break;
-      }
+    if (!sentence) continue;
+    const matches = [PART, WHOLE].flatMap((p) => [...sentence.matchAll(new RegExp(p.source, "gi"))]);
+    if (matches.some((m) => { const clause = clauseOf(sentence, m);
+      return !MANUAL.test(clause) && !NEGATION.test(clause) && !supportedBy(m, refs); })) {
+      flags.push({ sentence, message: AUTHORITY_MESSAGE });
     }
   }
   return flags;

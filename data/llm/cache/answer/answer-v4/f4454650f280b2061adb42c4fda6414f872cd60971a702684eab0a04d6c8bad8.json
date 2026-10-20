@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014641,
+ "created_utc": "2026-10-20T00:35:25Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0113",
+ "job": "answer",
+ "key": "f4454650f280b2061adb42c4fda6414f872cd60971a702684eab0a04d6c8bad8",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Under the Manual’s practice, you can divide out some goods or services from a series application, but you cannot initially split off only selected trade marks: the divisional must contain all the same trade marks as the parent when it is filed.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part12/3/3/6\",\n          \"quote\": \"Divisional applications may be filed for some only of the goods and/or services of a series application.\"\n        },\n        {\n          \"ref\": \"TMM/Part13/8#1\",\n          \"quote\": \"A divisional of a series application must be filed in respect of all of the same trade marks in the parent application, in order to meet the requirements of section 46(1) (i.e. divisional validity). That is, the trade marks in the parent and child, when the divisional application is filed, must be identical.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"If by ‘wrong’ you mean that a trade mark makes the series invalid, the Manual says the applicant may resolve this by removing trade marks from the parent and/or the divisional under section 65(3).\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part13/8#1\",\n          \"quote\": \"If the parent or child contains an invalid series, the applicant may resolve this problem by removing trade marks from the parent and/or the child pursuant to section 65(3), in order to meet the requirements of section 51(1).\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual says that amending the trade marks in one application does not affect the options available for the other application.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part13/8#1\",\n          \"quote\": \"An amendment to the trade marks in one application has no effect on options available in respect of the other.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Section 51(1) permits a series application where the marks resemble each other in material particulars and differ only in the specified matters concerning goods or services, number, price, quality, place names or colour.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s51\",\n          \"quote\": \"(1) A person may make a single application under subsection 27(1) for the registration of 2 or more trade marks in respect of goods and/or services if the trade marks resemble each other in material particulars and differ only in respect of one or more of the following matters: (a) statements or representations as to the goods or services in relation to which the trade marks are used or are intended to be used; (b) statements or representations as to number, price, quality or names of places; (c) the colour of any part of the trade mark.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    },\n    {\n      \"text\": \"The Manual directs that the divisional should be reassessed at examination against section 51(1), taking account of its marks and its particular goods or services.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part13/8#1\",\n          \"quote\": \"The compliance of the divisional with the requirements of section 51(1) will depend on the marks contained within the series and the goods/services that form part of the divisional (which will be some only of the goods/services of the parent). The divisional should be reassessed against the requirements of section 51(1) at examination, to ensure the series remains valid for the goods/services included in the divisional.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The supplied legislative passages do not set out the substantive requirements of section 46(1) or section 65(3), so the procedural guidance above rests on the Manual and is not a complete account of the statutory requirements.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0079\",\n    \"GC-0043\",\n    \"GC-0012\",\n    \"GC-0124\",\n    \"GC-0080\",\n    \"GC-0092\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "d4c07f8bfd13d75602cb66d622d402907d85ae5565b67b0ed48e1f6a8bc08fae",
+ "response_id": "resp_0bc43fcaaf5c5aaa006ad6b7318c7087d29ab072113284b5ef",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7533,
+  "input_tokens_details": {
+   "cache_write_tokens": 7530,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1045,
+  "output_tokens_details": {
+   "reasoning_tokens": 87
+  },
+  "total_tokens": 8578
+ }
+}

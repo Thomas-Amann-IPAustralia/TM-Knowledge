@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013145,
+ "created_utc": "2026-10-20T00:36:09Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0007",
+ "job": "answer",
+ "key": "7290a2810531e22cf7b76845fbcc0853c9376eaf9cbdb51e471c393c04a41bba",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"The supplied passages do not establish that a country name always needs a limitation: they address geographical-name registrability, but do not explain when a limitation is required.\",\n      \"quotes\": [],\n      \"authority\": \"none\"\n    },\n    {\n      \"text\": \"The Manual’s approach is to assess whether the name conveys geographical significance for the claimed goods or services and, if so, whether other traders would desire to use it for that significance.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/15#1\",\n          \"quote\": \"When assessing the registrability of geographical names we need to assess whether (i) the sign conveys the significance of the geographical name when applied to the goods or services claimed, and (ii) if so, is it likely other traders would desire to use it for this significance?\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual states that words functioning solely as geographical names, with an obvious or potential connection with the goods or services, have no inherent adaptation to distinguish.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/15/15/3\",\n          \"quote\": \"Words which function solely as geographical names, and which have some obvious or potential connection with the goods or services, have no inherent adaptation to distinguish.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"However, the Manual recognises that a place name does not always signify that location when used for particular goods.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/15/15/1~1\",\n          \"quote\": \"It is important to remember, that although a sign may in fact be the name of a place, it may not always signify that location\"\n        },\n        {\n          \"ref\": \"TMM/Part22/15/15/1~1\",\n          \"quote\": \"This is the case, for example, where the word as applied to the relevant goods is in effect a fancy name, such as \\\"North Pole\\\" in connexion with bananas\"\n        }\n      ],\n      \"authority\": \"manual\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0072\",\n    \"GC-0015\",\n    \"GC-0017\",\n    \"GC-0012\",\n    \"GC-0061\",\n    \"GC-0059\",\n    \"GC-0048\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "ffd3e6178c52013f92e7399104b3ded98274a6f5e2bfbb49ebe10b510f088e9a",
+ "response_id": "resp_0b909fd9e30b0609006ad6b7681a7c87d2812f66f0c1754258",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7625,
+  "input_tokens_details": {
+   "cache_write_tokens": 7622,
+   "cached_tokens": 0
+  },
+  "output_tokens": 723,
+  "output_tokens_details": {
+   "reasoning_tokens": 170
+  },
+  "total_tokens": 8348
+ }
+}

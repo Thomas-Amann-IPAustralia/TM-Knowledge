@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.016244,
+ "created_utc": "2026-10-20T00:35:11Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0109",
+ "job": "answer",
+ "key": "2d46998c47b5dbed10d39350cd514eff3ab38931a798a3d07abbfbee3913aa35",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"decline_reason\": \"\",\n  \"claims\": [\n    {\n      \"text\": \"Generally, yes—in the sense of lacking sufficient inherent adaptation to distinguish. The Manual says that a surname combined with words descriptive of the relevant services is unlikely to be sufficiently inherently adapted to distinguish.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/16/16/3\",\n          \"quote\": \"If a trade mark consists of a surname combined with words that are considered to be descriptive in relation to the particular goods and / or services it is unlikely that it will be sufficiently inherently adapted to distinguish.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual illustrates this practice with JONES CAR REPAIRS for motor vehicle repair and maintenance, treating the mark as a whole as not prima facie capable of distinguishing.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/16/16/3\",\n          \"quote\": \"For example: JONES CAR REPAIRS in relation to motor vehicle repair and maintenance. The surname JONES is common and when taking into account the factors listed at 16.1 there is nothing to suggest that this word would be considered and understood as anything else other than a common surname. The reference to CAR REPAIRS is directly descriptive of the services claimed. The mark as-a-whole would not be prima facie capable of distinguishing the applicant’s services from those of other traders.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The Manual requires a contextual assessment, including how common the surname is and whether the services are specialised or commonplace.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/16/16/1~1\",\n          \"quote\": \"If your research indicates that a surname is common or shared by a significant portion of Australians it is more likely that other traders may wish to use the same name in trade, and as such that name is less likely to be inherently adapted to distinguish any one trader's goods or services.\"\n        },\n        {\n          \"ref\": \"TMM/Part22/16/16/1~1\",\n          \"quote\": \"The nature of the goods and/or services must be taken into account, that is whether they are specialised, commonplace or somewhere between these extremes.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"The surname’s presentation also matters under the Manual: an unusual representation may make it capable of distinguishing where plain type would not.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMM/Part22/16/16/3\",\n          \"quote\": \"When assessing the registrability of a sign which consists of a common surname, consideration must also be given to the way in which the surname is represented. An unusual representation may serve to render it capable of distinguishing where plain type would not.\"\n        }\n      ],\n      \"authority\": \"manual\"\n    },\n    {\n      \"text\": \"Under section 41, rejection for lack of capacity to distinguish depends on subsection (3) or (4), rather than insufficient inherent adaptation alone: subsection (3) also addresses use before filing, while subsection (4) considers inherent adaptation, use or intended use, and other circumstances together.\",\n      \"quotes\": [\n        {\n          \"ref\": \"TMA1995/s41\",\n          \"quote\": \"(2) A trade mark is taken not to be capable of distinguishing the designated goods or services from the goods or services of other persons only if either subsection (3) or (4) applies to the trade mark.\"\n        },\n        {\n          \"ref\": \"TMA1995/s41\",\n          \"quote\": \"(3) This subsection applies to a trade mark if: (a) the trade mark is not to any extent inherently adapted to distinguish the designated goods or services from the goods or services of other persons; and (b) the applicant has not used the trade mark before the filing date in respect of the application to such an extent that the trade mark does in fact distinguish the designated goods or services as being those of the applicant.\"\n        },\n        {\n          \"ref\": \"TMA1995/s41\",\n          \"quote\": \"(4) This subsection applies to a trade mark if: (a) the trade mark is, to some extent, but not sufficiently, inherently adapted to distinguish the designated goods or services from the goods or services of other persons; and (b) the trade mark does not and will not distinguish the designated goods or services as being those of the applicant having regard to the combined effect of the following: (i) the extent to which the trade mark is inherently adapted to distinguish the goods or services from the goods or services of other persons; (ii) the use, or intended use, of the trade mark by the applicant; (iii) any other circumstances.\"\n        }\n      ],\n      \"authority\": \"legislation\"\n    }\n  ],\n  \"declined\": false,\n  \"concepts_used\": [\n    \"GC-0072\",\n    \"GC-0047\",\n    \"GC-0058\",\n    \"GC-0059\",\n    \"GC-0119\",\n    \"GC-0038\",\n    \"GC-0061\",\n    \"GC-0081\",\n    \"GC-0181\"\n  ]\n}",
+ "prompt_version": "answer-v4",
+ "request_sha256": "cdcc3415d743809b7e3d42186ffee85105dd4b5e4e5cd8db5da9833488ee66b2",
+ "response_id": "resp_0e141c323ddf7550006ad6b7236eb487d2a09afcebe40a110d",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7652,
+  "input_tokens_details": {
+   "cache_write_tokens": 7649,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1336,
+  "output_tokens_details": {
+   "reasoning_tokens": 212
+  },
+  "total_tokens": 8988
+ }
+}
