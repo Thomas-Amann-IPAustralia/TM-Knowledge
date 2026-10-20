@@ -1,0 +1,56 @@
+# rule: RULE-0003
+# derives: tmk:restsOn — every record, signed or machine-written, of every type, that names a passage, provision or unit the source graph holds, so that "what rests on this source?" is a lookup a downstream tool can make from the graph alone, starting from any ref (a provision reaches its units and a page its chunks through dcterms:isPartOf and tmk:onPage).
+# basis: The second review response's R05 and A10, the editorial-impact layer, which asks to "put the same index into the graph as a candidate rule over every store, so a downstream policy tool can read it". The index is tm_knowledge.ontology.dependencies, built in S042; tests/unit/test_rules.py::test_rule_0003_agrees_with_the_dependency_index holds the two to the same pairs, with the differences named. RULE-0002, approved for the signed records alone (OQ-0004), is unchanged beside it.
+# approved-by: PENDING — written by the S045 agent for Package 5; the owner is asked in OQ-0030. Until a person approves it everything it produces is stamped tmk:reviewStatus "candidate".
+# fires-test: tests/unit/test_rules.py::test_rule_0003_fires_for_records_of_both_stores
+# near-miss-test: tests/unit/test_rules.py::test_rule_0003_does_not_fire_for_a_ref_the_source_does_not_hold
+# limits: Recorded dependency only, as RULE-0002 and the index: a passage on the same subject that no record names is invisible to it (Q-28), so a nil result is "no recorded dependency", never "no impact". It states which named graph the dependant is in, never that it is current: the approved graph holds the signed records, and a correction in the authored graph (tmk:corrects) may withdraw or replace what one names. It does not follow a Manual passage to the provisions it cites: that hop is a reified citation in the source graph carrying upstream's extraction and certainty, and a consumer composes it rather than this rule flattening it. Staleness stays on the evidence anchor (tmk:isStale), not here.
+
+PREFIX tmk:  <https://data.ipaustralia.gov.au/tmk/ns/>
+PREFIX tmkg: <https://data.ipaustralia.gov.au/tmk/graph/>
+
+CONSTRUCT {
+  ?inference a tmk:InferredAssertion ;
+             tmk:assertionSubject ?dependant ;
+             tmk:assertionPredicate tmk:restsOn ;
+             tmk:assertionObject ?passage ;
+             tmk:producedByRule <https://data.ipaustralia.gov.au/tmk/prop/RULE-0003> ;
+             tmk:derivedFrom ?dependant ;
+             tmk:derivedFrom ?passage ;
+             tmk:dependencyVia ?via ;
+             tmk:dependantStore ?store ;
+             tmk:inferenceKind "dependency" ;
+             tmk:extractionMethod "construct_rule" .
+  ?dependant tmk:restsOn ?passage .
+}
+WHERE {
+  {
+    GRAPH tmkg:approved {
+      ?dependant tmk:goldRecord ?record .
+      { ?dependant ?via ?passage }
+      UNION
+      { ?element tmk:elementOf ?dependant . ?element ?via ?passage }
+      FILTER (isIRI(?passage) && STRSTARTS(STR(?passage), "https://data.ipaustralia.gov.au/tmk/ref/"))
+    }
+    BIND ("signed" AS ?store)
+  }
+  UNION
+  {
+    GRAPH tmkg:authored {
+      ?dependant tmk:goldRecord ?record .
+      { ?dependant ?via ?passage }
+      UNION
+      { ?element tmk:elementOf ?dependant . ?element ?via ?passage }
+      FILTER (isIRI(?passage) && STRSTARTS(STR(?passage), "https://data.ipaustralia.gov.au/tmk/ref/"))
+    }
+    BIND ("authored" AS ?store)
+  }
+  GRAPH tmkg:source { ?passage tmk:upstreamRef ?ref }
+  # A relationship's direct edge (`GC-0001 tmk:excludesBasis s44`) is navigation, and the
+  # relationship's own record already rests on both ends: credited to the concept it hangs
+  # from, it would name the wrong record. The closed list of relation predicates is in the
+  # TBox, the default graph.
+  FILTER NOT EXISTS { ?via a tmk:ApprovedRelation }
+  BIND (IRI(CONCAT("https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0003-",
+                   ?record, "-", REPLACE(?ref, "#", "%23"))) AS ?inference)
+}

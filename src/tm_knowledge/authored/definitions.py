@@ -8,8 +8,16 @@ A definition is **its own record**, in `authored/definitions.yaml`, never a fiel
 the concept, for the reason a concept's kind is its own record (ADR-0071): a signed
 concept cannot be edited, and writing a definition into it would put machine content
 inside a signature (CLAUDE.md rule 4). It follows that approving a label approves no
-definition. One definition per concept; ids are `GD-`, one sequence across the project
-(`docs/IDENTIFIERS.md` §3).
+definition. Ids are `GD-`, one sequence across the project (`docs/IDENTIFIERS.md` §3).
+
+**One definition per concept per scope** (the second review response, A03; ADR-0146,
+superseding ADR-0137's "one per concept"). A word can mean different things in different
+Parts of the Regulations or in different periods, and the honest model of that is two
+scoped definitions, not one definition that blurs them or a split concept (which the
+owner postponed for "application", CHAT-0025). The disambiguation rule: a concept with
+one definition has it; a concept with several has a `scope` on every one, no two alike,
+and a reader picks one only when the context names its scope. Otherwise the concept is
+`unresolved`, every candidate is shown and none is chosen (`resolve`).
 
 Each carries the authoring envelope like any machine-written record, and says where its
 words come from (`basis`), because a definition is where practice and law are easiest to
@@ -37,7 +45,8 @@ from tm_knowledge.authored import store as authored_store
 from tm_knowledge.stage0 import goldset
 from tm_knowledge.stage0.schemas import SchemaError, validator_for_file
 
-__all__ = ["DEFINITIONS_FILE", "SCHEMA", "BASES", "Definition", "Definitions", "Flag", "load", "triage"]
+__all__ = ["DEFINITIONS_FILE", "SCHEMA", "BASES", "Definition", "Definitions", "Resolution", "Flag", "load",
+           "triage"]
 
 DEFINITIONS_FILE = "definitions.yaml"
 SCHEMA = "definition.schema.json"
@@ -65,6 +74,10 @@ class Definition:
         return str(self.record.get("concept") or "")
 
     @property
+    def scope(self) -> str | None:
+        return self.record.get("scope")
+
+    @property
     def sound(self) -> bool:
         return not self.errors
 
@@ -83,7 +96,37 @@ class Definitions:
         return tuple(entry for entry in self.entries if not entry.sound)
 
     def by_concept(self) -> dict[str, Definition]:
-        return {entry.concept: entry for entry in self.sound}
+        """Each concept whose definition needs no context to pick: the ones with exactly
+        one. A concept with several scoped definitions is not here; `resolve` it."""
+        found: dict[str, list[Definition]] = {}
+        for entry in self.sound:
+            found.setdefault(entry.concept, []).append(entry)
+        return {concept: only[0] for concept, only in found.items() if len(only) == 1}
+
+    def resolve(self, concept: str, scope: str | None = None) -> "Resolution":
+        """The definition of `concept` in a context naming `scope`, or why none is chosen.
+
+        `none`: no definition. `single`: one, whatever its scope. `scoped`: several, and
+        the context names one's scope. `unresolved`: several, and the context names none
+        of them; every candidate is returned and none is chosen (CLAUDE.md rule 6)."""
+        candidates = tuple(entry for entry in self.sound if entry.concept == concept)
+        if not candidates:
+            return Resolution(concept, scope, "none", None, ())
+        if len(candidates) == 1:
+            return Resolution(concept, scope, "single", candidates[0], candidates)
+        named = [entry for entry in candidates if scope is not None and entry.scope == scope]
+        if named:
+            return Resolution(concept, scope, "scoped", named[0], candidates)
+        return Resolution(concept, scope, "unresolved", None, candidates)
+
+
+@dataclass(frozen=True)
+class Resolution:
+    concept: str
+    scope: str | None
+    state: str  # none, single, scoped, unresolved
+    chosen: Definition | None
+    candidates: tuple[Definition, ...]
 
 
 def _check(record: dict[str, Any], envelope: Any, concepts: set[str]) -> list[SchemaError | str]:
@@ -134,19 +177,26 @@ def load(
         raise authored_store.MalformedAuthoredFile(f"{path.name}: expected a list of definitions")
     entries = []
     seen_ids: set[str] = set()
-    defined: set[str] = set()
+    defined: set[tuple[str, str | None]] = set()
+    scoped = {str(raw.get("concept")) for raw in document if isinstance(raw, dict) and raw.get("scope")}
     for raw in document:
         if not isinstance(raw, dict):
             raise authored_store.MalformedAuthoredFile(f"{path.name}: a definition is not a mapping")
         record = {k: v for k, v in raw.items() if k != authored_store.ENVELOPE_KEY}
         envelope = raw.get(authored_store.ENVELOPE_KEY)
         errors = _check(record, envelope, concepts)
+        concept, scope = str(record.get("concept")), record.get("scope")
         if str(record.get("id")) in seen_ids:
             errors.append("id used twice in definitions.yaml")
-        if str(record.get("concept")) in defined:
-            errors.append(f"a second definition of {record.get('concept')}; one concept, one definition")
+        if (concept, scope) in defined:
+            errors.append(f"a second definition of {concept} in the same scope ({scope or 'no scope'}); "
+                          "one concept, one definition per scope")
+        if concept in scoped and not scope:
+            # Unscoped beside scoped would read as the general meaning and win by default:
+            # the very choice the disambiguation rule leaves to the context (ADR-0146).
+            errors.append(f"{concept} has scoped definitions, and this one names no scope")
         seen_ids.add(str(record.get("id")))
-        defined.add(str(record.get("concept")))
+        defined.add((concept, scope))
         entries.append(Definition(record=record, envelope=envelope, errors=tuple(errors)))
     return Definitions(entries=tuple(entries), path=path)
 

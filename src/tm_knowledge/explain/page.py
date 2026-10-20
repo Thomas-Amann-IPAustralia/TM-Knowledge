@@ -172,6 +172,7 @@ def _matter(e: dict[str, Any]) -> str:
             + f'<h3>Where the application is</h3>{_timeline(e["process"])}'
             + f'<div class="card"><p><b>{_e(e["unresolved"]["reads"])}</b></p>'
             + (f"<p>What would change this explanation:</p><ul>{asks}</ul>" if asks else "<p>Nothing more is needed to read the objections as recorded.</p>")
+            + (f'<p class="why">Which text of the law: {_e(e["versions"]["reads"])}</p>' if e.get("versions", {}).get("reads") else "")
             + f'<p class="stamp">{_e(e["stamp"])}</p>'
             + f'<details class="text-eq"><summary>The whole explanation as text</summary><pre>{_e(engine.render_text(e))}</pre></details></div></section>')
 

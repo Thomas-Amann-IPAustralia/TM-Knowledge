@@ -23,6 +23,11 @@ The rules it keeps, each held by a test in `tests/unit/test_explain.py`:
    knowing it either way would change the reading.
 6. **Practice and law stay apart.** Every source is labelled law (the Act, the
    Regulations) or practice (the Manual).
+7. **Say which text of the law was read** (A03, S045). The explanation names the
+   compilation of each instrument it quotes, and what can be said of the text in force on
+   the filing date the matter states: held, earlier than any held, or after the capture.
+   With no filing date, that is an explicit unknown. Which date governs a question is never
+   decided here (`tm_knowledge.versions`).
 """
 
 from __future__ import annotations
@@ -61,6 +66,10 @@ def _authority(ref: str) -> str:
 
 
 def _source(element: dict[str, Any]) -> dict[str, str]:
+    # An element a fictional amendment rewrote quotes the draft, which is never law
+    # (`explain.scenarios`, A10): it says so in place of law or practice.
+    if element.get("draft"):
+        return {"ref": element["ref"], "quote": element["quote"], "authority": "draft", "draft": element["draft"]}
     return {"ref": element["ref"], "quote": element["quote"], "authority": _authority(element["ref"])}
 
 
@@ -296,8 +305,39 @@ def _roles(record: dict[str, Any]) -> list[dict[str, Any]]:
     return [{"party": names[p], "capacities": caps} for p, caps in held.items()]
 
 
-def explain(matter: Matter, tests: dict[str, Any] | None = None, process: dict[str, Any] | None = None) -> dict[str, Any]:
-    """The explanation object for one fictional matter."""
+_ON_DATE = {"held": "{noun} in force then was the one quoted here",
+            "not_held": "{noun} in force then was an earlier text than the one quoted here, which is not held",
+            "unconfirmed": "{noun} quoted here was held then, but its record does not confirm it was complete",
+            "after_capture": "the date is after {noun} quoted here was captured, so a later text may have been in force"}
+
+
+def _versions(sources: list[dict[str, str]], application: dict[str, Any], compilations: dict[str, Any]) -> dict[str, Any]:
+    """Which text of each instrument the explanation quotes, and what can be said of the
+    text in force on the filing date (A03). Never which date governs."""
+    from tm_knowledge import versions
+
+    quoted = sorted({s["ref"].split("/", 1)[0] for s in sources if s["authority"] == "law"} & set(compilations))
+    filing = application.get("filing_date")
+    selections = versions.for_dates(compilations, {"the filing date": filing}, quoted)
+    read = [compilations[code][-1].line for code in quoted]
+    if not read:
+        return {"read": [], "selections": [], "reads": ""}
+    text = "The law quoted here is " + " and ".join(read) + "."
+    if filing is None:
+        text += (" The filing date is not given, so which text of the law was in force on it is not known; the text "
+                 "quoted is not assumed to be that one.")
+    else:
+        nouns = {"TMA1995": "the text of the Act", "TMR1995": "the text of the Regulations"}
+        parts = [_ON_DATE[s.state].format(noun=nouns.get(s.instrument, s.instrument)) for s in selections]
+        text += f" On the filing date ({filing}): " + "; ".join(parts) + "."
+    text += " Which date decides the text that applies to a question is not decided here."
+    return {"read": read, "selections": [s.row() for s in selections], "reads": text}
+
+
+def explain(matter: Matter, tests: dict[str, Any] | None = None, process: dict[str, Any] | None = None,
+            compilations: dict[str, Any] | None = None) -> dict[str, Any]:
+    """The explanation object for one fictional matter. `compilations` is what
+    `versions.held()` returns; read from the snapshot when not given."""
     if matter.errors:
         raise ValueError(f"{matter.id} has errors: {'; '.join(matter.errors)}")
     record = matter.record
@@ -333,6 +373,11 @@ def explain(matter: Matter, tests: dict[str, Any] | None = None, process: dict[s
     open_objections = [o for o in record["objections"] if o["status"] != "withdrawn"]
     raised = {tests[o["test"]]["provision"] for o in open_objections if o["test"] is not None}
     where = position(process, record["events"], raised, unknown_ground=any(o["test"] is None for o in open_objections))
+    if compilations is None:
+        from tm_knowledge import versions
+
+        compilations = versions.held()
+    sources = _sources(issues, where)
     return {
         "matter": record["id"], "fictional": True, "title": record["title"], "sign": record["application"]["sign"],
         "roles": _roles(record), "issues": issues,
@@ -342,7 +387,7 @@ def explain(matter: Matter, tests: dict[str, Any] | None = None, process: dict[s
                        + (f"No open objection is recorded for: {', '.join(clear)}. " if clear else "")
                        + "Resolving one objection does not accept the application: only the Registrar accepts it."},
         "process": where, "asks": asks,
-        "sources": _sources(issues, where),
+        "sources": sources, "versions": _versions(sources, record["application"], compilations),
         "stamp": STAMP,
     }
 
@@ -379,7 +424,7 @@ def _sources(*nodes: Any) -> list[dict[str, str]]:
 
     def collect(node: Any) -> None:
         if isinstance(node, dict):
-            if isinstance(node.get("ref"), str) and node.get("authority") in ("law", "practice"):
+            if isinstance(node.get("ref"), str) and node.get("authority") in ("law", "practice", "draft"):
                 found.setdefault(node["ref"], node["authority"])
             for value in node.values():
                 collect(value)
@@ -560,5 +605,7 @@ def render_text(explanation: dict[str, Any]) -> str:
     out += [p["note"], "", e["unresolved"]["reads"]]
     if e["asks"]:
         out += ["", "What would change this explanation:"] + [f"- {a['question']}" for a in e["asks"]]
+    if e.get("versions", {}).get("reads"):
+        out += ["", f"Which text of the law: {e['versions']['reads']}"]
     out += ["", "Sources: " + "; ".join(f"{s['ref']} ({s['authority']})" for s in e["sources"]), "", e["stamp"]]
     return "\n".join(out) + "\n"

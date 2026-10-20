@@ -47,7 +47,7 @@ from pathlib import Path
 from typing import Any, Container, Iterable
 
 from rdflib import Dataset, Graph, Literal, URIRef
-from rdflib.namespace import DCTERMS, OWL, PROV, RDF, RDFS, SKOS, XSD
+from rdflib.namespace import DCTERMS, OWL, PROV, RDF, RDFS, SKOS, TIME, XSD
 
 from tm_knowledge.authored import corrections as corrections_module
 from tm_knowledge.authored import definitions as definitions_module
@@ -454,6 +454,33 @@ def _held(corpus: Corpus, ref: str) -> Any:
     )
 
 
+def _compilation(graph: Graph, instrument_node: URIRef, code: str, held: Any) -> URIRef:
+    """The held compilation as a node of its own (A03): the enduring instrument apart from
+    its versioned text, and when the text was law apart from when it was read. The
+    interval's end is not stated: it is not known until the next compilation is held."""
+    node = URIRef(TMK[f"doc/{code}/compilation/{held.compilation_number}"])
+    interval = URIRef(f"{node}/in-force")
+    begins = URIRef(f"{interval}/begins")
+    graph.add((instrument_node, TMK.heldCompilation, node))
+    if held.title_id:
+        graph.add((instrument_node, TMK.registerTitleId, _lit(held.title_id)))
+    graph.add((node, RDF.type, TMK.Compilation))
+    graph.add((node, RDFS.label, _en(f"{held.name}, compilation {held.compilation_number}")))
+    graph.add((node, TMK.compilationOf, instrument_node))
+    graph.add((node, TMK.compilationNumber, _lit(held.compilation_number)))
+    graph.add((node, TMK.registerId, _lit(held.register_id)))
+    graph.add((node, TMK.capturedAt, _lit(held.captured_at)))
+    if held.status is not None and held.has_unincorporated_amendments is not None:
+        current = held.status == "InForce" and not held.has_unincorporated_amendments
+        graph.add((node, TMK.currentAtCapture, _lit(current, XSD.boolean)))
+    graph.add((node, TMK.inForceDuring, interval))
+    graph.add((interval, RDF.type, TIME.Interval))
+    graph.add((interval, TIME.hasBeginning, begins))
+    graph.add((begins, RDF.type, TIME.Instant))
+    graph.add((begins, TIME.inXSDDate, _lit(held.compilation_start, XSD.date)))
+    return node
+
+
 def _version_node(corpus: Corpus, graph: Graph) -> URIRef:
     node = _version_iri(corpus)
     graph.add((node, RDF.type, TMK.DocumentVersion))
@@ -596,6 +623,7 @@ def _build_source(
     version = _version_node(corpus, graph)
     known = corpus.provisions.keys() | corpus.units.keys()
 
+    compilations: dict[str, URIRef] = {}
     manual = URIRef(TMK["doc/TMM"])
     graph.add((manual, RDF.type, TMK.Document))
     graph.add((manual, RDFS.label, _en("IP Australia Trade Marks Office Manual of Practice and Procedure")))
@@ -614,6 +642,7 @@ def _build_source(
             graph.add((node, TMK.registerId, _lit(held.register_id)))
             graph.add((node, TMK.compilationStart, _lit(held.compilation_start, XSD.date)))
             graph.add((node, TMK.capturedAt, _lit(held.captured_at)))
+            compilations[instrument] = _compilation(graph, node, instrument, held)
 
     report.chunks = len(chunks)
     pages_seen: set[str] = set()
@@ -725,6 +754,9 @@ def _build_source(
         graph.add((node, TMK.capturedIn, version))
         instrument = ref.split("/", 1)[0]
         graph.add((node, DCTERMS.isPartOf, URIRef(TMK[f"doc/{instrument}"])))
+        compilation = compilations.get(instrument)
+        if compilation is not None:
+            graph.add((node, TMK.textFrom, compilation))
         title = getattr(held, "title", None)
         if title:
             graph.add((node, RDFS.label, _en(title)))
@@ -739,6 +771,8 @@ def _build_source(
                 graph.add((unit_node, TMK.ordinal, _lit(unit.ordinal, XSD.integer)))
                 graph.add((unit_node, DCTERMS.isPartOf, node))
                 graph.add((unit_node, TMK.capturedIn, version))
+                if compilation is not None:
+                    graph.add((unit_node, TMK.textFrom, compilation))
     report.provisions = len(provisions_seen)
     report.cases = len(cases_seen)
     return graph
@@ -1014,6 +1048,8 @@ def _apply_concept_types(graph: Graph, store: Store, counts: StoreReport) -> Non
         graph.add((node, TMK.typedBy, typing))
         graph.add((typing, TMK.goldRecord, _lit(record["id"])))
         graph.add((typing, TMK.conceptGroup, _lit(group)))
+        for ref in record.get("basis") or ():
+            graph.add((typing, TMK.typingBasis, ref_node(ref)))
         _origin(graph, typing, record, store)
         typed += 1
     counts.concept_types = typed
@@ -1438,6 +1474,8 @@ def _build_definitions(
         if record.get("scope_note"):
             graph.add((node, SKOS.scopeNote, _en(record["scope_note"])))
             graph.add((concept, SKOS.scopeNote, _en(record["scope_note"])))
+        if record.get("scope"):
+            graph.add((node, TMK.definitionScope, _lit(record["scope"])))
         _origin(graph, node, record, store)
     counts.definitions = len(definitions.sound)
 

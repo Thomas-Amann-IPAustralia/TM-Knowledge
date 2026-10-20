@@ -1,0 +1,66 @@
+# Fictional amendments: normative scenarios (A10, ADR-0146). Invented by claude-code-agent-S045 on
+# 2026-10-20. Nothing here is law, a proposal, or anyone's policy: each draft is made up to show
+# how a change to one provision would change the reading of the fictional matters, and its words
+# never enter the graph, the search index or the site.
+- id: FS-0001
+  fictional: true
+  title: Use after the filing date counts under section 41(3)
+  question: Would the section 41 matters be read differently if use after the filing date could show that a
+    trade mark does in fact distinguish?
+  written_by: claude-code-agent-S045
+  written_date: '2026-10-20'
+  amends: {provision: TMA1995/s41(3), test: GL-0003, instrument: TMA1995, compilation: '48'}
+  draft_text: '(b) the applicant has not used the trade mark, whether before or after the filing date in respect
+    of the application, to such an extent that the trade mark does in fact distinguish the designated goods or
+    services as being those of the applicant;'
+  changes:
+  - op: replace_text
+    target: not_distinguishing_by_use
+    text: The applicant has not used the trade mark, before or after the filing date, so much that it does in fact
+      distinguish.
+    why: The draft removes the words "before the filing date" from paragraph (3)(b).
+  - op: remove
+    target: before_filing
+    why: The Manual's rule that only use before the filing date counts under (3) follows the Act's words. The
+      scenario assumes the practice would be revised to follow the draft; that is an assumption about practice,
+      not a reading of it.
+  runs_on: [FM-0004, FM-0005]
+
+- id: FS-0002
+  fictional: true
+  title: Honest concurrent use removed from section 44(3)
+  question: Would the section 44 matters be read differently if honest concurrent use were no longer a ground for
+    the Registrar's discretion to accept?
+  written_by: claude-code-agent-S045
+  written_date: '2026-10-20'
+  amends: {provision: TMA1995/s44(3), test: GL-0001, instrument: TMA1995, compilation: '48'}
+  draft_text: 'Omit paragraph 44(3)(a).'
+  changes:
+  - op: remove
+    target: hcu
+    why: The draft omits paragraph (3)(a); paragraph (3)(b), other circumstances, remains.
+  runs_on: [FM-0001, FM-0002, FM-0003]
+  notes: A near miss on purpose. The exception's conditions change, but none of the three matters records an
+    assessment of honest concurrent use, so their readings on the recorded facts stay the same; the comparison
+    must say both.
+
+- id: FS-0003
+  fictional: true
+  title: Section 44(1) becomes a discretion
+  question: Would the section 44 matters be read differently if the Registrar may, rather than must, reject an
+    application that conflicts with an earlier trade mark?
+  written_by: claude-code-agent-S045
+  written_date: '2026-10-20'
+  amends: {provision: TMA1995/s44(1), test: GL-0001, instrument: TMA1995, compilation: '48'}
+  draft_text: 'Subject to subsections (3) and (4), an application for the registration of a trade mark (applicant’s
+    trade mark) in respect of goods (applicant’s goods) may be rejected if:'
+  changes:
+  - op: replace_text
+    target: effect
+    text: The application may be rejected for the goods affected, subject to subsections (3) and (4).
+    why: The draft replaces "must be rejected" with "may be rejected".
+  - op: set_effect_kind
+    target: effect
+    kind: discretion
+    why: '"May" makes the effect a discretion: the Registrar may, but need not, reject.'
+  runs_on: [FM-0001, FM-0003]

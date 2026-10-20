@@ -11,7 +11,7 @@ happily concatenate it.
 from __future__ import annotations
 
 from rdflib import Graph, Namespace, URIRef
-from rdflib.namespace import DCTERMS, OWL, PROV, RDF, RDFS, SH, SKOS, XSD
+from rdflib.namespace import DCTERMS, OWL, PROV, RDF, RDFS, SH, SKOS, TIME, XSD
 
 from tm_knowledge.config import base_iri
 from tm_knowledge.refs import PREFIXES, iri_for, to_iri
@@ -71,6 +71,7 @@ def bind_all(graph: Graph) -> Graph:
     graph.bind("dcterms", DCTERMS)
     graph.bind("owl", OWL)
     graph.bind("sh", SH)
+    graph.bind("time", TIME)
     return graph
 
 

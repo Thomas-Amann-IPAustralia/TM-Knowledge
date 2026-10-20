@@ -1289,7 +1289,9 @@ def definition_lines(ctx: Context) -> dict[str, str]:
                     f"unreviewed): {' '.join(str(d.record['text']).split())}")
             if d.record.get("scope_note"):
                 line += f" Scope: {' '.join(str(d.record['scope_note']).split())}"
-            out[d.concept] = line
+            # A concept with several scoped definitions gives every one, each with its
+            # scope: choosing between them is the context's, not the prompt's (ADR-0146).
+            out[d.concept] = f"{out[d.concept]}\n{line}" if d.concept in out else line
         ctx._definition_lines = out
     return ctx._definition_lines
 

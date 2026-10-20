@@ -35,7 +35,7 @@ def _row(**fields):
 
 def _load(tmp_path, rows):
     root = tmp_path / "authored"
-    root.mkdir()
+    root.mkdir(parents=True)
     (root / "definitions.yaml").write_text(yaml.safe_dump(rows, sort_keys=False), encoding="utf-8")
     return definitions.load(root)
 
@@ -91,10 +91,44 @@ def test_an_approval_written_into_a_definition_is_refused(tmp_path):
     assert "GD-0001" in _refused(found)
 
 
-def test_one_concept_one_definition(tmp_path):
+def test_one_concept_one_definition_per_scope(tmp_path):
+    """ADR-0146 relaxed ADR-0137's "one per concept" to one per concept per scope: a
+    second unscoped definition is still refused, and so is a second in the same scope."""
     found = _load(tmp_path, [_row(), _row(id="GD-0002")])
     assert "a second definition of GC-0001" in _refused(found)["GD-0002"]
     assert [entry.id for entry in found.sound] == ["GD-0001"]
+    found = _load(tmp_path / "again", [_row(scope="TMR1995/Part17"), _row(id="GD-0002", scope="TMR1995/Part17")])
+    assert "same scope" in _refused(found)["GD-0002"]
+
+
+def test_scoped_definitions_stand_together_and_an_unscoped_one_beside_them_is_refused(tmp_path):
+    """An unscoped definition beside scoped ones would read as the general meaning and
+    win by default, which is the choice the disambiguation rule leaves to the context."""
+    found = _load(tmp_path, [_row(scope="TMR1995/Part17"), _row(id="GD-0002", scope="period:2026-09-19/"),
+                             _row(id="GD-0003")])
+    assert [entry.id for entry in found.sound] == ["GD-0001", "GD-0002"]
+    assert "names no scope" in _refused(found)["GD-0003"]
+
+
+def test_a_concept_with_several_definitions_is_unresolved_until_its_context_names_one(tmp_path):
+    found = _load(tmp_path, [_row(scope="TMR1995/Part17"), _row(id="GD-0002", scope="period:2026-09-19/")])
+    assert "GC-0001" not in found.by_concept(), "by_concept holds only what needs no context to pick"
+    unresolved = found.resolve("GC-0001")
+    assert unresolved.state == "unresolved" and unresolved.chosen is None
+    assert [d.id for d in unresolved.candidates] == ["GD-0001", "GD-0002"]
+    chosen = found.resolve("GC-0001", scope="period:2026-09-19/")
+    assert (chosen.state, chosen.chosen.id) == ("scoped", "GD-0002")
+    assert found.resolve("GC-0001", scope="sense:another").state == "unresolved"
+    assert found.resolve("GC-0002").state == "none"
+    single = _load(tmp_path / "one", [_row()])
+    assert (single.resolve("GC-0001").state, single.resolve("GC-0001", scope="x").chosen.id) == ("single", "GD-0001")
+
+
+def test_the_committed_definitions_need_no_context_to_pick():
+    """Today every concept has one definition; a scoped pair would change that and this
+    test, on purpose, so the session that writes one also says how it is chosen."""
+    found = definitions.load()
+    assert len(found.by_concept()) == len(found.sound)
 
 
 def test_a_definition_never_enters_a_signed_record_or_the_approved_graph():

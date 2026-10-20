@@ -11,7 +11,7 @@
 # the parts a machine can check.
 
 version: 1
-updated: '2026-10-07'
+updated: '2026-10-20'
 
 themes:
   - id: unblocks
@@ -1541,3 +1541,43 @@ questions:
     if_unanswered: >
       The deck stays a draft and claims nothing. Everything else is finished, so
       nothing else is blocked.
+
+  - id: OQ-0030
+    theme: unblocks
+    status: open
+    needs: owner
+    urgency: low
+    raised: S045
+    tracked_as: ['RULE-0003', 'ADR-0146']
+    title: 'Approve or reject the third automatic rule: what rests on each source'
+    plain: >
+      A rule here is a small, fixed instruction that adds labelled links to the data. The
+      second rule, which you approved in September, answers "if this Manual passage
+      changed, which signed records would need re-reading?". This third one answers the
+      wider question for every record, signed or machine-written, and for any source: a
+      passage, a section of the Act or one of its subsections. It writes about 1,500 links
+      ("this record rests on this source"), the same ones the change view on the site
+      already shows, so that a future policy tool can read them from the data itself.
+      Until you approve it, every link is marked "candidate — needs a human".
+    why_you: >
+      The programme requires a person to approve every reasoning rule before anything
+      relies on it. An agent wrote this one.
+    if_unanswered: >
+      Nothing is blocked. The links exist, marked as candidates, and the site's change
+      view works without them.
+    background:
+      - label: What the rules do and what they stand on
+        href: '#/graph'
+    answer:
+      kind: choice
+      prompt: What is your call on RULE-0003?
+      options:
+        - value: approve
+          label: Approve it — its links may be relied on
+        - value: reject
+          label: Reject it — delete the rule
+        - value: show_me
+          label: Show me an example first
+        - value: no_view_yet
+          label: I have no view yet
+    notes_prompt: Optional. Say if a link it should draw is missing.

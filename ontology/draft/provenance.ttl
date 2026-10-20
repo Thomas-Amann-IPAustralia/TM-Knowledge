@@ -249,6 +249,21 @@ tmk:requiresHumanReview a owl:DatatypeProperty , owl:FunctionalProperty ;
 # produced by inference and exist nowhere else. A rule deriving an undeclared
 # property is a rule writing into a vocabulary nobody agreed.
 
+tmk:restsOn a owl:ObjectProperty ;
+    rdfs:label "rests on"@en-AU ;
+    rdfs:comment """Derived by RULE-0003 (candidate until the owner approves it, OQ-0030). This record, signed or machine-written, names that passage, provision or unit, in any field or through any element of its own, so it would need re-reading if the source changed. The graph form of the dependency index (`ontology.dependencies`, the second review response R05 and A10); the two are held to the same pairs by a test.
+
+Recorded dependency only. A nil result means no record names the source, never that nothing is affected (Q-28). Keyed by any ref: a query from a section reaches the records resting on its subsections through dcterms:isPartOf."""@en-AU .
+
+tmk:dependencyVia a owl:ObjectProperty ;
+    rdfs:label "dependency via"@en-AU ;
+    rdfs:comment "On a RULE-0003 inference: the property by which the record names the source (tmk:sourcePassage, tmk:legislativeBasis, tmk:definitionSource, tmk:typingBasis, tmk:onlyForGround on an element, ...). Several where it names it several ways."@en-AU .
+
+tmk:dependantStore a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "dependant store"@en-AU ;
+    rdfs:comment "On a RULE-0003 inference: `signed` (the record is in the approved graph) or `authored` (machine-written). Never summed (ADR-0080 c3)."@en-AU .
+
 tmk:mixedAuthority a owl:DatatypeProperty ;
     rdfs:range xsd:boolean ;
     rdfs:label "carries both law and practice"@en-AU ;

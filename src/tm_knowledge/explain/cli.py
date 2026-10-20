@@ -1,4 +1,4 @@
-"""`tmk-explain` — explain a fictional matter, as text or as the prototype page."""
+"""`tmk-explain` — explain a fictional matter, as text or as the prototype page; or run a fictional amendment."""
 
 from __future__ import annotations
 
@@ -15,7 +15,10 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--test", help="explain one legal test's requirements with no matter (GL-0001)")
     parser.add_argument("--process", help="walk through one process template with no matter (GP-0002)")
     parser.add_argument("--html", type=Path, help="write the prototype page here instead of printing text")
+    parser.add_argument("--scenario", help="run one fictional amendment on its fictional matters (FS-0001), or 'all'")
     args = parser.parse_args(argv)
+    if args.scenario:
+        return _scenario(parser, args.scenario)
     tests = {k: v.record for k, v in procedure.load_tests().by_id().items()}
     processes = {k: v.record for k, v in procedure.load_processes().by_id().items()}
     if args.test or args.process:
@@ -48,6 +51,29 @@ def main(argv: list[str] | None = None) -> int:
               f"{len(walkthroughs)} process(es)); not deployed, not for customers")
     else:
         print("\n".join(engine.render_text(e) for e in explanations))
+    return 0
+
+
+def _scenario(parser: argparse.ArgumentParser, wanted: str) -> int:
+    """A normative scenario (A10): the records resting on the amended provision, how each
+    fictional matter's reading would change, and the behavioural effect stated unknown.
+    Printed only: a draft never reaches the graph, the index or the site."""
+    from tm_knowledge.explain import scenarios
+    from tm_knowledge.ontology import dependencies
+    from tm_knowledge.upstream.loader import load_corpus
+
+    corpus = load_corpus()
+    found = scenarios.load(corpus=corpus)
+    for s in found:
+        if s.errors:
+            print(f"{s.id}: " + "; ".join(s.errors))
+    if any(s.errors for s in found):
+        return 1
+    chosen = [s for s in found if wanted == "all" or s.id == wanted]
+    if not chosen:
+        parser.error(f"no fictional amendment {wanted}")
+    index = dependencies.build(corpus)
+    print("\n".join(scenarios.render_text(scenarios.run(s, index=index)) for s in chosen))
     return 0
 
 
