@@ -1,6 +1,6 @@
 # HANDOFF
 
-**Last updated:** 2026-10-20 · S043 (end) · branch `claude/brave-cray-nnkmk5`
+**Last updated:** 2026-10-20 · S043 (end) · branch `claude/brave-cray-nnkmk5` · PR [Thomas-Amann-IPAustralia/TM-Knowledge#44](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/pull/44) (S044 pushes the rest of the site rework to it)
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
