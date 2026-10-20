@@ -3,13 +3,14 @@
 A static site, published to <https://thomas-amann-ipaustralia.github.io/TM-Knowledge/>.
 It exists to show a trade marks examiner, quickly, what the proof of concept does and what it
 could do, then how it works (ADR-0118). Since ADR-0145 it leads with outcomes and discloses the
-ontology last, in four layers: **what it does** (home, Ask, Change), **what it could do**
-(`#/future`), **rules as code** (`#/rules`), and **the ontology** (`#/model` and the map, glance,
-table, tour and glossary), with **where it stands** (`#/about`) across them. `layers.js` holds the
+ontology last, in four layers: **what it does** (home, Ask, Change, the customer preview),
+**what it could do** (`#/future`), **rules as code** (`#/rules`), and **the ontology** (`#/model`
+and the map, glance, table, tour, standards and glossary), with **where it stands** (`#/about`)
+across them. `layers.js` holds the
 layers, the depth strip under the header and the go-deeper card `app.js` adds to every page but
 the map; `glossary.js` holds every term the site explains, and `term(key)` explains one inline.
-A page explains a standard's name the first time it uses it. The rework's plan and checklist are
-`docs/SITE-REWORK.md`. The owner's older dashboard is kept at `site/workbench/` and linked from
+A page explains a standard's name the first time it uses it. The rework was carried out over S043
+and S044 (ADR-0145, ADR-0146; its plan is in git history). The owner's older dashboard is kept at `site/workbench/` and linked from
 nothing here.
 
 ## What belongs here
@@ -36,6 +37,8 @@ Generated: everything under `data/`, written by `tmk-explorer --write` from
 | `data/examples.json` | the 129 prepared answers and each search system's score |
 | `data/chat.json` | the measured answer prompt, verbatim, for live questions; and the live-only reading prompt (ADR-0132) |
 | `data/live.json` | whether live answers are on, and the proxy they go through. No key, ever |
+| `data/explain.json` | the customer preview: every invented matter's explanation, each test's requirements and each process walked through, from `tm_knowledge.explain`, each with its text equivalent and stamp |
+| `data/build.json` | the release manifest: what was built from what; the checks (shapes and inference rules, counted from their files); two machine-written blocks of the committed graph for the standards page |
 
 ## What does not belong here
 
@@ -55,8 +58,10 @@ look at; it does not state the law.
 |---|---|---|
 | `#/` | `home.js` | layer 1: what the proof of concept does today, four outcomes with their numbers and state, and a status board |
 | `#/future/customers?` | `future.js` | layer 2: what it could enable, for examiners, customers and later uses, each with what it builds on and still needs; what may be tested with customers |
-| `#/rules` | `rules.js` | layer 3: rules as code — connections, legal tests, process templates; section 44 as a worked example; how the rules are kept honest |
+| `#/customers/{requirements,process,objection}/…` | `customers.js` | layer 1 tool: the customer explanation preview, on invented matters, behind a banner (ADR-0146): what a test requires, the application process drawn as a flow, an objection with its three views; each with its text equivalent |
+| `#/rules` | `rules.js` | layer 3: rules as code — connections with their modality and condition; section 44 drawn as a diagram and the process from filing as a step flow (`diagrams.js`), each with a text equivalent; how the rules are checked, counted from `build.json` |
 | `#/model` | `model.js` | layer 4: the ontology hub — the four levels of the model and the ways into it |
+| `#/standards` | `standards.js` | layer 4: each standard in three parts (plain words, what it does here with a real block of the graph, what it is not): RDF, identifiers, named graphs, SKOS, SHACL, SPARQL and rules, PROV-O, JSON, why no OWL profile, LegalRuleML deferred |
 | `#/glossary` | `glossary-view.js` | every term from `glossary.js`, in plain words, here, and technically |
 | `#/circles` | `circles.js` | "At a glance": a zoomable circle packing of the ontology (D3): families → kinds → ideas |
 | `#/table/{kinds,ideas,connections}` | `table.js` | "As a table": the same records listed, not drawn — the kinds and how they connect, every idea (open a row for its connections as sentences), every connection; filters, and a CSV of each table with who wrote every row |
@@ -65,7 +70,7 @@ look at; it does not state the law.
 | `#/map/{kinds,ideas,text}/GC-…` | `map.js` | Cytoscape: kinds open and close as boxes; an idea opens into Parts, then passages, with the Act and the Regulations in boxes of their own |
 | `#/ask/BN-…` | `ask.js` | a question's ideas, connections and passages drawn hop by hop; the same ideas on a mini map (Cytoscape) beside a plain account of how the starting ideas were found and why no connection is preferred; then a streamed, cited answer |
 | `#/change/TMM/…` | `change.js` | an amendment timeline (Plot) and every page as a tile in its Part's row, titles in full; pick one to see the ripple, and what rests on it on a mini map; or name a provision to see the records naming it and those resting on a Manual passage that cites it |
-| `#/about` | `about.js` | "Where it stands": what it is, how it works, the measurement as intervals (Plot), the limits |
+| `#/about` | `about.js` | "Where it stands": the measurement as intervals (Plot), the decisions ahead and whose they are, the release manifest, the limits, what it is built from and how Ask works |
 
 **An idea's card shows its own record's fields**, on the map and in the table alike: its
 labels, its definition (`GD-`, stamped), what it rests on, its legislative basis, and the
@@ -76,7 +81,9 @@ are listed, never drawn (Q-96).
 their own, not connections, so the map does not draw them: an idea's card lists those that
 name it (`structuresBlock`), and the table sets each out element by element. They are shown
 as written; the page evaluates no condition and computes no date. The customer explanation
-built from them (`tmk-explain`) is not part of this site and is not published.
+built from them (`tm_knowledge.explain`) is shown at `#/customers` as a preview on invented matters
+(ADR-0146); every state it shows is the explanation object's, never the browser's. Showing it to
+customers, or testing it with them, stays the owner's decision.
 
 **The Manual, the Act and the Regulations each have a colour and a mark** — a blue
 square, an amber diamond, a plum hexagon — wherever a passage appears: map nodes and

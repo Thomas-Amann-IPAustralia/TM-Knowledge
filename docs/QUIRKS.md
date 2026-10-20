@@ -1734,3 +1734,15 @@ on all twelve. S043 fixed all three. When a record type gets its own reader, add
 the ontology report (its §7 counts record types). One CSS trap on the way: `explorer.css` holds
 short generic classes the tour uses (`.fact`, `.bars`, `.steps`), so a new view's class named after
 its data (a leaf of kind `fact`) picks up the tour's layout; prefix new classes (`ck-fact`).
+
+### Q-102: a narrow-screen grid of `1fr` overflows, and a Playwright sweep that reloads reports "Failed to fetch"
+
+Two traps from S044's visual QA of the site. **First**, a media query that collapses a grid to one
+column with `grid-template-columns: 1fr` lets that column grow to its widest unbreakable child (a
+`<pre>`, a long code IRI, a chart), so the page scrolls sideways at 390 px; `#/standards` and
+`#/change` both did. Collapse to `minmax(0, 1fr)` instead, and give long code `overflow-wrap:
+anywhere`. **Second**, a sweep that does `page.goto(route)` then `page.reload()` aborts the first
+load's `fetch` of `data/*.json`, and the console shows "TypeError: Failed to fetch" on pages that are
+fine. Open each route in a fresh page and wait instead; then any error the sweep reports is real.
+The sweep that found both checks `document.documentElement.scrollWidth > innerWidth` on every route
+at 1400 and 390 px, light and dark.

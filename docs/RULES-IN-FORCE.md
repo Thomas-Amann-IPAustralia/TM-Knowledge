@@ -44,6 +44,10 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   the owner's (ADR-0136). Before searching,
   it has the model read a typed question for ideas named in other words, each checked and
   marked "read by the model"; the owner approved it and its cost per question (ADR-0133).
+- **The site leads with outcomes and discloses the ontology last** (ADR-0145): what it does,
+  what it could do, rules as code, the ontology; every standard explained in plain words. The
+  customer explanation preview is on it, on invented matters, loudly labelled (ADR-0146);
+  showing it to customers, testing with them or using real case data stays the owner's.
 - **On the site, an expert's review is marked, never featured.** Machine-written
   records keep "Machine · unreviewed" everywhere; reviewed ones say "Reviewed", grey,
   with no name; pictures draw every record alike. The Manual, the Act and the

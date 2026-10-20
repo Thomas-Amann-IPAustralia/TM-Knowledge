@@ -123,7 +123,7 @@ def files():
 @needs_snapshot
 def test_every_file_is_built(files):
     assert set(files) == {"build.json", "ontology.json", "search.json", "passages.json", "stability.json",
-                          "tour.json", "examples.json", "chat.json", "live.json"}
+                          "tour.json", "examples.json", "chat.json", "live.json", "explain.json"}
 
 
 @needs_snapshot
@@ -441,6 +441,63 @@ def test_every_view_sits_in_one_layer_and_every_term_is_explained():
     assert used and used <= entries, f"terms with no entry: {used - entries}"
     for key in ("rdf", "skos", "shacl", "sparql", "owl", "prov-o", "named-graph"):
         assert key in entries, key
+
+
+@needs_snapshot
+def test_the_customer_preview_is_the_engines_own_explanation(files):
+    """ADR-0145: the site's customer preview draws the very objects `tmk-explain` builds, with
+    their text equivalents, so the page and the prototype cannot say different things. Every
+    matter is invented, every view carries its stamp, and the page says loudly what it is not."""
+    from tm_knowledge.authored import procedure
+    from tm_knowledge.explain import engine, matters
+
+    data = files["explain.json"]
+    assert data["fictional"] is True and data["left_out"] == []
+    assert [m["matter"] for m in data["matters"]] == [m.id for m in matters.load()]
+    tests = {k: v.record for k, v in procedure.load_tests().by_id().items()}
+    processes = {k: v.record for k, v in procedure.load_processes().by_id().items()}
+    first = matters.load()[0]
+    assert data["matters"][0]["text"] == engine.render_text(engine.explain(first, tests, processes[engine.EXAMINATION_PROCESS]))
+    assert [r["test"] for r in data["requirements"]] == sorted(tests)
+    assert data["walkthroughs"][0]["process"] != engine.EXAMINATION_PROCESS
+    for m in data["matters"]:
+        assert m["fictional"] is True and m["stamp"] == engine.STAMP and m["text"]
+    for view in data["requirements"] + data["walkthroughs"]:
+        assert view["stamp"] == engine.GENERAL_STAMP and view["text"]
+    page = (SITE / "js" / "customers.js").read_text(encoding="utf-8")
+    for words in ("Invented matters only. Not tested with customers. Not advice.",
+                  "never says how an application will be decided", "the project owner's decision"):
+        assert words in page, words
+    assert 'load("explain")' in page and "textEq(" in page
+
+
+@needs_snapshot
+def test_every_clause_a_structured_record_quotes_opens_in_the_drawer(files):
+    """A chip on a legal test, a process step or an explanation opens its clause; none reads as
+    "not in the snapshot"."""
+    passages = files["passages.json"]
+    chunks = {row[0] for row in passages["chunks"]}
+    named = explorer._refs(files["ontology.json"]["structures"]) | explorer._refs(files["explain.json"])
+    missing = {r for r in named if r not in passages["legislation"] and r not in chunks}
+    assert not missing, sorted(missing)
+
+
+@needs_snapshot
+def test_the_standards_page_reads_its_examples_and_checks_from_the_build(files):
+    """The standards page explains each standard with a real block of the committed graph and the
+    checks counted from `shapes/` and `queries/rules/`, never typed in; a sample never names a
+    reviewer, whom the site never singles out (ADR-0130)."""
+    release = files["build.json"]
+    checks = release["checks"]
+    assert sum(checks["shapes"].values()) > 0 and set(checks["shapes"]) == {p.stem for p in (REPO_ROOT / "shapes").glob("*.ttl")}
+    assert {r["id"]: r["approved"] for r in checks["rules"]} == {"RULE-0001": False, "RULE-0002": True}
+    for key, sample in release["samples"].items():
+        assert sample["lines"] and sample["lines"][0].startswith(sample["subject"]), key
+        assert not any("approvedBy" in line for line in sample["lines"]), key
+    page = (SITE / "js" / "standards.js").read_text(encoding="utf-8")
+    assert "build.samples" in page and "build.checks" in page and "g.profile" in page
+    for typed in ("102,082", "42 ", "29,873"):
+        assert typed not in page, typed
 
 
 def test_the_first_page_leads_with_outcomes_read_from_the_data():

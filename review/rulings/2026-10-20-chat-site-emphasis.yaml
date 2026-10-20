@@ -9,7 +9,21 @@ source:
   author: Thomas-Amann-IPAustralia
   relayed_by: S043 agent
   title: The explorer leads with outcomes, discloses the ontology last, and is open about customer testing
-applied: null
+applied:
+  session: S044
+  date: '2026-10-20'
+  branch: claude/zealous-mccarthy-2r7uvs
+  what_changed: >-
+    The rework S043 began is finished. S043: the four layers and the depth strip (layers.js), the
+    glossary and term(), the new home page, #/future with "What we may test with customers",
+    first versions of #/rules, #/model and #/glossary. S044: the brand ("Trade Marks Manual ·
+    proof of concept") and the tour's last step leading back to Ask and #/future; #/rules with
+    section 44 drawn as a diagram and the process from filing as a step flow, each with a text
+    equivalent, connections with their modality and condition, and the checks counted from
+    shapes/ and queries/rules/; #/standards (RDF, identifiers, named graphs, SKOS, SHACL, SPARQL,
+    PROV-O, JSON, why no OWL profile, LegalRuleML deferred) with real blocks of the committed
+    graph; #/customers (ADR-0146); "Where it stands" with the decisions ahead and the release
+    manifest; Ask's and Change's ledes lead with what they do. docs/SITE-REWORK.md deleted.
 answers:
 - id: CHAT-0093
   item: the site's emphasis and order

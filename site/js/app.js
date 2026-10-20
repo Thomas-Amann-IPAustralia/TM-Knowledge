@@ -19,10 +19,12 @@ import * as future from "./future.js";
 import * as rules from "./rules.js";
 import * as model from "./model.js";
 import * as glossaryView from "./glossary-view.js";
+import * as standards from "./standards.js";
+import * as customers from "./customers.js";
 import { layerOf, depthStrip, goDeeper } from "./layers.js";
 import { initTerms } from "./glossary.js";
 
-const VIEWS = { "": home, tour, map, circles, table, ask, change, about, future, rules, model, glossary: glossaryView };
+const VIEWS = { "": home, tour, map, circles, table, ask, change, about, future, rules, model, standards, customers, glossary: glossaryView };
 /** Views that fill the screen as a tool, with no room for a card beneath. */
 const FULL_SCREEN = new Set(["map"]);
 const cache = new Map();
