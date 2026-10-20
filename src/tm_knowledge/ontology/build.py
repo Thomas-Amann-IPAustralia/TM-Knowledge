@@ -68,6 +68,7 @@ from tm_knowledge.ontology.namespaces import (
     assertion_node,
     bind_all,
     concept_node,
+    element_node,
     evidence_node,
     proposition_node,
     ref_node,
@@ -1446,9 +1447,13 @@ def _build_procedures(graph: Graph, tests: Any, processes: Any, counts: StoreRep
     """Structured tests and process templates (ADR-0142), as records in the authored graph.
 
     The record and its envelope, each evidence item an anchor, as a definition's are, so
-    every machine-written record type carries its envelope in the RDF (R03, R04). The
-    condition tree and the steps stay in the record file for now; mapping them is a
-    design of its own (the handoff's next action)."""
+    every machine-written record type carries its envelope in the RDF (R03, R04). Since
+    S043 the inner structure is there too: the condition tree with its joins and its fact
+    and evaluative leaves, the effect and its kind, the exceptions, evidence requirements
+    and routes of a test; the steps, transitions and time rules of a template. Each
+    element is a `tmk:RecordElement` of its record, stamped as the record is, saying
+    whether its source is law or practice, and anchored to the evidence item it quotes,
+    so a consumer reaches the exact words without the record file (ADR-0144)."""
     for found, kind in ((tests, TMK.StructuredTest), (processes, TMK.ProcessTemplate)):
         store = Store(
             name="authored", records=None, graph_name=AUTHORED_GRAPH,
@@ -1464,8 +1469,127 @@ def _build_procedures(graph: Graph, tests: Any, processes: Any, counts: StoreRep
             graph.add((node, TMK.extractionMethod, _lit(AUTHORING)))
             if entry.record.get("provision"):
                 graph.add((node, TMK.readsProvision, ref_node(entry.record["provision"])))
+            if entry.record.get("ground"):
+                graph.add((node, TMK.testsGround, concept_node(entry.record["ground"])))
             _origin(graph, node, entry.record, store)
+            elements = _Elements(graph, node, entry, store)
+            if kind == TMK.StructuredTest:
+                elements.test(entry.record)
+            else:
+                elements.process(entry.record)
         counts.procedures += len(found.sound)
+
+
+class _Elements:
+    """One record's elements as nodes. Kept in one place so a test and a template map
+    their shared parts (a statement, a source, an anchor) the same way."""
+
+    def __init__(self, graph: Graph, record: URIRef, entry: Any, store: Store) -> None:
+        self.graph, self.record, self.store, self.id = graph, record, store, entry.id
+        evidence = (entry.envelope or {}).get("evidence") or ()
+        self.anchors: dict[tuple[str, str], URIRef] = {}
+        for ordinal, item in enumerate(evidence, start=1):
+            self.anchors.setdefault((str(item.get("ref")), str(item.get("quote"))), evidence_node(record, ordinal))
+
+    def node(self, cls: URIRef, *path: str | int, element: dict | None = None) -> URIRef:
+        g, node = self.graph, element_node(self.record, *path)
+        g.add((node, RDF.type, cls))
+        g.add((node, TMK.elementOf, self.record))
+        g.add((node, TMK.origin, _lit(self.store.name)))
+        g.add((node, TMK.reviewStatus, _lit(self.store.review_status(self.id))))
+        element = element or {}
+        if element.get("id"):
+            g.add((node, TMK.elementId, _lit(str(element["id"]))))
+        label = element.get("label")
+        if label:
+            g.add((node, RDFS.label, _en(str(label))))
+        if element.get("text"):
+            g.add((node, TMK.statement, _en(str(element["text"]))))
+        ref, quote = element.get("ref"), element.get("quote")
+        if isinstance(ref, str):
+            g.add((node, TMK.sourcePassage, ref_node(ref)))
+            g.add((node, TMK.sourceAuthority, _lit(
+                "law" if ref.startswith(("TMA1995/", "TMR1995/")) else "practice")))
+            anchor = self.anchors.get((ref, str(quote)))
+            if anchor is not None:
+                g.add((node, TMK.anchoredBy, anchor))
+        for concept in element.get("concepts") or ():
+            g.add((node, TMK.turnsOn, concept_node(str(concept))))
+        return node
+
+    def condition(self, tree: dict, *path: str | int) -> URIRef:
+        if "all" in tree or "any" in tree:
+            join = "all" if "all" in tree else "any"
+            node = self.node(TMK.ConditionGroup, *path, element=tree)
+            self.graph.add((node, TMK.conditionJoin, _lit(join)))
+            for ordinal, child in enumerate(tree[join], start=1):
+                child_path = ("element", child["id"]) if child.get("id") else (*path, ordinal)
+                part = self.condition(child, *child_path)
+                self.graph.add((node, TMK.conditionPart, part))
+                self.graph.add((part, TMK.ordinal, _lit(ordinal, XSD.integer)))
+            return node
+        cls = TMK.EvaluativeCondition if tree["kind"] == "evaluative" else TMK.FactCondition
+        node = self.node(cls, *path, element=tree)
+        if tree.get("ask"):
+            self.graph.add((node, TMK.clarifyingQuestion, _en(str(tree["ask"]))))
+        return node
+
+    def effect(self, effect: dict, *path: str | int) -> URIRef:
+        node = self.node(TMK.LegalEffect, *path, element=effect)
+        self.graph.add((node, TMK.effectKind, _lit(effect["kind"])))
+        return node
+
+    def test(self, record: dict) -> None:
+        g, root = self.graph, self.record
+        g.add((root, TMK.hasEffect, self.effect(record["effect"], "effect")))
+        tree = record["condition"]
+        g.add((root, TMK.hasCondition, self.condition(
+            tree, *(("element", tree["id"]) if tree.get("id") else ("condition",)))))
+        for exception in record.get("exceptions") or ():
+            node = self.node(TMK.TestException, "element", exception["id"], element=exception)
+            g.add((root, TMK.hasException, node))
+            g.add((node, TMK.hasEffect, self.effect(exception["effect"], "element", exception["id"], "effect")))
+            inner = exception["condition"]
+            g.add((node, TMK.hasCondition, self.condition(
+                inner, *(("element", inner["id"]) if inner.get("id") else ("element", exception["id"], "condition")))))
+        for requirement in record.get("evidence_requirements") or ():
+            node = self.node(TMK.EvidenceRequirement, "element", requirement["id"], element=requirement)
+            g.add((root, TMK.hasEvidenceRequirement, node))
+            g.add((node, TMK.requirementKind, _lit(requirement["kind"])))
+            for condition in requirement["for"]:
+                g.add((node, TMK.requirementFor, element_node(root, "element", condition)))
+        for route in record.get("routes") or ():
+            node = self.node(TMK.ResponseRoute, "element", route["id"], element=route)
+            g.add((root, TMK.hasRoute, node))
+            if route.get("scope"):
+                g.add((node, SKOS.scopeNote, _en(str(route["scope"]))))
+
+    def process(self, record: dict) -> None:
+        g, root = self.graph, self.record
+        for ordinal, step in enumerate(record["steps"], start=1):
+            node = self.node(TMK.ProcessStep, "element", step["id"], element=step)
+            g.add((root, TMK.hasStep, node))
+            g.add((node, TMK.ordinal, _lit(ordinal, XSD.integer)))
+            g.add((node, TMK.stepKind, _lit(step["kind"])))
+            g.add((node, TMK.actorCapacity, _lit(step["actor"])))
+            if step.get("continues_in"):
+                g.add((node, TMK.continuesIn, assertion_node(str(step["continues_in"]))))
+        for ordinal, transition in enumerate(record.get("transitions") or (), start=1):
+            node = self.node(TMK.ProcessTransition, "transition", ordinal,
+                             element={**transition, "text": transition["when"]})
+            g.add((root, TMK.hasTransition, node))
+            g.add((node, TMK.ordinal, _lit(ordinal, XSD.integer)))
+            g.add((node, TMK.fromStep, element_node(root, "element", transition["from"])))
+            g.add((node, TMK.toStep, element_node(root, "element", transition["to"])))
+            for need in transition.get("needs") or ():
+                g.add((node, TMK.needs, _en(str(need))))
+            for ground in transition.get("grounds") or ():
+                g.add((node, TMK.onlyForGround, ref_node(str(ground))))
+        for rule in record.get("deadlines") or ():
+            node = self.node(TMK.TimeRule, "element", rule["id"], element=rule)
+            g.add((root, TMK.hasTimeRule, node))
+            for step in rule["from"]:
+                g.add((node, TMK.timeRuleFrom, element_node(root, "element", step)))
 
 
 def _build_store(

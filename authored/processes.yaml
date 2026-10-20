@@ -307,3 +307,287 @@
     alternatives_considered: []
     expert_should_check: Whether lapse should be drawn from the first report only, or from a further report raising
       new grounds as well (regulation 4.12(1)(b)).
+- id: GP-0002
+  title: From filing to registration (sections 27, 31, 33, 34, 52 and 68)
+  scope: An application from filing to registration or lapse, as a customer would follow it. The examination report and
+    what follows it are GP-0001; opposition proceedings are named, not set out. The times are explained, never computed.
+  steps:
+  - id: filing
+    label: Application filed
+    actor: applicant
+    kind: start
+    text: A person applies to register a trade mark for goods and/or services.
+    ref: TMA1995/s27(1)
+    quote: 'A person may apply for the registration of a trade mark in respect of goods and/or services if:'
+    concepts:
+    - GC-0131
+    - GC-0091
+  - id: examination
+    label: Examination
+    actor: registrar
+    kind: decision
+    text: The Registrar examines the application and reports on whether it was made in accordance with the Act and whether
+      there are grounds for rejecting it.
+    ref: TMA1995/s31
+    quote: 'The Registrar must, in accordance with the regulations, examine and report on:'
+    concepts:
+    - GC-0092
+  - id: report
+    label: Examination report
+    actor: registrar
+    kind: event
+    text: If the Registrar reasonably believes the application is not in accordance with the Act or that there are grounds
+      for rejecting it, the Registrar reports that belief. What follows is set out in GP-0001.
+    ref: TMR1995/r4.8(1)
+    quote: 'the Registrar reasonably believes that:'
+    concepts:
+    - GC-0179
+    continues_in: GP-0001
+  - id: acceptance
+    label: Acceptance
+    actor: registrar
+    kind: event
+    text: The Registrar must accept the application unless satisfied that it is not in accordance with the Act or that
+      there are grounds for rejecting it.
+    ref: TMA1995/s33(1)
+    quote: 'The Registrar must, after the examination, accept the application unless he or she is satisfied that:'
+    concepts:
+    - GC-0093
+  - id: acceptance_published
+    label: Acceptance notified and published
+    actor: registrar
+    kind: event
+    text: The Registrar notifies the applicant of the decision and publishes it.
+    ref: TMA1995/s34(b)
+    quote: publish the decision in accordance with the regulations.
+  - id: opposition
+    label: Opposition
+    actor: any_person
+    kind: event
+    text: After acceptance, a person may oppose registration by filing a notice of opposition. Opposition proceedings
+      are not set out here.
+    ref: TMA1995/s52(1)
+    quote: If the Registrar has accepted an application for the registration of a trade mark, a person may oppose the
+      registration by filing a notice of opposition.
+    concepts:
+    - GC-0040
+    - GC-0103
+  - id: registration
+    label: Registration
+    actor: registrar
+    kind: end
+    text: The Registrar must register an accepted trade mark within the period the Regulations provide, if there was
+      no opposition or an opposition ended in one of the ways section 68 lists.
+    ref: TMA1995/s68(1)
+    quote: 'The Registrar must, within the period provided under the regulations, register a trade mark that has been
+      accepted for registration:'
+    concepts:
+    - GC-0141
+  - id: lapse
+    label: Lapse
+    actor: law
+    kind: end
+    text: If the trade mark is not registered under section 68(1), the application lapses.
+    ref: TMA1995/s68
+    quote: Otherwise, the application for the registration of the trade mark lapses.
+    concepts:
+    - GC-0098
+  transitions:
+  - from: filing
+    to: examination
+    when: the Registrar examines the application
+    ref: TMA1995/s31
+    quote: 'The Registrar must, in accordance with the regulations, examine and report on:'
+  - from: examination
+    to: acceptance
+    when: the examination leaves the Registrar satisfied of neither a defect in the application nor a ground for rejecting
+      it
+    ref: TMA1995/s33(1)
+    quote: 'The Registrar must, after the examination, accept the application unless he or she is satisfied that:'
+    needs:
+    - what the examination found
+  - from: examination
+    to: report
+    when: the Registrar reasonably believes the application is not in accordance with the Act or that there are grounds
+      for rejecting it
+    ref: TMR1995/r4.8(1)
+    quote: 'the Registrar reasonably believes that:'
+    needs:
+    - what the examination found
+  - from: report
+    to: acceptance
+    when: after the response, the Registrar is no longer satisfied that there are grounds for rejecting it (GP-0001)
+    ref: TMA1995/s33(1)
+    quote: 'The Registrar must, after the examination, accept the application unless he or she is satisfied that:'
+    needs:
+    - what the Registrar decides on the response
+  - from: acceptance
+    to: acceptance_published
+    when: the Registrar notifies the applicant and publishes the decision
+    ref: TMA1995/s34(a)
+    quote: notify the applicant of his or her decision under section 33; and
+  - from: acceptance_published
+    to: opposition
+    when: a person files a notice of opposition
+    ref: TMA1995/s52(1)
+    quote: If the Registrar has accepted an application for the registration of a trade mark, a person may oppose the
+      registration by filing a notice of opposition.
+    needs:
+    - whether a notice of opposition was filed
+  - from: acceptance_published
+    to: registration
+    when: there has been no opposition
+    ref: TMA1995/s68(1)(a)
+    quote: if there has been no opposition to the registration
+    needs:
+    - whether a notice of opposition was filed
+  - from: opposition
+    to: registration
+    when: the Registrar's decision, or the decision on appeal, is that the trade mark should be registered (or the opposition
+      is withdrawn or dismissed)
+    ref: TMA1995/s68(1)(b)(i)
+    quote: if the Registrar’s decision, or (in the case of an appeal against the Registrar’s decision) the decision on
+      appeal, is that the trade mark should be registered
+    needs:
+    - how the opposition ended
+  - from: opposition
+    to: lapse
+    when: the trade mark is not registered under section 68(1)
+    ref: TMA1995/s68
+    quote: Otherwise, the application for the registration of the trade mark lapses.
+    needs:
+    - how the opposition ended
+  deadlines:
+  - id: opposition_period
+    from:
+    - acceptance_published
+    text: A notice of intention to oppose may be filed within 2 months from the day the acceptance is published. The
+      date is not calculated here.
+    ref: TMR1995/r5.6(1)
+    quote: the period for filing a notice of intention to oppose is 2 months from the day the acceptance of the trade
+      mark application is published in a computer database maintained by the Trade Marks Office in accordance with regulation
+      4.11A
+  - id: registration_period
+    from:
+    - acceptance_published
+    text: The Regulations set the period within which an accepted trade mark is registered. It is not calculated here.
+    ref: TMR1995/r7.1(1)
+    quote: 'the period for the registration of a trade mark that has been accepted for registration is:'
+  - id: effect_from_filing
+    from:
+    - registration
+    text: Once registered, the registration is taken to have had effect from the filing date.
+    ref: TMA1995/s72(1)
+    quote: is taken to have had effect from (and including) the filing date in respect of the application for registration
+  notes: The template is the procedure, not any matter's history. The examination report's branch continues in GP-0001,
+    which ends in acceptance, rejection or lapse. Opposition proceedings, revocation of acceptance (section 38), divisional
+    applications and priority claims are left out, not denied. No date is computed.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S043
+    authored_date: '2026-10-20'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s27(1)
+      span:
+      - 4
+      - 99
+      content_hash: sha256:ef83022e7a048f1d01d28a8cc271fb03b419d20a0d523f02729877b2c5e37e3a
+      quote: 'A person may apply for the registration of a trade mark in respect of goods and/or services if:'
+    - ref: TMA1995/s31
+      span:
+      - 0
+      - 78
+      content_hash: sha256:d6fb7897727ef84585b0c9cb25f38b568e7fcafb34d2c61f50d93884650f92b2
+      quote: 'The Registrar must, in accordance with the regulations, examine and report on:'
+    - ref: TMR1995/r4.8(1)
+      span:
+      - 145
+      - 184
+      content_hash: sha256:b49812f8edb85b34c7d9821d8d3e43d097a44bcee47a642c85dbc88a8983e22d
+      quote: 'the Registrar reasonably believes that:'
+    - ref: TMA1995/s33(1)
+      span:
+      - 4
+      - 105
+      content_hash: sha256:a071ed6dcfc5c0c8ef6f02ab77cb17839891e28ff5d1e8a8941caf2ce8eed167
+      quote: 'The Registrar must, after the examination, accept the application unless he or she is satisfied that:'
+    - ref: TMA1995/s34(b)
+      span:
+      - 4
+      - 60
+      content_hash: sha256:da99d24895d6ba64e02ad84481acac078abb012aecf53fa992c570ff8c664b09
+      quote: publish the decision in accordance with the regulations.
+    - ref: TMA1995/s52(1)
+      span:
+      - 4
+      - 157
+      content_hash: sha256:fe98c73e3cbcca0d5824b9d4ba88f97157a3a47b6aade4667f5b28a1807046c5
+      quote: If the Registrar has accepted an application for the registration of a trade mark, a person may oppose the
+        registration by filing a notice of opposition.
+    - ref: TMA1995/s68(1)
+      span:
+      - 4
+      - 136
+      content_hash: sha256:d02e8167facb374f1a1516c02f710154fb4759135f0a8511868029aeeb92f3ce
+      quote: 'The Registrar must, within the period provided under the regulations, register a trade mark that has been
+        accepted for registration:'
+    - ref: TMA1995/s68
+      span:
+      - 593
+      - 666
+      content_hash: sha256:bbed23b903bd869fb8c3199f62bb3ed4ebce256b691a4fcf030e409b34136b1d
+      quote: Otherwise, the application for the registration of the trade mark lapses.
+    - ref: TMA1995/s34(a)
+      span:
+      - 4
+      - 69
+      content_hash: sha256:5f75047a8d0eac97d864e6f8ea0af10d15f681ac1db920d72a31bff614e7f08d
+      quote: notify the applicant of his or her decision under section 33; and
+    - ref: TMA1995/s68(1)(a)
+      span:
+      - 4
+      - 55
+      content_hash: sha256:5835bb6fd9a3869ff48a487f5a871448e0c545c6875d1e31b00c96fdb5622a70
+      quote: if there has been no opposition to the registration
+    - ref: TMA1995/s68(1)(b)(i)
+      span:
+      - 4
+      - 163
+      content_hash: sha256:77f7b831b3ddcc27c88c2236bb95c2ca20dcdd16a2f212e3e75bb6bb62d65d53
+      quote: if the Registrar’s decision, or (in the case of an appeal against the Registrar’s decision) the decision
+        on appeal, is that the trade mark should be registered
+    - ref: TMR1995/r5.6(1)
+      span:
+      - 37
+      - 269
+      content_hash: sha256:0336a5a2f59949155204b107b3955b57786ab5e0ca2ab45a48264906fbfc29f7
+      quote: the period for filing a notice of intention to oppose is 2 months from the day the acceptance of the trade
+        mark application is published in a computer database maintained by the Trade Marks Office in accordance with
+        regulation 4.11A
+    - ref: TMR1995/r7.1(1)
+      span:
+      - 85
+      - 176
+      content_hash: sha256:494ad3f800be56a3f243de402d5091b1ef2f5bb303bd57ff7c096b8179105584
+      quote: 'the period for the registration of a trade mark that has been accepted for registration is:'
+    - ref: TMA1995/s72(1)
+      span:
+      - 153
+      - 264
+      content_hash: sha256:f0a1256af200de89effb5914d68aa5a0df753e060dca11ed4dc83651ed58dbd7
+      quote: is taken to have had effect from (and including) the filing date in respect of the application for registration
+    confidence: 0.75
+    reasoning: Section 27 starts an application, section 31 the examination, regulation 4.8 the report (GP-0001), section
+      33 acceptance, section 34 and regulation 4.11A its publication, section 52 opposition, section 68 registration
+      or lapse, regulation 5.6 and 7.1 the periods, section 72 the effect from filing. Each step and transition quotes
+      the provision that makes it.
+    alternatives_considered:
+    - 'Folding GP-0001 into this template: rejected, because the report loop is its own procedure with its own time rules,
+      and a customer at acceptance does not need it.'
+    - 'Publishing the particulars (section 30) as a step: left out, because nothing a customer does turns on it and the
+      Act does not order it against examination.'
+    expert_should_check: Whether opposition should end only in registration or lapse here, and whether revocation of
+      acceptance (section 38) belongs in a customer's view of the process.

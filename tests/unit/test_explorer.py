@@ -227,6 +227,7 @@ def test_the_browser_engine_matches_python(files, tmp_path):
     from tm_knowledge.bulk import jobs
     from tm_knowledge.bulk import links as links_module
     from tm_knowledge.search.index import KeywordIndex, ProvisionIndex, Systems, relations_from
+    from tm_knowledge.search import structured
     from tm_knowledge.upstream.loader import load_corpus
 
     explorer.write(files, tmp_path)
@@ -248,6 +249,7 @@ def test_the_browser_engine_matches_python(files, tmp_path):
         assert js["keyword"] == [h.ref for h in systems.keyword(q["question"], 10)], q["key"]
         assert js["provisions"] == [h.ref for h in provision_index.search(q["question"], 5)], q["key"]
         hits, trace = systems.ontology(q["question"], 10)
+        assert js["tests"] == structured.find(q["question"], trace.recognised, files["search.json"]["tests"]), q["key"]
         assert js["ontology"] == [h.ref for h in hits], q["key"]
         assert js["recognised"] == trace.recognised and js["paths"] == [p[3] for p in trace.paths], q["key"]
         if q["prompt"]:
@@ -421,7 +423,7 @@ def test_the_page_states_the_merge_rulings_as_they_stand(files):
 
 
 def test_every_view_sits_in_one_layer_and_every_term_is_explained():
-    """ADR-0144: outcomes first and the ontology last. Every route the router knows is in one of
+    """ADR-0145: outcomes first and the ontology last. Every route the router knows is in one of
     the four layers or is the cross-cutting status page, and every `term()` a page uses has a
     glossary entry, so no standard's name reaches a reader unexplained."""
     js = SITE / "js"

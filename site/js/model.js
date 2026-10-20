@@ -1,4 +1,4 @@
-/* The ontology — layer 4 of 4 (ADR-0144): the conceptual model the rules are built from.
+/* The ontology — layer 4 of 4 (ADR-0145): the conceptual model the rules are built from.
 
    The hub for the views that used to lead the site: the four levels of the model (kinds, ideas,
    connections, passages), and the ways in (the tour, the map, at a glance, as a table, the

@@ -155,3 +155,70 @@
     - {id: e1, description: Photograph of a signwritten van, dated, place: australia, dated: '2024-05-20', sign_shown: as_applied, items: [i1]}
     - {id: e2, description: Invoice, place: australia, dated: '2026-08-14', sign_shown: substantially_identical, items: [i1, i2]}
     - {id: e3, description: Brochure for a business abroad, place: overseas, dated: '2023-02-01', sign_shown: different, items: [i2]}
+
+- id: FM-0005
+  fictional: true
+  title: Section 41(3) with evidence covering the wrong period
+  exercises: A12 and A05 — every exhibit dated after the filing date, or undated, against a report that reads
+    subsection (3); the explanation says what each lacks, sets aside the after-filing rule that belongs to (4), and
+    never says the evidence fails.
+  written_by: claude-code-agent-S043
+  written_date: '2026-10-20'
+  parties:
+  - {id: p1, name: Quokka Invented Tiles}
+  roles:
+  - {party: p1, capacity: applicant, from: '2025-03-03'}
+  application:
+    sign: BRIGHT TILES
+    kind: word
+    filing_date: '2025-03-03'
+    priority_date: '2025-03-03'
+    items:
+    - {id: i1, class: 19, text: ceramic tiles}
+    - {id: i2, class: 37, text: tiling services}
+  events:
+  - {step: report, date: '2025-07-14', stated_lapse_date: '2026-10-14'}
+  - {step: response, date: '2025-11-20', note: 'The applicant filed three exhibits as evidence of use.'}
+  - {step: consideration, date: '2026-01-09'}
+  - {step: further_report, date: '2026-01-09', stated_lapse_date: '2026-10-14'}
+  objections:
+  - id: o1
+    test: GL-0003
+    items: [i1, i2]
+    reasons: BRIGHT TILES describes tiles that are bright; it is not to any extent inherently adapted to distinguish,
+      and the evidence filed does not show use before the filing date.
+    status: maintained
+    assessments:
+    - {condition: no_inherent_adaptation, value: true, by: the examiner (fictional), recorded: '2026-01-09'}
+    exhibits:
+    - {id: e1, description: Supplier invoice, place: australia, dated: '2025-06-10', sign_shown: as_applied, items: [i1]}
+    - {id: e2, description: Website capture, place: australia, dated: '2025-09-01', sign_shown: as_applied, items: [i1, i2]}
+    - {id: e3, description: Photograph of a shopfront, place: australia, sign_shown: substantially_identical, items: [i2]}
+
+- id: FM-0006
+  fictional: true
+  title: An objection described only in everyday words
+  exercises: A12 — the customer's words could fit section 41 (other traders' need to use the words) or section 44
+    (another person's similar trade mark); the explanation asks which section the report cites and does not choose.
+  written_by: claude-code-agent-S043
+  written_date: '2026-10-20'
+  parties:
+  - {id: p1, name: Echidna Pretend Cafe}
+  roles:
+  - {party: p1, capacity: applicant}
+  application:
+    sign: CORNER BREW
+    kind: word
+    filing_date: '2026-05-04'
+    priority_date: '2026-05-04'
+    items:
+    - {id: i1, class: 43, text: cafe services}
+  events:
+  - {step: report, date: '2026-08-17', stated_lapse_date: '2027-11-17', note: The customer has described the report but not pasted it.}
+  objections:
+  - id: o1
+    test: null
+    items: [i1]
+    reasons: null
+    customer_words: They said my name is too close to what other people already use, so I can't have it.
+    status: raised

@@ -1,10 +1,10 @@
-# Rules in force — what 130 decisions add up to
+# Rules in force — what 131 decisions add up to
 
 Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-10-20, ADR-0143 (S042).
+**As at:** 2026-10-20, ADR-0144 (S043).
 
 ## Purpose and scope
 
@@ -142,6 +142,17 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   facts". The procedure is a template (`GP-`) of steps and transitions; no date is computed.
   Customer explanations are built only from fictional matters (`scenarios/`, `FM-`) until the
   owner allows real data, and never state an outcome.
+- **Inside a test or template, every element is a node** (ADR-0144): `tmka:GL-0001/element/<id>`,
+  minted by `namespaces.element_node`, `elementOf` its record and sharing its envelope, never
+  approved apart from it, saying law or practice, anchored to the evidence item it quotes. Name a
+  new TBox property away from the predicate vocabulary (`ontology/predicates.py`).
+- **Three explanations, one engine** (D4, ADR-0144): an objection on a fictional matter; a test's
+  requirements with no matter; a template walked through with no matter. The last two read no
+  state and ask nothing. **Everyday wording is never mapped to a ground**: an objection known only
+  from the customer's words names every ground held and asks which the report cites.
+- **A question reaches a structured test by rule** (A06 step 2): its provision named, or its
+  ground recognised (`search.structured` = `engine.js` `structuredTests`). Shown on the Ask page in
+  its own card; **not given to the answering model** — that is the owner's call (ADR-0139).
 - **Roles are distinct and their power is on edges**: the Registrar (an office) is
   not a delegate, a delegate is not the Registrar, the owner is not the authorised
   user; who delegates to, directs, reviews or is consulted by whom is an edge on a

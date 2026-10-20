@@ -20,7 +20,7 @@ answers:
   quote: >-
     I'd like to change the emphasis of the site, instead of putting the ontology as the front and
     center talking piece, instead, I'd like to focus more on what the ontology enables.
-  recorded_as: [ADR-0144]
+  recorded_as: [ADR-0145]
 - id: CHAT-0094
   item: transparency about the current state and customer testing
   question: What should the site say about its state and about customers?
@@ -32,7 +32,7 @@ answers:
     test with customers.
   notes: Describing possible customer testing on the examiner site is not testing with customers or
     publishing to them; those stay owner gates (CLAUDE.md §3a).
-  recorded_as: [ADR-0144]
+  recorded_as: [ADR-0145]
 - id: CHAT-0095
   item: standards explained for every reader
   question: How should the site treat technical standards?
@@ -43,4 +43,4 @@ answers:
     it should not assume that the user knows what these things mean. An executive and a data
     engineer should be able to finish with a similar level of understanding about how the system
     operates
-  recorded_as: [ADR-0144]
+  recorded_as: [ADR-0145]

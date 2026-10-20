@@ -245,7 +245,7 @@ async function route() {
   if (typeof cleanup === "function") cleanup();
   cleanup = null;
   closeDrawer();
-  // The nav marks a tool's own entry (Ask, Where it stands) or else the layer the route is in (ADR-0144).
+  // The nav marks a tool's own entry (Ask, Where it stands) or else the layer the route is in (ADR-0145).
   const layer = layerOf(VIEWS[name] ? name : "");
   const tool = [...document.querySelectorAll(".nav a[data-route]")].some((a) => a.dataset.route === name);
   document.querySelectorAll(".nav a").forEach((a) => a.classList.toggle("on",

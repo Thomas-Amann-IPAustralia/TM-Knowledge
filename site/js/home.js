@@ -1,4 +1,4 @@
-/* Home — layer 1 of 4: what the proof of concept does today, and how well (ADR-0144).
+/* Home — layer 1 of 4: what the proof of concept does today, and how well (ADR-0145).
 
    Outcomes first. Each card is something the system does now, with its numbers read from the
    generated data and its state said plainly: working, measured, a prototype, or untested. The
@@ -87,11 +87,12 @@ export async function render(root, { ontology }) {
       ${outcome({
         href: "#/future", hash: "customers", k: "For customers, later", title: "Explain an objection in plain words",
         state: ["prototype", "Prototype · invented matters · not tested with customers"],
-        text: `A first slice: sections 44, 43 and 41 written as structured legal tests and the examination procedure as a process
-          template, explained against invented applications with three views (the objection, where the application is in the
-          process, and how evidence bears on it), each with a text equivalent.`,
+        text: `A first slice: sections 44, 43 and 41 written as structured legal tests, and the application process as process
+          templates. With no application at all, it explains what each test requires and how an application moves from filing to
+          registration; against an invented application, it explains an objection with three views (the objection, where the
+          application is in the process, and how evidence bears on it). Every view has a text equivalent.`,
         facts: [
-          `${fmt(c.tests)} legal tests, ${fmt(c.processes)} process template, ${fmt(c.fictional_matters)} invented matters`,
+          `${fmt(c.tests)} legal tests, ${fmt(c.processes)} process templates, ${fmt(c.fictional_matters)} invented matters`,
           "Nothing has been shown to, or tested with, a customer; that needs the project owner's approval",
           "It never says how an application will be decided",
         ],

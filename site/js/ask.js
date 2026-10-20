@@ -11,7 +11,7 @@
 
 import { esc, fmt, load, kindColour, refChip, refLabel, isLaw, sourceOf, srcClass, SOURCES, legend, stampIcon, srcBadge } from "./app.js";
 import { svg, curve, wrapText, wait } from "./graph.js";
-import { Engine, Recogniser, authorityFlags, namedProvisions } from "./engine.js";
+import { Engine, Recogniser, authorityFlags, namedProvisions, structuredTests } from "./engine.js";
 import { miniMap } from "./minimap.js";
 import { answer as callModel, read as readModel, cost, partialFields, viaProxy, wake } from "./live.js";
 import * as lib from "./lib.js";
@@ -172,6 +172,7 @@ export async function render(root, { ontology, params }) {
       explain(view, graph, { live: true });
       renderCompare(view.compare, prep.plain, prep.passages, prep.hits);
       renderProvisions(view.compare, question, prep.legislation, eng);
+      renderTests(view.compare, question, prep.trace.recognised.map((r) => r.id), eng.s.tests);
       return { prep, g: graph, steps: describe(graph, { linkedCount: prep.weight ? prep.weight.size : 0, live: true }) };
     });
     const animation = animate(view, question, ready, { reading: reads });
@@ -245,11 +246,12 @@ export async function render(root, { ontology, params }) {
     if (controller) controller.abort();
     box.value = a.question;
     const view = frame(a.question, "prepared in advance");
-    let mentions = null, matched = new Map(), relations = null;
+    let mentions = null, matched = new Map(), relations = null, tests = null;
     try {
       const search = await load("search");
       mentions = search.mentions;
       relations = search.relations;
+      tests = search.tests;
       recogniser = recogniser || new Recogniser(search);
       matched = new Map(recogniser.recognise(a.question).map((r) => [r.id, r]));
     } catch { /* drawn without passage links */ }
@@ -268,6 +270,7 @@ export async function render(root, { ontology, params }) {
     graph.followed = relations ? [...new Map(relations.filter((e) => specific.has(e[0]) || specific.has(e[2]))
       .map((e) => [e[3], { s: e[0], p: e[1], o: e[2], record: e[3], origin: e[4] }])).values()] : graph.paths;
     renderCompare(view.compare, graph.plain, a.passages, null, true);
+    renderTests(view.compare, a.question, a.recognised.map((r) => r.id), tests);
     explain(view, graph, { live: false });
     await animate(view, a.question, { g: graph, steps: describe(graph, { live: false }) });
     showAnswer(view, { ...a, live: false, when: a.date });
@@ -547,6 +550,30 @@ export async function render(root, { ontology, params }) {
     card.className = "card";
     card.innerHTML = `<h4>The Act and the Regulations</h4><span class="tiny">provisions named in the question, then those its words match — searched apart from the Manual, not yet measured</span>
       <ol>${[...new Set([...named, ...matched])].map((ref) => `<li>${refChip(ref)}${named.includes(ref) ? `<span class="via">named in the question</span>` : ""}${given.includes(ref) ? `<span class="via" title="Given to the model with the passages">given to the answer</span>` : ""}</li>`).join("") || `<li class="empty">Nothing matched.</li>`}</ol>`;
+    target.appendChild(card);
+  }
+
+  /** A06 step 2: the structured tests the question reaches (`structuredTests`), each with
+      its conditions and exceptions and what settles each. Machine-written, unreviewed, and
+      not given to the answer: shown so the exceptions are never out of sight. */
+  function renderTests(target, question, recognised, tests) {
+    const reached = structuredTests(question, recognised, tests);
+    if (!reached.length) return;
+    const byId = new Map(tests.map((t) => [t.id, t]));
+    const tree = (n) => n.children
+      ? `<span class="tiny">${n.kind === "all" ? "all of these" : "any one of these"}</span>${n.text ? " " + esc(n.text) : ""}<ul>${n.children.map((c) => `<li>${tree(c)}</li>`).join("")}</ul>`
+      : `${esc(n.text)} <span class="via">${n.kind === "evaluative" ? "an assessment" : "a fact"}</span> ${refChip(n.ref)}`;
+    const why = { named: "named in the question", ground: "its ground recognised" };
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<h4>The test, as conditions</h4><span class="tiny"><span class="trust machine">Machine · unreviewed</span> a structured reading of the provision — not given to the answer, not yet measured</span>
+      ${reached.map(({ id, why: w }) => {
+        const t = byId.get(id);
+        return `<details open><summary><b>${esc(t.title)}</b> ${refChip(t.provision)} <span class="via">${w.map((k) => why[k]).join(", ")}</span></summary>
+          <p class="small">${esc(t.effect)}</p>${tree(t.condition)}
+          ${t.exceptions.map((x) => `<p class="small"><b>Exception</b> ${refChip(x.ref)} <span class="via">${esc(x.kind)}</span> ${esc(x.text)} ${esc(x.effect)}</p>${tree(x.condition)}`).join("")}
+        </details>`;
+      }).join("")}`;
     target.appendChild(card);
   }
 

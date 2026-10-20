@@ -300,11 +300,84 @@ def test_a_structured_test_or_process_without_its_envelope_is_a_defect(kind):
         (node, RDF.type, TMK[kind]), (node, RDFS.label, Literal("A fixture", lang="en-AU")), *_anchor(node)]
     if kind == "StructuredTest":
         whole.append((node, TMK.readsProvision, URIRef("https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44")))
+        whole += _element(node, "condition", TMK.FactCondition, TMK.hasCondition)
+        whole += _element(node, "effect", TMK.LegalEffect, TMK.hasEffect) + [
+            (URIRef(f"{node}/effect"), TMK.effectKind, Literal("obligation"))]
+    else:
+        whole += _element(node, "element/filed", TMK.ProcessStep, TMK.hasStep) + [
+            (URIRef(f"{node}/element/filed"), TMK.stepKind, Literal("start")),
+            (URIRef(f"{node}/element/filed"), TMK.actorCapacity, Literal("applicant"))]
     assert not [f for f in validate.run(_dataset(AUTHORED_GRAPH, whole)).by_severity("defect") if f.node == str(node)]
-    stripped = [t for t in whole if t[1] not in (TMK.authoredBy, TMK.authoringReasoning, TMK.evidence, TMK.readsProvision)]
+    inner = (TMK.readsProvision, TMK.hasCondition, TMK.hasEffect, TMK.hasStep)
+    stripped = [t for t in whole if t[1] not in (TMK.authoredBy, TMK.authoringReasoning, TMK.evidence, *inner)]
     paths = {f.path for f in validate.run(_dataset(AUTHORED_GRAPH, stripped)).by_severity("defect") if f.node == str(node)}
     assert {"authoredBy", "authoringReasoning", "evidence"} <= paths, paths
-    assert ("readsProvision" in paths) == (kind == "StructuredTest")
+    assert ("readsProvision" in paths) == ("hasCondition" in paths) == ("hasEffect" in paths) == (kind == "StructuredTest")
+    assert ("hasStep" in paths) == (kind == "ProcessTemplate")
+
+
+def _element(record, path, cls, link):
+    """One element of a structured record, with everything the element shapes require,
+    and the TBox's subclass triple for its class (sh:class follows rdfs:subClassOf, and
+    the gate's dataset carries the TBox)."""
+    from rdflib import Literal, URIRef
+    from rdflib.namespace import RDF, RDFS
+
+    from tm_knowledge.ontology.namespaces import TMK, evidence_node
+
+    node = URIRef(f"{record}/{path}")
+    return [
+        (record, link, node), (node, RDF.type, cls), (node, TMK.elementOf, record),
+        (node, TMK.origin, Literal("authored")), (node, TMK.reviewStatus, Literal("unreviewed")),
+        (node, TMK.statement, Literal("A fixture element.", lang="en-AU")),
+        (node, TMK.sourceAuthority, Literal("law")), (node, TMK.anchoredBy, evidence_node(record, 1)),
+        *((c, RDFS.subClassOf, s) for c, s in (
+            (TMK.FactCondition, TMK.Condition), (TMK.EvaluativeCondition, TMK.Condition),
+            (TMK.ConditionGroup, TMK.Condition), (TMK.Condition, TMK.RecordElement), (TMK.LegalEffect, TMK.RecordElement),
+            (TMK.ProcessStep, TMK.RecordElement))),
+    ]
+
+
+@pytest.mark.parametrize("change, shape_path", [
+    ("unanchored", "anchoredBy"), ("no authority", "sourceAuthority"), ("asked", "clarifyingQuestion"),
+    ("approved", "approvedBy"), ("no kind", "effectKind"), ("no join", "conditionJoin"),
+])
+def test_an_element_of_a_structured_record_without_what_it_owes_is_a_defect(change, shape_path):
+    """ADR-0144: each element quotes its source through an anchor and says law or practice;
+    an evaluative condition is never asked as a fact; no element is approved; an effect
+    names its kind; a group names its join. Each break is reported on the element."""
+    from rdflib import Literal, URIRef
+    from rdflib.namespace import RDF
+
+    from tm_knowledge.ontology import validate
+    from tm_knowledge.ontology.namespaces import AUTHORED_GRAPH, TMK
+
+    record = URIRef("https://data.ipaustralia.gov.au/tmk/assertion/GL-9999")
+    leaf = _element(record, "element/similar", TMK.EvaluativeCondition, TMK.hasCondition)
+    effect = _element(record, "effect", TMK.LegalEffect, TMK.hasEffect) + [
+        (URIRef(f"{record}/effect"), TMK.effectKind, Literal("discretion"))]
+    group = _element(record, "element/both", TMK.ConditionGroup, TMK.hasCondition) + [
+        (URIRef(f"{record}/element/both"), TMK.conditionJoin, Literal("all")),
+        (URIRef(f"{record}/element/both"), TMK.conditionPart, URIRef(f"{record}/element/similar"))]
+    triples = leaf + effect + group + _anchor(record)
+    target = {"no kind": f"{record}/effect", "no join": f"{record}/element/both"}.get(change, f"{record}/element/similar")
+    baseline = {f.path for f in validate.run(_dataset(AUTHORED_GRAPH, triples)).by_severity("defect") if f.node == target}
+    assert shape_path not in baseline, baseline
+    node = URIRef(target)
+    if change == "unanchored":
+        triples = [t for t in triples if not (t[0] == node and t[1] == TMK.anchoredBy)]
+    elif change == "no authority":
+        triples = [t for t in triples if not (t[0] == node and t[1] == TMK.sourceAuthority)]
+    elif change == "asked":
+        triples.append((node, TMK.clarifyingQuestion, Literal("Is the mark similar?", lang="en-AU")))
+    elif change == "approved":
+        triples.append((node, TMK.approvedBy, Literal("someone")))
+    elif change == "no kind":
+        triples = [t for t in triples if t[1] != TMK.effectKind]
+    elif change == "no join":
+        triples = [t for t in triples if t[1] != TMK.conditionJoin]
+    paths = {f.path for f in validate.run(_dataset(AUTHORED_GRAPH, triples)).by_severity("defect") if f.node == target}
+    assert shape_path in paths, paths
 
 
 def test_an_evidence_anchor_without_its_passage_or_version_is_a_defect():

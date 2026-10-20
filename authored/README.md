@@ -59,8 +59,11 @@ Beside them, record types with a reader of their own: `definitions.yaml` (`GD-`,
 `authored.definitions`), `corrections.yaml` (`GK-`, `authored.corrections`), and since
 2026-10-19 `legal-tests.yaml` (`GL-`) and `processes.yaml` (`GP-`), read by
 `authored.procedure` (ADR-0142): a provision as a test with AND/OR conditions, each quoting
-its unit, and the regulations 4.8 to 4.14 procedure as steps and transitions. An evaluative
-condition is never computed; a time rule is explained, never computed.
+its unit, and two procedures as steps and transitions: GP-0001, the regulations 4.8 to 4.14
+report loop, and GP-0002, filing to registration, whose report step `continues_in` GP-0001
+(S043). An evaluative condition is never computed; a time rule is explained, never computed.
+Since S043 their inner structure is in the graph, each element a node anchored to the
+evidence item it quotes (ADR-0144).
 
 **What is in it today** (2026-10-17): `concepts.yaml` 112 records, `concept-types.yaml`
 164 — one typing per concept in the project, signed and authored alike — and

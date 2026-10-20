@@ -1,4 +1,4 @@
-/* One glossary for the whole site (ADR-0144): no reader is assumed to know a standard's name.
+/* One glossary for the whole site (ADR-0145): no reader is assumed to know a standard's name.
 
    Each entry says, in three parts, what the term means in plain words, what it does here, and
    (for the technically curious) what it is called and where it comes from. `term(key)` puts an

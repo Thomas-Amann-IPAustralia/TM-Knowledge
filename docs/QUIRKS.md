@@ -1709,7 +1709,20 @@ resolves every hash: about five seconds, so build it once and pass it (`explorer
 `eval/schemas/`: a schema `$id`, a pin move or any record change moves it, and `--check` compares
 it like the other graph files.
 
-### Q-100: a new record type does not reach the site, or the dependency index, by itself
+### Q-100: a TBox property named like a `str` method, or like a predicate
+
+Two naming traps from S043, adding the inside of the `GL-`/`GP-` records to the graph. **`TMK.join`
+is not a term**: rdflib's `Namespace` is a `str`, so attribute access returns the string method
+for any name `str` has (`join`, `count`, `index`, `title`, `format`, `split`, ...), and
+`graph.add` fails with "Predicate <built-in method join ...> must be an rdflib term". Name the
+property otherwise (`tmk:conditionJoin`) or write `TMK["join"]`. **A structural property must not
+reuse a predicate's name**: `tmk:runsFrom` is already a relationship predicate
+(`ontology/predicates.py`, `relations.ttl`), so a time rule's `tmk:runsFrom` edge was read by the
+approved-edge shape as an unsigned approved relation (four defects), and a second `rdfs:domain`
+on it would have reclassified every concept using the predicate. `grep -n '"<name>"'
+src/tm_knowledge/ontology/predicates.py` before naming a property in `ontology/draft/`.
+
+### Q-101: a new record type does not reach the site, or the dependency index, by itself
 
 Package 4 added `GL-` legal tests and `GP-` process templates (S042) with their own reader,
 `authored.procedure`, and put them in the graph; nothing else noticed. `ontology.dependencies.build`

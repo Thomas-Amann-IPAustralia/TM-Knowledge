@@ -687,7 +687,7 @@ circle.sel { stroke: var(--ink) !important; stroke-width: 3 !important; stroke-d
 .struct-links { padding-left: 1.1rem; margin: .2rem 0; font-size: .9rem; }
 .struct-links li { margin: .2rem 0; }
 @media (max-width: 720px) { .struct-tbl .opt { display: none; } .struct-card { padding: .8rem; } }
-/* The four layers (ADR-0144): the depth strip, the go-deeper card, outcomes, possibilities, terms */
+/* The four layers (ADR-0145): the depth strip, the go-deeper card, outcomes, possibilities, terms */
 .depth { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; padding: .45rem clamp(1rem, 3vw, 2rem); border-bottom: 1px solid var(--line-2); background: var(--bg); font-size: .82rem; }
 .depth-steps { display: flex; gap: .3rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
 .depth-steps a { display: inline-flex; align-items: center; gap: .4rem; padding: .2rem .65rem .2rem .25rem; border-radius: 999px; text-decoration: none; color: var(--ink-3); border: 1px solid transparent; }

@@ -1,4 +1,4 @@
-/* What it could do — layer 2 of 4 (ADR-0144).
+/* What it could do — layer 2 of 4 (ADR-0145).
 
    The possibilities the same foundations were built for, each with what it would build on today,
    what it would still need, and where it stands. Possibilities, never commitments, and nothing
@@ -42,20 +42,21 @@ export async function render(root, { ontology, params }) {
         does: "Finds the guidance, legislation and related material that bear on a question, and shows what rests on a passage or a section.",
         builds: [`<a href="#/ask">Ask the Manual</a>: cited answers, the Act and the Regulations kept apart from the Manual`,
           `<a href="#/change">When the text changes</a>: ${fmt(provisions)} sections and regulations with recorded dependencies`,
-          `${fmt(c.tests)} structured legal tests, to put a provision's conditions and exceptions in front of the reader`],
+          `${fmt(c.tests)} structured legal tests: a question that names a section, or its ground, brings that test's conditions and exceptions to the Ask page`],
         needs: ["Expert review of the records answers rely on most",
           "Tests built from real research tasks, judged by examiners (who writes them is the owner's decision)",
-          "A question that names a section should bring that section's legal test with it",
+          "Giving that test to the answering model as well, not only showing it beside the answer (the project owner's decision)",
           "Measuring the search over the Act and the Regulations"],
       })}
       ${possibility({
         k: "Customers", title: "Understanding requirements, the process and objections",
         state: ["prototype", "Prototype on invented matters"],
         does: "Explains, in plain language and with visuals, what a requirement means, where an application is in the process, and what an objection is about and what could be done next.",
-        builds: [`${fmt(c.tests)} legal tests and ${fmt(c.processes)} process template, each part quoting its source`,
-          "One explanation that draws three views (the objection, the process, the evidence) and a text equivalent for each",
+        builds: [`${fmt(c.tests)} legal tests and ${fmt(c.processes)} process templates, each part quoting its source`,
+          "Explanations of what each test requires and of the process from filing to registration, with no application needed",
+          "For an invented application, three views of an objection (the objection, the process, the evidence), each with a text equivalent",
           `Answers checked claim by claim, the same check a customer chatbot would need`],
-        needs: ["Explanations of the requirements on their own, and of the process from filing, not only after an objection",
+        needs: ["More of the law: other grounds, oppositions, and the parts of the process the templates leave out",
           "A check that each quote really supports its claim, not only that the words exist",
           "Plain-language wording checked by people, and the records it uses reviewed by an expert",
           "Testing with customers (below)"],
@@ -71,7 +72,7 @@ export async function render(root, { ontology, params }) {
           <li>Whether the three views, and their text equivalents, make that clearer than words alone.</li>
           <li>Whether it asks only for the facts that change the explanation, and says what it does not know.</li></ul></div>
         <div><h3>How, and in what order</h3><ul class="small">
-          <li>Invented applications first: ${fmt(c.fictional_matters)} exist, each built to exercise a hard case (two objections, an unknown date, a discretion, evidence).</li>
+          <li>Invented applications first: ${fmt(c.fictional_matters)} exist, each built to exercise a hard case (two objections, an unknown date, a discretion, evidence from the wrong period, an objection known only from the customer's own words).</li>
           <li>No real customer data, real application or real examination report is used until the project owner approves it.</li>
           <li>Before anything reaches a customer: a check that every claim's quote supports it, and the records it uses reviewed.</li>
           <li>The project owner decides when, with whom and how it is tested, and whether it is published to customers at all.</li></ul></div>

@@ -1,6 +1,6 @@
 # Site rework: outcomes first, the ontology last
 
-The owner's direction of 2026-10-20 (ADR-0144, `review/rulings/2026-10-20-chat-site-emphasis.yaml`):
+The owner's direction of 2026-10-20 (ADR-0145, `review/rulings/2026-10-20-chat-site-emphasis.yaml`):
 lead with what the ontology enables, not with the ontology; be transparent about the current state,
 including what may one day be tested with customers; disclose progressively, so the deeper a reader
 goes the more operational the detail; and never assume a reader knows a standard's name. An
@@ -34,7 +34,7 @@ it appears on that page.
 
 ## What S043 does (this session)
 
-- [x] Plan (this file); the owner's words recorded (returned, ruling, ADR-0144).
+- [x] Plan (this file); the owner's words recorded (returned, ruling, ADR-0145).
 - [x] `site/js/layers.js`: the four layers as data (label, route, question, which routes belong);
       the depth strip; the go-deeper card. Nav regrouped by layer in `index.html`; `app.js`
       highlights the layer of the current route.
@@ -85,8 +85,9 @@ customers; the builder counts the invented matters (`counts.fictional_matters`).
       SPARQL and CONSTRUCT rules, PROV-O, JSON for the site; **OWL: why no OWL profile is
       claimed** (ADR-0134); LegalRuleML deferred (ADR-0009). Counts from `build.json`.
 - [x] **`#/glossary`**, from the same dictionary (S043). Extend entries as S044's pages need.
-- [ ] **`#/customers` (depth 1 tool), the customer explanation preview** of the four invented
-      matters: `tmk-explorer` writes `data/explain.json` from `tm_knowledge.explain` (the
+- [ ] **`#/customers` (depth 1 tool), the customer explanation preview** (since PR #43 merged: the
+      invented matters, plus each test's requirements and the process from filing, all from
+      `tm_knowledge.explain`): `tmk-explorer` writes `data/explain.json` from `tm_knowledge.explain` (the
       explanation objects and their text equivalents); the page draws the three views with a
       loud banner (invented matters; not tested with customers; machine-written and unreviewed;
       not advice; never an outcome). **Before building it, check the ruling still stands**: it puts

@@ -1,4 +1,4 @@
-/* Rules as code — layer 3 of 4 (ADR-0144): what makes the outcomes possible.
+/* Rules as code — layer 3 of 4 (ADR-0145): what makes the outcomes possible.
 
    The rules are written down three ways, each from the records: connections that keep their
    wording's force, structured legal tests, and process templates. Then how they are kept honest.

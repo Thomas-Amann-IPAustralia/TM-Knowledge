@@ -2,7 +2,7 @@
 
 A static site, published to <https://thomas-amann-ipaustralia.github.io/TM-Knowledge/>.
 It exists to show a trade marks examiner, quickly, what the proof of concept does and what it
-could do, then how it works (ADR-0118). Since ADR-0144 it leads with outcomes and discloses the
+could do, then how it works (ADR-0118). Since ADR-0145 it leads with outcomes and discloses the
 ontology last, in four layers: **what it does** (home, Ask, Change), **what it could do**
 (`#/future`), **rules as code** (`#/rules`), and **the ontology** (`#/model` and the map, glance,
 table, tour and glossary), with **where it stands** (`#/about`) across them. `layers.js` holds the
