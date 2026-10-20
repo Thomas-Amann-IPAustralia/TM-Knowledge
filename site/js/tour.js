@@ -396,6 +396,8 @@ export async function render(root, { ontology, params }) {
         ${row("Ideas", c.concepts.machine, c.concepts.signed + c.concepts.machine)}
         ${row("Connections", c.relations.machine, c.relations.signed + c.relations.machine)}
         ${row("Which kind each idea is", c.concepts.signed + c.concepts.machine, c.concepts.signed + c.concepts.machine)}
+        ${row("Definitions of ideas", c.definitions, c.definitions)}
+        ${row("Legal tests and process templates", c.tests + c.processes, c.tests + c.processes)}
         ${row("Prepared answers", 129, 129)}
       </table>
       <p class="caption">The rest were reviewed by a trade marks expert. Each record says which it is.</p>`;

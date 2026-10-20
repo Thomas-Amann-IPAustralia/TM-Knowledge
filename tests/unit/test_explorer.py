@@ -379,6 +379,47 @@ def test_a_concept_card_carries_its_definition_stamped_with_its_source(files):
         assert "definitionBlock(x.definition)" in (SITE / "js" / card).read_text(encoding="utf-8"), card
 
 
+@needs_snapshot
+def test_the_structured_tests_and_processes_reach_the_page(files):
+    """Package 4's record types (ADR-0142): every sound legal test and process template is
+    in the page's data with its stamp, listed on the card of every idea it names, and
+    counted among what rests on the pages and provisions it quotes."""
+    from tm_knowledge.authored import procedure
+
+    onto = files["ontology.json"]
+    structures = onto["structures"]
+    assert [r["id"] for r in structures["tests"]] == [e.id for e in procedure.load_tests().sound]
+    assert [r["id"] for r in structures["processes"]] == [e.id for e in procedure.load_processes().sound]
+    assert onto["counts"]["tests"] == len(structures["tests"]) > 0
+    assert onto["counts"]["processes"] == len(structures["processes"]) > 0
+    by_id = {c["id"]: c for c in onto["concepts"]}
+    for record in structures["tests"] + structures["processes"]:
+        assert record["origin"] == "machine" and record["machine"]["review_status"] == "unreviewed", record["id"]
+        assert record["machine"]["by"] and record["machine"]["date"], record["id"]
+        assert record["concepts"], record["id"]
+        for cid in record["concepts"]:
+            assert record["id"] in by_id[cid].get("structures", []), (record["id"], cid)
+    stability = files["stability.json"]
+    assert any(page["structures"] for page in stability["pages"])
+    assert {"GL-0001", "GP-0001"} <= set(stability["provisions"]["TMA1995/s44"]["direct"])
+    table_js = (SITE / "js" / "table.js").read_text(encoding="utf-8")
+    assert '["tests", "Legal tests"]' in table_js and '["processes", "Processes"]' in table_js
+    for card in ("map.js", "table.js"):
+        assert "structuresBlock(x, ontology)" in (SITE / "js" / card).read_text(encoding="utf-8"), card
+
+
+@needs_snapshot
+def test_the_page_states_the_merge_rulings_as_they_stand(files):
+    """The About page once said twelve same-idea pairs were "flagged for a person, not
+    merged" after the owner had ruled on all twelve; it now reads the rulings' file."""
+    from tm_knowledge.ontology import hygiene
+
+    merges = files["ontology.json"]["counts"]["merges"]
+    assert sum(merges.values()) == len(hygiene.merge_candidates())
+    about = (SITE / "js" / "about.js").read_text(encoding="utf-8")
+    assert "flagged for a person, not merged" not in about and "c.merges" in about
+
+
 # --- answer-v4: what the answer is given of each source (A06, ADR-0139) -------------
 
 

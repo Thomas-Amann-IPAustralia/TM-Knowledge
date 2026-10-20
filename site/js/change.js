@@ -7,9 +7,10 @@
    evidence refs: the records whose quoted text sits on that page. The chosen
    page's ideas and connections are drawn on a mini map (Cytoscape). Since R05 the
    same dependency index answers from a provision too: the records naming it, and
-   those resting on a Manual passage that cites it. */
+   those resting on a Manual passage that cites it. Package 4's structured legal tests
+   and process templates rest on what they quote, and are listed with the rest. */
 
-import { esc, fmt, load, kindColour, refChip, trustBadge } from "./app.js";
+import { esc, fmt, load, kindColour, refChip, trustBadge, structureHref } from "./app.js";
 import { namedProvisions } from "./engine.js";
 import { wait } from "./graph.js";
 import { miniMap } from "./minimap.js";
@@ -132,6 +133,7 @@ export async function render(root, { ontology, params }) {
     const p = byRef.get(ref);
     const kinds = ontology.kinds.length;
     const relList = p.relations.map((id) => rels.get(id)).filter(Boolean);
+    const others = [...p.definitions, ...p.corrections, ...(p.structures || [])];
     ripple.innerHTML = `
       <p class="tiny" style="margin:0">${esc(stability.parts[p.part] || p.part)}</p>
       <h2 style="margin:.1rem 0 .3rem">${esc(p.title)}</h2>
@@ -170,10 +172,10 @@ export async function render(root, { ontology, params }) {
           ${p.concepts.length ? `<div class="meta" style="display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.4rem">${p.concepts.map((id) => byId.get(id)).filter(Boolean).map((c) => `<a class="chip" href="#/map/ideas/${c.id}"><i class="dot" style="--c:${kindColour(c.kind)}"></i>${esc(c.label)}</a>`).join("")}</div>` : ""}</div>
       </div>
       <div class="layer" data-layer="4">
-        <span class="lnum num">${p.definitions.length + p.corrections.length}</span>
-        <div><b>Definitions and corrections to re-check</b><span class="what">${p.definitions.length || p.corrections.length
-          ? "Each quotes this page, so a rewrite sends it back to be re-read against the new words." : "No definition or correction quotes this page."}</span>
-          ${p.definitions.length || p.corrections.length ? `<div class="meta" style="display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.4rem">${[...p.definitions, ...p.corrections].map((id) => `<code class="chip">${esc(id)}</code>`).join("")}</div>` : ""}</div>
+        <span class="lnum num">${others.length}</span>
+        <div><b>Definitions, corrections, tests and procedures to re-check</b><span class="what">${others.length
+          ? "Each quotes this page, so a rewrite sends it back to be re-read against the new words." : "No definition, correction, legal test or process template quotes this page."}</span>
+          ${others.length ? `<div class="meta" style="display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.4rem">${others.map(chipFor).join("")}</div>` : ""}</div>
       </div>
       <div class="layer safe" data-layer="5">
         <span class="lnum num">0</span>
@@ -216,7 +218,9 @@ export async function render(root, { ontology, params }) {
   // ---- from a provision (R05)
   const held = Object.fromEntries((stability.held || []).map((ref) => [ref, 1]));
   const out = root.querySelector(".prov-out");
+  const structures = new Map([...(ontology.structures?.tests || []), ...(ontology.structures?.processes || [])].map((r) => [r.id, r]));
   const chipFor = (id) => byId.has(id) ? `<a class="chip" href="#/map/ideas/${id}"><i class="dot" style="--c:${kindColour(byId.get(id).kind)}"></i>${esc(byId.get(id).label)}</a>`
+    : structures.has(id) ? `<a class="chip" href="${structureHref(id)}" title="${esc(structures.get(id).title)}">${esc(id)} · ${id.startsWith("GP-") ? "process" : "legal test"}</a>`
     : `<code class="chip">${esc(id)}</code>`;
   root.querySelector(".prov-form").addEventListener("submit", (e) => {
     e.preventDefault();

@@ -15,7 +15,8 @@ never written.
 
 Files written under `site/data/`:
 
-    ontology.json   kinds, concepts, relationships, kind-to-kind links, predicates
+    ontology.json   kinds, concepts, relationships, kind-to-kind links, predicates,
+                    and the structured legal tests and process templates
     search.json     what the browser needs to recognise concepts and rank passages
     passages.json   every Manual passage and every provision, verbatim
     stability.json  the Manual's amendment history and what rests on each page
@@ -39,6 +40,7 @@ import yaml
 
 from tm_knowledge.authored import corrections as corrections_module
 from tm_knowledge.authored import definitions as definitions_module
+from tm_knowledge.authored import procedure
 from tm_knowledge.authored import store as authored_store
 from tm_knowledge.bulk import jobs
 from tm_knowledge.bulk import links as links_module
@@ -46,6 +48,7 @@ from tm_knowledge import config
 from tm_knowledge.config import PIN_PATH, REPO_ROOT
 from tm_knowledge.dashboard import views
 from tm_knowledge.ontology import dependencies
+from tm_knowledge.ontology import hygiene
 from tm_knowledge.ontology.predicates import RETIRED
 from tm_knowledge.search import index as search_index
 from tm_knowledge.stage0 import goldset
@@ -325,6 +328,45 @@ def _predicates(relations: list[dict[str, Any]], labels: dict[str, str],
     return dict(sorted(out.items(), key=lambda kv: -(kv[1]["signed"] + kv[1]["machine"])))
 
 
+def _named_concepts(node: Any) -> set[str]:
+    """Every concept a structured record names: its ground, and the `concepts` of any
+    condition, exception or step."""
+    found: set[str] = set()
+    if isinstance(node, dict):
+        if isinstance(node.get("ground"), str):
+            found.add(node["ground"])
+        found.update(str(c) for c in node.get("concepts") or ())
+        for value in node.values():
+            found |= _named_concepts(value)
+    elif isinstance(node, list):
+        for value in node:
+            found |= _named_concepts(value)
+    return found
+
+
+def structures(gold: Any, authored: Any) -> dict[str, list[dict[str, Any]]]:
+    """The structured legal tests (`GL-`) and process templates (`GP-`), Package 4's
+    record types (ADR-0142), copied from their records with their stamp. The condition
+    tree, exceptions, routes, steps, transitions and time rules are shown as written;
+    nothing here evaluates a condition or computes a date. `approved_by` is null on
+    every one and is not carried, so the page has nothing to mistake for a signature."""
+    out: dict[str, list[dict[str, Any]]] = {}
+    for key, found in (("tests", procedure.load_tests(gold=gold, authored=authored)),
+                       ("processes", procedure.load_processes(gold=gold, authored=authored))):
+        rows = []
+        for entry in found.sound:
+            env = entry.envelope or {}
+            record = {k: v for k, v in entry.record.items() if k not in ("approved_by", "approved_date")}
+            rows.append({
+                **record, "origin": "machine", "concepts": sorted(_named_concepts(entry.record)),
+                "machine": {"by": env.get("authored_by"), "date": env.get("authored_date"),
+                            "review_status": env.get("review_status"), "confidence": env.get("confidence"),
+                            "reasoning": env.get("reasoning"), "check": env.get("expert_should_check")},
+            })
+        out[key] = rows
+    return out
+
+
 def ontology(corpus: Corpus, gold: Any, authored: Any, links: links_module.Links) -> dict[str, Any]:
     mentions = {cid: sorted({hit[0] for hit in hits}) for cid, hits in links.mentions.items()}
     concept_list = [_concept(v, mentions, set(links.generic)) for v in views.concept_views(gold, authored)]
@@ -352,6 +394,13 @@ def ontology(corpus: Corpus, gold: Any, authored: Any, links: links_module.Links
             "by": env.get("authored_by"), "date": env.get("authored_date"),
             "review_status": env.get("review_status"),
         }
+    # Package 4's structured tests and process templates (ADR-0142): on the card of every
+    # concept one names, so an idea leads to the test or procedure it sits in.
+    structured = structures(gold, authored)
+    for record in structured["tests"] + structured["processes"]:
+        for cid in record["concepts"]:
+            if cid in concepts:
+                concepts[cid].setdefault("structures", []).append(record["id"])
     replaced = {new: old for old, new in fixes.replacements().items()}
     for rel in relations:
         if rel["id"] in replaced:
@@ -379,6 +428,7 @@ def ontology(corpus: Corpus, gold: Any, authored: Any, links: links_module.Links
         "relations": relations,
         "kind_links": _kind_links(concepts, relations),
         "predicates": _predicates(relations, labels, concepts),
+        "structures": structured,
         "provisions": {ref: {"label": views._provision_label(ref), "source": _source(ref),
                              "title": _provision_title(corpus, ref)} for ref in provisions},
         "counts": {
@@ -386,6 +436,12 @@ def ontology(corpus: Corpus, gold: Any, authored: Any, links: links_module.Links
                          "machine": sum(c["origin"] == "machine" for c in concept_list)},
             "relations": {"signed": sum(r["origin"] == "signed" for r in relations),
                           "machine": sum(r["origin"] == "machine" for r in relations)},
+            "definitions": len(defined),
+            "corrections": len(fixes.sound),
+            "tests": len(structured["tests"]),
+            "processes": len(structured["processes"]),
+            # The model's same-idea suggestions and the owner's rulings on them (ADR-0113).
+            "merges": dict(Counter(str(c.get("decision")) for c in hygiene.merge_candidates())),
             "links": sum(len(v) for v in mentions.values()),
             "passages_linked": len({r for v in mentions.values() for r in v}),
         },
@@ -510,7 +566,8 @@ def stability(corpus: Corpus, ontology_data: dict[str, Any], links: links_module
     these are the records whose quoted span would need re-checking. Since R05 the
     dependency index adds every relationship's evidence (not only its one `ref`),
     the definitions and corrections, and a view from each provision: the records
-    naming it, and those resting on a Manual passage that cites it.
+    naming it, and those resting on a Manual passage that cites it. Since Package 4
+    the structured legal tests and process templates rest on their quotes too.
     """
     deps = deps or dependencies.build(corpus)
     page_of = {ref: chunk.page_ref for ref, chunk in corpus.chunks.items()}
@@ -528,6 +585,7 @@ def stability(corpus: Corpus, ontology_data: dict[str, Any], links: links_module
             relation_refs[str(rel["ref"])].add(rel["id"])
     definition_refs: dict[str, set[str]] = defaultdict(set)
     correction_refs: dict[str, set[str]] = defaultdict(set)
+    structure_refs: dict[str, set[str]] = defaultdict(set)
     for dep in deps.all("current"):
         if dep.record_type == "gold_relationship" and dep.record in shown:
             relation_refs[dep.ref].add(dep.record)
@@ -535,6 +593,8 @@ def stability(corpus: Corpus, ontology_data: dict[str, Any], links: links_module
             definition_refs[dep.ref].add(dep.record)
         elif dep.record_type == "correction":
             correction_refs[dep.ref].add(dep.record)
+        elif dep.record_type in ("legal_test", "process"):
+            structure_refs[dep.ref].add(dep.record)
     mention_refs: dict[str, set[str]] = defaultdict(set)
     for cid, hits in links.mentions.items():
         for hit in hits:
@@ -554,6 +614,7 @@ def stability(corpus: Corpus, ontology_data: dict[str, Any], links: links_module
             "concepts": gather(concept_refs), "typings": gather(typing_refs),
             "relations": gather(relation_refs), "mentioned": gather(mention_refs),
             "definitions": gather(definition_refs), "corrections": gather(correction_refs),
+            "structures": gather(structure_refs),
             "links": sum(len(mention_refs.get(ref, ())) for ref in chunk_refs),
         })
     events = [(a.get("date") or "", (a.get("reason") or "").strip())

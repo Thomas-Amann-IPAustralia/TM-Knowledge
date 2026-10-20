@@ -661,3 +661,29 @@ circle.sel { stroke: var(--ink) !important; stroke-width: 3 !important; stroke-d
 .claim.unsupported { border-left: 3px solid var(--warn, #b45309); padding-left: .6rem; }
 .nosupport { display: inline-block; margin-right: .4rem; color: var(--warn, #b45309); font-weight: 600; }
 .answer .draft { text-transform: uppercase; letter-spacing: .05em; color: var(--muted, #666); }
+/* Package 4 (ADR-0142): structured legal tests and process templates, in the table view */
+.struct-index { display: flex; flex-wrap: wrap; gap: .3rem 1rem; margin: 0 0 1rem; }
+.struct-card { padding: 1rem 1.2rem 1.1rem; margin: 0 0 1.4rem; scroll-margin-top: 70px; }
+.struct-card h2 { font-size: 1.25rem; margin: 0 0 .3rem; }
+.struct-card h4 { margin: 1.1rem 0 .35rem; }
+.struct-card .meta { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+.cond-group { border-left: 2px solid var(--line); padding-left: .8rem; margin: .3rem 0; }
+.cond-group.cg-any { border-left-style: dashed; }
+.cond-head { text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); margin: .2rem 0; }
+.cond-tree { list-style: none; padding: 0; margin: 0; }
+.cond-tree > li { margin: .35rem 0; }
+.cond-leaf p { margin: .15rem 0; }
+.cond-kind.ck-evaluative { border-color: color-mix(in srgb, var(--warn) 40%, var(--line)); color: var(--warn); }
+.effect-kind.ek-bar, .effect-kind.ek-obligation { font-weight: 600; }
+.struct-idea { display: inline-block; margin-right: .7rem; }
+.struct-exception { border-top: 1px solid var(--line-2); padding-top: .5rem; margin-top: .5rem; }
+.struct-list { padding-left: 1.1rem; margin: .2rem 0; }
+.struct-list li { margin: .35rem 0; }
+.struct-quote { border-top: 0; padding: .1rem 0; }
+.struct-quote summary { cursor: pointer; }
+.struct-scroll { overflow-x: auto; margin: .2rem 0 .6rem; }
+.struct-tbl { margin: 0; }
+.struct-tbl thead th { position: static; }
+.struct-links { padding-left: 1.1rem; margin: .2rem 0; font-size: .9rem; }
+.struct-links li { margin: .2rem 0; }
+@media (max-width: 720px) { .struct-tbl .opt { display: none; } .struct-card { padding: .8rem; } }

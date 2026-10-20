@@ -151,6 +151,20 @@ export function hierarchyBlock(x, link) {
     <p class="tiny">Stated in the record${records.length === 1 ? "" : "s"} of ${records.map(esc).join(", ")}, not as a connection, so no sentence is cited for it.</p>`;
 }
 
+/** Where a structured legal test or process template is set out (the table view). */
+export const structureHref = (id) => `#/table/${String(id).startsWith("GP-") ? "processes" : "tests"}/${encodeURIComponent(id)}`;
+
+/** The structured legal tests and process templates that name an idea (Package 4,
+    ADR-0142). Each is a machine-written record of its own, listed with its stamp and
+    a link to the table that sets it out; tmk-explorer works out which name the idea. */
+export function structuresBlock(x, ontology) {
+  const all = [...(ontology.structures?.tests || []), ...(ontology.structures?.processes || [])];
+  const items = (x.structures || []).map((id) => all.find((r) => r.id === id)).filter(Boolean);
+  if (!items.length) return "";
+  return `<h4>In a structured test or procedure</h4>
+    <ul class="struct-links">${items.map((r) => `<li><a href="${structureHref(r.id)}">${esc(r.title)}</a> ${trustBadge(r.origin)}</li>`).join("")}</ul>`;
+}
+
 export function kindChip(kind, ontology) {
   const k = ontology.kinds.find((x) => x.id === kind);
   return `<span class="chip kind-chip" style="--c:${kindColour(kind)}"><i class="dot"></i>${esc(k ? k.label : kind)}</span>`;

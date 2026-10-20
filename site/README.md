@@ -21,10 +21,10 @@ Generated: everything under `data/`, written by `tmk-explorer --write` from
 
 | File | What it holds |
 |---|---|
-| `data/ontology.json` | kinds, concepts, relationships, kind-to-kind roll-ups, predicates |
+| `data/ontology.json` | kinds, concepts, relationships, kind-to-kind roll-ups, predicates; the structured legal tests and process templates (`structures`) |
 | `data/search.json` | what the browser needs to recognise concepts and rank passages |
 | `data/passages.json` | every Manual passage and provision, verbatim (the snapshot's) |
-| `data/stability.json` | the Manual's amendment history and what rests on each page |
+| `data/stability.json` | the Manual's amendment history, what rests on each page, and what rests on each provision |
 | `data/tour.json` | the Manual by Part, ideas named many ways, one worked example |
 | `data/examples.json` | the 129 prepared answers and each search system's score |
 | `data/chat.json` | the measured answer prompt, verbatim, for live questions; and the live-only reading prompt (ADR-0132) |
@@ -49,16 +49,23 @@ look at; it does not state the law.
 | `#/` | `home.js` | what this is, the four levels and the ways in — kept plain |
 | `#/circles` | `circles.js` | "At a glance": a zoomable circle packing of the ontology (D3): families → kinds → ideas |
 | `#/table/{kinds,ideas,connections}` | `table.js` | "As a table": the same records listed, not drawn — the kinds and how they connect, every idea (open a row for its connections as sentences), every connection; filters, and a CSV of each table with who wrote every row |
+| `#/table/{tests,processes}/G…` | `table.js` | the structured legal tests (`GL-`) as effect, condition tree, exceptions, evidence and routes; the process templates (`GP-`) as steps, transitions and time rules; each element with what it quotes, and a CSV of every element |
 | `#/tour/N` | `tour.js` | seven steps: text, wordings, connections, kinds, change, retrieval, limits; in steps 1–2 each square says which passage it is |
 | `#/map/{kinds,ideas,text}/GC-…` | `map.js` | Cytoscape: kinds open and close as boxes; an idea opens into Parts, then passages, with the Act and the Regulations in boxes of their own |
 | `#/ask/BN-…` | `ask.js` | a question's ideas, connections and passages drawn hop by hop; the same ideas on a mini map (Cytoscape) beside a plain account of how the starting ideas were found and why no connection is preferred; then a streamed, cited answer |
-| `#/change/TMM/…` | `change.js` | an amendment timeline (Plot) and every page as a tile in its Part's row, titles in full; pick one to see the ripple, and what rests on it on a mini map |
+| `#/change/TMM/…` | `change.js` | an amendment timeline (Plot) and every page as a tile in its Part's row, titles in full; pick one to see the ripple, and what rests on it on a mini map; or name a provision to see the records naming it and those resting on a Manual passage that cites it |
 | `#/about` | `about.js` | what it is, how it works, the measurement as intervals (Plot), the limits |
 
 **An idea's card shows its own record's fields**, on the map and in the table alike: its
 labels, its definition (`GD-`, stamped), what it rests on, its legislative basis, and the
 "is a kind of" links its record states (`hierarchy`), which no connection carries and so
 are listed, never drawn (Q-96).
+
+**Structured legal tests and process templates** (Package 4, ADR-0142) are records of
+their own, not connections, so the map does not draw them: an idea's card lists those that
+name it (`structuresBlock`), and the table sets each out element by element. They are shown
+as written; the page evaluates no condition and computes no date. The customer explanation
+built from them (`tmk-explain`) is not part of this site and is not published.
 
 **The Manual, the Act and the Regulations each have a colour and a mark** — a blue
 square, an amber diamond, a plum hexagon — wherever a passage appears: map nodes and
