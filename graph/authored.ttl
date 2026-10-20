@@ -2794,13 +2794,15 @@ tmka:GK-0003 a tmk:Correction ;
     tmk:confidence 0.9 ;
     tmk:corrects tmkc:GC-0012 ;
     tmk:evidence <https://data.ipaustralia.gov.au/tmk/assertion/GK-0003/evidence/1>,
-        <https://data.ipaustralia.gov.au/tmk/assertion/GK-0003/evidence/2> ;
+        <https://data.ipaustralia.gov.au/tmk/assertion/GK-0003/evidence/2>,
+        <https://data.ipaustralia.gov.au/tmk/assertion/GK-0003/evidence/3> ;
     tmk:extractionMethod "agent_authoring" ;
     tmk:goldRecord "GK-0003" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:ruling "review/rulings/2026-10-08-chat-ontology-review.yaml#A1" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part10/5/5/2/1>,
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s27(3)(b)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part10/5/5/2/1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.4> .
 
 tmka:GK-0004 a tmk:Correction ;
@@ -14813,6 +14815,17 @@ tmka:GE-0062 tmk:resolvesTo tmkc:GC-0044 .
     tmk:spanEnd 243 ;
     tmk:spanStart 4 ;
     tmk:upstreamRef "TMR1995/r4.4" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/GK-0003/evidence/3> a tmk:EvidenceAnchor ;
+    tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
+    tmk:isStale false ;
+    tmk:ordinal 3 ;
+    tmk:quote "specify, in accordance with the regulations, the goods and/or services in respect of which it is sought to register the trade mark" ;
+    tmk:sourceContentHash "sha256:2e05a87a5ec3e156da51773dbf47d6220a158dbe72342306f71f82272164bf88" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s27(3)(b)> ;
+    tmk:spanEnd 134 ;
+    tmk:spanStart 4 ;
+    tmk:upstreamRef "TMA1995/s27(3)(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GK-0004/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;

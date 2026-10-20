@@ -28,7 +28,7 @@ ontology cannot do, and it is the honest half of the demonstration.
 | Predicates defined | 53 in `ontology/predicates.py`; 14 used by a signed record, 51 by a machine-written one |
 | Source graph | 66,238 triples over 1088 chunks |
 | Approved graph | 3,644 triples — signed by a named expert |
-| Authored graph | 28,655 triples — **written by a machine, validated by nobody** |
+| Authored graph | 28,667 triples — **written by a machine, validated by nobody** |
 | Inferred graph | 2,315 triples — derived by the SPARQL rules, never a signed record |
 | SHACL result | 0 defects, 0 gaps, 259 notes — exit 0 |
 | Competency queries | 13 of 20 questions |
@@ -337,9 +337,9 @@ compilation of the Act or the Regulations in force after that may not be reflect
 **5 Parts have no chunk in the graph**: Part1, Part4, Part8, Part41, Part61. **2 more have
 no relationship resting on them**: Part7, Part45.
 
-**The dependency index.** 2,361 dependencies of 963 records on
-557 refs, current view: by record type 67 competency_question, 400 concept_type, 60 correction, 399 definition, 595 gold_concept, 66 gold_entity, 711 gold_relationship, 40 gold_retrieval_question, 5 gold_search_question, 18 reasoning_expectation; by review
-status 356 approved, 2,005 unreviewed; by source 572 act, 9 case, 1,639 manual, 141 regulations. Stale (a recorded hash that
+**The dependency index.** 2,362 dependencies of 963 records on
+557 refs, current view: by record type 67 competency_question, 400 concept_type, 61 correction, 399 definition, 595 gold_concept, 66 gold_entity, 711 gold_relationship, 40 gold_retrieval_question, 5 gold_search_question, 18 reasoning_expectation; by review
+status 356 approved, 2,006 unreviewed; by source 573 act, 9 case, 1,639 manual, 141 regulations. Stale (a recorded hash that
 no longer matches the pin): 0. A further 19 dependencies are
 history only: a signed record named the ref as signed, and a correction removed it or
 replaced the record. RULE-0002 is unchanged and is the signed-records-only view of the
