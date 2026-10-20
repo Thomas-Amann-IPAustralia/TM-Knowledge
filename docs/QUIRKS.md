@@ -1746,3 +1746,15 @@ load's `fetch` of `data/*.json`, and the console shows "TypeError: Failed to fet
 fine. Open each route in a fresh page and wait instead; then any error the sweep reports is real.
 The sweep that found both checks `document.documentElement.scrollWidth > innerWidth` on every route
 at 1400 and 390 px, light and dark.
+
+### Q-103: rdflib's SPARQL is slow on `VALUES ?g` and a source-first join
+
+RULE-0003 (S045) was first written as `VALUES ?g { tmkg:approved tmkg:authored } GRAPH ?g {...}`
+with the source graph's `?passage tmk:upstreamRef ?ref` first; over `graph/dataset.nq` it ran
+past four minutes and was killed. Two fixed `GRAPH tmkg:approved {...}` / `GRAPH tmkg:authored
+{...}` blocks UNIONed, each binding the record first and the source graph looked up last, run in
+about thirty seconds inside the build. rdflib evaluates patterns roughly in the order written and
+does not reorder joins: put the selective pattern first, avoid a variable graph name, and time a
+new rule against the committed dataset before adding it (a rule runs on every `tmk-graph --rules`
+and in CI). A rule with an unbound predicate (`?dependant ?via ?passage`) is affordable only once
+the subject is bound.

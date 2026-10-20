@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/scenarios/fictional-amendment/1.0.0",
+  "title": "Fictional amendment (a normative scenario)",
+  "description": "An invented draft amendment to one provision, read as edits to the structured legal test of that provision, and run on fictional matters to show whether their reading would change (the second review response, A10; ADR-0147). Every one is fictional and says so in a field a machine reads; its draft words are never law, never enter the graph, the search index or the site, and are labelled draft wherever they are shown. It names the compilation it amends, so a scenario written against one text is refused against another.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "fictional", "title", "question", "written_by", "written_date", "amends", "draft_text", "changes", "runs_on"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^FS-[0-9]{4}$"},
+    "fictional": {"const": true},
+    "title": {"type": "string", "minLength": 1},
+    "question": {"type": "string", "minLength": 1, "description": "The policy question it asks, in the form 'would these matters be read differently if ...'."},
+    "written_by": {"type": "string", "minLength": 1},
+    "written_date": {"type": "string", "format": "date"},
+    "amends": {
+      "type": "object", "additionalProperties": false, "required": ["provision", "test", "instrument", "compilation"],
+      "properties": {
+        "provision": {"$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/upstream_ref", "description": "The provision or unit the draft amends: the enduring identity (A03)."},
+        "test": {"type": "string", "pattern": "^GL-[0-9]{4}$", "description": "The structured test of that provision the edits apply to."},
+        "instrument": {"enum": ["TMA1995", "TMR1995"]},
+        "compilation": {"type": "string", "minLength": 1, "description": "The compilation number of the text the draft amends. Refused unless it is a held compilation."}
+      }
+    },
+    "draft_text": {"type": "string", "minLength": 1, "description": "The invented words of the draft. Never law; quoted as the source of every element the edits change."},
+    "changes": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false, "required": ["op", "target", "why"],
+        "properties": {
+          "op": {"enum": ["remove", "replace_text", "set_effect_kind", "drop_check"], "description": "remove: an element (a condition, an exception, an evidence requirement or a route) goes. replace_text: a condition's or exception's words become the draft's. set_effect_kind: the test's effect (target `effect`) or an exception's becomes an obligation, a discretion or a bar. drop_check: one check of an evidence requirement goes."},
+          "target": {"type": "string", "pattern": "^[a-z0-9_]+$", "description": "The element's id within the test, or `effect`."},
+          "text": {"type": "string", "minLength": 1},
+          "kind": {"enum": ["obligation", "discretion", "bar"]},
+          "check": {"type": "string", "minLength": 1},
+          "why": {"type": "string", "minLength": 1, "description": "Why the draft makes this edit; where the edit is to practice (an evidence requirement from the Manual), that the scenario assumes the practice would follow, which is an assumption, not a reading."}
+        }
+      }
+    },
+    "runs_on": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^FM-[0-9]{4}$"}},
+    "notes": {"type": "string"}
+  }
+}

@@ -6072,7 +6072,8 @@ of the work. When re-measurement happens or what it may cost.
 
 ## ADR-0137 — definitions are their own records, `GD-`, with the source of their words stated
 
-**Date** 2026-10-17 · **Authority** agent-proposed (S038) · **Status** accepted, provisional ·
+**Date** 2026-10-17 · **Authority** agent-proposed (S038) · **Status** accepted, provisional;
+decision 1's "one per concept" superseded by ADR-0147 (one per concept per scope) ·
 acts on ADR-0136 decision 2 (CHAT-0078)
 
 **Context.** The owner lifted the deferral on definitions (CHAT-0078). ADR-0136 left their
@@ -6489,3 +6490,69 @@ Manual's answering model is given.
 2. A new invented matter, test or template reaches the preview on the next build with no page change.
 3. The agent parts are provisional; named in the handoff's open items.
 
+## ADR-0147 — Package 5: the versioning model defined, the dependency index as a candidate rule, fictional amendments on fictional matters
+
+**Date** 2026-10-20 · **Authority** agent-proposed (S045) · **Status** accepted, provisional ·
+completes the second review response's Package 5 (A03, R05, A10) on the owner's "Complete the
+construction of package 5"; supersedes ADR-0137 decision 1's "one per concept" and the
+`time.ttl` headline that put point-in-time questions out of scope
+
+**Context.** Package 5 was three things (`docs/ONTOLOGY-REVIEW-RESPONSE-2.md`): A03, define
+versions (identity apart from text, effect apart from capture, scoped statements, an explicit
+unknown) with selection once upstream holds a second compilation; R05/A10, the dependency
+index in the graph as a candidate rule; A10, normative scenarios on fictional matters once A03
+and A04 exist. The snapshot holds one compilation of each instrument (the Act's 48, from 19
+September 2026; the Regulations' 53, from 18 December 2025); upstream's `instrument.json` also
+carries the Register's title id, the status at capture and whether amendments were left
+unincorporated, none of which was read. Four of the six fictional matters were filed before
+compilation 48 began and two give no filing date. The Python index (S042) held 1,530 (record, source) pairs the graph could
+not state. Nothing was spent.
+
+**Decision (the agent's).**
+1. **Versions.** `time.ttl` defines `tmk:Compilation` (a versioned text: `tmk:doc/TMA1995/
+   compilation/48`), `tmk:compilationOf` / `tmk:heldCompilation`, `tmk:registerTitleId` (the
+   enduring id), `tmk:inForceDuring` an OWL-Time interval with a beginning and no end until
+   the next compilation is held, `tmk:currentAtCapture`, `tmk:textFrom` on every provision and
+   unit, `tmk:applicableDuring` for scoped statements (defined, unused), and five
+   `tmk:VersionState`s. `tm_knowledge.versions.select` is written over a list and tested on
+   two invented compilations: held; not held (before the earliest start); after capture (a
+   later one may have started); unconfirmed (the Register's record at capture does not
+   confirm it complete); no date. It never decides which date governs a question.
+2. **Every explanation names the text it quotes** and what can be said of the text in force
+   on the matter's filing date; with no filing date, an explicit unknown.
+3. **One definition per concept per scope** (definition schema 1.1.0, `scope`): a concept with
+   several has a distinct scope on each, an unscoped one beside them is refused, and
+   `Definitions.resolve` picks one only when the context names its scope, otherwise
+   `unresolved` with every candidate. `tmk:defines` stays functional: it always meant one
+   concept per definition, never one definition per concept (the review read it the other
+   way). No concept has two today.
+4. **RULE-0003**, `tmk:restsOn`, `approved-by: PENDING` (OQ-0030): every record of either store
+   to every held source it names in any field or through any element, with the property and
+   the store; a relationship's direct edge excluded (its record rests on both ends). Held to
+   the Python index's pairs by a test; the residue it may not carry is named (a correction's
+   values held only as words, some signed fields). The parity check found two export gaps and
+   both are closed: a typing's `basis` (`tmk:typingBasis`) and a test or template element's
+   own refs.
+5. **Fictional amendments** (`scenarios/amendments.yaml`, `FS-`, schema
+   `fictional-amendment.schema.json`): an invented draft of one provision, naming the
+   compilation it amends (refused if not held), read as edits (`remove`, `replace_text`,
+   `set_effect_kind`, `drop_check`) to a copy of the provision's legal test, every changed
+   element labelled `draft`. `tmk-explain --scenario` reports three layers never summed:
+   records resting on the provision (by how they reach it), each fictional matter's reading
+   element by element under the test as held and as drafted, and the behavioural effect as
+   unknown. Three scenarios: FS-0001 (after-filing use under s 41(3), on FM-0004 and FM-0005),
+   FS-0002 (honest concurrent use omitted, a near miss: elements change, readings do not),
+   FS-0003 (s 44(1) "may"). A draft's words are in no graph, index, site or prompt; a test
+   checks.
+
+**What it does not decide.** Approving RULE-0003 (the owner's, OQ-0030). Capturing a second
+compilation (upstream's, CLAUDE.md rule 2). Which date governs any question. Whether any real
+amendment should be simulated, or a scenario shown to anyone: a real draft is policy content
+and, shown outward, a §3a gate. Where an edit to the Act would leave the Manual's practice is
+an assumption each scenario names, never a reading.
+
+**Consequences.**
+1. Source graph 66,250 → 69,460 triples; authored 30,071; RULE-0003 1,528 candidate
+   conclusions (21,733 triples, about half a minute of the build). SHACL 0 defects.
+2. `tests/unit/test_versions.py`, `test_scenarios.py`, and RULE-0003's three in `test_rules.py`.
+3. Provisional; name it in the handoff's open items.

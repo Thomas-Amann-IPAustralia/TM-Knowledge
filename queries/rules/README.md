@@ -1,7 +1,7 @@
 # queries/rules/ — approved CONSTRUCT rules
 
-**RULE-0002 is approved; RULE-0001 is not.** RULE-0002's header names the owner's
-approval of 2026-09-08 (OQ-0004); RULE-0001 says `approved-by: PENDING`, and
+**RULE-0002 is approved; RULE-0001 and RULE-0003 are not.** RULE-0002's header names the
+owner's approval of 2026-09-08 (OQ-0004); RULE-0001 and RULE-0003 say `approved-by: PENDING`, and
 `tm_knowledge.ontology.rules` enforces the consequence rather than trusting the
 line: everything an unapproved rule produces is written with `tmk:reviewStatus
 "candidate"` and `tmk:requiresHumanReview true`, into `graph/inferred.ttl` and
@@ -15,6 +15,15 @@ dependency index, `tm_knowledge.ontology.dependencies` (the second review
 response, R05), shown on the explorer's change view and in §7 of the ontology
 report. Widening RULE-0002 instead would be a different rule needing its own
 approval.
+
+**RULE-0003 is that index in the graph** (S045, Package 5; the second review response's
+R05 and A10): `tmk:restsOn` from every record of either store to every passage, provision
+or unit it names, in any field or through any element of its own, each inference saying
+the property it came by and the store the record is in. Pending, asked as OQ-0030. A test
+holds it to the same pairs as the Python index and names the few the graph cannot carry
+(values held only as words). A relationship's direct edge is excluded, because the
+relationship's own record already rests on its ends. It takes about half a minute of the
+build.
 
 Stage 9's requirement is that experts approve every reasoning template before
 deployment. These are drafted so there is something to approve.

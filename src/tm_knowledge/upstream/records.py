@@ -514,6 +514,13 @@ class Instrument:
     are taken; the rest of the record (its amendments, counts and document hash)
     is upstream's, and nothing here needs it. A missing one raises: a compilation
     nobody can name is not one an answer may cite.
+
+    Three more are read for the versioning model (A03, `tm_knowledge.versions`), and
+    may be absent: `title_id`, the Register's id for the instrument itself, which
+    every compilation shares (the enduring identity, where `register_id` names one
+    text); `status`, what the Register said of the compilation when it was captured;
+    and `has_unincorporated_amendments`, whether amendments had been made that the
+    compilation's text did not yet carry. Absent is unknown, never "no".
     """
 
     code: str
@@ -522,6 +529,9 @@ class Instrument:
     compilation_start: str
     register_id: str
     captured_at: str
+    title_id: str | None = None
+    status: str | None = None
+    has_unincorporated_amendments: bool | None = None
 
     @classmethod
     def from_dict(cls, record: Mapping[str, Any]) -> "Instrument":
@@ -533,6 +543,9 @@ class Instrument:
                 compilation_start=record["compilation_start"],
                 register_id=record["register_id"],
                 captured_at=record["captured_at"],
+                title_id=record.get("title_id"),
+                status=record.get("status"),
+                has_unincorporated_amendments=record.get("has_unincorporated_amendments"),
             )
         except KeyError as missing:
             raise UpstreamSchemaDrift(

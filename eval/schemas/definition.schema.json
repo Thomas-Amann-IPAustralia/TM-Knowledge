@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://ipaustralia.gov.au/schemas/tmk/authored/definition/1.0.0",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/authored/definition/1.1.0",
   "title": "Definition of a concept",
-  "description": "A machine-written definition of one concept (the review response, F06; ADR-0136). Its own record rather than a field on the concept, because a signed concept cannot be edited and approving a label approves no definition (ADR-0071's reason for a concept's kind). Every definition carries the authoring envelope, quoting the passages it rests on, and says where its words come from. One per concept.",
+  "description": "A machine-written definition of one concept (the review response, F06; ADR-0136). Its own record rather than a field on the concept, because a signed concept cannot be edited and approving a label approves no definition (ADR-0071's reason for a concept's kind). Every definition carries the authoring envelope, quoting the passages it rests on, and says where its words come from. One per concept per scope (1.1.0, ADR-0147): a concept with several definitions carries a distinct `scope` on each.",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "concept", "text", "basis", "source_ref", "approved_by", "approved_date"],
@@ -26,6 +26,11 @@
       "type": "string",
       "minLength": 1,
       "description": "Which sense of a word the definition is of, where the corpus uses it in several (\"application\" first, the 8 October review's B2), or which Part of the Regulations a definition belongs to."
+    },
+    "scope": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/()-]*$",
+      "description": "A machine-readable key for the context this definition holds in, where a concept has more than one (1.1.0, ADR-0147): a Part of an instrument (`TMR1995/Part17`), a sense (`sense:application-document`), or a period (`period:2026-09-19/`). Required on every definition of a concept that has several, no two alike; a reader picks one only when its context names the scope, and otherwise reports the concept unresolved. Absent on a concept's only definition. scope_note stays the words a reader sees."
     },
     "source_ref": {
       "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/upstream_ref",

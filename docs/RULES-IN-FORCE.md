@@ -1,10 +1,10 @@
-# Rules in force — what 131 decisions add up to
+# Rules in force — what 134 decisions add up to
 
 Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-10-20, ADR-0144 (S043).
+**As at:** 2026-10-20, ADR-0147 (S045).
 
 ## Purpose and scope
 
@@ -32,6 +32,13 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   moved without breaking anything downstream (ADR-0136, Q-95). Every answer names the
   compilation it read: a live one the pinned compilation, a prepared one the compilation it
   was written against (compilation 47 for all 129).
+- **An instrument is enduring; a compilation is one text of it** (A03, ADR-0147): a
+  `tmk:Compilation` node with its own register id, in force over an interval whose end is not
+  stated until the next is held; legal effect is never read from the capture date. Which text
+  was in force on a date is `versions.select`: held, not held, after capture, unconfirmed, or
+  no date (an explicit unknown, never the held text by default). It never decides which date
+  governs a question. A second compilation is captured upstream, never here. Every customer
+  explanation names the text it quotes and what can be said of it on the filing date.
 - **Never state an examination outcome**, and never a confidence that a ground
   applies (PU-0003). The eleven signed prohibited uses stand (ADR-0082 c4).
 - **The Manual is practice, not law.** Keep the Manual and the legislation
@@ -132,7 +139,9 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 - **A definition is its own record** (`GD-`, `authored/definitions.yaml`), never a field on a
   concept, and says where its words come from: the instrument's own definition, verbatim
   (preferred, CHAT-0045), a provision, or the Manual. A concept its sources do not define gets
-  none; "application" carries scope notes, not a split (ADR-0137). Keep the meaning short
+  none; "application" carries scope notes, not a split (ADR-0137). **One per concept per
+  scope** (ADR-0147): several only with a distinct `scope` on each, and a reader picks one only
+  when its context names the scope; otherwise the concept is unresolved and every candidate shown. Keep the meaning short
   and put obligations and consequences in the scope note; the harness's triage notes flag a
   quote cut before its qualifier, a subsection quoted in part, and "must" in a non-ground
   definition (R02).
@@ -242,7 +251,13 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   store and record type, keyed by any ref, a current view and an as-signed view never summed, a
   provision's route through the Manual passages citing it with upstream's certainty kept. An
   absence is "no recorded dependency", never "no impact". RULE-0002 stays the approved,
-  signed-records-only view.
+  signed-records-only view. **RULE-0003 puts the index in the graph** (`tmk:restsOn`,
+  ADR-0147), pending the owner (OQ-0030), held to the index's pairs by a test.
+- **A fictional amendment is a fixture, never law** (A10, ADR-0147): `scenarios/amendments.yaml`,
+  `FS-`, read as edits to a copy of one legal test, every changed element labelled draft, run
+  only on fictional matters. Three layers never summed: records resting on the provision, each
+  matter's reading under the test as held and as drafted, and the behavioural effect stated
+  unknown. A draft's words go into no graph, index, site or prompt; a real draft is the owner's.
 - **Each competency query is checked against its own signed record** (R06, `ask.contracts`); an
   unmet contract is a gap in the ontology report, never a failing test, and no agent writes
   expected results for its own queries. CQ-0009 and CQ-0024 return reviewed and unreviewed rows

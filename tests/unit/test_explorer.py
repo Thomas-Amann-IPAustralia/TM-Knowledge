@@ -490,7 +490,7 @@ def test_the_standards_page_reads_its_examples_and_checks_from_the_build(files):
     release = files["build.json"]
     checks = release["checks"]
     assert sum(checks["shapes"].values()) > 0 and set(checks["shapes"]) == {p.stem for p in (REPO_ROOT / "shapes").glob("*.ttl")}
-    assert {r["id"]: r["approved"] for r in checks["rules"]} == {"RULE-0001": False, "RULE-0002": True}
+    assert {r["id"]: r["approved"] for r in checks["rules"]} == {"RULE-0001": False, "RULE-0002": True, "RULE-0003": False}
     for key, sample in release["samples"].items():
         assert sample["lines"] and sample["lines"][0].startswith(sample["subject"]), key
         assert not any("approvedBy" in line for line in sample["lines"]), key

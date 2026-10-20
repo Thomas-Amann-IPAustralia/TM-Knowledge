@@ -164,6 +164,103 @@ def test_rule_0002_does_not_fire_for_an_unreferenced_passage():
     assert len(produced) == 0
 
 
+# --- RULE-0003 -------------------------------------------------------------
+
+
+def _with_authored(source: list[tuple], approved: list[tuple], authored: list[tuple]) -> Dataset:
+    from tm_knowledge.ontology.namespaces import AUTHORED_GRAPH
+
+    dataset = dataset_with(source, approved)
+    for triple in authored:
+        dataset.graph(AUTHORED_GRAPH).add(triple)
+    return dataset
+
+
+def test_rule_0003_fires_for_records_of_both_stores():
+    """A signed record naming a passage, a machine-written one naming a unit through an
+    element of its own: both rest on what they name, each says its store, and neither is
+    trusted until a person approves the rule."""
+    passage, facts = chunk("TMM/Part29/2/2/3")
+    unit = URIRef("https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(3)")
+    facts += [(unit, TMK.upstreamRef, Literal("TMA1995/s44(3)"))]
+    signed, written, element = URIRef(FIXTURE + "GR-0005"), URIRef(FIXTURE + "GL-0001"), URIRef(FIXTURE + "GL-0001/x")
+    produced = rule("RULE-0003").construct(_with_authored(
+        facts,
+        [(signed, TMK.sourcePassage, passage), (signed, TMK.goldRecord, Literal("GR-0005"))],
+        [(written, TMK.goldRecord, Literal("GL-0001")), (element, TMK.elementOf, written),
+         (element, TMK.onlyForGround, unit)],
+    ))
+    assert (signed, TMK.restsOn, passage) in produced
+    assert (written, TMK.restsOn, unit) in produced
+    stores = {str(produced.value(i, TMK.dependantStore)): produced.value(i, TMK.dependencyVia)
+              for i in produced.subjects(TMK.producedByRule, None)}
+    assert stores == {"signed": TMK.sourcePassage, "authored": TMK.onlyForGround}
+    for inference in produced.subjects(TMK.producedByRule, None):
+        assert produced.value(inference, TMK.reviewStatus) == Literal("candidate")
+        assert produced.value(inference, TMK.requiresHumanReview) == Literal(True)
+
+
+def test_rule_0003_does_not_fire_for_a_ref_the_source_does_not_hold():
+    """The near miss: a record naming a ref the source graph does not hold (a provision of
+    another Act, Q-24) rests on nothing the graph can show; and a literal that looks like a
+    ref is not a link. Nothing is produced, which is "no recorded dependency" (Q-28)."""
+    passage, facts = chunk("TMM/Part29/2/2/3")
+    unheld = URIRef("https://data.ipaustralia.gov.au/tmk/ref/TMA1905/s114")
+    record = URIRef(FIXTURE + "GD-0001")
+    produced = rule("RULE-0003").construct(_with_authored(
+        facts, [],
+        [(record, TMK.goldRecord, Literal("GD-0001")), (record, TMK.sourcePassage, unheld),
+         (record, TMK.quote, Literal("https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3"))],
+    ))
+    assert len(produced) == 0
+
+
+@pytest.mark.rdf
+def test_rule_0003_agrees_with_the_dependency_index():
+    """The graph form and the Python index (R05) hold the same (record, source) pairs, so a
+    policy tool reading the graph and the explorer's change view do not disagree. What the
+    index sees and the graph does not is named, kind by kind, and nothing else may differ:
+    values the graph carries only as words (a correction's added and withdrawn values), and
+    fields of signed questions and concepts the graph does not export as links."""
+    from collections import Counter
+
+    from tm_knowledge.config import REPO_ROOT
+    from tm_knowledge.ontology import dependencies
+    from tm_knowledge.ontology.namespaces import SOURCE_GRAPH
+    from tm_knowledge.upstream.loader import load_corpus
+
+    dataset = Dataset()
+    dataset.parse(REPO_ROOT / "graph" / "dataset.nq", format="nquads")
+    inferred = dataset.graph(INFERRED_GRAPH)
+    graph_pairs = set()
+    for inference in inferred.subjects(TMK.producedByRule, URIRef("https://data.ipaustralia.gov.au/tmk/prop/RULE-0003")):
+        record = str(inferred.value(inference, TMK.assertionSubject)).rsplit("/", 1)[-1]
+        source = dataset.graph(SOURCE_GRAPH).value(inferred.value(inference, TMK.assertionObject), TMK.upstreamRef)
+        graph_pairs.add((record, str(source)))
+    held = {str(o) for o in dataset.graph(SOURCE_GRAPH).objects(None, TMK.upstreamRef)}
+    index = dependencies.build(load_corpus())
+    index_pairs = {(d.record, d.ref) for d in index.all() if d.ref in held}
+    only_graph, only_index = graph_pairs - index_pairs, index_pairs - graph_pairs
+    assert len(graph_pairs) > 1000
+    assert not only_graph, sorted(only_graph)[:10]
+    kinds = Counter(record[:3] for record, _ in only_index)
+    assert set(kinds) <= {"GK-", "GS-", "CQ-", "GC-"}, kinds
+    assert sum(kinds.values()) <= 0.02 * len(index_pairs), kinds
+    # Keyed by any ref: from the whole section, through its parts, as a policy tool would ask.
+    from_section = {str(row.record) for row in dataset.query("""
+        PREFIX tmk: <https://data.ipaustralia.gov.au/tmk/ns/>
+        PREFIX dcterms: <http://purl.org/dc/terms/>
+        PREFIX tmkg: <https://data.ipaustralia.gov.au/tmk/graph/>
+        SELECT DISTINCT ?record WHERE {
+          GRAPH tmkg:source { ?part dcterms:isPartOf* <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> }
+          GRAPH tmkg:inferred { ?dependant tmk:restsOn ?part }
+          BIND (REPLACE(STR(?dependant), "^.*/", "") AS ?record)
+        }""")}
+    assert {"GL-0001", "GP-0001"} <= from_section
+    assert from_section == {record for record, ref in graph_pairs
+                            if ref == "TMA1995/s44" or ref.startswith("TMA1995/s44(")}
+
+
 # --- the headers ------------------------------------------------------------
 
 

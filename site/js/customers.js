@@ -152,6 +152,7 @@ function matterView(e, data) {
       <p><b>${esc(e.unresolved.reads)}</b></p>
       ${e.asks.length ? `<p>What would change this explanation:</p><ul class="cx-asks">${e.asks.map((a) => `<li>${esc(a.question)}</li>`).join("")}</ul>`
         : `<p class="small">Nothing more is needed to read the objections as recorded.</p>`}
+      ${e.versions && e.versions.reads ? `<p class="small muted">Which text of the law: ${esc(e.versions.reads)}</p>` : ""}
     </div>
     ${stamp(e.stamp)}
     ${textEq(e.text, "The whole explanation as text")}

@@ -7,29 +7,41 @@
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
 @prefix prov:    <http://www.w3.org/ns/prov#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix time:    <http://www.w3.org/2006/time#> .
 
 <https://data.ipaustralia.gov.au/tmk/ns/time>
     a owl:Ontology ;
     rdfs:label "TM-Knowledge — time module"@en-AU ;
-    rdfs:comment """Dates, currency and what this corpus cannot answer about time.
+    rdfs:comment """Dates, currency, versions, and what this corpus cannot answer about time.
 
-The honest headline: **point-in-time questions are out of scope and the snapshot
-cannot support them.** There is no corpus-level version stamp for the Manual
-(Q-05); the amendment history is the upstream repository's git history, and
-answering 'what guidance was current on «date»' properly needs a full-history
-clone, which is a different data strategy rather than a different query. CQ-0014
-is marked out of scope on the strength of that line.
+**The versioning model is defined here (the second review response, A03; S045).**
+An instrument and a provision are enduring: `tmk:doc/TMA1995` is the Act whatever
+its text, `TMA1995/s44` is section 44 whatever its words, and the instrument carries
+the Federal Register's own enduring id (`tmk:registerTitleId`, `C2004A04969`). A
+`tmk:Compilation` is one versioned text of an instrument, with its own register id,
+in force over a `time:Interval` that begins on its start date and whose end is not
+stated until a later compilation is held: an interval with no `time:hasEnd` has an
+end not known, never 'no end'. Legal effect and capture are kept apart: the interval
+is when the text was law; `tmk:capturedAt` and `tmk:currentAtCapture` are when
+upstream read it and what the Register then said of it. A provision's text and hash
+in the source graph are its text in one compilation (`tmk:textFrom`).
 
-The legislation is different: upstream records which compilation of each
-instrument it holds, and the graph states it on the instrument
-(`tmk:compilationNumber`, `tmk:registerId`, `tmk:compilationStart`), so an answer
-can say which state of the law it read (the review response, F09). One
-compilation per instrument, the one the pin holds; not a history.
+**Selection waits for a second version.** The snapshot holds one compilation per
+instrument, so 'which text applied on «date»' has four honest answers today
+(`tmk:VersionState`): held, not held (before the held start), after the capture
+(a later one may have started) and no date given. `tm_knowledge.versions` computes
+them; it never decides which date governs a question. Holding a second compilation
+means capturing it upstream (CLAUDE.md rule 2).
 
-What the module does carry is the currency mechanism that actually works:
-staleness by content hash. An assertion whose source hash no longer matches the
-pin is stale and returns to review. That is Stage 10's whole incremental
-mechanism and it needs no version stamp."""@en-AU ;
+The Manual is different and unchanged: there is no corpus-level version stamp for it
+(Q-05); its amendment history is the upstream repository's git history, and 'what
+guidance was current on «date»' needs a full-history clone, a different data
+strategy rather than a different query. CQ-0014 stays out of scope on that line.
+
+What the module also carries is the currency mechanism that works for both: staleness
+by content hash. An assertion whose source hash no longer matches the pin is stale
+and returns to review. That is Stage 10's whole incremental mechanism and it needs no
+version stamp."""@en-AU ;
     owl:imports <https://data.ipaustralia.gov.au/tmk/ns/provenance> ;
     owl:versionInfo "draft — not approved" .
 
@@ -65,16 +77,14 @@ tmk:capturedAt a owl:DatatypeProperty ;
     rdfs:comment "When upstream captured the passage. The nearest thing this corpus has to a currency date, and it is a capture time, not an in-force date."@en-AU .
 
 tmk:compilationNumber a owl:DatatypeProperty , owl:FunctionalProperty ;
-    rdfs:domain tmk:Legislation ;
     rdfs:range xsd:string ;
     rdfs:label "compilation number"@en-AU ;
-    rdfs:comment "Which compilation of the instrument the pinned snapshot holds, numbered as the Federal Register of Legislation numbers it. Read from upstream's `instrument.json`."@en-AU .
+    rdfs:comment "Which compilation of the instrument the pinned snapshot holds, numbered as the Federal Register of Legislation numbers it. Read from upstream's `instrument.json`. No domain since S045: a `tmk:Compilation` carries it too, and the instrument's value is its held compilation's."@en-AU .
 
 tmk:registerId a owl:DatatypeProperty , owl:FunctionalProperty ;
-    rdfs:domain tmk:Legislation ;
     rdfs:range xsd:string ;
     rdfs:label "register id"@en-AU ;
-    rdfs:comment "The Federal Register of Legislation's id for that compilation (`C2024C00545`): the one name a reader can look up."@en-AU .
+    rdfs:comment "The Federal Register of Legislation's id for that compilation (`C2024C00545`): the one name a reader can look up. No domain since S045: a `tmk:Compilation` carries it too."@en-AU .
 
 tmk:compilationStart a owl:DatatypeProperty , owl:FunctionalProperty ;
     rdfs:domain tmk:Legislation ;
@@ -92,3 +102,69 @@ tmk:isStale a owl:DatatypeProperty , owl:FunctionalProperty ;
     rdfs:range xsd:boolean ;
     rdfs:label "is stale"@en-AU ;
     rdfs:comment "The `tmk:sourceContentHash` on an assertion or an evidence anchor no longer matches the pinned snapshot: the passage under it moved. Computed at build time, never asserted by hand. No domain since S041, because anchors carry it too."@en-AU .
+
+
+# --- the versioning model (A03, S045) ----------------------------------------
+# OWL-Time supplies the interval and its instants; nothing here re-declares them.
+
+tmk:Compilation a owl:Class ;
+    rdfs:label "Compilation"@en-AU ;
+    rdfs:comment """One versioned text of an instrument, as the Federal Register numbers and identifies it (compilation 48 of the Act, `C2026C00421`). Distinct from `tmk:DocumentVersion`, which is a capture of the corpus (the pin): a compilation is a state of the law, a capture is when it was read. Minted as `tmk:doc/TMA1995/compilation/48`."""@en-AU .
+
+tmk:compilationOf a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Compilation ;
+    rdfs:range tmk:Legislation ;
+    rdfs:label "compilation of"@en-AU .
+
+tmk:heldCompilation a owl:ObjectProperty ;
+    rdfs:domain tmk:Legislation ;
+    rdfs:range tmk:Compilation ;
+    rdfs:label "held compilation"@en-AU ;
+    rdfs:comment "A compilation of this instrument the pinned snapshot holds. Not functional: one today, several once upstream captures history. The instrument-level `tmk:compilationNumber`, `tmk:registerId` and `tmk:compilationStart` describe the one held, and stay for the readers that use them."@en-AU .
+
+tmk:registerTitleId a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Legislation ;
+    rdfs:range xsd:string ;
+    rdfs:label "register title id"@en-AU ;
+    rdfs:comment "The Federal Register's id for the instrument itself (`C2004A04969` for the Act), which every compilation shares: the enduring identity, where `tmk:registerId` names one text."@en-AU .
+
+tmk:inForceDuring a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Compilation ;
+    rdfs:range time:Interval ;
+    rdfs:label "in force during"@en-AU ;
+    rdfs:comment "When the compilation's text was the law: a `time:Interval` whose `time:hasBeginning` is its start date. Its `time:hasEnd` is stated only when the next compilation is held; absent, the end is not known."@en-AU .
+
+tmk:currentAtCapture a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Compilation ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "current at capture"@en-AU ;
+    rdfs:comment "Whether the Register showed this compilation as in force, with no amendment left unincorporated, on the day upstream captured it (`tmk:capturedAt`). The only evidence that the interval reached the capture date. Absent where upstream did not say."@en-AU .
+
+tmk:textFrom a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:range tmk:Compilation ;
+    rdfs:label "text from"@en-AU ;
+    rdfs:comment "The compilation a provision's or unit's text and `tmk:contentHash` are taken from. The provision is enduring; its words are this compilation's. An evidence anchor on it was read against this text when it is not stale. No domain: provisions and units both carry it."@en-AU .
+
+tmk:VersionState a owl:Class ;
+    rdfs:label "Version state"@en-AU ;
+    rdfs:comment "What can be said of the text of an instrument in force on a date, given what is held (`tm_knowledge.versions.STATES`). Never inferred from silence: each is computed from the held compilations and a date the caller names."@en-AU .
+
+tmk:VersionHeld a tmk:VersionState ; rdfs:label "held"@en-AU ;
+    rdfs:comment "The date falls in a held compilation's interval; for the latest, on or before its capture and only where it was current at capture."@en-AU .
+
+tmk:VersionNotHeld a tmk:VersionState ; rdfs:label "not held"@en-AU ;
+    rdfs:comment "The date is before the earliest held compilation began: the text then in force is one the snapshot does not hold."@en-AU .
+
+tmk:VersionAfterCapture a tmk:VersionState ; rdfs:label "after capture"@en-AU ;
+    rdfs:comment "The date is after the latest held compilation was captured: a later compilation may have started, and the held text is not assumed to apply."@en-AU .
+
+tmk:VersionUnconfirmed a tmk:VersionState ; rdfs:label "unconfirmed"@en-AU ;
+    rdfs:comment "The date is within the latest held compilation's known span, but the Register's record at capture does not confirm it was complete and in force."@en-AU .
+
+tmk:VersionDateUnknown a tmk:VersionState ; rdfs:label "no date"@en-AU ;
+    rdfs:comment "The date that decides which text applies is not given. An explicit unknown: the held text is never assumed by default."@en-AU .
+
+tmk:applicableDuring a owl:ObjectProperty ;
+    rdfs:range time:Interval ;
+    rdfs:label "applicable during"@en-AU ;
+    rdfs:comment "When a scoped statement holds, where it is narrower than the text it was read from: a transitional rule, a definition for one period. Defined for the model (A03) and not yet used: every record today was read against the held compilation, which its evidence hashes say."@en-AU .
