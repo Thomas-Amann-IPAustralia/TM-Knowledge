@@ -43,12 +43,13 @@ is in `data/derived/reports/ontology.md`.
 
 `docs/ROADMAP-STATUS.md` has the stage-by-stage board.
 
-### 🗺️ [The Trade Marks Manual Map](https://thomas-amann-ipaustralia.github.io/TM-Knowledge/)
+### 🗺️ [The Trade Marks Manual · proof of concept](https://thomas-amann-ipaustralia.github.io/TM-Knowledge/)
 
-The site for examiners (ADR-0118): a short tour of why an ontology helps, the map at
-three levels of detail (kinds of idea → ideas → the text they rest on), *Ask the
-Manual* with each question's ideas, connections and passages drawn hop by hop, and
-what a rewrite of any Manual page would touch. Everything machine-written says so.
+The site for examiners (ADR-0118), outcomes first and the ontology last (ADR-0145): what
+the proof of concept does today (*Ask the Manual*, what a change would touch, the
+customer explanation preview on invented matters), what it could do, the rules as code
+behind it, and the ontology and the standards it is stored in. Everything machine-written
+says so, and every standard is explained in plain words.
 Built from this repository and the pinned snapshot on every push (`site/README.md`).
 
 The owner's workbench — the former dashboard: decisions, reports and the questions

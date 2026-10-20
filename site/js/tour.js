@@ -387,7 +387,9 @@ export async function render(root, { ontology, params }) {
       ${fmt(c.relations.signed + c.relations.machine)} connections were written by a machine from the Manual's text, and nobody has reviewed them.
       Each one says so where it is shown, and none becomes "approved" by being left alone.</p>
       <div class="stamp">${stampIcon}<span>That is where you come in: the most useful thing an examiner can do with this map is find what it has wrong.</span></div>
-      <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem"><a class="btn primary" href="#/ask">Ask the Manual</a><a class="btn" href="#/map">Explore the map</a></div>`;
+      <p class="small" style="margin-top:1rem"><b>Back to what it is for.</b> The ontology is the deepest layer of this site. Everything above it is
+      what it makes possible: answers to examiners' questions today, and what it could do later.</p>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem"><a class="btn primary" href="#/ask">Ask the Manual</a><a class="btn" href="#/future">What it could do</a><a class="btn" href="#/map">Explore the map</a></div>`;
     const row = (label, machine, total) => `<tr><td style="padding:.4rem 0;border-top:1px solid var(--line-2)">${label}</td><td class="num" style="text-align:right;border-top:1px solid var(--line-2)">${fmt(machine)}</td><td class="num" style="text-align:right;border-top:1px solid var(--line-2)">${fmt(total)}</td></tr>`;
     stage.innerHTML = `
       <h3 style="margin-top:.2rem">Written by a machine, not yet reviewed</h3>
@@ -398,9 +400,13 @@ export async function render(root, { ontology, params }) {
         ${row("Which kind each idea is", c.concepts.signed + c.concepts.machine, c.concepts.signed + c.concepts.machine)}
         ${row("Definitions of ideas", c.definitions, c.definitions)}
         ${row("Legal tests and process templates", c.tests + c.processes, c.tests + c.processes)}
-        ${row("Prepared answers", 129, 129)}
+        <tr class="answers-row"></tr>
       </table>
       <p class="caption">The rest were reviewed by a trade marks expert. Each record says which it is.</p>`;
+    load("examples").then((x) => {
+      const holder = stage.querySelector(".answers-row");
+      if (holder) holder.outerHTML = row("Prepared answers", x.answers.length, x.answers.length);
+    });
   }
 
   root.querySelectorAll("[data-step]").forEach((b) => b.addEventListener("click", () => go(Number(b.dataset.step))));

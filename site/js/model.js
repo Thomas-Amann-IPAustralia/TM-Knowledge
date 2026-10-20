@@ -40,6 +40,8 @@ export async function render(root, { ontology }) {
         <p>Families of kinds, kinds, then ideas, as circles you can zoom into.</p><span class="go">See it at a glance →</span></a>
       <a class="door card" href="#/table"><span class="k">As tables</span><h3>Every record, listed</h3>
         <p>Kinds, ideas, connections, legal tests and processes, with who wrote each, and a download of every table.</p><span class="go">Open the tables →</span></a>
+      <a class="door card" href="#/standards"><span class="k">Under the hood</span><h3>The standards it is written in</h3>
+        <p>RDF, identifiers, named graphs, SKOS, SHACL, SPARQL and PROV-O, each in plain words with a real example from this build, and why no OWL profile is claimed.</p><span class="go">See the standards →</span></a>
       <a class="door card" href="#/glossary"><span class="k">Plain words</span><h3>Every term, explained</h3>
         <p>What an ontology, a knowledge graph, RDF, SKOS, SHACL, SPARQL or OWL is, and what each does here.</p><span class="go">Read the glossary →</span></a>
     </section>

@@ -85,7 +85,7 @@ export async function render(root, { ontology }) {
         go: "Try it on a page or a section",
       })}
       ${outcome({
-        href: "#/future", hash: "customers", k: "For customers, later", title: "Explain an objection in plain words",
+        href: "#/customers", k: "For customers, later", title: "Explain requirements, the process and objections",
         state: ["prototype", "Prototype · invented matters · not tested with customers"],
         text: `A first slice: sections 44, 43 and 41 written as structured legal tests, and the application process as process
           templates. With no application at all, it explains what each test requires and how an application moves from filing to
@@ -96,7 +96,7 @@ export async function render(root, { ontology }) {
           "Nothing has been shown to, or tested with, a customer; that needs the project owner's approval",
           "It never says how an application will be decided",
         ],
-        go: "What may be tested with customers",
+        go: "See the preview, on invented matters",
       })}
     </section>
 
@@ -107,12 +107,12 @@ export async function render(root, { ontology }) {
           the Regulations by section or by words; what rests on a page or a section; the map and tables of the ontology.</td></tr>
         <tr><th scope="row"><span class="state measured">Measured</span></th><td>Search quality on ${fmt(all?.n || answers.length)} test questions, both ways (above). The test
           questions were written by a model and graded by another; only ${fmt(s.signed?.n || 10)} were reviewed by a person.</td></tr>
-        <tr><th scope="row"><span class="state prototype">Built, not tested</span></th><td>The legal tests, the process template and the customer explanation prototype;
+        <tr><th scope="row"><span class="state prototype">Built, not tested</span></th><td>The legal tests, the process templates and the <a href="#/customers">customer explanation preview</a>;
           the search over the Act and the Regulations. None has been measured or tried with users.</td></tr>
         <tr><th scope="row"><span class="state unreviewed">Not yet reviewed</span></th><td>${fmt(c.concepts.machine)} of ${fmt(concepts)} ideas, ${fmt(c.relations.machine)} of
           ${fmt(c.relations.signed + c.relations.machine)} connections, every definition, legal test and answer: written by a machine and labelled
           ${term("unreviewed", "unreviewed")} wherever they appear.</td></tr>
-        <tr><th scope="row"><span class="state planned">Possible next</span></th><td>Customer explanations of requirements and the application process; policy questions about
+        <tr><th scope="row"><span class="state planned">Possible next</span></th><td>Testing the customer explanations with customers (the project owner's decision); policy questions about
           amendments; a foundation for future machine learning and decision support. See <a href="#/future">what it could do</a>.</td></tr>
         <tr><th scope="row"><span class="state never">Never</span></th><td>Deciding an application, or saying how one will be decided.</td></tr>
       </table>

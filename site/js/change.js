@@ -35,8 +35,9 @@ export async function render(root, { ontology, params }) {
   root.innerHTML = `
   <div class="wrap wide">
     <h1 style="margin-bottom:.3rem">When the text changes</h1>
-    <p class="lede">The Manual is amended constantly — ${fmt(stability.events)} recorded amendments across its ${fmt(pages.length)} pages since
-    ${Object.keys(stability.by_year)[0]}. Pick any page to see what in the map rests on it, and what would have to be re-checked if it were rewritten.</p>
+    <p class="lede">When a page of the Manual or a section of the Act changes, what else needs re-checking? Pick a page, or name a section or
+    regulation, and see every record that rests on it. The Manual is amended often: ${fmt(stability.events)} recorded amendments across its
+    ${fmt(pages.length)} pages since ${Object.keys(stability.by_year)[0]}.</p>
     <div class="card timeline"><h3 style="margin:0 0 .2rem">Amendments recorded, month by month</h3><div class="plot"></div>
       <p class="tiny" style="margin:.2rem 0 0">From the amendment notes on each page of the published Manual, as captured on ${esc(stability.snapshot)}. Hover a bar for the month.</p></div>
     <div class="change-shell">
