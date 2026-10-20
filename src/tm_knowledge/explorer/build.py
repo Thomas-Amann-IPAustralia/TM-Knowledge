@@ -47,6 +47,7 @@ from tm_knowledge.bulk import links as links_module
 from tm_knowledge import config
 from tm_knowledge.config import PIN_PATH, REPO_ROOT
 from tm_knowledge.dashboard import views
+from tm_knowledge.explain import matters as matters_module
 from tm_knowledge.ontology import dependencies
 from tm_knowledge.ontology import hygiene
 from tm_knowledge.ontology.predicates import RETIRED
@@ -440,6 +441,9 @@ def ontology(corpus: Corpus, gold: Any, authored: Any, links: links_module.Links
             "corrections": len(fixes.sound),
             "tests": len(structured["tests"]),
             "processes": len(structured["processes"]),
+            # The invented matters the customer explanation prototype is built and tested on
+            # (ADR-0142); counted so the page can say what the prototype rests on.
+            "fictional_matters": len(matters_module.load()),
             # The model's same-idea suggestions and the owner's rulings on them (ADR-0113).
             "merges": dict(Counter(str(c.get("decision")) for c in hygiene.merge_candidates())),
             "links": sum(len(v) for v in mentions.values()),

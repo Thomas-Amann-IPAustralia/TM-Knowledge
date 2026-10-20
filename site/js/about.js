@@ -17,9 +17,9 @@ export async function render(root, { ontology }) {
 
   root.innerHTML = `
   <div class="wrap about">
-    <h1>About this map</h1>
-    <p class="lede">A working demonstration of what an ontology adds to the Trade Marks Manual of Practice and Procedure, built for
-    examiners to explore, test and pick holes in.</p>
+    <h1>Where it stands</h1>
+    <p class="lede">The state of every part of the proof of concept: what it is built from, how well the search was measured, and its
+    limits. Built for examiners to explore, test and pick holes in.</p>
 
     <h2>What it is</h2>
     <p>An <b>ontology</b> is a shared, explicit description of a field: the ideas in it, what kind of thing each idea is, and how the ideas

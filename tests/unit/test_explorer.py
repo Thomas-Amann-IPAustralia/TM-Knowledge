@@ -420,6 +420,40 @@ def test_the_page_states_the_merge_rulings_as_they_stand(files):
     assert "flagged for a person, not merged" not in about and "c.merges" in about
 
 
+def test_every_view_sits_in_one_layer_and_every_term_is_explained():
+    """ADR-0144: outcomes first and the ontology last. Every route the router knows is in one of
+    the four layers or is the cross-cutting status page, and every `term()` a page uses has a
+    glossary entry, so no standard's name reaches a reader unexplained."""
+    js = SITE / "js"
+    app = (js / "app.js").read_text(encoding="utf-8")
+    views = re.search(r"const VIEWS = \{(.*?)\};", app, re.S).group(1)
+    routes = {item.split(":")[0].strip().strip('"') for item in views.split(",")}
+    layers = (js / "layers.js").read_text(encoding="utf-8")
+    placed = set()
+    for group in re.findall(r"routes: \[([^\]]*)\]", layers):
+        placed |= set(re.findall(r'"([^"]*)"', group))
+    assert routes <= placed, f"routes in no layer: {routes - placed}"
+    glossary = (js / "glossary.js").read_text(encoding="utf-8")
+    entries = set(re.findall(r'^  "?([\w-]+)"?: \{$', glossary, re.M))
+    used = {key for path in js.glob("*.js") for key in re.findall(r'term\("([\w-]+)"', path.read_text(encoding="utf-8"))}
+    assert used and used <= entries, f"terms with no entry: {used - entries}"
+    for key in ("rdf", "skos", "shacl", "sparql", "owl", "prov-o", "named-graph"):
+        assert key in entries, key
+
+
+def test_the_first_page_leads_with_outcomes_read_from_the_data():
+    """The home page states the measurement in both directions and the prototype's untested state,
+    with every figure read from the data, never typed in."""
+    home = (SITE / "js" / "home.js").read_text(encoding="utf-8")
+    assert 'all["ndcg:ontology-hybrid"]' in home and 'all["ndcg:ontology-keyword"]' in home
+    assert "not tested with customers" in home and "Never" in home
+    for typed in ("129", "810", "729", "164", "357"):
+        assert typed not in home, typed
+    future = (SITE / "js" / "future.js").read_text(encoding="utf-8")
+    assert 'id="customers"' in future and "nothing has been shown to a customer" in future
+    assert "until the project owner approves it" in future
+
+
 # --- answer-v4: what the answer is given of each source (A06, ADR-0139) -------------
 
 

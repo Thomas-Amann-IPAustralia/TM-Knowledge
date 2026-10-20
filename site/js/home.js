@@ -1,59 +1,131 @@
-/* Home — what this is, in one screen, and ways in. Kept plain on purpose: the
-   nested circles that once sat here have their own view (circles.js). */
+/* Home — layer 1 of 4: what the proof of concept does today, and how well (ADR-0144).
 
-import { esc, fmt, kindCount, load } from "./app.js";
+   Outcomes first. Each card is something the system does now, with its numbers read from the
+   generated data and its state said plainly: working, measured, a prototype, or untested. The
+   ontology is named once, as what sits underneath; the deeper layers explain it. */
+
+import { esc, fmt, load } from "./app.js";
+import { term } from "./glossary.js";
+
+/** A measured difference in words, from its estimate and 95% interval (× 100). */
+export function difference([est, lo, hi], better, worse) {
+  const pts = (x) => Math.abs(x * 100).toFixed(1);
+  const range = `range ${(lo * 100).toFixed(1)} to ${(hi * 100).toFixed(1)}`;
+  if (lo > 0) return `<b>${pts(est)} points ${better}</b> <span class="muted">(${range}: established)</span>`;
+  if (hi < 0) return `<b>${pts(est)} points ${worse}</b> <span class="muted">(${range}: established)</span>`;
+  return `<b>no established difference</b> <span class="muted">(${range})</span>`;
+}
 
 export async function render(root, { ontology }) {
-  const stability = await load("stability");
+  const [stability, examples, live] = await Promise.all([load("stability"), load("examples"), load("live")]);
   const c = ontology.counts;
-  const concepts = c.concepts.signed + c.concepts.machine;
-  const relations = c.relations.signed + c.relations.machine;
-  const passages = stability.pages.reduce((n, p) => n + p.passages, 0);
+  const answers = examples.answers;
+  const claims = answers.flatMap((a) => a.claims || []);
+  const quoted = claims.filter((x) => x.supported).length;
+  const gaps = claims.filter((x) => x.authority === "none").length;
+  const declined = answers.filter((a) => a.declined).length;
+  const s = examples.summary || {};
+  const everyday = s.problem, all = s.all;
+  const provisions = Object.keys(stability.provisions || {}).length;
   const firstYear = Object.keys(stability.by_year)[0];
+  const concepts = c.concepts.signed + c.concepts.machine;
 
   root.innerHTML = `
   <div class="wrap">
     <section class="hero">
-      <div>
-        <p class="step-k">A demonstration for trade marks examiners</p>
-        <h1>The Manual, as a map of the ideas you reason with</h1>
-        <p class="lede">The Trade Marks Manual is written as ${fmt(passages)} passages of practice, beside the Act and the
-        Regulations. This map connects them through ${fmt(concepts)} ideas — the grounds, tests, factors, roles and steps
-        examiners work with — so a question can follow the connections between ideas, not just the words on the page.</p>
-        <div class="actions">
-          <a class="btn primary" href="#/tour">Take the tour · 3 minutes</a>
-          <a class="btn" href="#/ask">Ask the Manual</a>
-          <a class="btn" href="#/map">Explore the map</a>
-        </div>
-        <p class="tiny">An ontology is this structure: a shared, explicit list of the ideas in a field, what kind of thing each one is,
-        and how they relate — each one tied to the text it comes from.</p>
+      <p class="step-k">A proof of concept for the Trade Marks Manual</p>
+      <h1>Finding the right guidance faster, and explaining it plainly</h1>
+      <p class="lede">This helps a trade marks examiner find the passages of the Manual, the Act and the Regulations that bear on a
+      question, shows what a change to any of them would touch, and is the start of plain-language explanations for customers.
+      Underneath is a model of the ideas examiners reason with, an ${term("ontology")}, and the ${term("rules-as-code", "rules as code")} built on it.</p>
+      <div class="actions">
+        <a class="btn primary" href="#/ask">Ask the Manual a question</a>
+        <a class="btn" href="#/future">What it could do next</a>
+        <a class="btn" href="#/rules">How it works</a>
       </div>
     </section>
 
-    <section class="levels" aria-label="The map at four levels of detail">
-      ${rung("circles", kindCount(ontology), "Kinds of idea", "Grounds, tests and principles; what a mark contains and its context; roles, steps, records — and how each kind acts on the others.", 1)}
-      ${rung("map/ideas", concepts, "Ideas", "Each sorted into a kind. Most were written by a machine and have not yet been reviewed.", 2)}
-      ${rung("map/ideas", relations, "Connections", "How one idea bears on another, each pinned to the sentence it rests on.", 3)}
-      ${rung("change", passages, "Passages", `The Manual's words, the Act and Regulations kept apart. ${fmt(stability.events)} amendments since ${esc(firstYear)}.`, 4)}
+    <h2 class="section-h">What it does today</h2>
+    <section class="outcomes">
+      ${outcome({
+        href: "#/ask", k: "For examiners", title: "Research a question, with every claim cited",
+        state: ["working", "Working · answers unreviewed"],
+        text: `Ask in your own words. It recognises the ideas in the question, follows their connections, gathers the passages, keeps the
+          Manual (practice) apart from the Act and the Regulations (law), and writes an answer whose every claim carries its quotes.`,
+        facts: [
+          `${fmt(answers.length)} prepared questions answered, ${fmt(claims.length)} claims: ${fmt(quoted)} with a quote checked word for word,
+           ${fmt(gaps)} saying what the passages do not cover`,
+          `${fmt(declined)} decline the part of a question that asks how an application would be decided`,
+          live.enabled ? "Live questions are on" : "Live questions are off on this copy; the prepared answers and the search still work",
+        ],
+        go: "Ask a question",
+      })}
+      ${outcome({
+        href: "#/about", k: "For examiners", title: "Find guidance asked in everyday words",
+        state: ["measured", "Measured · mixed"],
+        text: `Three searches were compared on the same ${fmt(all?.n || answers.length)} questions, scored on the quality of their first ten results
+          (${term("ndcg", "top-ten quality")}, with a ${term("interval", "95% interval")}).`,
+        facts: everyday && all ? [
+          `Everyday-words questions, ontology-guided search against plain ${term("keyword-search", "keyword search")}: ${difference(everyday["ndcg:ontology-keyword"], "better", "worse")}`,
+          `All questions, against keyword search: ${difference(all["ndcg:ontology-keyword"], "better", "worse")}`,
+          `All questions, against modern search that ${term("embedding", "matches by meaning")}: ${difference(all["ndcg:ontology-hybrid"], "better", "worse")}`,
+        ] : ["The measurement is not in this build."],
+        go: "See the measurement and its limits",
+      })}
+      ${outcome({
+        href: "#/change", k: "For maintaining guidance", title: "See what a change would touch",
+        state: ["working", "Working · not measured"],
+        text: `Pick a page of the Manual, or name a section of the Act or a regulation, and see every record that rests on it and so would
+          need re-checking if it were amended, from a ${term("dependency-index")}.`,
+        facts: [
+          `${fmt(stability.events)} amendments recorded on the Manual's ${fmt(stability.pages.length)} pages since ${esc(firstYear)}`,
+          `${fmt(provisions)} sections and regulations have something recorded as resting on them`,
+          "An empty answer means no recorded dependency, never no impact",
+        ],
+        go: "Try it on a page or a section",
+      })}
+      ${outcome({
+        href: "#/future", hash: "customers", k: "For customers, later", title: "Explain an objection in plain words",
+        state: ["prototype", "Prototype · invented matters · not tested with customers"],
+        text: `A first slice: sections 44, 43 and 41 written as structured legal tests and the examination procedure as a process
+          template, explained against invented applications with three views (the objection, where the application is in the
+          process, and how evidence bears on it), each with a text equivalent.`,
+        facts: [
+          `${fmt(c.tests)} legal tests, ${fmt(c.processes)} process template, ${fmt(c.fictional_matters)} invented matters`,
+          "Nothing has been shown to, or tested with, a customer; that needs the project owner's approval",
+          "It never says how an application will be decided",
+        ],
+        go: "What may be tested with customers",
+      })}
     </section>
-    <div class="levels-axis"><span>↑ changes rarely</span><span>changes often →</span></div>
 
-    <section class="doors">
-      <a class="door card" href="#/tour"><span class="k">Start here</span><h3>Why an ontology?</h3>
-        <p>Seven short steps: the same idea in different words, ideas that connect, kinds of idea, and what happens when the Manual changes.</p><span class="go">Take the tour →</span></a>
-      <a class="door card" href="#/ask"><span class="k">Try it</span><h3>Ask the Manual</h3>
-        <p>Ask in your own words. Watch the question find its ideas, follow their connections and gather the passages — then read a cited answer.</p><span class="go">Ask a question →</span></a>
-      <a class="door card" href="#/map"><span class="k">Look around</span><h3>The map, at any level</h3>
-        <p>Open a kind into its ideas, compare two kinds in detail with the rest in outline, and open an idea into the passages it rests on.</p><span class="go">Explore →</span></a>
-      <a class="door card" href="#/change"><span class="k">The long game</span><h3>When the text changes</h3>
-        <p>Pick any page of the Manual and see exactly which connections would need re-checking if it were rewritten — and what would not move.</p><span class="go">See the ripple →</span></a>
-    </section>
+    <h2 class="section-h">Where it stands, in one table</h2>
+    <div class="status-board card">
+      <table>
+        <tr><th scope="row"><span class="state working">Working</span></th><td>Asking the Manual (prepared answers, and live ones when switched on); searching the Act and
+          the Regulations by section or by words; what rests on a page or a section; the map and tables of the ontology.</td></tr>
+        <tr><th scope="row"><span class="state measured">Measured</span></th><td>Search quality on ${fmt(all?.n || answers.length)} test questions, both ways (above). The test
+          questions were written by a model and graded by another; only ${fmt(s.signed?.n || 10)} were reviewed by a person.</td></tr>
+        <tr><th scope="row"><span class="state prototype">Built, not tested</span></th><td>The legal tests, the process template and the customer explanation prototype;
+          the search over the Act and the Regulations. None has been measured or tried with users.</td></tr>
+        <tr><th scope="row"><span class="state unreviewed">Not yet reviewed</span></th><td>${fmt(c.concepts.machine)} of ${fmt(concepts)} ideas, ${fmt(c.relations.machine)} of
+          ${fmt(c.relations.signed + c.relations.machine)} connections, every definition, legal test and answer: written by a machine and labelled
+          ${term("unreviewed", "unreviewed")} wherever they appear.</td></tr>
+        <tr><th scope="row"><span class="state planned">Possible next</span></th><td>Customer explanations of requirements and the application process; policy questions about
+          amendments; a foundation for future machine learning and decision support. See <a href="#/future">what it could do</a>.</td></tr>
+        <tr><th scope="row"><span class="state never">Never</span></th><td>Deciding an application, or saying how one will be decided.</td></tr>
+      </table>
+    </div>
   </div>`;
 }
 
-function rung(href, n, title, text, level) {
-  return `<a class="rung" href="#/${href}" data-level="${level}">
-    <span class="n num">${fmt(n)}</span>
-    <span class="t"><b>${esc(title)}</b><span>${esc(text)}</span></span>
-  </a>`;
+function outcome({ href, hash, k, title, state, text, facts, go }) {
+  return `<article class="outcome card">
+    <span class="k">${esc(k)}</span>
+    <h3>${esc(title)}</h3>
+    <span class="state ${state[0]}">${esc(state[1])}</span>
+    <p class="small">${text}</p>
+    <ul class="facts small">${facts.map((f) => `<li>${f}</li>`).join("")}</ul>
+    <a class="go" href="${href}${hash ? `/${hash}` : ""}">${esc(go)} →</a>
+  </article>`;
 }

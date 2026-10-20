@@ -1,8 +1,15 @@
 # site/ — the examiner explorer
 
 A static site, published to <https://thomas-amann-ipaustralia.github.io/TM-Knowledge/>.
-It exists to show a trade marks examiner, quickly, what the ontology is and what it is
-for (ADR-0118). The owner's older dashboard is kept at `site/workbench/` and linked from
+It exists to show a trade marks examiner, quickly, what the proof of concept does and what it
+could do, then how it works (ADR-0118). Since ADR-0144 it leads with outcomes and discloses the
+ontology last, in four layers: **what it does** (home, Ask, Change), **what it could do**
+(`#/future`), **rules as code** (`#/rules`), and **the ontology** (`#/model` and the map, glance,
+table, tour and glossary), with **where it stands** (`#/about`) across them. `layers.js` holds the
+layers, the depth strip under the header and the go-deeper card `app.js` adds to every page but
+the map; `glossary.js` holds every term the site explains, and `term(key)` explains one inline.
+A page explains a standard's name the first time it uses it. The rework's plan and checklist are
+`docs/SITE-REWORK.md`. The owner's older dashboard is kept at `site/workbench/` and linked from
 nothing here.
 
 ## What belongs here
@@ -46,7 +53,11 @@ look at; it does not state the law.
 
 | Route | Module | What it shows |
 |---|---|---|
-| `#/` | `home.js` | what this is, the four levels and the ways in — kept plain |
+| `#/` | `home.js` | layer 1: what the proof of concept does today, four outcomes with their numbers and state, and a status board |
+| `#/future/customers?` | `future.js` | layer 2: what it could enable, for examiners, customers and later uses, each with what it builds on and still needs; what may be tested with customers |
+| `#/rules` | `rules.js` | layer 3: rules as code — connections, legal tests, process templates; section 44 as a worked example; how the rules are kept honest |
+| `#/model` | `model.js` | layer 4: the ontology hub — the four levels of the model and the ways into it |
+| `#/glossary` | `glossary-view.js` | every term from `glossary.js`, in plain words, here, and technically |
 | `#/circles` | `circles.js` | "At a glance": a zoomable circle packing of the ontology (D3): families → kinds → ideas |
 | `#/table/{kinds,ideas,connections}` | `table.js` | "As a table": the same records listed, not drawn — the kinds and how they connect, every idea (open a row for its connections as sentences), every connection; filters, and a CSV of each table with who wrote every row |
 | `#/table/{tests,processes}/G…` | `table.js` | the structured legal tests (`GL-`) as effect, condition tree, exceptions, evidence and routes; the process templates (`GP-`) as steps, transitions and time rules; each element with what it quotes, and a CSV of every element |
@@ -54,7 +65,7 @@ look at; it does not state the law.
 | `#/map/{kinds,ideas,text}/GC-…` | `map.js` | Cytoscape: kinds open and close as boxes; an idea opens into Parts, then passages, with the Act and the Regulations in boxes of their own |
 | `#/ask/BN-…` | `ask.js` | a question's ideas, connections and passages drawn hop by hop; the same ideas on a mini map (Cytoscape) beside a plain account of how the starting ideas were found and why no connection is preferred; then a streamed, cited answer |
 | `#/change/TMM/…` | `change.js` | an amendment timeline (Plot) and every page as a tile in its Part's row, titles in full; pick one to see the ripple, and what rests on it on a mini map; or name a provision to see the records naming it and those resting on a Manual passage that cites it |
-| `#/about` | `about.js` | what it is, how it works, the measurement as intervals (Plot), the limits |
+| `#/about` | `about.js` | "Where it stands": what it is, how it works, the measurement as intervals (Plot), the limits |
 
 **An idea's card shows its own record's fields**, on the map and in the table alike: its
 labels, its definition (`GD-`, stamped), what it rests on, its legislative basis, and the

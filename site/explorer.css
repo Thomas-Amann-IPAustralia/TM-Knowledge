@@ -687,3 +687,72 @@ circle.sel { stroke: var(--ink) !important; stroke-width: 3 !important; stroke-d
 .struct-links { padding-left: 1.1rem; margin: .2rem 0; font-size: .9rem; }
 .struct-links li { margin: .2rem 0; }
 @media (max-width: 720px) { .struct-tbl .opt { display: none; } .struct-card { padding: .8rem; } }
+/* The four layers (ADR-0144): the depth strip, the go-deeper card, outcomes, possibilities, terms */
+.depth { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; padding: .45rem clamp(1rem, 3vw, 2rem); border-bottom: 1px solid var(--line-2); background: var(--bg); font-size: .82rem; }
+.depth-steps { display: flex; gap: .3rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+.depth-steps a { display: inline-flex; align-items: center; gap: .4rem; padding: .2rem .65rem .2rem .25rem; border-radius: 999px; text-decoration: none; color: var(--ink-3); border: 1px solid transparent; }
+.depth-steps a:hover { color: var(--ink); border-color: var(--line); }
+.depth-steps .d-n { width: 1.35rem; height: 1.35rem; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: .72rem; border: 1.5px solid var(--line); background: var(--panel); }
+.depth-steps li.above .d-n { border-color: var(--ink-3); }
+.depth-steps li.on a { color: var(--ink); border-color: var(--ink); font-weight: 600; }
+.depth-steps li.on .d-n { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.depth-axis { display: inline-flex; align-items: center; gap: .4rem; color: var(--ink-3); font-size: .74rem; margin-left: auto; }
+.depth-axis i { width: 70px; height: 2px; background: linear-gradient(90deg, var(--line), var(--ink-3)); position: relative; }
+.depth-axis i::after { content: ""; position: absolute; right: -1px; top: -3px; border: 4px solid transparent; border-left-color: var(--ink-3); }
+@media (max-width: 720px) { .depth-axis { display: none; } .depth-steps .d-t { font-size: .76rem; } }
+.nav a.nav-tool { border: 1px solid var(--line); }
+.deeper { margin: 2.5rem 0 1rem; padding: 0; overflow: hidden; }
+.deeper-next { display: grid; grid-template-columns: 1fr auto; gap: .15rem 1rem; padding: 1rem 1.2rem; text-decoration: none; color: inherit; }
+a.deeper-next:hover { background: var(--panel-2); }
+.deeper-next .k { grid-column: 1; font-size: .74rem; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); }
+.deeper-next b { grid-column: 1; font-size: 1.15rem; font-family: var(--serif); }
+.deeper-next > span:not(.k):not(.go) { grid-column: 1; font-size: .9rem; color: var(--ink-2); }
+.deeper-next .go { grid-column: 2; grid-row: 1 / span 3; align-self: center; font-size: 1.4rem; color: var(--ink-3); }
+.deeper > .tiny { margin: 0; padding: .5rem 1.2rem; border-top: 1px solid var(--line-2); }
+.section-h { font-size: 1.35rem; margin: 2.4rem 0 .8rem; }
+.outcomes, .futures { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.futures.two { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.outcome, .possibility { padding: 1rem 1.1rem 1.1rem; display: flex; flex-direction: column; gap: .35rem; }
+.outcome .k, .possibility .k { font-size: .74rem; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); }
+.outcome h3, .possibility h3 { margin: 0; font-size: 1.12rem; }
+.outcome p, .possibility p { margin: .2rem 0; }
+.outcome .facts { padding-left: 1.1rem; margin: .2rem 0 .4rem; color: var(--ink-2); }
+.outcome .facts li { margin: .25rem 0; }
+.outcome .go, .possibility .go { margin-top: auto; font-weight: 600; text-decoration: none; }
+.possibility h4 { margin: .6rem 0 .1rem; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); }
+.possibility ul { padding-left: 1.1rem; margin: .1rem 0; }
+.possibility li { margin: .2rem 0; }
+.state { align-self: flex-start; display: inline-block; font-size: .74rem; font-weight: 600; padding: .12rem .55rem; border-radius: 999px; border: 1px solid currentColor; white-space: normal; margin: 0; }
+.state.working { color: var(--ok); }
+.state.measured { color: var(--accent, var(--ink-2)); }
+.state.prototype, .state.unreviewed { color: var(--warn); }
+.state.planned { color: var(--ink-3); }
+.state.never { color: var(--ink); }
+.status-board { padding: .4rem 1rem; }
+.status-board table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.status-board th, .status-board td { text-align: left; vertical-align: top; padding: .6rem .4rem; border-bottom: 1px solid var(--line-2); }
+.status-board tr:last-child th, .status-board tr:last-child td { border-bottom: 0; }
+.status-board th { width: 11rem; font-weight: 500; }
+@media (max-width: 620px) { .status-board th, .status-board td { display: block; width: auto; border: 0; padding: .3rem .2rem; } .status-board tr { display: block; border-bottom: 1px solid var(--line-2); padding: .3rem 0; } }
+.purpose { margin: 1.4rem 0 0; padding: 1rem 1.2rem; }
+.purpose blockquote { margin: 0; font-family: var(--serif); font-size: 1.05rem; line-height: 1.55; }
+.purpose figcaption { margin-top: .5rem; }
+.customer-testing { margin-top: 2.4rem; padding: 1.1rem 1.2rem; scroll-margin-top: 70px; }
+.customer-testing h2 { margin: 0 0 .4rem; }
+.ct-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: .4rem 1.4rem; margin-top: .6rem; }
+.ct-grid h3 { font-size: 1rem; margin: .6rem 0 .2rem; }
+.ct-grid ul { padding-left: 1.1rem; margin: 0; }
+.ct-grid li { margin: .3rem 0; }
+.worked { padding: 1rem 1.2rem; }
+.worked .meta { display: flex; gap: .4rem; align-items: center; flex-wrap: wrap; }
+.worked-steps { padding-left: 1.2rem; }
+.worked-steps li { margin: .6rem 0; }
+.honest { padding-left: 1.1rem; }
+.honest li { margin: .5rem 0; }
+.term { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: help; text-decoration: underline dotted var(--ink-3); text-underline-offset: 3px; }
+.term:hover, .term[aria-expanded="true"] { text-decoration-color: var(--ink); }
+.term-pop { position: absolute; z-index: 40; background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); padding: .7rem .9rem; font-size: .92rem; line-height: 1.45; }
+.term-pop p { margin: .25rem 0; }
+.gloss { display: grid; gap: .2rem; margin-top: 1rem; }
+.gloss-entry { border-bottom: 1px solid var(--line-2); padding: .5rem 0; }
+.gloss-entry p { margin: .2rem 0; }
