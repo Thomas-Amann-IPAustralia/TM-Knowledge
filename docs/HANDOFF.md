@@ -1,7 +1,7 @@
 # HANDOFF
 
 **Last updated:** 2026-10-20 · S046 · the site redesign (ADR-0148) on branch
-`claude/trusting-franklin-c1h7wi`, built on `main` after PR #46 (S045's Package 5). Not merged.
+`claude/trusting-franklin-c1h7wi`, PR #47, built on `main` after PR #46 (S045's Package 5). Not merged.
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
@@ -55,7 +55,7 @@ end of S045.
 
 ## Next actions
 
-1. **The owner's look at the redesign, then a merge.** Merging to `main` publishes it (ADR-0112).
+1. **The owner's look at the redesign (PR #47), then a merge.** Merging to `main` publishes it (ADR-0112).
    Anything the owner wants changed is a small edit to one view; `site/README.md` maps them.
 2. **Raise upstream: a second compilation of the Act** (the one before 48, and the transitional
    provisions), so `versions.select` can choose between texts.
