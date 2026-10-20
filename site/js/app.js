@@ -15,8 +15,16 @@ import * as table from "./table.js";
 import * as ask from "./ask.js";
 import * as change from "./change.js";
 import * as about from "./about.js";
+import * as future from "./future.js";
+import * as rules from "./rules.js";
+import * as model from "./model.js";
+import * as glossaryView from "./glossary-view.js";
+import { layerOf, depthStrip, goDeeper } from "./layers.js";
+import { initTerms } from "./glossary.js";
 
-const VIEWS = { "": home, tour, map, circles, table, ask, change, about };
+const VIEWS = { "": home, tour, map, circles, table, ask, change, about, future, rules, model, glossary: glossaryView };
+/** Views that fill the screen as a tool, with no room for a card beneath. */
+const FULL_SCREEN = new Set(["map"]);
 const cache = new Map();
 
 export function load(name) {
@@ -151,6 +159,20 @@ export function hierarchyBlock(x, link) {
     <p class="tiny">Stated in the record${records.length === 1 ? "" : "s"} of ${records.map(esc).join(", ")}, not as a connection, so no sentence is cited for it.</p>`;
 }
 
+/** Where a structured legal test or process template is set out (the table view). */
+export const structureHref = (id) => `#/table/${String(id).startsWith("GP-") ? "processes" : "tests"}/${encodeURIComponent(id)}`;
+
+/** The structured legal tests and process templates that name an idea (Package 4,
+    ADR-0142). Each is a machine-written record of its own, listed with its stamp and
+    a link to the table that sets it out; tmk-explorer works out which name the idea. */
+export function structuresBlock(x, ontology) {
+  const all = [...(ontology.structures?.tests || []), ...(ontology.structures?.processes || [])];
+  const items = (x.structures || []).map((id) => all.find((r) => r.id === id)).filter(Boolean);
+  if (!items.length) return "";
+  return `<h4>In a structured test or procedure</h4>
+    <ul class="struct-links">${items.map((r) => `<li><a href="${structureHref(r.id)}">${esc(r.title)}</a> ${trustBadge(r.origin)}</li>`).join("")}</ul>`;
+}
+
 export function kindChip(kind, ontology) {
   const k = ontology.kinds.find((x) => x.id === kind);
   return `<span class="chip kind-chip" style="--c:${kindColour(kind)}"><i class="dot"></i>${esc(k ? k.label : kind)}</span>`;
@@ -223,12 +245,18 @@ async function route() {
   if (typeof cleanup === "function") cleanup();
   cleanup = null;
   closeDrawer();
-  document.querySelectorAll(".nav a").forEach((a) => a.classList.toggle("on", a.dataset.route === name));
+  // The nav marks a tool's own entry (Ask, Where it stands) or else the layer the route is in (ADR-0145).
+  const layer = layerOf(VIEWS[name] ? name : "");
+  const tool = [...document.querySelectorAll(".nav a[data-route]")].some((a) => a.dataset.route === name);
+  document.querySelectorAll(".nav a").forEach((a) => a.classList.toggle("on",
+    a.dataset.route ? a.dataset.route === name : !tool && Number(a.dataset.layer) === layer?.depth));
+  document.querySelector(".depth").innerHTML = depthStrip(VIEWS[name] ? name : "");
   main.innerHTML = `<p class="loading">Loading…</p>`;
   try {
     const ontology = await load("ontology");
     main.innerHTML = "";
     cleanup = await view.render(main, { ontology, params: rest.map(decodeURIComponent) });
+    if (!FULL_SCREEN.has(name)) main.insertAdjacentHTML("beforeend", `<div class="wrap">${goDeeper(VIEWS[name] ? name : "")}</div>`);
     const build = ontology.build || {};
     document.querySelector(".foot-build").textContent =
       `Built ${build.generated || ""} from the repository and the Manual snapshot ${build.upstream || ""}.`;
@@ -264,5 +292,6 @@ document.addEventListener("click", (event) => {
 });
 document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeDrawer(); });
 window.addEventListener("hashchange", route);
+initTerms();
 theme();
 route();

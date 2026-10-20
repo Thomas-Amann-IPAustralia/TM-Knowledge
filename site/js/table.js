@@ -7,6 +7,13 @@
    2. Ideas        — one row per idea, grouped by kind. Open a row to read its
                      connections as sentences, each with the passage it rests on.
    3. Connections  — one row per connection: from, what it says, to, the passage.
+   4. Legal tests  — the structured tests (`GL-`): one provision's conditions with
+                     AND and OR, its effect, exceptions, evidence and routes.
+   5. Processes    — the process templates (`GP-`): steps, transitions, time rules.
+
+   The last two are Package 4's record types (ADR-0142): set out as written, each
+   element with the unit or passage it quotes. Nothing here evaluates a condition
+   or computes a date.
 
    Every row is a record, or a count of records, that the map already shows;
    nothing is arranged here. Who wrote each record is in its row: "Machine ·
@@ -14,10 +21,10 @@
    rest (ADR-0130). Each table downloads as a CSV with the same columns, who
    wrote each record, and which text each quote is from (rules 5, 8). */
 
-import { esc, fmt, el, kindColour, kindCount, refChip, refLabel, trustBadge, quoteBlock, sourceOf, SOURCES, legend, definitionBlock, hierarchyBlock, qualifiedLine } from "./app.js";
+import { esc, fmt, el, kindColour, kindCount, refChip, refLabel, trustBadge, quoteBlock, sourceOf, SOURCES, legend, definitionBlock, hierarchyBlock, qualifiedLine, structuresBlock, structureHref } from "./app.js";
 import { LOOSE, specificCount } from "./kinds.js";
 
-const TABS = [["kinds", "Kinds"], ["ideas", "Ideas"], ["connections", "Connections"]];
+const TABS = [["kinds", "Kinds"], ["ideas", "Ideas"], ["connections", "Connections"], ["tests", "Legal tests"], ["processes", "Processes"]];
 const FAMILIES = ["reasoning", "examined", "process", "other"];
 
 export async function render(root, { ontology, params }) {
@@ -29,20 +36,25 @@ export async function render(root, { ontology, params }) {
     for (const end of new Set([r.s, r.o])) { if (!relOf.has(end)) relOf.set(end, []); relOf.get(end).push(r); }
   }
   const ctx = { ontology, byId, kinds, relOf };
-  const counts = { kinds: kindCount(ontology), ideas: ontology.concepts.length, connections: ontology.relations.length };
+  const structures = ontology.structures || { tests: [], processes: [] };
+  const counts = { kinds: kindCount(ontology), ideas: ontology.concepts.length, connections: ontology.relations.length,
+    tests: structures.tests.length, processes: structures.processes.length };
 
   root.innerHTML = `
   <div class="wrap wide table-page">
     <h1>The ontology, as tables</h1>
     <p class="lede">The same ideas and connections as the map, listed instead of drawn. Kinds sort the ideas by what they are;
-    connections say how one idea bears on another, each resting on a quoted sentence. Click any passage to read it.</p>
+    connections say how one idea bears on another, each resting on a quoted sentence. Legal tests and processes set out a provision's
+    conditions, or a procedure's steps, element by element. Click any passage to read it.</p>
     <nav class="tabs" aria-label="Which table">${TABS.map(([id, label]) => `<a href="#/table/${id}"${id === tab ? ` class="on" aria-current="page"` : ""}>${label} <span class="num">${fmt(counts[id])}</span></a>`).join("")}</nav>
     <div class="table-body"></div>
   </div>`;
   const body = root.querySelector(".table-body");
-  if (!byId.has(params[1])) window.scrollTo(0, 0);
+  if (!byId.has(params[1]) && !/^G[LP]-/.test(params[1] || "")) window.scrollTo(0, 0);
   if (tab === "kinds") kindsTab(body, ctx);
   else if (tab === "ideas") ideasTab(body, ctx, params[1]);
+  else if (tab === "tests") testsTab(body, ctx, structures.tests, params[1]);
+  else if (tab === "processes") processesTab(body, ctx, structures.processes, params[1]);
   else connectionsTab(body, ctx, params[1], params[2]);
 }
 
@@ -283,6 +295,7 @@ function ideaDetail(ctx, x) {
         return list.length ? `<h4>In the ${src === "act" ? "Act" : "Regulations"}</h4><div class="meta">${list.map((r) => refChip(r)).join("")}</div>` : "";
       }).join("")}
       ${hierarchyBlock(x, (id) => endHtml(ctx, id))}
+      ${structuresBlock(x, ontology)}
       ${x.notes ? `<h4>Note on the record</h4><p class="small">${esc(x.notes)}</p>` : ""}
       <h4>Who wrote this record</h4>${provenance(x)}
       <p class="actions-row"><a class="btn small" href="#/map/ideas/${esc(x.id)}">Show on the map</a><a class="btn small" href="#/map/text/${esc(x.id)}">Open into its passages</a></p>
@@ -402,4 +415,178 @@ function connectionsCsv(ctx) {
     "record", "review_status", "machine_author", "date", "replaces"];
   return [head, ...ontology.relations.map((r) => [r.id, r.s, endName(ctx, r.s), predLabel(ontology, r.p), r.o, endName(ctx, r.o),
     r.modality || "", r.when || "", r.hedge || "", r.condition || "", r.proceeding || "", r.mark_type || "", r.ref, sourceText(r.ref), r.quote, ...whoColumns(r), r.replaces || ""])];
+}
+
+// ------------------------------------------------------------------ 4 and 5. structured records
+
+/** The words a structured record's enumerations are shown in. "Evaluative" is a person's
+    assessment, never computed; an effect says whether the provision obliges, permits or bars. */
+const LEAF_KIND = { fact: "a fact", evaluative: "a person's assessment" };
+const EFFECT_KIND = { obligation: "an obligation (must)", discretion: "a discretion (may)", bar: "a bar (may not)" };
+const STEP_KIND = { event: "event", decision: "decision", end: "an end" };
+const ACTOR = { registrar: "the Registrar", applicant: "the applicant", law: "the law itself" };
+
+/** A link to an idea a structured record names, in the table's own idea list. */
+const ideaChips = (ctx, ids) => (ids || []).filter((id) => ctx.byId.has(id))
+  .map((id) => `<span class="struct-idea">${endHtml(ctx, id)}</span>`).join(" ");
+
+/** An element's source: its unit or passage, and the quote, behind a disclosure. */
+const quoted = (x) => x.ref ? `<details class="struct-quote"><summary>${refChip(x.ref)} <span class="tiny">the words it quotes</span></summary>${quoteBlock(x.ref, x.quote)}</details>` : "";
+
+/** Who wrote a structured record. Machine-written, unreviewed, on every one (rule 8). */
+function structureProvenance(r) {
+  const m = r.machine || {};
+  return `<p class="tiny">Written by <code>${esc(m.by)}</code> on ${esc(m.date)} · <b>${esc(m.review_status)}</b>${m.confidence != null ? ` · its own confidence ${esc(m.confidence)}, comparable with nothing else` : ""}.</p>
+    ${m.reasoning ? `<details><summary>Why the machine read it this way</summary><p class="small muted">${esc(m.reasoning)}</p></details>` : ""}
+    ${m.check ? `<p class="small"><b>What an expert should check:</b> ${esc(m.check)}</p>` : ""}`;
+}
+
+/** A condition tree: "all of" and "any of" nodes, and leaves saying whether each is a fact
+    or a person's assessment. The tree is shown, never evaluated. */
+function conditionTree(ctx, node) {
+  if (!node) return "";
+  const group = node.all ? "all" : node.any ? "any" : null;
+  if (group) {
+    const head = group === "all" ? "All of these" : "Any one of these";
+    return `<div class="cond-group cg-${group}">
+      ${node.text ? `<p class="small cond-text">${esc(node.text)}</p>` : ""}
+      <p class="tiny cond-head">${head}</p>
+      <ul class="cond-tree">${node[group].map((child) => `<li>${conditionTree(ctx, child)}</li>`).join("")}</ul></div>`;
+  }
+  return `<div class="cond-leaf">
+    <p class="small">${esc(node.text)} <span class="chip cond-kind ck-${esc(node.kind)}">${esc(LEAF_KIND[node.kind] || node.kind)}</span></p>
+    ${node.concepts?.length ? `<p class="tiny">${ideaChips(ctx, node.concepts)}</p>` : ""}
+    ${node.ask ? `<p class="tiny muted">What it would ask of a matter: ${esc(node.ask)}</p>` : ""}
+    ${quoted(node)}</div>`;
+}
+
+function effectLine(effect) {
+  if (!effect) return "";
+  return `<p class="small"><span class="chip effect-kind ek-${esc(effect.kind)}">${esc(EFFECT_KIND[effect.kind] || effect.kind)}</span> ${esc(effect.text)}</p>${quoted(effect)}`;
+}
+
+/** Practice or law, from what an element says of itself and the text it quotes (rule 5). */
+const authorityBadge = (x) => x.ref ? srcBadgeFor(x) : `<span class="chip">${esc(x.authority || "")}</span>`;
+const srcBadgeFor = (x) => {
+  const s = SOURCES[sourceOf(x.ref)];
+  return `<span class="src ${sourceOf(x.ref) === "manual" ? "manual" : `law ${sourceOf(x.ref)}`}">${esc(s.short)} · ${esc(x.authority || s.role)}</span>`;
+};
+
+/** A note that opens with a ref ("TMA1995/s44(2) states …"): the ref as a chip, the rest as words. */
+function leadingRef(text) {
+  const m = /^(TM[AMR](?:1995)?\/\S+)\s+(.*)$/s.exec(text || "");
+  return m ? `${refChip(m[1])} ${esc(m[2])}` : esc(text);
+}
+
+function structureHeader(ctx, r, extra = "") {
+  return `<div class="struct-head">
+      <h2>${esc(r.title)}</h2>
+      <div class="meta">${trustBadge(r.origin)}<span class="tiny">${esc(r.id)}</span>${r.provision ? refChip(r.provision) : ""}</div>
+      ${extra}
+    </div>`;
+}
+
+function testCard(ctx, r) {
+  const scope = r.scope || {};
+  return `<article class="card struct-card" id="${esc(r.id)}" data-id="${esc(r.id)}">
+    ${structureHeader(ctx, r, `
+      ${r.ground && ctx.byId.has(r.ground) ? `<p class="small"><span class="muted">The ground it reads:</span> ${endHtml(ctx, r.ground)}</p>` : ""}
+      <p class="small"><span class="muted">Who acts:</span> ${esc(r.actor)}${scope.applies_to ? ` · <span class="muted">applies to</span> ${esc(scope.applies_to)}` : ""}</p>
+      ${scope.parallel ? `<p class="tiny muted">${leadingRef(scope.parallel)}</p>` : ""}`)}
+    <h4>Its effect</h4>${effectLine(r.effect)}
+    <h4>When it applies</h4>${conditionTree(ctx, r.condition)}
+    ${(r.exceptions || []).length ? `<h4>Exceptions · ${r.exceptions.length}</h4>${r.exceptions.map((e) => `<div class="struct-exception">
+      <p class="small"><b>${esc(e.text)}</b></p>${quoted(e)}
+      ${effectLine(e.effect)}${conditionTree(ctx, e.condition)}</div>`).join("")}` : `<p class="tiny muted">The record states no exception.</p>`}
+    ${(r.evidence_requirements || []).length ? `<h4>What evidence bears on a condition · ${r.evidence_requirements.length}</h4>
+      <ul class="struct-list">${r.evidence_requirements.map((q) => `<li><p class="small">${esc(q.text)} ${authorityBadge(q)} <span class="chip">${esc(q.kind)}</span></p>${quoted(q)}</li>`).join("")}</ul>` : ""}
+    ${(r.routes || []).length ? `<h4>Routes the sources describe · ${r.routes.length}</h4>
+      <ul class="struct-list">${r.routes.map((q) => `<li><p class="small">${esc(q.text)} ${authorityBadge(q)}${q.scope ? ` <span class="tiny muted">(${esc(q.scope)})</span>` : ""}</p>${quoted(q)}</li>`).join("")}</ul>` : ""}
+    ${r.notes ? `<h4>Note on the record</h4><p class="small">${esc(r.notes)}</p>` : ""}
+    <h4>Who wrote this record</h4>${structureProvenance(r)}
+  </article>`;
+}
+
+function processCard(ctx, r) {
+  const steps = new Map((r.steps || []).map((x) => [x.id, x]));
+  const step = (id) => esc(steps.get(id)?.label || id);
+  return `<article class="card struct-card" id="${esc(r.id)}" data-id="${esc(r.id)}">
+    ${structureHeader(ctx, r, r.scope ? `<p class="small">${esc(r.scope)}</p>` : "")}
+    <h4>Steps · ${steps.size}</h4>
+    <div class="struct-scroll"><table class="tbl struct-tbl">
+      <thead><tr><th>Step</th><th class="opt">Who</th><th>What the source says</th><th>Rests on</th></tr></thead>
+      <tbody>${(r.steps || []).map((x) => `<tr>
+        <td><b>${esc(x.label)}</b><br><span class="tiny muted">${esc(STEP_KIND[x.kind] || x.kind)}</span></td>
+        <td class="opt small">${esc(ACTOR[x.actor] || x.actor)}</td>
+        <td class="small">${esc(x.text)}${x.concepts?.length ? `<br>${ideaChips(ctx, x.concepts)}` : ""}</td>
+        <td>${quoted(x)}</td></tr>`).join("")}</tbody>
+    </table></div>
+    <h4>From one step to the next · ${(r.transitions || []).length}</h4>
+    <div class="struct-scroll"><table class="tbl struct-tbl">
+      <thead><tr><th>From</th><th>To</th><th>When</th><th class="opt">What must be known</th><th>Rests on</th></tr></thead>
+      <tbody>${(r.transitions || []).map((t) => `<tr>
+        <td class="small">${step(t.from)}</td><td class="small">${step(t.to)}</td>
+        <td class="small">${esc(t.when)}${t.grounds?.length ? `<br><span class="tiny muted">only for grounds under</span> ${t.grounds.map((g) => refChip(g)).join(" ")}` : ""}</td>
+        <td class="opt small">${(t.needs || []).map(esc).join("; ") || `<span class="muted">—</span>`}</td>
+        <td>${quoted(t)}</td></tr>`).join("")}</tbody>
+    </table></div>
+    ${(r.deadlines || []).length ? `<h4>Time rules · ${r.deadlines.length}</h4>
+      <p class="tiny muted">Explained, never computed: no date is worked out from these.</p>
+      <ul class="struct-list">${r.deadlines.map((d) => `<li><p class="small">${esc(d.text)} <span class="tiny muted">(runs from: ${d.from.map(step).join(", ")})</span></p>${quoted(d)}</li>`).join("")}</ul>` : ""}
+    ${r.notes ? `<h4>Note on the record</h4><p class="small">${esc(r.notes)}</p>` : ""}
+    <h4>Who wrote this record</h4>${structureProvenance(r)}
+  </article>`;
+}
+
+function structuredTab(body, ctx, records, startId, { intro, card, csvName, csv, noun }) {
+  body.innerHTML = `
+    ${controls(`
+      <span class="small muted">${intro}</span>
+      <button class="btn small push" type="button" data-csv>Download every element (CSV)</button>`)}
+    ${records.length ? `<nav class="struct-index small" aria-label="${esc(noun)}">${records.map((r) => `<a href="${structureHref(r.id)}">${esc(r.title)}</a>`).join("")}</nav>
+      ${records.map((r) => card(ctx, r)).join("")}` : `<p class="empty small">No ${esc(noun)} has been written yet.</p>`}
+    <div class="legend-row">${legend()}</div>`;
+  body.querySelector("[data-csv]").addEventListener("click", () => download(csvName, csv(ctx, records)));
+  const start = startId && body.querySelector(`[data-id="${CSS.escape(decodeURIComponent(startId))}"]`);
+  if (start) requestAnimationFrame(() => start.scrollIntoView({ block: "start", behavior: "auto" }));
+}
+
+function testsTab(body, ctx, records, startId) {
+  structuredTab(body, ctx, records, startId, {
+    noun: "legal tests", card: testCard, csvName: "trade-marks-manual-legal-tests.csv", csv: structuresCsv,
+    intro: "Each test reads one provision as its effect, the conditions with all-of and any-of, its exceptions and the routes the sources describe. A condition marked as a person's assessment is never computed, and nothing here applies a test to an application.",
+  });
+}
+
+function processesTab(body, ctx, records, startId) {
+  structuredTab(body, ctx, records, startId, {
+    noun: "process templates", card: processCard, csvName: "trade-marks-manual-processes.csv", csv: structuresCsv,
+    intro: "Each template is a procedure's steps, the transitions between them with what must be known to take one, and its time rules. It is the procedure, not any application's history.",
+  });
+}
+
+/** Every element of every record, one row each, with its source and who wrote the record. */
+function structuresCsv(ctx, records) {
+  const head = ["record", "title", "element", "role", "text", "kind", "authority", "rests_on", "rests_on_text", "quote",
+    "written_by", "review_status", "machine_author", "date"];
+  const rows = [];
+  const add = (r, x, role, kind = "", authority = "") => rows.push([r.id, r.title, x.id || (x.from ? `${x.from}→${x.to}` : ""), role,
+    x.text || x.when || x.label || "", kind, authority, x.ref || "", x.ref ? sourceText(x.ref) : "", x.quote || "",
+    "machine-written", r.machine?.review_status || "unreviewed", r.machine?.by || "", r.machine?.date || ""]);
+  const tree = (r, node, role) => {
+    if (!node) return;
+    if (node.all || node.any) { (node.all || node.any).forEach((child) => tree(r, child, role)); return; }
+    add(r, node, role, node.kind);
+  };
+  for (const r of records) {
+    if (r.effect) add(r, r.effect, "effect", r.effect.kind, r.authority);
+    tree(r, r.condition, "condition");
+    for (const e of r.exceptions || []) { add(r, e, "exception"); if (e.effect) add(r, e.effect, `effect of ${e.id}`, e.effect.kind); tree(r, e.condition, `condition of ${e.id}`); }
+    for (const q of r.evidence_requirements || []) add(r, q, "evidence requirement", q.kind, q.authority);
+    for (const q of r.routes || []) add(r, q, "route", "", q.authority);
+    for (const x of r.steps || []) add(r, x, "step", x.kind);
+    for (const t of r.transitions || []) add(r, t, "transition");
+    for (const d of r.deadlines || []) add(r, d, "time rule");
+  }
+  return [head, ...rows];
 }

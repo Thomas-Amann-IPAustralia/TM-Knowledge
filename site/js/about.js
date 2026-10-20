@@ -17,9 +17,9 @@ export async function render(root, { ontology }) {
 
   root.innerHTML = `
   <div class="wrap about">
-    <h1>About this map</h1>
-    <p class="lede">A working demonstration of what an ontology adds to the Trade Marks Manual of Practice and Procedure, built for
-    examiners to explore, test and pick holes in.</p>
+    <h1>Where it stands</h1>
+    <p class="lede">The state of every part of the proof of concept: what it is built from, how well the search was measured, and its
+    limits. Built for examiners to explore, test and pick holes in.</p>
 
     <h2>What it is</h2>
     <p>An <b>ontology</b> is a shared, explicit description of a field: the ideas in it, what kind of thing each idea is, and how the ideas
@@ -29,10 +29,24 @@ export async function render(root, { ontology }) {
       <tr><th></th><th class="num">In all</th><th class="num">Machine-written, unreviewed</th></tr>
       <tr><td>Ideas (concepts)</td><td class="num">${fmt(c.concepts.signed + c.concepts.machine)}</td><td class="num">${c.concepts.machine}</td></tr>
       <tr><td>Connections between ideas</td><td class="num">${fmt(c.relations.signed + c.relations.machine)}</td><td class="num">${fmt(c.relations.machine)}</td></tr>
+      <tr><td>Definitions of ideas</td><td class="num">${fmt(c.definitions)}</td><td class="num">${fmt(c.definitions)}</td></tr>
+      <tr><td>Corrections to reviewed records</td><td class="num">${fmt(c.corrections)}</td><td class="num">${fmt(c.corrections)}</td></tr>
+      <tr><td><a href="#/table/tests">Structured legal tests</a></td><td class="num">${fmt(c.tests)}</td><td class="num">${fmt(c.tests)}</td></tr>
+      <tr><td><a href="#/table/processes">Process templates</a></td><td class="num">${fmt(c.processes)}</td><td class="num">${fmt(c.processes)}</td></tr>
       <tr><td>Places an idea is named in the Manual</td><td class="num" colspan="2">${fmt(c.links)} links across ${fmt(c.passages_linked)} passages — found by matching wordings, not judged</td></tr>
     </table>
     <p class="small muted">A machine-written record carries the model's name, the date, the passage it rests on and its reasoning, and says it is
-    unreviewed wherever it is shown. The rest were reviewed by a trade marks expert. An unchecked record never becomes approved by being left alone.</p>
+    unreviewed wherever it is shown. The rest were reviewed by a trade marks expert. An unchecked record never becomes approved by being left alone.
+    A correction changes how a reviewed record is served without changing the record itself, and the record says so.</p>
+
+    <h2>Legal tests and procedures</h2>
+    <p>Some of what the Manual and the legislation say does not fit a connection between two ideas. A <b>structured legal test</b> reads one provision as
+    who acts, its effect (an obligation, a discretion or a bar), its conditions joined by <i>all of</i> and <i>any of</i>, its exceptions, the evidence that
+    bears on a condition, and the routes the sources describe. A <b>process template</b> sets out a procedure's steps, what moves it from one step to the
+    next and its time rules. Every element quotes the unit or passage it comes from, and says whether that is practice or law.</p>
+    <p class="small muted">A condition that is a person's assessment, such as whether two marks are deceptively similar, is marked as one and is never
+    computed; no date is worked out from a time rule; nothing applies a test to an application. These records are machine-written and unreviewed, like
+    the rest, and are the start of a customer explanation aid that is not published. <a href="#/table/tests">See them as tables →</a></p>
 
     <h2>The kinds, and how they connect</h2>
     <p>A kind says what an idea is; what it does is a connection (the project owner's rule). Three kinds are the questions the law asks — grounds of
@@ -48,7 +62,8 @@ export async function render(root, { ontology }) {
     <ol class="small">
       <li><b>Recognise.</b> The question is matched against every idea's wordings, including everyday phrasings a machine wrote for search.</li>
       <li><b>Follow.</b> The connections those ideas hold lead to related ideas.</li>
-      <li><b>Gather and rank.</b> Passages naming those ideas, or citing their provisions, are fused with ordinary keyword search over the question's words.</li>
+      <li><b>Gather and rank.</b> Passages naming those ideas, or citing their provisions, are fused with ordinary keyword search over the question's words.
+      The Act and the Regulations are searched apart, by the provisions the question names and then by its words, and listed in a card of their own.</li>
       <li><b>Answer.</b> A model writes an answer from those passages only, citing each claim. Code then checks every quote word for word against the
       passage, and drops any it cannot find. The model is told never to say how an application would be decided, and to keep practice and law apart.</li>
     </ol>
@@ -78,9 +93,12 @@ export async function render(root, { ontology }) {
     <ul class="small">
       <li>It explains; it never decides. It does not apply the law to an application's facts and declines when asked to.</li>
       <li>No expert has read the machine's ideas, connections or answers.</li>
-      <li>Twelve pairs of ideas were judged to be one idea under two records (for example <i>Registrar</i> and <i>Registrar of Trade Marks</i>) and are flagged for a person, not merged.</li>
+      <li>A model suggested ${fmt((c.merges?.merged || 0) + (c.merges?.kept_apart || 0))} pairs of ideas were one idea under two records. On the project owner's rulings,
+      ${fmt(c.merges?.merged || 0)} were merged (for example <i>Registrar of Trade Marks</i> into <i>Registrar</i>) and ${fmt(c.merges?.kept_apart || 0)} kept apart as different ideas.</li>
       <li>Recognising an idea is matching its wordings: "who has to <i>sign</i>" matches the idea <i>sign</i>.</li>
-      <li>One snapshot of the Manual. There is no update loop yet, though every record is anchored so that one can be built.</li>
+      <li>One snapshot of the Manual. There is no update loop yet, though every record is anchored so that one can be built, and
+      <a href="#/change">When the text changes</a> already lists what rests on any page or provision.</li>
+      <li>The search over the Act and the Regulations, and the legal tests and process templates, have not been measured.</li>
     </ul>
   </div>`;
 

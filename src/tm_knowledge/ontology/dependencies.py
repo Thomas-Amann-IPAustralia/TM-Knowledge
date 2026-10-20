@@ -18,8 +18,8 @@ still matches the pinned snapshot (the harness's staleness comparison, through t
 same resolver, `harness._passage`). Two views, never summed:
 
 - **current**: what serves now, the signed records with every correction applied
-  (`served_gold()`), the corrections themselves, the definitions and every sound
-  machine-written record;
+  (`served_gold()`), the corrections themselves, the definitions, the structured
+  legal tests and process templates, and every sound machine-written record;
 - **as signed**: the signed records exactly as signed (`goldset.load()`). A
   dependency only here is history: a correction removed it, or replaced the record.
 
@@ -185,6 +185,7 @@ def build(corpus: Corpus, gold: Any = None, authored: Any = None) -> DependencyI
     """The index over both stores, both views, and the Manual's citations of provisions."""
     from tm_knowledge.authored import corrections as corrections_module
     from tm_knowledge.authored import definitions as definitions_module
+    from tm_knowledge.authored import procedure
     from tm_knowledge.authored import store as authored_store
     from tm_knowledge.stage0 import goldset
 
@@ -192,6 +193,10 @@ def build(corpus: Corpus, gold: Any = None, authored: Any = None) -> DependencyI
     authored = authored if authored is not None else authored_store.load()
     corrections = corrections_module.load(authored.root, gold=gold, authored=authored)
     definitions = definitions_module.load(authored.root, gold=gold, authored=authored)
+    # The structured legal tests and process templates (Package 4, ADR-0142) quote their
+    # units and passages as every other record does, so they rest on them too.
+    tests = procedure.load_tests(authored.root, gold=gold, authored=authored)
+    processes = procedure.load_processes(authored.root, gold=gold, authored=authored)
     index = DependencyIndex(pin=corpus.pin.commit)
 
     for view, signed in (("current", corrections_module.served_gold(gold, corrections)), ("as_signed", gold)):
@@ -202,7 +207,8 @@ def build(corpus: Corpus, gold: Any = None, authored: Any = None) -> DependencyI
         if entry.sound:
             _record(index, corpus, entry.record, entry.envelope, record_type=entry.record_type,
                     store="authored", status=entry.review_status, view="current")
-    for kind, found in (("definition", definitions.sound), ("correction", corrections.sound)):
+    for kind, found in (("definition", definitions.sound), ("correction", corrections.sound),
+                        ("legal_test", tests.sound), ("process", processes.sound)):
         for entry in found:
             status = str((entry.envelope or {}).get("review_status") or "unknown")
             _record(index, corpus, entry.record, entry.envelope, record_type=kind, store="authored",

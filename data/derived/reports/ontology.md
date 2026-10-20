@@ -349,14 +349,14 @@ compilation of the Act or the Regulations in force after that may not be reflect
 **5 Parts have no chunk in the graph**: Part1, Part4, Part8, Part41, Part61. **2 more have
 no relationship resting on them**: Part7, Part45.
 
-**The dependency index.** 2,362 dependencies of 963 records on
-557 refs, current view: by record type 67 competency_question, 400 concept_type, 61 correction, 399 definition, 595 gold_concept, 66 gold_entity, 711 gold_relationship, 40 gold_retrieval_question, 5 gold_search_question, 18 reasoning_expectation; by review
-status 356 approved, 2,006 unreviewed; by source 573 act, 9 case, 1,639 manual, 141 regulations. Stale (a recorded hash that
+**The dependency index.** 2,506 dependencies of 968 records on
+590 refs, current view: by record type 67 competency_question, 400 concept_type, 61 correction, 399 definition, 595 gold_concept, 66 gold_entity, 711 gold_relationship, 40 gold_retrieval_question, 5 gold_search_question, 71 legal_test, 73 process, 18 reasoning_expectation; by review
+status 356 approved, 2,150 unreviewed; by source 661 act, 9 case, 1,657 manual, 179 regulations. Stale (a recorded hash that
 no longer matches the pin): 0. A further 19 dependencies are
 history only: a signed record named the ref as signed, and a correction removed it or
 replaced the record. RULE-0002 is unchanged and is the signed-records-only view of the
 same question, from a Manual passage only.
 
 The provisions most rested on, directly or through a Manual passage that cites them:
-`TMA1995/s43` (308), `TMA1995/s6` (100), `TMA1995/s44` (95), `TMA1995/s41` (78), `TMA1995/s33` (66), `TMA1995/s39` (37), `TMA1995/s42` (28), `TMA1995/s206` (23), `TMR1995/r17A.2` (21), `TMA1995/s17` (16).
+`TMA1995/s43` (309), `TMA1995/s6` (100), `TMA1995/s44` (97), `TMA1995/s41` (80), `TMA1995/s33` (68), `TMA1995/s39` (37), `TMA1995/s42` (28), `TMA1995/s206` (23), `TMR1995/r17A.2` (21), `TMA1995/s17` (16).
 

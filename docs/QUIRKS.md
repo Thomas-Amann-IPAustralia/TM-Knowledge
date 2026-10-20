@@ -1721,3 +1721,16 @@ reuse a predicate's name**: `tmk:runsFrom` is already a relationship predicate
 approved-edge shape as an unsigned approved relation (four defects), and a second `rdfs:domain`
 on it would have reclassified every concept using the predicate. `grep -n '"<name>"'
 src/tm_knowledge/ontology/predicates.py` before naming a property in `ontology/draft/`.
+
+### Q-101: a new record type does not reach the site, or the dependency index, by itself
+
+Package 4 added `GL-` legal tests and `GP-` process templates (S042) with their own reader,
+`authored.procedure`, and put them in the graph; nothing else noticed. `ontology.dependencies.build`
+read only the authored store, definitions and corrections, so "what rests on section 44" left out
+GL-0001; `explorer.build` copied only concepts and relationships, so the page never showed them;
+and the About page still said twelve same-idea pairs were "not merged" weeks after the owner ruled
+on all twelve. S043 fixed all three. When a record type gets its own reader, add it to
+`dependencies.build`, give `explorer.build` a key for it and a view in `site/js/`, and regenerate
+the ontology report (its §7 counts record types). One CSS trap on the way: `explorer.css` holds
+short generic classes the tour uses (`.fact`, `.bars`, `.steps`), so a new view's class named after
+its data (a leaf of kind `fact`) picks up the tour's layout; prefix new classes (`ck-fact`).

@@ -15,7 +15,7 @@
    (ADR-0130). The text level keeps the Manual, the Act and the Regulations
    apart: a box, a colour and a mark for each. */
 
-import { esc, fmt, el, load, kindColour, kindCount, refChip, refLabel, trustBadge, kindChip, legend, isLaw, sourceOf, quoteBlock, SOURCES, openPassage, definitionBlock, hierarchyBlock, qualifiedLine } from "./app.js";
+import { esc, fmt, el, load, kindColour, kindCount, refChip, refLabel, trustBadge, kindChip, legend, isLaw, sourceOf, quoteBlock, SOURCES, openPassage, definitionBlock, hierarchyBlock, qualifiedLine, structuresBlock } from "./app.js";
 import { KIND_POS, LOOSE, specificCount } from "./kinds.js";
 import * as lib from "./lib.js";
 
@@ -683,6 +683,7 @@ export async function render(root, { ontology, params }) {
         return list.length ? `<h4>In the ${src === "act" ? "Act" : "Regulations"}</h4><div class="meta">${list.map((r) => refChip(r)).join("")}</div>` : "";
       }).join("")}
       ${hierarchyBlock(x, (id) => `<button class="link" type="button" data-c="${esc(id)}">${esc(byId.get(id)?.label || id)}</button>`)}
+      ${structuresBlock(x, ontology)}
       ${x.notes ? `<h4>Note on the record</h4><p class="small">${esc(x.notes)}</p>` : ""}
       ${level() !== "text" ? `<p style="margin-top:1rem"><button class="btn primary small" type="button" data-text>Open into the text it rests on →</button>
         <a class="btn small" href="#/ask">Ask about it</a></p>` : ""}

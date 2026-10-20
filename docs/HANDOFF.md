@@ -1,6 +1,8 @@
 # HANDOFF
 
-**Last updated:** 2026-10-20 · S043 (end) · branch `claude/busy-sagan-4k4kom`
+**Last updated:** 2026-10-20 · S043 (two parallel sessions, merged) · Package 4 on `main` from
+`claude/busy-sagan-4k4kom` (PR #43); the site work on `claude/brave-cray-nnkmk5`, PR
+[Thomas-Amann-IPAustralia/TM-Knowledge#44](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/pull/44)
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
@@ -11,6 +13,14 @@ Rewritten every session, under 150 lines (ADR-0110). History is in the git log a
 order: Packages 1 and 3 done (S041); Package 2 done (S042); Package 4, the first customer slice,
 done (S042 started it, S043 finished it, ADR-0142 and ADR-0144).** The owner asked S043 to "conduct
 the remaining stage 4 work", read as the handoff's Package 4. Nothing was spent.
+
+**The site rework is half done (ADR-0145; the parallel site session).** The explorer leads with
+outcomes and discloses the ontology last: *What it does* (home), *What it could do* (`#/future`, with
+"What we may test with customers"), *Rules as code* (`#/rules`, first version), *The ontology*
+(`#/model`, map, glance, tables, tour, `#/glossary`); a depth strip, go-deeper cards, every standard
+explained inline (`glossary.js`). **S044 finishes it from `docs/SITE-REWORK.md`.** That session also
+put the GL/GP records on the site (`#/table/tests`, `#/table/processes`, idea cards, the change
+view) and in the dependency index, and fixed About's stale merge line (Q-101).
 
 **Spend.** Cap **US$13.63**, recorded **US$11.61**; the remaining US$2.02 is approved for nothing.
 
@@ -48,6 +58,10 @@ xfail** (the authority check's known misses) at the end of S043.
 
 ## Next actions
 
+0. **Finish the site rework (S044, by the owner's word, at high effort)** from
+   `docs/SITE-REWORK.md`, pushing to PR #44; then close the ruling (`applied:`), delete the plan
+   file, and update ADR-0145's status. The plan predates Package 4's completion: the customer
+   preview can now show the requirements and the process from filing too.
 1. **Package 5** (the response's order): the versioning model defined (A03), with version selection
    once upstream holds a second compilation; the dependency index in the graph as a candidate rule
    (R05, A10); normative scenarios on fictional matters (A10).
@@ -66,6 +80,9 @@ xfail** (the authority check's known misses) at the end of S043.
   question, but the model still writes from passages and provisions alone (ADR-0139's inputs).
   Giving it the test would put the exceptions in front of it by rule; it changes what the chatbot
   is given, so it is yours. Recommended, with the test stamped in the prompt as the definitions are.
+- **The customer preview on the site (S044's plan)** would put the prototype's explanations of the
+  invented matters on the public examiner site, loudly labelled, as the transparency you asked for;
+  say before S044 if you would rather it stayed a file. Testing with customers stays your gate.
 - Still: revoke the old OpenAI key (S038); the page's blend, ADR-0131 and the four disputed signed
   readings (S034); who writes the next benchmark; re-measurement.
 
@@ -112,8 +129,14 @@ xfail** (the authority check's known misses) at the end of S043.
   **`search.structured.find`/`structuredTests`**.
 - **YAML flow mappings in `scenarios/`**: a comma in an unquoted value splits it.
 - **The explorer needs the snapshot** (Q-90); a local server must serve `.mjs` as JavaScript.
+- **A new record type reaches neither the site nor the dependency index by itself; and
+  `explorer.css` has generic tour classes (`.fact`, `.bars`), so prefix new ones** (Q-101).
+- **Checking the site**: `tmk-explorer --write`, serve `site/`, Playwright (`/opt/pw-browsers`).
 
 ## Open items (agent-proposed, provisional)
+
+- **ADR-0145's agent parts**: the four layers and their names, the home page's outcomes and status
+  board, the wording of "What we may test with customers", the glossary entries; the GL/GP views.
 
 - **ADR-0144** (elements as nodes and their shapes; the two no-matter explanations; GP-0002;
   everyday wording asked, never mapped; FM-0005 and FM-0006; the A06 lookup rule and its card).
