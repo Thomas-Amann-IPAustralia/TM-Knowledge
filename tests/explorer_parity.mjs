@@ -2,7 +2,7 @@
 // tests/unit/test_explorer.py compares this with search.index.Systems and with
 // the answer prompt bulk.jobs builds, question by question.
 import { readFileSync } from "node:fs";
-import { Engine } from "../site/js/engine.js";
+import { Engine, structuredTests } from "../site/js/engine.js";
 
 const [dataDir, questionsPath] = process.argv.slice(2);
 const read = (name) => JSON.parse(readFileSync(`${dataDir}/${name}.json`, "utf8"));
@@ -15,6 +15,7 @@ for (const q of JSON.parse(readFileSync(questionsPath, "utf8"))) {
   out[q.key] = {
     keyword: engine.keyword(q.question, 10).map((h) => h.ref),
     provisions: engine.provisionSearch(q.question, 5).map((h) => h.ref),
+    tests: structuredTests(q.question, trace.ids, engine.s.tests),
     ontology: hits.map((h) => h.ref),
     recognised: trace.ids,
     neighbours: trace.neighbours,

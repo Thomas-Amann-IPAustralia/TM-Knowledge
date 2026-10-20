@@ -40,6 +40,7 @@ import yaml
 from tm_knowledge.authored import corrections as corrections_module
 from tm_knowledge.authored import definitions as definitions_module
 from tm_knowledge.authored import store as authored_store
+from tm_knowledge.authored import procedure
 from tm_knowledge.bulk import jobs
 from tm_knowledge.bulk import links as links_module
 from tm_knowledge import config
@@ -48,6 +49,7 @@ from tm_knowledge.dashboard import views
 from tm_knowledge.ontology import dependencies
 from tm_knowledge.ontology.predicates import RETIRED
 from tm_knowledge.search import index as search_index
+from tm_knowledge.search import structured
 from tm_knowledge.stage0 import goldset
 from tm_knowledge.stage0 import typing as typing_module
 from tm_knowledge.stage0.harness import passage_at
@@ -447,6 +449,9 @@ def search(corpus: Corpus, gold: Any, authored: Any, links: links_module.Links) 
         "mentions": {cid: [hit[0] for hit in hits] for cid, hits in links.mentions.items()},
         "relations": [list(edge) for edge in search_index.relations_from(gold, authored)],
         "citing": {ref: [c.chunk_ref for c in corpus.chunks_citing(ref)] for ref in bases},
+        # A06 step 2: the structured tests, for `structuredTests` (`search.structured`).
+        "tests": structured.payload({k: v.record for k, v in procedure.load_tests(
+            authored.root, gold=gold, authored=authored).by_id().items()}),
     }
 
 
