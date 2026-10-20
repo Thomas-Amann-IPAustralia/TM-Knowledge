@@ -24,12 +24,12 @@ ontology cannot do, and it is the honest half of the demonstration.
 | Trade Marks Act 1995 | compilation 48 (`C2026C00421`), in force from 19 September 2026 |
 | Trade Marks Regulations 1995 | compilation 53 (`F2026C00009`), in force from 18 December 2025 |
 | Ontology modules | 9, all draft |
-| Classes declared | 105 |
+| Classes declared | 107 |
 | Predicates defined | 53 in `ontology/predicates.py`; 14 used by a signed record, 51 by a machine-written one |
-| Source graph | 66,250 triples over 1088 chunks |
+| Source graph | 69,460 triples over 1088 chunks |
 | Approved graph | 3,644 triples — signed by a named expert |
-| Authored graph | 29,873 triples — **written by a machine, validated by nobody** |
-| Inferred graph | 2,315 triples — derived by the SPARQL rules, never a signed record |
+| Authored graph | 30,071 triples — **written by a machine, validated by nobody** |
+| Inferred graph | 24,048 triples — derived by the SPARQL rules, never a signed record |
 | SHACL result | 0 defects, 0 gaps, 259 notes — exit 0 |
 | Competency queries | 13 of 20 questions |
 
@@ -178,7 +178,7 @@ whether a "may" is possibility or permission is a legal reading (guide §5.4).
 
 ## 4. What it infers, and under what conditions
 
-2 CONSTRUCT rules: **1 approved, 1 pending.**
+3 CONSTRUCT rules: **1 approved, 2 pending.**
 A person approves every reasoning template before it is relied on. The
 `approved-by` line in each file is the approval record, and
 `tm_knowledge.ontology.rules` reads it rather than trusting the query — a rule
@@ -190,11 +190,13 @@ inference is licensed (ADR-0134); these rules are the only reasoning.
 
 - `RULE-0001` — **pending**. PENDING — the owner asked to see the flagged passages before ruling: "Show me the 71 flagged passages first" (OQ-0003, issue #12, 2026-09-08). The pack is data/derived/reports/rule-0001-flags.md and the re-ask is OQ-0019. Until then everything this produces is stamped tmk:reviewStatus "candidate".
 - `RULE-0002` — **approved**. Thomas-Amann-IPAustralia, 2026-09-08 — "Approve it — its links may be relied on" (OQ-0004, issue #12, transcribed at review/rulings/2026-09-08-issue-12.yaml). The repo owner's approval, which by his own ruling on OQ-0010 is recorded exactly as a trade marks expert's would be. ADR-0068 records what it does and does not settle; the limits line below is untouched by it.
+- `RULE-0003` — **pending**. PENDING — written by the S045 agent for Package 5; the owner is asked in OQ-0030. Until a person approves it everything it produces is stamped tmk:reviewStatus "candidate".
 
 | rule | conclusions | triples | stands on |
 |---|---|---|---|
 | RULE-0001 | 5 | 71 | GX-0001 — the approved reasoning expectation over TMM/Part29/1#1: "The |
 | RULE-0002 | 187 | 2244 | CQ-0017 and CQ-0019, the two impact-category competency questions |
+| RULE-0003 | 1528 | 21733 | The second review response's R05 and A10, the editorial-impact layer,  |
 
 **Read the first number, not the second.** *Conclusions* is how many things the rule concluded; *triples* counts the provenance carried with them. Quoting the triple count as if it were the number of findings is how the owner came to be asked to review 71 flagged passages when there were five (Q-44).
 
@@ -217,7 +219,7 @@ or a factor is a legal judgement, and every one of these is the agent's.
 define them. A definition is its own record, never a field on a signed concept,
 and approving a label approves no definition (ADR-0137).
 
-**55 declared classes hold nothing**: `AdministrativeReviewTribunal`, `AdmittedRelation`, `AdvisoryRole`, `Applicant`, `ApprovedRelation`, `Assertion`, `AuthorisedUser`, `Authority`, `AuthorityStatus`, `CandidateAssertion`, `CoRegulator`, `Commission`, `Condition`, `DecisionMaker`….
+**56 declared classes hold nothing**: `AdministrativeReviewTribunal`, `AdmittedRelation`, `AdvisoryRole`, `Applicant`, `ApprovedRelation`, `Assertion`, `AuthorisedUser`, `Authority`, `AuthorityStatus`, `CandidateAssertion`, `CoRegulator`, `Commission`, `Condition`, `DecisionMaker`….
 Some are empty by design (the evidence module: the Manual describes evidence, it
 does not hold any); some are the kinds no concept has been sorted into.
 

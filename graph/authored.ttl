@@ -20092,6 +20092,8 @@ tmka:GT-0001 tmk:authoredBy "claude-opus-5" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0001/evidence/1> a tmk:EvidenceAnchor ;
@@ -20127,7 +20129,8 @@ tmka:GT-0002 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0002" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0002/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -20152,7 +20155,8 @@ tmka:GT-0003 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0003" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0003/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -20189,6 +20193,8 @@ tmka:GT-0004 tmk:authoredBy "claude-opus-5" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0004/evidence/1> a tmk:EvidenceAnchor ;
@@ -20226,6 +20232,8 @@ tmka:GT-0005 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~2> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~2> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0005/evidence/1> a tmk:EvidenceAnchor ;
@@ -20263,6 +20271,8 @@ tmka:GT-0006 tmk:authoredBy "claude-opus-5" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0006/evidence/1> a tmk:EvidenceAnchor ;
@@ -20299,7 +20309,8 @@ tmka:GT-0007 tmk:authoredBy "claude-code-agent-S029" ;
     tmk:goldRecord "GT-0007" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0007/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -20336,6 +20347,8 @@ tmka:GT-0008 tmk:authoredBy "claude-opus-5" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0008/evidence/1> a tmk:EvidenceAnchor ;
@@ -20373,6 +20386,8 @@ tmka:GT-0009 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0009/evidence/1> a tmk:EvidenceAnchor ;
@@ -20410,6 +20425,8 @@ tmka:GT-0010 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0010/evidence/1> a tmk:EvidenceAnchor ;
@@ -20447,6 +20464,8 @@ tmka:GT-0011 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0011/evidence/1> a tmk:EvidenceAnchor ;
@@ -20484,6 +20503,8 @@ tmka:GT-0012 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0012/evidence/1> a tmk:EvidenceAnchor ;
@@ -20521,6 +20542,8 @@ tmka:GT-0013 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0013/evidence/1> a tmk:EvidenceAnchor ;
@@ -20558,6 +20581,8 @@ tmka:GT-0014 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0014/evidence/1> a tmk:EvidenceAnchor ;
@@ -20595,6 +20620,8 @@ tmka:GT-0015 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0015/evidence/1> a tmk:EvidenceAnchor ;
@@ -20630,7 +20657,8 @@ tmka:GT-0016 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0016" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0016/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -20656,6 +20684,8 @@ tmka:GT-0017 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0017/evidence/1> a tmk:EvidenceAnchor ;
@@ -20691,7 +20721,8 @@ tmka:GT-0018 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0018" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/11%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/11%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/11%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0018/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -20715,7 +20746,8 @@ tmka:GT-0019 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0019" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0019/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -20739,7 +20771,8 @@ tmka:GT-0020 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0020" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/6> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/6> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/6> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0020/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -20765,6 +20798,8 @@ tmka:GT-0021 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0021/evidence/1> a tmk:EvidenceAnchor ;
@@ -20802,6 +20837,8 @@ tmka:GT-0022 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0022/evidence/1> a tmk:EvidenceAnchor ;
@@ -20838,7 +20875,8 @@ tmka:GT-0023 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0023" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/2> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/2> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/2> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0023/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -20873,7 +20911,8 @@ tmka:GT-0024 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0024" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/6~1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/6~1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/6~1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0024/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -20897,7 +20936,8 @@ tmka:GT-0025 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0025" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0025/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -20923,6 +20963,8 @@ tmka:GT-0026 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0026/evidence/1> a tmk:EvidenceAnchor ;
@@ -20958,7 +21000,8 @@ tmka:GT-0027 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0027/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -20984,6 +21027,8 @@ tmka:GT-0028 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0028/evidence/1> a tmk:EvidenceAnchor ;
@@ -21021,6 +21066,8 @@ tmka:GT-0029 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0029/evidence/1> a tmk:EvidenceAnchor ;
@@ -21058,6 +21105,8 @@ tmka:GT-0030 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/25/25/7>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/25/25/7>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0030/evidence/1> a tmk:EvidenceAnchor ;
@@ -21094,7 +21143,8 @@ tmka:GT-0031 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0031" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0031/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21130,7 +21180,8 @@ tmka:GT-0032 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0032" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0032/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21165,7 +21216,8 @@ tmka:GT-0033 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0033" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0033/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21189,7 +21241,8 @@ tmka:GT-0034 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0034" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/3> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/3> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/3> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0034/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21215,6 +21268,8 @@ tmka:GT-0035 tmk:authoredBy "claude-code-agent-S029" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0035/evidence/1> a tmk:EvidenceAnchor ;
@@ -21252,6 +21307,8 @@ tmka:GT-0036 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32A/2/4/2/4/1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32A/2/4/2/4/1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0036/evidence/1> a tmk:EvidenceAnchor ;
@@ -21288,7 +21345,8 @@ tmka:GT-0037 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0037" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/10%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/10%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/10%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0037/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21323,7 +21381,8 @@ tmka:GT-0038 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0038" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/5> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/5> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/5> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0038/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21348,7 +21407,8 @@ tmka:GT-0039 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0039" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0039/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21385,6 +21445,8 @@ tmka:GT-0040 tmk:authoredBy "claude-opus-5" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part47/1/1/2/2> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part47/1/1/2/2> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0040/evidence/1> a tmk:EvidenceAnchor ;
@@ -21422,6 +21484,8 @@ tmka:GT-0041 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0041/evidence/1> a tmk:EvidenceAnchor ;
@@ -21457,7 +21521,8 @@ tmka:GT-0042 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0042" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part51/10%231~1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part51/10%231~1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part51/10%231~1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0042/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21481,7 +21546,8 @@ tmka:GT-0043 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0043" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/2%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/2%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/2%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0043/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21507,6 +21573,8 @@ tmka:GT-0044 tmk:authoredBy "claude-opus-5" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0044/evidence/1> a tmk:EvidenceAnchor ;
@@ -21544,6 +21612,8 @@ tmka:GT-0045 tmk:authoredBy "claude-opus-5" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0045/evidence/1> a tmk:EvidenceAnchor ;
@@ -21581,6 +21651,8 @@ tmka:GT-0046 tmk:authoredBy "claude-opus-5" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0046/evidence/1> a tmk:EvidenceAnchor ;
@@ -21618,6 +21690,8 @@ tmka:GT-0047 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0047/evidence/1> a tmk:EvidenceAnchor ;
@@ -21655,6 +21729,8 @@ tmka:GT-0048 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0048/evidence/1> a tmk:EvidenceAnchor ;
@@ -21691,7 +21767,8 @@ tmka:GT-0049 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0049" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0049/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21727,7 +21804,8 @@ tmka:GT-0050 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0050" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0050/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21762,7 +21840,8 @@ tmka:GT-0051 tmk:authoredBy "claude-code-agent-S029" ;
     tmk:goldRecord "GT-0051" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0051/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21788,6 +21867,8 @@ tmka:GT-0052 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/4> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/4> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0052/evidence/1> a tmk:EvidenceAnchor ;
@@ -21823,7 +21904,8 @@ tmka:GT-0054 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0054" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0054/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21847,7 +21929,8 @@ tmka:GT-0055 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0055" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0055/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21871,7 +21954,8 @@ tmka:GT-0056 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0056" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/2%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/2%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/2%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0056/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21895,7 +21979,8 @@ tmka:GT-0057 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0057" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s40> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s40> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s40> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0057/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21919,7 +22004,8 @@ tmka:GT-0058 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0058" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0058/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21943,7 +22029,8 @@ tmka:GT-0059 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0059" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0059/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21967,7 +22054,8 @@ tmka:GT-0060 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0060" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0060/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -21991,7 +22079,8 @@ tmka:GT-0061 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0061" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0061/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22015,7 +22104,8 @@ tmka:GT-0062 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0062" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0062/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22039,7 +22129,8 @@ tmka:GT-0063 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0063" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0063/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22063,7 +22154,8 @@ tmka:GT-0064 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0064" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0064/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22087,7 +22179,8 @@ tmka:GT-0065 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0065" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/5%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/5%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/5%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0065/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22111,7 +22204,8 @@ tmka:GT-0066 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0066" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/2%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/2%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/2%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0066/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22135,7 +22229,8 @@ tmka:GT-0067 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0067" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0067/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22159,7 +22254,8 @@ tmka:GT-0068 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0068" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/4%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/4%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/4%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0068/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22183,7 +22279,8 @@ tmka:GT-0070 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0070" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/4%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/4%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/4%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0070/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22207,7 +22304,8 @@ tmka:GT-0071 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0071" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0071/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22231,7 +22329,8 @@ tmka:GT-0072 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0072" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s17> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s17> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s17> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0072/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22255,7 +22354,8 @@ tmka:GT-0073 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0073" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/3%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/3%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/3%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0073/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22279,7 +22379,8 @@ tmka:GT-0074 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0074" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/1%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/1%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/1%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0074/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22303,7 +22404,8 @@ tmka:GT-0075 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0075" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/3%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/3%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/3%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0075/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22327,7 +22429,8 @@ tmka:GT-0076 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0076" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/4%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/4%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/4%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0076/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22351,7 +22454,8 @@ tmka:GT-0077 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0077" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/6%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/6%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/6%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0077/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22375,7 +22479,8 @@ tmka:GT-0078 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0078" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/7%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/7%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/7%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0078/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22399,7 +22504,8 @@ tmka:GT-0079 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0079" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0079/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22423,7 +22529,8 @@ tmka:GT-0080 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0080" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0080/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22447,7 +22554,8 @@ tmka:GT-0081 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0081" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/1%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/1%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/1%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0081/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22471,7 +22579,8 @@ tmka:GT-0082 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0082" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s8> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s8> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s8> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0082/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22495,7 +22604,8 @@ tmka:GT-0083 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0083" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s8> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s8> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s8> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0083/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22519,7 +22629,8 @@ tmka:GT-0084 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0084" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registered-owner> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registered-owner> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registered-owner> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0084/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22543,7 +22654,8 @@ tmka:GT-0085 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0085" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0085/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22567,7 +22679,8 @@ tmka:GT-0086 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0086" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/assignment> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/assignment> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/assignment> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0086/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22591,7 +22704,8 @@ tmka:GT-0087 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0087" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part43/1%231~1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part43/1%231~1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part43/1%231~1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0087/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22615,7 +22729,8 @@ tmka:GT-0088 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0088" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registered-trade-mark> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registered-trade-mark> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registered-trade-mark> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0088/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22639,7 +22754,8 @@ tmka:GT-0089 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0089" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/register> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/register> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/register> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0089/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22663,7 +22779,8 @@ tmka:GT-0091 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0091" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0091/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22687,7 +22804,8 @@ tmka:GT-0092 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0092" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s31> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s31> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s31> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0092/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22711,7 +22829,8 @@ tmka:GT-0093 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0093" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0093/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22735,7 +22854,8 @@ tmka:GT-0095 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0095" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part62/1%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part62/1%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part62/1%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0095/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22759,7 +22879,8 @@ tmka:GT-0096 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0096" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/1%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/1%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/1%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0096/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22783,7 +22904,8 @@ tmka:GT-0097 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0097" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part15/1%231~1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part15/1%231~1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part15/1%231~1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0097/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22807,7 +22929,8 @@ tmka:GT-0098 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0098" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part16/1/1/1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part16/1/1/1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part16/1/1/1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0098/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22831,7 +22954,8 @@ tmka:GT-0099 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0099" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part24/1%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part24/1%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part24/1%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0099/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22855,7 +22979,8 @@ tmka:GT-0103 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0103" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part47/1%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part47/1%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part47/1%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0103/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22879,7 +23004,8 @@ tmka:GT-0104 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0104" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part48/1%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part48/1%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part48/1%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0104/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22903,7 +23029,8 @@ tmka:GT-0105 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0105" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part42/1%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part42/1%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part42/1%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0105/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22927,7 +23054,8 @@ tmka:GT-0106 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0106" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part40/1%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part40/1%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part40/1%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0106/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22951,7 +23079,8 @@ tmka:GT-0107 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0107" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part35/1%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part35/1%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part35/1%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0107/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22975,7 +23104,8 @@ tmka:GT-0108 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0108" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part33/1%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part33/1%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part33/1%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0108/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -22999,7 +23129,8 @@ tmka:GT-0109 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0109" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0109/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23023,7 +23154,8 @@ tmka:GT-0111 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0111" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/1/1/2> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/1/1/2> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/1/1/2> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0111/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23047,7 +23179,8 @@ tmka:GT-0112 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0112" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/1/1/1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/1/1/1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/1/1/1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0112/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23071,7 +23204,8 @@ tmka:GT-0113 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0113" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/1/1/1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/1/1/1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/1/1/1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0113/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23095,7 +23229,8 @@ tmka:GT-0114 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0114" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0114/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23119,7 +23254,8 @@ tmka:GT-0116 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0116" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/applicant> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/applicant> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/applicant> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0116/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23143,7 +23279,8 @@ tmka:GT-0117 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0117" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part46/1%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part46/1%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part46/1%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0117/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23167,7 +23304,8 @@ tmka:GT-0119 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0119" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/4%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/4%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/4%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0119/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23191,7 +23329,8 @@ tmka:GT-0120 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0120" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0120/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23215,7 +23354,8 @@ tmka:GT-0121 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0121" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/4%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/4%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/4%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0121/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23239,7 +23379,8 @@ tmka:GT-0122 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0122" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part6/1%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part6/1%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part6/1%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0122/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23263,7 +23404,8 @@ tmka:GT-0123 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0123" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part7/1%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part7/1%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part7/1%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0123/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23287,7 +23429,8 @@ tmka:GT-0124 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0124" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part9/1%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part9/1%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part9/1%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0124/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23311,7 +23454,8 @@ tmka:GT-0126 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0126" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/1/1/1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/1/1/1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/1/1/1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0126/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23335,7 +23479,8 @@ tmka:GT-0127 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0127" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/1%231~1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/1%231~1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/1%231~1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0127/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23359,7 +23504,8 @@ tmka:GT-0128 tmk:authoredBy "claude-opus-5" ;
     tmk:goldRecord "GT-0128" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0128/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23383,7 +23529,8 @@ tmka:GT-0130 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0130" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0130/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23407,7 +23554,8 @@ tmka:GT-0131 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0131" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2/trade-mark-application> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2/trade-mark-application> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2/trade-mark-application> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0131/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23431,7 +23579,8 @@ tmka:GT-0132 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0132" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/x-relevant-legislation26%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/x-relevant-legislation26%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/x-relevant-legislation26%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0132/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23455,7 +23604,8 @@ tmka:GT-0133 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0133" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/commission> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/commission> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/commission> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0133/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23479,7 +23629,8 @@ tmka:GT-0134 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0134" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r2.1/art> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r2.1/art> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r2.1/art> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0134/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23503,7 +23654,8 @@ tmka:GT-0135 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0135" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.48/cessation-of-protection> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.48/cessation-of-protection> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.48/cessation-of-protection> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0135/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23527,7 +23679,8 @@ tmka:GT-0136 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0136" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/4/4/1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/4/4/1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/4/4/1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0136/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23551,7 +23704,8 @@ tmka:GT-0138 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0138" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-bureau> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-bureau> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-bureau> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0138/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23575,7 +23729,8 @@ tmka:GT-0139 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0139" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s190> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s190> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s190> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0139/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23599,7 +23754,8 @@ tmka:GT-0141 tmk:authoredBy "claude-code-agent-S029" ;
     tmk:goldRecord "GT-0141" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7/7/2> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7/7/2> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7/7/2> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0141/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23623,7 +23779,8 @@ tmka:GT-0142 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0142" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r9.2/application-for-removal> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r9.2/application-for-removal> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r9.2/application-for-removal> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0142/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23647,7 +23804,8 @@ tmka:GT-0143 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0143" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.29/extension-of-protection> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.29/extension-of-protection> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.29/extension-of-protection> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0143/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23671,7 +23829,8 @@ tmka:GT-0144 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0144" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1/1/1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1/1/1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1/1/1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0144/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23695,7 +23854,8 @@ tmka:GT-0145 tmk:authoredBy "claude-code-agent-S029" ;
     tmk:goldRecord "GT-0145" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s15> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s15> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s15> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0145/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23719,7 +23879,8 @@ tmka:GT-0148 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0148" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/lawyer> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/lawyer> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/lawyer> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0148/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23743,7 +23904,8 @@ tmka:GT-0149 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0149" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/contracting-party-of-the-holder> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/contracting-party-of-the-holder> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/contracting-party-of-the-holder> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0149/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23767,7 +23929,8 @@ tmka:GT-0150 tmk:authoredBy "claude-code-agent-S029" ;
     tmk:goldRecord "GT-0150" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-registration> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-registration> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-registration> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0150/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23791,7 +23954,8 @@ tmka:GT-0151 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0151" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/old-register> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/old-register> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/old-register> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0151/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23815,7 +23979,8 @@ tmka:GT-0152 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0152" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/services-of-a-person> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/services-of-a-person> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/services-of-a-person> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0152/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23839,7 +24004,8 @@ tmka:GT-0153 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0153" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.29/statement-of-grounds-and-particulars> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.29/statement-of-grounds-and-particulars> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.29/statement-of-grounds-and-particulars> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0153/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23863,7 +24029,8 @@ tmka:GT-0154 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0154" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s10> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s10> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s10> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0154/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23887,7 +24054,8 @@ tmka:GT-0155 tmk:authoredBy "claude-code-agent-S029" ;
     tmk:goldRecord "GT-0155" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s11> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0155/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23911,7 +24079,8 @@ tmka:GT-0156 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0156" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/approved-form> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/approved-form> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/approved-form> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0156/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23935,7 +24104,8 @@ tmka:GT-0157 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0157" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/convention-country> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/convention-country> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/convention-country> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0157/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23959,7 +24129,8 @@ tmka:GT-0158 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0158" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.34H> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.34H> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.34H> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0158/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -23983,7 +24154,8 @@ tmka:GT-0159 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0159" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/deputy-registrar> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/deputy-registrar> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/deputy-registrar> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0159/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24007,7 +24179,8 @@ tmka:GT-0160 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0160" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s68(2)> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s68(2)> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s68(2)> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0160/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24031,7 +24204,8 @@ tmka:GT-0161 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0161" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-register> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-register> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-register> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0161/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24055,7 +24229,8 @@ tmka:GT-0162 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0162" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/change-of-ownership> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/change-of-ownership> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/change-of-ownership> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0162/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24079,7 +24254,8 @@ tmka:GT-0163 tmk:authoredBy "claude-code-agent-S029" ;
     tmk:goldRecord "GT-0163" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s16> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s16> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s16> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0163/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24103,7 +24279,8 @@ tmka:GT-0165 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0165" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.66> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.66> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.66> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0165/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24127,7 +24304,8 @@ tmka:GT-0167 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:goldRecord "GT-0167" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part2/3/2/3/4> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part2/3/2/3/4> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part2/3/2/3/4> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0167/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24150,7 +24328,8 @@ tmka:GT-0168 tmk:authoredBy "claude-code-agent-S026" ;
     tmk:goldRecord "GT-0168" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0168/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24174,7 +24353,8 @@ tmka:GT-0169 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0169" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/1/1/3> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/1/1/3> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/1/1/3> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0169/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24197,7 +24377,8 @@ tmka:GT-0170 tmk:authoredBy "claude-code-agent-S026" ;
     tmk:goldRecord "GT-0170" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/1/1/3> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/1/1/3> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/1/1/3> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0170/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24220,7 +24401,9 @@ tmka:GT-0171 tmk:authoredBy "claude-code-agent-S026" ;
     tmk:goldRecord "GT-0171" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s206> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s206> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s206>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part18/2%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0171/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24243,7 +24426,9 @@ tmka:GT-0172 tmk:authoredBy "claude-code-agent-S026" ;
     tmk:goldRecord "GT-0172" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/2%231~1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/2%231~1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part18/2/2/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/2%231~1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0172/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24266,7 +24451,9 @@ tmka:GT-0173 tmk:authoredBy "claude-code-agent-S026" ;
     tmk:goldRecord "GT-0173" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part18/2/2/2> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part18/2/2/2> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part18/2/2/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part38/1/1/3> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0173/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24289,7 +24476,8 @@ tmka:GT-0174 tmk:authoredBy "claude-code-agent-S026" ;
     tmk:goldRecord "GT-0174" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part18/2/2/2> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part18/2/2/2> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part18/2/2/2> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0174/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24312,7 +24500,10 @@ tmka:GT-0175 tmk:authoredBy "claude-code-agent-S026" ;
     tmk:goldRecord "GT-0175" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part14/4/4/1/2> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part14/4/4/1/2> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part10/4/4/1/3>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part14/4/4/1/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part30/3/3/4/1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0175/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24335,7 +24526,8 @@ tmka:GT-0176 tmk:authoredBy "claude-code-agent-S026" ;
     tmk:goldRecord "GT-0176" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part18/2/2/2> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part18/2/2/2> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part18/2/2/2> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0176/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24358,7 +24550,8 @@ tmka:GT-0177 tmk:authoredBy "claude-code-agent-S026" ;
     tmk:goldRecord "GT-0177" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0177/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24381,7 +24574,8 @@ tmka:GT-0178 tmk:authoredBy "claude-code-agent-S026" ;
     tmk:goldRecord "GT-0178" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part55/4/4/1~1> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part55/4/4/1~1> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part55/4/4/1~1> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0178/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24404,7 +24598,8 @@ tmka:GT-0179 tmk:authoredBy "claude-code-agent-S026" ;
     tmk:goldRecord "GT-0179" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part16/2%231> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part16/2%231> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part16/2%231> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0179/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24428,7 +24623,8 @@ tmka:GT-0180 tmk:authoredBy "claude-code-agent-S029" ;
     tmk:goldRecord "GT-0180" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part14/3%231~2> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part14/3%231~2> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part14/3%231~2> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0180/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24451,7 +24647,8 @@ tmka:GT-0181 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0181" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0181/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;
@@ -24474,7 +24671,8 @@ tmka:GT-0182 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:goldRecord "GT-0182" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> .
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> ;
+    tmk:typingBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> .
 
 <https://data.ipaustralia.gov.au/tmk/assertion/GT-0182/evidence/1> a tmk:EvidenceAnchor ;
     tmk:checkedAgainst tmk:snapshot-308bfd9162eb ;

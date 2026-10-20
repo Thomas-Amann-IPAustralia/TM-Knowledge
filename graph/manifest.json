@@ -24,11 +24,12 @@
  "profile": "RDF 1.1 named graphs, SKOS, SHACL shapes and the approved SPARQL rules; no OWL profile is claimed and no OWL inference is licensed (ADR-0134). A direct edge is navigation only; the reified assertion is the reading (ADR-0134, R07).",
  "graphs": {
   "source": {
-   "triples": 66250,
+   "triples": 69460,
    "classes": {
     "AdministrativeDecision": 99,
     "Chunk": 1088,
     "Citation": 2264,
+    "Compilation": 2,
     "Decision": 317,
     "Document": 1,
     "DocumentVersion": 1,
@@ -60,7 +61,7 @@
    }
   },
   "authored": {
-   "triples": 29873,
+   "triples": 30071,
    "classes": {
     "AuthoredAssertion": 337,
     "ConceptScheme": 1,
@@ -97,22 +98,23 @@
    }
   },
   "inferred": {
-   "triples": 2315,
+   "triples": 24048,
    "classes": {
-    "InferredAssertion": 192
+    "InferredAssertion": 1720
    },
    "review_status": {
     "approved": 187,
-    "candidate": 5
+    "candidate": 1533
    }
   }
  },
  "schemas": [
   "https://ipaustralia.gov.au/schemas/tmk/authored/correction/1.0.0",
-  "https://ipaustralia.gov.au/schemas/tmk/authored/definition/1.0.0",
+  "https://ipaustralia.gov.au/schemas/tmk/authored/definition/1.1.0",
   "https://ipaustralia.gov.au/schemas/tmk/authored/envelope/1.0.0",
   "https://ipaustralia.gov.au/schemas/tmk/authored/legal-test/1.0.0",
   "https://ipaustralia.gov.au/schemas/tmk/authored/process/1.1.0",
+  "https://ipaustralia.gov.au/schemas/tmk/scenarios/fictional-amendment/1.0.0",
   "https://ipaustralia.gov.au/schemas/tmk/scenarios/fictional-matter/1.1.0",
   "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0",
   "https://ipaustralia.gov.au/schemas/tmk/stage0/competency-question/1.0.0",
