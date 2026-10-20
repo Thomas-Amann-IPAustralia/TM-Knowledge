@@ -6454,8 +6454,8 @@ state is said on the page, not only in the handoff.
 
 ## ADR-0146 — the customer explanation preview goes on the examiner site, and the site rework is finished
 
-**Date** 2026-10-20 · **Authority** human (the preview), agent-proposed (how it is built and the
-rework's remaining pages) · **Status** accepted
+**Date** 2026-10-20 · **Authority** human (the preview), agent-proposed (the rest) ·
+**Status** accepted
 
 **Context.** ADR-0145 planned a customer preview on the examiner site and made it wait on a check
 that the owner still wanted it: it puts the prototype's explanations of invented matters on a public

@@ -146,7 +146,7 @@ function stamp(r) {
   return `<div class="rx-stamp card"><span class="k">The stamp this record carries</span>
     <dl><dt>Written by</dt><dd><code>${esc(m.by)}</code>, a machine</dd><dt>On</dt><dd>${esc(m.date)}</dd>
       <dt>Review status</dt><dd><b>${esc(m.review_status)}</b>: no trade marks expert has read it</dd>
-      ${m.confidence != null ? `<dt>Its own confidence</dt><dd>${esc(m.confidence)}, comparable with nothing else</dd>` : ""}
+      ${m.confidence != null ? `<dt>Its own confidence score</dt><dd>${esc(m.confidence)}, comparable with nothing else</dd>` : ""}
       ${m.reasoning ? `<dt>Why it read it this way</dt><dd>${esc(m.reasoning)}</dd>` : ""}
       ${m.check ? `<dt>What an expert should check</dt><dd>${esc(m.check)}</dd>` : ""}</dl></div>`;
 }

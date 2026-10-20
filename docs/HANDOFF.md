@@ -47,7 +47,7 @@ opens "not in the snapshot" (it did before on the tables' sub-clause chips too).
 **QA.** Every route at 1400 and 390 px, light and dark, in Chromium: no script errors, no sideways
 scroll (two grids fixed, Q-102). Tests: three new in `test_explorer.py` (the preview is the engine's
 own explanation; every quoted clause opens; the standards page reads its examples from the build).
-Full-suite count: see the commit that records it.
+**920 tests pass, 4 xfail** (the authority check's known misses).
 
 **Spend.** Cap **US$13.63**, recorded **US$11.61**; the remaining US$2.02 is approved for nothing.
 
