@@ -1,31 +1,30 @@
-/* As a table — the ontology without the picture. The map's "Ideas and
-   connections" level draws every idea and hundreds of lines at once; this view
-   lists the same records in three plain tables, one per level:
+/* As tables: the ontology without the picture. The knowledge map draws every idea and
+   connection; this view lists the same records in five plain tables:
 
-   1. Kinds        — the kinds in their families, then how the kinds connect
-                     (`kind_links`, counted by tmk-explorer).
-   2. Ideas        — one row per idea, grouped by kind. Open a row to read its
-                     connections as sentences, each with the passage it rests on.
-   3. Connections  — one row per connection: from, what it says, to, the passage.
-   4. Legal tests  — the structured tests (`GL-`): one provision's conditions with
-                     AND and OR, its effect, exceptions, evidence and routes.
-   5. Processes    — the process templates (`GP-`): steps, transitions, time rules.
+   1. Kinds: the kinds in their families, then how the kinds connect (`kind_links`, counted by
+      tmk-explorer).
+   2. Ideas: one row per idea, grouped by kind. Open a row to read its connections as sentences,
+      each with the passage it rests on.
+   3. Connections: one row per connection: from, what it says, to, the passage.
+   4. Legal tests: the structured tests (`GL-`): one provision's conditions with AND and OR, its
+      effect, exceptions, evidence and routes.
+   5. Processes: the process templates (`GP-`): steps, transitions, time rules.
 
-   The last two are Package 4's record types (ADR-0142): set out as written, each
-   element with the unit or passage it quotes. Nothing here evaluates a condition
-   or computes a date.
+   The last two are Package 4's record types (ADR-0142): set out as written, each element with the
+   unit or passage it quotes. Nothing here evaluates a condition or computes a date.
 
-   Every row is a record, or a count of records, that the map already shows;
-   nothing is arranged here. Who wrote each record is in its row: "Machine ·
-   unreviewed" on every machine-written one (rule 8), a quiet "Reviewed" on the
-   rest (ADR-0130). Each table downloads as a CSV with the same columns, who
-   wrote each record, and which text each quote is from (rules 5, 8). */
+   Every row is a record, or a count of records, that the map already shows; nothing is arranged
+   here. Who wrote each record is in its row: "Machine · unreviewed" on every machine-written one
+   (rule 8), a quiet "Reviewed" on the rest (ADR-0130). Each table downloads as a CSV with the same
+   columns, who wrote each record, and which text each quote is from (rules 5, 8). */
 
 import { esc, fmt, el, kindColour, kindCount, refChip, refLabel, trustBadge, quoteBlock, sourceOf, SOURCES, legend, definitionBlock, hierarchyBlock, qualifiedLine, structuresBlock, structureHref } from "./app.js";
-import { LOOSE, specificCount } from "./kinds.js";
 
 const TABS = [["kinds", "Kinds"], ["ideas", "Ideas"], ["connections", "Connections"], ["tests", "Legal tests"], ["processes", "Processes"]];
 const FAMILIES = ["reasoning", "examined", "process", "other"];
+// "Is a kind of" is hierarchy, not one idea acting on another; "is related to" is retired (ADR-0131).
+const LOOSE = new Set(["broader"]);
+const specificCount = (row) => row.total - (row.predicates.broader || 0);
 
 export async function render(root, { ontology, params }) {
   const tab = TABS.some(([id]) => id === params[0]) ? params[0] : "kinds";
@@ -41,13 +40,21 @@ export async function render(root, { ontology, params }) {
     tests: structures.tests.length, processes: structures.processes.length };
 
   root.innerHTML = `
-  <div class="wrap wide table-page">
-    <h1>The ontology, as tables</h1>
-    <p class="lede">The same ideas and connections as the map, listed instead of drawn. Kinds sort the ideas by what they are;
-    connections say how one idea bears on another, each resting on a quoted sentence. Legal tests and processes set out a provision's
-    conditions, or a procedure's steps, element by element. Click any passage to read it.</p>
+  <div class="table-page">
+    <header class="wrap page-head">
+      <div>
+        <span class="eyebrow">Under the hood · data tables</span>
+        <h1>The ontology, as tables</h1>
+        <p class="lede">The same ideas and connections as the map, listed instead of drawn. Kinds sort the ideas by what they are;
+        connections say how one idea bears on another, each resting on a quoted sentence. Legal tests and processes set out a provision's
+        conditions, or a procedure's steps, element by element. Click any passage to read it; every table downloads as a CSV.</p>
+      </div>
+      <div class="page-head-side"><a class="btn" href="#/map">Show them drawn, on the map</a></div>
+    </header>
+    <div class="wrap">
     <nav class="tabs" aria-label="Which table">${TABS.map(([id, label]) => `<a href="#/table/${id}"${id === tab ? ` class="on" aria-current="page"` : ""}>${label} <span class="num">${fmt(counts[id])}</span></a>`).join("")}</nav>
     <div class="table-body"></div>
+    </div>
   </div>`;
   const body = root.querySelector(".table-body");
   if (!byId.has(params[1]) && !/^G[LP]-/.test(params[1] || "")) window.scrollTo(0, 0);
@@ -86,7 +93,7 @@ const sourceText = (ref) => { const s = SOURCES[sourceOf(ref)]; return `${s.shor
 function provenance(x) {
   const rows = [];
   if (x.signed) rows.push(`Reviewed by a trade marks expert on ${esc(x.signed.date)}.`);
-  if (x.corrected) rows.push(`Corrected since it was reviewed (${x.corrected.map(esc).join(", ")}) — a machine-written, unreviewed change; the reviewed record itself is kept unchanged.`);
+  if (x.corrected) rows.push(`Corrected since it was reviewed (${x.corrected.map(esc).join(", ")}): a machine-written, unreviewed change; the reviewed record itself is kept unchanged.`);
   if (x.machine) rows.push(`Written by <code>${esc(x.machine.by)}</code> on ${esc(x.machine.date)} · <b>${esc(x.machine.review_status)}</b>.`);
   if (x.typed) rows.push(`Its kind was judged by <code>${esc(x.typed.by)}</code> on ${esc(x.typed.date)} · <b>${esc(x.typed.review_status)}</b>.`);
   return rows.map((r) => `<p class="tiny">${r}</p>`).join("");
@@ -146,8 +153,8 @@ function kindsTab(body, ctx) {
   body.innerHTML = `
     <section class="tbl-section">
       <h2>The kinds of idea</h2>
-      <p class="muted small">Every idea is sorted by <b>what it is</b> into one of ${kindCount(ontology)} kinds, in three families. What an idea <b>does</b> —
-      a factor, an exception, a remedy — is a connection, not a kind. Click a kind to list its ideas.</p>
+      <p class="muted small">Every idea is sorted by <b>what it is</b> into one of ${kindCount(ontology)} kinds, in three families. What an idea <b>does</b>
+      (a factor, an exception, a remedy) is a connection, not a kind. Click a kind to list its ideas.</p>
       <table class="tbl kinds-tbl">
         <thead><tr><th>Kind</th><th>What it is</th><th class="num">Ideas</th><th class="num opt">Connections</th></tr></thead>
         <tbody>${FAMILIES.map((family) => {
@@ -167,8 +174,8 @@ function kindsTab(body, ctx) {
 
     <section class="tbl-section">
       <h2>How the kinds connect</h2>
-      <p class="muted small">Each row counts the connections from ideas of one kind to ideas of another — the patterns the map draws as arrows
-      between closed kinds. Click a count to list those connections one by one.</p>
+      <p class="muted small">Each row counts the connections from ideas of one kind to ideas of another: the patterns the map's Kinds view draws
+      as arrows. Click a count to list those connections one by one.</p>
       ${controls(`<label class="check"><input type="checkbox" data-loose> Include pairs joined only by ${looseNames(ontology)}</label>`)}
       <table class="tbl">
         <thead><tr><th>From ideas of this kind</th><th>to ideas of this kind</th><th class="num">Connections</th><th class="opt">What they say</th></tr></thead>
@@ -208,7 +215,7 @@ function ideasTab(body, ctx, param) {
         const members = ontology.concepts.filter((x) => x.kind === k.id).sort((a, b) => a.label.localeCompare(b.label));
         if (!members.length) return "";
         return `<tr class="group" data-kind="${esc(k.id)}"><th colspan="${COLS}"><span class="dot" style="--c:${kindColour(k.id)}"></span>${esc(k.label)}
-          <span class="tiny">— ${esc(k.plain)} · ${members.length} ideas</span></th></tr>` + members.map((x) => `
+          <span class="tiny">${esc(k.plain)} · ${members.length} ideas</span></th></tr>` + members.map((x) => `
           <tr class="row" data-id="${esc(x.id)}" data-kind="${esc(x.kind)}" data-text="${esc([x.label, ...x.alt, x.id].join(" ").toLowerCase())}">
             <td><button type="button" class="disc" aria-expanded="false">${esc(x.label)}</button></td>
             <td class="opt small muted">${x.alt.slice(0, 3).map(esc).join(" · ")}${x.alt.length > 3 ? ` <span class="tiny">+${x.alt.length - 3}</span>` : ""}</td>
@@ -298,7 +305,7 @@ function ideaDetail(ctx, x) {
       ${structuresBlock(x, ontology)}
       ${x.notes ? `<h4>Note on the record</h4><p class="small">${esc(x.notes)}</p>` : ""}
       <h4>Who wrote this record</h4>${provenance(x)}
-      <p class="actions-row"><a class="btn small" href="#/map/ideas/${esc(x.id)}">Show on the map</a><a class="btn small" href="#/map/text/${esc(x.id)}">Open into its passages</a></p>
+      <p class="actions-row"><a class="btn small" href="#/map/ideas/${esc(x.id)}">Show it on the map</a></p>
     </div>
     <div class="idea-conns">
       <h4>Connections · ${rels.length}</h4>
@@ -527,7 +534,7 @@ function processCard(ctx, r) {
       <tbody>${(r.transitions || []).map((t) => `<tr>
         <td class="small">${step(t.from)}</td><td class="small">${step(t.to)}</td>
         <td class="small">${esc(t.when)}${t.grounds?.length ? `<br><span class="tiny muted">only for grounds under</span> ${t.grounds.map((g) => refChip(g)).join(" ")}` : ""}</td>
-        <td class="opt small">${(t.needs || []).map(esc).join("; ") || `<span class="muted">—</span>`}</td>
+        <td class="opt small">${(t.needs || []).map(esc).join("; ") || `<span class="muted">none</span>`}</td>
         <td>${quoted(t)}</td></tr>`).join("")}</tbody>
     </table></div>
     ${(r.deadlines || []).length ? `<h4>Time rules · ${r.deadlines.length}</h4>

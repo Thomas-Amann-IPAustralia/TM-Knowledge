@@ -1,9 +1,9 @@
 /* Third-party libraries, loaded on demand from site/vendor/ (ADR-0119).
 
    Each view asks for what it uses, so the home page never downloads the map's
-   graph library. Global builds (d3, Plot, Cytoscape) are added as
-   classic scripts, once; ES-module builds are imported. Versions and checksums
-   are in vendor/manifest.json. */
+   layout library. Global builds (d3, Plot) are added as classic scripts, once;
+   ES-module builds are imported. Versions and checksums are in
+   vendor/manifest.json. */
 
 const scripts = new Map();
 
@@ -30,11 +30,6 @@ export async function plot() {
   await script("d3.min.js");
   await script("plot.umd.min.js");
   return window.Plot;
-}
-
-export async function cytoscape() {
-  await script("cytoscape.min.js");
-  return window.cytoscape;
 }
 
 export const fuse = () => import("../vendor/fuse.min.mjs").then((m) => m.default);

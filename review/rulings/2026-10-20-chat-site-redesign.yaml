@@ -1,0 +1,47 @@
+# A decision the repo owner made in a chat session. Hand-transcribed by the S046 agent;
+# no issue behind it. The artefact is `review/returned/261020-owner-chat-site-redesign.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-20T00:00:00Z'
+questions_updated: '2026-10-20'
+source:
+  kind: chat
+  artefact: review/returned/261020-owner-chat-site-redesign.md
+  author: the owner (the session's user; no name given in the chat)
+  relayed_by: S046 agent
+  title: Redesign the front end to communicate the ontology's value, outcome first
+applied:
+  session: S046
+  date: '2026-10-20'
+  branch: claude/trusting-franklin-c1h7wi
+  what_changed: >-
+    The explorer (site/) redesigned end to end, data and ontology untouched. A new design system in
+    explorer.css (light theme; ideas coloured by family, passages by source with their own marks;
+    both palettes checked for colour-blind readers). Outcome pages first: an Overview that answers
+    one question with and without the map of meaning, then what it does for examiners, customers
+    and policy, the measurement in both directions and where things stand; Research, Explain,
+    Trace a change and What's next rebuilt as visual pages with the detail behind disclosures. Then
+    How it works (a nine-step scrolling story over one picture), the knowledge map rebuilt in D3
+    (every idea and connection, hover for a neighbourhood, focus an idea to see its labelled
+    connections and the passages and provisions it rests on, names placed so none overlaps, a
+    Kinds view), and rules as code. Under the hood: the standards as one clickable picture, a
+    searchable glossary, the data tables. Where it stands: the measurement as intervals said in
+    words. Retired: the tour, circles, model, minimap and kinds modules and the Cytoscape library;
+    their routes open the new views. Every phrase the tests pin is kept.
+answers:
+- id: CHAT-0097
+  item: the front end's purpose and design
+  question: What should the examiner site's front end be designed to do, and how?
+  kind: instruction
+  value: redesign_outcome_first
+  label: Redesign it to show the ontology's value, outcome first, visual and uncluttered, how it works explained simply
+  quote: >-
+    The primary purpose of the front end is to communicate the value of the underlying ontology. It
+    ought to communicate the outcome first, the ontology isn't the focus its a means to an end, and
+    its the outcome we should focus on. That being said, we still should communicate how it works
+    (and explain it in an easy to understand way).
+  notes: >-
+    Also in the owner's words: communicate visually wherever possible; interactivity where it helps
+    (the knowledge graph above all); progressive disclosure; no clutter; the ChatGPT mock-up's vibe
+    liked but not binding; any library; desktop and laptop only, no mobile interactivity; and the
+    work must not change the shape of the ontology.
+  recorded_as: [ADR-0148]
