@@ -113,7 +113,7 @@ export const GLOSSARY = {
   },
   triple: {
     label: "triple",
-    plain: "One three-part statement: a thing, a relationship, and another thing or a value. For example: 'section 44 test' — 'reads' — 'section 44'.",
+    plain: "One three-part statement: a thing, a relationship, and another thing or a value. For example: 'section 44 test', 'reads', 'section 44'.",
     here: "The graph is tens of thousands of these.",
     technical: "Subject, predicate, object: the unit of RDF.",
   },
@@ -189,7 +189,7 @@ export function term(key, text) {
 /** The entry, in its three parts, as a glossary page or a popover shows it. */
 export function entryHtml(key) {
   const e = GLOSSARY[key];
-  return `<p><b>${esc(e.label)}</b> — ${esc(e.plain)}</p>
+  return `<p><b>${esc(e.label)}</b>: ${esc(e.plain)}</p>
     <p class="small"><span class="muted">Here:</span> ${esc(e.here)}</p>
     <p class="tiny"><span class="muted">Technically:</span> ${esc(e.technical)}</p>`;
 }
@@ -217,7 +217,7 @@ export function initTerms() {
     close();
     owner = button;
     button.setAttribute("aria-expanded", "true");
-    pop.innerHTML = `${entryHtml(button.dataset.term)}<p class="tiny"><a href="#/glossary">Every term →</a></p>`;
+    pop.innerHTML = `${entryHtml(button.dataset.term)}<p class="tiny"><a href="#/glossary/${esc(button.dataset.term)}">In the glossary, with every other term →</a></p>`;
     pop.setAttribute("aria-label", GLOSSARY[button.dataset.term].label);
     pop.hidden = false;
     const r = button.getBoundingClientRect();

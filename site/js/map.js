@@ -84,8 +84,10 @@ export async function render(root, { ontology, params }) {
   const card = root.querySelector(".mp-card");
   const svg = d3.select(svgEl);
   const size = () => ({ w: canvas.clientWidth || 900, h: canvas.clientHeight || 700 });
-  // the picture takes the shape of its frame, so the frame is measured once laid out (Q-63)
+  // the picture takes the shape of its frame, so the frame is measured once laid out (Q-63), and
+  // names are measured in the web font, so it must have loaded (Q-105)
   await new Promise((r) => requestAnimationFrame(r));
+  await document.fonts?.ready;
   const { at } = layoutIdeas(d3, ontology, { width: 1000, height: 640, pad: 30, squeeze: canvas.clientWidth ? squeezeFor(size().w, size().h) : 1 });
 
   // ---------------------------------------------------------------- the ideas view
@@ -344,13 +346,14 @@ export async function render(root, { ontology, params }) {
   const selfRated = (m) => `<span title="The author's rating of its own record, on its own scale. Not comparable across authors.">self-rated ${esc(m.confidence)} by <code>${esc(m.by || "?")}</code></span>`;
 
   function relationCard(r) {
+    const rated = r.machine?.confidence != null ? selfRated(r.machine) : "";
     return `<div class="mp-relcard">
       <p class="mp-rel-s"><b>${esc(name(r.s))}</b> <span class="mp-p">${esc(pred(r.p))}</span> <b>${esc(name(r.o))}</b>${r.modality ? ` <span class="chip">${esc(r.modality)}</span>` : ""}</p>
       ${qualifiedLine(r)}
       ${r.quote ? quoteBlock(r.ref, r.quote) : ""}
       <p class="row wrap-ok">${r.ref ? refChip(r.ref) : ""}${trustBadge(r.origin)}<span class="tiny">${esc(r.id)}</span></p>
       ${r.replaces ? `<p class="tiny">A corrected reading of ${esc(r.replaces)}, which is kept unchanged.</p>` : ""}
-      ${r.machine?.reasoning ? `<details class="quiet"><summary>Why the machine wrote this</summary><div class="det-body"><p class="small">${esc(r.machine.reasoning)}</p>${r.machine.confidence ? `<p class="tiny">${selfRated(r.machine)}</p>` : ""}</div></details>` : ""}
+      ${r.machine?.reasoning ? `<details class="quiet"><summary>Why the machine wrote this</summary><div class="det-body"><p class="small">${esc(r.machine.reasoning)}</p>${rated ? `<p class="tiny">${rated}</p>` : ""}</div></details>` : ""}
     </div>`;
   }
 

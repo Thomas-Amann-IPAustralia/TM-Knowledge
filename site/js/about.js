@@ -1,170 +1,210 @@
-/* About — what this is, how it was made, how well it works, and its limits.
+/* Where it stands: how well it works, what is still to be decided and by whom, exactly what this
+   build is, its limits, and what it is built from.
 
-   The measurement is reported in both directions and claims nothing: which
-   results become claims is the project owner's decision (OQ-0029). */
+   The measurement is reported in both directions and claims nothing: which results become claims
+   is the project owner's decision (OQ-0029). Each difference is drawn with its 95% interval and
+   said in words (better, worse, or not established), so colour is never the only way to read it.
+   Classes: `ab-`. */
 
-import { esc, fmt, load, kindColour } from "./app.js";
-import * as lib from "./lib.js";
+import { esc, fmt, load } from "./app.js";
 import { term } from "./glossary.js";
+import { icon } from "./icons.js";
+
+const SECTIONS = [["ab-measure", "How well the search works"], ["ab-gates", "The decisions ahead"], ["ab-records", "What it is built from"],
+  ["ab-build", "What this build is"], ["ab-limits", "Limits"], ["ab-how", "How Ask the Manual works"]];
 
 export async function render(root, { ontology }) {
-  const [examples, chat, build, Plot] = await Promise.all([load("examples"), load("chat"), load("build"), lib.plot()]);
+  const [examples, chat, build] = await Promise.all([load("examples"), load("chat"), load("build")]);
   const deps = build.dependencies || {};
   const c = ontology.counts;
   const s = examples.summary || {};
-  const kinds = examples.kinds;
-  const pct = (x) => (x == null ? "—" : Math.round(x * 100));
-  const diff = (v) => (v ? `${v[0] >= 0 ? "+" : "−"}${Math.abs(v[0] * 100).toFixed(1)} <span class="tiny">[${(v[1] * 100).toFixed(1)}, ${(v[2] * 100).toFixed(1)}]</span>` : "—");
-  const row = (key, label) => s[key] ? `<tr><td>${esc(label)}</td><td class="num">${s[key].n}</td><td class="num">${pct(s[key]["ndcg:keyword"])}</td><td class="num">${pct(s[key]["ndcg:hybrid"])}</td><td class="num">${pct(s[key]["ndcg:ontology"])}</td><td class="num">${diff(s[key]["ndcg:ontology-keyword"])}</td><td class="num">${diff(s[key]["ndcg:ontology-hybrid"])}</td></tr>` : "";
+  const groups = [["all", "All questions"], ...Object.entries(examples.kinds)].filter(([k]) => s[k]);
+  const stale = Array.isArray(deps.stale) ? deps.stale.length : deps.stale || 0;
 
   root.innerHTML = `
-  <div class="wrap about">
-    <h1>Where it stands</h1>
-    <p class="lede">The state of every part of the proof of concept: how well the search was measured, what is still to be decided and by
-    whom, exactly what this build is, its limits, and how it works. Built for examiners to explore, test and pick holes in.</p>
-    <nav class="sd-index card" aria-label="On this page"><a href="#ab-measure" data-jump>How well the search works</a><a href="#ab-gates" data-jump>The decisions ahead</a>
-      <a href="#ab-build" data-jump>What this build is</a><a href="#ab-limits" data-jump>Limits</a><a href="#ab-records" data-jump>What it is built from</a><a href="#ab-how" data-jump>How Ask the Manual works</a></nav>
+  <div class="ab">
+    <header class="wrap page-head">
+      <div>
+        <span class="eyebrow">Where it stands</span>
+        <h1>What works, what was measured, and what is still to decide</h1>
+        <p class="lede">The state of every part of this proof of concept, said plainly: how well the search was measured, in both directions;
+        the decisions that are the project owner's to make; what the records are and who wrote them; and the limits.</p>
+      </div>
+    </header>
+    <div class="wrap ab-layout">
+      <nav class="ab-nav" aria-label="On this page">${SECTIONS.map(([id, label]) => `<button type="button" data-jump="${id}">${esc(label)}</button>`).join("")}</nav>
+      <div class="ab-main">
 
-    <h2 id="ab-measure" tabindex="-1">How well the search works</h2>
-    <p>Three ways of searching were fixed before any result was graded, and each question's top ten passages were scored (${term("ndcg", "nDCG@10")}, out of 100):
-    <b>keyword</b> — words only, like a search box; <b>hybrid</b> — keyword plus matching by meaning, good modern search with no ontology;
-    <b>ontology</b> — hybrid plus recognising the question's ideas and following their connections. Differences are shown with ${term("interval", "95% intervals")}.</p>
-    <div class="card" style="padding:.8rem 1rem;margin:.6rem 0 1rem"><div class="measure-plot"></div>
-      <p class="tiny" style="margin:.3rem 0 0">Difference in top-ten quality (nDCG@10 × 100) with its 95% interval. Right of the line: the ontology system ranked better; left: worse. An interval crossing the line is not established.</p></div>
-    <details><summary>The same numbers as a table</summary><div style="overflow-x:auto"><table>
-      <tr><th>Questions</th><th class="num">n</th><th class="num">Keyword</th><th class="num">Hybrid</th><th class="num">Ontology</th><th class="num">Ontology − keyword</th><th class="num">Ontology − hybrid</th></tr>
-      ${row("all", "All")}${Object.entries(kinds).map(([k, label]) => row(k, label)).join("")}
-    </table></div></details>
-    <p>Read both ways. Against keyword search, the ontology-assisted search ranked better passages, most clearly for questions in everyday
-    words. Against modern search that also matches meaning, it ranked worse, by a small margin that is clearly real. Diagnosed afterwards:
-    very common ideas (such as <i>Registrar</i>, named in hundreds of passages) pull loosely related passages into the top ten.</p>
-    <p class="small muted">The ${examples.answers.length - (s.signed?.n || 0)} test questions were written by a model, and the passages graded by another model; the only human yardstick is
-    ${s.signed?.n || 10} questions a person reviewed, with the passages each must find — too few to establish a difference either way.
-    Which of these results become claims outside this project is the project owner's decision.</p>
+        <section id="ab-measure" class="ab-sec" tabindex="-1">
+          <h2>How well the search works</h2>
+          <p class="muted">Three ways of searching were fixed before any result was graded, and each question's top ten passages were scored
+          (${term("ndcg", "nDCG@10")}, out of 100). <b>Keyword</b>: words only, like a search box. <b>By meaning</b>: keyword plus
+          ${term("embedding", "matching by meaning")}, good modern search with no ontology. <b>Ontology</b>: search by meaning plus recognising the
+          question's ideas and following their connections. Each difference is shown with its ${term("interval", "95% interval")}.</p>
+          <figure class="card ab-chart" aria-label="The ontology-guided search compared with each other search, by kind of question">
+            <div class="ab-row ab-head" aria-hidden="true"><span></span><span class="ab-scale"><span>← worse</span><span>no difference</span><span>better →</span></span><span></span><span></span></div>
+            ${groups.map(([key, label]) => `<div class="ab-group">
+              <p class="ab-gl"><b>${esc(label)}</b> <span class="tiny">${fmt(s[key].n)} questions</span></p>
+              ${diffRow("Against keyword search", s[key]["ndcg:ontology-keyword"], scale(groups, s))}
+              ${diffRow("Against search by meaning", s[key]["ndcg:ontology-hybrid"], scale(groups, s))}</div>`).join("")}
+            <figcaption class="tiny">Difference in top-ten quality, ontology-guided search minus the other, in points out of 100; the bar is the
+            95% interval. An interval that crosses the middle line does not establish a difference either way.</figcaption>
+          </figure>
+          <details><summary>The same numbers as a table</summary><div class="det-body ab-scroll"><table class="ab-table">
+            <thead><tr><th>Questions</th><th class="num">n</th><th class="num">Keyword</th><th class="num">By meaning</th><th class="num">Ontology</th><th class="num">Ontology − keyword</th><th class="num">Ontology − by meaning</th></tr></thead>
+            <tbody>${groups.map(([key, label]) => tableRow(s[key], label)).join("")}</tbody></table></div></details>
+          <div class="ab-read">
+            <p><b>Read both ways.</b> Against keyword search, the ontology-guided search ranked better passages, most clearly for questions in
+            everyday words. Against search that matches by meaning, it ranked worse, by a small margin that is clearly real. Diagnosed afterwards:
+            very common ideas (such as <i>Registrar</i>, named in hundreds of passages) pull loosely related passages into the top ten.</p>
+            <p class="small muted">The ${fmt(examples.answers.length - (s.signed?.n || 0))} test questions were written by a model and the passages graded
+            by another; the only human yardstick is ${fmt(s.signed?.n || 10)} questions a person reviewed, with the passages each must find, which is
+            too few to establish a difference either way. Which of these results become claims outside this project is the project owner's decision.</p>
+          </div>
+        </section>
 
-    <h2 id="ab-gates" tabindex="-1">The decisions ahead, and whose they are</h2>
-    <p>Some steps are not the system's or the team's to take. Each of these waits on the project owner, and nothing on this site goes past them:</p>
-    <ul class="ab-gates">
-      <li><b>Testing with customers.</b> The <a href="#/customers">customer preview</a> is on this site so examiners can see it. Showing it to a customer,
-        testing it with one, or publishing anything to customers needs the owner's approval first.</li>
-      <li><b>Real case data.</b> Every application in the preview is invented. Using a real application or examination report, even in a test, is the owner's decision.</li>
-      <li><b>What the answering model is given.</b> Ask the Manual shows a reached legal test beside the answer; whether the model that writes the answer
-        should see it too changes what the system may say, so it is the owner's decision.</li>
-      <li><b>Expert review.</b> Nothing machine-written becomes approved until a named expert's decision is recorded; when, and by whom, is the owner's to arrange.</li>
-      <li><b>The next measurement.</b> Who writes and judges the next set of test questions, and which results become claims.</li>
-      <li><b>Never.</b> Deciding an application, or saying how one will be decided, is out of scope, and no decision above changes that.</li>
-    </ul>
+        <section id="ab-gates" class="ab-sec" tabindex="-1">
+          <h2>The decisions ahead, and whose they are</h2>
+          <p class="muted">Some steps are not the system's or the team's to take. Each of these waits on the project owner, and nothing on this site goes past them.</p>
+          <div class="ab-gates">
+            ${gate("users", "Testing with customers", `The <a href="#/customers">customer preview</a> is on this site so examiners can see it. Showing it to a customer, testing it with one, or publishing anything to customers needs the owner's approval first.`)}
+            ${gate("file", "Real case data", "Every application in the preview is invented. Using a real application or examination report, even in a test, is the owner's decision.")}
+            ${gate("chat", "What the answering model is given", "Ask the Manual shows a reached legal test beside the answer; whether the model that writes the answer should see it too changes what the system may say, so it is the owner's decision.")}
+            ${gate("shield", "Expert review", "Nothing machine-written becomes approved until a named expert's decision is recorded; when, and by whom, is the owner's to arrange.")}
+            ${gate("scale", "The next measurement", "Who writes and judges the next set of test questions, and which results become claims.")}
+          </div>
+          <div class="ab-never"><span class="pill never">Never</span><p><b>Deciding an application, or saying how one will be decided,</b> is out of scope, and no decision above changes that.</p></div>
+        </section>
 
-    <h2 id="ab-build" tabindex="-1">What this build is</h2>
-    <p>Every publish writes a release manifest naming exactly what was built, so a result can be traced and repeated
-      (<a href="#/standards">the standards it is written in</a>).</p>
-    <dl class="ab-build card">
-      <dt>Built</dt><dd>${esc(build.generated || "")}, from revision <code>${esc((build.revision || "unknown").slice(0, 12))}</code> of the repository</dd>
-      <dt>The Manual</dt><dd>${esc(build.manual?.line || "")}. ${esc(build.manual?.note || "")}</dd>
-      ${(build.law || []).map((l) => `<dt>${esc(l.name)}</dt><dd>${esc(l.line)}: compilation ${esc(l.compilation)} (${esc(l.register_id)})</dd>`).join("")}
-      <dt>The snapshot</dt><dd><code>${esc((build.graph?.upstream?.commit || "").slice(0, 12))}</code> of the extraction project, read and never edited</dd>
-      <dt>Answers</dt><dd>prepared with instructions ${esc(build.answers?.prepared || "")}; live with ${esc(build.answers?.live || "")}</dd>
-      <dt>Dependencies</dt><dd>${fmt(deps.dependencies || 0)} recorded dependencies of ${fmt(deps.records || 0)} records on ${fmt(deps.refs || 0)} passages and provisions;
-        ${fmt(deps.stale?.length || 0)} whose quoted text has since changed</dd>
-    </dl>
+        <section id="ab-records" class="ab-sec" tabindex="-1">
+          <h2>What it is built from, and who wrote it</h2>
+          <p class="muted">Everything above rests on an ${term("ontology")}: a shared, explicit description of a field, the ideas in it, what kind of thing
+          each idea is, and how they relate, with each statement tied to the text it comes from. Here the field is Australian trade marks examination,
+          and the text is the Manual, the <i>Trade Marks Act 1995</i> and the <i>Trade Marks Regulations 1995</i>, captured at one point in time.</p>
+          <div class="card ab-who">
+            <div class="ab-who-key"><span><i class="ab-sw reviewed"></i>Reviewed by a trade marks expert</span><span><i class="ab-sw machine"></i>Written by a machine, not reviewed</span></div>
+            ${whoRow("Ideas", c.concepts.signed, c.concepts.machine, "#/map")}
+            ${whoRow("Connections between ideas", c.relations.signed, c.relations.machine, "#/table/connections")}
+            ${whoRow("Definitions of ideas", 0, c.definitions, "#/table/ideas")}
+            ${whoRow("Corrections to reviewed records", 0, c.corrections, null)}
+            ${whoRow("Structured legal tests", 0, c.tests, "#/table/tests")}
+            ${whoRow("Process templates", 0, c.processes, "#/table/processes")}
+            <p class="tiny ab-links">And ${fmt(c.links)} places an idea is named in the Manual, across ${fmt(c.passages_linked)} passages: found by matching wordings, not judged.</p>
+          </div>
+          <p class="small muted">A machine-written record carries the model's name, the date, the passage it rests on and its reasoning, and says it is
+          unreviewed wherever it is shown. An unchecked record never becomes approved by being left alone. A correction changes how a reviewed record
+          is served without changing the record itself, and the record says so. How the records are structured, checked and drawn:
+          <a href="#/rules">rules as code</a>, <a href="#/map/kinds">the kinds of idea</a>, <a href="#/standards">the standards</a>.</p>
+        </section>
 
-    <h2 id="ab-limits" tabindex="-1">Limits</h2>
-    <ul class="small">
-      <li>It explains; it never decides. It does not apply the law to an application's facts and declines when asked to.</li>
-      <li>No expert has read the machine's ideas, connections or answers.</li>
-      <li>A model suggested ${fmt((c.merges?.merged || 0) + (c.merges?.kept_apart || 0))} pairs of ideas were one idea under two records. On the project owner's rulings,
-      ${fmt(c.merges?.merged || 0)} were merged (for example <i>Registrar of Trade Marks</i> into <i>Registrar</i>) and ${fmt(c.merges?.kept_apart || 0)} kept apart as different ideas.</li>
-      <li>Recognising an idea is matching its wordings: "who has to <i>sign</i>" matches the idea <i>sign</i>.</li>
-      <li>One snapshot of the Manual. There is no update loop yet, though every record is anchored so that one can be built, and
-      <a href="#/change">When the text changes</a> already lists what rests on any page or provision.</li>
-      <li>The search over the Act and the Regulations, the legal tests, the process templates and the customer explanations have not been measured.</li>
-    </ul>
+        <section id="ab-build" class="ab-sec" tabindex="-1">
+          <h2>What this build is</h2>
+          <p class="muted">Every publish writes a release manifest naming exactly what was built, so a result can be traced and repeated.</p>
+          <dl class="card ab-build">
+            <dt>Built</dt><dd>${esc(build.generated || "")}, from revision <code>${esc((build.revision || "unknown").slice(0, 12))}</code> of the repository</dd>
+            <dt>The Manual</dt><dd>${esc(build.manual?.line || "")}. ${esc(build.manual?.note || "")}</dd>
+            ${(build.law || []).map((l) => `<dt>${esc(l.name)}</dt><dd>${esc(l.line)}: compilation ${esc(l.compilation)} (${esc(l.register_id)})</dd>`).join("")}
+            <dt>The snapshot</dt><dd><code>${esc((build.graph?.upstream?.commit || "").slice(0, 12))}</code> of the extraction project, read and never edited</dd>
+            <dt>Answers</dt><dd>prepared with instructions ${esc(build.answers?.prepared || "")}; live with ${esc(build.answers?.live || "")}</dd>
+            <dt>Dependencies</dt><dd>${fmt(deps.dependencies || 0)} recorded dependencies of ${fmt(deps.records || 0)} records on ${fmt(deps.refs || 0)} passages and provisions;
+              ${fmt(stale)} whose quoted text has since changed</dd>
+          </dl>
+        </section>
 
-    <h2 id="ab-records" tabindex="-1">What it is built from</h2>
-    <p>Everything above rests on an ${term("ontology")}: a shared, explicit description of a field, the ideas in it, what kind of thing each idea is, and how the ideas
-    relate, with each statement tied to the text it comes from. Here the field is Australian trade marks examination, and the text is the
-    Manual, the <i>Trade Marks Act 1995</i> and the <i>Trade Marks Regulations 1995</i>, captured at one point in time.</p>
-    <table>
-      <tr><th></th><th class="num">In all</th><th class="num">Machine-written, unreviewed</th></tr>
-      <tr><td>Ideas (concepts)</td><td class="num">${fmt(c.concepts.signed + c.concepts.machine)}</td><td class="num">${c.concepts.machine}</td></tr>
-      <tr><td>Connections between ideas</td><td class="num">${fmt(c.relations.signed + c.relations.machine)}</td><td class="num">${fmt(c.relations.machine)}</td></tr>
-      <tr><td>Definitions of ideas</td><td class="num">${fmt(c.definitions)}</td><td class="num">${fmt(c.definitions)}</td></tr>
-      <tr><td>Corrections to reviewed records</td><td class="num">${fmt(c.corrections)}</td><td class="num">${fmt(c.corrections)}</td></tr>
-      <tr><td><a href="#/table/tests">Structured legal tests</a></td><td class="num">${fmt(c.tests)}</td><td class="num">${fmt(c.tests)}</td></tr>
-      <tr><td><a href="#/table/processes">Process templates</a></td><td class="num">${fmt(c.processes)}</td><td class="num">${fmt(c.processes)}</td></tr>
-      <tr><td>Places an idea is named in the Manual</td><td class="num" colspan="2">${fmt(c.links)} links across ${fmt(c.passages_linked)} passages — found by matching wordings, not judged</td></tr>
-    </table>
-    <p class="small muted">A machine-written record carries the model's name, the date, the passage it rests on and its reasoning, and says it is
-    unreviewed wherever it is shown. The rest were reviewed by a trade marks expert. An unchecked record never becomes approved by being left alone.
-    A correction changes how a reviewed record is served without changing the record itself, and the record says so.</p>
+        <section id="ab-limits" class="ab-sec" tabindex="-1">
+          <h2>Limits</h2>
+          <ul class="ab-limits">
+            <li>${icon("scale")}<span>It explains; it never decides. It does not apply the law to an application's facts and declines when asked to.</span></li>
+            <li>${icon("eye")}<span>No expert has read the machine's ideas, connections or answers.</span></li>
+            <li>${icon("connect")}<span>A model suggested ${fmt((c.merges?.merged || 0) + (c.merges?.kept_apart || 0))} pairs of ideas were one idea under two records.
+              On the project owner's rulings, ${fmt(c.merges?.merged || 0)} were merged (for example <i>Registrar of Trade Marks</i> into <i>Registrar</i>) and
+              ${fmt(c.merges?.kept_apart || 0)} kept apart as different ideas.</span></li>
+            <li>${icon("search")}<span>Recognising an idea is matching its wordings: “who has to <i>sign</i>” matches the idea <i>sign</i>.</span></li>
+            <li>${icon("clock")}<span>One snapshot of the Manual. There is no update loop yet, though every record is anchored so that one can be built, and
+              <a href="#/change">Trace a change</a> already lists what rests on any page or provision.</span></li>
+            <li>${icon("info")}<span>The search over the Act and the Regulations, the legal tests, the process templates and the customer explanations have not been measured.</span></li>
+          </ul>
+        </section>
 
-    <h2>Legal tests and procedures</h2>
-    <p>Some of what the Manual and the legislation say does not fit a connection between two ideas. A <b>structured legal test</b> reads one provision as
-    who acts, its effect (an obligation, a discretion or a bar), its conditions joined by <i>all of</i> and <i>any of</i>, its exceptions, the evidence that
-    bears on a condition, and the routes the sources describe. A <b>process template</b> sets out a procedure's steps, what moves it from one step to the
-    next and its time rules. Every element quotes the unit or passage it comes from, and says whether that is practice or law.</p>
-    <p class="small muted">A condition that is a person's assessment, such as whether two marks are deceptively similar, is marked as one and is never
-    computed; no date is worked out from a time rule; nothing applies a test to an application. These records are machine-written and unreviewed, like
-    the rest. The customer explanation aid is built from them: <a href="#/customers">its preview</a> runs on invented matters only and has not been
-    shown to customers. <a href="#/rules">See them drawn</a> or <a href="#/table/tests">as tables →</a></p>
-
-    <h2>The kinds, and how they connect</h2>
-    <p>A kind says what an idea is; what it does is a connection (the project owner's rule). Three kinds are the questions the law asks — grounds of
-    refusal and tests, the owner's own, and the principles that govern how they are answered. Four are what those questions are asked about, and four
-    the process around them; a machine proposed those nine. Being a factor, an exception or a remedy is not a kind: it is a connection to the ground
-    or test the idea acts on. Which kind each idea belongs to was judged by a machine and has not been reviewed.</p>
-    <p>Every connection says what it means — a role <i>performs</i> a step, a step <i>results in</i> a record, sign content <i>may give rise to</i> a
-    ground — and each relation names the kinds it may join, so the kinds connect in known ways and a connection that does not fit is caught.
-    There is no "is related to": a passage that only mentions two ideas is not a connection between them.</p>
-    <ul class="small" style="padding-left:0;list-style:none">${ontology.kinds.map((k) => `<li style="margin:.25rem 0"><span class="dot" style="--c:${kindColour(k.id)}"></span> <b>${esc(k.label)}</b> — ${esc(k.plain)}</li>`).join("")}</ul>
-
-    <h2 id="ab-how" tabindex="-1">How Ask the Manual works</h2>
-    <ol class="small">
-      <li><b>Recognise.</b> The question is matched against every idea's wordings, including everyday phrasings a machine wrote for search.</li>
-      <li><b>Follow.</b> The connections those ideas hold lead to related ideas.</li>
-      <li><b>Gather and rank.</b> Passages naming those ideas, or citing their provisions, are fused with ordinary keyword search over the question's words.
-      The Act and the Regulations are searched apart, by the provisions the question names and then by its words, and listed in a card of their own.</li>
-      <li><b>Answer.</b> A model writes an answer from those passages only, citing each claim. Code then checks every quote word for word against the
-      passage, and drops any it cannot find. The model is told never to say how an application would be decided, and to keep practice and law apart.</li>
-    </ol>
-    <p class="small muted">Live answers use <code>${esc(chat.model)}</code> at ${esc(chat.effort)} reasoning effort.
-    The ${examples.answers.length} prepared answers were written at ${esc(chat.measured_effort)} effort with the same instructions as live answers
-    (${esc(chat.prepared_prompt_version)}): each connection's modality and the condition it applies under, complete provisions with every cut marked,
-    each claim with its own quotes, and the rule never to conclude that a requirement, exception or step does not exist because the passages or connections do not mention it.
-    Search in your browser runs without the meaning-vectors the measured system also used.</p>
-
+        <section id="ab-how" class="ab-sec" tabindex="-1">
+          <h2>How Ask the Manual works</h2>
+          <ol class="ab-steps">
+            <li><b>Recognise</b><span>The question is matched against every idea's wordings, including everyday phrasings a machine wrote for search.</span></li>
+            <li><b>Follow</b><span>The connections those ideas hold lead to related ideas.</span></li>
+            <li><b>Gather and rank</b><span>Passages naming those ideas, or citing their provisions, are fused with keyword search over the question's words.
+              The Act and the Regulations are searched apart and listed in a card of their own.</span></li>
+            <li><b>Answer</b><span>A model writes an answer from those passages only, citing each claim. Code checks every quote word for word and drops any
+              it cannot find. The model is told never to say how an application would be decided, and to keep practice and law apart.</span></li>
+          </ol>
+          <p class="small muted">Live answers use <code>${esc(chat.model)}</code> at ${esc(chat.effort)} reasoning effort.
+          The ${fmt(examples.answers.length)} prepared answers were written at ${esc(chat.measured_effort)} effort with the same instructions as live answers
+          (${esc(chat.prepared_prompt_version)}): each connection's modality and the condition it applies under, complete provisions with every cut marked,
+          each claim with its own quotes, and the rule never to conclude that a requirement, exception or step does not exist because the passages or
+          connections do not mention it. Search in your browser runs without the meaning-vectors the measured system also used.
+          <a href="#/how">Follow one question through the system</a>.</p>
+        </section>
+      </div>
+    </div>
   </div>`;
 
-  root.querySelectorAll("[data-jump]").forEach((a) => a.addEventListener("click", (event) => {
-    event.preventDefault();
-    const target = root.querySelector(a.getAttribute("href"));
-    target.scrollIntoView({ block: "start" });
+  // the page's own index scrolls, and marks the section in view
+  root.querySelectorAll("[data-jump]").forEach((b) => b.addEventListener("click", () => {
+    const target = root.querySelector(`#${b.dataset.jump}`);
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
     target.focus({ preventScroll: true });
   }));
+  const links = new Map([...root.querySelectorAll("[data-jump]")].map((b) => [b.dataset.jump, b]));
+  const seen = new IntersectionObserver((entries) => {
+    for (const e of entries) if (e.isIntersecting) links.forEach((b, id) => b.classList.toggle("on", id === e.target.id));
+  }, { rootMargin: "-30% 0px -60% 0px" });
+  root.querySelectorAll(".ab-sec").forEach((sec) => seen.observe(sec));
+  links.get(SECTIONS[0][0])?.classList.add("on");
+  return () => seen.disconnect();
+}
 
-  // The measurement as intervals (Observable Plot): both comparisons, every kind of question.
-  const groups = [["all", "All questions"], ...Object.entries(kinds)].filter(([k]) => s[k]);
-  const rows = [];
-  for (const [key, label] of groups) {
-    for (const [field, name] of [["ndcg:ontology-keyword", "vs keyword search"], ["ndcg:ontology-hybrid", "vs search by meaning"]]) {
-      const v = s[key][field];
-      if (v) rows.push({ group: `${label} (${s[key].n})`, comparison: name, est: v[0] * 100, lo: v[1] * 100, hi: v[2] * 100 });
-    }
-  }
-  const holder = root.querySelector(".measure-plot");
-  holder.appendChild(Plot.plot({
-    width: Math.max(320, holder.clientWidth), marginLeft: 8, marginRight: 8, height: 54 * groups.length + 40,
-    style: { background: "transparent", color: "var(--ink-2)", fontFamily: "var(--sans)", fontSize: "11.5px" },
-    x: { label: "difference in top-ten quality (× 100) →", grid: true, nice: true },
-    y: { axis: null, domain: ["vs keyword search", "vs search by meaning"], insetTop: 14 },
-    fy: { label: null, domain: groups.map(([key, label]) => `${label} (${s[key].n})`) },
-    color: { domain: ["vs keyword search", "vs search by meaning"], range: ["var(--k-context)", "var(--k-process_role)"], legend: true },
-    marks: [
-      Plot.ruleX([0], { stroke: "var(--ink-3)" }),
-      Plot.ruleY(rows, { fy: "group", y: "comparison", x1: "lo", x2: "hi", stroke: "comparison", strokeWidth: 2.5 }),
-      Plot.dot(rows, { fy: "group", y: "comparison", x: "est", fill: "comparison", r: 4, tip: true,
-        title: (d) => `${d.group}, ${d.comparison}: ${d.est >= 0 ? "+" : ""}${d.est.toFixed(1)} [${d.lo.toFixed(1)}, ${d.hi.toFixed(1)}]` }),
-      Plot.text(groups.map(([key, label]) => ({ group: `${label} (${s[key].n})` })), { fy: "group", frameAnchor: "top-left", text: "group", dy: -2, fill: "var(--ink)", fontWeight: 600 }),
-    ],
-  }));
+/** The scale every difference row shares: symmetric about no difference, in whole fives. */
+function scale(groups, s) {
+  const ends = groups.flatMap(([k]) => ["ndcg:ontology-keyword", "ndcg:ontology-hybrid"].flatMap((f) => (s[k][f] ? [s[k][f][1], s[k][f][2]] : [])));
+  const m = Math.max(5, Math.ceil((Math.max(...ends.map((v) => Math.abs(v * 100))) + 1) / 5) * 5);
+  return { m };
+}
+
+/** One difference: its interval as a bar, its estimate as a dot, and what it says in words. */
+function diffRow(label, v, { m }) {
+  if (!v) return "";
+  const [est, lo, hi] = v.map((x) => x * 100);
+  const W = 400, x = (n) => ((n + m) / (2 * m)) * W;
+  const verdict = lo > 0 ? ["better", "Better"] : hi < 0 ? ["worse", "Worse"] : ["open", "Not established"];
+  const ticks = [];
+  for (let t = -m; t <= m; t += 5) ticks.push(t);
+  const sign = (n) => `${n >= 0 ? "+" : "−"}${Math.abs(n).toFixed(1)}`;
+  const num = (n) => `${n < 0 ? "−" : ""}${Math.abs(n).toFixed(1)}`;
+  return `<div class="ab-row">
+    <span class="ab-rl">${esc(label)}</span>
+    <span class="ab-trackwrap"><svg viewBox="0 0 ${W} 26" preserveAspectRatio="none" class="ab-track" role="img" aria-label="${esc(`${label}: ${sign(est)} points, 95% interval ${lo.toFixed(1)} to ${hi.toFixed(1)}; ${verdict[1].toLowerCase()}`)}">
+      ${ticks.map((t) => `<line x1="${x(t)}" x2="${x(t)}" y1="3" y2="23" class="${t === 0 ? "ab-zero" : "ab-tick"}"/>`).join("")}
+      <line x1="${x(lo)}" x2="${x(hi)}" y1="13" y2="13" class="ab-ci ${verdict[0]}"/>
+    </svg><i class="ab-dot ${verdict[0]}" style="left:${((x(est) / W) * 100).toFixed(2)}%" aria-hidden="true"></i></span>
+    <span class="ab-num"><b>${sign(est)}</b> <span class="tiny">[${num(lo)}, ${num(hi)}]</span></span>
+    <span class="ab-verdict ${verdict[0]}">${verdict[1]}</span>
+  </div>`;
+}
+
+function tableRow(r, label) {
+  const pct = (x) => (x == null ? "–" : Math.round(x * 100));
+  const diff = (v) => (v ? `${v[0] >= 0 ? "+" : "−"}${Math.abs(v[0] * 100).toFixed(1)} <span class="tiny">[${(v[1] * 100).toFixed(1)}, ${(v[2] * 100).toFixed(1)}]</span>` : "–");
+  return `<tr><td>${esc(label)}</td><td class="num">${r.n}</td><td class="num">${pct(r["ndcg:keyword"])}</td><td class="num">${pct(r["ndcg:hybrid"])}</td>
+    <td class="num">${pct(r["ndcg:ontology"])}</td><td class="num">${diff(r["ndcg:ontology-keyword"])}</td><td class="num">${diff(r["ndcg:ontology-hybrid"])}</td></tr>`;
+}
+
+const gate = (ic, title, text) => `<article class="ab-gate"><div class="ab-gate-i">${icon(ic)}</div><div><h3>${title}</h3><p class="small muted">${text}</p></div></article>`;
+
+/** Who wrote a set of records, as a bar split between reviewed and machine-written, said in numbers too. */
+function whoRow(label, signed, machine, href) {
+  const total = signed + machine;
+  const name = href ? `<a href="${href}">${esc(label)}</a>` : esc(label);
+  return `<div class="ab-whorow"><span class="ab-wl">${name}</span>
+    <span class="ab-bar" role="img" aria-label="${esc(`${label}: ${total}, of which ${signed} reviewed by an expert and ${machine} machine-written`)}">
+      ${signed ? `<i class="reviewed" style="flex:${signed}"></i>` : ""}${machine ? `<i class="machine" style="flex:${machine}"></i>` : ""}</span>
+    <span class="ab-wn"><b>${fmt(total)}</b> <span class="tiny">${signed ? `${fmt(signed)} reviewed · ` : ""}${fmt(machine)} machine</span></span></div>`;
 }

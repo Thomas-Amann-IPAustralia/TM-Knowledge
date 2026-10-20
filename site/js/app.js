@@ -36,7 +36,7 @@ const cache = new Map();
 export function load(name) {
   if (!cache.has(name)) {
     cache.set(name, fetch(`data/${name}.json`).then((r) => {
-      if (!r.ok) throw new Error(`data/${name}.json — ${r.status}`);
+      if (!r.ok) throw new Error(`data/${name}.json: ${r.status}`);
       return r.json();
     }));
   }
