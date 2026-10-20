@@ -288,8 +288,11 @@ tmk:definitionBasis a owl:DatatypeProperty , owl:FunctionalProperty ;
 #
 # Records, not concepts: tmk:LegalTest is the kind of idea a test is ("the s 43 test"); a
 # tmk:StructuredTest is one machine-written reading of a provision as conditions, effect and
-# exceptions. Both record classes carry the authoring envelope. Their inner structure (the
-# condition tree, the steps) is in the record file and not yet in the graph.
+# exceptions. Both record classes carry the authoring envelope. Their inner structure is in
+# the graph too (S043): each element a node of its own, minted from the record's IRI
+# (`tmka:GL-0001/element/hcu`), stamped with its origin and review status, and anchored to
+# the evidence item it quotes. The elements are parts of a record, not records: the
+# envelope is the record's, and no element is ever approved apart from it.
 
 tmk:StructuredTest a owl:Class ;
     rdfs:subClassOf tmk:Assertion ;
@@ -305,6 +308,228 @@ tmk:readsProvision a owl:ObjectProperty ;
     rdfs:domain tmk:StructuredTest ;
     rdfs:label "reads provision"@en-AU ;
     rdfs:comment "The provision a structured test is a reading of."@en-AU .
+
+tmk:testsGround a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:StructuredTest ;
+    rdfs:range tmk:LegalConcept ;
+    rdfs:label "tests ground"@en-AU ;
+    rdfs:comment "The ground of refusal a structured test is the test for."@en-AU .
+
+tmk:RecordElement a owl:Class ;
+    rdfs:label "Record element"@en-AU ;
+    rdfs:comment "A part of a structured test or process template: a condition, an effect, an exception, an evidence requirement, a route, a step, a transition or a time rule. Machine-written and unreviewed with its record; it carries no envelope of its own and is never approved apart from it."@en-AU .
+
+tmk:elementOf a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:RecordElement ;
+    rdfs:range tmk:Assertion ;
+    rdfs:label "element of"@en-AU ;
+    rdfs:comment "The record an element belongs to, whose envelope it shares."@en-AU .
+
+tmk:elementId a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:RecordElement ;
+    rdfs:range xsd:string ;
+    rdfs:label "element id"@en-AU ;
+    rdfs:comment "The element's id within its record, as the record file gives it."@en-AU .
+
+tmk:statement a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:RecordElement ;
+    rdfs:range rdf:langString ;
+    rdfs:label "statement"@en-AU ;
+    rdfs:comment "What the element says, in plain words within its quote. A reading, not the source: the source is the anchor."@en-AU .
+
+tmk:anchoredBy a owl:ObjectProperty ;
+    rdfs:domain tmk:RecordElement ;
+    rdfs:range tmk:EvidenceAnchor ;
+    rdfs:label "anchored by"@en-AU ;
+    rdfs:comment "The evidence item of the element's record holding the exact words the element quotes: ref, span, hash and quote."@en-AU .
+
+tmk:sourceAuthority a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:RecordElement ;
+    rdfs:range xsd:string ;
+    rdfs:label "source authority"@en-AU ;
+    rdfs:comment "`law` (the Act or the Regulations) or `practice` (the Manual), read from the element's ref. Kept on the element so a consumer never has to parse a ref to keep the two apart (CLAUDE.md rule 5)."@en-AU .
+
+tmk:Condition a owl:Class ;
+    rdfs:subClassOf tmk:RecordElement ;
+    rdfs:label "Condition"@en-AU ;
+    rdfs:comment "A condition of a structured test or of one of its exceptions: a group joining others, a fact or a person's assessment."@en-AU .
+
+tmk:ConditionGroup a owl:Class ;
+    rdfs:subClassOf tmk:Condition ;
+    rdfs:label "Condition group"@en-AU ;
+    rdfs:comment "Conditions joined: all of them (tmk:conditionJoin \"all\") or any one (\"any\")."@en-AU .
+
+tmk:FactCondition a owl:Class ;
+    rdfs:subClassOf tmk:Condition ;
+    rdfs:label "Fact condition"@en-AU ;
+    rdfs:comment "A condition a matter's recorded facts can settle: a registration, a date, a written request."@en-AU .
+
+tmk:EvaluativeCondition a owl:Class ;
+    rdfs:subClassOf tmk:Condition ;
+    rdfs:label "Evaluative condition"@en-AU ;
+    rdfs:comment "A condition only a person's assessment settles (deceptive similarity, capacity to distinguish). Never computed: it is met or not only where a named person's assessment is recorded."@en-AU .
+
+tmk:hasCondition a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:range tmk:Condition ;
+    rdfs:label "has condition"@en-AU ;
+    rdfs:comment "The root condition of a structured test or of an exception. No domain: both carry one."@en-AU .
+
+tmk:conditionJoin a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:ConditionGroup ;
+    rdfs:range xsd:string ;
+    rdfs:label "condition join"@en-AU ;
+    rdfs:comment "`all` (every part must hold) or `any` (one part is enough)."@en-AU .
+
+tmk:conditionPart a owl:ObjectProperty ;
+    rdfs:domain tmk:ConditionGroup ;
+    rdfs:range tmk:Condition ;
+    rdfs:label "condition part"@en-AU ;
+    rdfs:comment "A condition the group joins; its tmk:ordinal is its place in the record."@en-AU .
+
+tmk:turnsOn a owl:ObjectProperty ;
+    rdfs:domain tmk:RecordElement ;
+    rdfs:range tmk:LegalConcept ;
+    rdfs:label "turns on"@en-AU ;
+    rdfs:comment "A concept the condition or step is about. Navigation from the vocabulary to the tests and steps that use it; not a relationship between concepts."@en-AU .
+
+tmk:clarifyingQuestion a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:FactCondition ;
+    rdfs:range rdf:langString ;
+    rdfs:label "clarifying question"@en-AU ;
+    rdfs:comment "The question that settles a fact condition, asked only where either answer would change the reading."@en-AU .
+
+tmk:LegalEffect a owl:Class ;
+    rdfs:subClassOf tmk:RecordElement ;
+    rdfs:label "Legal effect"@en-AU ;
+    rdfs:comment "What follows when a test's or an exception's condition holds, and its kind (tmk:effectKind)."@en-AU .
+
+tmk:hasEffect a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:range tmk:LegalEffect ;
+    rdfs:label "has effect"@en-AU ;
+    rdfs:comment "The effect of a structured test or of an exception. No domain: both carry one."@en-AU .
+
+tmk:effectKind a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:LegalEffect ;
+    rdfs:range xsd:string ;
+    rdfs:label "effect kind"@en-AU ;
+    rdfs:comment "`obligation` (must), `discretion` (may, and need not) or `bar` (may not). A discretion never becomes an obligation because its prerequisites are present."@en-AU .
+
+tmk:TestException a owl:Class ;
+    rdfs:subClassOf tmk:RecordElement ;
+    rdfs:label "Test exception"@en-AU ;
+    rdfs:comment "An exception to a structured test, with its own condition and effect: what the decision-maker may or may not do despite the test."@en-AU .
+
+tmk:hasException a owl:ObjectProperty ;
+    rdfs:domain tmk:StructuredTest ;
+    rdfs:range tmk:TestException ;
+    rdfs:label "has exception"@en-AU .
+
+tmk:EvidenceRequirement a owl:Class ;
+    rdfs:subClassOf tmk:RecordElement ;
+    rdfs:label "Evidence requirement"@en-AU ;
+    rdfs:comment "What the Manual says evidence filed on a condition must show. `relevance` a matter's exhibits can be compared with; `sufficiency` is the examiner's assessment. Not tmk:Evidence: this is about material an applicant files, never the quotation a record rests on."@en-AU .
+
+tmk:hasEvidenceRequirement a owl:ObjectProperty ;
+    rdfs:domain tmk:StructuredTest ;
+    rdfs:range tmk:EvidenceRequirement ;
+    rdfs:label "has evidence requirement"@en-AU .
+
+tmk:requirementFor a owl:ObjectProperty ;
+    rdfs:domain tmk:EvidenceRequirement ;
+    rdfs:range tmk:Condition ;
+    rdfs:label "requirement for"@en-AU ;
+    rdfs:comment "The condition evidence meeting this requirement is offered on."@en-AU .
+
+tmk:requirementKind a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:EvidenceRequirement ;
+    rdfs:range xsd:string ;
+    rdfs:label "requirement kind"@en-AU ;
+    rdfs:comment "`relevance` or `sufficiency`."@en-AU .
+
+tmk:ResponseRoute a owl:Class ;
+    rdfs:subClassOf tmk:RecordElement ;
+    rdfs:label "Response route"@en-AU ;
+    rdfs:comment "A way an applicant may answer an objection on the test, as the source states it, with its scope where the source limits it."@en-AU .
+
+tmk:hasRoute a owl:ObjectProperty ;
+    rdfs:domain tmk:StructuredTest ;
+    rdfs:range tmk:ResponseRoute ;
+    rdfs:label "has route"@en-AU .
+
+tmk:ProcessStep a owl:Class ;
+    rdfs:subClassOf tmk:RecordElement ;
+    rdfs:label "Process step"@en-AU ;
+    rdfs:comment "A step of a process template: an event, a decision or an end, with the capacity that acts (tmk:actorCapacity). The step, never a matter's event."@en-AU .
+
+tmk:hasStep a owl:ObjectProperty ;
+    rdfs:domain tmk:ProcessTemplate ;
+    rdfs:range tmk:ProcessStep ;
+    rdfs:label "has step"@en-AU .
+
+tmk:stepKind a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:ProcessStep ;
+    rdfs:range xsd:string ;
+    rdfs:label "step kind"@en-AU ;
+    rdfs:comment "`event`, `decision`, `end` or `start`."@en-AU .
+
+tmk:actorCapacity a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:RecordElement ;
+    rdfs:range xsd:string ;
+    rdfs:label "actor capacity"@en-AU ;
+    rdfs:comment "The capacity that acts (`registrar`, `applicant`, `any_person`, or `law` where the law itself operates). A capacity, never the person who holds it."@en-AU .
+
+tmk:continuesIn a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:ProcessStep ;
+    rdfs:range tmk:ProcessTemplate ;
+    rdfs:label "continues in"@en-AU ;
+    rdfs:comment "The template that sets out this step in detail."@en-AU .
+
+tmk:ProcessTransition a owl:Class ;
+    rdfs:subClassOf tmk:RecordElement ;
+    rdfs:label "Process transition"@en-AU ;
+    rdfs:comment "A way from one step to another, with when it is taken and what a matter must say to tell it from the other ways (tmk:needs)."@en-AU .
+
+tmk:hasTransition a owl:ObjectProperty ;
+    rdfs:domain tmk:ProcessTemplate ;
+    rdfs:range tmk:ProcessTransition ;
+    rdfs:label "has transition"@en-AU .
+
+tmk:fromStep a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:ProcessTransition ;
+    rdfs:range tmk:ProcessStep ;
+    rdfs:label "from step"@en-AU .
+
+tmk:toStep a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:ProcessTransition ;
+    rdfs:range tmk:ProcessStep ;
+    rdfs:label "to step"@en-AU .
+
+tmk:needs a owl:DatatypeProperty ;
+    rdfs:domain tmk:ProcessTransition ;
+    rdfs:range rdf:langString ;
+    rdfs:label "needs"@en-AU ;
+    rdfs:comment "Something a matter must say before this way can be told from the others."@en-AU .
+
+tmk:onlyForGround a owl:ObjectProperty ;
+    rdfs:domain tmk:ProcessTransition ;
+    rdfs:label "only for ground"@en-AU ;
+    rdfs:comment "The provision a transition exists for (deferment exists for section 44 grounds); a transition with none is open to every matter."@en-AU .
+
+tmk:TimeRule a owl:Class ;
+    rdfs:subClassOf tmk:RecordElement ;
+    rdfs:label "Time rule"@en-AU ;
+    rdfs:comment "A rule about time in a process, explained and never computed: no date is calculated from a template until its rules and edge cases are reviewed (A02)."@en-AU .
+
+tmk:hasTimeRule a owl:ObjectProperty ;
+    rdfs:domain tmk:ProcessTemplate ;
+    rdfs:range tmk:TimeRule ;
+    rdfs:label "has time rule"@en-AU .
+
+tmk:timeRuleFrom a owl:ObjectProperty ;
+    rdfs:domain tmk:TimeRule ;
+    rdfs:range tmk:ProcessStep ;
+    rdfs:label "time rule from"@en-AU ;
+    rdfs:comment "A step whose occurrence brings the time rule into play."@en-AU .
 
 tmk:LegalProposition a owl:Class ;
     rdfs:label "Legal proposition"@en-AU ;

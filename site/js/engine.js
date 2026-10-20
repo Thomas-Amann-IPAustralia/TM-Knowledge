@@ -343,6 +343,24 @@ export function namedProvisions(text, held) {
   return out;
 }
 
+/* A06 step 2: the structured tests a question reaches — `search.structured.find`, rule for
+   rule. A test is reached when the question names its provision ("section 44", "s 44(3)")
+   or when the ground it is the test for is among the recognised concepts. Shown apart, on
+   its own card; never sent to the answer prompt. */
+export function structuredTests(question, recognised, tests) {
+  const all = tests || [];
+  const named = namedProvisions(question, Object.fromEntries(all.map((t) => [t.provision, true])));
+  const ids = new Set(recognised || []);
+  const out = [];
+  for (const t of all) {
+    const why = [];
+    if (named.includes(t.provision)) why.push("named");
+    if (t.ground != null && ids.has(t.ground)) why.push("ground");
+    if (why.length) out.push({ id: t.id, why });
+  }
+  return out;
+}
+
 /* PU-0004 at answer time — `search.authority.conflations`, rule for rule (review F1,
    ADR-0121). A sentence that says the legislation requires, provides or states
    something, in an answer that cites no provision of it, is flagged — never removed.

@@ -3,7 +3,8 @@
 An issue card per objection, the process timeline, and the evidence-to-issue view, each
 drawn from the explanation object `engine.explain` returns and each followed by its text
 equivalent, so a changed fact changes the picture and the words together. State is shown
-by a word and a mark as well as a colour. The page is written to a file for the owner to
+by a word and a mark as well as a colour. Two general views need no matter (S043): a
+test's requirements, and a process template drawn as a flow of steps. The page is written to a file for the owner to
 look at; it is not deployed, and nothing here is for customers until the owner says so
 (CLAUDE.md §3a, ADR-0142).
 """
@@ -66,8 +67,19 @@ def _tree(node: dict[str, Any]) -> str:
             f' <span class="badge">{_e(node["kind"])}</span>')
 
 
+def _unidentified(issue: dict[str, Any]) -> str:
+    grounds = "".join(f'<li>{_e(c["title"])} {_source(c["provision"], "law")}</li>' for c in issue["candidates"])
+    return (f'<div class="card"><h3>Objection {_e(issue["objection"])}: the ground is not known</h3>'
+            f'<p>{_e(issue["standing"])} Goods or services: {"".join(f"<span class=chip>{_e(i)}</span>" for i in issue["items"])}</p>'
+            f'<p><b>How it was described:</b> \u201c{_e(issue["customer_words"])}\u201d</p>'
+            f'<p><span class="st st-open" aria-hidden="true">?</span>{_e(issue["reads"])}</p>'
+            f'<p>The grounds explained here, any of which it might be:</p><ul>{grounds}</ul></div>')
+
+
 def _issue(issue: dict[str, Any]) -> str:
     t = issue["test"]
+    if t is None:
+        return _unidentified(issue)
     parts = [f'<div class="card"><h3>Objection {_e(issue["objection"])}: {_e(t["title"])}</h3>',
              f'<p>{_e(issue["standing"])} Goods or services: {"".join(f"<span class=chip>{_e(i)}</span>" for i in issue["items"])}</p>',
              f'<p><b>The report says:</b> {_e(issue["reasons"])}</p>',
@@ -109,6 +121,8 @@ def _evidence(ev: dict[str, Any]) -> str:
         rows.append(f"<tr><th scope=row>{_e(x['id'])}: {_e(x['description'])}</th>{''.join(cells)}</tr>")
     text = "\n".join(f"Exhibit {x['id']} ({x['description']}): {x['reads']}" for x in ev["exhibits"])
     sufficiency = "".join(f'<p class="why">{_e(s["text"])} {_source(s["ref"], "practice")}</p>' for s in ev["sufficiency"])
+    sufficiency += "".join(f'<p class="why">Set aside — {_e(s["text"])} {_source(s["ref"], "practice")} ({_e(s["why"])})</p>'
+                           for s in ev["set_aside"])
     return (f'<h3 style="margin-top:1rem">Evidence and what it is offered for</h3><div class="overflow"><table>'
             f'<thead><tr><th>Exhibit</th>{head}</tr></thead><tbody>{"".join(rows)}</tbody></table></div>{sufficiency}'
             f'<details class="text-eq"><summary>Text equivalent</summary><pre>{_e(text)}</pre></details>')
@@ -162,9 +176,92 @@ def _matter(e: dict[str, Any]) -> str:
             + f'<details class="text-eq"><summary>The whole explanation as text</summary><pre>{_e(engine.render_text(e))}</pre></details></div></section>')
 
 
-def render_page(explanations: list[dict[str, Any]]) -> str:
-    """Every fictional matter's explanation on one page."""
+def _general_tree(node: dict[str, Any]) -> str:
+    if node["kind"] in ("all", "any"):
+        head = f'<span class="join">{"all of these" if node["kind"] == "all" else "any one of these"}</span>'
+        label = f' {_e(node["text"])}' if node.get("text") else ""
+        inner = "".join(f"<li>{_general_tree(child)}</li>" for child in node["children"])
+        return f'{head}{label}<ul class="tree">{inner}</ul>'
+    return (f'{_e(node["text"])} <span class="why">— settled by {_e(node["settled_by"])}</span><br>'
+            f'{_source(node["ref"], node["authority"])} <span class="badge">{_e(node["kind"])}</span>')
+
+
+def _requirements(r: dict[str, Any]) -> str:
+    parts = [f'<div class="card"><h3>{_e(r["title"])}</h3>',
+             f'<p><b>The law</b> ({_source(r["provision"], "law")}): {_e(r["effect"]["reads"])}</p>',
+             f'<div role="group" aria-label="The conditions and what settles each">{_general_tree(r["condition"])}</div>']
+    for x in r["exceptions"]:
+        parts.append(f'<div class="card"><b>Exception</b> ({_source(x["ref"], "law")}) <span class="badge">{_e(x["effect"]["kind"])}</span>'
+                     f'<p>{_e(x["text"])}</p><p>{_e(x["effect"]["reads"])}</p>{_general_tree(x["condition"])}</div>')
+    if r["evidence"]:
+        parts.append("<p><b>What evidence of use must show</b></p><ul>" + "".join(
+            f'<li><span class="badge">{_e(e["kind"])}</span> {_e(e["text"])} {_source(e["ref"], e["authority"])}</li>'
+            for e in r["evidence"]) + "</ul>")
+    if r["routes"]:
+        parts.append("<p><b>Ways to respond</b></p><ul>" + "".join(
+            f'<li>{_e(w["text"])} {_source(w["ref"], w["authority"])}{" <span class=why>(" + _e(w["scope"]) + ")</span>" if w.get("scope") else ""}</li>'
+            for w in r["routes"]) + "</ul>")
+    parts.append(f'<details class="text-eq"><summary>Text equivalent</summary><pre>{_e(engine.render_requirements(r))}</pre></details></div>')
+    return "".join(parts)
+
+
+def _flow(w: dict[str, Any]) -> str:
+    """The template's steps in a column, each way on drawn as a numbered arc on the right,
+    so a branch back (a further report to a response) reads as plainly as one forward."""
+    steps = w["steps"]
+    index = {s["id"]: i for i, s in enumerate(steps)}
+    arcs = [(s["id"], n) for s in steps for n in s["next"]]
+    box_w, box_h, gap, left = 250, 44, 22, 10
+    width = left + box_w + 40 + 18 * len(arcs) + 30
+    height = 20 + len(steps) * (box_h + gap)
+    ways_on = "; ".join(f"{k}. {steps[index[a]]['label']} to {n['label']}" for k, (a, n) in enumerate(arcs, start=1))
+    desc = "Steps: " + "; ".join(s["label"] for s in steps) + ". Ways on: " + ways_on + "."
+    svg = [f'<svg viewBox="0 0 {width} {height}" width="{width}" height="{height}" role="img" aria-labelledby="fl-{_e(w["process"])}-t fl-{_e(w["process"])}-d">',
+           f'<title id="fl-{_e(w["process"])}-t">{_e(w["title"])}</title>',
+           f'<desc id="fl-{_e(w["process"])}-d">{_e(desc)}</desc>',
+           '<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">'
+           '<path d="M0 0 L10 5 L0 10z" fill="var(--ink-2)"/></marker></defs>']
+    for i, s in enumerate(steps):
+        y = 10 + i * (box_h + gap)
+        stroke = "--now" if s["kind"] in ("start", "end") else "--line"
+        svg.append(f'<rect x="{left}" y="{y}" width="{box_w}" height="{box_h}" rx="8" fill="none" stroke="var({stroke})" stroke-width="1.5"/>')
+        svg.append(f'<text x="{left + 10}" y="{y + 19}">{i + 1}. {_e(s["label"][:34])}</text>'
+                   f'<text x="{left + 10}" y="{y + 35}" style="fill:var(--ink-2)">{_e(s["actor"])}{" · continues in " + _e(s["continues_in"]["process"]) if s["continues_in"] else ""}</text>')
+    # Each arc leaves and enters its box at a height of its own, so two arcs into one step
+    # never share a line.
+    outs: dict[str, int] = {}
+    ins: dict[str, int] = {}
+    for k, (a, n) in enumerate(arcs, start=1):
+        out_n, in_n = outs.get(a, 0), ins.get(n["to"], 0)
+        outs[a], ins[n["to"]] = out_n + 1, in_n + 1
+        y1 = 10 + index[a] * (box_h + gap) + 8 + 7 * out_n
+        y2 = 10 + index[n["to"]] * (box_h + gap) + box_h - 8 - 7 * in_n
+        x = left + box_w + 20 + 18 * k
+        svg.append(f'<path d="M{left + box_w} {y1} H{x} V{y2} H{left + box_w + 4}" fill="none" stroke="var(--ink-2)" '
+                   f'stroke-dasharray="{"4 3" if n["needs"] else "none"}" marker-end="url(#arrow)"/>')
+        svg.append(f'<text x="{x + 3}" y="{(y1 + y2) / 2}" style="font-size:10px">{k}</text>')
+    svg.append("</svg>")
+    ways = "".join(f'<li>{_e(steps[index[a]]["label"])} → {_e(n["label"])}: when {_e(n["when"])}'
+                   + (f' <span class="why">(depends on: {_e("; ".join(n["needs"]))})</span>' if n["needs"] else "")
+                   + f' {_source(n["ref"], n["authority"])}</li>' for a, n in arcs)
+    rules = "".join(f'<li>{_e(d["text"])} {_source(d["ref"], d["authority"])}</li>' for s in steps for d in s["time_rules"])
+    return (f'<div class="card"><h3>{_e(w["title"])}</h3><p class="why">{_e(w["scope"] or "")}</p>'
+            f'<div class="overflow">{"".join(svg)}</div><p>A dashed arrow is a way on that depends on something a matter must say.</p>'
+            f'<ol>{ways}</ol><p><b>Time rules</b></p><ul>{rules}</ul><p class="why">{_e(w["note"])}</p>'
+            f'<details class="text-eq"><summary>Text equivalent</summary><pre>{_e(engine.render_walkthrough(w))}</pre></details></div>')
+
+
+def render_page(explanations: list[dict[str, Any]], requirements: list[dict[str, Any]] | None = None,
+                walkthroughs: list[dict[str, Any]] | None = None) -> str:
+    """Every fictional matter's explanation on one page, then the general views: what each
+    test requires and how each process runs, explained with no matter."""
     body = "".join(_matter(e) for e in explanations)
+    if walkthroughs:
+        body += ('<section><h2>The application process</h2>' + "".join(_flow(w) for w in walkthroughs)
+                 + f'<p class="stamp">{_e(engine.GENERAL_STAMP)}</p></section>')
+    if requirements:
+        body += ('<section><h2>What the law requires</h2>' + "".join(_requirements(r) for r in requirements)
+                 + f'<p class="stamp">{_e(engine.GENERAL_STAMP)}</p></section>')
     return (f'<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             f'<title>Objection Explainer Prototype</title><style>{_CSS}</style></head><body><main>'
             f'<p class="stamp"><b>Fictional matters only. Not for customers.</b> A prototype of the customer explanation aid '

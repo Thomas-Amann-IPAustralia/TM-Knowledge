@@ -24,11 +24,11 @@ ontology cannot do, and it is the honest half of the demonstration.
 | Trade Marks Act 1995 | compilation 48 (`C2026C00421`), in force from 19 September 2026 |
 | Trade Marks Regulations 1995 | compilation 53 (`F2026C00009`), in force from 18 December 2025 |
 | Ontology modules | 9, all draft |
-| Classes declared | 93 |
+| Classes declared | 105 |
 | Predicates defined | 53 in `ontology/predicates.py`; 14 used by a signed record, 51 by a machine-written one |
-| Source graph | 66,238 triples over 1088 chunks |
+| Source graph | 66,250 triples over 1088 chunks |
 | Approved graph | 3,644 triples — signed by a named expert |
-| Authored graph | 28,667 triples — **written by a machine, validated by nobody** |
+| Authored graph | 29,873 triples — **written by a machine, validated by nobody** |
 | Inferred graph | 2,315 triples — derived by the SPARQL rules, never a signed record |
 | SHACL result | 0 defects, 0 gaps, 259 notes — exit 0 |
 | Competency queries | 13 of 20 questions |
@@ -64,7 +64,7 @@ reads the record as signed (ADR-0122). A machine-written concept sorted into a
 kind is a typing by a machine; a person has typed none.
 
 The `source` graph holds 1088 chunks from 209 pages,
-821 provisions and units and 317 decisions: the passages
+827 provisions and units and 317 decisions: the passages
 a record rests on and what they cite (ADR-0097), not the whole snapshot.
 
 ### The trust metadata survived
@@ -90,6 +90,7 @@ untested shape that never matches anything reads as coverage (`shapes/README.md`
 |---|---|
 | A Manual passage is practice | `shapes/authority.ttl` |
 | A concept has exactly one preferred label and belongs to a scheme | `shapes/vocabulary.ttl` |
+| A condition group joins its parts by all or any | `shapes/provenance.ttl` |
 | A correction names what it corrects and the ruling it acts on | `shapes/provenance.ttl` |
 | A definition names its concept, its words and their basis | `shapes/provenance.ttl` |
 | A machine-written 'kind of' beside a 'not the same as' carries its reason | `shapes/vocabulary.ttl` |
@@ -97,15 +98,26 @@ untested shape that never matches anything reads as coverage (`shapes/README.md`
 | A not-label is not also a label | `shapes/vocabulary.ttl` |
 | A not-label naming another concept's label is reported, not failed | `shapes/vocabulary.ttl` |
 | A practice statement is not attributed to the Act (PU-0004) | `shapes/authority.ttl` |
+| A process template has steps | `shapes/provenance.ttl` |
 | A span is a well-formed interval | `shapes/provenance.ttl` |
 | A stale assertion does not stay in the approved graph | `shapes/provenance.ttl` |
+| A step says its kind and who acts | `shapes/provenance.ttl` |
+| A structured test has one condition and one effect | `shapes/provenance.ttl` |
 | A structured test names the provision it reads | `shapes/provenance.ttl` |
 | A structured test or process template is titled and quoted | `shapes/provenance.ttl` |
+| A time rule runs from a step | `shapes/provenance.ttl` |
+| A transition joins two steps of its template | `shapes/provenance.ttl` |
 | An approved assertion carries its whole provenance block | `shapes/provenance.ttl` |
 | An assertion about a provision keeps the passage it was read from | `shapes/authority.ttl` |
 | An authored assertion cites the corpus or says it cannot | `shapes/provenance.ttl` |
 | An authored assertion says who wrote it, when, and on what | `shapes/provenance.ttl` |
+| An effect is an obligation, a discretion or a bar | `shapes/provenance.ttl` |
+| An element belongs to one record and is stamped as it is | `shapes/provenance.ttl` |
+| An element quotes its source and says whether it is law or practice | `shapes/provenance.ttl` |
+| An evaluative condition is assessed, never asked as a fact | `shapes/provenance.ttl` |
 | An evidence anchor locates a sentence in a version of a passage | `shapes/provenance.ttl` |
+| An evidence requirement says its kind and the condition it bears on | `shapes/provenance.ttl` |
+| An exception has its own condition and effect | `shapes/provenance.ttl` |
 | An inference names its rule and its premises | `shapes/inference.ttl` |
 | Every approved relation edge has an assertion behind it | `shapes/provenance.ttl` |
 | Every passage says what kind of authority it is | `shapes/authority.ttl` |
@@ -205,7 +217,7 @@ or a factor is a legal judgement, and every one of these is the agent's.
 define them. A definition is its own record, never a field on a signed concept,
 and approving a label approves no definition (ADR-0137).
 
-**53 declared classes hold nothing**: `AdministrativeReviewTribunal`, `AdmittedRelation`, `AdvisoryRole`, `Applicant`, `ApprovedRelation`, `Assertion`, `AuthorisedUser`, `Authority`, `AuthorityStatus`, `CandidateAssertion`, `CoRegulator`, `Commission`, `DecisionMaker`, `Delegate`….
+**55 declared classes hold nothing**: `AdministrativeReviewTribunal`, `AdmittedRelation`, `AdvisoryRole`, `Applicant`, `ApprovedRelation`, `Assertion`, `AuthorisedUser`, `Authority`, `AuthorityStatus`, `CandidateAssertion`, `CoRegulator`, `Commission`, `Condition`, `DecisionMaker`….
 Some are empty by design (the evidence module: the Manual describes evidence, it
 does not hold any); some are the kinds no concept has been sorted into.
 

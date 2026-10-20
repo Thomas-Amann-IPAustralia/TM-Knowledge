@@ -42,6 +42,13 @@ def _check(record: dict[str, Any], tests: dict[str, Any], steps: set[str]) -> li
     errors += [f"role names {r['party']}, who is not a party" for r in record["roles"] if r["party"] not in parties]
     errors += [f"event {e['step']} is no step of the template" for e in record["events"] if e["step"] not in steps]
     for objection in record["objections"]:
+        if objection["test"] is None:
+            # Only the customer's words are known: the objection names no test, so it can
+            # carry nothing a test defines (ADR-0144).
+            errors += [f"{objection['id']} names no test, so it cannot record {k}"
+                       for k in ("facts", "assessments", "exhibits") if objection.get(k)]
+            errors += [f"{objection['id']} covers {i}, which is not an item" for i in objection["items"] if i not in items]
+            continue
         test = tests.get(objection["test"])
         if test is None:
             errors.append(f"{objection['id']} names {objection['test']}, which is no sound legal test")

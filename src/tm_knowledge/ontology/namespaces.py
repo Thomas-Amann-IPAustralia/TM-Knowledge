@@ -19,7 +19,7 @@ from tm_knowledge.refs import PREFIXES, iri_for, to_iri
 __all__ = [
     "TMK", "TMKC", "TMKP", "TMKA", "TMKG",
     "DCTERMS", "OWL", "PROV", "RDF", "RDFS", "SH", "SKOS", "XSD",
-    "bind_all", "ref_node", "concept_node", "assertion_node", "evidence_node",
+    "bind_all", "ref_node", "concept_node", "assertion_node", "evidence_node", "element_node",
     "proposition_node",
     "SOURCE_GRAPH", "APPROVED_GRAPH", "AUTHORED_GRAPH", "INFERRED_GRAPH",
     "NAMED_GRAPHS",
@@ -105,6 +105,18 @@ def evidence_node(record: URIRef, ordinal: int) -> URIRef:
     (IDENTIFIERS.md §2; the second review response, R03).
     """
     return URIRef(f"{record}/evidence/{ordinal}")
+
+
+def element_node(record: URIRef, *path: str | int) -> URIRef:
+    """A part of a structured test or process template, as a node of its own.
+
+    `tmka:GL-0001` + `element`, `hcu` -> `tmka:GL-0001/element/hcu`. Minted from the
+    record's own IRI and the element's id within it (unique there, lowercase), as an
+    evidence anchor is: never shared between records, and a rebuild mints the same one.
+    An element with no id of its own is named by its place (`condition`, `effect`,
+    `transition/3`).
+    """
+    return URIRef("/".join([str(record), *(str(part) for part in path)]))
 
 
 def proposition_node(record_id: str) -> URIRef:

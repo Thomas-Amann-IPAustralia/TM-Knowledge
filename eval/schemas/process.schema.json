@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://ipaustralia.gov.au/schemas/tmk/authored/process/1.0.0",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/authored/process/1.1.0",
   "title": "Process template",
   "description": "A machine-written template of one bounded procedure (the second review response, A02; ADR-0142): its steps, each with its source, actor and effect; the transitions between them, each with the condition under which it is taken; and the deadline rules, explained and never computed. Kept apart from any matter's event history. A template says what can happen next and what that depends on; it never says what will.",
   "type": "object",
@@ -92,17 +92,19 @@
           "enum": [
             "registrar",
             "applicant",
+            "any_person",
             "law"
           ],
-          "description": "law: a step no one takes, which the Act makes happen (a lapse)."
+          "description": "law: a step no one takes, which the Act makes happen (a lapse). any_person: a step anyone may take (an opposition)."
         },
         "kind": {
           "enum": [
+            "start",
             "event",
             "decision",
             "end"
           ],
-          "description": "end: the template's last step on that branch."
+          "description": "start: where the template begins; end: the template's last step on that branch."
         },
         "text": {
           "type": "string",
@@ -121,6 +123,11 @@
             "type": "string",
             "pattern": "^GC-[0-9]{4}$"
           }
+        },
+        "continues_in": {
+          "type": "string",
+          "pattern": "^GP-[0-9]{4}$",
+          "description": "The template that sets out this step in detail (the examination report continues in GP-0001)."
         }
       }
     },

@@ -101,6 +101,21 @@ tmkc:GC-0179/evidence/2     the second of machine-written concept GC-0179
 record's evidence renumbers its anchors; nothing outside the graph stores an
 anchor IRI, so that is a rebuild, not a migration.
 
+**Record elements** (S043, ADR-0144). The parts of a structured test or process
+template are nodes too, minted from the record's IRI and the element's own id
+within it; an element with no id is named by its place:
+
+```
+tmka:GL-0001/element/hcu          a condition of GL-0001 (its id in the record)
+tmka:GL-0001/condition            GL-0001's root condition, which has no id
+tmka:GL-0001/effect               GL-0001's own effect
+tmka:GL-0001/element/prior_continuous_use/effect   an exception's effect
+tmka:GP-0001/transition/3         GP-0001's third transition, by its place
+```
+
+`namespaces.element_node` is the one function that mints them. Renaming an
+element id renames its node; as with anchors, that is a rebuild.
+
 Standard prefixes keep their usual bindings: `skos:`, `prov:`, `owl:`, `rdfs:`,
 `sh:`, `dcterms:`.
 
@@ -129,7 +144,7 @@ there is one more: **`GK-` a correction** to a signed record (`authored/correcti
 ADR-0122). Since 2026-10-17, **`GD-` a definition** of a concept (`authored/definitions.yaml`,
 ADR-0137): one per concept, its own record because a signed concept cannot be edited. Since
 2026-10-19, **`GL-` a structured legal test** (`authored/legal-tests.yaml`) and **`GP-` a process
-template** (`authored/processes.yaml`), ADR-0142; inside one, an element (a condition, an
+template** (`authored/processes.yaml`), ADR-0142 (GP-0002, filing to registration, since S043); inside one, an element (a condition, an
 exception, a step) has a lowercase id unique within its record (`honest_concurrent_use`), never a
 project-wide id. **`FM-` a fictional matter** (`scenarios/matters.yaml`) is a fixture, not
 knowledge: its own series, never in the graph or the shared sequence. A withdrawn id is listed with its reason — signed ones in

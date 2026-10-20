@@ -6357,3 +6357,63 @@ session by the owner.
    rests on Manual quotes alone; 12 decline the outcome part of a question. A kept quote proves the
    words exist, not that they support the claim.
 3. The "answer-v4 has never run against the real model" caution is retired.
+
+## ADR-0144 — Package 4 completed: tests and templates inside the graph, explanations with no matter, the process from filing, a question reaching its test
+
+**Date** 2026-10-20 · **Authority** agent-proposed · **Status** accepted · completes the second
+review response's Package 4 (A01, A02, A04 to A06, A09, A12), on the owner's "Please conduct the
+remaining stage 4 work" (S043), read as the handoff's Package 4
+
+**Context.** S042 left four things of Package 4 undone: the inside of the `GL-`/`GP-` records was
+not in the graph (only the record and its envelope); D4 names three explanations and only the
+objection one existed; A06 step 2 (a question about s 44 brings its conditions and exceptions);
+and two of A12's scenarios (evidence over the wrong period; everyday wording that must be asked
+about, not chosen). The customer gate (§3a) and the live chatbot's inputs (ADR-0139) are unchanged.
+
+**Decision (the agent's).**
+1. **Elements are nodes.** Each part of a structured test or template is a `tmk:RecordElement`
+   (`ConditionGroup` with `conditionJoin` all/any and ordered `conditionPart`s; `FactCondition`;
+   `EvaluativeCondition`; `LegalEffect` with `effectKind`; `TestException`; `EvidenceRequirement`;
+   `ResponseRoute`; `ProcessStep`; `ProcessTransition` with `fromStep`/`toStep`/`needs`/
+   `onlyForGround`; `TimeRule`), minted by `namespaces.element_node` from the record IRI and the
+   element's id (`IDENTIFIERS.md`). Each is `elementOf` its record, stamped with its origin and
+   review status, says `sourceAuthority` law or practice, and is `anchoredBy` the evidence item
+   holding its exact quote. Elements carry no envelope of their own and are never approved apart
+   from their record. A condition or step `turnsOn` the concepts it names; a test `testsGround`
+   its ground. Twelve shapes hold this, among them: an evaluative condition carries no clarifying
+   question; an effect names its kind. 85 elements today. Property names avoid the predicate
+   vocabulary (`timeRuleFrom`, not `runsFrom`).
+2. **Two explanations need no matter.** `requirements(test)`: the conditions with what settles
+   each (a fact, or the Registrar's assessment), each exception's effect kind, the evidence
+   requirements as relevance or sufficiency, the routes; no state, no question. `walkthrough
+   (template)`: the steps in order, who acts, the ways on and what each depends on, the time
+   rules, and where another template takes over. Both on the prototype page, with text
+   equivalents; the template is drawn as a flow.
+3. **GP-0002, filing to registration** (ss 27, 31, 33, 34, 52, 68, 72; regs 4.8, 5.6, 7.1): eight
+   steps, nine transitions, three time rules, 14 quotes. Its report step `continues_in` GP-0001
+   (a new optional schema field, process schema 1.1.0). Opposition proceedings, revocation of
+   acceptance, divisionals and priority claims are named as left out, not denied.
+4. **Everyday wording is asked about, never mapped.** A matter's objection may say `test: null`
+   with the customer's words (matter schema 1.1.0); it can then record no facts, assessments or
+   exhibits. The explanation names every ground it holds a test for, reads none, and asks which
+   section the report cites. A branch that exists only for one ground (deferment, s 44) is
+   offered with that ground named first in what it depends on.
+5. **FM-0005** (s 41(3), every exhibit after the filing date or undated) and **FM-0006** (wording
+   that fits s 41 or s 44). The evidence view now lists a requirement it sets aside (after-filing
+   use under (4), when the report reads (3)) and why, and says a gap once.
+6. **A06 step 2 is a rule, shown apart.** `search.structured.find` (= `engine.js`
+   `structuredTests`): a test is reached when the question names its provision or recognises its
+   ground. The Ask page shows a reached test's conditions and exceptions in its own card,
+   "Machine · unreviewed", for live and prepared questions. Parity is tested on all 129 benchmark
+   questions.
+
+**What it does not decide.** Giving the tests to the answering model: that changes what the live
+chatbot is given, the owner's call as ADR-0139 was. Showing any of this to customers (§3a).
+Computing a date. Narrowing the candidate grounds from everyday words (a reading model could, and
+would still have to ask). An opposition template.
+
+**Consequences.**
+1. Classes declared 93 → 105; the authored graph 29,873 triples; SHACL 0 defects.
+2. `tests/unit/test_explain.py` (54) holds the new acceptance examples, the no-matter rules and
+   the graph mapping; `test_validate_gate.py` the element shapes; `test_explorer.py` the parity.
+3. Provisional; name it in the handoff's open items.

@@ -9,7 +9,12 @@ the acceptance example it exercises, and is validated by
 ## What belongs here
 
 - `matters.yaml` — fictional matters (`FM-` ids, their own series: they are fixtures,
-  not knowledge, and never enter the graph or a measurement).
+  not knowledge, and never enter the graph or a measurement). FM-0001 to FM-0004 are the
+  review's acceptance examples (S042); FM-0005 (evidence covering the wrong period) and
+  FM-0006 (an objection known only from the customer's everyday words) are from A12's
+  list (S043). An objection whose ground is not known says `test: null` and carries the
+  customer's words; it may record no facts, assessments or exhibits, because those belong
+  to a test.
 
 ## What must not go here
 

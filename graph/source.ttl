@@ -5117,8 +5117,10 @@
     tmk:upstreamRef "TMA1995/s26(2)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s27(1)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s27> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s27> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:ef83022e7a048f1d01d28a8cc271fb03b419d20a0d523f02729877b2c5e37e3a" ;
     tmk:ordinal 1 ;
@@ -5468,8 +5470,10 @@
     tmk:upstreamRef "TMA1995/s33~1~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s34(a)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s34> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s34> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:5f75047a8d0eac97d864e6f8ea0af10d15f681ac1db920d72a31bff614e7f08d" ;
     tmk:ordinal 2 ;
@@ -5477,8 +5481,10 @@
     tmk:upstreamRef "TMA1995/s34(a)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s34(b)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s34> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s34> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:da99d24895d6ba64e02ad84481acac078abb012aecf53fa992c570ff8c664b09" ;
     tmk:ordinal 3 ;
@@ -8445,8 +8451,10 @@
     tmk:upstreamRef "TMA1995/s67~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s68(1)(a)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s68> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s68> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:5835bb6fd9a3869ff48a487f5a871448e0c545c6875d1e31b00c96fdb5622a70" ;
     tmk:ordinal 2 ;
@@ -8463,8 +8471,10 @@
     tmk:upstreamRef "TMA1995/s68(1)(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s68(1)(b)(i)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s68> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s68> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:77f7b831b3ddcc27c88c2236bb95c2ca20dcdd16a2f212e3e75bb6bb62d65d53" ;
     tmk:ordinal 4 ;
@@ -27063,8 +27073,10 @@
     tmk:upstreamRef "TMR1995/r6.9(5)(b)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r7.1(1)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r7.1> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r7.1> ;
     tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-308bfd9162eb ;
     tmk:contentHash "sha256:494ad3f800be56a3f243de402d5091b1ef2f5bb303bd57ff7c096b8179105584" ;
     tmk:ordinal 1 ;

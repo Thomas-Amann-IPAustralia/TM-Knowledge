@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://ipaustralia.gov.au/schemas/tmk/scenarios/fictional-matter/1.0.0",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/scenarios/fictional-matter/1.1.0",
   "title": "Fictional matter",
   "description": "An invented application, its examination report and its history, for building and testing the customer explanation aid (the second review response, A01, A05; ADR-0138, ADR-0142). Every one is fictional, says so in a field a machine reads, and names the acceptance example it exercises. No real application, report, applicant or examiner appears here until the owner allows it (CLAUDE.md §3a).",
   "type": "object",
@@ -45,11 +45,13 @@
         "stated_lapse_date": {"type": ["string", "null"], "format": "date", "description": "The lapse date a report states (reg 4.8(2)); repeated, never recalculated."}}}},
     "objections": {"type": "array", "items": {
       "type": "object", "additionalProperties": false, "required": ["id", "test", "items", "reasons", "status"],
+      "allOf": [{"if": {"properties": {"test": {"type": "null"}}}, "then": {"required": ["customer_words"]}, "else": {"properties": {"reasons": {"type": "string"}}}}],
       "properties": {
         "id": {"type": "string", "pattern": "^o[0-9]+$"},
-        "test": {"type": "string", "pattern": "^GL-[0-9]{4}$"},
+        "test": {"type": ["string", "null"], "pattern": "^GL-[0-9]{4}$", "description": "The legal test the report's objection is under; null where only the customer's own words are known, and the explanation asks rather than chooses."},
+        "customer_words": {"type": "string", "minLength": 1, "description": "How the customer described the objection, in their own everyday words."},
         "items": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^i[0-9]+$"}},
-        "reasons": {"type": "string", "minLength": 1, "description": "The fictional report's words."},
+        "reasons": {"type": ["string", "null"], "minLength": 1, "description": "The fictional report's words; null where the customer has not given them."},
         "status": {"enum": ["raised", "maintained", "withdrawn"], "description": "What the fictional report says of it. withdrawn is the Registrar's, recorded; never inferred from a response."},
         "cited_mark": {"type": "object", "additionalProperties": false,
           "properties": {"sign": {"type": "string"}, "owner": {"type": "string", "pattern": "^p[0-9]+$"}, "status": {"enum": ["registered", "pending"]}, "priority_date": {"type": ["string", "null"], "format": "date"}}},
