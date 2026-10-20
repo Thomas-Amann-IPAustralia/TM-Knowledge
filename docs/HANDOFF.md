@@ -11,27 +11,24 @@ Rewritten every session, under 150 lines (ADR-0110). History is in the git log a
 order: Packages 1 and 3 done (S041); Package 2 done (S042); Package 4, the first customer slice,
 started (S042) and left for a new session by the owner.**
 
-**S043 (this session): the explorer brought up to date with the ontology.** The owner asked for a
-review of the front end against the recent changes. Found and fixed:
-- **The `GL-` legal tests and the `GP-` process template were on no page.** `explorer.build` now
-  copies them into `ontology.json` (`structures`, with their stamp; `approved_by` is not carried);
-  the table view has two new tabs, `#/table/tests` (effect, all-of/any-of condition tree with each
-  leaf a fact or a person's assessment, exceptions, evidence requirements, routes) and
-  `#/table/processes` (steps, transitions with what must be known, time rules "explained, never
-  computed"), each element with its quote and source mark, and a CSV of every element. An idea's
-  card on the map and in the table lists the tests and procedures naming it (`structuresBlock`).
-- **The dependency index left them out**, so "what rests on section 44" missed GL-0001 and GP-0001.
-  `dependencies.build` now reads `authored.procedure`; the change view lists them from a provision
-  and in a page's ripple (layer 4: definitions, corrections, tests and procedures). The ontology
-  report's §7 counts moved (2,472 dependencies of 967 records); report regenerated.
-- **About said twelve same-idea pairs were "flagged for a person, not merged"**: the owner ruled on
-  all twelve (11 merged, 1 kept apart). It now reads `authored/merge-candidates.yaml` via
-  `ontology.hygiene`. About also gains counts for definitions, corrections, tests and templates, a
-  short "Legal tests and procedures" section, and a line on the provision search (A07); the tour's
-  last table counts definitions and the structured records.
-- No script errors on any route before or after (headless Chromium); the new tabs fit at 390 px.
-- Tests: `test_explorer.py` and `test_dependencies.py` hold the new records on the page and in the
-  index, and the merge line to the rulings file.
+**The site rework is half done (ADR-0144, the owner's direction in S043).** The explorer now leads
+with outcomes and discloses the ontology last, in four layers: *What it does* (new home: four
+outcomes with their numbers and state, a status board), *What it could do* (`#/future`: the stated
+purpose, examiners and customers now, four later uses, and **"What we may test with customers"**),
+*Rules as code* (`#/rules`, a first version), *The ontology* (`#/model` hub, the map, glance,
+tables, tour, `#/glossary`). A depth strip under the header and a go-deeper card on every page but
+the map; `glossary.js` explains every standard inline. **S044 finishes it from the checklist in
+`docs/SITE-REWORK.md`**, which says what is done and what is left (the brand, the deeper rules
+page with diagrams, `#/standards`, the customer preview `#/customers`, About as "Where it stands",
+copy on existing views, visual QA, READMEs). The ruling stays `applied: null` until then.
+
+**Earlier in S043: the explorer brought up to date with the ontology.** The GL/GP records were on
+no page and missing from the dependency index ("what rests on section 44" missed GL-0001 and
+GP-0001): now in `ontology.json` (`structures`), two table tabs (`#/table/tests`,
+`#/table/processes`), every idea card naming them, the change view, and `dependencies.build`
+(report §7 regenerated: 2,472 dependencies of 967 records). About no longer says twelve same-idea
+pairs are unmerged (11 merged, 1 kept apart; read from `ontology.hygiene`). Q-100 says how to keep
+the site in step with a new record type.
 
 **Spend.** Cap **US$13.63**; recorded spend **US$11.61**; the remaining US$2.02 is approved for
 nothing. S043 spent nothing.
@@ -62,14 +59,17 @@ authority check's known misses) at the end of S043.
 
 ## Next actions
 
-1. **Package 4, continued (a new session, by the owner's word).** The condition tree, exceptions,
+1. **Finish the site rework (S044, by the owner's word, at high effort)** from
+   `docs/SITE-REWORK.md`; then close the ruling (`applied:`), delete the plan file, and say so in
+   ADR-0144's status.
+2. **Package 4, continued (a new session, by the owner's word).** The condition tree, exceptions,
    steps and transitions into the graph; D4's other two explanations (*requirements* with no matter;
    *the application process* from filing, a second template); A06 step 2 (a question about s 44
    retrieves GL-0001's conditions and exceptions, which would also put them in the Ask page); more
    fictional matters from A12's list.
-2. **Afterwards:** Package 5 (versioning A03; the dependency index as a candidate rule; scenarios
+3. **Afterwards:** Package 5 (versioning A03; the dependency index as a candidate rule; scenarios
    A10); the blend (S034); the 15 undefined concepts; heading-only edges (GR-0270).
-3. **When a new record type lands**, follow Q-100: dependency index, explorer key and view, report.
+4. **When a new record type lands**, follow Q-100: dependency index, explorer key and view, report.
 
 ## For the owner
 
@@ -77,6 +77,9 @@ authority check's known misses) at the end of S043.
   machine-written, unreviewed records in the table view. It is a display of existing records, not a
   change to what an answer may say; say if you would rather they stayed off the public page until
   the customer slice is further on.
+- **The customer preview on the site (S044's plan)** would put the prototype's explanation of the
+  four invented matters on the public examiner site, loudly labelled, as the transparency you asked
+  for; say before S044 if you would rather it stayed a file. Testing with customers stays your gate.
 - **The customer prototype page** (`tmk-explain --html`) is still a file only; showing anything
   like it to customers, or testing it with them, is your gate.
 - Still: revoke the old OpenAI key (S038); the page's blend, ADR-0131 and the four disputed signed
@@ -125,6 +128,9 @@ authority check's known misses) at the end of S043.
 - **The explorer needs the snapshot** (Q-90); a local server must serve `.mjs` as JavaScript.
 
 ## Open items (agent-proposed, provisional)
+
+- **ADR-0144's agent parts**: the four layers and their names, the home page's outcomes and status
+  board, the wording of "What we may test with customers", the glossary entries.
 
 - **S043's presentation choices**: GL/GP records in the table view rather than drawn on the map; the
   words for enumerations ("a person's assessment", "an obligation (must)"); `ask` shown on each leaf;
