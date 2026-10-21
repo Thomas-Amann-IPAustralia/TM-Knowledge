@@ -24,6 +24,12 @@ the acceptance example it exercises, and is validated by
   the behavioural effect is unknown. Validated by
   `eval/schemas/fictional-amendment.schema.json` and `tm_knowledge.explain.scenarios`.
 
+- `what-if.yaml` — what-ifs (`FW-`, S047, ADR-0149): an invented new right laid over the
+  ontology as it stands, changing nothing in it. Each has a premise in plain words (no draft
+  text) and touch points that quote the Manual verbatim and name existing ideas, tests, steps and
+  provisions, with the questions practice would need to answer. Validated and counted by
+  `tm_knowledge.explain.whatif`; drawn on the site's what-if page (`#/whatif`), stamped.
+
 ## What must not go here
 
 - **No real draft, bill, exposure draft or policy proposal.** A scenario is invented to

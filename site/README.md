@@ -10,7 +10,8 @@ deeper (`layers.js`):
 
 1. **What it does**: the Overview, Research (Ask the Manual), Explain (the customer preview) and
    Trace a change.
-2. **What it could do**: What's next, the uses the same foundation could support.
+2. **What it could do**: What's next, the uses the same foundation could support, and a what-if
+   (geographical indications as their own right) laid over the ontology without changing it.
 3. **How it works**: a nine-step scrolling story over one picture, the knowledge map, and rules as
    code.
 4. **Under the hood**: the standards, the glossary and the data tables.
@@ -46,6 +47,7 @@ Generated: everything under `data/`, written by `tmk-explorer --write` from
 | `data/examples.json` | the 129 prepared answers and each search system's score |
 | `data/chat.json` | the measured answer prompt, verbatim, for live questions; and the live-only reading prompt (ADR-0132) |
 | `data/live.json` | whether live answers are on, and the proxy they go through. No key, ever |
+| `data/whatif.json` | a what-if (ADR-0149): an invented new right laid over the ontology unchanged, each touch point's quotes, the records it lands on and what would go back to be re-read, from `tm_knowledge.explain.whatif` |
 | `data/explain.json` | the customer preview: every invented matter's explanation, each test's requirements and each process walked through, from `tm_knowledge.explain`, each with its text equivalent and stamp |
 | `data/build.json` | the release manifest: what was built from what; the checks (shapes and inference rules, counted from their files); two machine-written blocks of the committed graph for the standards page |
 
@@ -82,7 +84,7 @@ validator:
 Machine-written content is a dashed rust stamp everywhere (`trustBadge`, `.stamp`); states are
 said in words as well as colour (`statePill`: working, measured, prototype, planned). Every picture
 has a text equivalent or says in words what its colours mean. Each view's classes carry a short
-prefix (`hm-` Overview, `rs-` Research, `cx-` Explain, `ch-` Trace a change, `fu-` What's next,
+prefix (`hm-` Overview, `rs-` Research, `cx-` Explain, `ch-` Trace a change, `fu-` What's next, `wi-` the what-if,
 `hw-` How it works, `mp-` the map, `rx-` rules, `sd-` standards, `gv-` glossary, `ab-` Where it
 stands, `dg-` the shared diagrams), so a view's class never picks up another's layout (Q-101).
 
@@ -95,6 +97,7 @@ stands, `dg-` the shared diagrams), so a view's class never picks up another's l
 | `#/customers/{requirements,process,objection}/…` | `customers.js` | Explain: the customer explanation preview, on invented matters, behind a banner (ADR-0146): what a test requires, the application process drawn as a journey, an objection as a checklist with the full diagram a click away; each with its text equivalent |
 | `#/change/…` | `change.js` | Trace a change: pick a page or a provision and see what rests on it, drawn as a ripple, with the amendment timeline (Plot) |
 | `#/future/customers?` | `future.js` | What's next: the uses one foundation could support, each with what it stands on, what it would still need and where it stands; what may be tested with customers |
+| `#/whatif/FW-…/point?` | `whatif.js` | a what-if: an invented right (geographical indications) above a dashed line, the ideas, provisions and legal tests of the ontology it lands on below it, unchanged; each touch point's quotes, questions and what would be re-read (ADR-0149) |
 | `#/how` | `how.js` | How it works: nine scrolling steps over one picture, from the text to the answer and who wrote what |
 | `#/map`, `#/map/ideas/GC-…`, `#/map/kinds` | `map.js` | the knowledge map (below) |
 | `#/rules` | `rules.js` | rules as code: the three forms drawn small; connections with their modality and condition; section 44 drawn as a diagram and the process from filing as a journey (`diagrams.js`), each with its text equivalent; how the rules are checked; what they never do |

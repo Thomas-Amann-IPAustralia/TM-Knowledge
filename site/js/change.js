@@ -64,6 +64,7 @@ export async function render(root, { ontology, params }) {
         <div class="card ch-ripple-card"><div class="ch-ripple"></div></div>
         <aside class="card ch-side" aria-live="polite"></aside>
       </div>
+      <a class="ch-whatif" href="#/whatif">${icon("flag")}<span><b>A what-if:</b> geographical indications as their own right. Lay a right that does not exist over the ontology, without changing it, and see where practice would need to be read again.</span>${icon("arrow")}</a>
       <p class="ch-honest">${icon("info")}<span>From every record's own citations and quotes, in both stores. What no record names is not shown, so an empty answer means
         <b>no recorded dependency, never no impact</b>. Where upstream marked a citation ambiguous, it is listed and never resolved.</span></p>
 

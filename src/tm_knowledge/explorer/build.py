@@ -27,6 +27,9 @@ Files written under `site/data/`:
     explain.json    the customer explanation preview: every invented matter's
                     explanation, each test's requirements and each process walked
                     through, each with its text equivalent (ADR-0145)
+    whatif.json     an invented new right laid over the ontology as it stands: the
+                    records it touches, read as they are, and what would go back to be
+                    re-read (ADR-0149)
 """
 
 from __future__ import annotations
@@ -52,6 +55,7 @@ from tm_knowledge.config import PIN_PATH, REPO_ROOT
 from tm_knowledge.dashboard import views
 from tm_knowledge.explain import engine as explain_engine
 from tm_knowledge.explain import matters as matters_module
+from tm_knowledge.explain import whatif as whatif_module
 from tm_knowledge.ontology import dependencies
 from tm_knowledge.ontology import hygiene
 from tm_knowledge.ontology.predicates import RETIRED
@@ -939,18 +943,23 @@ def build(corpus: Corpus | None = None, *, generated: str | None = None,
     # Every clause a legal test, a process template or an explanation quotes opens in the
     # drawer, so its chip never reads as "not in the snapshot".
     quoted = _refs(onto["structures"]) | _refs(explained)
+    stab = stability(corpus, onto, links, deps)
+    what_if = whatif_module.payload(whatif_module.load(corpus=corpus, onto=onto), corpus, onto, stab)
+    named = _refs(what_if) | {r for w in what_if["whatifs"] for p in w["touchpoints"] for r in p["provisions"]}
     return {
         "build.json": release(corpus, deps, onto["build"]["generated"]),
         "ontology.json": onto,
         "search.json": search(corpus, gold, authored, links),
         "passages.json": passages(corpus, {r for c in links.concepts.values() for r in c.legislative_basis}
-                                  | set(onto["provisions"]) | {r for r in quoted if r.startswith(("TMA1995/", "TMR1995/"))}),
-        "stability.json": stability(corpus, onto, links, deps),
+                                  | set(onto["provisions"])
+                                  | {r for r in quoted | named if r.startswith(("TMA1995/", "TMR1995/"))}),
+        "stability.json": stab,
         "tour.json": tour(corpus, onto, links),
         "examples.json": examples(),
         "chat.json": chat(ctx),
         "live.json": live_payload(endpoint),
         "explain.json": explained,
+        "whatif.json": what_if,
     }
 
 

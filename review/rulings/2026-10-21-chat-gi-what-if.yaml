@@ -1,0 +1,35 @@
+# A decision the repo owner made in a chat session. Hand-transcribed by the S047 agent;
+# no issue behind it. The artefact is `review/returned/261021-owner-chat-gi-what-if.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-21T00:00:00Z'
+questions_updated: '2026-10-21'
+source:
+  kind: chat
+  artefact: review/returned/261021-owner-chat-gi-what-if.md
+  author: the owner (the session's user; no name given in the chat)
+  relayed_by: S047 agent
+  title: A small front-end demonstration of geographical indications as a new IP right, ontology unaltered
+applied:
+  session: S047
+  date: '2026-10-21'
+  branch: ccr-773c02bf-jryenk
+  what_changed: >-
+    A what-if page (#/whatif, site/js/whatif.js) in layer 2, drawn from site/data/whatif.json, which
+    tm_knowledge.explain.whatif builds from scenarios/what-if.yaml (FW-0001, fictional, unreviewed).
+    An invented premise (a register of geographical indications for any goods) and five touch points
+    on examination practice, each quoting the Manual verbatim, naming existing ideas, legal tests,
+    steps and provisions, and counting what would go back to be re-read from the dependency index.
+    Nothing in authored/, the graph, the ontology's data or any other site data file changed; a test
+    checks the what-if's words appear in none of them.
+answers:
+- id: CHAT-0098
+  item: a what-if demonstration of geographical indications as a new right
+  question: Should the front end show how a new geographical indications right might influence examination practice?
+  kind: instruction
+  value: whatif_demo_ontology_unaltered
+  label: Add a small demonstration to the front end; it must not alter the underlying ontology
+  quote: >-
+    Would it be possible that you can include a small demonstration to the front end about how the
+    introduction of geographic indicators as a new IP right might impact/influence examination
+    practice. Any example you produce must not alter the underlying ontology.
+  recorded_as: [ADR-0149]
