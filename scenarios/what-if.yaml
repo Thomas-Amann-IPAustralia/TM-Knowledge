@@ -1,0 +1,150 @@
+# What-ifs: an invented new right, laid over the ontology as it stands (ADR-0149). Written by
+# claude-code-agent-S047 on 2026-10-21 at the owner's request. Nothing here is law, a proposal, a
+# draft or anyone's policy, and nothing here is written into the ontology: every idea, connection,
+# legal test, step and passage a what-if names is already a record, read as it is. Only the
+# premise and the questions are new, and they are a machine's, never reviewed by an expert.
+- id: FW-0001
+  fictional: true
+  title: Geographical indications as their own registered right
+  premise: Suppose Australia created a register of geographical indications for any kind of goods, not wine alone,
+    on which a group of producers could enter the name of a place whose goods owe their quality, reputation or
+    character to it. No such law exists and no draft is assumed; the question is only where examination practice,
+    as the Manual states it today, would need to be read again.
+  written_by: claude-code-agent-S047
+  written_date: '2026-10-21'
+  extraction_method: authored
+  confidence: low
+  review_status: unreviewed
+  touchpoints:
+  - id: search
+    title: A wider register to search
+    today:
+    - ref: TMM/Part32B/2/1#1
+      span: [73, 364]
+      content_hash: sha256:52ccb38230f00c84625d6a40a56e148127aa74806bb393a832265c8513b21c39
+      quote: A ground for rejection under this section may apply when a trade mark or part of a trade mark is identical
+        to, or resembles, an entry on the Register of Protected Geographical Indications and Other Terms (‘the Wine
+        Register’) , and the application claims grape products relevant to Class 33.
+    - ref: TMM/Part29/11#1
+      span: [384, 696]
+      content_hash: sha256:4c484f11bb81ae9e0b8453152cd0145a12d14fa09ab434e1c68288097f23886a
+      quote: If during examination of a new application research reveals that a trade mark is identical or similar to a
+        listed EU GI, consideration should then be given to whether or not the use of the trade mark would potentially
+        deceive or confuse Australian consumers and make grounds for rejection under s 43 appropriate.
+    what_if: Today the register an examiner checks names for wine and grape products in class 33, and the listed EU
+      names are found by research, case by case. A register for any goods would ask whether every application, in
+      every class, is checked against it, and at which step.
+    questions:
+    - Is the register searched for every class of goods, or only for goods like those a name is entered for?
+    - Is a match looked for at examination, or left for an opponent to raise?
+    - Does the research step for the listed EU names fold into the new search, or stay beside it?
+    ideas: [GC-0170, GC-0169, GC-0018]
+    provisions: [TMA1995/s42, TMA1995/s43]
+    tests: [GL-0002]
+    steps: [{process: GP-0002, step: examination}]
+
+  - id: ground
+    title: Which question a registered name raises
+    today:
+    - ref: TMM/Part32B/2/1#1
+      span: [365, 593]
+      content_hash: sha256:52ccb38230f00c84625d6a40a56e148127aa74806bb393a832265c8513b21c39
+      quote: The presence of such a match on the Wine Register indicates that the use of the trade mark may contravene
+        the Wine Australia Act, unless that use is in accord with conditions specified in the relevant entry on the Wine
+        Register.
+    - ref: TMM/Part29/11#1
+      span: [0, 173]
+      content_hash: sha256:4c484f11bb81ae9e0b8453152cd0145a12d14fa09ab434e1c68288097f23886a
+      quote: Australia has committed to protecting a range of European Union (EU) geographical indications (GIs) when
+        the Australia European Union Free Trade Agreement enters into force.
+    what_if: Today a geographical indication reaches examination through two different questions. For wine, it is
+      whether use would be contrary to law (section 42(b)); for the listed EU names, whether use would deceive or
+      confuse (section 43). A right of its own opens a third shape, the one section 44 asks about another person's
+      earlier trade mark. Which shape it takes is for the law that creates it; the ontology shows what each would
+      draw in.
+    questions:
+    - Is a registered indication an earlier right, read like section 44, or a reason use would mislead, read like
+      section 43, or a law use must comply with, read like section 42(b)?
+    - Do conditions of use, as the Wine Register sets them, carry over to other goods?
+    ideas: [GC-0063, GC-0168, GC-0002, GC-0126]
+    provisions: [TMA1995/s42, TMA1995/s43, TMA1995/s44]
+    tests: [GL-0001, GL-0002]
+    steps: []
+
+  - id: distinctiveness
+    title: Whether a registered name can distinguish
+    today:
+    - ref: TMM/Part32B/2/3/2/3/1
+      span: [0, 202]
+      content_hash: sha256:aeeec17d7c222fefa6c1732a21693a2733ee591be2d3fefe65bacce528df82fb
+      quote: The existence of a protected term on the AGWA Register establishes that the word is most apt for describing
+        a particular wine and is very likely to be required by other traders in relation to that wine.
+    - ref: TMM/Part22/15#1
+      span: [0, 280]
+      content_hash: sha256:15aea15e82dbf1b55e979eb27325101730d79b75592500b3ab4886bbd2bb6a3a
+      quote: When assessing the registrability of geographical names we need to assess whether (i) the sign conveys the
+        significance of the geographical name when applied to the goods or services claimed, and (ii) if so, is it
+        likely other traders would desire to use it for this significance?
+    what_if: For wine, the Manual reads an entry on the register as settling that other traders are likely to need the
+      word. Whether the same reading would carry to a register for any goods, in place of the two questions Part 22
+      asks of every geographical name, is something the new practice would have to say.
+    questions:
+    - Does an entry on the register settle the second of Part 22's two questions, as it does for wine?
+    - What of a name that is entered for one kind of goods and applied for on another?
+    ideas: [GC-0120, GC-0059, GC-0019, GC-0017]
+    provisions: [TMA1995/s41]
+    tests: [GL-0003]
+    steps: []
+
+  - id: opposition
+    title: From opposition into examination?
+    today:
+    - ref: TMM/Part46/4/4/6
+      span: [178, 598]
+      content_hash: sha256:dc3b5b95b0062e48fe2c913b18b0255dfb415ca3386950a8cd58389a8bfac613
+      quote: Subsection 61(1) provides a ground of opposition if an application for a trade mark for particular goods
+        (relevant goods) contains a sign which is a geographical indication for goods (designated goods) originating in
+        a country, region or locality other than the country in which the relevant goods originated, or a region or
+        locality in a country other than the region or locality in which the relevant goods originated.
+    - ref: TMM/Part46/4/4/6
+      span: [796, 922]
+      content_hash: sha256:dc3b5b95b0062e48fe2c913b18b0255dfb415ca3386950a8cd58389a8bfac613
+      quote: However, if subsection 61(1) is established, the applicant has resort to the defences contained in
+        subsections 61(2) to 61(4).
+    what_if: Today a false geographical indication is for an opponent to raise and prove after acceptance (section 61),
+      and the applicant has defences. A register would put the evidence that a name is a geographical indication on
+      the record before examination begins. Whether any of section 61's question moves into examination, and what
+      becomes of its defences, would need deciding.
+    questions:
+    - Does a name on the register still have to be proved to be a geographical indication in opposition?
+    - Do the defences in subsections 61(2) to 61(4) apply to a name on the register?
+    ideas: [GC-0018]
+    provisions: [TMA1995/s61]
+    tests: []
+    steps: [{process: GP-0002, step: opposition}]
+
+  - id: certification
+    title: Certification marks that already name a place
+    today:
+    - ref: TMM/Part35/1/1/5
+      span: [201, 441]
+      content_hash: sha256:e7261d6a3dd834a27ca54e98ecef44da934fa86e459b71b73550bc09f835cdb9
+      quote: Rather, a certification trade mark indicates that the goods are certified as meeting a particular standard
+        of quality or accuracy, or as having a particular composition, mode of manufacture, geographical origin or some
+        other characteristic.
+    - ref: TMM/Part35/2/2/1
+      span: [0, 293]
+      content_hash: sha256:7f3fb817063f353ae861aa2ee103a693ac2227d1ce3fd7f440e7d10190e94ff2
+      quote: 'Section 6 of the Act defines a GI in relation to goods as: a sign that identifies the goods as originating
+        in a country, or in a region or locality in that country, where a given quality, reputation or other
+        characteristic of the goods is essentially attributable to their geographical origin.'
+    what_if: Producers can already protect a regional name as a certification trade mark. A separate register would
+      raise how the two sit side by side, which one an examiner cites against the other, and which came first.
+    questions:
+    - Is a certification trade mark for a place an earlier right against the same name entered on the register, or
+      the other way round?
+    - Does an examiner cite one against an application, or both?
+    ideas: [GC-0107, GC-0019]
+    provisions: [TMA1995/s169]
+    tests: []
+    steps: []

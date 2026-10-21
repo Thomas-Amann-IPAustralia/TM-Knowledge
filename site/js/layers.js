@@ -11,7 +11,7 @@ import { icon } from "./icons.js";
 
 export const LAYERS = [
   { depth: 1, id: "does", label: "What it does", href: "#/", routes: ["", "ask", "customers", "change"] },
-  { depth: 2, id: "could", label: "What it could do", href: "#/future", routes: ["future"] },
+  { depth: 2, id: "could", label: "What it could do", href: "#/future", routes: ["future", "whatif"] },
   { depth: 3, id: "how", label: "How it works", href: "#/how", routes: ["how", "map", "rules"] },
   { depth: 4, id: "under", label: "Under the hood", href: "#/standards", routes: ["standards", "glossary", "table"] },
 ];
@@ -22,7 +22,7 @@ export const ACROSS = { label: "Where it stands", href: "#/about", routes: ["abo
 export const layerOf = (name) => LAYERS.find((l) => l.routes.includes(name || "")) || null;
 
 /** Which header link a route lights up. */
-const OWNER = { rules: "how", standards: "how", glossary: "how", table: "map" };
+const OWNER = { rules: "how", standards: "how", glossary: "how", table: "map", whatif: "future" };
 export const navOwner = (name) => (name in OWNER ? OWNER[name] : name === "about" ? null : name);
 
 /** Where each page leads next: one layer deeper, with what the reader will find there. */
@@ -35,6 +35,8 @@ const NEXT = {
     links: [["#/how", "See how it works", "primary"], ["#/map", "Explore the knowledge map"]] },
   future: { title: "What would all of this build on?", text: "One knowledge foundation: the ideas examiners reason with, how they connect, and the text each rests on.",
     links: [["#/how", "See how it works", "primary"], ["#/about", "Where it stands"]] },
+  whatif: { title: "Why can it scope a right that does not exist?", text: "Every idea and connection quotes the passage it rests on and names its basis in the Act, so anything laid over them can be traced to the guidance underneath.",
+    links: [["#/how", "See how it works", "primary"], ["#/change", "Trace a change"]] },
   how: { title: "Go under the hood", text: "The open standards the graph is written in, each explained in plain words with a real block of this build, and every record as a table.",
     links: [["#/standards", "The standards", "primary"], ["#/table", "Data tables"], ["#/glossary", "Glossary"]] },
   rules: { title: "See the model the rules are built from", text: "Every idea, its kind and its connections, on one interactive map.",

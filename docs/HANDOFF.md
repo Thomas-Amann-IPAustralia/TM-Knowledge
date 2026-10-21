@@ -1,7 +1,7 @@
 # HANDOFF
 
-**Last updated:** 2026-10-20 · S046 · the site redesign (ADR-0148) on branch
-`claude/trusting-franklin-c1h7wi`, PR #47, built on `main` after PR #46 (S045's Package 5). Not merged.
+**Last updated:** 2026-10-21 · S047 · a what-if page for geographical indications (ADR-0149) on
+branch `ccr-773c02bf-jryenk`, built on `main` after PR #47 (the redesign, merged). Not merged.
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
@@ -9,54 +9,43 @@ Rewritten every session, under 150 lines (ADR-0110). History is in the git log a
 ## Where things stand
 
 **The purpose is ADR-0138** (`CLAUDE.md` §0). **Every package in
-`docs/ONTOLOGY-REVIEW-RESPONSE-2.md` is built** (1 and 3 in S041, 2 in S042, 4 in S042–S043, 5 in
-S045, ADR-0147). Nothing was spent in S046.
+`docs/ONTOLOGY-REVIEW-RESPONSE-2.md` is built**; the redesign (ADR-0148) is merged and live.
+Nothing was spent in S047.
 
-**S046 redesigned the explorer on the owner's word** (CHAT-0097,
-`review/returned/261020-owner-chat-site-redesign.md`, ADR-0148): *"completely re-design the front
-end"* to communicate the ontology's value, the outcome first, how it works explained simply,
-visual, interactive where it helps (the knowledge graph above all), progressive disclosure, no
-clutter, desktop and laptop only, and *"must not impact or change the shape of the underlying
-ontology"*. The owner's ChatGPT mock-up is `docs/tm-knowledge-redesign.html` (reference only).
-What changed, all in `site/`:
-- **A design system** in `explorer.css`: paper, deep green and lime; ideas coloured by family,
-  passages by source with their marks; both palettes checked for colour-blind readers; light
-  theme only (no dark palette passed). `site/README.md` describes it.
-- **Outcome pages first**: the Overview (one question answered with and without the map of
-  meaning, what it does for examiners, customers and policy, the measurement in both directions,
-  the foundation, where things stand); Research, Explain, Trace a change and What's next rebuilt
-  as visual pages with the detail behind disclosures.
-- **How it works**: a nine-step scrolling story over one picture (`how.js`).
-- **The knowledge map rebuilt in D3** (`map.js`, `netlayout.js`): every idea and connection, a
-  seeded layout shaped to the frame, hover for a neighbourhood, focus an idea to label its
-  connections and gather the passages and provisions it rests on round it, names placed so none
-  overlaps, a Kinds view, search, a full card per idea.
-- **Rules as code, the standards, the glossary, the tables, Where it stands** restyled: the three
-  forms of rule drawn small; the standards as one clickable stack with the four compartments to
-  scale; a searchable glossary every inline term links into; the measurement as intervals said in
-  words (better, worse, not established).
-- **Retired**: `tour.js`, `circles.js`, `model.js`, `minimap.js`, `kinds.js` and the Cytoscape
-  library; `#/tour` and `#/model` open How it works, `#/circles` the map's Kinds view.
+**S047 added a what-if on the owner's word** (CHAT-0098, `review/returned/261021-owner-chat-gi-what-if.md`,
+ADR-0149): *"a small demonstration to the front end about how the introduction of geographic
+indicators as a new IP right might impact/influence examination practice"*, which *"must not alter
+the underlying ontology"*.
+- **`scenarios/what-if.yaml`, FW-0001**: a new fixture series (`FW-`, `docs/IDENTIFIERS.md`). An
+  invented premise (a register of geographical indications for any goods; no draft text) and five
+  touch points: the register to search, which question a registered name raises (s 42(b) / s 43 /
+  an earlier right like s 44), distinctiveness (s 41), s 61 from opposition towards examination,
+  certification marks. Each quotes the Manual verbatim (span, hash), names existing GC/GL/GP
+  records and provisions, and asks questions; it answers none.
+- **`tm_knowledge.explain.whatif`** validates it against the snapshot and records and counts what
+  would be re-read from the dependency index; `tmk-explorer` writes `site/data/whatif.json`.
+- **`#/whatif`** (`site/js/whatif.js`, prefix `wi-`, layer 2): the invented drawn above a dashed
+  line, the ontology below it unchanged (12 ideas, their 12 recorded connections, six provisions,
+  three legal tests), with a text equivalent; linked from Trace a change, What's next, the footer.
+  s 61 shows as **no recorded dependency**: a real gap the demo exposes.
+- **Unchanged:** `authored/`, the graph, every other data file, the prompt, the explanations; a
+  test checks the what-if's words reach none of them. No graph rebuild was needed.
 
-Nothing in the ontology, its records, the graph, `tmk-explorer`'s data, the answering prompt or
-the explanation objects changed; no Python changed. **QA:** every route at 1280, 1440 and 1920 px
-in Chromium, no script errors, no sideways scroll; the map's interactions driven end to end
-(hover, search, focus, "Why?", the trail, Escape, kinds, zoom). **951 tests pass, 4 xfail**
-(the full suite, no test changed).
+**QA:** `#/whatif`, `#/change`, `#/future` at 1280 and 1920 px in Chromium, no script errors, no
+sideways scroll; touch point selection, the drawer from a provision and an idea's click to the map
+driven. **70 tests pass** in the four touched files (`test_whatif`, `test_explorer`,
+`test_scenarios`, `test_hygiene`); the full suite was not run (about twenty minutes, Q-29).
 
 **Spend.** Cap **US$13.63**, recorded **US$11.61**; the remaining US$2.02 is approved for nothing.
 
-**Package 5, unchanged since S045 (ADR-0147, agent-proposed):** the versioning model
-(`ontology/draft/time.ttl`, `tm_knowledge.versions.select`); every customer explanation names the
-text it quotes; one definition per concept per scope; RULE-0003, the dependency index in the graph,
-**pending as OQ-0030**; three normative scenarios on fictional matters
-(`tmk-explain --scenario`), in no graph, index, site or prompt. 948 tests passed, 4 xfail, at the
-end of S045.
+**Package 5, unchanged since S045 (ADR-0147, agent-proposed):** the versioning model; RULE-0003
+**pending as OQ-0030**; three normative scenarios (`tmk-explain --scenario`), in no graph or site.
 
 ## Next actions
 
-1. **The owner's look at the redesign (PR #47), then a merge.** Merging to `main` publishes it (ADR-0112).
-   Anything the owner wants changed is a small edit to one view; `site/README.md` maps them.
+1. **The owner's look at the what-if (`#/whatif`), then a merge.** Merging to `main` publishes it
+   (ADR-0112). Another what-if is one more `FW-` record in `scenarios/what-if.yaml`; the page draws
+   the first one only today.
 2. **Raise upstream: a second compilation of the Act** (the one before 48, and the transitional
    provisions), so `versions.select` can choose between texts.
 3. **Customer slice, widening** (no gate needed while fictional): more tests (s 42, s 39, s 41's
@@ -66,7 +55,8 @@ end of S045.
 
 ## For the owner
 
-- **The redesign is on the branch, not live.** Merging is yours; so is anything outward-facing.
+- **The what-if is on the branch, not live.** Merging is yours; so is saying anything about
+  geographical indications outside the repository.
 - **OQ-0030: approve or reject RULE-0003** (what rests on each source). Nothing is blocked.
 - **A decision when you want it: should the answering model see a reached structured test?**
   (unchanged since S043; recommended, with the test stamped in the prompt.)
@@ -76,6 +66,11 @@ end of S045.
   readings (S034); who writes the next benchmark; re-measurement.
 
 ## What to distrust
+
+- **The what-if is one session's reading.** The premise, the five touch points, their "what if"
+  paragraphs and questions are the agent's, unreviewed (ADR-0149). The counts are real but
+  dominated by s 43, which most of the Manual cites; they say what rests on a provision, not how
+  much a new right would change it.
 
 - **The redesign is one session's design.** The site's new prose, the How it works story, the
   Overview's chosen example and every picture's encoding are the agent's; ADR-0148 marks them
@@ -98,6 +93,7 @@ end of S045.
 
 - **`python3 -m pytest`**, about twenty minutes for the full suite (Q-29); install with
   `pip install -e ".[test]"` first or pytest is missing.
+- **Clicking an SVG group in Playwright**: click a shape inside it (Q-106).
 - **Checking the site**: `tmk-fetch-upstream`, `tmk-explorer --write`, then
   `python3 -m http.server -d site 8000`; Playwright via Node as CommonJS (Q-105), Chromium in
   `/opt/pw-browsers`, a fresh page per route (Q-102).
@@ -125,6 +121,9 @@ end of S045.
   dependency index by itself (Q-101).
 
 ## Open items (agent-proposed, provisional)
+
+- **ADR-0149's agent parts** (the `FW-` series, the five touch points and their wording, the page's
+  picture and its place in layer 2).
 
 - **ADR-0148's agent parts** (the header's order and the layers' new names; the visual system and
   its two palettes; light theme only; the Overview's example; How it works' nine steps; the map's

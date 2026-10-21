@@ -15,6 +15,7 @@ import * as ask from "./ask.js";
 import * as customers from "./customers.js";
 import * as change from "./change.js";
 import * as future from "./future.js";
+import * as whatif from "./whatif.js";
 import * as how from "./how.js";
 import * as map from "./map.js";
 import * as rules from "./rules.js";
@@ -25,7 +26,7 @@ import * as about from "./about.js";
 import { goDeeper, navOwner } from "./layers.js";
 import { initTerms } from "./glossary.js";
 
-const VIEWS = { "": home, ask, customers, change, future, how, map, rules, standards, glossary: glossaryView, table, about };
+const VIEWS = { "": home, ask, customers, change, future, whatif, how, map, rules, standards, glossary: glossaryView, table, about };
 /** Routes the site used to have, kept working: the tour and the ontology hub became How it
     works, and "at a glance" became the map's kinds view. */
 const ALIASES = { tour: ["how"], model: ["how"], circles: ["map", "kinds"] };

@@ -167,7 +167,9 @@ exception, a step) has a lowercase id unique within its record (`honest_concurre
 project-wide id. **`FM-` a fictional matter** (`scenarios/matters.yaml`) is a fixture, not
 knowledge: its own series, never in the graph or the shared sequence. **`FS-` a fictional
 amendment** (`scenarios/amendments.yaml`, S045, ADR-0147) is the same: a fixture whose draft
-words are never law, in no graph, index or site. A withdrawn id is listed with its reason — signed ones in
+words are never law, in no graph, index or site. **`FW-` a what-if** (`scenarios/what-if.yaml`,
+S047, ADR-0149) is a fixture too: an invented new right laid over the ontology, in no graph or
+index; the site's what-if page shows it, stamped, and it changes no record. A withdrawn id is listed with its reason — signed ones in
 `eval/gold/retired-ids.yaml`, authored ones in `authored/retired-ids.yaml` — and
 `bulk.jobs.next_number` counts both ledgers, the corrections, the definitions, the legal tests and
 the process templates before allocating.

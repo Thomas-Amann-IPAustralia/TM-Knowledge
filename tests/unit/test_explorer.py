@@ -123,7 +123,7 @@ def files():
 @needs_snapshot
 def test_every_file_is_built(files):
     assert set(files) == {"build.json", "ontology.json", "search.json", "passages.json", "stability.json",
-                          "tour.json", "examples.json", "chat.json", "live.json", "explain.json"}
+                          "tour.json", "examples.json", "chat.json", "live.json", "explain.json", "whatif.json"}
 
 
 @needs_snapshot

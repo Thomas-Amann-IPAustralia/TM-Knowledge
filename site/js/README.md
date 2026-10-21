@@ -1,7 +1,7 @@
 # site/js/: the explorer's modules
 
 Plain ES modules, loaded by `../index.html` through `app.js`. One module per view: `home`,
-`ask`, `customers`, `change`, `future`, `how`, `map`, `rules`, `standards`, `glossary-view`,
+`ask`, `customers`, `change`, `future`, `whatif`, `how`, `map`, `rules`, `standards`, `glossary-view`,
 `table` and `about`. Shared by them: `app.js` (router, data, the shared helpers and the passage
 drawer), `layers.js` (the four layers and the card at the foot of each page, ADR-0145),
 `glossary.js` (every term explained, and `term()`), `diagrams.js` (a legal test drawn as a

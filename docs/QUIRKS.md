@@ -1778,3 +1778,11 @@ the skip link off screen, both as intended. And the map places its names by thei
 once on a canvas: measured before the web font loads, every width is the fallback font's and names
 overlap a little. `map.js` waits for `document.fonts.ready` first; keep that wait if the measuring
 moves.
+
+### Q-106: Playwright cannot click an SVG `<g>` whose middle is empty
+
+Driving the what-if page (and any picture whose groups pair a shape with a label below it),
+`page.click('g.selector')` times out with "svg intercepts pointer events": Playwright clicks the
+centre of the group's bounding box, which falls in the gap between the mark and its text. Click a
+shape inside the group instead (`'.wi-prov[data-ref="TMA1995/s61"] path'`); the page's own handler
+finds the group with `closest()`.
