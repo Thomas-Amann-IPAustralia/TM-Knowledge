@@ -40,26 +40,24 @@ export async function render(root) {
     <header class="wrap page-head">
       <div>
         <span class="eyebrow">Under the hood · the standards</span>
-        <h1>What the graph is written in</h1>
-        <p class="lede">The ontology is stored in open standards, so any compatible tool can read it, check it and query it, and nothing
-        depends on this site. Each is explained in the same three parts: what it is in plain words, what it does here (with a real example
-        from this build), and what it is not. No technical knowledge is assumed.</p>
+        <h1>How the knowledge map stores information</h1>
+        <p class="lede">The map uses open standards so other tools can read and check the same records. Choose a standard to see what it does and an example from this project.</p>
       </div>
     </header>
 
     <div class="wrap">
       <figure class="card sd-stack" aria-label="How the standards fit together; select one to read about it">
-        <div class="sd-layer top">${block("json", "JSON", "the files this site reads, written from the graph on every publish")}</div>
-        <div class="sd-layer two">${block("sparql", "SPARQL", "questions to the graph, and the rules that draw conclusions")}${block("shacl", "SHACL", `${fmt(shapes)} checks every build must pass`)}</div>
-        <div class="sd-layer two">${block("skos", "SKOS", "names for ideas, and which is a kind of which")}${block("prov-o", "PROV-O", "who made each record, from what, and when")}</div>
+        <div class="sd-layer top">${block("json", "JSON", "files the browser reads when you open the site")}</div>
+        <div class="sd-layer two">${block("sparql", "SPARQL", "searches the records and runs rules")}${block("shacl", "SHACL", `${fmt(shapes)} checks every build must pass`)}</div>
+        <div class="sd-layer two">${block("skos", "SKOS", "names for ideas and links to broader terms")}${block("prov-o", "PROV-O", "who made each record, from what, and when")}</div>
         <div class="sd-layer">
           <button type="button" class="sd-block sd-graphs-block" data-jump="sd-named-graph"><span class="sd-bk">Named graphs</span>
-            <span class="sd-bt">four compartments that never mix, drawn to scale</span>
+            <span class="sd-bt">four separate groups of statements that never mix, sized by count</span>
             <span class="sd-split">${compartments.map(([key, [label]]) => `<span class="sd-part ${key}" style="flex:${graphs[key].triples}">
               <b>${esc(label)}</b><span>${fmt(graphs[key].triples)}</span></span>`).join("")}</span></button>
         </div>
         <div class="sd-layer base">${block("rdf", "RDF triples, named by IRIs", `${fmt(triples)} three-part statements: a thing, a relationship, another thing`, "sd-rdf")}</div>
-        <div class="sd-aside"><span class="tiny">Set aside, on purpose:</span>${block("owl", "OWL", "no profile claimed")}${block("legalruleml", "LegalRuleML", "deferred")}</div>
+        <div class="sd-aside"><span class="tiny">Considered and set aside:</span>${block("owl", "OWL", "no profile claimed")}${block("legalruleml", "LegalRuleML", "deferred")}</div>
       </figure>
 
       ${standard("rdf", "RDF and triples: facts as three-part statements", {
@@ -80,7 +78,7 @@ export async function render(root) {
         not: "Not a live web page: nothing is published at those addresses and nothing fetches them. Which address the project may use is still the project owner's decision.",
       })}
 
-      ${standard("named-graph", "Named graphs: four compartments that never mix", {
+      ${standard("named-graph", "Named graphs keep statements apart by who or what produced them", {
         here: `<p>Every statement is filed in one of four compartments, so a question that asks only for what a person approved cannot reach
           what a machine wrote:</p>
           <div class="sd-comps">${compartments.map(([key, [label, text]]) => `<div class="sd-comp ${key}"><i></i><div><b>${esc(label)}</b>
@@ -91,7 +89,7 @@ export async function render(root) {
         not: "Not a permission system: anyone with the files can read every compartment. What it guarantees is that a statement's origin is never lost or merged.",
       })}
 
-      ${standard("skos", "SKOS: names for ideas, and which is a kind of which", {
+      ${standard("skos", "SKOS: names for ideas and links to broader terms", {
         here: `<p>Each idea has one preferred name, the other names it goes by, and its “is a kind of” links, written with ${term("skos")}. The
           idea <i>deceptively similar</i>, as the graph writes those parts:</p>
           ${turtle({ ...concept, lines: skosLines })}
@@ -99,17 +97,17 @@ export async function render(root) {
         not: "Not a dictionary of legal meanings: a SKOS definition here is a machine-written record, stamped as unreviewed, and the Act's own definitions are quoted, never replaced.",
       })}
 
-      ${standard("shacl", "SHACL: checks the graph must pass", {
+      ${standard("shacl", "SHACL checks the structure of records", {
         here: `<p>Written checks, like a form's validation rules, run on every build. There are <b>${fmt(shapes)}</b>:</p>
           <div class="sd-bars">${Object.entries(checks.shapes).map(([name, n]) => `<div class="sd-barrow"><span>${esc(name)}</span>
             <span class="sd-bar"><i style="width:${(100 * n) / Math.max(...Object.values(checks.shapes))}%"></i></span><b>${fmt(n)}</b></div>`).join("")}</div>
           <p>For example: every machine-written record must name its author, date, evidence and review status; every part of a legal test must
           quote its source and say whether it is law or practice. A single defect fails the build, and every check has a deliberately broken
           example that must fail it.</p>`,
-        not: "Not a check that the law has been read correctly. It checks that every record is complete and honest about its origin; whether its reading is right is for an expert.",
+        not: "Automated checks can find missing fields or sources. A trade marks expert must judge whether a record interprets the law correctly.",
       })}
 
-      ${standard("sparql", "SPARQL and rules: asking the graph, and drawing approved conclusions", {
+      ${standard("sparql", "SPARQL searches the map and runs rules", {
         here: `<p>${term("sparql")} is the graph's query language, as SQL is a table's. It answers the
           ${fmt(approved.CompetencyQuestion || 0)} approved competency questions (questions the ontology must be able to answer), and it runs the
           ${term("inference-rule", "inference rules")}, each a query that writes its conclusions into the “what a rule concluded” compartment:</p>
@@ -119,14 +117,14 @@ export async function render(root) {
         not: "Not open-ended reasoning: only rules a person approved produce conclusions that may be relied on, and each states its own limits.",
       })}
 
-      ${standard("prov-o", "PROV-O: who made what, from what, and when", {
+      ${standard("prov-o", "PROV-O describes where a record came from", {
         here: `<p>The model's record of origin builds on ${term("prov-o")}: a record is a kind of PROV entity, and “derived from” is PROV's own
           relationship, so a PROV-aware tool understands where each record came from. In the statements themselves this appears as the lines
           above: <code>tmk:authoredBy</code>, <code>tmk:authoredDate</code>, <code>tmk:evidence</code>, <code>tmk:reviewStatus</code>.</p>`,
         not: "Not a log of every edit. It records what each record rests on and who wrote it; the history of changes is in the repository.",
       })}
 
-      ${standard("json", "JSON: how this site reads it", {
+      ${standard("json", "JSON delivers records to your browser", {
         here: `<p>This site does not query the graph directly. On every publish, the same records are written as ${term("json")} files that the
           browser reads: the ontology, the passages, the search index, the prepared answers, the customer preview and a release manifest
           (built ${esc(build.generated || "")} from revision <code>${esc((build.revision || "").slice(0, 12))}</code>). The release manifest names the
@@ -135,7 +133,7 @@ export async function render(root) {
         not: "Not a second source of truth: every JSON file is regenerated from the repository's records and is never edited by hand.",
       })}
 
-      ${standard("owl", "OWL: why no OWL profile is claimed", {
+      ${standard("owl", "OWL: why the project does not run automatic reasoning", {
         here: `<p>${term("owl")} lets a program draw logical conclusions automatically from class definitions. This model deliberately does not
           rely on it. Some OWL words label properties, but no OWL profile is claimed and no automatic OWL reasoning is run, because an unchecked
           machine conclusion about law could be mistaken for a fact. The release manifest says so in its own words:</p>
@@ -143,7 +141,7 @@ export async function render(root) {
         not: "Not a gap to be filled quietly. Claiming a profile, or running a reasoner, would be a recorded decision with its own checks.",
       })}
 
-      ${standard("legalruleml", "LegalRuleML: deferred", {
+      ${standard("legalruleml", "Why the project has set LegalRuleML aside", {
         here: `<p>${term("legalruleml")} writes laws as executable rules, including exceptions that override one another. It is deferred: the
           legal tests on <a href="#/rules">Rules as code</a> are structured data that explain what a provision requires, not rules that run to a result.</p>`,
         not: "Not ruled out for ever; ruled out while the system must never state an examination outcome.",
@@ -167,7 +165,7 @@ function standard(key, title, { here, not }) {
     <div class="sd-left">
       <h2>${esc(title)}</h2>
       <p class="sd-plain">${esc(entry.plain)}</p>
-      <div class="sd-not"><span class="sd-k">What it is not</span><p class="small">${esc(not)}</p></div>
+      <div class="sd-not"><span class="sd-k">Scope and limits</span><p class="small">${esc(not)}</p></div>
       <p class="tiny">Technically: ${esc(entry.technical)}</p>
     </div>
     <div class="sd-here"><span class="sd-k">What it does here</span>${here}</div>

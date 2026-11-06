@@ -20,7 +20,7 @@ const COLS = 60, CELL = 7.6, PITCH = 9, GRID_Y = 186, VH = 590;
 export async function render(root, { ontology, params }) {
   const [tour, examples, search, build] = await Promise.all([load("tour"), load("examples"), load("search"), load("build")]);
   const ex = tour.example;
-  if (!ex) { root.innerHTML = `<div class="wrap section"><h1>How it works</h1><p class="muted">This build carries no worked example.</p></div>`; return; }
+  if (!ex) { root.innerHTML = `<div class="wrap section"><h1>How it works</h1><p class="muted">This version has no example to show.</p></div>`; return; }
   const c = ontology.counts;
   const byId = new Map(ontology.concepts.map((x) => [x.id, x]));
   const answer = examples.answers.find((a) => a.key === ex.key);
@@ -36,38 +36,34 @@ export async function render(root, { ontology, params }) {
   const only = new Set(ex.only_ontology_relevant);
 
   const STEPS = [
-    { k: "The starting point", h: "It starts with text", p: `The Trade Marks Manual is ${fmt(tour.passages)} passages of practice across ${fmt(tour.parts.length)} Parts, written for people to read.
-      Beside it sit the <i>Trade Marks Act 1995</i> and the <i>Trade Marks Regulations 1995</i>: the law. A plain search box sees only this: words in passages.`,
+    { k: "The starting point", h: "What does the tool search?", p: `This version includes ${fmt(tour.passages)} passages from ${fmt(tour.parts.length)} parts of IP Australia’s Trade Marks Manual of Practice and Procedure. The Manual explains examination practice. The <i>Trade Marks Act 1995</i> and <i>Trade Marks Regulations 1995</i> set out the law.`,
       note: "Each square is one passage, in reading order, shaded by Part. Point at one to see which; click to read it." },
-    { k: "A question", h: "Someone asks, in everyday words", p: `“${esc(ex.question)}” Keyword search looks for those words and ranks the passages that contain them. Its top ten
-      for this question are marked. It has no idea what the words mean: a passage that says the same thing in other words is invisible to it.`,
-      note: "This is one of the test questions the search was measured on." },
-    { k: "Words to ideas", h: "Words are matched to ideas", p: showcase
-      ? `The ontology knows that “${esc(idea.matched || idea.label)}” names an idea: <b>${esc(idea.label)}</b>. The Manual names that idea in ${fmt(Object.keys(showcase.wordings).length)} ways across
+    { k: "A question", h: "What does keyword search find?", p: `“${esc(ex.question)}” Keyword search looks for those words and ranks the passages that contain them. Its top ten
+      for this question are marked. Keyword search can miss a relevant passage if it uses different words.`,
+      note: "We used this question when we tested the search." },
+    { k: "Words to ideas", h: "Which words refer to the same idea?", p: showcase
+      ? `The map records that “${esc(idea.matched || idea.label)}” names an idea: <b>${esc(idea.label)}</b>. The Manual names that idea in ${fmt(Object.keys(showcase.wordings).length)} ways across
         ${fmt(showcase.total)} passages; a search for the formal term alone misses ${fmt(showcase.missed)}. Each wording is recorded once, on the idea, so every one of those passages is linked to it.`
-      : `The ontology knows that “${esc(idea?.matched || idea?.label || "")}” names an idea: <b>${esc(idea?.label || "")}</b>. Every wording of an idea is recorded once, on the idea, so every passage that names it is linked to it, whatever words it uses.`,
+      : `The map records that “${esc(idea?.matched || idea?.label || "")}” names an idea: <b>${esc(idea?.label || "")}</b>. Every wording of an idea is recorded once, on the idea, so every passage that names it is linked to it, whatever words it uses.`,
       note: "Coloured squares name the idea; the darker ones use its formal name." },
-    { k: "Connections", h: "Ideas are connected, and say how", p: path ? `Each idea is joined to others, and every connection says what it means and quotes the sentence it rests on. Here,
+    { k: "Connections", h: "How does one idea lead to another?", p: path ? `Each link describes a relationship and quotes the source sentence. Here,
       <b>${esc(path.subject_label)}</b> <i>${esc(ontology.predicates[path.predicate]?.label || path.predicate)}</i> <b>${esc(path.object_label)}</b>${path.applies_when ? `, but only when ${esc(path.applies_when)}` : ""}.
-      The condition travels with the connection${path.modality ? `, and so does the word its sentence uses (“${esc(path.modality)}”)` : ""}: a “may” never becomes a “must”.` : "Each idea is joined to others, and every connection says what it means and quotes the sentence it rests on.",
+      The link keeps the condition in the source${path.modality ? ` and its wording (“${esc(path.modality)}”)` : ""}, so a “may” never becomes a “must”.` : "Each link describes a relationship and quotes the source sentence.",
       note: "Machine-written and unreviewed, like most connections; its card says so wherever it is shown." },
-    { k: "Guidance the words miss", h: "Connections find guidance the words miss", p: `Following the connection, the search adds the passages that name the connected ideas, and merges them with the keyword
+    { k: "Guidance the words miss", h: "What did the map add to the results?", p: `Following the connection, the search adds the passages that name the connected ideas, and merges them with the keyword
       results. On this question its top ten held <b>${fmt(only.size)} relevant passages</b> that neither keyword search nor search by meaning had in theirs.`,
       note: `One question, chosen because it shows this most clearly. Across all ${fmt(examples.answers.length)} test questions the picture is mixed: better than keyword search, not better than search by meaning.` },
-    { k: "The shape of the law", h: "The law has a shape, and it is written down", p: s43 ? `The ground the connection led to is also written as a structured test: who acts, its conditions joined by
-      <i>all of</i> and <i>any of</i>, and what follows. Both of its conditions are a person's assessment, so the system shows them and never computes them. Writing rules down this
-      way is ${term("rules-as-code", "rules as code")}.` : "",
+    { k: "The legal test", h: "What must an examiner consider?", p: s43 ? `The diagram shows the conditions in section 43 and what follows if they apply. Both conditions require a person’s judgement: the system shows them and never makes them. Writing a rule down in a structured form a computer can read is called ${term("rules-as-code", "rules as code")}.` : "",
       note: "It explains what a provision requires; nothing here applies it to an application." },
-    { k: "The answer", h: "A cited answer, law and practice apart", p: `A language model writes an answer from those passages only. Every claim carries its quotes, each checked word for word against
-      the passage, and the answer keeps the Manual's practice apart from the Act's law. It declines to say how an application would be decided.`,
+    { k: "The answer", h: "Where did the answer come from?", p: `AI uses the selected passages to draft an answer. The tool checks whether quotations match the source text and labels law separately from examination guidance. It will not say how an application would be decided.`,
       note: "Written by a machine and not reviewed by a trade marks expert; the answer says so." },
-    { k: "Underneath", h: "Underneath: a map of what it all means", p: `All of this rests on ${fmt(concepts)} ideas in ${fmt(kinds)} kinds and three families, joined by ${fmt(relations)} connections,
+    { k: "Underneath", h: "Where do these ideas fit on the map?", p: `All of this rests on ${fmt(concepts)} ideas in ${fmt(kinds)} kinds and three families, joined by ${fmt(relations)} connections,
       each tied to the text it comes from. That map is the ${term("ontology")}. The ideas from this question are marked on it.`,
       note: "", cta: `<a class="btn primary" href="#/map">Explore the knowledge map ${icon("arrow")}</a>` },
-    { k: "Trust", h: "Honest about who wrote it", p: `Most of the map was written by a machine and has not been reviewed by a trade marks expert. Every record says so wherever it appears,
+    { k: "Trust", h: "Who wrote and reviewed the records?", p: `Most of the map was written by a machine and has not been reviewed by a trade marks expert. Every record says so wherever it appears,
       and none becomes approved by being left alone. It is stored in open standards (${term("rdf", "RDF")}, ${term("skos", "SKOS")}, ${term("shacl", "SHACL")},
       ${term("sparql", "SPARQL")}, ${term("prov-o", "PROV-O")}), so any compatible tool can read it, check it and query it.`,
-      note: "", cta: `<a class="btn primary" href="#/standards">The standards, in plain words ${icon("arrow")}</a><a class="btn" href="#/about">Where it stands</a>` },
+      note: "", cta: `<a class="btn primary" href="#/standards">The standards, in plain words ${icon("arrow")}</a><a class="btn" href="#/about">Results and limits</a>` },
   ];
 
   root.innerHTML = `
@@ -75,9 +71,8 @@ export async function render(root, { ontology, params }) {
     <header class="wrap page-head">
       <div>
         <span class="eyebrow">How it works</span>
-        <h1>Follow one question through the system</h1>
-        <p class="lede">The ontology is a means to an end: it is what lets the tools above find, explain and trace. Scroll to watch one real test
-        question go through it, from the words someone types to the map of ideas underneath.</p>
+        <h1>How the tool finds an answer</h1>
+        <p class="lede">Follow an example question from the first keyword match to the passages used in the answer. Scroll to see what changes at each step.</p>
       </div>
       <div class="page-head-side"><a class="btn" href="#/map">${icon("connect")} Skip to the knowledge map</a></div>
     </header>
@@ -113,15 +108,15 @@ export async function render(root, { ontology, params }) {
       </div>
     </div>
     <section class="wrap hw-deeper" aria-labelledby="hw-d">
-      <div class="sec-head"><div><span class="eyebrow">Go deeper</span><h2 id="hw-d">Every part, in as much detail as you want</h2></div>
-        <p>Each of these shows the same records from another side. None is needed to use the tools; all are there to check them.</p></div>
+      <div class="sec-head"><div><span class="eyebrow">Go deeper</span><h2 id="hw-d">Explore the records behind this example</h2></div>
+        <p>Open the map, tables or technical notes to check a record for yourself.</p></div>
       <div class="grid-3">
         ${door("#/map", "connect", "The knowledge map", `Every idea and connection, drawn. Select one to read its card: its names, definition, connections and the passages it rests on.`)}
         ${door("#/rules", "scale", "Rules as code", `How connections keep their force, how a provision becomes a structured test, and how every rule is checked on each build.`)}
         ${door("#/standards", "layers", "The standards", `RDF, SKOS, SHACL, SPARQL and PROV-O, each in plain words with a real block of this build, and why no OWL profile is claimed.`)}
         ${door("#/glossary", "book", "Glossary", `Every term the site uses, in plain words, what it does here, and what it is called technically.`)}
         ${door("#/table", "grid", "Data tables", `The kinds, ideas, connections, legal tests and processes as tables, with who wrote each row, and a download of each.`)}
-        ${door("#/about", "shield", "Where it stands", `The measurement in both directions, the decisions ahead and whose they are, the release manifest and the limits.`)}
+        ${door("#/about", "shield", "Results and limits", `The measurement in both directions, the decisions ahead and whose they are, the release manifest and the limits.`)}
       </div>
     </section>
   </div>`;
@@ -179,7 +174,7 @@ export async function render(root, { ontology, params }) {
   }
   function quoteFor(record) {
     const r = ontology.relations.find((x) => x.id === record);
-    return r?.quote ? `<blockquote class="quote ${srcClass(r.ref)}" data-src="The sentence it rests on">${esc(r.quote)}</blockquote>${refChip(r.ref)} <span class="trust ${r.origin === "signed" ? "reviewed" : "machine"}">${r.origin === "signed" ? "Reviewed" : "Machine · unreviewed"}</span>` : "";
+    return r?.quote ? `<blockquote class="quote ${srcClass(r.ref)}" data-src="Source sentence">${esc(r.quote)}</blockquote>${refChip(r.ref)} <span class="trust ${r.origin === "signed" ? "reviewed" : "machine"}">${r.origin === "signed" ? "Expert reviewed" : "AI-written · unreviewed"}</span>` : "";
   }
 
   const cmp = root.querySelector(".L-cmp");
@@ -187,23 +182,23 @@ export async function render(root, { ontology, params }) {
     data-tip="${esc(`<b>${esc(refLabel(ref))}</b><span class="tip-s">graded ${["not relevant", "marginal", "relevant", "highly relevant"][g ?? 0]} by a model${mark && only.has(ref) ? "; found through the connection" : ""}</span>`)}" aria-label="${esc(refLabel(ref))}"></button>`).join("");
   cmp.innerHTML = `<div class="hw-cmpcard"><div class="hm-rows">
       <span class="hm-rowlab">Keyword search</span><span class="hm-sqs">${squares(ex.keyword, false)}</span>
-      <span class="hm-rowlab"><b>With the connections</b></span><span class="hm-sqs">${squares(ex.ontology, true)}</span></div>
-    <p class="hw-cmpnote"><span class="hm-grades"><i class="hm-sq g3"></i>highly relevant<i class="hm-sq g2"></i>relevant<i class="hm-sq g1"></i>marginal<i class="hm-sq g0"></i>not</span>
-      Top-ten quality on this question, out of 100: keyword ${Math.round(ex.ndcg.keyword * 100)}, by meaning ${Math.round(ex.ndcg.hybrid * 100)}, with the ontology ${Math.round(ex.ndcg.ontology * 100)}.</p>
+      <span class="hm-rowlab"><b>Using the knowledge map</b></span><span class="hm-sqs">${squares(ex.ontology, true)}</span></div>
+    <p class="hw-cmpnote"><span class="hm-grades"><i class="hm-sq g3"></i>highly relevant<i class="hm-sq g2"></i>relevant<i class="hm-sq g1"></i>marginal<i class="hm-sq g0"></i>not relevant</span>
+      Ranking scores for this question (out of 100): keyword ${Math.round(ex.ndcg.keyword * 100)}, by meaning ${Math.round(ex.ndcg.hybrid * 100)}, map-guided ${Math.round(ex.ndcg.ontology * 100)}.</p>
     <p class="hw-gridkey"><span><i class="c-idea"></i>names ${esc(idea?.label || "the idea")}</span>${path ? `<span><i class="c-conn"></i>names ${esc(path.object_label)}</span>` : ""}<span><i class="c-onto"></i>in the guided top ten</span><span><i class="c-only"></i>found only through the connection</span></p></div>`;
 
   const test = root.querySelector(".L-test");
   if (s43) test.innerHTML = `<div class="hw-testcard"><p class="hw-t-title"><b>${esc(s43.title)}</b> ${refChip(s43.provision)}</p>
     <div class="hw-t-if"><span class="dg-lab">If</span>${conditionBoxes(s43.condition)}</div>
     <div class="hw-t-if"><span class="dg-lab">Then</span>${effectCard(s43.effect.kind, s43.effect.text, s43.effect.ref)}</div>
-    <p class="tiny"><span class="trust machine">Machine · unreviewed</span> ${esc(s43.id)}: a structured reading of the provision.</p></div>`;
+    <p class="tiny"><span class="trust machine">AI-written · unreviewed</span> ${esc(s43.id)}: a structured reading of the provision.</p></div>`;
 
   const ans = root.querySelector(".L-ans");
   if (answer) {
     const claims = (answer.claims || []).filter((x) => x.supported).slice(0, 3);
     const cites = answer.citations || [];
     const n = (src) => cites.filter((x) => sourceOf(x.ref) === src).length;
-    ans.innerHTML = `<div class="hw-anscard"><div class="row spread"><b class="hw-a-h">Answer</b><span class="trust machine">Machine · unreviewed</span></div>
+    ans.innerHTML = `<div class="hw-anscard"><div class="row spread"><b class="hw-a-h">Answer</b><span class="trust machine">AI-written · unreviewed</span></div>
       ${claims.map((cl) => `<div class="hw-claim"><p>${esc(cl.text.length > 190 ? `${cl.text.slice(0, 188).replace(/\s+\S*$/, "")} …` : cl.text)}</p><p>${cl.quotes.slice(0, 2).map((q) => refChip(q.ref)).join(" ")}</p></div>`).join("")}
       <div class="hw-a-foot"><span class="manual"><i class="mark"></i></span>${fmt(n("manual"))} quotes from the Manual · practice <span class="law act"><i class="mark"></i></span>${fmt(n("act"))} from the Act · law
         <a class="link-arrow" href="#/ask/${esc(ex.key)}">The whole answer ${icon("arrow")}</a></div></div>`;
@@ -215,7 +210,7 @@ export async function render(root, { ontology, params }) {
   trust.innerHTML = `<div class="hw-trustcard"><p class="hw-tr-h">Written by a machine, not yet reviewed</p>
     ${bar("Ideas", c.concepts.machine, concepts)}${bar("Connections", c.relations.machine, relations)}${bar("Definitions", c.definitions, c.definitions)}
     ${bar("Tests and processes", c.tests + c.processes, c.tests + c.processes)}${bar("Prepared answers", examples.answers.length, examples.answers.length)}
-    <p class="tiny">The rest were reviewed by a trade marks expert, and say so quietly.</p>
+    <p class="tiny">A trade marks expert reviewed the remaining records.</p>
     ${sample?.lines?.length ? `<p class="hw-tr-h" style="margin-top:18px">The same record, as the graph stores it</p><pre class="hw-turtle">${esc(sample.lines.slice(0, 7).join("\n"))}\n  …</pre>` : ""}</div>`;
 
   // ---------------------------------------------------------------- the whole map, small

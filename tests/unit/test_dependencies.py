@@ -81,4 +81,6 @@ def test_an_absence_is_worded_as_no_recorded_dependency():
 
     assert "no recorded dependency" in inspect.getsource(build.provision_impact)
     change = (REPO_ROOT / "site" / "js" / "change.js").read_text(encoding="utf-8")
-    assert "no recorded dependency, which is not the same as no impact" in change
+    # An empty result is never read as "no impact" (plain-English copy pass, 2026-11-06).
+    assert 'sub: "no recorded dependency"' in change
+    assert "We found no record that cites this provision" in change and "A change could still affect other guidance." in change

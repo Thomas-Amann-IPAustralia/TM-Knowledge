@@ -12,9 +12,9 @@ import { esc, refChip, srcBadge } from "./app.js";
 export const EFFECT_WORD = { obligation: "must", discretion: "may", bar: "may not" };
 export const EFFECT_NAME = { obligation: "an obligation", discretion: "a discretion", bar: "a bar" };
 const LEAF = { fact: "Fact", evaluative: "Assessment" };
-const LEAF_LONG = { fact: "a fact about the application or the other trade mark", evaluative: "a person's assessment, never computed" };
+const LEAF_LONG = { fact: "a fact about the application or the other trade mark", evaluative: "a judgement a person must make" };
 /** A recorded state, by a mark and a word as well as a colour. */
-export const STATE = { met: ["✓", "recorded as met"], not_met: ["✗", "recorded as not met"], open: ["?", "not established from the available facts"] };
+export const STATE = { met: ["✓", "recorded as met"], not_met: ["✗", "recorded as not met"], open: ["?", "too little information to tell"] };
 
 const joinOf = (node) => (node.all ? "all" : node.any ? "any" : node.kind === "all" || node.kind === "any" ? node.kind : null);
 const childrenOf = (node) => node.all || node.any || node.children || [];
@@ -70,8 +70,8 @@ export function conditionText(node, depth = 1, { states = false } = {}) {
 
 /** The key to the leaves and the joins, said once above a test. */
 export const conditionKey = () => `<div class="dg-keyline">
-  <span><span class="dg-kind dg-fact"><i aria-hidden="true"></i>Fact</span> something a record can settle, such as a date</span>
-  <span><span class="dg-kind dg-evaluative"><i aria-hidden="true"></i>Assessment</span> a person's judgement, shown and never computed</span>
+  <span><span class="dg-kind dg-fact"><i aria-hidden="true"></i>Fact</span> something the case record can confirm, such as a filing date</span>
+  <span><span class="dg-kind dg-evaluative"><i aria-hidden="true"></i>Assessment</span> a judgement that a person makes</span>
   <span><b class="dg-op inline">and</b> all must hold <b class="dg-op inline">or</b> any one is enough</span></div>`;
 
 /** The effect of a test or an exception: its modal word, large, then what follows. */

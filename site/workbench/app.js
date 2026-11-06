@@ -112,9 +112,9 @@ function paintNav(current) {
 function paintFoot() {
   footEl.innerHTML =
     `<span>Generated ${escape(site.generated)} from the repository.</span>` +
-    `<span>Upstream corpus pinned at <code>${escape(site.pin.short)}</code> · ` +
+    `<span>Source version <code>${escape(site.pin.short)}</code> · ` +
     `${escape(site.pin.manual_version)}, ${escape(site.pin.legislation_version)}.</span>` +
-    `<a href="${escape(site.repo)}">The repository</a>`;
+    `<a href="${escape(site.repo)}">Project files</a>`;
   decorate(footEl);
 }
 
@@ -132,9 +132,9 @@ async function route() {
     data = await load(page);
   } catch (error) {
     view.innerHTML =
-      `<div class="page-head"><h1>That page did not load</h1>` +
+      `<div class="page-head"><h1>We couldn’t load this page</h1>` +
       `<p class="lede">${escape(error.message)}. The site reads generated files from ` +
-      `<code>site/data/</code>; if you are running it locally, build them with ` +
+      `<code>site/workbench/data/</code>; if you are running it locally, build them with ` +
       `<code>tmk-dashboard --write</code> and serve the directory over HTTP.</p></div>`;
     return;
   }

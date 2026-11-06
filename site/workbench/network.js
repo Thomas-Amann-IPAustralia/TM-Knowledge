@@ -868,10 +868,10 @@ export function renderNetwork(block, context = {}) {
       (envelope.confidence != null ? ` · confidence ${escape(envelope.confidence)}` : "") +
       ` · <strong>${escape(envelope.review_status || "unknown")}</strong></p>` +
       (envelope.reasoning ? `<p>${escape(envelope.reasoning)}</p>` : "") +
-      (evidence ? `<h4>The passages it rests on</h4><ul class="evidence">${evidence}</ul>` : "") +
-      (alternatives ? `<h4>Readings it rejected</h4><ul>${alternatives}</ul>` : "") +
+      (evidence ? `<h4>Source passages</h4><ul class="evidence">${evidence}</ul>` : "") +
+      (alternatives ? `<h4>Other interpretations considered</h4><ul>${alternatives}</ul>` : "") +
       (envelope.expert_should_check
-        ? `<h4>What it most expects to have got wrong</h4><p>${escape(envelope.expert_should_check)}</p>`
+        ? `<h4>What an expert should check</h4><p>${escape(envelope.expert_should_check)}</p>`
         : "") +
       `</details>`
     );
@@ -1187,7 +1187,7 @@ function shell(data) {
 </div>
 <div class="viz-controls">
   <label class="field"><span>Find</span>
-    <input type="search" data-search placeholder="a label, or an id like GC-0043" list="viz-terms">
+    <input type="search" data-search placeholder="Name or ID, for example GC-0043" list="viz-terms">
   </label>
   <datalist id="viz-terms">${data.nodes
     .map((node) => `<option value="${escape(node.label)}"></option>`)
@@ -1228,7 +1228,7 @@ open what it is joined to · drag the background to pan, scroll to zoom</p>
   <th>Who wrote it</th><th>Edges</th></tr></thead><tbody>${rows}</tbody></table></div>
 </details>
 <details class="viz-table">
-  <summary>What each kind of edge means</summary>
+  <summary>What each type of link means</summary>
   <ul class="key-list">${kinds}</ul>
 </details>`;
 }

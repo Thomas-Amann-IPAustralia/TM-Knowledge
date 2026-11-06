@@ -97,7 +97,7 @@ async function respond(live, request, signal, onText = null) {
     // fetch rejects only when no reply came back at all ("Failed to fetch"): the
     // request was stopped on the way. A wrong key, model or credit is a reply,
     // with OpenAI's own message, and is reported below.
-    throw new Error(`your browser could not reach the model service (${host}) — the request was stopped before it arrived, so no reply came back. Work networks and some browser extensions block this address; on another network it may work`);
+    throw new Error(`your browser could not connect to the answer service (${host}). Some work networks and browser extensions block this address. Try another network, or choose a saved example`);
   }
   if (!response.ok) {
     const data = await response.json().catch(() => ({}));

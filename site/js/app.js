@@ -64,10 +64,10 @@ export const kindCount = (ontology) => ontology.kinds.filter((k) => k.family !==
 /** The three families of idea and their colours: what the law asks, what it is asked about, and
     the process around them. An idea is drawn in its family's colour; its kind is named. */
 export const FAMILIES = {
-  reasoning: { label: "The law's questions", short: "Law's questions", colour: "var(--f-reasoning)", ink: "var(--f-reasoning-ink)", bg: "var(--f-reasoning-bg)" },
-  examined: { label: "What they are asked about", short: "What is examined", colour: "var(--f-examined)", ink: "var(--f-examined-ink)", bg: "var(--f-examined-bg)" },
-  process: { label: "The process around them", short: "The process", colour: "var(--f-process)", ink: "var(--f-process-ink)", bg: "var(--f-process-bg)" },
-  other: { label: "Fits none of the kinds", short: "Other", colour: "var(--f-other)", ink: "var(--f-other-ink)", bg: "var(--f-other-bg)" },
+  reasoning: { label: "Legal questions", short: "Legal questions", colour: "var(--f-reasoning)", ink: "var(--f-reasoning-ink)", bg: "var(--f-reasoning-bg)" },
+  examined: { label: "What examiners assess", short: "What is examined", colour: "var(--f-examined)", ink: "var(--f-examined-ink)", bg: "var(--f-examined-bg)" },
+  process: { label: "Roles, steps and documents", short: "The process", colour: "var(--f-process)", ink: "var(--f-process-ink)", bg: "var(--f-process-bg)" },
+  other: { label: "Other concepts", short: "Other", colour: "var(--f-other)", ink: "var(--f-other-ink)", bg: "var(--f-other-bg)" },
 };
 export const familyOf = (ontology, kind) => ontology.kinds.find((k) => k.id === kind)?.family || "other";
 
@@ -85,7 +85,7 @@ export function sourceOf(ref) {
 export const srcClass = (ref) => (isLaw(ref) ? `law ${sourceOf(ref)}` : "manual");
 
 export const SOURCES = {
-  manual: { name: "Trade Marks Manual", short: "Manual", role: "practice" },
+  manual: { name: "Trade Marks Manual of Practice and Procedure", short: "Manual", role: "practice" },
   act: { name: "Trade Marks Act 1995", short: "Act", role: "law" },
   regs: { name: "Trade Marks Regulations 1995", short: "Regulations", role: "law" },
 };
@@ -148,8 +148,8 @@ export function refChip(ref, extra = "") {
     says so quietly, and is never singled out (ADR-0130). */
 export function trustBadge(origin) {
   return origin === "signed"
-    ? `<span class="trust reviewed" title="A trade marks expert has reviewed this record">Reviewed</span>`
-    : `<span class="trust machine" title="Written by a machine; no expert has reviewed it">Machine · unreviewed</span>`;
+    ? `<span class="trust reviewed" title="A trade marks expert has reviewed this record">Expert reviewed</span>`
+    : `<span class="trust machine" title="AI wrote this record. A trade marks expert has yet to review it.">AI-written · unreviewed</span>`;
 }
 
 /** A state, said in words as well as colour. */
@@ -162,10 +162,10 @@ export function qualifiedLine(r) {
   // A sentence with a conditional word nobody has assessed says so (R07): absent a condition,
   // it may still hold only in some cases.
   const unknown = r.condition === "not_assessed"
-    ? `<p class="tiny">Its sentence has a conditional word (if, where, unless, when, except) that no one has assessed yet.</p>` : "";
+    ? `<p class="tiny">The source includes a word such as “if” or “unless”. No one has checked what condition it sets.</p>` : "";
   if (!r.when && !r.hedge) return unknown;
   const parts = [r.when ? `only when “${esc(r.when)}”` : "", r.hedge ? `stated as “${esc(r.hedge)}”` : ""].filter(Boolean);
-  return `<p class="small"><b>Only as the source qualifies it:</b> ${parts.join("; ")}</p>`;
+  return `<p class="small"><b>Limits in the source:</b> ${parts.join("; ")}</p>`;
 }
 
 /** A concept's definition: its own machine-written record (ADR-0137), stamped as such, and
@@ -176,9 +176,9 @@ export function definitionBlock(d) {
   const src = sourceOf(d.ref) === "act" ? "the Act" : sourceOf(d.ref) === "regs" ? "the Regulations" : "the Manual";
   const own = src === "the Regulations" ? "the Regulations'" : `${src}'s`;
   const whose = d.basis === "statutory_definition" ? `${own} own definition, quoted`
-    : d.basis === "statutory_provision" ? `written from ${src}` : "written from the Manual, which states practice, not law";
+    : d.basis === "statutory_provision" ? `written from ${src}` : "written from the Manual, which describes practice, not law";
   return `<div class="def-block">
-    <h4>Definition <span class="trust machine" title="Written by a machine; no expert has reviewed it">Machine · unreviewed</span></h4>
+    <h4>Definition <span class="trust machine" title="AI wrote this record. A trade marks expert has yet to review it.">AI-written · unreviewed</span></h4>
     <p>${esc(d.text)}</p>
     ${d.scope_note ? `<p class="tiny"><span class="muted">Scope:</span> ${esc(d.scope_note)}</p>` : ""}
     <p class="tiny">${esc(whose)} ${refChip(d.ref)}</p></div>`;
@@ -193,8 +193,8 @@ export function hierarchyBlock(x, link) {
   const line = (label, items) => items.length
     ? `<p class="small"><span class="muted">${label}</span> ${items.map((i) => `${link(i.id)} ${trustBadge(i.origin)}`).join(" · ")}</p>` : "";
   const records = [...new Set([...h.kind_of, ...h.kinds].flatMap((i) => i.records))].sort();
-  return `<h4>Hierarchy on the record</h4>
-    ${line("A kind of", h.kind_of)}${line("Kinds of it", h.kinds)}
+  return `<h4>Broader and narrower ideas</h4>
+    ${line("Broader idea", h.kind_of)}${line("More specific ideas", h.kinds)}
     <p class="tiny">Stated in the record${records.length === 1 ? "" : "s"} of ${records.map(esc).join(", ")}, not as a connection, so no sentence is cited for it.</p>`;
 }
 
@@ -208,7 +208,7 @@ export function structuresBlock(x, ontology) {
   const all = [...(ontology.structures?.tests || []), ...(ontology.structures?.processes || [])];
   const items = (x.structures || []).map((id) => all.find((r) => r.id === id)).filter(Boolean);
   if (!items.length) return "";
-  return `<h4>In a structured test or procedure</h4>
+  return `<h4>Where this idea appears in a test or procedure</h4>
     <ul class="struct-links">${items.map((r) => `<li><a href="${structureHref(r.id)}">${esc(r.title)}</a> ${trustBadge(r.origin)}</li>`).join("")}</ul>`;
 }
 
@@ -264,14 +264,14 @@ export async function openPassage(ref, { highlight = [], note = "" } = {}) {
     const row = p.chunks.find((c) => c[0] === ref);
     if (!row) {
       d.querySelector(".drawer-title").innerHTML = `<b>${esc(ref)}</b>`;
-      d.querySelector(".drawer-body").innerHTML = `<p class="tiny">This passage is not in the snapshot the site was built from.</p>`;
+      d.querySelector(".drawer-body").innerHTML = `<p class="tiny">This version of the site does not include the passage.</p>`;
       return;
     }
     const page = p.pages[row[1]] || {};
     title = page.title || row[1];
     heading = row[2];
     text = row[3];
-    if (page.url) link = `<a href="${esc(page.url)}" target="_blank" rel="noopener">Open this page in the published Manual ↗</a>`;
+    if (page.url) link = `<a href="${esc(page.url)}" target="_blank" rel="noopener">Read this page in IP Australia’s Manual ↗</a>`;
   }
   let body = esc(text);
   for (const h of highlight.filter((x) => x && x.length > 2).sort((a, b) => b.length - a.length)) {
@@ -338,9 +338,9 @@ async function route() {
       `Built ${build.generated || ""} from the repository and the Manual snapshot ${build.upstream || ""}.`;
   } catch (error) {
     console.error(error);
-    main.innerHTML = `<div class="wrap section"><h2>The site's data did not load</h2>
+    main.innerHTML = `<div class="wrap section"><h2>We couldn’t load this page</h2>
       <p class="muted">${esc(error.message)}</p>
-      <p class="muted small">If you are running this locally, generate it first with <code>tmk-explorer --write</code>,
+      <p class="muted small">Refresh the page to try again. If you run the site locally, generate the data with <code>tmk-explorer --write</code>,
       then serve the <code>site/</code> directory (opening the file directly will not work).</p></div>`;
   }
 }

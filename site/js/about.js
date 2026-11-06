@@ -10,8 +10,8 @@ import { esc, fmt, load } from "./app.js";
 import { term } from "./glossary.js";
 import { icon } from "./icons.js";
 
-const SECTIONS = [["ab-measure", "How well the search works"], ["ab-gates", "The decisions ahead"], ["ab-records", "What it is built from"],
-  ["ab-build", "What this build is"], ["ab-limits", "Limits"], ["ab-how", "How Ask the Manual works"]];
+const SECTIONS = [["ab-measure", "How well the search works"], ["ab-gates", "Decisions for the project owner"], ["ab-records", "Authors and reviewers"],
+  ["ab-build", "Which sources this version uses"], ["ab-limits", "Limits"], ["ab-how", "How Ask the Manual works"]];
 
 export async function render(root, { ontology }) {
   const [examples, chat, build] = await Promise.all([load("examples"), load("chat"), load("build")]);
@@ -25,10 +25,9 @@ export async function render(root, { ontology }) {
   <div class="ab">
     <header class="wrap page-head">
       <div>
-        <span class="eyebrow">Where it stands</span>
-        <h1>What works, what was measured, and what is still to decide</h1>
-        <p class="lede">The state of every part of this proof of concept, said plainly: how well the search was measured, in both directions;
-        the decisions that are the project owner's to make; what the records are and who wrote them; and the limits.</p>
+        <span class="eyebrow">Results and limits</span>
+        <h1>What we tested and what we know</h1>
+        <p class="lede">See how the search performed, who wrote and reviewed the records, which sources this version uses and what still needs testing.</p>
       </div>
     </header>
     <div class="wrap ab-layout">
@@ -37,39 +36,31 @@ export async function render(root, { ontology }) {
 
         <section id="ab-measure" class="ab-sec" tabindex="-1">
           <h2>How well the search works</h2>
-          <p class="muted">Three ways of searching were fixed before any result was graded, and each question's top ten passages were scored
-          (${term("ndcg", "nDCG@10")}, out of 100). <b>Keyword</b>: words only, like a search box. <b>By meaning</b>: keyword plus
-          ${term("embedding", "matching by meaning")}, good modern search with no ontology. <b>Ontology</b>: search by meaning plus recognising the
-          question's ideas and following their connections. Each difference is shown with its ${term("interval", "95% interval")}.</p>
+          <p class="muted">We tested three methods on the same questions. <b>Keyword search</b> looks for matching words. <b>Search by meaning</b> adds ${term("embedding", "similar meanings")}. <b>Map-guided search</b> also follows links between ideas. A ${term("ndcg", "ranking score")} out of 100 rewards relevant passages near the top of the first 10 results. The ${term("interval", "95% interval")} shows the uncertainty in each comparison.</p>
           <figure class="card ab-chart" aria-label="The ontology-guided search compared with each other search, by kind of question">
             <div class="ab-row ab-head" aria-hidden="true"><span></span><span class="ab-scale"><span>← worse</span><span>no difference</span><span>better →</span></span><span></span><span></span></div>
             ${groups.map(([key, label]) => `<div class="ab-group">
               <p class="ab-gl"><b>${esc(label)}</b> <span class="tiny">${fmt(s[key].n)} questions</span></p>
               ${diffRow("Against keyword search", s[key]["ndcg:ontology-keyword"], scale(groups, s))}
               ${diffRow("Against search by meaning", s[key]["ndcg:ontology-hybrid"], scale(groups, s))}</div>`).join("")}
-            <figcaption class="tiny">Difference in top-ten quality, ontology-guided search minus the other, in points out of 100; the bar is the
-            95% interval. An interval that crosses the middle line does not establish a difference either way.</figcaption>
+            <figcaption class="tiny">The chart shows how many points the map-guided search gained or lost against each comparison method. Each bar is a 95% interval. If it includes zero, these questions do not establish which method performed better.</figcaption>
           </figure>
           <details><summary>The same numbers as a table</summary><div class="det-body ab-scroll"><table class="ab-table">
             <thead><tr><th>Questions</th><th class="num">n</th><th class="num">Keyword</th><th class="num">By meaning</th><th class="num">Ontology</th><th class="num">Ontology − keyword</th><th class="num">Ontology − by meaning</th></tr></thead>
             <tbody>${groups.map(([key, label]) => tableRow(s[key], label)).join("")}</tbody></table></div></details>
           <div class="ab-read">
-            <p><b>Read both ways.</b> Against keyword search, the ontology-guided search ranked better passages, most clearly for questions in
-            everyday words. Against search that matches by meaning, it ranked worse, by a small margin that is clearly real. Diagnosed afterwards:
-            very common ideas (such as <i>Registrar</i>, named in hundreds of passages) pull loosely related passages into the top ten.</p>
-            <p class="small muted">The ${fmt(examples.answers.length - (s.signed?.n || 0))} test questions were written by a model and the passages graded
-            by another; the only human yardstick is ${fmt(s.signed?.n || 10)} questions a person reviewed, with the passages each must find, which is
-            too few to establish a difference either way. Which of these results become claims outside this project is the project owner's decision.</p>
+            <p><b>What the tests found.</b> The map ranked relevant passages higher than keywords alone, especially for everyday questions. Across all questions it scored slightly lower than search by meaning, and that small gap is a real one. A later check suggested one reason: common terms such as <i>Registrar</i> can bring less relevant passages into the first 10 results.</p>
+            <p class="small muted">AI wrote ${fmt(examples.answers.length - (s.signed?.n || 0))} of the test questions. Another model rated the passages. A person reviewed ${fmt(s.signed?.n || 0)} questions and the passages each should find. That group was too small to establish which method performed better. The project owner decides which findings to publish externally.</p>
           </div>
         </section>
 
         <section id="ab-gates" class="ab-sec" tabindex="-1">
-          <h2>The decisions ahead, and whose they are</h2>
-          <p class="muted">Some steps are not the system's or the team's to take. Each of these waits on the project owner, and nothing on this site goes past them.</p>
+          <h2>Decisions for the project owner</h2>
+          <p class="muted">The following steps need the project owner’s approval.</p>
           <div class="ab-gates">
             ${gate("users", "Testing with customers", `The <a href="#/customers">customer preview</a> is on this site so examiners can see it. Showing it to a customer, testing it with one, or publishing anything to customers needs the owner's approval first.`)}
             ${gate("file", "Real case data", "Every application in the preview is invented. Using a real application or examination report, even in a test, is the owner's decision.")}
-            ${gate("chat", "What the answering model is given", "Ask the Manual shows a reached legal test beside the answer; whether the model that writes the answer should see it too changes what the system may say, so it is the owner's decision.")}
+            ${gate("chat", "What the AI can use to answer", "A related legal test appears beside the answer. The project owner decides whether the AI can also use that test when drafting its answer.")}
             ${gate("shield", "Expert review", "Nothing machine-written becomes approved until a named expert's decision is recorded; when, and by whom, is the owner's to arrange.")}
             ${gate("scale", "The next measurement", "Who writes and judges the next set of test questions, and which results become claims.")}
           </div>
@@ -77,7 +68,7 @@ export async function render(root, { ontology }) {
         </section>
 
         <section id="ab-records" class="ab-sec" tabindex="-1">
-          <h2>What it is built from, and who wrote it</h2>
+          <h2>Who wrote and reviewed the records?</h2>
           <p class="muted">Everything above rests on an ${term("ontology")}: a shared, explicit description of a field, the ideas in it, what kind of thing
           each idea is, and how they relate, with each statement tied to the text it comes from. Here the field is Australian trade marks examination,
           and the text is the Manual, the <i>Trade Marks Act 1995</i> and the <i>Trade Marks Regulations 1995</i>, captured at one point in time.</p>
@@ -91,15 +82,13 @@ export async function render(root, { ontology }) {
             ${whoRow("Process templates", 0, c.processes, "#/table/processes")}
             <p class="tiny ab-links">And ${fmt(c.links)} places an idea is named in the Manual, across ${fmt(c.passages_linked)} passages: found by matching wordings, not judged.</p>
           </div>
-          <p class="small muted">A machine-written record carries the model's name, the date, the passage it rests on and its reasoning, and says it is
-          unreviewed wherever it is shown. An unchecked record never becomes approved by being left alone. A correction changes how a reviewed record
-          is served without changing the record itself, and the record says so. How the records are structured, checked and drawn:
+          <p class="small muted">Each AI-written record names the model, date and source and explains its reasoning. It keeps its unreviewed label until an expert reviews it. A correction changes how a record is shown without changing the record itself, and says so. Explore the records:
           <a href="#/rules">rules as code</a>, <a href="#/map/kinds">the kinds of idea</a>, <a href="#/standards">the standards</a>.</p>
         </section>
 
         <section id="ab-build" class="ab-sec" tabindex="-1">
-          <h2>What this build is</h2>
-          <p class="muted">Every publish writes a release manifest naming exactly what was built, so a result can be traced and repeated.</p>
+          <h2>Which sources this version uses</h2>
+          <p class="muted">Each release lists the versions of the software, Manual and legislation it used. Use these details to reproduce a result.</p>
           <dl class="card ab-build">
             <dt>Built</dt><dd>${esc(build.generated || "")}, from revision <code>${esc((build.revision || "unknown").slice(0, 12))}</code> of the repository</dd>
             <dt>The Manual</dt><dd>${esc(build.manual?.line || "")}. ${esc(build.manual?.note || "")}</dd>
@@ -115,13 +104,13 @@ export async function render(root, { ontology }) {
           <h2>Limits</h2>
           <ul class="ab-limits">
             <li>${icon("scale")}<span>It explains; it never decides. It does not apply the law to an application's facts and declines when asked to.</span></li>
-            <li>${icon("eye")}<span>No expert has read the machine's ideas, connections or answers.</span></li>
+            <li>${icon("eye")}<span>No trade marks expert has yet reviewed the AI-written ideas, connections or answers.</span></li>
             <li>${icon("connect")}<span>A model suggested ${fmt((c.merges?.merged || 0) + (c.merges?.kept_apart || 0))} pairs of ideas were one idea under two records.
               On the project owner's rulings, ${fmt(c.merges?.merged || 0)} were merged (for example <i>Registrar of Trade Marks</i> into <i>Registrar</i>) and
               ${fmt(c.merges?.kept_apart || 0)} kept apart as different ideas.</span></li>
-            <li>${icon("search")}<span>Recognising an idea is matching its wordings: “who has to <i>sign</i>” matches the idea <i>sign</i>.</span></li>
-            <li>${icon("clock")}<span>One snapshot of the Manual. There is no update loop yet, though every record is anchored so that one can be built, and
-              <a href="#/change">Trace a change</a> already lists what rests on any page or provision.</span></li>
+            <li>${icon("search")}<span>Matching words can find the wrong idea. For example, “who has to <i>sign</i>” might match a record about a <i>sign</i> used as a trade mark.</span></li>
+            <li>${icon("clock")}<span>The site uses one saved copy of the Manual. There is no process yet for updating it.
+              <a href="#/change">Trace a change</a> lists records linked to a page or provision.</span></li>
             <li>${icon("info")}<span>The search over the Act and the Regulations, the legal tests, the process templates and the customer explanations have not been measured.</span></li>
           </ul>
         </section>
@@ -130,7 +119,7 @@ export async function render(root, { ontology }) {
           <h2>How Ask the Manual works</h2>
           <ol class="ab-steps">
             <li><b>Recognise</b><span>The question is matched against every idea's wordings, including everyday phrasings a machine wrote for search.</span></li>
-            <li><b>Follow</b><span>The connections those ideas hold lead to related ideas.</span></li>
+            <li><b>Follow</b><span>The search follows links from matching ideas to related ones.</span></li>
             <li><b>Gather and rank</b><span>Passages naming those ideas, or citing their provisions, are fused with keyword search over the question's words.
               The Act and the Regulations are searched apart and listed in a card of their own.</span></li>
             <li><b>Answer</b><span>A model writes an answer from those passages only, citing each claim. Code checks every quote word for word and drops any

@@ -1786,3 +1786,12 @@ Driving the what-if page (and any picture whose groups pair a shape with a label
 centre of the group's bounding box, which falls in the gap between the mark and its text. Click a
 shape inside the group instead (`'.wi-prov[data-ref="TMA1995/s61"] path'`); the page's own handler
 finds the group with `closest()`.
+
+### Q-107: site wording is pinned by tests in four files, not one
+
+A copy edit to `site/js/` can break tests far from the explorer's own: `tests/unit/test_explorer.py`
+pins the safeguard phrases (fictional cases, not tested with customers, practice not law),
+`test_whatif.py` pins the what-if banner, `test_dependencies.py` pins the empty-result wording on
+Trace a change, and `test_hygiene.py` scans the site too. Before rewording a page, `grep -rn` the old
+phrase across `tests/`. A pinned phrase is a protection: move the pin to the new words that carry the
+same safeguard, never delete it (S048 found two pins an outside rewrite had missed).

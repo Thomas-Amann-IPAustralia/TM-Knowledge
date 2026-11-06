@@ -210,7 +210,7 @@ function control(question, draft, onChange) {
   if (question.notes_prompt) {
     const notes = el(
       `<div><h4>${escape(question.notes_prompt)}</h4>` +
-        `<textarea rows="2" placeholder="Optional — anything in your own words">${escape(current.notes || "")}</textarea></div>`
+        `<textarea rows="2" placeholder="Add a note (optional)">${escape(current.notes || "")}</textarea></div>`
     );
     notes.querySelector("textarea").addEventListener("input", (event) =>
       onChange({ notes: event.target.value })
@@ -249,20 +249,20 @@ function questionCard(question, state, onChange, answeredRecords, repo) {
   body.appendChild(el(`<div class="prose">${render(question.plain)}</div>`));
   body.appendChild(
     el(
-      `<div class="callout c-note"><h3>Why this one is yours</h3>` +
+      `<div class="callout c-note"><h3>Why this needs your decision</h3>` +
         `<div class="prose">${render(question.why_you)}</div></div>`
     )
   );
   body.appendChild(
     el(
-      `<div class="block prose"><h4>What stays stuck until it is answered</h4>` +
+      `<div class="block prose"><h4>What depends on your answer</h4>` +
         `${render(question.if_unanswered)}</div>`
     )
   );
   if (question.background && question.background.length) {
     body.appendChild(
       el(
-        `<div class="block prose"><h4>Have a look at</h4><ul>` +
+        `<div class="block prose"><h4>Related records</h4><ul>` +
           question.background
             .map((link) => `<li><a href="${escape(link.href)}">${escape(link.label)}</a></li>`)
             .join("") +
@@ -473,7 +473,7 @@ export function renderInbox(data, context) {
   });
 
   const preview = el(
-    `<details class="report"><summary>See exactly what gets sent <small>nothing hidden</small></summary>` +
+    `<details class="report"><summary>Preview exactly what will be sent</summary>` +
       `<div class="body"><pre><code></code></pre></div></details>`
   );
   preview.addEventListener("toggle", () => {

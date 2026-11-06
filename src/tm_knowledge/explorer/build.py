@@ -93,10 +93,10 @@ SOURCES = {"TMM": "Manual (practice)", "TMA1995": "Trade Marks Act 1995",
 
 #: What each family of kinds is, in the words `stage0.typing` uses for them.
 FAMILIES = {
-    "reasoning": "The questions the law asks",
-    "examined": "What those questions are asked about",
-    "process": "The process around them",
-    "other": "Fits none of the kinds",
+    "reasoning": "Legal questions",
+    "examined": "What examiners assess",
+    "process": "Roles, steps and documents",
+    "other": "Other concepts",
 }
 
 #: SKOS predicates the pipeline writes, which `relations.ttl` does not list.
