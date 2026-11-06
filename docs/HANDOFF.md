@@ -24,7 +24,7 @@ three users found the language hard to parse; ChatGPT drafted a plain-English re
 - **Unchanged:** `authored/`, the graph, every record, the prompt. `tm_knowledge.explain.engine`
   changed in phrasing only; `explorer/build.py` only the family names.
 - **Tests:** the copy pins moved to the new words in `test_explorer.py`, `test_whatif.py` and
-  `test_dependencies.py` (Q-107). Full suite: see the commit body.
+  `test_dependencies.py` (Q-107). Full suite: 957 passed, 4 xfailed.
 
 **QA:** all 15 explorer routes and the workbench in Chromium at 1280 px, no script errors, no
 `undefined`/`NaN` in the text, the site-wide notice on one line. Not checked: narrow widths,

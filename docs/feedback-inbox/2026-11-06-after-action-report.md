@@ -116,8 +116,7 @@ If none were, the original "not tested with customers" is the plainer statement.
 - `tmk-fetch-upstream --verify`, `tmk-dashboard --write` and `tmk-explorer --write` all ran clean.
 - `node --check` passed on every changed script. `git diff --check` is clean.
 - The targeted tests passed: `test_explain`, `test_explorer`, `test_dashboard`, `test_whatif`,
-  `test_hygiene`, `test_dependencies` and `test_scenarios`. The full suite result is in the commit
-  body.
+  `test_hygiene`, `test_dependencies` and `test_scenarios`. The full suite: 957 passed, 4 expected failures (xfail).
 - All 15 explorer pages and the workbench were opened in Chromium at 1280 px. There were no script
   errors and no `undefined` or `NaN` in the text. The site-wide notice fits on one line.
 - **Not checked:** narrow widths, keyboard paths, a live paid answer, and whether new readers now
