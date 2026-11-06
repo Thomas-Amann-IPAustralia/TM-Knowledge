@@ -49,8 +49,8 @@ GENERAL_STAMP = ("Written by a machine from records no trade marks expert has re
 OPEN = "not established from the available facts"
 #: Asked where only the customer's own words describe an objection (A12): the ground is
 #: never chosen from everyday wording, because each ground is explained differently.
-ASK_GROUND = ("Which section of the Trade Marks Act does the report cite for this objection? The report names it; the "
-              "report's own words would settle it too.")
+ASK_GROUND = ("Which section of the Trade Marks Act 1995 does the examination report give for this objection? "
+              "If you cannot find the number, what words does the report use?")
 _KIND = {"discretion": "This is a discretion: the Registrar may, but need not.",
          "bar": "This is a bar: if satisfied of this, the Registrar may not reject on this ground.",
          "obligation": "This is an obligation."}
@@ -123,9 +123,9 @@ def _evaluate(tree: dict[str, Any], facts: dict[str, Any], assessments: dict[str
 
 
 def _overall(state: str) -> str:
-    return {_MET: ("The report records every condition as met. That is the Registrar's belief as the report states it, "
-                   "not a decision, and an exception may still apply."),
-            _NOT: "A condition is recorded as not met.",
+    return {_MET: ("The report says the Registrar considers every condition met. That is not a decision, and an "
+                   "exception may still apply. Only the Registrar decides the application."),
+            _NOT: "The report records at least one condition as unmet.",
             _OPEN: f"Whether every condition is met is {OPEN}."}[state]
 
 
@@ -208,7 +208,7 @@ def position(process: dict[str, Any], events: list[dict[str, Any]], raised: set[
             lapse += (" Acceptance has since been deferred, and a deferment does not count towards the 15 months, so "
                       "that date may have moved; the Registrar's notice states it.")
     elif "report" in done:
-        lapse = "The report's lapse date is not known here; the report states it."
+        lapse = "Check the lapse date in the examination report. This example does not give the date."
     return {"process": process["id"], "current": current, "current_label": steps[current]["label"] if current else None,
             "current_text": steps[current]["text"] if current else None, "history": history, "next": following,
             "deadlines": deadlines, "lapse": lapse,
@@ -324,13 +324,13 @@ def _versions(sources: list[dict[str, str]], application: dict[str, Any], compil
         return {"read": [], "selections": [], "reads": ""}
     text = "The law quoted here is " + " and ".join(read) + "."
     if filing is None:
-        text += (" The filing date is not given, so which text of the law was in force on it is not known; the text "
-                 "quoted is not assumed to be that one.")
+        text += (" The filing date is missing, so we cannot tell whether the law quoted here was in force when the "
+                 "application was filed.")
     else:
         nouns = {"TMA1995": "the text of the Act", "TMR1995": "the text of the Regulations"}
         parts = [_ON_DATE[s.state].format(noun=nouns.get(s.instrument, s.instrument)) for s in selections]
         text += f" On the filing date ({filing}): " + "; ".join(parts) + "."
-    text += " Which date decides the text that applies to a question is not decided here."
+    text += " Different questions can depend on different dates. This example does not determine which date applies."
     return {"read": read, "selections": [s.row() for s in selections], "reads": text}
 
 

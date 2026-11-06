@@ -61,46 +61,41 @@ export async function render(root, { ontology }) {
     <header class="wrap page-head">
       <div>
         <span class="eyebrow">How it works · rules as code</span>
-        <h1>Rules a program can read, and a person can check</h1>
-        <p class="lede">What makes the outcomes possible is writing down what the Manual and the legislation say in a form a program can
-        read, without losing what the words mean: who acts, when a rule applies, what follows, and whether it is a “must” or a “may”.
-        That is ${term("rules-as-code", "rules as code")}. Every piece quotes the passage or provision it comes from.</p>
+        <h1>How the tool represents legal rules</h1>
+        <p class="lede">A legal rule can name who acts, when they can or must act, and what follows. The tool records those parts separately and links each to its source. This approach is called ${term("rules-as-code", "rules as code")}.</p>
       </div>
     </header>
 
     <div class="wrap">
       <section class="rx-forms" aria-label="Three ways the rules are written down">
-        ${form("connection", "1 · Between two ideas", "Connections", `${fmt(ontology.relations.length)} of them, each quoting its sentence; ${fmt(modal.length)} keep their ${term("modality")} and ${fmt(conditioned)} the condition or hedge they are stated under.`, "rx-connections", "How one reads")}
-        ${form("test", "2 · One provision, in full", "Legal tests", `Its conditions joined by “all of” and “any of”, what follows, its exceptions and the routes the sources describe. ${fmt(tests.length)} so far: ${tests.map(short).join(", ")}.`, "rx-test", "Section 44, drawn")}
-        ${form("process", "3 · A procedure", "Process templates", `The steps, who acts, every way on from a step and what must be known to take it, and its time rules, explained and never calculated. ${fmt(processes.length)} so far.`, "rx-process", "The process, drawn")}
+        ${form("connection", "1 · Between two ideas", "Connections", `${fmt(ontology.relations.length)} of them, each quoting its sentence; ${fmt(modal.length)} keep their ${term("modality")} and ${fmt(conditioned)} the condition or hedge they are stated under.`, "rx-connections", "See an example link")}
+        ${form("test", "2 · One provision, in full", "Legal tests", `Its conditions joined by “all of” and “any of”, what follows, its exceptions and the routes the sources describe. ${fmt(tests.length)} so far: ${tests.map(short).join(", ")}.`, "rx-test", "See the section 44 diagram")}
+        ${form("process", "3 · A procedure", "Process templates", `The steps, who acts, every possible next step and what must be known to take it, and its time limits, explained and never calculated. ${fmt(processes.length)} so far.`, "rx-process", "See the process diagram")}
       </section>
 
       <section class="section rx-sec" id="rx-connections" tabindex="-1">
         <div class="rx-split">
           <div>
             <span class="eyebrow plain muted">1 · Connections</span>
-            <h2>A connection keeps its wording's force</h2>
-            <p class="muted">A connection is the smallest piece: one idea, how it bears on another, and the sentence it rests on. What the
-            sentence says about <i>how strongly</i> is kept. A “may” is never stored as a “must”, and a condition (“only when …”) travels
-            with the connection wherever it is shown, including to the answering model.</p>
+            <h2>Why “may” and “must” matter</h2>
+            <p class="muted">Each link quotes the sentence that connects two ideas. If the sentence says something “may” happen or depends on a condition, the link keeps that wording. The AI sees the same qualification when it writes an answer.</p>
             <div class="rx-modals">${Object.keys(MODAL).map((m) => `
               <div class="rx-modal-fig"><span class="rx-word">${MODAL[m]}</span><b>${fmt(byModal[m])}</b><span>${MODAL_SAYS[m]}</span></div>`).join("")}</div>
-            <p class="tiny">Connections that state how strongly they hold, by the word their sentence uses.</p>
-            <a class="link-arrow" href="#/table/connections">Every connection, with its modality and condition ${icon("arrow")}</a>
+            <p class="tiny">Counts show how many links record each word from the source.</p>
+            <a class="link-arrow" href="#/table/connections">Browse links and their conditions ${icon("arrow")}</a>
           </div>
           <div class="rx-examples">${shown.map((r) => connection(r, byId, ontology)).join("")}</div>
         </div>
       </section>
 
       ${example ? `<section class="section rx-sec" id="rx-test" tabindex="-1">
-        <div class="sec-head"><div><span class="eyebrow plain muted">2 · Legal tests</span><h2>A legal test, drawn</h2></div>
-          <p>One provision, read clause by clause, top to bottom: when it applies, what follows, the exceptions that change that, and what a
-          person can do. Each box quotes its clause; open a chip such as ${refChip(example.provision)} to read it.</p></div>
+        <div class="sec-head"><div><span class="eyebrow plain muted">2 · Legal tests</span><h2>Read a legal test step by step</h2></div>
+          <p>Read from top to bottom to see when a rule applies, what it requires and which exceptions matter. Select a reference such as ${refChip(example.provision)} to read the law.</p></div>
         <div class="card rx-figure">
           <div class="rx-fig-top">${trustBadge(example.origin)}<span class="tiny">${esc(example.id)}</span></div>
           ${conditionKey()}
           ${testDiagram(example)}
-          <details class="text-eq"><summary>Text equivalent of the diagram</summary><pre>${esc(testText(example))}</pre></details>
+          <details class="text-eq"><summary>Read the diagram as text</summary><pre>${esc(testText(example))}</pre></details>
           ${stamp(example)}
         </div>
         <p class="rx-more"><a class="link-arrow" href="${structureHref(example.id)}">The whole test, part by part, with every quote and its evidence requirements ${icon("arrow")}</a></p>
@@ -208,30 +203,29 @@ function processSection(p, processes) {
     more: ACTOR[s.actor] || s.actor }));
   const arcs = p.transitions.map((t) => ({ from: t.from, to: t.to, needs: (t.needs || []).length > 0 }));
   const text = [`${p.title}.`, ...p.steps.map((s, i) => `${i + 1}. ${s.label} (${ACTOR[s.actor] || s.actor}; ${s.ref}): ${s.text}`),
-    "Ways on:", ...p.transitions.map((t, k) => `${k + 1}. ${labels.get(t.from)} to ${labels.get(t.to)}, when ${t.when}`
+    "Possible next steps:", ...p.transitions.map((t, k) => `${k + 1}. ${labels.get(t.from)} to ${labels.get(t.to)}, when ${t.when}`
       + ((t.needs || []).length ? ` (depends on: ${t.needs.join("; ")})` : "") + ` (${t.ref})`),
-    ...(p.deadlines || []).map((d) => `Time rule (${d.ref}): ${d.text}`)].join("\n");
+    ...(p.deadlines || []).map((d) => `Time limit (${d.ref}): ${d.text}`)].join("\n");
   return `<section class="section rx-sec" id="rx-process" tabindex="-1">
-    <div class="sec-head"><div><span class="eyebrow plain muted">3 · Process templates</span><h2>A procedure, drawn</h2></div>
-      <p>${esc(p.title)}: the steps in order and who acts at each, every way on from a step and what must be known to take it. A dashed
-      arrow depends on something a particular application must say; an arrow over the top goes back a step.</p></div>
+    <div class="sec-head"><div><span class="eyebrow plain muted">3 · Process templates</span><h2>Follow the steps in a procedure</h2></div>
+      <p>${esc(p.title)}: the diagram shows who acts and what can happen next. A dashed arrow marks a step that depends on the facts of the application. A curved arrow can take you back to an earlier step.</p></div>
     <div class="card rx-figure">
       <div class="rx-fig-top">${trustBadge(p.origin)}<span class="tiny">${esc(p.id)}</span></div>
       <div class="rx-flow">${flowSvg({ id: `rx-${p.id}`, title: p.title, steps, arcs })}</div>
       ${p.steps.filter((s) => s.continues_in && others.has(s.continues_in)).map((s) => `<p class="small">The <b>${esc(s.label)}</b> step is set out
         in its own template, <a href="${structureHref(s.continues_in)}">${esc(others.get(s.continues_in).title)}</a>.</p>`).join("")}
-      ${(p.deadlines || []).length ? `<div class="rx-time">${icon("clock")}<div><b>Time rules, explained and never calculated</b>
+      ${(p.deadlines || []).length ? `<div class="rx-time">${icon("clock")}<div><b>Time limits, explained but never calculated</b>
         <ul class="small">${p.deadlines.map((d) => `<li>${esc(d.text)} ${refChip(d.ref)}</li>`).join("")}</ul></div></div>` : ""}
-      <details class="quiet"><summary>Every step and every way on, with its source</summary><div class="det-body">
+      <details class="quiet"><summary>Read each step and its source</summary><div class="det-body">
         <ol class="rx-steps small">${p.steps.map((s) => `<li data-s="${esc(s.id)}"><b>${esc(s.label)}</b> <span class="muted">· ${esc(ACTOR[s.actor] || s.actor)}</span>
           <br>${esc(s.text)} ${refChip(s.ref)}</li>`).join("")}</ol>
-        <h4>Ways on</h4>
+        <h4>Possible next steps</h4>
         <ol class="rx-ways small">${p.transitions.map((t) => `<li><b>${esc(labels.get(t.from))} → ${esc(labels.get(t.to))}</b>: when ${esc(t.when)}
           ${(t.needs || []).length ? `<br><span class="muted">Depends on:</span> ${t.needs.map(esc).join("; ")}` : ""}
           ${(t.grounds || []).length ? `<br><span class="muted">Only for grounds under</span> ${t.grounds.map((g) => refChip(g)).join(" ")}` : ""}
           ${refChip(t.ref)}</li>`).join("")}</ol></div></details>
-      <details class="text-eq"><summary>Text equivalent of the diagram</summary><pre>${esc(text)}</pre></details>
+      <details class="text-eq"><summary>Read the diagram as text</summary><pre>${esc(text)}</pre></details>
     </div>
-    <p class="rx-more"><a class="link-arrow" href="${structureHref(p.id)}">The whole template, every step and transition with its quote ${icon("arrow")}</a></p>
+    <p class="rx-more"><a class="link-arrow" href="${structureHref(p.id)}">View all steps and sources ${icon("arrow")}</a></p>
   </section>`;
 }

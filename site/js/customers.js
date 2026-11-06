@@ -15,8 +15,8 @@ import { esc, fmt, load, refChip, srcBadge } from "./app.js";
 import { conditionBoxes, conditionChecklist, conditionKey, effectCard, stateMark, flowSvg, STATE } from "./diagrams.js";
 import { icon } from "./icons.js";
 
-const TABS = [["requirements", "What the law requires", "book"], ["process", "The application process", "route"], ["objection", "An objection, explained", "chat"]];
-const EVIDENCE = { relevance: "What evidence must show to count", sufficiency: "How much is enough" };
+const TABS = [["requirements", "What the law requires", "book"], ["process", "The application process", "route"], ["objection", "Understanding an objection", "chat"]];
+const EVIDENCE = { relevance: "What makes evidence relevant", sufficiency: "Whether the evidence is sufficient" };
 const CHECK = { in_australia: "in Australia", before_filing_date: "before the filing date", sign_as_applied: "the sign applied for",
   items_covered: "all the goods or services", dated: "dated" };
 const RESULT = { present: "met", missing: "not_met", "cannot tell": "open" };
@@ -32,27 +32,26 @@ export async function render(root, { params }) {
   <div class="cx">
     <header class="wrap page-head">
       <div>
-        <span class="eyebrow">For customers · a preview, not a service</span>
-        <h1>Explain trade marks to customers</h1>
-        <p class="lede">What the customer explanation aid looks like today: what a provision requires, how an application moves, and what an
-        objection means, each in plain words with a picture, its sources, and what it does not know. It is here so examiners can see it and pick holes in it.</p>
+        <span class="eyebrow">Applicant information · prototype</span>
+        <h1>Understand a trade mark application</h1>
+        <p class="lede">An objection is a concern an examiner raises about an application. Choose an example to see what the examiner is asking, which legal requirements apply and what could happen next. You can also explore the steps in an application.</p>
       </div>
     </header>
     <div class="wrap">
       <div class="cx-banner" role="note">
-        <div class="cx-banner-head">${icon("eye")}<p><b>Invented matters only. Not tested with customers. Not advice.</b></p></div>
+        <div class="cx-banner-head">${icon("eye")}<p><b>Fictional cases for review. Not formally tested with customers. These examples do not provide legal advice.</b></p></div>
         <ul>
-          <li>Every application, person and trade mark below is invented; ${fmt(data.matters.length)} invented matters exist, each built to exercise a hard case.</li>
-          <li>It was written by a machine from legal tests and process templates that no trade marks expert has reviewed.</li>
-          <li>It explains what the law and the Manual say; it never says how an application will be decided. Only the Registrar decides.</li>
-          <li>Nothing here has been shown to, or tested with, a customer. Whether and how it is, is the project owner's decision.</li>
+          <li>The ${fmt(data.matters.length)} examples use fictional applicants and trade marks to show situations that can be difficult to explain.</li>
+          <li>AI wrote these explanations using legal tests and procedures that a trade marks expert has yet to review.</li>
+          <li>The examples explain what an examiner considers. Only the Registrar decides an application.</li>
+          <li>These explanations have not been formally tested with customers; the project lists that as a future step. The project owner decides when testing or public release can begin.</li>
         </ul>
       </div>
-      <div class="tabs cx-tabs" role="tablist" aria-label="Which explanation">${TABS.map(([id, label, ic]) => `
+      <div class="tabs cx-tabs" role="tablist" aria-label="Choose an explanation type">${TABS.map(([id, label, ic]) => `
         <button type="button" role="tab" data-tab="${id}" aria-selected="${id === tab}">${icon(ic)}${esc(label)}</button>`).join("")}</div>
-      <div class="cx-pick" role="group" aria-label="Which one"></div>
+      <div class="cx-pick" role="group" aria-label="Choose an example"></div>
       <div class="cx-body"></div>
-      <p class="small cx-more"><a class="link-arrow" href="#/future/customers">What may be tested with customers, and under which conditions ${icon("arrow")}</a></p>
+      <p class="small cx-more"><a class="link-arrow" href="#/future/customers">Read the customer testing plan ${icon("arrow")}</a></p>
     </div>
   </div>`;
 
@@ -62,7 +61,7 @@ export async function render(root, { params }) {
   const cards = {
     requirements: data.requirements.map((r) => [r.test, `<span class="cx-pk">${esc(provisionName(r.provision))}</span><b>${esc(r.title.replace(/\s*\([^)]*\)\s*$/, ""))}</b>`]),
     process: data.walkthroughs.map((w) => [w.process, `<span class="cx-pk">${esc(w.process)} · ${fmt(w.steps.length)} steps</span><b>${esc(w.title.replace(/\s*\([^)]*\)\s*$/, ""))}</b>`]),
-    objection: data.matters.map((m) => [m.matter, `<span class="cx-pk">Invented · ${esc(m.matter)}</span><span class="cx-sign">${esc(m.sign)}</span><span class="cx-pt">${esc(m.title)}</span>`]),
+    objection: data.matters.map((m) => [m.matter, `<span class="cx-pk">Fictional case · ${esc(m.matter)}</span><span class="cx-sign">${esc(m.sign)}</span><span class="cx-pt">${esc(m.title)}</span>`]),
   };
 
   function show() {
@@ -97,8 +96,8 @@ export async function render(root, { params }) {
 
 const provisionName = (ref) => String(ref || "").replace(/^TMA1995\/s/, "Section ").replace(/^TMR1995\/r/, "Regulation ");
 const source = (ref) => `<span class="cx-src">${refChip(ref)}</span>`;
-const textEq = (text, label = "Text equivalent") => `<details class="text-eq"><summary>${esc(label)}</summary><pre>${esc(text)}</pre></details>`;
-const stamp = (text) => `<p class="cx-stamp"><span class="trust machine">Machine · unreviewed</span>${esc(text)}</p>`;
+const textEq = (text, label = "Read as text") => `<details class="text-eq"><summary>${esc(label)}</summary><pre>${esc(text)}</pre></details>`;
+const stamp = (text) => `<p class="cx-stamp"><span class="trust machine">AI-written · unreviewed</span>${esc(text)}</p>`;
 const lowerFirst = (text) => String(text || "").replace(/^./, (c) => c.toLowerCase());
 const stateKey = () => `<div class="cx-statekey tiny">${Object.entries(STATE).map(([key, [mark, word]]) => `<span><span class="dg-st dg-st-${key}" aria-hidden="true">${mark}</span>${esc(word)}</span>`).join("")}</div>`;
 
@@ -109,7 +108,7 @@ function requirementsView(r) {
   return `<article class="card cx-card">
     <div class="cx-card-head">
       <div><span class="eyebrow">What the law requires</span><h2>${esc(r.title)}</h2>
-        <p class="small muted">Who acts: ${esc(r.actor)}.${r.scope?.applies_to ? ` It applies to ${esc(r.scope.applies_to)}.` : ""}</p></div>
+        <p class="small muted">Who applies it: ${esc(r.actor)}.${r.scope?.applies_to ? ` It applies to ${esc(r.scope.applies_to)}.` : ""}</p></div>
       <div class="cx-head-src">${refChip(r.provision)} ${srcBadge(r.provision)}</div>
     </div>
     ${conditionKey()}
@@ -137,10 +136,10 @@ function flowFor(w, opts = {}) {
 }
 
 const flowKey = () => `<div class="cx-flowkey tiny">
-  <span><svg viewBox="0 0 30 10"><line x1="1" y1="5" x2="29" y2="5" class="dg-line"/></svg>a way on</span>
-  <span><svg viewBox="0 0 30 10"><line x1="1" y1="5" x2="29" y2="5" class="dg-line dashed"/></svg>depends on what a particular application says</span>
+  <span><svg viewBox="0 0 30 10"><line x1="1" y1="5" x2="29" y2="5" class="dg-line"/></svg>possible next step</span>
+  <span><svg viewBox="0 0 30 10"><line x1="1" y1="5" x2="29" y2="5" class="dg-line dashed"/></svg>depends on the facts of the application</span>
   <span><svg viewBox="0 0 30 12"><path d="M2 11 C2 1 28 1 28 11" class="dg-line back"/></svg>back to an earlier step</span>
-  <span>Click a step to read it.</span></div>`;
+  <span>Select a step to read the details.</span></div>`;
 
 function processView(w) {
   if (!w) return "";
@@ -153,10 +152,10 @@ function processView(w) {
       <span class="cx-step-n">${i + 1}</span>
       <div><p class="cx-step-t"><b>${esc(s.label)}</b> <span class="tiny">${esc(ACTOR[s.actor] || s.actor)}</span></p>
         <p class="small">${esc(s.text)} ${source(s.ref)}</p>
-        ${s.continues_in ? `<p class="small cx-note">Set out in its own template: <b>${esc(s.continues_in.title)}</b> (${s.continues_in.steps.map(esc).join(" → ")}).</p>` : ""}
-        ${s.next.length ? `<ul class="cx-next small">${s.next.map((n) => `<li>Next, possibly: <b>${esc(n.label)}</b>, when ${esc(n.when)}
+        ${s.continues_in ? `<p class="small cx-note">See the separate guide: <b>${esc(s.continues_in.title)}</b> (${s.continues_in.steps.map(esc).join(" → ")}).</p>` : ""}
+        ${s.next.length ? `<ul class="cx-next small">${s.next.map((n) => `<li>Possible next step: <b>${esc(n.label)}</b>, when ${esc(n.when)}
           ${n.needs.length ? `<br><span class="muted">Depends on:</span> ${n.needs.map(esc).join("; ")}` : ""} ${source(n.ref)}</li>`).join("")}</ul>` : ""}
-        ${s.time_rules.length ? `<ul class="cx-time small">${s.time_rules.map((d) => `<li>${icon("clock")}<span><b>Time rule</b> ${esc(d.text)} ${source(d.ref)}</span></li>`).join("")}</ul>` : ""}
+        ${s.time_rules.length ? `<ul class="cx-time small">${s.time_rules.map((d) => `<li>${icon("clock")}<span><b>Timing</b> ${esc(d.text)} ${source(d.ref)}</span></li>`).join("")}</ul>` : ""}
       </div></li>`).join("")}</ol>
     <p class="small cx-note">${esc(w.note)}</p>
     ${stamp(w.stamp)}
@@ -171,18 +170,18 @@ function matterView(e, processes) {
   const roles = e.roles.map((r) => `<span><b>${esc(r.party)}</b> ${r.capacities.map(esc).join(" and ")}</span>`).join("");
   return `<article class="card cx-card cx-matter">
     <div class="cx-matter-head">
-      <div class="cx-mark"><span class="cx-invented">Invented matter ${esc(e.matter)}</span><span class="cx-sign big">${esc(e.sign)}</span></div>
-      <div><span class="eyebrow">An objection, explained</span><h2>${esc(e.title)}</h2><p class="cx-roles small">${roles}</p></div>
+      <div class="cx-mark"><span class="cx-invented">Fictional case ${esc(e.matter)}</span><span class="cx-sign big">${esc(e.sign)}</span></div>
+      <div><span class="eyebrow">Understanding an objection</span><h2>${esc(e.title)}</h2><p class="cx-roles small">${roles}</p></div>
     </div>
     <section class="cx-view"><h3><span class="cx-vn">1</span>The objection${e.issues.length === 1 ? "" : "s"}</h3>
       ${stateKey()}
       ${e.issues.map(issueView).join("")}</section>
-    <section class="cx-view"><h3><span class="cx-vn">2</span>Where the application is</h3>
+    <section class="cx-view"><h3><span class="cx-vn">2</span>Current stage of the application</h3>
       ${positionView(e.process, processes.get(e.process.process))}</section>
-    <section class="cx-view"><h3><span class="cx-vn">3</span>What remains, and what would change this explanation</h3>
+    <section class="cx-view"><h3><span class="cx-vn">3</span>What is still unclear?</h3>
       <div class="cx-panel">
         <p><b>${esc(e.unresolved.reads)}</b></p>
-        ${e.asks.length ? `<p>What would change this explanation:</p><ul class="cx-asks">${e.asks.map((a) => `<li>${icon("question")}<span>${esc(a.question)}</span></li>`).join("")}</ul>`
+        ${e.asks.length ? `<p>These details could change the explanation:</p><ul class="cx-asks">${e.asks.map((a) => `<li>${icon("question")}<span>${esc(a.question)}</span></li>`).join("")}</ul>`
           : `<p class="small">Nothing more is needed to read the objections as recorded.</p>`}
         ${e.versions && e.versions.reads ? `<p class="small muted">Which text of the law: ${esc(e.versions.reads)}</p>` : ""}
       </div></section>
@@ -195,11 +194,11 @@ function issueView(issue) {
   const items = issue.items.map((i) => `<span class="chip">${esc(i)}</span>`).join(" ");
   if (!issue.test) {
     return `<section class="cx-issue">
-      <h4>Objection ${esc(issue.objection)}: the ground is not known</h4>
+      <h4>Objection ${esc(issue.objection)}: the reason for the objection is unclear</h4>
       <p class="small">${esc(issue.standing)} Goods or services: ${items}</p>
       <p><b>How the customer described it:</b> “${esc(issue.customer_words)}”</p>
       <p>${stateMark("open")}${esc(issue.reads)}</p>
-      <p class="small">The grounds explained here, any of which it might be:</p>
+      <p class="small">Here are the possible legal reasons covered by this example:</p>
       <ul class="dg-routes">${issue.candidates.map((c) => `<li><b>${esc(c.title)}</b> ${source(c.provision)}<br><span class="small">${esc(c.effect)}</span></li>`).join("")}</ul>
     </section>`;
   }
@@ -210,7 +209,7 @@ function issueView(issue) {
     ${issue.reasons ? `<p><b>The report says:</b> ${esc(issue.reasons)}</p>` : ""}
     <p class="cx-law"><b>The law</b> ${source(t.provision)}: if the conditions below hold, ${esc(lowerFirst(t.effect.text))}</p>
     <div class="cx-check">
-      <div class="cx-check-col"><p class="cx-check-h">What the law asks, and what the record says</p>${conditionChecklist(t.condition)}
+      <div class="cx-check-col"><p class="cx-check-h">What the law requires and what the case records show</p>${conditionChecklist(t.condition)}
         <div class="cx-reads">${stateMark(t.state)}<b>${esc(t.reads)}</b></div></div>
       <div class="cx-check-col">
         ${t.exceptions.length ? `<p class="cx-check-h">Unless</p><ul class="cx-excs">${t.exceptions.map((x) => `<li>${stateMark(x.state)}<div><p><b>${esc(x.text)}</b> ${source(x.ref)}</p>
@@ -219,7 +218,7 @@ function issueView(issue) {
       </div>
     </div>
     ${issue.evidence ? evidenceView(issue.evidence) : ""}
-    <details class="quiet cx-full"><summary>See the whole test drawn, with every exception's conditions</summary><div class="det-body">
+    <details class="quiet cx-full"><summary>See all conditions and exceptions in the diagram</summary><div class="det-body">
       ${conditionKey()}
       <div class="dg-flow-v">
         <div class="dg-stage"><span class="dg-lab">If</span><div>${conditionBoxes(t.condition, { states: true })}</div></div>
@@ -236,7 +235,7 @@ function issueView(issue) {
 function evidenceView(ev) {
   const checks = [...new Set(ev.exhibits.flatMap((x) => x.checks.map((c) => c.check)))].sort();
   const text = ev.exhibits.map((x) => `Exhibit ${x.id} (${x.description}): ${x.reads}`).join("\n");
-  return `<div class="cx-evidence-box"><p class="small"><b>The evidence, and what it is offered for</b></p>
+  return `<div class="cx-evidence-box"><p class="small"><b>What each piece of evidence is meant to show</b></p>
     <div class="cx-scroll"><table class="cx-evidence">
       <thead><tr><th scope="col">Exhibit</th>${checks.map((c) => `<th scope="col">${esc(CHECK[c] || c)}</th>`).join("")}</tr></thead>
       <tbody>${ev.exhibits.map((x) => `<tr><th scope="row">${esc(x.id)}: ${esc(x.description)}</th>${checks.map((check) => {
@@ -245,18 +244,18 @@ function evidenceView(ev) {
       }).join("")}</tr>`).join("")}</tbody></table></div>
     ${ev.sufficiency.map((s) => `<p class="small muted">${esc(s.text)} ${source(s.ref)}</p>`).join("")}
     ${ev.set_aside.map((s) => `<p class="small muted">Set aside: ${esc(s.text)} ${source(s.ref)} (${esc(s.why)})</p>`).join("")}
-    <p class="small">Whether the evidence is enough is the examiner's assessment, never this page's.</p>
+    <p class="small">The examiner decides whether the evidence is sufficient.</p>
     ${textEq(text)}</div>`;
 }
 
 function positionView(p, w) {
-  const text = [`Where the application is: ${p.current_label}.`, ...p.next.map((n) => `Next, possibly: ${n.label}, when ${n.when}`
+  const text = [`Current stage of the application: ${p.current_label}.`, ...p.next.map((n) => `Possible next step: ${n.label}, when ${n.when}`
     + (n.needs.length ? ` (depends on: ${n.needs.join("; ")})` : "")), ...(p.lapse ? [p.lapse] : []),
-    ...p.deadlines.map((d) => `Time rule (${d.ref}): ${d.text}`), p.note].join("\n");
+    ...p.deadlines.map((d) => `Timing (${d.ref}): ${d.text}`), p.note].join("\n");
   const done = p.history.map((h) => h.step).filter((s) => s !== p.current);
   return `<div class="cx-panel">
     ${w ? `<div class="cx-flow">${flowFor(w, { current: p.current, done })}</div>
-      <p class="tiny cx-flow-cap">Ticked: steps the invented record says have happened. Marked “now”: where it is. Lit: what can happen next.</p>` : ""}
+      <p class="tiny cx-flow-cap">A tick marks a completed step. “Now” marks the current step. Highlighted steps show what could happen next.</p>` : ""}
     <div class="cx-pos">
       <ol class="cx-timeline" aria-label="Steps so far">
         ${p.history.map((h, i) => `<li class="${i === p.history.length - 1 ? "now" : "done"}"><b>${esc(h.label)}</b><span class="tiny">${esc(h.date || "date not known")}</span>
@@ -267,7 +266,7 @@ function positionView(p, w) {
         ${p.next.length ? `<p class="cx-next-h">What can happen next</p><ul class="cx-next small">${p.next.map((n) => `<li><b>${esc(n.label)}</b>, when ${esc(n.when)}
           ${n.needs.length ? `<br><span class="tiny">Depends on: ${n.needs.map(esc).join("; ")}</span>` : ""} ${source(n.ref)}</li>`).join("")}</ul>` : ""}
         ${p.lapse ? `<p class="small"><b>${esc(p.lapse)}</b></p>` : ""}
-        ${p.deadlines.length ? `<ul class="cx-time small">${p.deadlines.map((d) => `<li>${icon("clock")}<span><b>Time rule</b> ${esc(d.text)} ${source(d.ref)}</span></li>`).join("")}</ul>` : ""}
+        ${p.deadlines.length ? `<ul class="cx-time small">${p.deadlines.map((d) => `<li>${icon("clock")}<span><b>Timing</b> ${esc(d.text)} ${source(d.ref)}</span></li>`).join("")}</ul>` : ""}
         <p class="small cx-note">${esc(p.note)}</p>
       </div>
     </div>

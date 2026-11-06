@@ -338,12 +338,12 @@ function qaView(q) {
     `</section>` +
     `<section class="qa-onto"><h3>Ask the Manual</h3>` +
     `<p><span class="badge t-warn">Machine-written · unreviewed</span> <span class="muted">${escape(q.model || "")}</span></p>` +
-    `<h4>Ideas recognised in the question</h4>${chipsHtml}` +
-    `<h4>Relationships the ontology followed</h4>${paths}` +
+    `<h4>Terms matched in the question</h4>${chipsHtml}` +
+    `<h4>Links used in the search</h4>${paths}` +
     `<h4>Answer</h4><div class="qa-answer">${render(q.answer || "")}</div>` +
     (q.declined ? `<div class="callout t-note"><strong>Declined in part.</strong> ${escape(q.decline_reason)}</div>` : "") +
-    (quotes ? `<h4>Quoted, verbatim</h4>${quotes}` : "") +
-    `<h4>Sources — Manual practice and legislation, labelled</h4>` +
+    (quotes ? `<h4>Exact quotations</h4>${quotes}` : "") +
+    `<h4>Sources of law and examination guidance</h4>` +
     passageList([...(q.passages || []), ...(q.legislation || [])], cited) +
     `</section></div>`
   );

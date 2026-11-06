@@ -38,7 +38,7 @@ async function getEngine(status) {
   if (engine) return engine;
   status("Loading the Manual's text for searching…");
   const [search, passages] = await Promise.all([load("search"), load("passages")]);
-  status("Indexing the Manual's passages…");
+  status("Preparing the passages for search…");
   await new Promise((r) => setTimeout(r, 20));
   engine = new Engine(search, passages);
   status("");
@@ -64,11 +64,10 @@ export async function render(root, { ontology, params }) {
     <header class="wrap page-head rs-head">
       <div>
         <span class="eyebrow">For examiners</span>
-        <h1>Research a question</h1>
-        <p class="lede">Ask in your own words. It brings back the passages of the Manual, the Act and the Regulations that bear on the
-        question, shows how it found each one, and writes an answer whose every claim is cited and marked as the Manual's practice or the law.</p>
+        <h1>Ask a trade mark question</h1>
+        <p class="lede">Enter a question or choose an example below. The tool searches the Trade Marks Act 1995 and Trade Marks Regulations 1995 for the law, and IP Australia’s Trade Marks Manual of Practice and Procedure for examination guidance. Open a result to read the source.</p>
       </div>
-      <div class="page-head-side">${answersOn ? `<span class="pill working">Live answers on</span>` : `<span class="pill planned">Prepared answers · live answers off</span>`}</div>
+      <div class="page-head-side">${answersOn ? `<span class="pill working">Live answers on</span>` : `<span class="pill planned">Search and example answers available</span>`}</div>
     </header>
     <div class="wrap rs-ask">
       <form class="searchbox rs-form" role="search">
@@ -78,13 +77,13 @@ export async function render(root, { ontology, params }) {
       </form>
       <div class="rs-meta"><span class="live-status"></span><span class="load-status" role="status"></span></div>
       <div class="rs-try">
-        <div class="rs-try-head"><span class="rs-try-k">Or try a prepared question, answered in advance</span>
+        <div class="rs-try-head"><span class="rs-try-k">Try an example question</span>
           <button type="button" class="btn small ghost rs-browse-btn" aria-expanded="false">${icon("list")} Browse all ${fmt(examples.answers.length)}</button></div>
         <div class="rs-cards">${featured.map((a) => `<button type="button" class="rs-qcard" data-key="${esc(a.key)}"><span>${esc(examples.kinds[a.kind] || "")}</span>${esc(a.question)}</button>`).join("")}</div>
       </div>
       <div class="rs-browse card" hidden>
-        <div class="rs-browse-head"><input type="search" class="rs-filter" placeholder="Filter the prepared questions" aria-label="Filter the prepared questions">
-          <span class="tiny">Answered in advance by the same pipeline, so they work without a live connection.</span></div>
+        <div class="rs-browse-head"><input type="search" class="rs-filter" placeholder="Filter example questions" aria-label="Filter example questions">
+          <span class="tiny">These questions have saved answers. You can read them even when live answers are off.</span></div>
         <div class="rs-browse-body">${Object.entries(examples.kinds).map(([kind, label]) => {
           const rows = examples.answers.filter((a) => a.kind === kind);
           return rows.length ? `<section class="rs-group"><h4>${esc(label)} <span class="tiny">${rows.length}</span></h4>
@@ -94,8 +93,8 @@ export async function render(root, { ontology, params }) {
     </div>
     <div class="wrap rs-result"></div>
     <div class="wrap rs-preview">
-      <div class="rs-pv"><span class="rs-pv-n">1</span><h3>An answer, every claim cited</h3><p>Each claim carries the quotes it rests on, checked word for word against the passage, and the answer is marked as machine-written.</p></div>
-      <div class="rs-pv"><span class="rs-pv-n">2</span><h3>What it read, law and practice apart</h3><p>The Manual's passages and the provisions of the Act and the Regulations, listed apart, each saying how it was found.</p></div>
+      <div class="rs-pv"><span class="rs-pv-n">1</span><h3>Check an answer</h3><p>AI writes the answer. Each statement shows a matching quotation or a warning if the tool could not find one.</p></div>
+      <div class="rs-pv"><span class="rs-pv-n">2</span><h3>Read the sources</h3><p>Results are grouped into law and examination guidance. Select a passage to see the original wording.</p></div>
       <div class="rs-pv"><span class="rs-pv-n">3</span><h3>How it found them</h3><p>The ideas it recognised in your words, the connections it followed, and what plain keyword search would have returned instead.</p></div>
     </div>
   </div>`;
@@ -109,7 +108,7 @@ export async function render(root, { ontology, params }) {
 
   function liveStatus() {
     const el = root.querySelector(".live-status");
-    if (!live.enabled) { el.innerHTML = `Live answers are off on this copy. A typed question still runs the search in your browser; the prepared questions show their answers.`; return; }
+    if (!live.enabled) { el.innerHTML = `Live answers are off. Enter a question to find passages, or choose an example to read a saved answer.`; return; }
     const left = Math.max(0, chat.daily_limit - usedToday());
     el.innerHTML = `Live answers <b>on</b> · <code>${esc(chat.model)}</code> · ${left} of ${chat.daily_limit} questions left today in this browser`;
   }
@@ -145,25 +144,25 @@ export async function render(root, { ontology, params }) {
           <div class="rs-card-head"><h2>Answer</h2><span class="answer-tags"></span></div>
           <div class="answer-body"></div>
         </article>
-        <aside class="card rs-sources" aria-label="The sources it read">
-          <div class="rs-card-head"><h3>What it read</h3><span class="tiny rs-src-count"></span></div>
+        <aside class="card rs-sources" aria-label="Sources found for this question">
+          <div class="rs-card-head"><h3>Sources found</h3><span class="tiny rs-src-count"></span></div>
           <div class="rs-src-body"></div>
         </aside>
       </div>
       <section class="card rs-how" aria-labelledby="rs-how-h">
-        <div class="rs-card-head"><div><span class="eyebrow">How it found them</span><h2 id="rs-how-h">The ideas in the question, and where they led</h2></div>
+        <div class="rs-card-head"><div><span class="eyebrow">How it found them</span><h2 id="rs-how-h">How the search found these passages</h2></div>
           <div class="rs-legend">${legend()}<span class="rs-found-key"><i></i>found through the ontology</span></div></div>
         <div class="hop-svg"></div>
         <ol class="hop-steps"></ol>
       </section>
       <section class="card rs-compare" aria-labelledby="rs-cmp-h">
-        <div class="rs-card-head"><div><span class="eyebrow">The difference it makes</span><h2 id="rs-cmp-h">The same question, through plain keyword search</h2></div></div>
+        <div class="rs-card-head"><div><span class="eyebrow">The difference it makes</span><h2 id="rs-cmp-h">Compare the results with keyword search</h2></div></div>
         <div class="compare"></div>
       </section>
       <div class="rs-more">
-        <details class="rs-tests" hidden><summary>The legal test this question reaches</summary><div class="det-body tests"></div></details>
+        <details class="rs-tests" hidden><summary>Related legal test</summary><div class="det-body tests"></div></details>
         <details><summary>The Act and the Regulations: provisions named or matched</summary><div class="det-body provisions"></div></details>
-        <details><summary>How it chose, in detail</summary><div class="det-body hop-why"></div></details>
+        <details><summary>How the search ranked the passages</summary><div class="det-body hop-why"></div></details>
       </div>`;
     result.scrollIntoView({ behavior: "smooth", block: "start" });
     return {
@@ -189,11 +188,11 @@ export async function render(root, { ontology, params }) {
     const eng = await getEngine(loadStatus);
     if (signal.aborted) return;
     history.replaceState(null, "", "#/ask");
-    const view = frame(question, canAnswer ? "Your question, answered live" : "Your question, searched in your browser");
+    const view = frame(question, canAnswer ? "Your question, answered live" : "Search results for your question");
     // A proxy that has slept says nothing for up to a minute while it wakes.
     let sleepy = reads && viaProxy(live) ? setTimeout(() => {
       const status = view.steps.querySelector(".reading-status") || view.body.querySelector(".thinking-text");
-      if (status) status.textContent = "Waiting for the answer service; after a quiet spell it can take up to a minute to wake…";
+      if (status) status.textContent = "Connecting to the answer service. This can take up to a minute…";
     }, 10000) : null;
     const ready = reading.then((outcome) => {
       clearTimeout(sleepy);
@@ -225,24 +224,24 @@ export async function render(root, { ontology, params }) {
     if (!live.enabled) {
       await animation;
       view.tags.innerHTML = `<span class="pill planned">No live answer</span>`;
-      view.body.innerHTML = `<div class="rs-empty">${icon("info")}<div><p><b>Live answers are off on this copy, so no answer was written.</b>
-        Everything else on this page, the ideas recognised, the connections followed and the passages ranked, ran in your browser.</p>
-        <p class="small muted">Try a prepared question above to see the answer the same pipeline wrote in advance.</p></div></div>`;
+      view.body.innerHTML = `<div class="rs-empty">${icon("info")}<div><p><b>Live answers are off. You can still read the search results.</b>
+        Your browser found the passages and shows how they relate to your question.</p>
+        <p class="small muted">Choose an example question above to read a saved answer.</p></div></div>`;
       return;
     }
     if (!canAnswer) {
       await animation;
-      view.body.innerHTML = `<p class="muted">This browser has asked ${chat.daily_limit} live questions today, the courtesy limit. The prepared questions still work.</p>`;
+      view.body.innerHTML = `<p class="muted">You’ve reached this browser’s daily limit of ${chat.daily_limit} live questions. You can still search or read an example answer.</p>`;
       return;
     }
-    view.body.innerHTML = `<div class="thinking"><span class="spinner"></span><span class="thinking-text">Reading the ${prep.passages.length} passages${prep.legislation.length ? ` and ${prep.legislation.length} provisions` : ""}…</span></div>
+    view.body.innerHTML = `<div class="thinking"><span class="spinner"></span><span class="thinking-text">Reading ${prep.passages.length} passages${prep.legislation.length ? ` and ${prep.legislation.length} provisions` : ""}…</span></div>
       <div class="answer streaming"></div>`;
     // Stream: claims arrive one by one, each followed by its quotes. Shown as an unchecked
     // draft until the reply is complete and every quote is checked (A08).
     let lastPaint = 0, painting = false;
     sleepy = viaProxy(live) && !g.reading?.model ? setTimeout(() => {
       const status = view.body.querySelector(".thinking-text");
-      if (status) status.textContent = "Waiting for the answer service; after a quiet spell it can take up to a minute to wake…";
+      if (status) status.textContent = "Connecting to the answer service. This can take up to a minute…";
     }, 10000) : null;
     const onText = async (text) => {
       clearTimeout(sleepy);
@@ -255,7 +254,7 @@ export async function render(root, { ontology, params }) {
         if (status) status.textContent = "Reading the passages…";
       } else {
         const n = (text.match(/"ref"\s*:/g) || []).length;
-        if (status) status.textContent = `Writing the answer, an unchecked draft: ${sofar.length} claim${sofar.length > 1 ? "s" : ""}, ${n} quote${n === 1 ? "" : "s"} so far, each checked when the answer is complete…`;
+        if (status) status.textContent = `Drafting the answer. Statements so far: ${sofar.length}. Quotations to check: ${n}.`;
         const holder = view.body.querySelector(".answer.streaming");
         if (holder) holder.innerHTML = `<p class="tiny draft">Unchecked draft</p>` + await renderAnswer(sofar.join("\n\n"));
       }
@@ -279,7 +278,7 @@ export async function render(root, { ontology, params }) {
     } catch (error) {
       clearTimeout(sleepy);
       if (signal.aborted) return;
-      view.body.innerHTML = `<p class="err">No answer: ${esc(String(error.message).replace(/\.+$/, ""))}.</p><p class="tiny">The passages beside and below are still what the ontology found, and the prepared questions still work.</p>`;
+      view.body.innerHTML = `<p class="err">No answer: ${esc(String(error.message).replace(/\.+$/, ""))}.</p><p class="tiny">You can still read the passages on this page or choose an example answer.</p>`;
     }
   }
 
@@ -427,7 +426,7 @@ export async function render(root, { ontology, params }) {
     // column of faint dots being looked over.
     let pending = null;
     if (reading) {
-      view.steps.innerHTML = `<li class="on"><span class="hop-k">Reading</span><span class="reading-status">Reading your question against the map's ${fmt(ontology.concepts.length)} ideas, for the ones it raises in other words…</span></li>`;
+      view.steps.innerHTML = `<li class="on"><span class="hop-k">Reading</span><span class="reading-status">Checking whether your question describes any of the ${fmt(ontology.concepts.length)} ideas in the map…</span></li>`;
       pending = svg("g", { class: "reading" }, nodes);
       for (let i = 0; i < 9; i++) {
         const y = spread(i, 9, 80, Ht - 60);
@@ -600,23 +599,22 @@ export async function render(root, { ontology, params }) {
     const byModel = rec.filter((r) => r.read).length;
     const readingNote = !reading ? ""
       : reading.error ? `<p class="small">A model was also asked to read the question for ideas it raises in other words, but could not (${esc(reading.error)}), so only names were matched.</p>`
-      : `<p>Then, because a question in your own words rarely uses the map's names, a model (<code>${esc(reading.model || chat.model)}</code>) reads it against the list of all
-        ${fmt(ontology.concepts.length)} ideas and picks up to ${chat.reading.max_ideas} it is about, each with the words of your question it read as that idea, which the page
-        checks are really there. That is a machine's judgement, unreviewed: ${byModel ? `the ${byModel === 1 ? "idea" : `${byModel} ideas`} it found ${byModel === 1 ? "is" : "are"} marked “read by the model”` : "here it found none the names had not already found"}.
-        The prepared answers were searched by names alone.</p>
+      : `<p>AI (<code>${esc(reading.model || chat.model)}</code>) also checks whether your question describes an idea in different words.
+        It compares the question with ${fmt(ontology.concepts.length)} ideas and can suggest up to ${chat.reading.max_ideas}.
+        The tool checks that the words it quotes appear in your question. An expert has yet to review the AI’s interpretation.
+        Additional matches are labelled “read by the model” (${byModel} in this search).
+        For saved answers, this step matched names only.</p>
         ${reading.dropped?.length ? `<p class="tiny">Set aside from the model's reading: ${reading.dropped.map((d) => `${esc(byId.get(d.id)?.label || d.id || "an unnamed idea")}${d.words ? ` (“${esc(d.words.slice(0, 60))}”)` : ""}, because ${esc(d.reason)}`).join("; ")}.</p>` : ""}`;
     view.why.innerHTML = `
       <div class="why-step"><span class="n">1</span><div>
         <b>Where it starts: ${reading?.model ? "the ideas in your words" : "names in your words"}</b>
-        <p>Your question is compared with the name of every idea in the map: its main name, its other names, and the everyday phrasings a machine
-        added. An idea is a starting point when one of its names appears in the question as whole words (capitals ignored; names under four letters
-        skipped). It is plain matching: no model, no guessing at what you meant.</p>
+        <p>The search looks for whole words that match a name in the map, including alternative names and everyday phrases suggested by AI. It ignores capital letters and skips names shorter than four letters. This step is plain matching and uses no AI.</p>
         ${readingNote}
         ${g.recognised.length ? `<ul class="said-list">${[...rec, ...generic].map(row).join("")}</ul>` : `<p class="muted">No idea's name appears in this question${reading?.model ? ", and the model found none it raises in other words" : ""}, so nothing on the map steered the search: it ran on your words alone.</p>`}
         ${nested.length ? `<p class="tiny">A longer name does not hide a shorter one inside it: “${esc(nested[0].matched)}” is part of a longer match, and counts as well.</p>` : ""}
       </div></div>
       <div class="why-step"><span class="n">2</span><div>
-        <b>Which connections: all of them, one step out</b>
+        <b>How the search uses links between ideas</b>
         ${followed.length ? `<p>Every connection the map records for a starting idea is followed: here <b>${fmt(followed.length)}</b>, to <b>${fmt(neighbours.size)}</b> other idea${neighbours.size === 1 ? "" : "s"}
         (${fmt(machine)} of them written by a machine, unreviewed). None is weighed against another, whatever it says or
         whoever wrote it, and none is followed a second step.</p>
@@ -661,16 +659,16 @@ export async function render(root, { ontology, params }) {
     const tree = (n) => n.children
       ? `<span class="tiny">${n.kind === "all" ? "all of these" : "any one of these"}</span>${n.text ? " " + esc(n.text) : ""}<ul>${n.children.map((c) => `<li>${tree(c)}</li>`).join("")}</ul>`
       : `${esc(n.text)} <span class="via">${n.kind === "evaluative" ? "an assessment" : "a fact"}</span> ${refChip(n.ref)}`;
-    const why = { named: "named in the question", ground: "its ground recognised" };
+    const why = { named: "named in the question", ground: "a related reason for rejection was found" };
     view.testsBox.hidden = false;
     view.testsBox.open = true;
-    view.tests.innerHTML = `<p class="small"><span class="trust machine">Machine · unreviewed</span> A structured reading of the provision, not given to the answer and not yet measured.</p>
+    view.tests.innerHTML = `<p class="small"><span class="trust machine">AI-written · unreviewed</span> This outline breaks the provision into its conditions. The AI that wrote the answer did not see it. The project has yet to test its accuracy.</p>
       ${reached.map(({ id, why: w }) => {
         const t = byTest.get(id);
         return `<div class="rs-test"><p><b>${esc(t.title)}</b> ${refChip(t.provision)} <span class="via">${w.map((k) => why[k]).join(", ")}</span></p>
           <p class="small">${esc(t.effect)}</p><div class="rs-tree">${tree(t.condition)}</div>
           ${t.exceptions.map((x) => `<p class="small"><b>Exception</b> ${refChip(x.ref)} <span class="via">${esc(x.kind)}</span> ${esc(x.text)} ${esc(x.effect)}</p><div class="rs-tree">${tree(x.condition)}</div>`).join("")}
-          <p class="small"><a class="link-arrow" href="#/customers/requirements/${esc(t.id)}">See it explained, as a customer would ${icon("arrow")}</a></p></div>`;
+          <p class="small"><a class="link-arrow" href="#/customers/requirements/${esc(t.id)}">See the applicant explanation ${icon("arrow")}</a></p></div>`;
       }).join("")}`;
   }
 
@@ -687,7 +685,7 @@ export async function render(root, { ontology, params }) {
       const both = side === "l" ? rightSet.has(ref) : leftSet.has(ref);
       const cls = side === "r" && !both ? " added" : side === "l" && !both ? " dropped" : "";
       const tag = side === "r" && !both ? (preparedAnswer
-        ? `<span class="via" title="Not in plain keyword search's top ten. The prepared search also used meaning-vectors, so this may have come from them or from the ontology.">beyond keyword top 10</span>`
+        ? `<span class="via" title="Not in plain keyword search's top ten. The example search also matched passages by meaning. Either that match or the map may explain this result.">beyond keyword top 10</span>`
         : `<span class="via onto" title="${esc("reached by: " + (why.get(ref) || []).join(", "))}">via the ontology</span>`) : "";
       return `<li class="${srcClass(ref)}${cls}" style="height:${ROW}px"><button type="button" data-ref="${esc(ref)}"><span class="rs-rank">${i + 1}</span><i class="mark" aria-hidden="true"></i><span class="rs-cl" data-title="${esc(ref)}">${esc(refLabel(ref))}</span>${tag}</button></li>`;
     };
@@ -700,7 +698,7 @@ export async function render(root, { ontology, params }) {
     target.innerHTML = `
       <p class="rs-cmp-lede">${added
         ? `<b>${fmt(added)} of the ${fmt(right.length)} passages the answer read were not in keyword search's top ten.</b> ${preparedAnswer ? "The prepared search also matched by meaning, so some may have come from that as well as from the ontology." : "Each came in through an idea the question named, or a connection from one."}`
-        : `<b>Keyword search had every passage the answer read in its top ten</b>; the ontology changed their order, not the list.`}</p>
+        : `<b>Keyword search had every passage the answer read in its top ten</b>; the map changed only their order.`}</p>
       <div class="rs-cmp">
         <div><h4>Keyword search <span class="tiny">words only, top ${left.length}</span></h4><ol class="rs-cl-list">${left.map((r, i) => item(r, i, "l")).join("") || `<li class="empty">Nothing matched.</li>`}</ol></div>
         <svg class="rs-cmp-svg" viewBox="0 0 120 ${H}" preserveAspectRatio="none" style="height:${H}px" aria-hidden="true">${links}</svg>
@@ -729,8 +727,8 @@ export async function render(root, { ontology, params }) {
       const misread = c.authority === "legislation" && c.supported && !c.quotes.some((q) => isLaw(q.ref));
       parts.push(`<div class="claim${c.supported ? "" : " unsupported"}">${await renderAnswer(c.text)}
         <div class="claim-refs">${c.supported ? c.quotes.map((q) => refChip(q.ref)).join(" ")
-          : `<span class="nosupport" title="The model gave no quote for this claim that could be found in what it was given.">No checked support</span>`}
-        ${misread ? `<span class="nosupport">Said to state the legislation, but every quote kept is from the Manual</span>` : ""}</div></div>`);
+          : `<span class="nosupport" title="The model gave no quote for this claim that could be found in what it was given.">No matching quotation</span>`}
+        ${misread ? `<span class="nosupport">This statement describes the law, but its quotations come only from the Manual.</span>` : ""}</div></div>`);
     }
     const none = claims.length && !claims.some((c) => c.supported);
     return `${none ? `<div class="stamp" style="margin-bottom:14px">${stampIcon}<span><b>No claim in this answer has a checked quote.</b> Read all of it as unsupported.</span></div>` : ""}
@@ -741,21 +739,21 @@ export async function render(root, { ontology, params }) {
     const cites = a.citations || [];
     const conflated = authorityFlags(a.answer, cites.map((x) => x.ref));
     const bySource = (src) => cites.filter((x) => sourceOf(x.ref) === src).length;
-    view.tags.innerHTML = `<span class="trust machine">Machine · unreviewed</span>`;
+    view.tags.innerHTML = `<span class="trust machine">AI-written · unreviewed</span>`;
     view.body.innerHTML = `
-      ${a.declined ? `<div class="stamp" style="margin-bottom:14px">${stampIcon}<span><b>Part of this question asked how an application would be decided, and the answer declines that part.</b>${a.decline_reason ? " " + esc(a.decline_reason) : ""}</span></div>` : ""}
+      ${a.declined ? `<div class="stamp" style="margin-bottom:14px">${stampIcon}<span><b>Part of this question asked how an application would be decided. The answer does not cover that part: only the Registrar decides applications.</b>${a.decline_reason ? " " + esc(a.decline_reason) : ""}</span></div>` : ""}
       ${a.claims ? await claimsBlock(a.claims) : `<div class="answer">${await renderAnswer(a.answer)}</div>`}
       ${conflated.length ? `<div class="stamp" style="margin-top:14px">${stampIcon}<span><b>Practice or law?</b> ${esc(conflated[0].message)}<ul class="tiny" style="margin:6px 0 0">${conflated.map((f) => `<li>“${esc(f.sentence.slice(0, 220))}${f.sentence.length > 220 ? "…" : ""}”</li>`).join("")}</ul></span></div>` : ""}
       <details class="quiet rs-cites"><summary>Citations · ${cites.length} <span class="tiny">(${bySource("manual")} Manual · ${bySource("act")} Act · ${bySource("regs")} Regulations)</span></summary>
-        <div class="det-body"><p class="tiny">Each quote was found word for word in the passage${a.claims ? " as the model was given it. That proves the words are there, not that they support the claim" : ""}.</p>
+        <div class="det-body"><p class="tiny">The tool found each quotation in the source text. Open the passage to check whether it supports the statement.</p>
         <ul class="rs-cite-list">${cites.map((x) => `<li>${srcBadge(x.ref)} ${refChip(x.ref)} <span class="muted">“${esc(String(x.quote || "").slice(0, 220))}${String(x.quote || "").length > 220 ? "…" : ""}”</span></li>`).join("")}</ul>
-        ${a.cuts?.length ? `<p class="tiny">Given to the model in part, every cut marked: ${a.cuts.map((x) => `${refChip(x.ref)} <span class="muted">(${esc(x.cut)})</span>`).join("; ")}. What a cut omits exists.</p>` : ""}
+        ${a.cuts?.length ? `<p class="tiny">The AI received only part of these passages: ${a.cuts.map((x) => `${refChip(x.ref)} <span class="muted">(${esc(x.cut)})</span>`).join("; ")}. Open a reference to read the full passage.</p>` : ""}
         ${a.dropped?.length ? `<p class="tiny">${a.dropped.length} citation${a.dropped.length > 1 ? "s" : ""} the model gave could not be found word for word in the passage, and ${a.dropped.length > 1 ? "were" : "was"} removed.</p>` : ""}</div>
       </details>
       <div class="stamp rs-stamp">${stampIcon}<span>Written by a machine (<code>${esc(a.model || "")}</code>${a.live ? "" : `, ${esc(a.when || "")}`}) from the passages shown, and not reviewed by a trade marks expert.
-        The Manual states the Registrar's practice; it is not law. This is not advice and not an examination decision.
-        It says what these passages and connections record, and they may not be complete: a requirement, exception or step they do not mention may still exist.
-        A "Practice or law?" warning comes from a word check that can miss: no warning does not mean every attribution to the legislation is right.</span></div>
+        The Manual describes examination practice; it is not law. This answer is general information, not legal advice or an examination decision.
+        The search may have missed a requirement, exception or step.
+        The tool uses wording to flag possible mix-ups between law and guidance. Check the source even when there is no warning.</span></div>
       <p class="tiny rs-provenance">${a.live ? `Live answer · ${a.seconds ? a.seconds.toFixed(0) + " s" : ""}${a.cost != null ? ` · about US${(a.cost * 100).toFixed(1)}¢${a.readingCost ? `, ${(a.readingCost * 100).toFixed(1)}¢ of it reading the question` : ""}` : ""} · ${esc(chat.effort)} reasoning effort (the prepared answers used ${esc(chat.measured_effort)}) · search ran without the meaning-vectors the measured system also used${a.reading?.kept?.length ? `, and started from ${a.reading.kept.length === 1 ? "an idea" : `${a.reading.kept.length} ideas`} the model read in the question, which the measured system did not do` : ""}.`
         : `Prepared answer, written ${esc(a.when || "")} with ${esc(chat.measured_effort)} reasoning effort by the same pipeline (${esc(chat.prepared_prompt_version)}): given complete provisions with every cut marked, as a live answer is, and each claim's quotes checked against what it was given.`}
         Read against ${esc(lawLine(a.live ? chat.law : examples.law, a.live ? chat.manual : examples.manual))}.</p>`;

@@ -359,7 +359,7 @@ def test_the_page_never_reads_an_empty_map_as_an_absence():
     ask = (SITE / "js" / "ask.js").read_text(encoding="utf-8")
     assert ask.count("not a finding that none exist") == 2
     assert "Gathered no passages through the map's links" in ask
-    assert "a requirement, exception or step they do not mention may still exist" in ask
+    assert "The search may have missed a requirement, exception or step." in ask
 
 
 @needs_snapshot
@@ -375,7 +375,7 @@ def test_a_concept_card_carries_its_definition_stamped_with_its_source(files):
         assert d["review_status"] == "unreviewed" and d["text"] and d["ref"], concept["id"]
         assert d["basis"] in ("statutory_definition", "statutory_provision", "manual")
     app_js = (SITE / "js" / "app.js").read_text(encoding="utf-8")
-    assert "export function definitionBlock" in app_js and "which states practice, not law" in app_js
+    assert "export function definitionBlock" in app_js and "which describes practice, not law" in app_js
     # Both cards that show an idea's own fields: the map's and the table's (S039).
     for card in ("map.js", "table.js"):
         assert "definitionBlock(x.definition)" in (SITE / "js" / card).read_text(encoding="utf-8"), card
@@ -465,8 +465,9 @@ def test_the_customer_preview_is_the_engines_own_explanation(files):
     for view in data["requirements"] + data["walkthroughs"]:
         assert view["stamp"] == engine.GENERAL_STAMP and view["text"]
     page = (SITE / "js" / "customers.js").read_text(encoding="utf-8")
-    for words in ("Invented matters only. Not tested with customers. Not advice.",
-                  "never says how an application will be decided", "the project owner's decision"):
+    for words in ("Fictional cases for review. Not formally tested with customers.", "do not provide legal advice",
+                  "Only the Registrar decides an application.", "have not been formally tested with customers",
+                  "The project owner decides when testing or public release can begin."):
         assert words in page, words
     assert 'load("explain")' in page and "textEq(" in page
 
@@ -505,11 +506,11 @@ def test_the_first_page_leads_with_outcomes_read_from_the_data():
     with every figure read from the data, never typed in."""
     home = (SITE / "js" / "home.js").read_text(encoding="utf-8")
     assert 'all["ndcg:ontology-hybrid"]' in home and 'all["ndcg:ontology-keyword"]' in home
-    assert "not tested with customers" in home and "Never" in home
+    assert "not formally tested with customers" in home and "Never" in home
     for typed in ("129", "810", "729", "164", "357"):
         assert typed not in home, typed
     future = (SITE / "js" / "future.js").read_text(encoding="utf-8")
-    assert 'id="customers"' in future and "nothing has been shown to a customer" in future
+    assert 'id="customers"' in future and "no formal testing with customers yet" in future
     assert "until the project owner approves it" in future
 
 

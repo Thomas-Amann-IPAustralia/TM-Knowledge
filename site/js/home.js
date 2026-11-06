@@ -14,9 +14,9 @@ import { term } from "./glossary.js";
 export function difference([est, lo, hi], better, worse) {
   const pts = (x) => Math.abs(x * 100).toFixed(1);
   const range = `95% interval ${(lo * 100).toFixed(1)} to ${(hi * 100).toFixed(1)}`;
-  if (lo > 0) return `<b>${pts(est)} points ${better}</b> <span class="muted">(${range}: established)</span>`;
-  if (hi < 0) return `<b>${pts(est)} points ${worse}</b> <span class="muted">(${range}: established)</span>`;
-  return `<b>no established difference</b> <span class="muted">(${range})</span>`;
+  if (lo > 0) return `<b>${pts(est)} points ${better}</b> <span class="muted">(${range})</span>`;
+  if (hi < 0) return `<b>${pts(est)} points ${worse}</b> <span class="muted">(${range})</span>`;
+  return `<b>no clear difference</b> <span class="muted">(${range})</span>`;
 }
 
 const GRADE = ["not relevant", "marginal", "relevant", "highly relevant"];
@@ -41,12 +41,11 @@ export async function render(root, { ontology }) {
   <div class="hm">
     <section class="wrap hm-hero">
       <div class="hm-copy">
-        <span class="eyebrow">Trade Marks Manual · proof of concept</span>
-        <h1 class="hm-title">From a question in plain words to the law and practice that <em>answer it</em>.</h1>
-        <p class="lede">It recognises the ideas in a question, follows how they connect, and brings back the passages of the Manual, the
-        Act and the Regulations that bear on it. It shows every step, keeps law and practice apart, and never decides an application.</p>
+        <span class="eyebrow">Australian trade marks · research prototype</span>
+        <h1 class="hm-title">Search Australian trade mark law and guidance</h1>
+        <p class="lede">Ask a question in your own words. The tool finds passages from the Trade Marks Act 1995 and Trade Marks Regulations 1995, which set out the law. It also searches IP Australia’s Trade Marks Manual of Practice and Procedure, which explains how examiners apply the law. Open a passage to read it for yourself.</p>
         <div class="hm-cta">
-          <a class="btn primary" href="#/ask">Research a question ${icon("arrow")}</a>
+          <a class="btn primary" href="#/ask">Ask a question ${icon("arrow")}</a>
           <a class="btn ghost" href="#/how">See how it works ${icon("chevron")}</a>
         </div>
         <div class="hm-sources">${legend()}</div>
@@ -56,27 +55,27 @@ export async function render(root, { ontology }) {
 
     <section class="wrap section hm-outcomes" aria-labelledby="hm-o">
       <div class="sec-head">
-        <div><span class="eyebrow">What it does today</span><h2 id="hm-o">One foundation, three uses.</h2></div>
-        <p>Each runs on the same model of the Manual's ideas. Each says plainly how far it has got.</p>
+        <div><span class="eyebrow">What it does today</span><h2 id="hm-o">What can you do here?</h2></div>
+        <p>Choose a tool to search the sources, explore a fictional case or check which records cite a source.</p>
       </div>
       <div class="grid-3">
         ${outcome({
-          href: "#/ask", k: "For examiners", title: "Research a question", visual: miniResearch(),
-          text: "Ask in everyday words. It finds the passages that bear on the question, shows how it found them, and writes an answer that cites every claim.",
+          href: "#/ask", k: "For examiners", title: "Research a trade mark question", visual: miniResearch(),
+          text: "Find passages about your question. Open a reference beside an answer to check what the source says.",
           figure: everyday ? `+${(everyday["ndcg:ontology-keyword"][0] * 100).toFixed(1)}` : "", figureText: everyday
-            ? `points of top-ten quality over keyword search, on questions in everyday words (95% interval ${(everyday["ndcg:ontology-keyword"][1] * 100).toFixed(1)} to ${(everyday["ndcg:ontology-keyword"][2] * 100).toFixed(1)})` : "",
+            ? `points higher than keyword search on the ranking of the first 10 results for everyday questions (95% interval ${(everyday["ndcg:ontology-keyword"][1] * 100).toFixed(1)} to ${(everyday["ndcg:ontology-keyword"][2] * 100).toFixed(1)})` : "",
           state: ["working", "Working · answers unreviewed"], go: "Ask a question",
         })}
         ${outcome({
-          href: "#/customers", k: "For customers, later", title: "Explain an objection", visual: miniExplain(),
-          text: "Explains what a provision requires, how an application moves, and what an objection means, in plain words with a picture and its sources.",
-          stats: [[fmt(c.tests), "provisions as legal tests"], [fmt(c.processes), "processes as templates"], [fmt(c.fictional_matters), "invented matters"]],
-          state: ["prototype", "Prototype · not tested with customers"], go: "See the preview",
+          href: "#/customers", k: "Applicant examples", title: "Understand an examiner’s objection", visual: miniExplain(),
+          text: "Follow a fictional application to see why an examiner raised an objection, what the law requires and what could happen next.",
+          stats: [[fmt(c.tests), "legal tests"], [fmt(c.processes), "example procedures"], [fmt(c.fictional_matters), "fictional cases"]],
+          state: ["prototype", "Prototype · not formally tested with customers"], go: "See the preview",
         })}
         ${outcome({
-          href: "#/change", k: "For maintaining guidance", title: "Trace a change", visual: miniChange(),
-          text: "Name a section of the Act or a page of the Manual and see every record that rests on it, so a change is re-checked where it lands.",
-          stats: [[fmt(provisions), "sections and regulations with records resting on them"], [fmt(stability.events), `amendments to the Manual recorded since ${esc(firstYear)}`]],
+          href: "#/change", k: "Guidance maintenance", title: "Trace a change", visual: miniChange(),
+          text: "Choose a section of the Act, a regulation or a Manual page. See which records cite it and may need review if it changes.",
+          stats: [[fmt(provisions), "sections and regulations linked to records"], [fmt(stability.events), `amendments to the Manual recorded since ${esc(firstYear)}`]],
           state: ["working", "Working · not measured"], go: "Trace a change",
         })}
       </div>
@@ -85,15 +84,14 @@ export async function render(root, { ontology }) {
     <section class="hm-band">
       <div class="wrap">
         <div class="hm-band-head">
-          <div><span class="eyebrow">Why it works</span><h2>Not a pile of documents. A map of what they mean.</h2></div>
-          <p>Underneath is an ${term("ontology")}: the ideas examiners reason with, what kind of thing each is, how they connect, and the
-          passage each rests on. Its value is what it lets the tools above do.</p>
+          <div><span class="eyebrow">How the search works</span><h2>How the search finds related passages</h2></div>
+          <p>The tool uses a map of trade mark terms and their connections. The links show where the information came from. The technical name for this model is an ${term("ontology")}.</p>
         </div>
         <div class="hm-why">
-          ${why("words", "It knows the words people use", `One idea, many wordings. ${fmt(showcase.total)} passages name <i>${esc(showcase.label)}</i>; a search for that term misses ${fmt(showcase.missed)} of them, because they say ${Object.keys(showcase.wordings).filter((w) => w !== showcase.label).slice(0, 2).map((w) => `“${esc(w)}”`).join(" or ")}.`, wordsVisual(showcase))}
-          ${why("connect", "It knows how ideas connect", `${fmt(relations)} connections between ${fmt(concepts)} ideas, each saying what it means (<i>may give rise to</i>, <i>is overcome by</i>) and quoting the sentence it rests on.`, connectVisual())}
-          ${why("shape", "It knows the shape of the law", `${fmt(c.tests)} provisions written as structured tests: who acts, the conditions, the exceptions. A fact is kept apart from a person's assessment, and an assessment is never computed.`, shapeVisual())}
-          ${why("show", "It shows its working", `${fmt(quoted)} of ${fmt(claims.length)} claims in the prepared answers carry a quote checked word for word. Law and practice stay apart, and machine-written content says so.`, showVisual())}
+          ${why("words", "Different words for the same idea", `The Manual can use several names for one idea. ${fmt(showcase.total)} passages name <i>${esc(showcase.label)}</i>; a search for that term misses ${fmt(showcase.missed)} of them, because they say ${Object.keys(showcase.wordings).filter((w) => w !== showcase.label).slice(0, 2).map((w) => `“${esc(w)}”`).join(" or ")}.`, wordsVisual(showcase))}
+          ${why("connect", "Links between ideas", `${fmt(relations)} links connect ${fmt(concepts)} ideas. For example, a link can show what <i>may give rise to</i> an objection. Each link quotes its source.`, connectVisual())}
+          ${why("shape", "Conditions and exceptions", `${fmt(c.tests)} legal tests show who acts, when a rule applies and what exceptions it allows. Each test separates facts from the judgements a person must make, and never makes those judgements itself.`, shapeVisual())}
+          ${why("show", "Quotations you can check", `${fmt(quoted)} of ${fmt(claims.length)} claims in the prepared answers include a quotation the tool found word for word in the source. Open a reference to see whether it supports the statement.`, showVisual())}
         </div>
         <div class="hm-band-cta"><a class="btn lime" href="#/how">Follow one question through the system ${icon("arrow")}</a><a class="btn on-dark" href="#/map">Explore the knowledge map</a></div>
       </div>
@@ -101,9 +99,8 @@ export async function render(root, { ontology }) {
 
     <section class="wrap section hm-measure" aria-labelledby="hm-m">
       <div class="sec-head">
-        <div><span class="eyebrow">Measured, not assumed</span><h2 id="hm-m">Better than keyword search. Not better than search by meaning.</h2></div>
-        <p>Three searches, fixed before any result was graded, ranked passages for the same ${fmt(all?.n || answers.length)} test questions.
-        Each top ten was scored for ${term("ndcg", "quality")}, out of 100.</p>
+        <div><span class="eyebrow">How well the search works</span><h2 id="hm-m">Better than keyword search. Not better than search by meaning.</h2></div>
+        <p>We tried three search methods on the same ${fmt(all?.n || answers.length)} questions. The ${term("ndcg", "ranking score")} gives more weight to relevant passages near the top of the first 10 results. The highest possible score is 100.</p>
       </div>
       ${everyday && all ? `<div class="hm-measure-grid">
         <figure class="card card-pad hm-chart" aria-label="Top-ten quality by search, for everyday-words questions and for all questions">
@@ -116,37 +113,36 @@ export async function render(root, { ontology }) {
           </figcaption>
         </figure>
         <div class="hm-read">
-          <h3>Read it both ways</h3>
-          <p><b>Against keyword search</b>, the ontology-guided search ranked better passages: on questions in everyday words,
-          ${difference(everyday["ndcg:ontology-keyword"], "better", "worse")}; on all questions, ${difference(all["ndcg:ontology-keyword"], "better", "worse")}.</p>
-          <p><b>Against search that matches by meaning</b>, it did not do better: on all questions, ${difference(all["ndcg:ontology-hybrid"], "better", "worse")};
-          on everyday-words questions, ${difference(everyday["ndcg:ontology-hybrid"], "better", "worse")}.</p>
-          <p class="small muted">What the ontology adds that matching by meaning cannot is a reason for each result: the idea it recognised and the
-          connection it followed. The test questions were written by a model and graded by another; only ${fmt(s.signed?.n || 0)} were reviewed by a person.</p>
-          <a class="link-arrow" href="#/about">The whole measurement and its limits ${icon("arrow")}</a>
+          <h3>What the scores tell us</h3>
+          <p><b>Map-guided search compared with keywords alone.</b> For everyday questions:
+          ${difference(everyday["ndcg:ontology-keyword"], "better", "worse")}. For all questions: ${difference(all["ndcg:ontology-keyword"], "better", "worse")}.</p>
+          <p><b>Map-guided search compared with search by meaning.</b> For all questions: ${difference(all["ndcg:ontology-hybrid"], "better", "worse")}.
+          For everyday questions: ${difference(everyday["ndcg:ontology-hybrid"], "better", "worse")}.</p>
+          <p class="small muted">The map also shows which ideas and links contributed to a result. AI wrote most test questions and graded how relevant the passages were. Only ${fmt(s.signed?.n || 0)} were reviewed by a person.</p>
+          <a class="link-arrow" href="#/about">See the test results and their limits ${icon("arrow")}</a>
         </div>
-      </div>` : `<p class="muted">The measurement is not in this build.</p>`}
+      </div>` : `<p class="muted">Test results are unavailable in this version.</p>`}
     </section>
 
     <section class="wrap section hm-next" aria-labelledby="hm-n">
       <div class="sec-head">
-        <div><span class="eyebrow">Built to grow</span><h2 id="hm-n">Useful now. A foundation for what comes next.</h2></div>
-        <p>The same records were written to carry more than this proof of concept. Each use below says how far it has got.</p>
+        <div><span class="eyebrow">Future uses</span><h2 id="hm-n">What else could the tools do?</h2></div>
+        <p>The labels show which tools work today and which are proposals.</p>
       </div>
       ${foundation()}
-      <p style="margin-top:22px"><a class="link-arrow" href="#/future">What each would build on, and still need ${icon("arrow")}</a></p>
+      <p style="margin-top:22px"><a class="link-arrow" href="#/future">Explore the proposed uses ${icon("arrow")}</a></p>
     </section>
 
-    <section class="wrap hm-status" aria-label="Where it stands, in one line each">
+    <section class="wrap hm-status" aria-label="Results and limits, in one line each">
       <div class="hm-status-grid">
-        ${status("working", "Working", "Asking the Manual, with prepared answers and live ones when switched on; searching the Act and the Regulations; what rests on a page or a section; the map.")}
-        ${status("measured", "Measured", "Search quality, in both directions (above). Nothing else has been measured yet.")}
-        ${status("prototype", "Built, not tested", "The legal tests, the process templates and the customer explanation preview: not tested with customers or measured.")}
+        ${status("working", "Working", "Search the Manual and legislation, browse example answers, explore the map and check which records cite a source. Live answers depend on availability.")}
+        ${status("measured", "Measured", "The tests above compared how well three searches ranked Manual passages. Nothing else has been measured yet.")}
+        ${status("prototype", "Built, not tested", "The prototype illustrates legal tests and application steps with fictional cases. It has not been formally tested with customers or measured.")}
         ${status("unreviewed", "Not yet reviewed", `${fmt(c.concepts.machine)} of ${fmt(concepts)} ideas, ${fmt(c.relations.machine)} of ${fmt(relations)} connections, every definition, test and answer: machine-written and labelled ${term("unreviewed", "unreviewed")}.`)}
-        ${status("planned", "Possible next", "Testing the explanations with customers (the project owner's decision); policy questions about amendments; a foundation for decision support.")}
+        ${status("planned", "Possible next", "Possible next steps include testing the explanations with customers (the project owner's decision), exploring policy changes and explaining recorded decisions.")}
         ${status("never", "Never", "Deciding an application, or saying how one will be decided.")}
       </div>
-      <p class="hm-status-foot"><a class="link-arrow" href="#/about">Where it stands, in full ${icon("arrow")}</a>${live.enabled ? "" : `<span class="tiny">Live answers are off on this copy; the prepared answers and the search still work.</span>`}</p>
+      <p class="hm-status-foot"><a class="link-arrow" href="#/about">See results and limits ${icon("arrow")}</a>${live.enabled ? "" : `<span class="tiny">Live answers are off. The example answers and the search still work.</span>`}</p>
     </section>
   </div>`;
 
@@ -168,29 +164,29 @@ function demo(ex, byId, ontology) {
   const idea = (id, label) => `<span class="idea-pill" style="--c:${fam(id).colour};--cb:${fam(id).bg};--ci:${fam(id).ink}"><i></i>${esc(label)}</span>`;
   const squares = (rows, mark) => rows.map(([ref, g], i) => `<button type="button" class="hm-sq g${g ?? 0}${mark && only.has(ref) ? " only" : ""}" data-ref="${esc(ref)}"
     data-tip="${esc(`${i + 1}. ${refLabel(ref)} · graded ${GRADE[g ?? 0]}${mark && only.has(ref) ? " · found through the connection" : ""}`)}" aria-label="${esc(`${refLabel(ref)}, graded ${GRADE[g ?? 0]}`)}"></button>`).join("");
-  return `<figure class="card hm-demo" aria-label="One real test question, followed through the system">
-    <div class="hm-demo-top"><span class="eyebrow">One real test question</span>
+  return `<figure class="card hm-demo" aria-label="Example question and search results">
+    <div class="hm-demo-top"><span class="eyebrow">Example question</span>
       <button type="button" class="btn small ghost hm-replay" aria-label="Play the example again">${icon("replay")} Replay</button></div>
     <ol class="hm-stages">
-      <li class="hm-stage" data-s="1"><span class="hm-n">1</span><div><span class="hm-lab">The question, in everyday words</span>
+      <li class="hm-stage" data-s="1"><span class="hm-n">1</span><div><span class="hm-lab">The example question</span>
         <p class="hm-q">${q}</p></div></li>
-      <li class="hm-stage" data-s="2"><span class="hm-n">2</span><div><span class="hm-lab">Ideas it recognised</span>
+      <li class="hm-stage" data-s="2"><span class="hm-n">2</span><div><span class="hm-lab">Terms the search matched</span>
         <p class="hm-ideas">${specific.map((r) => idea(r.id, r.label)).join("")}${generic.map((r) => `<span class="idea-pill quiet" title="Named in so many passages that it does not steer the search"><i></i>${esc(r.label)}</span>`).join("")}</p>
-        ${generic.length ? `<span class="hm-note">${esc(generic.map((r) => r.label).join(", "))} is named too often to steer, so it is set aside</span>` : ""}</div></li>
-      ${path ? `<li class="hm-stage" data-s="3"><span class="hm-n">3</span><div><span class="hm-lab">A connection it followed</span>
+        ${generic.length ? `<span class="hm-note">Too common to narrow this search: ${esc(generic.map((r) => r.label).join(", "))}</span>` : ""}</div></li>
+      ${path ? `<li class="hm-stage" data-s="3"><span class="hm-n">3</span><div><span class="hm-lab">How the matched terms relate</span>
         <p class="hm-path">${idea(path.subject, path.subject_label)}<span class="hm-pred">${esc(ontology.predicates[path.predicate]?.label || path.predicate)}</span>${idea(path.object, path.object_label)}</p>
         ${path.applies_when ? `<span class="hm-note">only when ${esc(path.applies_when.length > 120 ? path.applies_when.slice(0, 118).replace(/\s+\S*$/, "") + " …" : path.applies_when)}</span>` : ""}</div></li>` : ""}
-      <li class="hm-stage" data-s="4"><span class="hm-n">4</span><div><span class="hm-lab">The top ten passages it brought back</span>
+      <li class="hm-stage" data-s="4"><span class="hm-n">4</span><div><span class="hm-lab">The first 10 results</span>
         <div class="hm-rows">
           <span class="hm-rowlab">Keyword search</span><span class="hm-sqs">${squares(ex.keyword, false)}</span>
-          <span class="hm-rowlab"><b>With the connections</b></span><span class="hm-sqs">${squares(ex.ontology, true)}</span>
+          <span class="hm-rowlab"><b>Using the knowledge map</b></span><span class="hm-sqs">${squares(ex.ontology, true)}</span>
         </div>
-        <p class="hm-found"><b>${fmt(only.size)} relevant passages</b> that neither keyword search nor search by meaning had in its top ten, found through the connection.</p></div></li>
+        <p class="hm-found">For this question, following the link found <b>${fmt(only.size)} relevant passages</b> that neither of the other searches ranked in its top 10.</p></div></li>
     </ol>
     <figcaption class="hm-demo-foot">
-      <span class="hm-grades"><i class="hm-sq g3"></i>highly relevant<i class="hm-sq g2"></i>relevant<i class="hm-sq g1"></i>marginal<i class="hm-sq g0"></i>not, as graded by a model</span>
-      <span>Top-ten quality on this question: keyword ${pct(ex.ndcg.keyword)}, by meaning ${pct(ex.ndcg.hybrid)}, with the ontology ${pct(ex.ndcg.ontology)}.
-      One question, chosen because it shows the connections at work most clearly; across all of them the picture is mixed (below).</span>
+      <span class="hm-grades"><i class="hm-sq g3"></i>highly relevant<i class="hm-sq g2"></i>relevant<i class="hm-sq g1"></i>marginal<i class="hm-sq g0"></i>not relevant (AI ratings)</span>
+      <span>Ranking scores for this question (out of 100): keyword ${pct(ex.ndcg.keyword)}, by meaning ${pct(ex.ndcg.hybrid)}, map-guided ${pct(ex.ndcg.ontology)}.
+      We chose this example because it shows how a link can help. The results across all questions are below.</span>
     </figcaption>
   </figure>`;
 }
@@ -303,16 +299,16 @@ const USES = [
   ["Examiner research", "working", "Working"],
   ["Customer explanations", "prototype", "Prototype"],
   ["Tracing a change", "working", "Working"],
-  ["Policy: simulating an amendment", "prototype", "Two layers working"],
+  ["Policy: simulating an amendment", "prototype", "Two methods demonstrated"],
   ["Customer chatbot with visuals", "planned", "Builds on the prototype"],
-  ["Decision support: represent, never make", "planned", "Not started"],
+  ["Explaining decisions, never making them", "planned", "Not started"],
   ["Machine learning", "planned", "Foundation only"],
 ];
 
 function foundation() {
   return `<a class="hm-fdn card" href="#/future" aria-label="What the foundation could support: see what's next">
     <div class="hm-pillars">${USES.map(([name, state, label]) => `<div class="hm-pillar ${state}"><b>${esc(name)}</b><span class="pill ${state}">${esc(label)}</span></div>`).join("")}</div>
-    <div class="hm-slab"><span>${icon("layers")} The knowledge foundation: ideas, kinds, connections and the text each rests on, with who wrote it</span></div>
+    <div class="hm-slab"><span>${icon("layers")} The tools share the same trade mark terms, links, sources and author details.</span></div>
   </a>`;
 }
 

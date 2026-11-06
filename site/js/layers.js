@@ -13,11 +13,11 @@ export const LAYERS = [
   { depth: 1, id: "does", label: "What it does", href: "#/", routes: ["", "ask", "customers", "change"] },
   { depth: 2, id: "could", label: "What it could do", href: "#/future", routes: ["future", "whatif"] },
   { depth: 3, id: "how", label: "How it works", href: "#/how", routes: ["how", "map", "rules"] },
-  { depth: 4, id: "under", label: "Under the hood", href: "#/standards", routes: ["standards", "glossary", "table"] },
+  { depth: 4, id: "under", label: "Technical reference", href: "#/standards", routes: ["standards", "glossary", "table"] },
 ];
 
 /** The cross-cutting page: status, measurement, limits and the gates ahead. */
-export const ACROSS = { label: "Where it stands", href: "#/about", routes: ["about"] };
+export const ACROSS = { label: "Results and limits", href: "#/about", routes: ["about"] };
 
 export const layerOf = (name) => LAYERS.find((l) => l.routes.includes(name || "")) || null;
 
@@ -27,27 +27,27 @@ export const navOwner = (name) => (name in OWNER ? OWNER[name] : name === "about
 
 /** Where each page leads next: one layer deeper, with what the reader will find there. */
 const NEXT = {
-  ask: { title: "How did it find those passages?", text: "Follow one question through the system: the words it recognised, the connections it followed, and the model of ideas underneath.",
+  ask: { title: "How did it find those passages?", text: "Follow an example from the words in the question to the passages in the results.",
     links: [["#/how", "See how it works", "primary"], ["#/map", "Explore the knowledge map"]] },
-  customers: { title: "What lets it explain a provision this way?", text: "Each legal test is written as structured data: who acts, the conditions joined by all of and any of, the exceptions, each part quoting its source.",
+  customers: { title: "How does the tool break down a legal rule?", text: "See who acts, which conditions must be met and which exceptions apply. Each part links to a source.",
     links: [["#/rules", "See the rules as code", "primary"], ["#/how", "How it works"]] },
-  change: { title: "Why can it trace a change?", text: "Every idea, connection and test quotes the passage it rests on and keeps a fingerprint of it, so a change to the text points straight at what to re-check.",
+  change: { title: "How does the tool find records to review?", text: "Each record stores a quotation and a way to detect changes to the source text. Editors can use these links to find records to review.",
     links: [["#/how", "See how it works", "primary"], ["#/map", "Explore the knowledge map"]] },
-  future: { title: "What would all of this build on?", text: "One knowledge foundation: the ideas examiners reason with, how they connect, and the text each rests on.",
-    links: [["#/how", "See how it works", "primary"], ["#/about", "Where it stands"]] },
-  whatif: { title: "Why can it scope a right that does not exist?", text: "Every idea and connection quotes the passage it rests on and names its basis in the Act, so anything laid over them can be traced to the guidance underneath.",
+  future: { title: "What do the tools have in common?", text: "They use the same trade mark terms, links and sources.",
+    links: [["#/how", "See how it works", "primary"], ["#/about", "Results and limits"]] },
+  whatif: { title: "How do you find guidance for a policy review?", text: "Follow a link from a policy question to the records and source passages it might affect.",
     links: [["#/how", "See how it works", "primary"], ["#/change", "Trace a change"]] },
-  how: { title: "Go under the hood", text: "The open standards the graph is written in, each explained in plain words with a real block of this build, and every record as a table.",
+  how: { title: "Explore the technical details", text: "See how the project stores its records, browse the data tables or look up a term.",
     links: [["#/standards", "The standards", "primary"], ["#/table", "Data tables"], ["#/glossary", "Glossary"]] },
-  rules: { title: "See the model the rules are built from", text: "Every idea, its kind and its connections, on one interactive map.",
+  rules: { title: "Explore the terms used in the rules", text: "Every idea, its kind and its connections, on one interactive map.",
     links: [["#/map", "Explore the knowledge map", "primary"], ["#/standards", "The standards"]] },
-  standards: { title: "Every term, in plain words", text: "No standard's name is assumed known: the glossary says what each means, what it does here, and what it is called technically.",
-    links: [["#/glossary", "Read the glossary", "primary"], ["#/about", "Where it stands"]] },
-  glossary: { title: "Where it stands", text: "The measurement in both directions, what is still to be decided and by whom, and the limits.",
-    links: [["#/about", "Where it stands", "primary"], ["#/standards", "The standards"]] },
-  table: { title: "See the same records drawn", text: "The knowledge map draws every idea and connection; select one to read its card.",
+  standards: { title: "Look up a technical term", text: "The glossary explains each term and gives an example of how the project uses it.",
+    links: [["#/glossary", "Read the glossary", "primary"], ["#/about", "Results and limits"]] },
+  glossary: { title: "Results and limits", text: "See the search test results, the limits of the prototype and the decisions still to make.",
+    links: [["#/about", "Results and limits", "primary"], ["#/standards", "The standards"]] },
+  table: { title: "View these records on the map", text: "The knowledge map draws every idea and connection; select one to read its card.",
     links: [["#/map", "Explore the knowledge map", "primary"], ["#/standards", "The standards"]] },
-  about: { title: "Back to what it does", text: "Ask the Manual a question, see an explanation for a customer, or trace what a change would touch.",
+  about: { title: "Try the tools", text: "Search the Manual and legislation, explore an example application or find records to review after a change.",
     links: [["#/ask", "Research a question", "primary"], ["#/", "Overview"]] },
 };
 
@@ -57,8 +57,7 @@ export function goDeeper(name) {
   if (!next) return "";
   const here = layerOf(name);
   const target = layerOf(next.links[0][0].replace(/^#\/?/, "").split("/")[0]);
-  const k = name === "about" || !target ? "Where to next" : target.depth > (here?.depth || 0)
-    ? `Go deeper · layer ${target.depth} of ${LAYERS.length}: ${target.label.toLowerCase()}` : `Layer ${target.depth} of ${LAYERS.length}: ${target.label.toLowerCase()}`;
+  const k = target?.label || "Explore another tool";
   return `<aside class="wrap next" aria-label="Where to go next">
     <div class="next-in">
       <div><span class="eyebrow">${esc(k)}</span><h3>${esc(next.title)}</h3><p>${esc(next.text)}</p></div>

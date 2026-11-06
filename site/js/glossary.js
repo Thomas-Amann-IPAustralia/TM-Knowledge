@@ -11,13 +11,13 @@ import { esc } from "./app.js";
 export const GLOSSARY = {
   ontology: {
     label: "ontology",
-    plain: "A shared, written-down description of a field: the ideas in it, what kind of thing each one is, and how they relate.",
-    here: "The ideas examiners reason with (grounds, tests, roles, steps, records), sorted into kinds and connected, each tied to the passage of the Manual or provision it comes from.",
+    plain: "A structured description that names the ideas in a subject and describes how they relate to each other.",
+    here: "For example, the model links an examiner’s role to a step in an application and to the source that describes it.",
     technical: "A conceptual model, stored here as a knowledge graph. The word comes from philosophy; in computing it means an explicit model a program can read.",
   },
   "knowledge-graph": {
     label: "knowledge graph",
-    plain: "Facts stored as things and the links between them, rather than as rows in a table, so a program can follow the links.",
+    plain: "A way to store information as named things and links that a computer can follow.",
     here: "The ideas, their connections, the passages and provisions, and who wrote each record, all in one linked store that can be queried and checked.",
     technical: "A graph database of statements, here written in RDF and kept in separate named graphs by who wrote them.",
   },
@@ -35,19 +35,19 @@ export const GLOSSARY = {
   },
   kind: {
     label: "kind",
-    plain: "What sort of thing an idea is: a ground of refusal, a legal test, a role, a step, a record and so on.",
+    plain: "A category for similar ideas. For example, an examiner is a role and filing an application is a step.",
     here: "Eleven kinds in three families: the questions the law asks, what they are asked about, and the process around them.",
-    technical: "A class-like grouping of concepts; what an idea does is a connection, not a kind.",
+    technical: "The category groups concepts by type. Links between concepts describe their relationships.",
   },
   connection: {
     label: "connection",
     plain: "A stated link between two ideas that says what the link means, such as 'a role performs a step'.",
     here: "Each connection quotes the sentence it rests on and keeps its wording's force: a 'may' stays a 'may', and a condition stays attached.",
-    technical: "A relationship record, reified in the graph so its evidence, modality and condition travel with it.",
+    technical: "Each relationship has a record of its own. It lists the evidence, wording and conditions.",
   },
   modality: {
     label: "modality",
-    plain: "How strongly a sentence says something: must, may, may not, generally.",
+    plain: "Wording that tells you whether something is required, allowed, prohibited or usual.",
     here: "Kept on every connection and legal test, so a discretion is never turned into an obligation.",
     technical: "A field on each relationship and effect (obligation, discretion, bar).",
   },
@@ -58,9 +58,9 @@ export const GLOSSARY = {
     technical: "Stored per record and per assertion, in the spirit of the W3C PROV-O vocabulary.",
   },
   unreviewed: {
-    label: "machine-written, unreviewed",
+    label: "AI-written, unreviewed",
     plain: "Written by an AI model and not yet checked by a trade marks expert.",
-    here: "Most records are. They may be used and shown, but are labelled wherever they appear, and never become 'approved' by being left alone.",
+    here: "Look for the review label beside each record. Only a recorded expert review can change its status.",
     technical: "review_status: unreviewed, with the model, date, confidence and evidence in an envelope on each record.",
   },
   llm: {
@@ -78,24 +78,24 @@ export const GLOSSARY = {
   "keyword-search": {
     label: "keyword search",
     plain: "Finding text that contains the words you typed, like a search box.",
-    here: "The baseline every other search on this site is compared with.",
+    here: "The starting point for comparing search methods.",
     technical: "BM25 ranking over the Manual's passages, and separately over the Act and the Regulations.",
   },
   ndcg: {
     label: "top-ten quality (nDCG@10)",
     plain: "A score out of 100 for how good a search's first ten results are, giving more credit for the best passages near the top.",
-    here: "Used to compare plain keyword search, search by meaning, and search guided by the ontology on 129 questions.",
+    here: "Used to compare plain keyword search, search by meaning, and search guided by the ontology on the project’s test questions.",
     technical: "Normalised discounted cumulative gain at rank 10, against relevance grades from 0 to 3.",
   },
   interval: {
     label: "95% interval",
-    plain: "The range a measured difference probably lies in. If the range crosses zero, the difference is not established.",
+    plain: "A range showing the uncertainty in an estimated difference. If it includes zero, the results do not establish which search ranked passages better.",
     here: "Every comparison of searches is reported with one, in both directions.",
     technical: "A bootstrap confidence interval over the benchmark questions.",
   },
   "dependency-index": {
     label: "dependency index",
-    plain: "A list of what rests on each passage and provision, so a change can be traced to what it touches.",
+    plain: "A list of records that use a particular source. It helps editors find what to review when the source changes.",
     here: "Behind 'When the text changes': pick a page or a section and see every record that names it or quotes it.",
     technical: "An index over every store, keyed by any upstream reference, with recorded content hashes to spot changed text.",
   },
@@ -125,7 +125,7 @@ export const GLOSSARY = {
   },
   "named-graph": {
     label: "named graph",
-    plain: "A labelled compartment of the graph, so statements from different sources are never mixed up.",
+    plain: "A named group of statements. You can use its name to select statements from a particular source.",
     here: "Four: the source text, what experts approved, what a machine wrote, and what a rule inferred. A query asking for approved statements cannot reach machine-written ones.",
     technical: "RDF 1.1 datasets: each statement carries the name of the graph it belongs to.",
   },
@@ -190,8 +190,8 @@ export function term(key, text) {
 export function entryHtml(key) {
   const e = GLOSSARY[key];
   return `<p><b>${esc(e.label)}</b>: ${esc(e.plain)}</p>
-    <p class="small"><span class="muted">Here:</span> ${esc(e.here)}</p>
-    <p class="tiny"><span class="muted">Technically:</span> ${esc(e.technical)}</p>`;
+    <p class="small"><span class="muted">On this site:</span> ${esc(e.here)}</p>
+    <p class="tiny"><span class="muted">Technical detail:</span> ${esc(e.technical)}</p>`;
 }
 
 /** One popover for every term on the page: opened by click or Enter, closed by Escape, a click

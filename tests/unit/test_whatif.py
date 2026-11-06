@@ -81,7 +81,7 @@ def test_no_what_if_states_an_outcome():
 
 def test_the_page_says_what_it_is():
     page = (REPO_ROOT / "site" / "js" / "whatif.js").read_text(encoding="utf-8")
-    for words in ("An invented premise. The ontology is not changed. Nothing here is decided.",
-                  "Text equivalent of the picture", "no recorded dependency"):
+    for words in ("A fictional policy change. The existing records are not changed. Nothing here is decided.",
+                  "Read the diagram as text", "no recorded dependency"):
         assert words in page, words
     assert 'load("whatif")' in page

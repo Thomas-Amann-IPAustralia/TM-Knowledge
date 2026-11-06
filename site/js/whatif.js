@@ -21,7 +21,7 @@ export async function render(root, { ontology, params }) {
   const data = await load("whatif");
   const w = data.whatifs[0];
   if (!w) {
-    root.innerHTML = `<div class="wrap section"><h2>No what-if was built</h2><p class="muted">${esc((data.left_out || []).join(", "))}</p></div>`;
+    root.innerHTML = `<div class="wrap section"><h2>The policy example is unavailable</h2><p class="muted">${esc((data.left_out || []).join(", "))}</p></div>`;
     return;
   }
   const byId = new Map(ontology.concepts.map((c) => [c.id, c]));
@@ -54,12 +54,12 @@ export async function render(root, { ontology, params }) {
 
   function picture() {
     const parts = [`<svg viewBox="0 0 ${W} ${H}" class="wi-svg" role="img" aria-labelledby="wi-svg-title">
-      <title id="wi-svg-title">${esc(`${w.title}: an invented premise above the line, ${points.length} touch points, and below the line the ${ideas.length} ideas, ${provs.length} provisions and ${w.totals.tests} legal tests of the ontology they land on, unchanged. The text equivalent follows the picture.`)}</title>`];
+      <title id="wi-svg-title">${esc(`${w.title}: the fictional scenario and its ${points.length} policy questions appear above the line. Below are ${ideas.length} related ideas, ${provs.length} provisions and ${w.totals.tests} legal tests. A written version follows.`)}</title>`];
     // the line between the invented and the recorded
     parts.push(`<rect x="0" y="0" width="${W}" height="${Y.line}" class="wi-above"/>
       <line x1="16" x2="${W - 16}" y1="${Y.line}" y2="${Y.line}" class="wi-line"/>
-      <text x="22" y="${Y.line - 10}" class="wi-band machine">Invented · a machine's premise and questions</text>
-      <text x="22" y="${Y.line + 22}" class="wi-band onto">The ontology as it stands · read, not changed</text>`);
+      <text x="22" y="${Y.line - 10}" class="wi-band machine">Fictional scenario and questions written by AI</text>
+      <text x="22" y="${Y.line + 22}" class="wi-band onto">Existing trade mark records</text>`);
     // premise → touch points
     const [px, py] = [W / 2, Y.premise];
     for (const p of points) {
@@ -104,7 +104,7 @@ export async function render(root, { ontology, params }) {
     // the premise
     parts.push(`<g class="wi-premise" transform="translate(${px},${py})"><rect x="-210" y="-24" width="420" height="48" rx="24"/>
       <text y="-3" text-anchor="middle" class="wi-p1">A register of geographical indications</text>
-      <text y="14" text-anchor="middle" class="wi-p2">invented · no such right exists · no draft assumed</text></g>`);
+      <text y="14" text-anchor="middle" class="wi-p2">fictional · no such register exists · no draft assumed</text></g>`);
     // touch points
     for (const p of points) {
       const [x, y] = at[`tp:${p.id}`];
@@ -144,23 +144,23 @@ export async function render(root, { ontology, params }) {
   function detail(p) {
     const stepNames = p.steps.map((s) => { const step = processes.get(s.process)?.steps.find((x) => x.id === s.step); return step ? `<a class="chip" href="${structureHref(s.process)}">${esc(step.label)} <span class="tiny">${esc(s.process)}</span></a>` : ""; });
     return `
-      <div class="wi-detail-head"><span class="eyebrow">Touch point ${points.indexOf(p) + 1} of ${points.length}</span><h2>${esc(p.title)}</h2></div>
+      <div class="wi-detail-head"><span class="eyebrow">Policy question ${points.indexOf(p) + 1} of ${points.length}</span><h2>${esc(p.title)}</h2></div>
       <div class="wi-cols">
         <section class="wi-today">
-          <h3>${icon("book")} What practice says today</h3>
-          <p class="tiny">The Manual's own words, quoted verbatim from the snapshot. The Manual states practice; it is not the law.</p>
+          <h3>${icon("book")} What the saved Manual says</h3>
+          <p class="tiny">These passages quote the version of the Manual used in this prototype. They describe examination practice.</p>
           ${p.today.map((q) => `${quoteBlock(q.ref, q.quote)}<p class="wi-from">${refChip(q.ref)}</p>`).join("")}
         </section>
         <section class="wi-if">
-          <h3>${icon("question")} What if <span class="trust machine" title="Written by a machine; no expert has reviewed it">Machine · unreviewed</span></h3>
+          <h3>${icon("question")} What if <span class="trust machine" title="AI wrote this material. A trade marks expert has yet to review it.">AI-written · unreviewed</span></h3>
           <p>${esc(p.what_if)}</p>
           <h4>Questions the new practice would need to answer</h4>
           <ol class="wi-qs">${p.questions.map((q) => `<li>${esc(q)}</li>`).join("")}</ol>
-          <p class="tiny">Questions, not answers: the ontology shows where each would land; it does not say how any would be settled.</p>
+          <p class="tiny">These are questions for a policy team to consider. This page does not answer them.</p>
         </section>
       </div>
       <div class="wi-lands">
-        <div class="wi-land-k"><h3>${icon("connect")} Where it lands in the ontology</h3><p class="tiny">Every record here already exists, unchanged.</p></div>
+        <div class="wi-land-k"><h3>${icon("connect")} Related records in the knowledge map</h3><p class="tiny">Every record here already existed and is unchanged. Open one to read its sources.</p></div>
         <div class="wi-land-list">
           <p><span class="wi-lk">Ideas</span>${p.ideas.map(ideaChip).join("")}</p>
           ${p.tests.length ? `<p><span class="wi-lk">Legal tests</span>${p.tests.map((id) => `<a class="chip" href="${structureHref(id)}">${esc(tests.get(id)?.title || id)}</a>`).join("")}</p>` : ""}
@@ -169,8 +169,8 @@ export async function render(root, { ontology, params }) {
         </div>
       </div>
       <div class="wi-stats">
-        <div class="stat"><b>${fmt(p.recheck.length)}</b><span>records name these provisions or quote these pages, and would go back to be re-read first</span></div>
-        <div class="stat"><b>${fmt(p.recheck_via.length)}</b><span>more rest on Manual passages citing the provisions, and would follow</span></div>
+        <div class="stat"><b>${fmt(p.recheck.length)}</b><span>records cite these provisions or quote these pages. Review these first.</span></div>
+        <div class="stat"><b>${fmt(p.recheck_via.length)}</b><span>additional records cite those provisions through the Manual. Review these next.</span></div>
         <div class="stat"><b>${fmt(p.connections.length)}</b><span>connections in the ontology touch these ideas</span></div>
         <div class="stat"><b>${fmt(p.pages.length)}</b><span>Manual page${p.pages.length === 1 ? "" : "s"} quoted above</span></div>
       </div>
@@ -201,51 +201,50 @@ export async function render(root, { ontology, params }) {
   <div class="wi">
     <header class="wrap page-head">
       <div>
-        <span class="eyebrow">For policy · a what-if</span>
-        <h1>What if geographical indications became their own right?</h1>
-        <p class="lede">A small demonstration of the ontology as a policy aid. Take a right that does not exist, lay it over the ontology without changing it, and see
-        where examination practice would need to be read again: which ideas, tests and passages it lands on, and how much guidance rests on them.</p>
+        <span class="eyebrow">Fictional policy example</span>
+        <h1>What if Australia had a geographical indications register for all goods?</h1>
+        <p class="lede">A geographical indication is a sign that identifies goods as coming from a particular place, where their quality, reputation or another characteristic is essentially due to that origin (Trade Marks Act 1995, section 6). Imagine a register covering all types of goods. Which parts of trade mark examination guidance would a policy team need to review?</p>
       </div>
-      <div class="page-head-side">${statePill("prototype", "Demonstration")}<span class="trust machine" title="Written by a machine; no expert has reviewed it">Machine · unreviewed</span></div>
+      <div class="page-head-side">${statePill("prototype", "Demonstration")}<span class="trust machine" title="AI wrote this material. A trade marks expert has yet to review it.">AI-written · unreviewed</span></div>
     </header>
     <div class="wrap">
       <div class="wi-banner" role="note">
-        <div class="wi-banner-head">${icon("flag")}<p><b>An invented premise. The ontology is not changed. Nothing here is decided.</b></p></div>
+        <div class="wi-banner-head">${icon("flag")}<p><b>A fictional policy change. The existing records are not changed. Nothing here is decided.</b></p></div>
         <ul>
-          <li>No register of geographical indications for all goods exists in Australia, and no draft law is assumed. The premise and every question are a machine's.</li>
-          <li>Every idea, connection, legal test and passage shown is already in the ontology, drawn as every other page draws it. Nothing was added to make this page.</li>
-          <li>It shows where practice would need to be read again. It never says what the new practice should be, or how an application would be decided.</li>
-          <li>How applicants or examiners would respond is unknown: that needs data nobody here holds.</li>
+          <li>Australia has no register of geographical indications for all goods, and the example assumes no draft law. AI wrote the scenario and its questions.</li>
+          <li>The links point to existing trade mark records. Only the scenario and its questions are fictional.</li>
+          <li>Use the example to identify guidance for review. A policy team would need to decide what to change.</li>
+          <li>We have no evidence about how applicants or examiners would respond.</li>
         </ul>
       </div>
-      <p class="wi-premise-text"><span class="eyebrow plain">The premise</span>${esc(w.premise)}</p>
+      <p class="wi-premise-text"><span class="eyebrow plain">What this example assumes</span>${esc(w.premise)}</p>
 
       <div class="card wi-stage">
         <div class="wi-pick" role="group" aria-label="Touch points">${points.map((p, i) => `<button type="button" class="wi-pick-b" data-pick="${esc(p.id)}" aria-pressed="${p.id === current}"><span class="wi-n">${i + 1}</span>${esc(p.title)}</button>`).join("")}</div>
         <div class="wi-pic">${picture()}</div>
         <div class="wi-key">
-          <span><i class="k invented"></i>invented: the premise and where it lands</span>
-          <span><i class="k recorded"></i>a connection already in the ontology</span>
-          <span><i class="k basis"></i>an idea's recorded basis in the Act</span>
-          <span class="law act"><i class="mark" aria-hidden="true"></i>a provision of the Act, with what rests on it today</span>
-          <span class="tiny wi-fam">Ideas take their family's colour: <b style="color:var(--f-reasoning-ink)">the law's questions</b>, <b style="color:var(--f-examined-ink)">what they are asked about</b>, <b style="color:var(--f-process-ink)">the process around them</b>.</span>
+          <span><i class="k invented"></i>fictional scenario and the guidance it might affect</span>
+          <span><i class="k recorded"></i>a link in the existing map</span>
+          <span><i class="k basis"></i>section of the Act cited for an idea</span>
+          <span class="law act"><i class="mark" aria-hidden="true"></i>section of the Act and its linked records</span>
+          <span class="tiny wi-fam">Ideas take their family's colour: <b style="color:var(--f-reasoning-ink)">legal questions</b>, <b style="color:var(--f-examined-ink)">what examiners assess</b>, <b style="color:var(--f-process-ink)">roles, steps and documents</b>.</span>
         </div>
-        <details class="text-eq"><summary>Text equivalent of the picture</summary><pre>${esc(textEquivalent())}</pre></details>
+        <details class="text-eq"><summary>Read the diagram as text</summary><pre>${esc(textEquivalent())}</pre></details>
       </div>
 
       <div class="card card-pad wi-detail" aria-live="polite"></div>
 
       <section class="wi-sum">
-        <div class="sec-head"><div><span class="eyebrow">What this shows</span><h2>The scope of a new right, before anyone drafts it.</h2></div>
-          <p>Because every idea quotes its passage and every connection names its source, an invented right can be traced to the guidance it would touch in one step, and the gaps show up as gaps.</p></div>
+        <div class="sec-head"><div><span class="eyebrow">What this shows</span><h2>Which parts of the guidance might need review?</h2></div>
+          <p>The counts below show the records linked to this scenario. Other guidance may also need review.</p></div>
         <div class="wi-tiles">
-          <div class="stat"><b>${fmt(t.ideas)}</b><span>ideas of ${fmt(ontology.concepts.length)} it lands on</span></div>
+          <div class="stat"><b>${fmt(t.ideas)}</b><span>of the map’s ${fmt(ontology.concepts.length)} ideas relate to this scenario</span></div>
           <div class="stat"><b>${fmt(t.tests)}</b><span>legal tests of ${fmt(tests.size)} written as structured data</span></div>
           <div class="stat"><b>${fmt(t.provisions)}</b><span>provisions of the Act</span></div>
           <div class="stat"><b>${fmt(t.recheck)}</b><span>records to re-read first, and ${fmt(t.recheck_via)} after them</span></div>
         </div>
         <div class="wi-three">
-          <div><h3>Which guidance would need re-reading?</h3>${statePill("working", "Answered")}<p class="small">Counted from the dependency index, the same one <a href="#/change">Trace a change</a> reads.</p></div>
+          <div><h3>Which guidance would need re-reading?</h3>${statePill("working", "Answered")}<p class="small">See the recorded links in <a href="#/change">Trace a change</a>.</p></div>
           <div><h3>What should the new practice say?</h3>${statePill("planned", "Not answered")}<p class="small">The page asks the questions. Answering them is policy work for people, against the law that would create the right.</p></div>
           <div><h3>How would people respond?</h3>${statePill("planned", "Unknown")}<p class="small">${esc(w.behavioural)}</p></div>
         </div>

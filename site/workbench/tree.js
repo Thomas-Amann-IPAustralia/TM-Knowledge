@@ -587,10 +587,10 @@ export function renderTree(block, context = {}) {
       (envelope.confidence != null ? ` · confidence ${escape(envelope.confidence)}` : "") +
       ` · <strong>${escape(envelope.review_status || "unknown")}</strong></p>` +
       (envelope.reasoning ? `<p>${escape(envelope.reasoning)}</p>` : "") +
-      (evidence ? `<h4>The passages it rests on</h4><ul class="evidence">${evidence}</ul>` : "") +
-      (alternatives ? `<h4>Readings it rejected</h4><ul>${alternatives}</ul>` : "") +
+      (evidence ? `<h4>Source passages</h4><ul class="evidence">${evidence}</ul>` : "") +
+      (alternatives ? `<h4>Other interpretations considered</h4><ul>${alternatives}</ul>` : "") +
       (envelope.expert_should_check
-        ? `<h4>What it most expects to have got wrong</h4><p>${escape(
+        ? `<h4>What an expert should check</h4><p>${escape(
             envelope.expert_should_check
           )}</p>`
         : "") +
@@ -672,7 +672,7 @@ export function renderTree(block, context = {}) {
       if (!byGroup.has(group)) byGroup.set(group, []);
       byGroup.get(group).push(item);
     }
-    let html = `<h4>What the records put here</h4>`;
+    let html = `<h4>Records linked to this question</h4>`;
     for (const [group, members] of byGroup) {
       html +=
         `<p class="muted t-${KIND_TONE[group] || "muted"}">${escape(titleCase(group))} · ${
@@ -705,7 +705,7 @@ export function renderTree(block, context = {}) {
         `<div class="panel-head"><h3>${escape(node.label)}</h3>` +
         `<p class="muted">The leaf every path ends on</p></div>` +
         `<p>${escape(data.outcome.meaning)}</p>` +
-        `<h4>The signed records that say so</h4><ul class="neighbours">` +
+        `<h4>The expert-reviewed records that say so</h4><ul class="neighbours">` +
         data.outcome.records
           .map(
             (record) =>
@@ -997,7 +997,7 @@ records</p>
   <p class="note">The rules are applied in <code>src/tm_knowledge/dashboard/views.py</code> on
   every build, and the arrangement is regenerated from the records each time. Nothing here is
   stored, and nothing here has been reviewed.</p>
-  ${outside ? `<h4>Fitting neither spine</h4><ul>${outside}</ul>` : ""}
+  ${outside ? `<h4>Records outside both groups</h4><ul>${outside}</ul>` : ""}
 </details>`;
 }
 

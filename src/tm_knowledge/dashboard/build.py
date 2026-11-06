@@ -57,18 +57,18 @@ BLOB = f"{REPO_URL}/blob/main"
 
 #: Page id -> (nav label, one-line blurb). The order is the navigation order.
 PAGES: tuple[tuple[str, str, str], ...] = (
-    ("overview", "Overview", "What this is, and where it stands today"),
-    ("ask", "Ask the Manual", "Questions answered with the ontology's working shown, beside plain search"),
-    ("inbox", "Your decisions", "Questions waiting on you, and what happens to your answers"),
-    ("map", "The map", "Every concept and provision, as a network you can walk"),
-    ("tree", "Examination path", "The grounds, tests and factors, as a tree you can open"),
-    ("vocabulary", "Vocabulary", "The 52 approved legal ideas and how they relate"),
-    ("ontology", "The model", "Classes, predicates and the nine draft modules"),
-    ("graph", "The graph", "What is stored, and the trust metadata on every claim"),
-    ("questions", "Questions", "What the system must answer, and what it can answer today"),
-    ("limits", "Limits", "What it cannot do, and what it must never say"),
-    ("decisions", "Decisions", "Every choice on the record, and who made it"),
-    ("reports", "Reports", "The generated status reports, rendered in full"),
+    ("overview", "Overview", "Project purpose and progress"),
+    ("ask", "Ask the Manual", "Compare saved answers with keyword search results"),
+    ("inbox", "Your decisions", "Review and record your decisions"),
+    ("map", "The map", "Explore links between trade mark terms and legislation"),
+    ("tree", "Examination path", "Explore legal questions and their sources"),
+    ("vocabulary", "Vocabulary", "Browse expert-reviewed terms and their links"),
+    ("ontology", "The model", "How the project organises records and links"),
+    ("graph", "The graph", "See what is stored and where each statement came from"),
+    ("questions", "Questions", "Compare required answers with current results"),
+    ("limits", "Limits", "Known gaps and limits on use"),
+    ("decisions", "Decisions", "Project decisions and who made them"),
+    ("reports", "Reports", "Read the project’s status reports"),
 )
 
 #: Reports copied next to the site so a block can fetch them. They are already
@@ -275,13 +275,10 @@ def _overview(facts: Facts) -> dict[str, Any]:
         "id": "overview",
         "title": "A knowledge base for trade marks examination",
         "lede": (
-            "This project is turning the **Trade Marks Manual of Practice and Procedure** — "
-            "all 54 Parts of it, together with the legislation it runs on — into something a "
-            "machine can reason over without ever deciding a case. "
-            f"**{signed_records} records here were signed by a named person on a date. "
-            f"{authored_records} were written by a machine and no expert has read any of "
-            "them.** Which is which is recorded on every record, shown on every count on "
-            "this site, and never summed into one number (ADR-0079, ADR-0080)."
+            "This workbench links IP Australia’s Trade Marks Manual of Practice and Procedure to the "
+            "legislation it refers to. Use it to review the sources, terminology and project decisions. "
+            f"A named person signed {signed_records} records. AI wrote {authored_records} others "
+            "that are awaiting expert review. The workbench reports the two groups separately."
         ),
         "blocks": [],
     }
@@ -519,10 +516,9 @@ def _ontology(facts: Facts) -> dict[str, Any]:
         "id": "ontology",
         "title": "The model",
         "lede": (
-            "An {{Ontology}} is the shape, not the content: which kinds of thing may exist, what may "
-            "be said about each, and what may safely be inferred. Nine modules make up this one. "
-            "**None of them is approved** — they live in `ontology/draft/` and move out one at a "
-            "time, by a recorded human decision."
+            "The {{Ontology}} defines which types of record the project can store and which links "
+            "it can make between them. Its nine proposed modules are in `ontology/draft/`. "
+            "Each needs a recorded human decision before approval."
         ),
         "blocks": [
             blocks.callout(
@@ -678,9 +674,9 @@ def _vocabulary(facts: Facts) -> dict[str, Any]:
         "id": "vocabulary",
         "title": "The vocabulary",
         "lede": (
-            f"{len(concepts)} legal ideas, each drawn from the section 43 material and each signed "
-            "off by a named reviewer. Held as {{SKOS}} — a standard for controlled vocabularies: a "
-            "preferred label, the variants that mean the same thing, and the ones that do not."
+            f"Browse {len(concepts)} expert-reviewed terms from the section 43 material. Each entry "
+            "lists its preferred name, other names and terms that can be confused with it. "
+            "The project records these names using {{SKOS}}."
         ),
         "blocks": [
             blocks.stats(
@@ -739,10 +735,9 @@ def _graph_page(facts: Facts) -> dict[str, Any]:
         "id": "graph",
         "title": "The graph",
         "lede": (
-            "A {{Knowledge graph}} stores knowledge as small statements — a subject, a "
-            "relationship, an object — rather than as rows in a table. Each one is a {{Triple}}. "
-            "The point is not the format; it is that every statement can carry, alongside itself, "
-            "the record of where it came from and who stands behind it."
+            "A {{Knowledge graph}} links information in three parts: a thing, its relationship and "
+            "the thing it relates to. Each statement is called a {{Triple}}. The project also "
+            "records where each statement came from and who wrote or reviewed it."
         ),
         "blocks": [
             blocks.stats(
@@ -841,15 +836,10 @@ def _map(facts: Facts) -> dict[str, Any]:
         "id": "map",
         "title": "The map",
         "lede": (
-            f"All {counts['concepts']} legal ideas the project holds and the "
-            f"{counts['provisions']} provisions they cite, drawn as the network they are. "
-            f"**{counts['signed']} of the ideas were signed by a named person; "
-            f"{counts['authored']} were written by a machine and nobody has read them** — "
-            "and the picture says which is which on every node. It opens on **one concept and "
-            "what it is joined to**: double-click a node to open it and draw its neighbours, "
-            "drag any node to move it, and click one to read the passage its record quotes. "
-            "*Show the whole map* draws all of it at once, which is the honest picture of a "
-            "graph in pieces and not a way to answer a question about one idea."
+            f"Explore {counts['concepts']} trade mark ideas and the {counts['provisions']} legal "
+            f"provisions they cite. A person signed {counts['signed']} ideas. AI wrote the other "
+            f"{counts['authored']}, which await expert review. Select a dot to read its source. "
+            "Double-click to show nearby ideas, or choose *Show the whole map*."
         ),
         "blocks": [
             blocks.stats(
@@ -911,11 +901,9 @@ def _ask(facts: Facts) -> dict[str, Any]:
                                                    if (a.get("kind") or "lookup") in KIND_LABELS else 9,
                                                    str(a.get("key"))))
     lede = (
-        "Questions answered from the Manual and the Act, **with the ontology's working shown** — the "
-        "legal ideas it recognised in the question, the relationships it followed, and the passages it "
-        "found — beside what plain keyword search returns for the same words. Every citation was checked "
-        "by code to be a passage that exists, quoted exactly. **No person has reviewed these answers**, "
-        "and the system never says how a particular application would be decided."
+        "Choose a saved question to see the answer, its sources and the results of a keyword search. "
+        "The tool checked that each quotation matched the source text. **No person has reviewed these answers.** "
+        "The answers never say how a particular application would be decided."
     )
     if not answers:
         return {"id": "ask", "title": "Ask the Manual", "lede": lede, "blocks": [
@@ -982,15 +970,10 @@ def _tree(facts: Facts) -> dict[str, Any]:
         "id": "tree",
         "title": "The examination path",
         "lede": (
-            "The same records as the map, arranged the way an examination reasons: a "
-            "**ground for rejection**, the **tests** it turns on, the **factors** that feed "
-            "them, and the **exceptions** that take a case out — drawn as the questions they "
-            f"are. Each of the {grounds['sections']} sections that holds a ground or a test is "
-            "a branch point: **no** carries the walk down to the next section, **yes** opens "
-            f"what that section holds. {grounds['gates']} questions, {grounds['depth']} deep at "
-            "its deepest. Drag a node to pull its branch clear; click one to read the passage "
-            "behind it. **Every path ends on the same leaf — the outcome, which this system "
-            "does not state.**"
+            "Explore the legal reasons an examiner may raise an objection and the tests and "
+            "exceptions linked to each one. Choose **yes** to explore a section or **no** to move "
+            f"to the next. The tree covers {grounds['sections']} sections and {grounds['gates']} questions. "
+            "Select a question to read its source. The tree does not decide an application."
         ),
         "blocks": [
             blocks.stats(
@@ -1011,7 +994,7 @@ def _tree(facts: Facts) -> dict[str, Any]:
             blocks.tree(payload),
             blocks.callout(
                 "warn",
-                "This tree is computed, and nobody has signed it",
+                "The tree layout has yet to receive expert review",
                 "It is built on every page build from four rules, and the rules are printed "
                 "under it. **No expert has read this arrangement** — not the branches, not "
                 "the order, not which test belongs to which ground. It is a way of looking "
@@ -1020,7 +1003,7 @@ def _tree(facts: Facts) -> dict[str, Any]:
             ),
             blocks.callout(
                 "gap",
-                "Before this becomes training scaffolding",
+                "What would be needed to train a model",
                 "A tree of decisions is the natural frame for learning from historical "
                 "outcomes, and this one is deliberately shaped so it could be — stable ids, "
                 "one node per record, the file itself at `data/tree.json`. **One approved "
@@ -1120,10 +1103,9 @@ def _questions(facts: Facts) -> dict[str, Any]:
         "id": "questions",
         "title": "The questions it must answer",
         "lede": (
-            "A {{Competency question}} is an ordinary question the finished system has to be able to "
-            "answer. They are written first, by people, and everything built afterwards is measured "
-            "against them. This is the list — including the ones it cannot answer, which are the "
-            "more informative half."
+            "A {{Competency question}} is a question the system is expected to answer. People "
+            "wrote these questions before development. See which questions the system can answer "
+            "and which still need work."
         ),
         "blocks": [
             blocks.stats(
@@ -1205,9 +1187,8 @@ def _limits(facts: Facts) -> dict[str, Any]:
         "id": "limits",
         "title": "What it cannot do",
         "lede": (
-            "The honest half of the demonstration. Every gap on this page is counted by the same "
-            "run that produces the successes, and every prohibition was written and signed by a "
-            "person as a thing the system must never say."
+            "This page lists gaps in the project data and conclusions the system is prohibited "
+            "from making. Each prohibition has a named human reviewer."
         ),
         "blocks": [
             blocks.prose(
@@ -1233,7 +1214,7 @@ def _limits(facts: Facts) -> dict[str, Any]:
             blocks.cards(
                 [
                     {
-                        "title": "The taxonomy is empty",
+                        "title": "The main categories are empty",
                         "subtitle": "the largest single gap",
                         "text": "*Ground of refusal*, *legal test*, *relevant factor* and *exception* "
                                 "are declared and hold nothing. All 52 legal ideas sit as a bare "
@@ -1243,7 +1224,7 @@ def _limits(facts: Facts) -> dict[str, Any]:
                         "links": [{"label": "Question 1 in your queue", "href": "#/inbox"}],
                     },
                     {
-                        "title": "No idea has a definition",
+                        "title": "No reviewed term has an expert-written definition",
                         "subtitle": "by design, not by omission",
                         "text": "The records carry the passages a meaning is drawn from and no "
                                 "definition text. Writing one would be authoring legal content. The "
@@ -1252,7 +1233,7 @@ def _limits(facts: Facts) -> dict[str, Any]:
                         "badges": [{"label": "expert-owned", "tone": "note"}],
                     },
                     {
-                        "title": "Most of the vocabulary is flat",
+                        "title": "Most reviewed terms have no broader or narrower term",
                         "subtitle": "39 of 52 ideas",
                         "text": "No broader term, no narrower term. The hierarchy is where a search "
                                 "system gets its ability to generalise, so a mostly-flat vocabulary "
@@ -1269,7 +1250,7 @@ def _limits(facts: Facts) -> dict[str, Any]:
                         "badges": [{"label": "structural", "tone": "warn"}],
                     },
                     {
-                        "title": "No court decision text exists anywhere",
+                        "title": "The project holds no court decision texts",
                         "subtitle": "58 decisions cited, none held",
                         "text": "*Which cases interpret this test* is answerable. *What did the court "
                                 "hold* is not, and one of the prohibitions exists to stop the system "
@@ -1328,9 +1309,8 @@ def _decisions(facts: Facts) -> dict[str, Any]:
         "id": "decisions",
         "title": "Every decision on the record",
         "lede": (
-            f"{len(facts.adrs)} decisions, each with a date and — the part that matters — a stated "
-            "**authority**: who was entitled to make it. The log is append-only. A decision is never "
-            "edited or deleted; it is superseded by a new one that says so."
+            f"Browse {len(facts.adrs)} project decisions. Each entry names who made the decision "
+            "and when. If a decision changes, a new entry explains what it replaces."
         ),
         "blocks": [
             blocks.stats(
@@ -1374,9 +1354,8 @@ def _reports(facts: Facts) -> dict[str, Any]:
         "id": "reports",
         "title": "The generated reports",
         "lede": (
-            f"{len(present)} reports, none of them hand-written. Each is produced by a command "
-            "that reads the data and counts, so it cannot say something the data does not "
-            "support and cannot go stale while the data moves. They are rendered here in full."
+            f"Read {len(present)} reports generated from the project data. Each report shows "
+            "what the project recorded when the report was generated."
         ),
         "blocks": [
             blocks.callout(
@@ -1412,9 +1391,8 @@ def _inbox(facts: Facts) -> dict[str, Any]:
         "id": "inbox",
         "title": "Your decisions",
         "lede": (
-            "Everything currently waiting on a person. Each item says what is going on, why only "
-            "you can settle it, and what stays stuck until you do. Answer as many or as few as you "
-            "like — a partial answer is useful and nothing is lost between visits."
+            "Each question explains what needs your decision and which work depends on your answer. "
+            "You can answer one question at a time and return to the others later."
         ),
         "updated": question_set.updated,
         "repo": REPO_URL,

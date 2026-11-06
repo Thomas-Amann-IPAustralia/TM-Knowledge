@@ -1,0 +1,35 @@
+# A decision the repo owner made in a chat session. Hand-transcribed by the S048 agent;
+# no issue behind it. The artefact is `review/returned/261106-owner-chat-site-copy.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-11-06T00:00:00Z'
+questions_updated: '2026-11-06'
+source:
+  kind: chat
+  artefact: review/returned/261106-owner-chat-site-copy.md
+  author: the owner (the session's user; no name given in the chat)
+  relayed_by: S048 agent
+  title: Rewrite the site copy in plainer English from ChatGPT's draft, copy only, disagreements reported
+applied:
+  session: S048
+  date: '2026-11-06'
+  branch: claude/busy-thompson-wz43bm
+  what_changed: >-
+    ChatGPT's patch (docs/feedback-inbox/TM-Knowledge-copy.patch) applied to the explorer, the
+    workbench and the generated explanation wording, then corrected where a rewrite dropped a
+    safeguard or misdescribed a feature. Its new section 43 summary component and glossary entry
+    were not applied (new legal content without a record envelope, and a UI component). Every
+    accepted, changed and declined rewrite is listed in
+    docs/feedback-inbox/2026-11-06-after-action-report.md. No record, graph or ontology data changed.
+answers:
+- id: CHAT-0099
+  item: the site copy, in plainer English
+  question: Should the site's copy be rewritten in plainer English, from ChatGPT's draft?
+  kind: instruction
+  value: plain_english_copy_from_draft
+  label: Review ChatGPT's rewrite, implement it where fair, copy only, and report each disagreement
+  quote: >-
+    I would like you to review the work and, when you think it's a fair translation, to implement
+    it. To reiterate, this session is solely focussed on the website copy, not on other UX
+    components. You do not have to accept every suggestion provided by ChatGPT. However, if you
+    disagree with a re-write I would like you to flag it in an 'after action' report.
+  recorded_as: [ADR-0150]

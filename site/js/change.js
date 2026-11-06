@@ -43,41 +43,39 @@ export async function render(root, { ontology, params }) {
   <div class="ch">
     <header class="wrap page-head">
       <div>
-        <span class="eyebrow">For maintaining guidance</span>
+        <span class="eyebrow">For people updating guidance</span>
         <h1>Trace a change</h1>
-        <p class="lede">When a section of the Act, a regulation or a page of the Manual changes, what needs re-checking? Name one and see every
-        record that rests on it: those that name it directly, and those resting on the Manual's passages that cite it.</p>
+        <p class="lede">Choose a section of the Trade Marks Act 1995, a regulation or a page of the Trade Marks Manual. See which records cite it directly and which rely on a Manual passage that cites it.</p>
       </div>
       <div class="page-head-side"><span class="pill working">Working · not measured</span></div>
     </header>
     <div class="wrap">
       <div class="card ch-pick">
         <form class="ch-form">
-          <label for="ch-input">Start from a provision</label>
+          <label for="ch-input">Enter a section or regulation</label>
           <div class="ch-in">${icon("search")}<input id="ch-input" name="p" type="text" placeholder="e.g. section 44, s 41(4), reg 4.13" autocomplete="off"><button class="btn primary small" type="submit">Trace</button></div>
           <p class="ch-msg tiny" role="status"></p>
         </form>
-        <div class="ch-quick"><span class="tiny">Most depended on</span>${top.map((ref) => `<button type="button" class="chip" data-pick="${esc(ref)}"><span class="law ${sourceOf(ref)}"><i class="mark" aria-hidden="true"></i></span>${esc(refLabel(ref))} <span class="tiny">${fmt(weight(ref))}</span></button>`).join("")}</div>
+        <div class="ch-quick"><span class="tiny">Provisions linked to the most records</span>${top.map((ref) => `<button type="button" class="chip" data-pick="${esc(ref)}"><span class="law ${sourceOf(ref)}"><i class="mark" aria-hidden="true"></i></span>${esc(refLabel(ref))} <span class="tiny">${fmt(weight(ref))}</span></button>`).join("")}</div>
         <p class="tiny ch-or">Or pick a page of the Manual from the grid below.</p>
       </div>
       <div class="ch-main">
         <div class="card ch-ripple-card"><div class="ch-ripple"></div></div>
         <aside class="card ch-side" aria-live="polite"></aside>
       </div>
-      <a class="ch-whatif" href="#/whatif">${icon("flag")}<span><b>A what-if:</b> geographical indications as their own right. Lay a right that does not exist over the ontology, without changing it, and see where practice would need to be read again.</span>${icon("arrow")}</a>
-      <p class="ch-honest">${icon("info")}<span>From every record's own citations and quotes, in both stores. What no record names is not shown, so an empty answer means
-        <b>no recorded dependency, never no impact</b>. Where upstream marked a citation ambiguous, it is listed and never resolved.</span></p>
+      <a class="ch-whatif" href="#/whatif">${icon("flag")}<span><b>Try a policy example.</b> See which guidance might need review if Australia introduced a geographical indications register covering all goods.</span>${icon("arrow")}</a>
+      <p class="ch-honest">${icon("info")}<span>The results use citations and quotations saved with each record. <b>An empty result means we found no recorded link.</b> Other guidance may still need review. Where the source data marks a citation as unclear, it is listed, not resolved.</span></p>
 
       <section class="ch-history">
         <div class="sec-head"><div><span class="eyebrow">Why it matters</span><h2>The Manual changes often.</h2></div>
           <p>${fmt(stability.events)} amendments recorded on its ${fmt(pages.length)} pages since ${esc(firstYear)}, from the notes on each page of the published Manual, as captured on ${esc(stability.snapshot)}.</p></div>
         <div class="ch-hist-grid">
           <div class="card card-pad"><h3>Amendments, month by month</h3><div class="ch-plot"></div></div>
-          <div class="card card-pad"><h3>The reasons given</h3><ul class="ch-reasons">${stability.reasons.slice(0, 7).map(([r, n]) => `<li><b>${fmt(n)}</b><span>${esc(r)}</span></li>`).join("")}</ul></div>
+          <div class="card card-pad"><h3>Reasons for amending the Manual</h3><ul class="ch-reasons">${stability.reasons.slice(0, 7).map(([r, n]) => `<li><b>${fmt(n)}</b><span>${esc(r)}</span></li>`).join("")}</ul></div>
         </div>
         <div class="card card-pad ch-heat">
-          <div class="row spread"><div><h3>Every page of the Manual</h3><p class="tiny">Each row is a Part, in reading order; each tile a page, as wide as the page is long. Click a page to trace it.</p></div>
-            <div class="seg" role="group" aria-label="Shade the pages by"><button type="button" data-mode="amended" aria-pressed="true">Amendments</button><button type="button" data-mode="relations" aria-pressed="false">Connections resting on it</button></div></div>
+          <div class="row spread"><div><h3>Every page of the Manual</h3><p class="tiny">Each row is a part of the Manual. Each tile is one page. Wider tiles represent longer pages. Select a tile to see its links.</p></div>
+            <div class="seg" role="group" aria-label="Shade the pages by"><button type="button" data-mode="amended" aria-pressed="true">Amendments</button><button type="button" data-mode="relations" aria-pressed="false">Links that cite the page</button></div></div>
           <div class="ch-key"></div>
           <div class="ch-parts" role="list"></div>
         </div>
@@ -196,21 +194,21 @@ export async function render(root, { ontology, params }) {
     const label = refLabel(ref);
     if (!hit) {
       draw({ src, label, short: label, sub: "no recorded dependency" }, { direct: [], directLabel: "names it directly", outerLabel: "rests on a passage citing it" });
-      side.innerHTML = `<span class="eyebrow">What rests on it</span><h2>${esc(label)}</h2><p>${refChip(ref)}</p>
-        <p class="ch-none">No record names it or rests on a Manual passage citing it: <b>no recorded dependency, which is not the same as no impact</b>.</p>`;
+      side.innerHTML = `<span class="eyebrow">Records linked to this provision</span><h2>${esc(label)}</h2><p>${refChip(ref)}</p>
+        <p class="ch-none">We found no record that cites this provision directly or through the Manual. <b>A change could still affect other guidance.</b></p>`;
       return;
     }
     const passages = hit.passages || [];
     draw({ src, label, short: label, sub: src === "act" ? "the Act" : "the Regulations" },
       { direct: hit.direct, passages, outer: hit.via_manual, ambiguous: new Set(hit.ambiguous || []), directLabel: "names it directly", outerLabel: "rests on a passage citing it" });
-    side.innerHTML = `<span class="eyebrow">What rests on it</span><h2>${esc(label)}</h2>
+    side.innerHTML = `<span class="eyebrow">Records linked to this provision</span><h2>${esc(label)}</h2>
       <p class="row wrap-ok">${refChip(ref)}<button type="button" class="btn small ghost" data-ref="${esc(ref)}">${icon("book")} Read the provision</button></p>
       <div class="ch-stats">
         <div class="stat"><b>${fmt(hit.direct.length)}</b><span>records name it, or a part of it, directly</span></div>
         <div class="stat"><b>${fmt(passages.length)}</b><span>Manual passages cite it${hit.ambiguous.length ? `; upstream marked ${fmt(hit.ambiguous.length)} of those citations ambiguous: listed, never resolved` : ""}</span></div>
-        <div class="stat"><b>${fmt(hit.via_manual.length)}</b><span>more records rest on those passages</span></div>
+        <div class="stat"><b>${fmt(hit.via_manual.length)}</b><span>additional records cite those Manual passages</span></div>
       </div>
-      <p class="small muted">If it were amended, each would go back to be re-read against the new words.</p>
+      <p class="small muted">If this provision changes, check these records against the new wording.</p>
       ${listBlock("Name it directly", hit.direct)}
       ${listBlock("Rest on a passage citing it", hit.via_manual)}
       ${passages.length ? `<details class="quiet ch-list"><summary>The passages citing it · ${fmt(passages.length)}</summary><div class="det-body"><div class="ch-chips">${passages.map((p) => refChip(p)).join("")}</div></div></details>` : ""}`;
@@ -221,17 +219,17 @@ export async function render(root, { ontology, params }) {
     const records = [...p.concepts, ...p.relations, ...(p.typings || []).map((id) => (String(id).startsWith("GT-") ? id : `GT-${String(id).replace(/^GC-/, "")}`)), ...p.definitions, ...p.corrections, ...(p.structures || [])];
     draw({ src: "manual", label: p.title, short: (stability.parts[p.part] || p.part).replace(/^(Part \S+).*$/, "$1"), sub: `${fmt(p.passages)} passage${p.passages === 1 ? "" : "s"}` },
       { direct: records, outer: p.mentioned, directLabel: "quotes this page", outerLabel: "an idea named on it, re-matched automatically" });
-    side.innerHTML = `<span class="eyebrow">What rests on this page</span><h2>${esc(p.title)}</h2>
+    side.innerHTML = `<span class="eyebrow">Records linked to this page</span><h2>${esc(p.title)}</h2>
       <p class="tiny">${esc(stability.parts[p.part] || p.part)}</p>
       <p class="row wrap-ok">${p.url ? `<a class="btn small" href="${esc(p.url)}" target="_blank" rel="noopener">Open the published page ${icon("external")}</a>` : ""}</p>
       <div class="ch-stats">
-        <div class="stat"><b>${fmt(records.length)}</b><span>records quote this page and would go back to be re-read</span></div>
-        <div class="stat"><b>${fmt(p.mentioned.length)}</b><span>ideas are named on it: found again by matching their wordings, automatically, with nothing for a person to review</span></div>
+        <div class="stat"><b>${fmt(records.length)}</b><span>records quote this page and may need review</span></div>
+        <div class="stat"><b>${fmt(p.mentioned.length)}</b><span>ideas matched automatically by name on this page</span></div>
         <div class="stat"><b>${fmt(p.amended.length)}</b><span>amendments recorded on it</span></div>
       </div>
       ${p.amended.length ? `<details class="quiet ch-list"><summary>Its amendment history</summary><div class="det-body"><ul class="ch-amend">${p.amended.map(([d, r]) => `<li><b>${esc(d || "")}</b> ${esc(r || "(no reason given)")}</li>`).join("")}</ul></div></details>` : ""}
       ${listBlock("Quote this page", records)}
-      <p class="small muted">No kind of idea rests on a passage: grounds, tests, roles, steps and records stay what they are, whatever this page says next.</p>`;
+      <p class="small muted">A change to this page can affect individual records. The map’s categories, such as legal tests and process steps, are defined separately.</p>`;
   }
 
   function select(ref) {

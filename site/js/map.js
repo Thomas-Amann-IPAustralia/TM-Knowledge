@@ -42,7 +42,7 @@ export async function render(root, { ontology, params }) {
     <aside class="mp-rail">
       <div class="mp-rail-head">
         <span class="eyebrow">Knowledge map</span>
-        <h1>Every idea, and how they connect</h1>
+        <h1>Explore trade mark ideas and their connections</h1>
         <p>${fmt(c.concepts.signed + c.concepts.machine)} ideas and ${fmt(c.relations.signed + c.relations.machine)} connections, each tied to the words it comes from.</p>
       </div>
       <div class="mp-find">
@@ -54,16 +54,16 @@ export async function render(root, { ontology, params }) {
         <button type="button" data-mode="kinds" aria-pressed="${state.mode === "kinds"}">${icon("layers")} Kinds</button>
       </div>
       <div class="mp-fams">
-        <p class="mp-rail-h">Highlight a kind</p>
+        <p class="mp-rail-h">Highlight a category</p>
         ${["reasoning", "examined", "process"].map((f) => `
         <div class="mp-fam"><p class="mp-fam-h"><i style="background:${FAMILIES[f].colour}"></i>${esc(FAMILIES[f].label)}</p>
           <ul>${ontology.kinds.filter((k) => k.family === f).map((k) => `<li><button type="button" class="mp-kind" data-kind="${k.id}" aria-pressed="false"><span>${esc(k.label)}</span><span class="tiny">${fmt(k.signed + k.machine)}</span></button></li>`).join("")}</ul></div>`).join("")}
       </div>
       <label class="mp-opt"><input type="checkbox" data-opt="loose"> Show the “is a kind of” links</label>
       <div class="mp-rail-foot">
-        <p class="tiny">A dot's size is how often the Manual names the idea. Round a focused idea, the texts it rests on:</p>
+        <p class="tiny">Larger dots mark ideas mentioned more often in the Manual. Select a dot to see its sources. The symbols identify the source:</p>
         ${legend()}
-        <a class="link-arrow" href="#/table/ideas">The same records as tables ${icon("arrow")}</a>
+        <a class="link-arrow" href="#/table/ideas">View the data tables ${icon("arrow")}</a>
       </div>
     </aside>
     <div class="mp-canvas">
@@ -326,16 +326,16 @@ export async function render(root, { ontology, params }) {
     const busiest = [...nodes].sort((a, b) => degree.get(b.id) - degree.get(a.id)).slice(0, 6);
     card.innerHTML = `
       <span class="eyebrow">How to read it</span>
-      <h2>A map of what the Manual means</h2>
-      <p>Each dot is an <b>idea</b> examiners reason with. Each line is a <b>connection</b> between two ideas that says what it means and quotes the sentence it rests on.</p>
+      <h2>How to read the map</h2>
+      <p>Each dot is an <b>idea</b>, such as an examination report. A line shows how two ideas relate. Select an idea to see its links and the passages they come from.</p>
       <div class="mp-famcards">${["reasoning", "examined", "process"].map((f) => `
         <div class="mp-famcard"><i style="background:${FAMILIES[f].colour}"></i><div><b>${esc(FAMILIES[f].label)}</b>
         <span>${ontology.kinds.filter((k) => k.family === f).map((k) => esc(k.label.toLowerCase())).join(", ")}</span></div></div>`).join("")}</div>
-      <h4>Start with one of the most connected</h4>
+      <h4>Try an idea with several links</h4>
       <div class="mp-starts">${busiest.map((x) => `<button type="button" class="chip" data-c="${x.id}"><i class="dot" style="--c:${fam(x.id).colour}"></i>${esc(x.label)} <span class="tiny">${fmt(degree.get(x.id))}</span></button>`).join("")}</div>
       <ul class="mp-how">
         <li>${icon("eye")}<span><b>Hover</b> over an idea to see what it connects to.</span></li>
-        <li>${icon("target")}<span><b>Click</b> it to focus it: its connections say what they mean, and the texts it rests on gather round it (${legendInline}).</span></li>
+        <li>${icon("target")}<span><b>Select</b> an idea to see its links and sources (${legendInline}).</span></li>
         <li>${icon("layers")}<span><b>Kinds</b>, at the top left, shows the shape of the whole model.</span></li>
       </ul>
       <p class="tiny">${fmt(c.concepts.machine)} of the ${fmt(c.concepts.signed + c.concepts.machine)} ideas and ${fmt(c.relations.machine)} of the ${fmt(c.relations.signed + c.relations.machine)} connections were written by a machine and have not been reviewed by an expert. The map draws every record alike, whoever wrote it; each card says which.</p>`;
@@ -378,7 +378,7 @@ export async function render(root, { ontology, params }) {
       ${x.alt.length ? `<p class="small"><span class="muted">Also called</span> ${x.alt.map(esc).join(" · ")}</p>` : ""}
       ${x.not.length ? `<p class="small"><span class="muted">Not the same as</span> ${x.not.map(esc).join(" · ")}</p>` : ""}
       ${definitionBlock(x.definition)}
-      ${first ? `<h4>What it rests on</h4>${quoteBlock(first.ref, first.quote)}<p class="row wrap-ok">${refChip(first.ref)}<span class="tiny">${first.for === "kind" ? "quoted when its kind was judged" : "quoted by the record itself"}</span></p>` : ""}
+      ${first ? `<h4>Source passage</h4>${quoteBlock(first.ref, first.quote)}<p class="row wrap-ok">${refChip(first.ref)}<span class="tiny">${first.for === "kind" ? "source used to classify the idea" : "source cited in this record"}</span></p>` : ""}
       ${law.map(([src, list]) => `<h4>In the ${src === "act" ? "Act" : "Regulations"}</h4><p class="row wrap-ok">${list.map((r) => refChip(r)).join("")}</p>`).join("")}
       ${hierarchyBlock(x, (id) => `<button class="link" type="button" data-c="${esc(id)}">${esc(name(id))}</button>`)}
       ${structuresBlock(x, ontology)}
@@ -389,7 +389,7 @@ export async function render(root, { ontology, params }) {
           ${byId.has(other) ? `<button class="mp-other" type="button" data-c="${other}"><i style="background:${fam(other).colour}"></i>${esc(name(other))}</button>` : refChip(other)}
           <button class="mp-why" type="button" data-r="${r.id}" aria-expanded="false">Why?</button></div></li>`).join("")}</ul></div>`).join("")
         : `<p class="empty small">No connections recorded.</p>`}
-      <h4>Where the Manual names it</h4>
+      <h4>Where this term appears in the Manual</h4>
       <p class="small">${fmt(refs.length)} passage${refs.length === 1 ? "" : "s"}, in ${x.parts.map((p) => esc(p.replace("Part", "Part "))).join(", ")}.</p>
       ${refs.length ? `<details class="quiet"><summary>List the passages</summary><div class="det-body"><p class="row wrap-ok">${refs.slice(0, 60).map((r) => refChip(r, ` data-hl="${esc([x.label, ...x.alt].join("|"))}"`)).join("")}</p>${refs.length > 60 ? `<p class="tiny">and ${fmt(refs.length - 60)} more.</p>` : ""}</div></details>` : ""}
       ${x.notes ? `<h4>Note on the record</h4><p class="small">${esc(x.notes)}</p>` : ""}
@@ -422,8 +422,8 @@ export async function render(root, { ontology, params }) {
       <h2>${esc(kd.label)}</h2>
       <p>${esc(kd.plain.charAt(0).toUpperCase() + kd.plain.slice(1))}.</p>
       <p class="tiny">${fmt(members.length)} ideas. Which kind each idea is was judged by a machine and has not been reviewed.</p>
-      <h4>Its ideas connect most to</h4>${rows(out, "o")}
-      <h4>Ideas that connect most to it</h4>${rows(inn, "s")}
+      <h4>Most frequent links from this category</h4>${rows(out, "o")}
+      <h4>Most frequent links to this category</h4>${rows(inn, "s")}
       <h4>Its ideas</h4>
       <div class="mp-starts">${members.map((x) => `<button type="button" class="chip" data-c="${x.id}"><i class="dot" style="--c:${f.colour}"></i>${esc(x.label)}</button>`).join("")}</div>`;
   }
@@ -519,10 +519,10 @@ export async function render(root, { ontology, params }) {
   function kindsCard() {
     card.innerHTML = `
       <span class="eyebrow">Kinds</span>
-      <h2>The shape of the model</h2>
+      <h2>How the categories connect</h2>
       <p>Every idea is sorted by <b>what it is</b> into one of ${fmt(kindCount(ontology))} kinds, in three families: the questions the law asks, what those questions are asked about, and the process around them.</p>
       <p><b>What an idea does is a connection, not a kind.</b> Sign content <i>may give rise to</i> a ground; context <i>qualifies</i> a test; a ground <i>is overcome by</i> its remedy; a role <i>performs</i> a step. Each connection names the kinds it may join, so the kinds connect in known ways.</p>
-      <p class="small muted">Each arrow rolls up the connections between two kinds' ideas: the thicker, the more. The strongest out of each kind is labelled. Hover over a kind to trace its arrows; click it to see its ideas.</p>
+      <p class="small muted">An arrow links two categories. Thicker arrows mean more links. The map labels the largest group of outgoing links for each category. Select a category to see its ideas.</p>
       <h4>The kinds</h4>
       <ul class="mp-klist">${ontology.kinds.filter((kd) => kd.family !== "other").map((kd) => `<li><button type="button" class="link" data-kind="${kd.id}"><i style="background:${FAMILIES[kd.family].colour}"></i>${esc(kd.label)}</button><span class="tiny">${esc(kd.plain)}</span></li>`).join("")}</ul>`;
   }

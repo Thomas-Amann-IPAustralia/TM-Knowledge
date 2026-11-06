@@ -6662,3 +6662,36 @@ indications outside this repository is the owner's.
    the what-if lands, refuses a bad quote, states no outcome, and that its words reach no other
    data file, the graph or `authored/`.
 2. The touch points and their wording are provisional; named in the handoff's open items.
+
+## ADR-0150 — the site copy rewritten in plainer English, from ChatGPT's draft, safeguards kept
+
+**Date** 2026-11-06 · **Authority** human (the direction), agent-proposed (what was kept, changed and declined) ·
+**Status** accepted
+
+**Context.** The owner (CHAT-0099, `review/returned/261106-owner-chat-site-copy.md`): three users
+found the site's language *"difficult to parse"*; ChatGPT rewrote the copy
+(`docs/feedback-inbox/TM-Knowledge-copy.patch`, 29 files); *"review the work and, when you think it's
+a fair translation, to implement it … solely focussed on the website copy … if you disagree with a
+re-write I would like you to flag it in an 'after action' report."*
+
+**Decision (the owner's).** As quoted.
+
+**Decision (the agent's, inside it).**
+1. The patch is applied whole, then corrected. About 45 rewrites are changed where the plainer words
+   dropped a safeguard the site is required to show (practice is not law; not advice; never decides;
+   not tested with customers; never computes an assessment or a deadline; the what-if changes no
+   record) or misdescribed a feature. Each is listed, with the reason, in
+   `docs/feedback-inbox/2026-11-06-after-action-report.md`.
+2. **Declined:** the patch's `section43Note()` block and its "section 43" glossary entry. They are a
+   paraphrase of s 43 written into code without a record envelope (rule 1), they duplicate GD-0139,
+   they swap the Act's "deceive or cause confusion" for "mislead or confuse buyers", and they are a
+   new component in a copy-only session.
+3. "Not tested with customers" becomes "not formally tested with customers", given the owner's three
+   informal users; the owner may revert it.
+
+**What it does not decide.** No change to any record, the graph, the answering prompt or what the
+system may conclude; the generated explanation wording in `tm_knowledge.explain.engine` changes in
+phrasing only. No UX or layout change; that is the next piece of work.
+
+**Consequences.** The copy tests in `test_explorer.py`, `test_whatif.py` and `test_dependencies.py`
+pin the new wording of the same safeguards (Q-107). The site rebuilds on deploy (ADR-0112) once merged.

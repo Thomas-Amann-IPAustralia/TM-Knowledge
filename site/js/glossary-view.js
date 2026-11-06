@@ -8,10 +8,10 @@ import { icon } from "./icons.js";
 
 /** The groups the terms are shown in. A term in none of them is listed under "Other terms". */
 const GROUPS = [
-  ["The idea", "What the ontology is and what it is made of.", ["ontology", "knowledge-graph", "concept", "kind", "connection", "modality", "rules-as-code"]],
-  ["Trust", "How the site says who wrote what, and what it rests on.", ["provenance", "unreviewed", "snapshot", "dependency-index"]],
-  ["Search and measurement", "How questions are answered, and how well that was measured.", ["llm", "keyword-search", "embedding", "ndcg", "interval"]],
-  ["The standards", "What the graph is written in; each also has a page of its own.", ["rdf", "triple", "iri", "named-graph", "skos", "shacl", "sparql", "inference-rule", "prov-o", "json", "owl", "legalruleml"]],
+  ["The knowledge map", "Terms for ideas, categories and links.", ["ontology", "knowledge-graph", "concept", "kind", "connection", "modality", "rules-as-code"]],
+  ["Sources and review", "How to find who wrote a record and which source it uses.", ["provenance", "unreviewed", "snapshot", "dependency-index"]],
+  ["Search and measurement", "How the site finds passages and how the search was tested.", ["llm", "keyword-search", "embedding", "ndcg", "interval"]],
+  ["The standards", "Formats and tools used to store and check the records.", ["rdf", "triple", "iri", "named-graph", "skos", "shacl", "sparql", "inference-rule", "prov-o", "json", "owl", "legalruleml"]],
 ];
 
 export async function render(root, { params }) {
@@ -24,10 +24,9 @@ export async function render(root, { params }) {
   <div class="gv">
     <header class="wrap page-head">
       <div>
-        <span class="eyebrow">Under the hood · plain words</span>
+        <span class="eyebrow">Reference</span>
         <h1>Glossary</h1>
-        <p class="lede">Every term the site uses, in three parts: what it means in plain words, what it does here, and what it is called
-        technically. No term is assumed known.</p>
+        <p class="lede">Find a term to see what it means, how this site uses it and its technical name.</p>
       </div>
     </header>
     <div class="wrap">
@@ -70,7 +69,7 @@ function entry(key) {
   return `<article class="gv-entry" id="term-${esc(key)}" data-text="${esc(`${e.label} ${e.plain} ${e.here} ${e.technical}`.toLowerCase())}">
     <h3>${esc(e.label)}</h3>
     <p class="gv-plain">${esc(e.plain)}</p>
-    <p class="small"><span class="gv-k">Here</span>${esc(e.here)}</p>
-    <p class="tiny"><span class="gv-k">Technically</span>${esc(e.technical)}</p>
+    <p class="small"><span class="gv-k">On this site</span>${esc(e.here)}</p>
+    <p class="tiny"><span class="gv-k">Technical detail</span>${esc(e.technical)}</p>
   </article>`;
 }

@@ -44,12 +44,10 @@ export async function render(root, { ontology, params }) {
     <header class="wrap page-head">
       <div>
         <span class="eyebrow">Under the hood · data tables</span>
-        <h1>The ontology, as tables</h1>
-        <p class="lede">The same ideas and connections as the map, listed instead of drawn. Kinds sort the ideas by what they are;
-        connections say how one idea bears on another, each resting on a quoted sentence. Legal tests and processes set out a provision's
-        conditions, or a procedure's steps, element by element. Click any passage to read it; every table downloads as a CSV.</p>
+        <h1>Browse the knowledge map as tables</h1>
+        <p class="lede">Choose a table to explore categories, individual ideas, their links, legal tests or procedures. Select a reference to read the source, or download a table as a CSV file.</p>
       </div>
-      <div class="page-head-side"><a class="btn" href="#/map">Show them drawn, on the map</a></div>
+      <div class="page-head-side"><a class="btn" href="#/map">View the knowledge map</a></div>
     </header>
     <div class="wrap">
     <nav class="tabs" aria-label="Which table">${TABS.map(([id, label]) => `<a href="#/table/${id}"${id === tab ? ` class="on" aria-current="page"` : ""}>${label} <span class="num">${fmt(counts[id])}</span></a>`).join("")}</nav>
@@ -152,9 +150,8 @@ function kindsTab(body, ctx) {
 
   body.innerHTML = `
     <section class="tbl-section">
-      <h2>The kinds of idea</h2>
-      <p class="muted small">Every idea is sorted by <b>what it is</b> into one of ${kindCount(ontology)} kinds, in three families. What an idea <b>does</b>
-      (a factor, an exception, a remedy) is a connection, not a kind. Click a kind to list its ideas.</p>
+      <h2>Categories of ideas</h2>
+      <p class="muted small">The map groups ideas into ${kindCount(ontology)} categories, across three families. Select a category to see its ideas. Links describe how one idea relates to another.</p>
       <table class="tbl kinds-tbl">
         <thead><tr><th>Kind</th><th>What it is</th><th class="num">Ideas</th><th class="num opt">Connections</th></tr></thead>
         <tbody>${FAMILIES.map((family) => {
@@ -173,9 +170,8 @@ function kindsTab(body, ctx) {
     </section>
 
     <section class="tbl-section">
-      <h2>How the kinds connect</h2>
-      <p class="muted small">Each row counts the connections from ideas of one kind to ideas of another: the patterns the map's Kinds view draws
-      as arrows. Click a count to list those connections one by one.</p>
+      <h2>Links between categories</h2>
+      <p class="muted small">Each row shows how many links run from one category to another. Select a count to see the individual links.</p>
       ${controls(`<label class="check"><input type="checkbox" data-loose> Include pairs joined only by ${looseNames(ontology)}</label>`)}
       <table class="tbl">
         <thead><tr><th>From ideas of this kind</th><th>to ideas of this kind</th><th class="num">Connections</th><th class="opt">What they say</th></tr></thead>
@@ -288,15 +284,15 @@ function ideaDetail(ctx, x) {
   const first = x.evidence.find((e) => e.for === "concept") || x.evidence[0];
   const sentence = (r) => `<li>
       <span class="sent">${endHtml(ctx, r.s, { link: r.s !== x.id })} <span class="pred">${esc(predLabel(ontology, r.p))}</span> ${endHtml(ctx, r.o, { link: r.o !== x.id })}</span>
-      <span class="sent-meta">${trustBadge(r.origin)}<button type="button" class="link tiny" data-why="${esc(r.id)}" aria-expanded="false">the sentence it rests on</button></span>
+      <span class="sent-meta">${trustBadge(r.origin)}<button type="button" class="link tiny" data-why="${esc(r.id)}" aria-expanded="false">Read the source sentence</button></span>
     </li>`;
   return `<div class="idea-detail">
     <div class="idea-facts">
       ${x.alt.length ? `<p class="small"><span class="muted">Also called</span> ${x.alt.map(esc).join(" · ")}</p>` : ""}
       ${x.not.length ? `<p class="small"><span class="muted">Not the same as</span> ${x.not.map(esc).join(" · ")}</p>` : ""}
       ${definitionBlock(x.definition)}
-      ${first ? `<h4>What it rests on</h4>${quoteBlock(first.ref, first.quote)}${refChip(first.ref)}
-        <span class="tiny">${first.for === "kind" ? "quoted when the machine sorted it into its kind" : "quoted by the record itself"}</span>` : ""}
+      ${first ? `<h4>Source passage</h4>${quoteBlock(first.ref, first.quote)}${refChip(first.ref)}
+        <span class="tiny">${first.for === "kind" ? "source used by AI to classify the idea" : "quoted by the record itself"}</span>` : ""}
       ${["act", "regs"].map((src) => {
         const list = x.basis.filter((r) => sourceOf(r) === src);
         return list.length ? `<h4>In the ${src === "act" ? "Act" : "Regulations"}</h4><div class="meta">${list.map((r) => refChip(r)).join("")}</div>` : "";
@@ -372,9 +368,9 @@ function connectionsTab(body, ctx, fromKind, toKind) {
       <span class="tiny shown" aria-live="polite"></span>
       <button class="btn small push" type="button" data-csv>Download all ${fmt(ontology.relations.length)} connections (CSV)</button>`)}
     <p class="tiny">The ${looseNames(ontology)} (${fmt(ontology.relations.filter((r) => LOOSE.has(r.p)).length)} of ${fmt(ontology.relations.length)}) say how ideas nest, not how one acts on another;
-    hidden unless you include them or pick one above, as on the map. Open a row to read the sentence it rests on.</p>
+    hidden unless you include them or pick one above, as on the map. Open a row to read its source sentence.</p>
     <table class="tbl conns">
-      <thead><tr><th>From</th><th>Says</th><th>To</th><th class="opt">Rests on</th><th>Written by</th></tr></thead>
+      <thead><tr><th>From</th><th>Says</th><th>To</th><th class="opt">Source</th><th>Written by</th></tr></thead>
       <tbody>${list.map((r) => `
         <tr class="row" data-p="${esc(r.p)}" data-sk="${esc(kindOf(r.s))}" data-ok="${esc(kindOf(r.o))}" data-text="${esc([endName(ctx, r.s), predLabel(ontology, r.p), endName(ctx, r.o), r.id].join(" ").toLowerCase())}">
           <td>${endHtml(ctx, r.s)}</td>
@@ -500,14 +496,14 @@ function testCard(ctx, r) {
       ${r.ground && ctx.byId.has(r.ground) ? `<p class="small"><span class="muted">The ground it reads:</span> ${endHtml(ctx, r.ground)}</p>` : ""}
       <p class="small"><span class="muted">Who acts:</span> ${esc(r.actor)}${scope.applies_to ? ` · <span class="muted">applies to</span> ${esc(scope.applies_to)}` : ""}</p>
       ${scope.parallel ? `<p class="tiny muted">${leadingRef(scope.parallel)}</p>` : ""}`)}
-    <h4>Its effect</h4>${effectLine(r.effect)}
+    <h4>What the rule requires or allows</h4>${effectLine(r.effect)}
     <h4>When it applies</h4>${conditionTree(ctx, r.condition)}
     ${(r.exceptions || []).length ? `<h4>Exceptions · ${r.exceptions.length}</h4>${r.exceptions.map((e) => `<div class="struct-exception">
       <p class="small"><b>${esc(e.text)}</b></p>${quoted(e)}
       ${effectLine(e.effect)}${conditionTree(ctx, e.condition)}</div>`).join("")}` : `<p class="tiny muted">The record states no exception.</p>`}
-    ${(r.evidence_requirements || []).length ? `<h4>What evidence bears on a condition · ${r.evidence_requirements.length}</h4>
+    ${(r.evidence_requirements || []).length ? `<h4>Evidence relevant to a condition · ${r.evidence_requirements.length}</h4>
       <ul class="struct-list">${r.evidence_requirements.map((q) => `<li><p class="small">${esc(q.text)} ${authorityBadge(q)} <span class="chip">${esc(q.kind)}</span></p>${quoted(q)}</li>`).join("")}</ul>` : ""}
-    ${(r.routes || []).length ? `<h4>Routes the sources describe · ${r.routes.length}</h4>
+    ${(r.routes || []).length ? `<h4>Options described in the sources · ${r.routes.length}</h4>
       <ul class="struct-list">${r.routes.map((q) => `<li><p class="small">${esc(q.text)} ${authorityBadge(q)}${q.scope ? ` <span class="tiny muted">(${esc(q.scope)})</span>` : ""}</p>${quoted(q)}</li>`).join("")}</ul>` : ""}
     ${r.notes ? `<h4>Note on the record</h4><p class="small">${esc(r.notes)}</p>` : ""}
     <h4>Who wrote this record</h4>${structureProvenance(r)}
@@ -521,7 +517,7 @@ function processCard(ctx, r) {
     ${structureHeader(ctx, r, r.scope ? `<p class="small">${esc(r.scope)}</p>` : "")}
     <h4>Steps · ${steps.size}</h4>
     <div class="struct-scroll"><table class="tbl struct-tbl">
-      <thead><tr><th>Step</th><th class="opt">Who</th><th>What the source says</th><th>Rests on</th></tr></thead>
+      <thead><tr><th>Step</th><th class="opt">Who</th><th>What the source says</th><th>Source</th></tr></thead>
       <tbody>${(r.steps || []).map((x) => `<tr>
         <td><b>${esc(x.label)}</b><br><span class="tiny muted">${esc(STEP_KIND[x.kind] || x.kind)}</span></td>
         <td class="opt small">${esc(ACTOR[x.actor] || x.actor)}</td>
@@ -530,7 +526,7 @@ function processCard(ctx, r) {
     </table></div>
     <h4>From one step to the next · ${(r.transitions || []).length}</h4>
     <div class="struct-scroll"><table class="tbl struct-tbl">
-      <thead><tr><th>From</th><th>To</th><th>When</th><th class="opt">What must be known</th><th>Rests on</th></tr></thead>
+      <thead><tr><th>From</th><th>To</th><th>When</th><th class="opt">What must be known</th><th>Source</th></tr></thead>
       <tbody>${(r.transitions || []).map((t) => `<tr>
         <td class="small">${step(t.from)}</td><td class="small">${step(t.to)}</td>
         <td class="small">${esc(t.when)}${t.grounds?.length ? `<br><span class="tiny muted">only for grounds under</span> ${t.grounds.map((g) => refChip(g)).join(" ")}` : ""}</td>
@@ -561,14 +557,14 @@ function structuredTab(body, ctx, records, startId, { intro, card, csvName, csv,
 function testsTab(body, ctx, records, startId) {
   structuredTab(body, ctx, records, startId, {
     noun: "legal tests", card: testCard, csvName: "trade-marks-manual-legal-tests.csv", csv: structuresCsv,
-    intro: "Each test reads one provision as its effect, the conditions with all-of and any-of, its exceptions and the routes the sources describe. A condition marked as a person's assessment is never computed, and nothing here applies a test to an application.",
+    intro: "Each test shows when a provision applies, what follows and which exceptions or options the sources describe. Where a judgement is needed, the tool leaves it to a person. Nothing here applies a test to an application.",
   });
 }
 
 function processesTab(body, ctx, records, startId) {
   structuredTab(body, ctx, records, startId, {
     noun: "process templates", card: processCard, csvName: "trade-marks-manual-processes.csv", csv: structuresCsv,
-    intro: "Each template is a procedure's steps, the transitions between them with what must be known to take one, and its time rules. It is the procedure, not any application's history.",
+    intro: "Follow the steps in a procedure to see what can happen next, what information is needed and which time limits apply. These are general steps, not the history of any application.",
   });
 }
 

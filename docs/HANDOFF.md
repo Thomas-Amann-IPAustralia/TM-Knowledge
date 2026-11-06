@@ -1,72 +1,70 @@
 # HANDOFF
 
-**Last updated:** 2026-10-21 · S047 · a what-if page for geographical indications (ADR-0149) on
-branch `ccr-773c02bf-jryenk`, built on `main` after PR #47 (the redesign, merged). Not merged.
+**Last updated:** 2026-11-06 · S048 · the site copy rewritten in plainer English (ADR-0150) on
+branch `claude/busy-thompson-wz43bm`, built on `main` after PR #48 (the what-if, merged). Not merged.
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
 
 ## Where things stand
 
-**The purpose is ADR-0138** (`CLAUDE.md` §0). **Every package in
-`docs/ONTOLOGY-REVIEW-RESPONSE-2.md` is built**; the redesign (ADR-0148) is merged and live.
-Nothing was spent in S047.
+**The purpose is ADR-0138** (`CLAUDE.md` §0). Every package in `docs/ONTOLOGY-REVIEW-RESPONSE-2.md`
+is built; the redesign (ADR-0148) and the what-if (ADR-0149) are merged and live. Nothing was spent
+in S048.
 
-**S047 added a what-if on the owner's word** (CHAT-0098, `review/returned/261021-owner-chat-gi-what-if.md`,
-ADR-0149): *"a small demonstration to the front end about how the introduction of geographic
-indicators as a new IP right might impact/influence examination practice"*, which *"must not alter
-the underlying ontology"*.
-- **`scenarios/what-if.yaml`, FW-0001**: a new fixture series (`FW-`, `docs/IDENTIFIERS.md`). An
-  invented premise (a register of geographical indications for any goods; no draft text) and five
-  touch points: the register to search, which question a registered name raises (s 42(b) / s 43 /
-  an earlier right like s 44), distinctiveness (s 41), s 61 from opposition towards examination,
-  certification marks. Each quotes the Manual verbatim (span, hash), names existing GC/GL/GP
-  records and provisions, and asks questions; it answers none.
-- **`tm_knowledge.explain.whatif`** validates it against the snapshot and records and counts what
-  would be re-read from the dependency index; `tmk-explorer` writes `site/data/whatif.json`.
-- **`#/whatif`** (`site/js/whatif.js`, prefix `wi-`, layer 2): the invented drawn above a dashed
-  line, the ontology below it unchanged (12 ideas, their 12 recorded connections, six provisions,
-  three legal tests), with a text equivalent; linked from Trace a change, What's next, the footer.
-  s 61 shows as **no recorded dependency**: a real gap the demo exposes.
-- **Unchanged:** `authored/`, the graph, every other data file, the prompt, the explanations; a
-  test checks the what-if's words reach none of them. No graph rebuild was needed.
+**S048 was a copy pass, on the owner's word** (CHAT-0099, `review/returned/261106-owner-chat-site-copy.md`):
+three users found the language hard to parse; ChatGPT drafted a plain-English rewrite
+(`docs/feedback-inbox/TM-Knowledge-copy.patch` and its guide).
+- **Applied whole, then corrected**: about 45 rewrites changed where the plain wording dropped a
+  safeguard (not law, not advice, never decides, not tested with customers, never computes, the
+  what-if changes no record) or misdescribed a feature. **Declined**: the patch's `section43Note()`
+  component and its glossary entry (legal content in code with no envelope; duplicates GD-0139).
+- **Every decision is in `docs/feedback-inbox/2026-11-06-after-action-report.md`** — read it before
+  touching site wording again.
+- **Unchanged:** `authored/`, the graph, every record, the prompt. `tm_knowledge.explain.engine`
+  changed in phrasing only; `explorer/build.py` only the family names.
+- **Tests:** the copy pins moved to the new words in `test_explorer.py`, `test_whatif.py` and
+  `test_dependencies.py` (Q-107). Full suite: see the commit body.
 
-**QA:** `#/whatif`, `#/change`, `#/future` at 1280 and 1920 px in Chromium, no script errors, no
-sideways scroll; touch point selection, the drawer from a provision and an idea's click to the map
-driven. **70 tests pass** in the four touched files (`test_whatif`, `test_explorer`,
-`test_scenarios`, `test_hygiene`); the full suite was not run (about twenty minutes, Q-29).
+**QA:** all 15 explorer routes and the workbench in Chromium at 1280 px, no script errors, no
+`undefined`/`NaN` in the text, the site-wide notice on one line. Not checked: narrow widths,
+keyboard paths, a live answer.
 
 **Spend.** Cap **US$13.63**, recorded **US$11.61**; the remaining US$2.02 is approved for nothing.
 
-**Package 5, unchanged since S045 (ADR-0147, agent-proposed):** the versioning model; RULE-0003
-**pending as OQ-0030**; three normative scenarios (`tmk-explain --scenario`), in no graph or site.
-
 ## Next actions
 
-1. **The owner's look at the what-if (`#/whatif`), then a merge.** Merging to `main` publishes it
-   (ADR-0112). Another what-if is one more `FW-` record in `scenarios/what-if.yaml`; the page draws
-   the first one only today.
-2. **Raise upstream: a second compilation of the Act** (the one before 48, and the transitional
+1. **The owner's read of the after-action report, then a merge.** Merging to `main` publishes it
+   (ADR-0112).
+2. **The UI/UX refresh the owner announced** ("ensuring the information is clear and progressively
+   educates the user"): the next session's work, with the owner. Keep the copy's safeguards.
+3. **Raise upstream: a second compilation of the Act** (the one before 48, and the transitional
    provisions), so `versions.select` can choose between texts.
-3. **Customer slice, widening** (no gate needed while fictional): more tests (s 42, s 39, s 41's
-   Part 22–26 sub-routes); an opposition template; GP-0002's left-outs. A new test reaches the
-   Explain page and rules as code on the next build with no page change.
-4. **Afterwards:** the blend (S034); the 15 undefined concepts; heading-only edges (GR-0270).
+4. **Customer slice, widening** (no gate needed while fictional): more tests (s 42, s 39, s 41's
+   Part 22–26 sub-routes); an opposition template; GP-0002's left-outs.
+5. **Afterwards:** the blend (S034); the 15 undefined concepts; heading-only edges (GR-0270).
 
 ## For the owner
 
-- **The what-if is on the branch, not live.** Merging is yours; so is saying anything about
-  geographical indications outside the repository.
-- **OQ-0030: approve or reject RULE-0003** (what rests on each source). Nothing is blocked.
+- **The copy pass is on the branch, not live.** The report lists every place I departed from
+  ChatGPT's draft, and why.
+- **"Not tested with customers" now reads "not formally tested with customers"** because of your
+  three test users. If none of them was a customer, the plainer original is truer; say so.
+- **If you want ChatGPT's plain s 43 heading:** add it to GC-0168 as an alternative label, or reword
+  GD-0139 — a record change with its evidence, not copy.
+- **OQ-0030: approve or reject RULE-0003.** Nothing is blocked.
 - **A decision when you want it: should the answering model see a reached structured test?**
-  (unchanged since S043; recommended, with the test stamped in the prompt.)
-- **The customer preview is on the site** (your choice); showing it to customers, testing with
-  them, or real case data are still yours. The scenarios are a command, not a page.
+- Showing the customer preview to customers, testing with them, or real case data are still yours.
 - Still: revoke the old OpenAI key (S038); the page's blend, ADR-0131 and the four disputed signed
   readings (S034); who writes the next benchmark; re-measurement.
 
 ## What to distrust
 
+- **The new copy is two models' plain-English reading**, not tested on a reader. Whether it is
+  clearer is for the owner's users to say. "Map-guided search", "knowledge map" and "ontology" now
+  all name the same thing in places; the UX pass may want one name.
+- **The workbench copy is partly stale under the new words** (its limits cards describe the signed
+  vocabulary as of an earlier stage); only the wording was changed.
 - **The what-if is one session's reading.** The premise, the five touch points, their "what if"
   paragraphs and questions are the agent's, unreviewed (ADR-0149). The counts are real but
   dominated by s 43, which most of the Manual cites; they say what rests on a provision, not how
@@ -99,7 +97,7 @@ driven. **70 tests pass** in the four touched files (`test_whatif`, `test_explor
   `/opt/pw-browsers`, a fresh page per route (Q-102).
 - **Site CSS**: every view's classes carry its prefix (`site/README.md` lists them, Q-101); grep
   `site/js/` before adding a utility class (Q-104). The phrases the tests pin are in
-  `tests/unit/test_explorer.py`; keep each word for word.
+  `test_explorer.py`, `test_whatif.py` and `test_dependencies.py` (Q-107).
 - **The hygiene check reads `confidence` near `<` or `>` as a ranking** (`test_hygiene.py`):
   in a template, keep a confidence test and an HTML tag on different lines.
 - **`tmk-graph --write --rules` takes about 75 seconds**, half of it RULE-0003 (Q-103).
@@ -122,6 +120,8 @@ driven. **70 tests pass** in the four touched files (`test_whatif`, `test_explor
 
 ## Open items (agent-proposed, provisional)
 
+- **ADR-0150's agent parts** (which rewrites were kept, changed and declined; "not formally
+  tested").
 - **ADR-0149's agent parts** (the `FW-` series, the five touch points and their wording, the page's
   picture and its place in layer 2).
 
