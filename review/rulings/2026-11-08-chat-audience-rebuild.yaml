@@ -1,0 +1,46 @@
+# A decision the repo owner made in a chat session. Hand-transcribed by the S049 agent;
+# no issue behind it. The artefact is `review/returned/261108-owner-chat-audience-rebuild.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-11-08T00:00:00Z'
+questions_updated: '2026-11-08'
+source:
+  kind: chat
+  artefact: review/returned/261108-owner-chat-audience-rebuild.md
+  author: the owner (the session's user; no name given in the chat)
+  relayed_by: S049 agent
+  title: Rebuild the front end around examiners, the public and direction setting, with a working demonstration for each
+applied:
+  session: S049
+  date: '2026-11-08'
+  branch: claude/bold-rubin-gvrvea
+  what_changed: >-
+    The site (site/) reorganised by audience: an overview (one real rule turned from the Act's words
+    into structure, a door for each group, one foundation under many tools, the safeguards and the
+    work still to do), then For examiners, For the public, For direction setting and For nerds. Each
+    audience section leads with working demonstrations and then possibilities, each with a horizon
+    (working now, within reach, needs more data) and a drawing. New demonstrations: a concept
+    explorer for examiners (#/concepts) and a step-by-step objection explainer for the public, with
+    the case kept in view (#/customers, rebuilt). The research page leads with the answer, the
+    concepts and the legal test, with the search's mechanics folded away; Trace a change asks for a
+    guess before it shows the answer. What's next is retired into the three sections; its customer
+    testing section is on the public overview. No record, graph, prompt or explanation object changed.
+answers:
+- id: CHAT-0100
+  item: the front end, rebuilt by audience
+  question: How should the site be organised, and what should it show each group?
+  kind: instruction
+  value: rebuild_by_audience
+  label: Rebuild the front end for examiners, the public and direction setting, an exceptional working demonstration for each, and a For nerds section
+  quote: >-
+    I'd like you to rebuild the front end. You are to focus on providing a very clear user
+    experience, catering to each of the 3 groups who stand to benefit from the knowledge graph.
+  notes: >-
+    Also in the owner's words: at least one working demonstration per group, each exceptional; refer
+    to ChatGPT's three design reviews; bespoke UX per audience (dense for examiners, progressive
+    disclosure for the public); sell what it can do before how, with enough reassurance about trust;
+    be clear what is possible now and soon, and that this is the foundation of many tools, shown as
+    illustrated cards; less emphasis on semantic search; distinct future options; plain English and
+    pages that stand alone, except For nerds; the owner's structure (overview, three audiences, For
+    nerds) with judgement allowed; the aesthetics kept; and, on the sketches, make it very clear the
+    knowledge graph marks what an examiner assesses apart from what is fact.
+  recorded_as: [ADR-0151]

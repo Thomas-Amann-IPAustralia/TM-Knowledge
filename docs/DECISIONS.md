@@ -6695,3 +6695,71 @@ phrasing only. No UX or layout change; that is the next piece of work.
 
 **Consequences.** The copy tests in `test_explorer.py`, `test_whatif.py` and `test_dependencies.py`
 pin the new wording of the same safeguards (Q-107). The site rebuilds on deploy (ADR-0112) once merged.
+
+## ADR-0151 — the site rebuilt around the groups it serves: an overview, examiners, the public, direction setting, and For nerds
+
+**Date** 2026-11-08 · **Authority** human (the direction), agent-proposed (the design) ·
+**Status** accepted
+
+**Context.** ADR-0145 and ADR-0148 ordered the site by depth (what it does, what it could do, how it
+works, under the hood). The owner (CHAT-0100, `review/returned/261108-owner-chat-audience-rebuild.md`):
+*"rebuild the front end … catering to each of the 3 groups who stand to benefit from the knowledge
+graph"* (examiners, the public, the people informing the system's strategic direction), *"at LEAST
+one working demo for each … EXCEPTIONAL"*, with the UX bespoke to each audience (dense for examiners,
+progressive disclosure for the public), selling what it does before how, enough reassurance about
+trust to *"dull the edge of fear"*, clear about what is possible now and that it is *"the FOUNDATION
+of a plethora of potential tools"* shown as illustrated cards, less about semantic search, distinct
+future options, plain English on pages that stand alone except *"For nerds"*, and the structure:
+overview, the three groups, For nerds. ChatGPT's three design reviews and long list of uses are in
+`docs/Nov_rebuild-ref-doc/`, with the owner's four sketches.
+
+**Decision (the owner's).** As quoted.
+
+**Decision (the agent's, inside it).**
+1. **Five sections replace the four layers** (`layers.js`, still the router's map): Overview,
+   For examiners (`examiners`, `concepts`, `ask`), For the public (`public`, `customers`), For
+   direction setting (`direction`, `change`, `whatif`), For nerds (`nerds`, `how`, `map`, `rules`,
+   `standards`, `table`, `about`, `glossary`). Each audience has a tint used only for wayfinding,
+   never inside a picture of the records, so the two colour systems of ADR-0148 are untouched.
+   `#/future` opens the public overview; What's next (`future.js`) is retired into the sections, and
+   its "What we may test with customers" (CHAT-0094) is on the public overview, word for word.
+2. **The overview** shows one real rule, section 44 as GL-0001 holds it, turned from the Act's words
+   into conditions, with each condition marked as a fact or an assessment (the owner's sketch: make
+   it very clear). Then a door for each group, one foundation under the tools (select a tool to see
+   what it draws on), the safeguards and the work still to do, with the measurement in both
+   directions in one line, and the door to For nerds.
+3. **Each audience section** leads with working demonstrations, then possibilities, each with a
+   drawing and a horizon said in words: *working now*, *within reach* (buildable on the foundation as
+   it stands) or *needs more data*. Overlapping uses from the owner's sketches and ChatGPT's list are
+   combined or worded apart: for example the examiner's consistency assistant (one matter, at the
+   point of decision) and direction setting's consistency analytics (patterns across teams and
+   years); goods and services selection and classification became one finder. Every possibility
+   says what it builds on and what it would need, and none says it would decide anything.
+4. **New demonstrations.** For examiners, *Explore a legal concept* (`#/concepts`): one concept's
+   recorded connections drawn as a bow-tie, in each predicate's own words (Q-94), with the strength
+   and condition its sentence states; the role the concept plays in a legal test, read from the
+   tests' own conditions (fact or assessment); where the Manual names it, Part by Part; and a research
+   trail. For the public, *Understand an objection* rebuilt as six steps beside a picture of the case
+   that stays in view and lights the part each step explains, with "same law, different facts"
+   comparing two invented cases; what a rule requires, and the application journey, drawn for the
+   public. For direction setting, Trace a change asks the reader to guess how much rests on a
+   provision before it shows the answer, and the overview charts where the guidance concentrates.
+5. **Less search.** Ask leads with the answer, the sources, the concepts in the question and the
+   legal test it reaches; how the sources were found (the hop diagram and the comparison with keyword
+   search) is folded behind "Why these sources?" and drawn again when opened.
+
+**What it does not decide.** No record, graph, prompt, explanation object or generated data file
+changes, so nothing changes what the system may say to an examiner or a customer (CLAUDE.md §3a).
+Every pinned safeguard stays; the customer-testing pin moved with its section to `public.js`. The
+possibilities are illustrations, not commitments, and their horizons are the agent's reading.
+Publishing is the merge to `main` (ADR-0112), the owner's; showing the public demonstrations to
+customers, testing with them and real case data stay the owner's.
+
+**Consequences.**
+1. New modules `examiners.js`, `concepts.js`, `public.js`, `direction.js`, `nerds.js` and
+   `illustrations.js`; `home.js`, `customers.js` and `layers.js` rewritten; `ask.js`, `change.js` and
+   `whatif.js` re-laid; `future.js` deleted, with its overview and What's next styles.
+2. `test_explorer.py` holds the sections (not the layers), the customer-testing words on the public
+   overview, and a new check that every audience section says what it is and that its possibilities
+   are not commitments.
+3. The agent parts are provisional; named in the handoff's open items.
