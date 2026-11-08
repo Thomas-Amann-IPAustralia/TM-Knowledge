@@ -1,25 +1,30 @@
 # site/: the explorer
 
 A static site, published to <https://thomas-amann-ipaustralia.github.io/TM-Knowledge/> from
-`main` (ADR-0112). Its job is to communicate the value of the ontology by **leading with what it
-makes possible** and explaining how it works simply and visually, with the detail one step behind
-a disclosure (ADR-0145; redesigned on the owner's instruction in ADR-0148).
+`main` (ADR-0112). Its job is to show what the knowledge foundation makes possible for each group it
+serves, with working demonstrations, and to explain how it works for those who want to know
+(ADR-0145; redesigned in ADR-0148; organised by audience on the owner's word in ADR-0151).
 
-The pages come in four layers, outcomes first, and a card at the foot of each leads one layer
-deeper (`layers.js`):
+The pages come in five sections (`layers.js`), and a card at the foot of each page says where to go
+next:
 
-1. **What it does**: the Overview, Research (Ask the Manual), Explain (the customer preview) and
-   Trace a change.
-2. **What it could do**: What's next, the uses the same foundation could support, and a what-if
-   (geographical indications as their own right) laid over the ontology without changing it.
-3. **How it works**: a nine-step scrolling story over one picture, the knowledge map, and rules as
-   code.
-4. **Under the hood**: the standards, the glossary and the data tables.
+1. **Overview** (`#/`): what the foundation is, one real rule turned from the Act's words into
+   structure, a door for each group, one foundation under many tools, the safeguards and the work
+   still to do.
+2. **For examiners**: the overview (`#/examiners`) and two working demonstrations, Explore a legal
+   concept (`#/concepts`) and Ask a research question (`#/ask`).
+3. **For the public**: the overview (`#/public`, with what may be tested with customers) and the
+   customer explanation preview (`#/customers`): an objection step by step, what a rule requires, and
+   the application journey, on invented matters.
+4. **For direction setting**: the overview (`#/direction`), Trace a change (`#/change`) and the
+   what-if, a new right laid over the ontology (`#/whatif`).
+5. **For nerds** (`#/nerds`): How it works, the knowledge map, rules as code, the standards, the
+   data tables, results and limits (`#/about`) and the glossary.
 
-"Where it stands" (`#/about`) sits across them all. The header names the outcome pages first,
-then How it works and the Knowledge map. `glossary.js` holds every term the site explains, and
-`term(key)` explains one inline the first time a page uses it. The owner's older dashboard is
-kept at `site/workbench/` and linked from nothing here.
+Each audience section leads with what works and then shows possibilities, each with a horizon said
+in words: working now, within reach, needs more data. `glossary.js` holds every term the site
+explains, and `term(key)` explains one inline the first time a page uses it. The owner's older
+dashboard is kept at `site/workbench/` and linked from nothing here.
 
 Desktop and laptop screens only, by the owner's word: nothing is designed for a phone.
 
@@ -70,8 +75,8 @@ Overview, the counts on the standards page).
 
 One stylesheet, `explorer.css`, light theme only (ADR-0148 says why). Paper and deep green, with
 lime as the highlight; Source Serif 4 for headings and quotes, Inter for everything else. Two
-colour systems that never mix, both checked for colour-blind readers with the data-visualisation
-validator:
+colour systems for the records that never mix, both checked for colour-blind readers with the
+data-visualisation validator:
 
 - **Ideas are coloured by their family**: the law's questions (orange), what they are asked about
   (teal), the process around them (violet). Each kind takes its family's colour; position and
@@ -81,33 +86,47 @@ validator:
   (chips, quotes, the map's satellites, Ask's diagram). Use `srcClass`, `refChip`, `quoteBlock`,
   `srcShape` and `legend` from `app.js` in a new view, so the three stay one system (ADR-0130).
 
+A third set, **the audiences' tints** (ADR-0151: examiners rose, the public green, direction setting
+blue, For nerds near-black), is for wayfinding only: the header, the section heroes, the doors and
+the cards. It sets `--acc` on `.aud-exam`, `.aud-pub`, `.aud-pol` and on `main` by section; it never
+colours a record.
+
 Machine-written content is a dashed rust stamp everywhere (`trustBadge`, `.stamp`); states are
-said in words as well as colour (`statePill`: working, measured, prototype, planned). Every picture
-has a text equivalent or says in words what its colours mean. Each view's classes carry a short
-prefix (`hm-` Overview, `rs-` Research, `cx-` Explain, `ch-` Trace a change, `fu-` What's next, `wi-` the what-if,
-`hw-` How it works, `mp-` the map, `rx-` rules, `sd-` standards, `gv-` glossary, `ab-` Where it
-stands, `dg-` the shared diagrams), so a view's class never picks up another's layout (Q-101).
+said in words as well as colour (`statePill`; the horizons `horizonPill`: working now, within reach,
+needs more data). A legal test's conditions are marked **Fact** (a square with a tick) or
+**Assessment** (a scale) wherever they appear. Every picture has a text equivalent or says in words
+what its colours mean. Each view's classes carry a short prefix (`ld-` overview, `ex-` examiners,
+`ce-` concept explorer, `rs-` Ask, `pu-` public, `cx-` the public demonstrations, `dr-` direction
+setting, `ch-` Trace a change, `wi-` the what-if, `nd-` For nerds, `hw-` How it works, `mp-` the
+map, `rx-` rules, `sd-` standards, `gv-` glossary, `ab-` results and limits, `dg-` the shared
+diagrams, `il-` and `fc-` the drawings and cards, `au-` a section's hero), and so do their state
+words (Q-101, Q-108).
 
 ## The views
 
 | Route | Module | What it shows |
 |---|---|---|
-| `#/` | `home.js` | the Overview: one question answered with and without the map of meaning; what it does for examiners, customers and policy; why it works; the measurement in both directions; the foundation; where things stand |
-| `#/ask/BN-…` | `ask.js` | Research: a question's ideas, connections and passages drawn hop by hop, the Act and the Regulations kept apart from the Manual, then a streamed, cited answer with the unreviewed stamp; plain search beside it |
-| `#/customers/{requirements,process,objection}/…` | `customers.js` | Explain: the customer explanation preview, on invented matters, behind a banner (ADR-0146): what a test requires, the application process drawn as a journey, an objection as a checklist with the full diagram a click away; each with its text equivalent |
-| `#/change/…` | `change.js` | Trace a change: pick a page or a provision and see what rests on it, drawn as a ripple, with the amendment timeline (Plot) |
-| `#/future/customers?` | `future.js` | What's next: the uses one foundation could support, each with what it stands on, what it would still need and where it stands; what may be tested with customers |
-| `#/whatif/FW-…/point?` | `whatif.js` | a what-if: an invented right (geographical indications) above a dashed line, the ideas, provisions and legal tests of the ontology it lands on below it, unchanged; each touch point's quotes, questions and what would be re-read (ADR-0149) |
+| `#/` | `home.js` | the overview: section 44 from the Act's words to structure, facts and assessments marked; a door for each group; one foundation under the tools; the safeguards, the work still to do and the measurement in both directions; the door to For nerds |
+| `#/examiners` | `examiners.js` | for examiners: the two demonstrations, a preview of one concept's connections, and what could come next |
+| `#/concepts/GC-…` | `concepts.js` | Explore a legal concept: the connections that lead to and from one concept as a bow-tie, each with its predicate's words, strength and condition; its names and not-names; its role in a legal test (fact or assessment); where the Manual names it, Part by Part; what it rests on; a research trail |
+| `#/ask/BN-…` | `ask.js` | Ask a research question: a streamed, cited answer with the unreviewed stamp, the Act and the Regulations kept apart from the Manual, the concepts the question names and the legal test it reaches; how the sources were found (the hop diagram and keyword search beside it) folded behind "Why these sources?" |
+| `#/public/customers?` | `public.js` | for the public: the three demonstrations, a preview of one invented case, what may be tested with customers and on whose decision, and what could come next |
+| `#/customers/{objection,requirements,process}/…` | `customers.js` | the customer explanation preview, behind its banner (ADR-0146): an objection in six steps beside a picture of the case that lights the part each step explains, with two cases under one rule compared; what a rule requires; the application journey; each with its text equivalent |
+| `#/direction` | `direction.js` | for direction setting: where the guidance concentrates, the two demonstrations, and what could come next |
+| `#/change/…` | `change.js` | Trace a change: guess first, then what rests on a page or a provision, drawn as a ripple, with the amendment timeline (Plot) |
+| `#/whatif/FW-…/point?` | `whatif.js` | a new right (geographical indications) above a dashed line, the ideas, provisions and legal tests it lands on below it, unchanged (ADR-0149) |
+| `#/nerds` | `nerds.js` | For nerds: the build in four figures, the contract in one line, and a door to each technical page |
 | `#/how` | `how.js` | How it works: nine scrolling steps over one picture, from the text to the answer and who wrote what |
 | `#/map`, `#/map/ideas/GC-…`, `#/map/kinds` | `map.js` | the knowledge map (below) |
-| `#/rules` | `rules.js` | rules as code: the three forms drawn small; connections with their modality and condition; section 44 drawn as a diagram and the process from filing as a journey (`diagrams.js`), each with its text equivalent; how the rules are checked; what they never do |
-| `#/standards` | `standards.js` | the standards stacked as one clickable picture, the four compartments drawn to scale; then each in three parts (plain words, what it does here with a real block of the graph, what it is not) |
-| `#/glossary/term?` | `glossary-view.js` | every term from `glossary.js`, grouped and filterable; every inline explanation links to its entry |
-| `#/table/{kinds,ideas,connections,tests,processes}/…` | `table.js` | the same records listed, not drawn, with filters and a CSV of each table carrying who wrote every row and which text each quote is from |
-| `#/about` | `about.js` | Where it stands: the measurement as intervals said in words (better, worse, not established), the decisions ahead and whose they are, who wrote what, the release manifest, the limits |
+| `#/rules` | `rules.js` | rules as code: the three forms drawn small; connections with their modality and condition; section 44 as a diagram and the process from filing as a journey (`diagrams.js`) |
+| `#/standards` | `standards.js` | the standards stacked as one clickable picture; each in plain words, with a real block of the graph, and what it is not |
+| `#/glossary/term?` | `glossary-view.js` | every term from `glossary.js`, grouped and filterable |
+| `#/table/{kinds,ideas,connections,tests,processes}/…` | `table.js` | the same records listed, with filters and a CSV of each table |
+| `#/about` | `about.js` | results and limits: the measurement as intervals said in words, the decisions ahead and whose they are, who wrote what, the release manifest, the limits |
 
-Older routes still work: `#/tour` and `#/model` open How it works, and `#/circles` opens the
-map's Kinds view (`ALIASES` in `app.js`).
+Older routes still work: `#/tour` and `#/model` open How it works, `#/circles` opens the map's Kinds
+view, and `#/future` (What's next, retired in ADR-0151) opens the public overview (`ALIASES` in
+`app.js`).
 
 ## The knowledge map
 
@@ -135,9 +154,11 @@ element. They are shown as written; the page evaluates no condition and computes
 plus the answer prompt and the verbatim quote check. **It must stay identical to Python**:
 `tests/explorer_parity.mjs` runs it under Node and the test compares rankings, recognised
 concepts, paths and the prompt itself, question by question. Change one side, change the other.
-`live.js` makes the streamed model call; `diagrams.js` draws a legal test and a process;
-`netlayout.js` lays out the ideas for the map and How it works; `icons.js` holds the line icons;
-`graph.js` holds small SVG helpers for Ask's diagram; `app.js` routes, loads data, holds the
+`live.js` makes the streamed model call; `diagrams.js` draws a legal test and a process and lays a
+process out (`layoutFlow`, shared with the public journey); `illustrations.js` holds the drawings on
+the cards, the demonstration and possibility cards, the horizons and the line every section opens
+with; `netlayout.js` lays out the ideas for the map and How it works; `icons.js` holds the line
+icons; `graph.js` holds small SVG helpers for Ask's diagram; `app.js` routes, loads data, holds the
 shared helpers and draws the passage drawer.
 
 ## Live answers

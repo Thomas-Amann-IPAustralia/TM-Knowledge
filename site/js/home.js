@@ -1,14 +1,16 @@
-/* Overview, layer 1: what the proof of concept does, shown before how (ADR-0145, ADR-0148).
+/* The overview: what the knowledge foundation is, what it might enable for each group it serves,
+   and why it can be trusted (ADR-0151, on the owner's word).
 
-   Outcomes first. The hero replays one real test question through the system, from the words
-   to the ideas, the connection and the passages. Each outcome card says what it does today, with
-   its figure read from the generated data and its state said plainly: working, measured, a
-   prototype, untested. The measurement is stated in both directions. Nothing here is typed in:
-   every number comes from the data, so it cannot drift from the build. */
+   The owner's order: a very high-level account of what it is and why it is somewhat trustworthy,
+   then a door for each group (examiners, the public, direction setting) and one for the
+   technically curious. The hero shows one real rule, section 44 as its structured record holds it,
+   turned from the Act's words into conditions: which are facts a record can settle and which are
+   assessments only a person can make. Every number is read from the data; the measurement is
+   said in both directions; nothing here says how an application will be decided. */
 
-import { esc, fmt, load, refLabel, tip, FAMILIES, familyOf, legend } from "./app.js";
+import { esc, fmt, load, refChip, legend } from "./app.js";
 import { icon } from "./icons.js";
-import { term } from "./glossary.js";
+import { drawing } from "./illustrations.js";
 
 /** A measured difference in words, from its estimate and 95% interval (× 100). */
 export function difference([est, lo, hi], better, worse) {
@@ -19,299 +21,298 @@ export function difference([est, lo, hi], better, worse) {
   return `<b>no clear difference</b> <span class="muted">(${range})</span>`;
 }
 
-const GRADE = ["not relevant", "marginal", "relevant", "highly relevant"];
+const KIND = { fact: "Fact", evaluative: "Assessment" };
+const EFFECT = { obligation: "must", discretion: "may", bar: "may not" };
+
+/** The kind of a condition, or of a group whose conditions are all of one kind. */
+function kindOf(node) {
+  if (!node.children) return node.kind;
+  const kinds = new Set(node.children.map(kindOf));
+  return kinds.size === 1 ? [...kinds][0] : "mixed";
+}
+const quotesOf = (node) => (node.children ? node.children.flatMap(quotesOf) : node.quote ? [node.quote] : []);
 
 export async function render(root, { ontology }) {
-  const [stability, examples, live, tour] = await Promise.all([load("stability"), load("examples"), load("live"), load("tour")]);
+  const [explain, examples, stability] = await Promise.all([load("explain"), load("examples"), load("stability")]);
   const c = ontology.counts;
-  const byId = new Map(ontology.concepts.map((x) => [x.id, x]));
-  const answers = examples.answers;
-  const claims = answers.flatMap((a) => a.claims || []);
-  const quoted = claims.filter((x) => x.supported).length;
-  const s = examples.summary || {};
-  const everyday = s.problem, all = s.all;
-  const provisions = Object.keys(stability.provisions || {}).length;
-  const firstYear = Object.keys(stability.by_year)[0];
   const concepts = c.concepts.signed + c.concepts.machine;
   const relations = c.relations.signed + c.relations.machine;
-  const ex = tour.example;
-  const showcase = tour.showcase.find((x) => x.label === "written permission") || tour.showcase[0];
+  const claims = examples.answers.flatMap((a) => a.claims || []);
+  const quoted = claims.filter((x) => x.supported).length;
+  const all = examples.summary?.all;
+  const provisions = Object.keys(stability.provisions || {}).length;
+  const rule = explain.requirements.find((r) => r.provision === "TMA1995/s44") || explain.requirements[0];
 
   root.innerHTML = `
-  <div class="hm">
-    <section class="wrap hm-hero">
-      <div class="hm-copy">
-        <span class="eyebrow">Australian trade marks · research prototype</span>
-        <h1 class="hm-title">Search Australian trade mark law and guidance</h1>
-        <p class="lede">Ask a question in your own words. The tool finds passages from the Trade Marks Act 1995 and Trade Marks Regulations 1995, which set out the law. It also searches IP Australia’s Trade Marks Manual of Practice and Procedure, which explains how examiners apply the law. Open a passage to read it for yourself.</p>
-        <div class="hm-cta">
-          <a class="btn primary" href="#/ask">Ask a question ${icon("arrow")}</a>
-          <a class="btn ghost" href="#/how">See how it works ${icon("chevron")}</a>
+  <div class="ld">
+    <section class="wrap ld-hero">
+      <div class="ld-copy">
+        <div>
+          <span class="eyebrow">Australian trade marks · proof of concept</span>
+          <h1 class="ld-title">Trade mark law and guidance, turned into rules and code</h1>
         </div>
-        <div class="hm-sources">${legend()}</div>
+        <div>
+          <p class="lede">A structured model of the rules, exceptions and caveats in Australia’s trade mark law and examination practice, which people and programs can read and check. It is the groundwork for future tools, capabilities and services.</p>
+          <div class="ld-cta">
+            <a class="btn primary" href="#ld-doors">Discover what it might enable ${icon("down")}</a>
+            <a class="btn ghost" href="#/nerds">How it works, for nerds ${icon("chevron")}</a>
+          </div>
+          <div class="ld-built"><p class="tiny">Built from the Trade Marks Act 1995 and the Trade Marks Regulations 1995, which are the law, and IP Australia’s Trade Marks Manual of Practice and Procedure, which is examination practice.</p>${legend()}</div>
+        </div>
       </div>
-      ${ex ? demo(ex, byId, ontology) : ""}
+      ${rule ? hero(rule) : ""}
     </section>
 
-    <section class="wrap section hm-outcomes" aria-labelledby="hm-o">
-      <div class="sec-head">
-        <div><span class="eyebrow">What it does today</span><h2 id="hm-o">What can you do here?</h2></div>
-        <p>Choose a tool to search the sources, explore a fictional case or check which records cite a source.</p>
-      </div>
-      <div class="grid-3">
-        ${outcome({
-          href: "#/ask", k: "For examiners", title: "Research a trade mark question", visual: miniResearch(),
-          text: "Find passages about your question. Open a reference beside an answer to check what the source says.",
-          figure: everyday ? `+${(everyday["ndcg:ontology-keyword"][0] * 100).toFixed(1)}` : "", figureText: everyday
-            ? `points higher than keyword search on the ranking of the first 10 results for everyday questions (95% interval ${(everyday["ndcg:ontology-keyword"][1] * 100).toFixed(1)} to ${(everyday["ndcg:ontology-keyword"][2] * 100).toFixed(1)})` : "",
-          state: ["working", "Working · answers unreviewed"], go: "Ask a question",
-        })}
-        ${outcome({
-          href: "#/customers", k: "Applicant examples", title: "Understand an examiner’s objection", visual: miniExplain(),
-          text: "Follow a fictional application to see why an examiner raised an objection, what the law requires and what could happen next.",
-          stats: [[fmt(c.tests), "legal tests"], [fmt(c.processes), "example procedures"], [fmt(c.fictional_matters), "fictional cases"]],
-          state: ["prototype", "Prototype · not formally tested with customers"], go: "See the preview",
-        })}
-        ${outcome({
-          href: "#/change", k: "Guidance maintenance", title: "Trace a change", visual: miniChange(),
-          text: "Choose a section of the Act, a regulation or a Manual page. See which records cite it and may need review if it changes.",
-          stats: [[fmt(provisions), "sections and regulations linked to records"], [fmt(stability.events), `amendments to the Manual recorded since ${esc(firstYear)}`]],
-          state: ["working", "Working · not measured"], go: "Trace a change",
-        })}
-      </div>
-    </section>
-
-    <section class="hm-band">
+    <section class="ld-doors-band" id="ld-doors" tabindex="-1" aria-labelledby="ld-d">
       <div class="wrap">
-        <div class="hm-band-head">
-          <div><span class="eyebrow">How the search works</span><h2>How the search finds related passages</h2></div>
-          <p>The tool uses a map of trade mark terms and their connections. The links show where the information came from. The technical name for this model is an ${term("ontology")}.</p>
+        <div class="sec-head"><div><span class="eyebrow">Discover what it might enable</span><h2 id="ld-d">One foundation, three groups it can serve today</h2></div>
+          <p>Each section shows what already works, with a demonstration you can try, and what could be built next.</p></div>
+        <div class="ld-doors">
+          ${door({ href: "#/examiners", cls: "aud-exam", art: "door-exam", k: "For examiners", title: "Helping examiners with the basics now, supercharging them later",
+            now: ["Explore a legal concept and everything connected to it", "Ask a research question and get a cited answer you can check"],
+            next: "Next: finding related matters, preserving expert knowledge, learning paths" })}
+          ${door({ href: "#/public", cls: "aud-pub", art: "door-pub", k: "For the public", title: "Helping customers understand the system and get the most out of it",
+            now: ["Understand an objection, one step at a time", "See what the law requires, and the application journey"],
+            next: "Next: a guided assistant with clear visuals, help choosing goods and services" })}
+          ${door({ href: "#/direction", cls: "aud-pol", art: "door-pol", k: "For direction setting", title: "Helping decision makers see the consequences before they act",
+            now: ["Trace what rests on any section of the Act or page of the Manual", "See what an invented new right would touch"],
+            next: "Next: testing draft amendments, comparing policy options, monitoring change" })}
         </div>
-        <div class="hm-why">
-          ${why("words", "Different words for the same idea", `The Manual can use several names for one idea. ${fmt(showcase.total)} passages name <i>${esc(showcase.label)}</i>; a search for that term misses ${fmt(showcase.missed)} of them, because they say ${Object.keys(showcase.wordings).filter((w) => w !== showcase.label).slice(0, 2).map((w) => `“${esc(w)}”`).join(" or ")}.`, wordsVisual(showcase))}
-          ${why("connect", "Links between ideas", `${fmt(relations)} links connect ${fmt(concepts)} ideas. For example, a link can show what <i>may give rise to</i> an objection. Each link quotes its source.`, connectVisual())}
-          ${why("shape", "Conditions and exceptions", `${fmt(c.tests)} legal tests show who acts, when a rule applies and what exceptions it allows. Each test separates facts from the judgements a person must make, and never makes those judgements itself.`, shapeVisual())}
-          ${why("show", "Quotations you can check", `${fmt(quoted)} of ${fmt(claims.length)} claims in the prepared answers include a quotation the tool found word for word in the source. Open a reference to see whether it supports the statement.`, showVisual())}
-        </div>
-        <div class="hm-band-cta"><a class="btn lime" href="#/how">Follow one question through the system ${icon("arrow")}</a><a class="btn on-dark" href="#/map">Explore the knowledge map</a></div>
       </div>
     </section>
 
-    <section class="wrap section hm-measure" aria-labelledby="hm-m">
-      <div class="sec-head">
-        <div><span class="eyebrow">How well the search works</span><h2 id="hm-m">Better than keyword search. Not better than search by meaning.</h2></div>
-        <p>We tried three search methods on the same ${fmt(all?.n || answers.length)} questions. The ${term("ndcg", "ranking score")} gives more weight to relevant passages near the top of the first 10 results. The highest possible score is 100.</p>
+    <section class="wrap section ld-fdn-sec" aria-labelledby="ld-f">
+      <div class="sec-head"><div><span class="eyebrow">Why a foundation</span><h2 id="ld-f">Build it once, use it for every tool</h2></div>
+        <p>The tools on this site are not separate projects. Each one reads the same ideas, connections, rules and sources. Select a tool to see what it draws on.</p></div>
+      ${foundation(c, concepts, relations, provisions)}
+      <div class="ld-xai">
+        <span class="ld-xai-i">${icon("shield")}</span>
+        <div><h3>By making the rules explicit, every tool built on them can explain itself</h3>
+          <p>An answer, an explanation or a flag can always show which ideas and which passages of the law and the guidance it relied on, so a person can check it. That is what would let future AI tools give a traceable account of their output.</p></div>
       </div>
-      ${everyday && all ? `<div class="hm-measure-grid">
-        <figure class="card card-pad hm-chart" aria-label="Top-ten quality by search, for everyday-words questions and for all questions">
-          ${measureRow("Questions in everyday words", everyday)}
-          ${measureRow("All questions", all)}
-          <figcaption class="hm-key">
-            <span><i class="hm-dot kw"></i>Keyword search: words only</span>
-            <span><i class="hm-dot hy"></i>Search by meaning: keyword plus ${term("embedding", "matching by meaning")}, no ontology</span>
-            <span><i class="hm-dot on"></i>Guided by the ontology: search by meaning plus the ideas and connections</span>
-          </figcaption>
-        </figure>
-        <div class="hm-read">
-          <h3>What the scores tell us</h3>
-          <p><b>Map-guided search compared with keywords alone.</b> For everyday questions:
-          ${difference(everyday["ndcg:ontology-keyword"], "better", "worse")}. For all questions: ${difference(all["ndcg:ontology-keyword"], "better", "worse")}.</p>
-          <p><b>Map-guided search compared with search by meaning.</b> For all questions: ${difference(all["ndcg:ontology-hybrid"], "better", "worse")}.
-          For everyday questions: ${difference(everyday["ndcg:ontology-hybrid"], "better", "worse")}.</p>
-          <p class="small muted">The map also shows which ideas and links contributed to a result. AI wrote most test questions and graded how relevant the passages were. Only ${fmt(s.signed?.n || 0)} were reviewed by a person.</p>
-          <a class="link-arrow" href="#/about">See the test results and their limits ${icon("arrow")}</a>
+    </section>
+
+    <section class="ld-trust-band" aria-labelledby="ld-t">
+      <div class="wrap">
+        <div class="sec-head"><div><span class="eyebrow">Can it be trusted?</span><h2 id="ld-t">Not blindly, and it never asks you to</h2></div>
+          <p>Scepticism is the right starting point. These are the safeguards built in from the start, and the work still to do.</p></div>
+        <div class="ld-trust">
+          ${trust("quote", "Every statement shows its source", `Answers and explanations link each statement to the exact words in the Act, the Regulations or the Manual. In the prepared answers, ${fmt(quoted)} of ${fmt(claims.length)} statements carry a quotation found word for word in the source.`, trustSources())}
+          ${trust("scale", "Law and practice stay apart", "The Act and the Regulations are the law. The Manual describes how the law is applied in examination; it is not law. Each source has its own mark, everywhere on this site.", trustMarks())}
+          ${trust("fact", "Facts and judgements are kept apart", "Every legal test separates the facts a record can confirm, such as a date, from the assessments only a person can make, such as whether two trade marks are deceptively similar. The system never makes an assessment.", trustTiles())}
+          ${trust("never", "It explains; it never decides", "Never: deciding an application, or saying how one will be decided. Only the Registrar of Trade Marks decides.", trustNever())}
+          ${trust("stamp", "AI-written until an expert signs it", `${fmt(c.concepts.machine)} of ${fmt(concepts)} ideas and ${fmt(c.relations.machine)} of ${fmt(relations)} connections were written by AI. Each one says so wherever it appears, and stays labelled until a trade marks expert reviews it.`, trustStamp())}
         </div>
-      </div>` : `<p class="muted">Test results are unavailable in this version.</p>`}
+        <div class="ld-work card">
+          <h3>${icon("flag")}What still needs work</h3>
+          <ul>
+            <li><b>Expert review.</b> Most records are machine-written and unreviewed. Reviewing them is the next big step.</li>
+            <li><b>Testing with customers.</b> The explanations for the public are not formally tested with customers yet. When and how that happens is the project owner’s decision.</li>
+            <li><b>Coverage.</b> ${fmt(c.tests)} legal tests and ${fmt(c.processes)} procedures are set out as rules so far; the rest of the Act and the Manual are to come.</li>
+            <li><b>Measurement.</b> Only the research search has been measured. ${all ? `Guided by the foundation, it ranked relevant passages ${difference(all["ndcg:ontology-keyword"], "higher", "lower")} than keyword search, and ${difference(all["ndcg:ontology-hybrid"], "higher", "lower")} than search by meaning.` : ""}</li>
+          </ul>
+          <a class="link-arrow" href="#/about">See the results and limits ${icon("arrow")}</a>
+        </div>
+      </div>
     </section>
 
-    <section class="wrap section hm-next" aria-labelledby="hm-n">
-      <div class="sec-head">
-        <div><span class="eyebrow">Future uses</span><h2 id="hm-n">What else could the tools do?</h2></div>
-        <p>The labels show which tools work today and which are proposals.</p>
-      </div>
-      ${foundation()}
-      <p style="margin-top:22px"><a class="link-arrow" href="#/future">Explore the proposed uses ${icon("arrow")}</a></p>
-    </section>
-
-    <section class="wrap hm-status" aria-label="Results and limits, in one line each">
-      <div class="hm-status-grid">
-        ${status("working", "Working", "Search the Manual and legislation, browse example answers, explore the map and check which records cite a source. Live answers depend on availability.")}
-        ${status("measured", "Measured", "The tests above compared how well three searches ranked Manual passages. Nothing else has been measured yet.")}
-        ${status("prototype", "Built, not tested", "The prototype illustrates legal tests and application steps with fictional cases. It has not been formally tested with customers or measured.")}
-        ${status("unreviewed", "Not yet reviewed", `${fmt(c.concepts.machine)} of ${fmt(concepts)} ideas, ${fmt(c.relations.machine)} of ${fmt(relations)} connections, every definition, test and answer: machine-written and labelled ${term("unreviewed", "unreviewed")}.`)}
-        ${status("planned", "Possible next", "Possible next steps include testing the explanations with customers (the project owner's decision), exploring policy changes and explaining recorded decisions.")}
-        ${status("never", "Never", "Deciding an application, or saying how one will be decided.")}
-      </div>
-      <p class="hm-status-foot"><a class="link-arrow" href="#/about">See results and limits ${icon("arrow")}</a>${live.enabled ? "" : `<span class="tiny">Live answers are off. The example answers and the search still work.</span>`}</p>
+    <section class="wrap section ld-nerd-sec" aria-labelledby="ld-n">
+      <a class="ld-nerd" href="#/nerds">
+        <div class="ld-nerd-copy">
+          <span class="eyebrow">For nerds</span>
+          <h2 id="ld-n">Let’s get technical</h2>
+          <p>Take a deep dive into how it works. Fair warning: this part is mostly for the technically minded.</p>
+          <ul class="ld-nerd-list">${["The knowledge map", "Rules as code", "The standards", "Data tables", "Current results and limits", "Glossary"].map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+          <span class="btn lime">Go to For nerds ${icon("arrow")}</span>
+        </div>
+        <div class="ld-nerd-art">${drawing("door-nerd")}</div>
+      </a>
     </section>
   </div>`;
 
-  if (ex) startDemo(root, ex);
+  if (rule) startHero(root);
+  startFoundation(root);
 }
 
-// ------------------------------------------------------------------ the worked example, replayed
+// ------------------------------------------------------------------ the hero: one rule, from words to structure
 
-function demo(ex, byId, ontology) {
-  const fam = (id) => FAMILIES[familyOf(ontology, byId.get(id)?.kind)] || FAMILIES.other;
-  const specific = ex.recognised.filter((r) => !byId.get(r.id)?.generic);
-  const generic = ex.recognised.filter((r) => byId.get(r.id)?.generic);
-  const path = ex.path_focus || ex.paths[0];
-  const only = new Set(ex.only_ontology_relevant);
-  const pct = (x) => Math.round(x * 100);
-  // The question with the words that named an idea marked, so stage 2 can light them up.
-  let q = esc(ex.question);
-  for (const r of specific) if (r.matched) q = q.replace(esc(r.matched), `<mark class="hm-said">${esc(r.matched)}</mark>`);
-  const idea = (id, label) => `<span class="idea-pill" style="--c:${fam(id).colour};--cb:${fam(id).bg};--ci:${fam(id).ink}"><i></i>${esc(label)}</span>`;
-  const squares = (rows, mark) => rows.map(([ref, g], i) => `<button type="button" class="hm-sq g${g ?? 0}${mark && only.has(ref) ? " only" : ""}" data-ref="${esc(ref)}"
-    data-tip="${esc(`${i + 1}. ${refLabel(ref)} · graded ${GRADE[g ?? 0]}${mark && only.has(ref) ? " · found through the connection" : ""}`)}" aria-label="${esc(`${refLabel(ref)}, graded ${GRADE[g ?? 0]}`)}"></button>`).join("");
-  return `<figure class="card hm-demo" aria-label="Example question and search results">
-    <div class="hm-demo-top"><span class="eyebrow">Example question</span>
-      <button type="button" class="btn small ghost hm-replay" aria-label="Play the example again">${icon("replay")} Replay</button></div>
-    <ol class="hm-stages">
-      <li class="hm-stage" data-s="1"><span class="hm-n">1</span><div><span class="hm-lab">The example question</span>
-        <p class="hm-q">${q}</p></div></li>
-      <li class="hm-stage" data-s="2"><span class="hm-n">2</span><div><span class="hm-lab">Terms the search matched</span>
-        <p class="hm-ideas">${specific.map((r) => idea(r.id, r.label)).join("")}${generic.map((r) => `<span class="idea-pill quiet" title="Named in so many passages that it does not steer the search"><i></i>${esc(r.label)}</span>`).join("")}</p>
-        ${generic.length ? `<span class="hm-note">Too common to narrow this search: ${esc(generic.map((r) => r.label).join(", "))}</span>` : ""}</div></li>
-      ${path ? `<li class="hm-stage" data-s="3"><span class="hm-n">3</span><div><span class="hm-lab">How the matched terms relate</span>
-        <p class="hm-path">${idea(path.subject, path.subject_label)}<span class="hm-pred">${esc(ontology.predicates[path.predicate]?.label || path.predicate)}</span>${idea(path.object, path.object_label)}</p>
-        ${path.applies_when ? `<span class="hm-note">only when ${esc(path.applies_when.length > 120 ? path.applies_when.slice(0, 118).replace(/\s+\S*$/, "") + " …" : path.applies_when)}</span>` : ""}</div></li>` : ""}
-      <li class="hm-stage" data-s="4"><span class="hm-n">4</span><div><span class="hm-lab">The first 10 results</span>
-        <div class="hm-rows">
-          <span class="hm-rowlab">Keyword search</span><span class="hm-sqs">${squares(ex.keyword, false)}</span>
-          <span class="hm-rowlab"><b>Using the knowledge map</b></span><span class="hm-sqs">${squares(ex.ontology, true)}</span>
-        </div>
-        <p class="hm-found">For this question, following the link found <b>${fmt(only.size)} relevant passages</b> that neither of the other searches ranked in its top 10.</p></div></li>
-    </ol>
-    <figcaption class="hm-demo-foot">
-      <span class="hm-grades"><i class="hm-sq g3"></i>highly relevant<i class="hm-sq g2"></i>relevant<i class="hm-sq g1"></i>marginal<i class="hm-sq g0"></i>not relevant (AI ratings)</span>
-      <span>Ranking scores for this question (out of 100): keyword ${pct(ex.ndcg.keyword)}, by meaning ${pct(ex.ndcg.hybrid)}, map-guided ${pct(ex.ndcg.ontology)}.
-      We chose this example because it shows how a link can help. The results across all questions are below.</span>
+function hero(r) {
+  const parts = r.condition.children || [r.condition];
+  const words = (text, max = 92) => (text.length > max ? `${text.slice(0, max - 1).replace(/\s+\S*$/, "")}…` : text);
+  const fragments = [
+    `<span class="ld-q-frag must" data-n="0">${esc(r.effect.quote)}</span>`,
+    ...parts.map((p, i) => quotesOf(p).map((q) => `<span class="ld-q-frag" data-n="${i + 1}"><sup>${i + 1}</sup>${esc(q)}</span>`).join(" … ")),
+  ];
+  const tiles = parts.map((p, i) => {
+    const k = kindOf(p);
+    return `<div class="ld-tile ${k}" data-n="${i + 1}">
+      <span class="ld-tile-k">${k === "evaluative" ? scaleIcon() : factIcon()}${esc(KIND[k] || "Facts and assessments")}</span>
+      <p><sup>${i + 1}</sup>${esc(words(p.text || p.children.map((x) => x.text).join(" or ")))}</p></div>`;
+  }).join("");
+  return `<figure class="ld-rule card" aria-labelledby="ld-rule-cap">
+    <div class="ld-rule-top"><span class="eyebrow">One rule, from words to structure</span>
+      <button type="button" class="btn small ghost ld-replay" aria-label="Play the example again">${icon("replay")} Replay</button></div>
+    <div class="ld-rule-body">
+    <div class="ld-rule-words">
+      <p class="ld-rule-src">${refChip(r.provision)} <span class="tiny">The Act’s words, quoted in part</span></p>
+      <blockquote class="ld-q">${fragments.join(" … ")}</blockquote>
+    </div>
+    <div class="ld-rule-arrow" aria-hidden="true"><span>becomes</span>${icon("arrow")}</div>
+    <div class="ld-rule-code">
+      <p class="ld-rule-src"><span class="tiny">The same rule, as structured data</span></p>
+      <div class="ld-row"><span class="ld-lab">If all of these</span><div class="ld-tiles">${tiles}</div></div>
+      <div class="ld-row then"><span class="ld-lab">Then</span><div class="ld-effect" data-n="0"><b>${esc(EFFECT[r.effect.kind] || r.effect.kind)}</b><span>${esc(r.effect.text)}</span></div></div>
+      ${r.exceptions.length ? `<div class="ld-row unless"><span class="ld-lab">Unless</span><div class="ld-excs">${r.exceptions.map((x) => `<div class="ld-exc"><b>${esc(EFFECT[x.effect.kind] || x.effect.kind)}</b><span>${esc(words(x.text, 70))}</span></div>`).join("")}</div></div>` : ""}
+    </div>
+    </div>
+    <figcaption id="ld-rule-cap" class="ld-rule-cap">
+      <span><i class="ld-k fact" aria-hidden="true">${factIcon()}</i><b>Fact:</b> something a record can confirm.</span>
+      <span><i class="ld-k evaluative" aria-hidden="true">${scaleIcon()}</i><b>Assessment:</b> a judgement only a person can make. The system never makes it.</span>
+      <span class="ld-stamp"><span class="trust machine" title="AI wrote this record. A trade marks expert has yet to review it.">AI-written · unreviewed</span> <a href="#/customers/requirements/${esc(r.test)}">See this rule explained</a></span>
     </figcaption>
   </figure>`;
 }
 
-function startDemo(root, ex) {
-  const fig = root.querySelector(".hm-demo");
-  if (!fig) return;
-  const stages = [...fig.querySelectorAll(".hm-stage")];
-  let timers = [];
+const factIcon = () => `<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><path d="m5 8.3 2 2 4-4.4"/></svg>`;
+const scaleIcon = () => `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v11M5 13.5h6M3 5h10M3 5l-1.8 4a1.9 1.9 0 0 0 3.6 0zM13 5l-1.8 4a1.9 1.9 0 0 0 3.6 0z"/></svg>`;
+
+function startHero(root) {
+  const fig = root.querySelector(".ld-rule");
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const steps = [...new Set([...fig.querySelectorAll("[data-n]")].map((x) => Number(x.dataset.n)))].sort((a, b) => a - b);
+  const order = [...steps.filter((n) => n > 0), 0];
+  let timers = [];
+  const light = (n) => fig.querySelectorAll("[data-n]").forEach((x) => x.classList.toggle("lit", Number(x.dataset.n) === n));
   const play = () => {
     timers.forEach(clearTimeout);
     timers = [];
-    fig.classList.remove("played");
-    stages.forEach((s) => s.classList.remove("on"));
-    if (reduced) { stages.forEach((s) => s.classList.add("on")); fig.classList.add("played"); return; }
-    stages.forEach((s, i) => timers.push(setTimeout(() => s.classList.add("on"), 250 + i * 1100)));
-    timers.push(setTimeout(() => fig.classList.add("played"), 250 + stages.length * 1100));
+    fig.classList.remove("done");
+    if (reduced) { fig.classList.add("done"); return; }
+    order.forEach((n, i) => timers.push(setTimeout(() => light(n), 500 + i * 1300)));
+    timers.push(setTimeout(() => { light(-1); fig.classList.add("done"); }, 500 + order.length * 1300));
   };
-  fig.querySelector(".hm-replay").addEventListener("click", play);
-  fig.addEventListener("mouseover", (e) => { const sq = e.target.closest("[data-tip]"); tip(sq ? esc(sq.dataset.tip) : null, e); });
-  fig.addEventListener("mouseleave", () => tip(null));
-  // Start when it is on screen, so the first beat is seen.
-  const seen = new IntersectionObserver((entries) => { if (entries.some((e) => e.isIntersecting)) { seen.disconnect(); play(); } }, { threshold: 0.3 });
+  fig.querySelector(".ld-replay").addEventListener("click", play);
+  // A reader can light any pair by hand: a fragment and its condition say the same thing.
+  fig.addEventListener("mouseover", (e) => { const t = e.target.closest("[data-n]"); if (t && fig.classList.contains("done")) light(Number(t.dataset.n)); });
+  fig.addEventListener("mouseleave", () => { if (fig.classList.contains("done")) light(-1); });
+  const seen = new IntersectionObserver((entries) => { if (entries.some((e) => e.isIntersecting)) { seen.disconnect(); play(); } }, { threshold: 0.35 });
   seen.observe(fig);
 }
 
-// ------------------------------------------------------------------ outcome cards and their small pictures
+// ------------------------------------------------------------------ the doors
 
-function outcome({ href, k, title, visual, text, figure, figureText, stats, state, go }) {
-  return `<article class="card hm-out">
-    <a class="hm-out-link" href="${href}" aria-label="${esc(go)}: ${esc(title)}"></a>
-    <div class="hm-out-vis" aria-hidden="true">${visual}</div>
-    <div class="hm-out-body">
-      <span class="eyebrow muted plain">${esc(k)}</span>
+function door({ href, cls, art, k, title, now, next }) {
+  return `<a class="ld-door ${cls}" href="${href}">
+    <div class="ld-door-art">${drawing(art)}</div>
+    <div class="ld-door-body">
+      <span class="ld-door-k">${esc(k)}</span>
       <h3>${esc(title)}</h3>
-      <p>${text}</p>
-      ${figure ? `<div class="stat"><b>${figure}</b><span>${figureText}</span></div>` : ""}
-      ${stats ? `<div class="hm-stats">${stats.map(([n, t]) => `<div class="stat"><b>${n}</b><span>${t}</span></div>`).join("")}</div>` : ""}
-      <div class="hm-out-foot"><span class="pill ${state[0]}">${esc(state[1])}</span><span class="link-arrow">${esc(go)} ${icon("arrow")}</span></div>
+      <ul>${now.map((x) => `<li>${icon("check")}<span>${esc(x)}</span></li>`).join("")}</ul>
+      <p class="ld-door-next">${esc(next)}</p>
+      <span class="link-arrow">Explore ${esc(k.toLowerCase())} ${icon("arrow")}</span>
     </div>
-  </article>`;
-}
-
-const miniResearch = () => `<svg viewBox="0 0 320 120">
-  <rect x="14" y="40" width="74" height="40" rx="10" class="v-bubble"/><text x="51" y="65" class="v-t" text-anchor="middle">“a smell?”</text>
-  <path d="M88 60 C110 60 112 30 134 30M88 60H134M88 60 C110 60 112 90 134 90" class="v-line"/>
-  <circle cx="142" cy="30" r="8" class="v-n ex"/><circle cx="142" cy="60" r="8" class="v-n re"/><circle cx="142" cy="90" r="8" class="v-n pr"/>
-  <path d="M150 30 C190 30 200 22 232 22M150 60 C190 60 200 52 232 52M150 60 C190 60 200 82 232 82M150 90 C190 90 200 98 232 98" class="v-line"/>
-  ${[22, 37, 52, 67, 82, 97].map((y, i) => `<rect x="${238 + (i % 2) * 20}" y="${y - 6}" width="12" height="12" rx="2" class="v-sq ${i === 2 ? "hot" : ""}"/>`).join("")}
-  <path d="M290 60 l-6 0" class="v-line"/><path d="M286 52 l8 8 -8 8" class="v-line" fill="none"/>
-</svg>`;
-
-const miniExplain = () => `<svg viewBox="0 0 320 120">
-  <text x="18" y="24" class="v-k">ALL OF THESE</text>
-  <rect x="16" y="32" width="84" height="34" rx="8" class="v-box"/><circle cx="30" cy="49" r="5" class="v-assess"/><rect x="40" y="46" width="48" height="6" rx="3" class="v-ln"/>
-  <rect x="108" y="32" width="84" height="34" rx="8" class="v-box"/><rect x="117" y="44" width="10" height="10" rx="2" class="v-fact"/><rect x="132" y="46" width="48" height="6" rx="3" class="v-ln"/>
-  <rect x="200" y="32" width="84" height="34" rx="8" class="v-box"/><circle cx="214" cy="49" r="5" class="v-assess"/><rect x="224" y="46" width="48" height="6" rx="3" class="v-ln"/>
-  <path d="M150 70v14" class="v-line"/><path d="M144 80l6 6 6-6" class="v-line" fill="none"/>
-  <rect x="96" y="90" width="110" height="24" rx="12" class="v-must"/><text x="151" y="106" text-anchor="middle" class="v-mt">must · may · may not</text>
-</svg>`;
-
-const miniChange = () => `<svg viewBox="0 0 320 120">
-  ${[18, 34, 50].map((r, i) => `<circle cx="160" cy="62" r="${r}" class="v-ring" style="animation-delay:${i * .6}s"/>`).join("")}
-  <path d="M160 50 L172 62 L160 74 L148 62Z" class="v-act"/>
-  ${[[112, 38], [118, 92], [212, 40], [205, 95], [96, 64], [226, 66], [140, 18], [184, 108]].map(([x, y], i) => `<circle cx="${x}" cy="${y}" r="${i < 4 ? 6 : 4.5}" class="v-n ${["ex", "re", "pr", "ex", "pr", "re", "ex", "pr"][i]}"/>`).join("")}
-</svg>`;
-
-// ------------------------------------------------------------------ why it works
-
-function why(key, title, text, visual) {
-  return `<article class="hm-why-item"><div class="hm-why-vis" aria-hidden="true">${visual}</div><h3>${esc(title)}</h3><p>${text}</p></article>`;
-}
-
-function wordsVisual(showcase) {
-  const words = Object.keys(showcase.wordings).slice(0, 4);
-  const ys = words.map((_, i) => 18 + i * 24);
-  return `<svg viewBox="0 0 260 110">${words.map((w, i) => `<text x="8" y="${ys[i] + 4}" class="w-word${w === showcase.label ? " formal" : ""}">${esc(w.length > 22 ? w.slice(0, 21) + "…" : w)}</text>
-    <path d="M150 ${ys[i]} C190 ${ys[i]} 190 55 214 55" class="w-line"/>`).join("")}<circle cx="226" cy="55" r="12" class="w-idea"/></svg>`;
-}
-const connectVisual = () => `<svg viewBox="0 0 260 110"><path d="M40 70 C90 20 150 20 200 46" class="w-line strong"/><path d="M40 70 C100 90 150 96 196 82" class="w-line"/>
-  <circle cx="34" cy="72" r="11" class="w-idea ex"/><circle cx="208" cy="44" r="11" class="w-idea re"/><circle cx="204" cy="84" r="9" class="w-idea pr"/>
-  <text x="120" y="30" text-anchor="middle" class="w-pred">may give rise to</text></svg>`;
-const shapeVisual = () => `<svg viewBox="0 0 260 110"><text x="10" y="18" class="w-k">IF ALL OF</text>
-  <rect x="10" y="26" width="70" height="26" rx="6" class="w-box"/><rect x="88" y="26" width="70" height="26" rx="6" class="w-box"/><rect x="166" y="26" width="70" height="26" rx="6" class="w-box dashed"/>
-  <text x="10" y="76" class="w-k">THEN</text><rect x="10" y="82" width="110" height="22" rx="11" class="w-must"/><text x="130" y="76" class="w-k">UNLESS</text><rect x="130" y="82" width="106" height="22" rx="11" class="w-box dashed"/></svg>`;
-const showVisual = () => `<svg viewBox="0 0 260 110"><rect x="10" y="10" width="180" height="8" rx="4" class="w-ln"/><rect x="10" y="26" width="150" height="8" rx="4" class="w-ln"/>
-  <rect x="10" y="48" width="64" height="20" rx="5" class="w-chip m"/><rect x="82" y="48" width="58" height="20" rx="5" class="w-chip a"/>
-  <rect x="10" y="80" width="150" height="22" rx="11" class="w-stamp"/><path d="M216 30 l10 10 20 -22" class="w-check"/></svg>`;
-
-// ------------------------------------------------------------------ the measurement, drawn
-
-function measureRow(label, row) {
-  const v = { kw: row["ndcg:keyword"] * 100, hy: row["ndcg:hybrid"] * 100, on: row["ndcg:ontology"] * 100 };
-  const lo = 60, hi = 90, W = 520, x = (n) => 10 + ((n - lo) / (hi - lo)) * (W - 20);
-  const ticks = [60, 65, 70, 75, 80, 85, 90];
-  const lab = (key, name, above) => `<g class="hm-mk ${key}" transform="translate(${x(v[key]).toFixed(1)},46)">
-    <circle r="${key === "on" ? 8 : 6.5}"/><text y="${above ? -16 : 28}" text-anchor="middle"><tspan class="v">${v[key].toFixed(1)}</tspan> <tspan class="n">${name}</tspan></text></g>`;
-  return `<div class="hm-mrow"><h4>${esc(label)} <span class="tiny">${fmt(row.n)} questions</span></h4>
-    <svg viewBox="0 0 ${W} 86" role="img" aria-label="${esc(`${label}: keyword ${v.kw.toFixed(1)}, by meaning ${v.hy.toFixed(1)}, guided by the ontology ${v.on.toFixed(1)}, out of 100`)}">
-      ${ticks.map((t) => `<line x1="${x(t)}" x2="${x(t)}" y1="30" y2="62" class="hm-grid"/><text x="${x(t)}" y="82" text-anchor="middle" class="hm-tick">${t}</text>`).join("")}
-      <line x1="${x(Math.min(v.kw, v.hy, v.on))}" x2="${x(Math.max(v.kw, v.hy, v.on))}" y1="46" y2="46" class="hm-span"/>
-      ${lab("kw", "keyword", true)}${lab("hy", "by meaning", true)}${lab("on", "ontology", false)}
-    </svg></div>`;
-}
-
-// ------------------------------------------------------------------ the foundation, drawn
-
-const USES = [
-  ["Examiner research", "working", "Working"],
-  ["Customer explanations", "prototype", "Prototype"],
-  ["Tracing a change", "working", "Working"],
-  ["Policy: simulating an amendment", "prototype", "Two methods demonstrated"],
-  ["Customer chatbot with visuals", "planned", "Builds on the prototype"],
-  ["Explaining decisions, never making them", "planned", "Not started"],
-  ["Machine learning", "planned", "Foundation only"],
-];
-
-function foundation() {
-  return `<a class="hm-fdn card" href="#/future" aria-label="What the foundation could support: see what's next">
-    <div class="hm-pillars">${USES.map(([name, state, label]) => `<div class="hm-pillar ${state}"><b>${esc(name)}</b><span class="pill ${state}">${esc(label)}</span></div>`).join("")}</div>
-    <div class="hm-slab"><span>${icon("layers")} The tools share the same trade mark terms, links, sources and author details.</span></div>
   </a>`;
 }
 
-function status(state, label, text) {
-  return `<div class="hm-st"><span class="pill ${state}">${esc(label)}</span><p>${text}</p></div>`;
+// ------------------------------------------------------------------ one foundation, many tools
+
+const BLOCKS = [
+  ["ideas", "Ideas and their names", (c, n) => `${fmt(n.concepts)} ideas, with the other names each goes by`],
+  ["links", "Connections", (c, n) => `${fmt(n.relations)} connections, each quoting the sentence it rests on`],
+  ["rules", "Rules", (c) => `${fmt(c.tests)} legal tests and ${fmt(c.processes)} procedures, set out as conditions and steps`],
+  ["sources", "Sources and authorship", (c, n) => `every record tied to the words it rests on, who wrote it and whether a person reviewed it; ${fmt(n.provisions)} provisions with recorded dependants`],
+  ["time", "Versions of the law", () => "which text of the Act each quotation is from, and when that is unknown"],
+];
+
+const TOOLS = [
+  { id: "concepts", aud: "aud-exam", name: "Explore a legal concept", href: "#/concepts", uses: ["ideas", "links", "rules", "sources"], text: "Everything recorded about one idea, with a source for each part." },
+  { id: "ask", aud: "aud-exam", name: "Ask a research question", href: "#/ask", uses: ["ideas", "links", "rules", "sources", "time"], text: "The law and the guidance for a question, and a cited answer to check." },
+  { id: "objection", aud: "aud-pub", name: "Understand an objection", href: "#/customers/objection", uses: ["rules", "sources", "time"], text: "An objection explained step by step, on invented cases." },
+  { id: "journey", aud: "aud-pub", name: "The application journey", href: "#/customers/process", uses: ["rules", "sources"], text: "Each stage from filing to registration, and what moves it on." },
+  { id: "change", aud: "aud-pol", name: "Trace a change", href: "#/change", uses: ["ideas", "links", "rules", "sources"], text: "What rests on a section of the Act or a page of the Manual." },
+  { id: "whatif", aud: "aud-pol", name: "A new right: what would it touch?", href: "#/whatif", uses: ["ideas", "links", "rules", "sources"], text: "An invented register laid over today's practice, without changing it." },
+  { id: "chat", aud: "aud-pub", name: "A guided assistant with visuals", future: true, uses: ["ideas", "links", "rules", "sources", "time"], text: "A conversation that explains requirements and objections, showing its sources." },
+  { id: "register", aud: "aud-exam", name: "Searching the register by meaning", future: true, uses: ["ideas", "links"], text: "Finding marks and goods by what they mean, once the register is connected." },
+  { id: "aitest", aud: "aud-pol", name: "Checking AI answers", future: true, uses: ["ideas", "rules", "sources"], text: "Testing whether an AI tool named the right ideas, sources and exceptions." },
+  { id: "decisions", aud: "aud-pol", name: "Recording a decision’s reasons", future: true, uses: ["rules", "sources", "time"], text: "Setting out what a recorded decision rested on. Never making one." },
+  { id: "ml", aud: "aud-pol", name: "Data for machine learning", future: true, uses: ["ideas", "links", "rules", "sources", "time"], text: "Labelled, sourced examples to train and test future models." },
+];
+
+function foundation(c, concepts, relations, provisions) {
+  const n = { concepts, relations, provisions };
+  const tool = (t) => `<button type="button" class="ld-tool ${t.aud}${t.future ? " future" : ""}" data-tool="${t.id}" aria-pressed="false">
+    <i class="ld-tool-dot" aria-hidden="true"></i><b>${esc(t.name)}</b><span class="ld-tool-s">${t.future ? "Possible next" : "Working now"}</span></button>`;
+  return `<div class="ld-fdn card">
+    <div class="ld-fdn-src">
+      <span class="ld-fdn-lab">The sources</span>
+      <div class="ld-srcs">
+        <span class="law act"><i class="mark" aria-hidden="true"></i><b>Trade Marks Act 1995</b> law</span>
+        <span class="law regs"><i class="mark" aria-hidden="true"></i><b>Trade Marks Regulations 1995</b> law</span>
+        <span class="manual"><i class="mark" aria-hidden="true"></i><b>Trade Marks Manual</b> practice</span>
+      </div>
+    </div>
+    <div class="ld-fdn-slab">
+      <span class="ld-fdn-lab">The foundation</span>
+      <div class="ld-blocks">${BLOCKS.map(([id, name, text]) => `<div class="ld-block" data-block="${id}"><b>${esc(name)}</b><span>${text(c, n)}</span></div>`).join("")}</div>
+    </div>
+    <svg class="ld-fdn-links" aria-hidden="true"></svg>
+    <div class="ld-fdn-tools">
+      <span class="ld-fdn-lab">The tools built on it</span>
+      <div class="ld-tools">${TOOLS.map(tool).join("")}</div>
+      <p class="ld-tool-say" aria-live="polite"></p>
+    </div>
+  </div>`;
 }
+
+function startFoundation(root) {
+  const box = root.querySelector(".ld-fdn");
+  const links = box.querySelector(".ld-fdn-links");
+  const say = box.querySelector(".ld-tool-say");
+  let chosen = "concepts";
+  const draw = () => {
+    // Measured after layout, never in the first pass (Q-63).
+    const b = box.getBoundingClientRect();
+    if (!b.width) return;
+    const t = TOOLS.find((x) => x.id === chosen);
+    const from = box.querySelector(`[data-tool="${chosen}"]`).getBoundingClientRect();
+    links.setAttribute("viewBox", `0 0 ${b.width} ${b.height}`);
+    links.innerHTML = t.uses.map((id) => {
+      const to = box.querySelector(`[data-block="${id}"]`).getBoundingClientRect();
+      const x1 = from.left + from.width / 2 - b.left, y1 = from.top - b.top;
+      const x2 = to.left + to.width / 2 - b.left, y2 = to.bottom - b.top;
+      const my = (y1 + y2) / 2;
+      return `<path d="M${x1} ${y1} C${x1} ${my} ${x2} ${my} ${x2} ${y2}" class="ld-link${t.future ? " future" : ""}"/><circle cx="${x2}" cy="${y2}" r="3.5" class="ld-link-dot"/>`;
+    }).join("");
+  };
+  const choose = (id) => {
+    chosen = id;
+    const t = TOOLS.find((x) => x.id === id);
+    box.querySelectorAll("[data-tool]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.tool === id)));
+    box.querySelectorAll("[data-block]").forEach((b) => b.classList.toggle("on", t.uses.includes(b.dataset.block)));
+    say.innerHTML = `<b>${esc(t.name)}.</b> ${esc(t.text)} ${t.href ? `<a class="link-arrow" href="${t.href}">Try it ${icon("arrow")}</a>` : `<span class="tiny">A possibility, not built yet.</span>`}`;
+    requestAnimationFrame(draw);
+  };
+  box.addEventListener("click", (e) => { const b = e.target.closest("[data-tool]"); if (b) choose(b.dataset.tool); });
+  box.addEventListener("mouseover", (e) => { const b = e.target.closest("[data-tool]"); if (b && b.dataset.tool !== chosen) choose(b.dataset.tool); });
+  box.addEventListener("focusin", (e) => { const b = e.target.closest("[data-tool]"); if (b && b.dataset.tool !== chosen) choose(b.dataset.tool); });
+  const onResize = () => draw();
+  window.addEventListener("resize", onResize);
+  choose(chosen);
+}
+
+// ------------------------------------------------------------------ the safeguards, each with a small picture
+
+function trust(key, title, text, art) {
+  return `<article class="ld-tr ld-tr-${key}"><div class="ld-tr-art" aria-hidden="true">${art}</div><h3>${esc(title)}</h3><p>${text}</p></article>`;
+}
+
+const trustSources = () => `<svg viewBox="0 0 200 90"><rect x="10" y="12" width="120" height="7" rx="3.5" class="tr-ln"/><rect x="10" y="27" width="96" height="7" rx="3.5" class="tr-ln"/>
+  <g class="tr-chip act"><rect x="10" y="48" width="58" height="20" rx="5"/><path d="M22 52 l6 6 -6 6 -6 -6z"/></g><g class="tr-chip manual"><rect x="74" y="48" width="58" height="20" rx="5"/><rect x="81" y="53" width="10" height="10" rx="1.5"/></g>
+  <path d="M150 40 l10 10 24 -26" class="tr-check"/></svg>`;
+const trustMarks = () => `<svg viewBox="0 0 200 90"><g class="tr-src act"><path d="M40 22 l14 14 -14 14 -14 -14z"/></g><g class="tr-src regs"><path d="M88 23 h14 l7 13 -7 13 h-14 l-7 -13z"/></g>
+  <path d="M128 20 v34" class="tr-div"/><g class="tr-src manual"><rect x="146" y="24" width="24" height="24" rx="3"/></g><text x="66" y="76" text-anchor="middle" class="tr-t">law</text><text x="158" y="76" text-anchor="middle" class="tr-t">practice</text></svg>`;
+const trustTiles = () => `<svg viewBox="0 0 200 90"><g class="tr-tile fact"><rect x="8" y="18" width="88" height="34" rx="8"/><rect x="18" y="29" width="12" height="12" rx="2"/><text x="38" y="40" class="tr-t">Fact</text></g>
+  <g class="tr-tile ev"><rect x="104" y="18" width="88" height="34" rx="8"/><path d="M122 27v16M116 30h12M116 30l-3 6h6zM128 30l-3 6h6z"/><text x="136" y="40" class="tr-t">Assessment</text></g>
+  <text x="52" y="74" text-anchor="middle" class="tr-s">a record settles it</text><text x="148" y="74" text-anchor="middle" class="tr-s">a person judges it</text></svg>`;
+const trustNever = () => `<svg viewBox="0 0 200 90"><g class="tr-gavel"><rect x="70" y="14" width="60" height="62" rx="10"/><path d="M84 40 h32 M84 52 h20"/></g><circle cx="100" cy="45" r="38" class="tr-no"/><path d="M73 72 L127 18" class="tr-no"/></svg>`;
+const trustStamp = () => `<svg viewBox="0 0 200 90"><g class="tr-stamp"><rect x="19" y="26" width="162" height="34" rx="17"/><circle cx="40" cy="43" r="5"/><rect x="54" y="40" width="106" height="6" rx="3"/></g></svg>`;

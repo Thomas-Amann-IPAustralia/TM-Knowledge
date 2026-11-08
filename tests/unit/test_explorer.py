@@ -423,9 +423,10 @@ def test_the_page_states_the_merge_rulings_as_they_stand(files):
 
 
 def test_every_view_sits_in_one_layer_and_every_term_is_explained():
-    """ADR-0145: outcomes first and the ontology last. Every route the router knows is in one of
-    the four layers or is the cross-cutting status page, and every `term()` a page uses has a
-    glossary entry, so no standard's name reaches a reader unexplained."""
+    """ADR-0145, reorganised by audience in ADR-0151: outcomes first and the ontology last. Every
+    route the router knows sits in one section (the overview, one per group the foundation serves,
+    or For nerds), and every `term()` a page uses has a glossary entry, so no standard's name
+    reaches a reader unexplained."""
     js = SITE / "js"
     app = (js / "app.js").read_text(encoding="utf-8")
     views = re.search(r"const VIEWS = \{(.*?)\};", app, re.S).group(1)
@@ -503,15 +504,29 @@ def test_the_standards_page_reads_its_examples_and_checks_from_the_build(files):
 
 def test_the_first_page_leads_with_outcomes_read_from_the_data():
     """The home page states the measurement in both directions and the prototype's untested state,
-    with every figure read from the data, never typed in."""
+    with every figure read from the data, never typed in. What may be tested with customers, and on
+    whose decision, moved from What's next to the public overview with ADR-0151."""
     home = (SITE / "js" / "home.js").read_text(encoding="utf-8")
     assert 'all["ndcg:ontology-hybrid"]' in home and 'all["ndcg:ontology-keyword"]' in home
     assert "not formally tested with customers" in home and "Never" in home
     for typed in ("129", "810", "729", "164", "357"):
         assert typed not in home, typed
-    future = (SITE / "js" / "future.js").read_text(encoding="utf-8")
-    assert 'id="customers"' in future and "no formal testing with customers yet" in future
-    assert "until the project owner approves it" in future
+    public = (SITE / "js" / "public.js").read_text(encoding="utf-8")
+    assert 'id="customers"' in public and "no formal testing with customers yet" in public
+    assert "until the project owner approves it" in public
+
+
+def test_every_audience_section_says_what_it_is_and_never_decides():
+    """ADR-0151: each section can be read on its own, so each says it is a proof of concept with
+    machine-written records, and the possibilities it shows are never framed as deciding anything."""
+    illustrations = (SITE / "js" / "illustrations.js").read_text(encoding="utf-8")
+    assert "A proof of concept built from the Trade Marks Act 1995" in illustrations
+    for hub in ("examiners.js", "public.js", "direction.js"):
+        text = (SITE / "js" / hub).read_text(encoding="utf-8")
+        assert "aboutLine(" in text, hub
+        assert "Possibilities, not commitments." in text, hub
+    examiners = (SITE / "js" / "examiners.js").read_text(encoding="utf-8")
+    assert "None of these would decide an application" in examiners
 
 
 # --- answer-v4: what the answer is given of each source (A06, ADR-0139) -------------

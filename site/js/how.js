@@ -178,12 +178,12 @@ export async function render(root, { ontology, params }) {
   }
 
   const cmp = root.querySelector(".L-cmp");
-  const squares = (list, mark) => list.map(([ref, g]) => `<button type="button" class="hm-sq g${g ?? 0}${mark && only.has(ref) ? " only" : ""}" data-ref="${esc(ref)}"
+  const squares = (list, mark) => list.map(([ref, g]) => `<button type="button" class="hw-sq g${g ?? 0}${mark && only.has(ref) ? " only" : ""}" data-ref="${esc(ref)}"
     data-tip="${esc(`<b>${esc(refLabel(ref))}</b><span class="tip-s">graded ${["not relevant", "marginal", "relevant", "highly relevant"][g ?? 0]} by a model${mark && only.has(ref) ? "; found through the connection" : ""}</span>`)}" aria-label="${esc(refLabel(ref))}"></button>`).join("");
-  cmp.innerHTML = `<div class="hw-cmpcard"><div class="hm-rows">
-      <span class="hm-rowlab">Keyword search</span><span class="hm-sqs">${squares(ex.keyword, false)}</span>
-      <span class="hm-rowlab"><b>Using the knowledge map</b></span><span class="hm-sqs">${squares(ex.ontology, true)}</span></div>
-    <p class="hw-cmpnote"><span class="hm-grades"><i class="hm-sq g3"></i>highly relevant<i class="hm-sq g2"></i>relevant<i class="hm-sq g1"></i>marginal<i class="hm-sq g0"></i>not relevant</span>
+  cmp.innerHTML = `<div class="hw-cmpcard"><div class="hw-rows">
+      <span class="hw-rowlab">Keyword search</span><span class="hw-sqs">${squares(ex.keyword, false)}</span>
+      <span class="hw-rowlab"><b>Using the knowledge map</b></span><span class="hw-sqs">${squares(ex.ontology, true)}</span></div>
+    <p class="hw-cmpnote"><span class="hw-grades"><i class="hw-sq g3"></i>highly relevant<i class="hw-sq g2"></i>relevant<i class="hw-sq g1"></i>marginal<i class="hw-sq g0"></i>not relevant</span>
       Ranking scores for this question (out of 100): keyword ${Math.round(ex.ndcg.keyword * 100)}, by meaning ${Math.round(ex.ndcg.hybrid * 100)}, map-guided ${Math.round(ex.ndcg.ontology * 100)}.</p>
     <p class="hw-gridkey"><span><i class="c-idea"></i>names ${esc(idea?.label || "the idea")}</span>${path ? `<span><i class="c-conn"></i>names ${esc(path.object_label)}</span>` : ""}<span><i class="c-onto"></i>in the guided top ten</span><span><i class="c-only"></i>found only through the connection</span></p></div>`;
 

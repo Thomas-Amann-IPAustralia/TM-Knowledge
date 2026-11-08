@@ -63,9 +63,9 @@ export async function render(root, { ontology, params }) {
   <div class="rs">
     <header class="wrap page-head rs-head">
       <div>
-        <span class="eyebrow">For examiners</span>
-        <h1>Ask a trade mark question</h1>
-        <p class="lede">Enter a question or choose an example below. The tool searches the Trade Marks Act 1995 and Trade Marks Regulations 1995 for the law, and IP Australia’s Trade Marks Manual of Practice and Procedure for examination guidance. Open a result to read the source.</p>
+        <span class="eyebrow">For examiners · working demonstration</span>
+        <h1>Ask a research question</h1>
+        <p class="lede">Ask in your own words, or choose an example. It finds the relevant provisions of the Trade Marks Act 1995 and the Trade Marks Regulations 1995, which are the law, and passages of IP Australia’s Trade Marks Manual of Practice and Procedure, which is examination practice. It shows the concepts and the legal test your question reaches, and an answer whose every statement you can check against its source.</p>
       </div>
       <div class="page-head-side">${answersOn ? `<span class="pill working">Live answers on</span>` : `<span class="pill planned">Search and example answers available</span>`}</div>
     </header>
@@ -95,7 +95,7 @@ export async function render(root, { ontology, params }) {
     <div class="wrap rs-preview">
       <div class="rs-pv"><span class="rs-pv-n">1</span><h3>Check an answer</h3><p>AI writes the answer. Each statement shows a matching quotation or a warning if the tool could not find one.</p></div>
       <div class="rs-pv"><span class="rs-pv-n">2</span><h3>Read the sources</h3><p>Results are grouped into law and examination guidance. Select a passage to see the original wording.</p></div>
-      <div class="rs-pv"><span class="rs-pv-n">3</span><h3>How it found them</h3><p>The ideas it recognised in your words, the connections it followed, and what plain keyword search would have returned instead.</p></div>
+      <div class="rs-pv"><span class="rs-pv-n">3</span><h3>See how it fits together</h3><p>The concepts your question names, the legal test it reaches with its facts and assessments marked, and why each source was chosen.</p></div>
     </div>
   </div>`;
 
@@ -149,28 +149,44 @@ export async function render(root, { ontology, params }) {
           <div class="rs-src-body"></div>
         </aside>
       </div>
-      <section class="card rs-how" aria-labelledby="rs-how-h">
-        <div class="rs-card-head"><div><span class="eyebrow">How it found them</span><h2 id="rs-how-h">How the search found these passages</h2></div>
-          <div class="rs-legend">${legend()}<span class="rs-found-key"><i></i>found through the ontology</span></div></div>
-        <div class="hop-svg"></div>
-        <ol class="hop-steps"></ol>
-      </section>
-      <section class="card rs-compare" aria-labelledby="rs-cmp-h">
-        <div class="rs-card-head"><div><span class="eyebrow">The difference it makes</span><h2 id="rs-cmp-h">Compare the results with keyword search</h2></div></div>
-        <div class="compare"></div>
-      </section>
-      <div class="rs-more">
-        <details class="rs-tests" hidden><summary>Related legal test</summary><div class="det-body tests"></div></details>
-        <details><summary>The Act and the Regulations: provisions named or matched</summary><div class="det-body provisions"></div></details>
-        <details><summary>How the search ranked the passages</summary><div class="det-body hop-why"></div></details>
-      </div>`;
+      <div class="rs-mid">
+        <section class="card rs-concepts" aria-labelledby="rs-c-h"><div class="rs-card-head"><h3 id="rs-c-h">${icon("connect")} Concepts in your question</h3></div><div class="rs-c-body"></div></section>
+        <section class="card rs-testcard" aria-labelledby="rs-t-h"><div class="rs-card-head"><h3 id="rs-t-h">${icon("scale")} The legal test it reaches</h3></div>
+          <details class="rs-tests" hidden><summary>Related legal test</summary><div class="det-body tests"></div></details>
+          <p class="rs-notest small muted">No legal test set out so far is reached by this question. A test is reached when the question names its provision or a concept for its ground.</p></section>
+      </div>
+      <section class="card rs-why" aria-labelledby="rs-why-h">
+        <button type="button" class="rs-why-toggle" aria-expanded="false" aria-controls="rs-why-body">
+          <span><span class="eyebrow">Why these sources?</span><span class="rs-why-h" id="rs-why-h">How the sources were found</span><span class="rs-why-line tiny"></span></span>${icon("down")}</button>
+        <div class="rs-why-body" id="rs-why-body">
+          <div class="rs-card-head"><div class="rs-legend">${legend()}<span class="rs-found-key"><i></i>found through the ontology</span></div></div>
+          <div class="hop-svg"></div>
+          <ol class="hop-steps"></ol>
+          <h3 class="rs-sub">Compared with keyword search</h3>
+          <div class="compare"></div>
+          <div class="rs-more">
+            <details><summary>The Act and the Regulations: provisions named or matched</summary><div class="det-body provisions"></div></details>
+            <details><summary>How the search ranked the passages</summary><div class="det-body hop-why"></div></details>
+          </div>
+        </div>
+      </section>`;
     result.scrollIntoView({ behavior: "smooth", block: "start" });
-    return {
+    const view = {
       hop: result.querySelector(".hop-svg"), steps: result.querySelector(".hop-steps"), why: result.querySelector(".hop-why"),
       compare: result.querySelector(".compare"), body: result.querySelector(".answer-body"), tags: result.querySelector(".answer-tags"),
       sources: result.querySelector(".rs-src-body"), count: result.querySelector(".rs-src-count"),
       tests: result.querySelector(".tests"), testsBox: result.querySelector(".rs-tests"), provisions: result.querySelector(".provisions"),
+      concepts: result.querySelector(".rs-c-body"), whyBox: result.querySelector(".rs-why"), whyLine: result.querySelector(".rs-why-line"), noTest: result.querySelector(".rs-notest"),
     };
+    // How the sources were found is folded away until asked for, then drawn again, step by step.
+    const toggle = result.querySelector(".rs-why-toggle");
+    toggle.addEventListener("click", () => {
+      const open = !view.whyBox.classList.contains("open");
+      view.whyBox.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      if (open && view.built) { view.hop.innerHTML = ""; animate(view, view.question, view.built, { instant: false }); }
+    });
+    return view;
   }
 
   // ------------------------------------------------------------ live questions
@@ -189,9 +205,11 @@ export async function render(root, { ontology, params }) {
     if (signal.aborted) return;
     history.replaceState(null, "", "#/ask");
     const view = frame(question, canAnswer ? "Your question, answered live" : "Search results for your question");
+    // Say what is happening in the answer's own place, since the diagram is folded away.
+    view.body.innerHTML = `<div class="thinking"><span class="spinner"></span><span class="thinking-text">${reads ? "Reading your question for the concepts it raises…" : "Finding the sources…"}</span></div>`;
     // A proxy that has slept says nothing for up to a minute while it wakes.
     let sleepy = reads && viaProxy(live) ? setTimeout(() => {
-      const status = view.steps.querySelector(".reading-status") || view.body.querySelector(".thinking-text");
+      const status = view.body.querySelector(".thinking-text") || view.steps.querySelector(".reading-status");
       if (status) status.textContent = "Connecting to the answer service. This can take up to a minute…";
     }, 10000) : null;
     const ready = reading.then((outcome) => {
@@ -211,6 +229,7 @@ export async function render(root, { ontology, params }) {
       };
       explain(view, graph, { live: true });
       renderSources(view, graph, prep.hits, false);
+      renderConcepts(view, graph);
       renderCompare(view.compare, prep.plain, prep.passages, prep.hits);
       renderProvisions(view.provisions, question, prep.legislation, eng);
       renderTests(view, question, prep.trace.recognised.map((r) => r.id), eng.s.tests);
@@ -315,6 +334,7 @@ export async function render(root, { ontology, params }) {
     graph.followed = relations ? [...new Map(relations.filter((e) => specific.has(e[0]) || specific.has(e[2]))
       .map((e) => [e[3], { s: e[0], p: e[1], o: e[2], record: e[3], origin: e[4] }])).values()] : graph.paths;
     renderSources(view, graph, null, true);
+    renderConcepts(view, graph);
     renderCompare(view.compare, graph.plain, a.passages, null, true);
     renderTests(view, a.question, a.recognised.map((r) => r.id), tests);
     view.provisions.innerHTML = a.legislation.length
@@ -367,6 +387,30 @@ export async function render(root, { ontology, params }) {
     }).catch(() => {});
   }
 
+  // ------------------------------------------------------------ the concepts the question names
+
+  /** The concepts the question names (or, live, that the model read in it), each a way into the
+      concept explorer, with the connected concepts the search followed; and, above the folded
+      diagram, one line on how the sources were found. */
+  function renderConcepts(view, g) {
+    const rec = g.recognised.filter((r) => !r.generic && byId.has(r.id));
+    const generic = g.recognised.filter((r) => r.generic && byId.has(r.id));
+    const followed = g.followed || g.paths;
+    const recIds = new Set(rec.map((r) => r.id));
+    const near = [...new Set(followed.map((p) => (recIds.has(p.s) ? p.o : p.s)).filter((id) => !recIds.has(id) && byId.has(id)))];
+    const kind = (id) => ontology.kinds.find((k) => k.id === byId.get(id)?.kind)?.label || "";
+    const said = (r) => (r.read ? ` · read by the model in “${esc(r.matched || "")}”` : r.matched && r.matched.toLowerCase() !== byId.get(r.id).label.toLowerCase() ? ` · from “${esc(r.matched)}”` : "");
+    view.concepts.innerHTML = rec.length ? `<ul class="rs-clist">${rec.map((r) => `<li><a class="rs-cpt" href="#/concepts/${esc(r.id)}" style="--c:${fam(r.id).colour}">
+        <i aria-hidden="true"></i><span><b>${esc(byId.get(r.id).label)}</b><span class="tiny">${esc(kind(r.id))}${said(r)}</span></span>${icon("arrow")}</a></li>`).join("")}</ul>
+      ${near.length ? `<p class="small rs-near"><span class="muted">Connected to ${fmt(near.length)} more:</span> ${near.slice(0, 8).map((id) => `<a href="#/concepts/${esc(id)}">${esc(byId.get(id).label)}</a>`).join(", ")}${near.length > 8 ? ", …" : ""}</p>` : ""}
+      ${generic.length ? `<p class="tiny">Also named, but too common to steer: ${generic.map((r) => esc(byId.get(r.id).label)).join(", ")}.</p>` : ""}
+      <p class="tiny">Select a concept to explore everything recorded about it.</p>`
+      : `<p class="small muted">No concept in the foundation is named in this question, so the sources come from its words alone. That is what the foundation holds, not a sign the question has no legal concepts in it.</p>`;
+    const plainSet = new Set((g.plain || []).slice(0, 10));
+    const beyond = g.passages.filter((ref) => !plainSet.has(ref)).length;
+    view.whyLine.textContent = `${rec.length ? `Started from ${fmt(rec.length)} concept${rec.length === 1 ? "" : "s"} in your question and followed ${fmt(followed.length)} connection${followed.length === 1 ? "" : "s"}. ` : ""}${fmt(g.passages.length)} passages read${g.plain?.length ? `, ${fmt(beyond)} of them beyond keyword search’s top ten` : ""}.`;
+  }
+
   // ------------------------------------------------------------ how it found them, drawn
 
   function describe(g, { linkedCount = 0, live }) {
@@ -402,7 +446,9 @@ export async function render(root, { ontology, params }) {
 
   /** Draw the hop diagram. `ready` is the graph and its steps, or a promise of them while the
       model reads the question; the question is drawn at once either way. */
-  async function animate(view, question, ready, { reading = false } = {}) {
+  async function animate(view, question, ready, { reading = false, instant = !view.whyBox?.classList.contains("open") } = {}) {
+    const pause = (ms) => (instant ? Promise.resolve() : wait(ms));
+    const still = instant || matchMedia("(prefers-reduced-motion: reduce)").matches;
     const Wd = 1180, Ht = 470;
     const pic = svg("svg", { viewBox: `0 0 ${Wd} ${Ht}`, role: "img", "aria-label": "How the question was answered: ideas, connections, passages", class: "hop" });
     view.hop.appendChild(pic);
@@ -439,6 +485,8 @@ export async function render(root, { ontology, params }) {
     const built = await ready;
     pending?.remove();
     if (!built) return;
+    view.built = built;
+    view.question = question;
     const { g, steps } = built;
     view.steps.innerHTML = steps.map(([k, s]) => `<li><span class="hop-k">${esc(k)}</span><span>${s}</span></li>`).join("");
     const items = [...view.steps.children];
@@ -553,7 +601,7 @@ export async function render(root, { ontology, params }) {
 
     // Solid lines draw themselves in; dashed ones fade in.
     const show = (els) => els.forEach((e) => {
-      if (e.tagName === "path" && !e.getAttribute("stroke-dasharray") && e.getTotalLength && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      if (e.tagName === "path" && !e.getAttribute("stroke-dasharray") && e.getTotalLength && !still) {
         const length = e.getTotalLength();
         e.style.strokeDasharray = `${length}`;
         e.style.strokeDashoffset = `${length}`;
@@ -564,11 +612,11 @@ export async function render(root, { ontology, params }) {
       e.style.transition = "opacity .45s"; e.setAttribute("opacity", 1);
     });
     show([qg]);
-    await wait(350); items[0]?.classList.add("on"); show(recEls.flat());
-    await wait(750); items[1]?.classList.add("on"); show([...pathEls, ...nbEls]);
-    await wait(850); items[2]?.classList.add("on"); show(linkEls);
-    await wait(700); items[3]?.classList.add("on"); show(psEls);
-    await wait(500); items[4]?.classList.add("on");
+    await pause(350); items[0]?.classList.add("on"); show(recEls.flat());
+    await pause(750); items[1]?.classList.add("on"); show([...pathEls, ...nbEls]);
+    await pause(850); items[2]?.classList.add("on"); show(linkEls);
+    await pause(700); items[3]?.classList.add("on"); show(psEls);
+    await pause(500); items[4]?.classList.add("on");
   }
 
   // ------------------------------------------------------------ how it chose, in words
@@ -655,6 +703,7 @@ export async function render(root, { ontology, params }) {
   function renderTests(view, question, recognised, tests) {
     const reached = tests ? structuredTests(question, recognised, tests) : [];
     if (!reached.length) return;
+    if (view.noTest) view.noTest.hidden = true;
     const byTest = new Map(tests.map((t) => [t.id, t]));
     const tree = (n) => n.children
       ? `<span class="tiny">${n.kind === "all" ? "all of these" : "any one of these"}</span>${n.text ? " " + esc(n.text) : ""}<ul>${n.children.map((c) => `<li>${tree(c)}</li>`).join("")}</ul>`

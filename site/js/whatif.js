@@ -201,8 +201,9 @@ export async function render(root, { ontology, params }) {
   <div class="wi">
     <header class="wrap page-head">
       <div>
-        <span class="eyebrow">Fictional policy example</span>
-        <h1>What if Australia had a geographical indications register for all goods?</h1>
+        <span class="eyebrow">For direction setting · working demonstration</span>
+        <h1>A new right: what would it touch?</h1>
+        <p class="wi-q">What if Australia had a register of geographical indications for all goods?</p>
         <p class="lede">A geographical indication is a sign that identifies goods as coming from a particular place, where their quality, reputation or another characteristic is essentially due to that origin (Trade Marks Act 1995, section 6). Imagine a register covering all types of goods. Which parts of trade mark examination guidance would a policy team need to review?</p>
       </div>
       <div class="page-head-side">${statePill("prototype", "Demonstration")}<span class="trust machine" title="AI wrote this material. A trade marks expert has yet to review it.">AI-written · unreviewed</span></div>

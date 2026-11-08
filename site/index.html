@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Australian trade mark research | Prototype</title>
-  <meta name="description" content="Search Australian trade mark law and examination guidance. Explore example questions, read the sources and see how the prototype found them.">
+  <title>Trade mark knowledge foundation | Proof of concept</title>
+  <meta name="description" content="Australian trade mark law and examination guidance, turned into rules and code: a foundation for tools for examiners, the public and the people setting the system's direction. A proof of concept.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231b5549'/%3E%3Cpath d='M12 13 27 11 20 29Z' fill='none' stroke='%23d6eaae' stroke-width='2' stroke-linejoin='round' opacity='.75'/%3E%3Ccircle cx='12' cy='13' r='4' fill='%23d6eaae'/%3E%3Ccircle cx='27' cy='11' r='3.2' fill='%23d6eaae'/%3E%3Ccircle cx='20' cy='29' r='3.6' fill='%23d6eaae'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="explorer.css">
   <script type="module" src="js/app.js"></script>
@@ -21,19 +21,17 @@
 
   <header class="hdr">
     <div class="wrap hdr-in">
-      <a class="brand" href="#/" aria-label="Trade mark research home">
+      <a class="brand" href="#/" aria-label="Trade mark knowledge foundation: overview">
         <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8 17.5 6.5 12 18.5Z" fill="none" stroke="#d6eaae" stroke-width="1.4" stroke-linejoin="round" opacity=".75"/><circle cx="6.5" cy="8" r="2.9" fill="#d6eaae"/><circle cx="17.5" cy="6.5" r="2.3" fill="#d6eaae"/><circle cx="12" cy="18.5" r="2.6" fill="#d6eaae"/></svg></span>
-        <span class="brand-text"><b>Trade Marks Manual</b><small>Research prototype</small></span>
+        <span class="brand-text"><b>Trade mark knowledge foundation</b><small>Proof of concept</small></span>
       </a>
       <nav class="nav" aria-label="Main">
         <a href="#/" data-nav="">Overview</a>
-        <a href="#/ask" data-nav="ask">Ask a question</a>
-        <a href="#/customers" data-nav="customers">Example cases</a>
-        <a href="#/change" data-nav="change">Trace a change</a>
-        <a href="#/future" data-nav="future">What's next</a>
+        <a href="#/examiners" data-nav="examiners" class="nav-aud aud-exam"><i aria-hidden="true"></i>For examiners</a>
+        <a href="#/public" data-nav="public" class="nav-aud aud-pub"><i aria-hidden="true"></i>For the public</a>
+        <a href="#/direction" data-nav="direction" class="nav-aud aud-pol"><i aria-hidden="true"></i>For direction setting</a>
         <span class="nav-sep" aria-hidden="true"></span>
-        <a href="#/how" data-nav="how">How it works</a>
-        <a href="#/map" data-nav="map" class="nav-map"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="7" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="m8.3 6.8 7.4-.6M7.3 9.1l3.6 6.8m6.3-7.6-4.1 7.6"/></svg>Knowledge map</a>
+        <a href="#/nerds" data-nav="nerds" class="nav-nerd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 5l-3 14"/></svg>For nerds</a>
       </nav>
     </div>
   </header>
@@ -54,24 +52,28 @@
   <footer class="ftr">
     <div class="wrap ftr-in">
       <div class="ftr-brand">
-        <a class="brand" href="#/" aria-label="Home">
+        <a class="brand" href="#/" aria-label="Overview">
           <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8 17.5 6.5 12 18.5Z" fill="none" stroke="#d6eaae" stroke-width="1.4" stroke-linejoin="round" opacity=".75"/><circle cx="6.5" cy="8" r="2.9" fill="#d6eaae"/><circle cx="17.5" cy="6.5" r="2.3" fill="#d6eaae"/><circle cx="12" cy="18.5" r="2.6" fill="#d6eaae"/></svg></span>
-          <span class="brand-text"><b>Trade Marks Manual</b><small>Research prototype</small></span>
+          <span class="brand-text"><b>Trade mark knowledge foundation</b><small>Proof of concept</small></span>
         </a>
-        <p>Ask a trade mark question and read the law and guidance behind the results.</p>
+        <p>Australian trade mark law and examination guidance, turned into rules and code that people and programs can check.</p>
+        <p class="ftr-note">The Trade Marks Act 1995 and the Trade Marks Regulations 1995 set out the law. IP Australia’s Trade Marks Manual of Practice and Procedure explains how the Registrar examines applications. It describes practice; it is not law. This site keeps the two apart.</p>
       </div>
       <div>
-        <h4>Explore the tools</h4>
-        <ul><li><a href="#/ask">Research a question</a></li><li><a href="#/customers">Explore example cases</a></li><li><a href="#/change">Trace a change</a></li><li><a href="#/future">What's next</a></li><li><a href="#/whatif">Policy example: geographical indications</a></li></ul>
+        <h4><i class="ftr-dot aud-exam" aria-hidden="true"></i>For examiners</h4>
+        <ul><li><a href="#/examiners">Overview for examiners</a></li><li><a href="#/concepts">Explore a legal concept</a></li><li><a href="#/ask">Ask a research question</a></li></ul>
       </div>
       <div>
-        <h4>How the tools work</h4>
-        <ul><li><a href="#/how">How it works</a></li><li><a href="#/map">Knowledge map</a></li><li><a href="#/rules">Rules as code</a></li><li><a href="#/standards">Standards</a></li><li><a href="#/glossary">Glossary</a></li><li><a href="#/table">Data tables</a></li></ul>
+        <h4><i class="ftr-dot aud-pub" aria-hidden="true"></i>For the public</h4>
+        <ul><li><a href="#/public">Overview for the public</a></li><li><a href="#/customers/objection">Understand an objection</a></li><li><a href="#/customers/requirements">What the law requires</a></li><li><a href="#/customers/process">The application journey</a></li></ul>
       </div>
       <div>
-        <h4>About the project</h4>
-        <ul><li><a href="#/about">Results and limits</a></li></ul>
-        <p class="ftr-note" style="margin-top:12px">The Trade Marks Act 1995 and Trade Marks Regulations 1995 set out the law. IP Australia’s Trade Marks Manual of Practice and Procedure explains how the Registrar examines applications. It describes practice; it is not law. This site keeps the two apart.</p>
+        <h4><i class="ftr-dot aud-pol" aria-hidden="true"></i>For direction setting</h4>
+        <ul><li><a href="#/direction">Overview for direction setting</a></li><li><a href="#/change">Trace a change</a></li><li><a href="#/whatif">A new right: geographical indications</a></li></ul>
+      </div>
+      <div>
+        <h4><i class="ftr-dot aud-nerd" aria-hidden="true"></i>For nerds</h4>
+        <ul><li><a href="#/how">How it works</a></li><li><a href="#/map">Knowledge map</a></li><li><a href="#/rules">Rules as code</a></li><li><a href="#/standards">Standards</a></li><li><a href="#/table">Data tables</a></li><li><a href="#/about">Results and limits</a></li><li><a href="#/glossary">Glossary</a></li></ul>
       </div>
     </div>
     <div class="wrap ftr-base">

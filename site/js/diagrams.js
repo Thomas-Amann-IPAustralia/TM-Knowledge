@@ -41,21 +41,6 @@ export function conditionBoxes(node, { states = false } = {}) {
 
 export const stateMark = (state) => `<span class="dg-st dg-st-${esc(state)}" title="${esc(STATE[state]?.[1] || state)}"><span aria-hidden="true">${STATE[state]?.[0] || ""}</span><span class="vh">${esc(STATE[state]?.[1] || state)}: </span></span>`;
 
-/** A condition tree as a checklist: each condition on its own line with the state the explanation
-    records for it, any-of groups indented under "One of these". The compact view of a matter; the
-    full diagram is a click away. */
-export function conditionChecklist(node) {
-  if (!node) return "";
-  const join = joinOf(node);
-  if (join) {
-    const kids = childrenOf(node).map((child) => `<li>${conditionChecklist(child)}</li>`).join("");
-    return `${node.text || join === "any" ? `<p class="dg-cl-g">${node.state ? stateMark(node.state) : ""}${join === "any" ? "One of these" : "All of these"}${node.text ? `: <span>${esc(node.text)}</span>` : ""}</p>` : ""}
-      <ul class="dg-cl${join === "any" ? " any" : ""}">${kids}</ul>`;
-  }
-  return `<div class="dg-cl-row">${node.state ? stateMark(node.state) : ""}<div><p>${esc(node.text)}</p>
-    <p class="dg-cl-meta"><span class="dg-kind dg-${esc(node.kind)}"><i aria-hidden="true"></i>${esc(LEAF[node.kind] || node.kind)}</span>${node.why ? `<span>${esc(STATE[node.state]?.[1] || "")}: ${esc(node.why)}</span>` : ""}${refChip(node.ref)}</p></div></div>`;
-}
-
 /** The condition tree in words, one line a node, indented. */
 export function conditionText(node, depth = 1, { states = false } = {}) {
   const pad = "  ".repeat(depth);
@@ -115,7 +100,7 @@ export function testText(t) {
     forward; the main line (the shortest way from the start to the first end the template lists)
     runs straight across, and every other step takes the nearest free row beside the step that
     leads to it. An arrow back to an earlier step is drawn as a loop over the top. */
-function layoutFlow(steps, arcs) {
+export function layoutFlow(steps, arcs) {
   const idx = new Map(steps.map((s, i) => [s.id, i]));
   const forward = arcs.filter((a) => idx.get(a.to) > idx.get(a.from));
   const rank = new Map(steps.map((s) => [s.id, 0]));
