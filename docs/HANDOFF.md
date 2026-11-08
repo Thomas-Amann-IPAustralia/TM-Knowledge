@@ -1,7 +1,8 @@
 # HANDOFF
 
 **Last updated:** 2026-11-08 · S049 · the site rebuilt around the groups it serves (ADR-0151) on
-branch `claude/bold-rubin-gvrvea`, built on `main` after PR #49 (the copy pass, merged). Not merged.
+branch `claude/bold-rubin-gvrvea`, built on `main` after PR #49 (the copy pass, merged). Open as PR #50;
+not merged.
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
@@ -42,7 +43,7 @@ Not checked: narrow widths below 1200 px, a screen reader, a live answer (no pro
 
 ## Next actions
 
-1. **The owner's look, then a merge.** Merging to `main` publishes it (ADR-0112). The owner may want
+1. **The owner's look at PR #50, then a merge.** Merging to `main` publishes it (ADR-0112). The owner may want
    to adjust the possibilities, their horizons or their wording; they are the agent's reading.
 2. **Make the demonstrations measurable** (the reviews' own advice): give first-time readers a fresh
    case without coaching and score whether they find the first action, predict the change and
