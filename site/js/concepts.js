@@ -269,11 +269,19 @@ export async function render(root, { ontology, params }) {
     const card = focusEl.querySelector(".ce-card")?.getBoundingClientRect();
     if (!card) return;
     wires.setAttribute("viewBox", `0 0 ${box.width} ${box.height}`);
-    const cy = card.top + card.height / 2 - box.top;
+    // Each side's wires meet the card spread along its edge, in the pills' own order, so they fan
+    // out instead of piling into one point.
+    const ends = new Map();
+    for (const side of ["in", "out"]) {
+      const pills = [...stage.querySelectorAll(`.ce-pill[data-side="${side}"]`)];
+      const lo = card.top + Math.min(26, card.height / 4), hi = card.bottom - Math.min(26, card.height / 4);
+      pills.forEach((el, i) => ends.set(el, (pills.length === 1 ? (lo + hi) / 2 : lo + ((hi - lo) * i) / (pills.length - 1)) - box.top));
+    }
     const out = [];
     stage.querySelectorAll(".ce-pill").forEach((el) => {
       const r = el.getBoundingClientRect();
       const y = r.top + r.height / 2 - box.top;
+      const cy = ends.get(el);
       const on = el.classList.contains("on");
       const cls = `ce-wire${el.classList.contains("cond") ? " cond" : ""}${on ? " on" : ""}`;
       if (el.dataset.side === "in") {
