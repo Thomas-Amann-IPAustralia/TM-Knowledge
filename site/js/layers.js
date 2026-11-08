@@ -1,68 +1,72 @@
-/* The site's four layers, outcomes first and the ontology last (ADR-0145, redesigned in ADR-0148).
+/* The site's sections: an overview, one section for each group the knowledge foundation serves,
+   and one for the technically curious (ADR-0151, on the owner's word, replacing the four layers
+   of ADR-0145 and ADR-0148).
 
-   The deeper a reader goes, the more operational the detail: what the proof of concept does
-   today, what it could enable, how it works (the rules as code and the knowledge map that make
-   the outcomes possible), and what it is made of underneath. Every route belongs to one layer,
-   and a card at the foot of each page leads one layer deeper. "Where it stands" (#/about) sits
-   across them all. */
+   Outcomes still come first and the ontology last: each audience section leads with what works
+   today and what could come next, and how it works is kept for "For nerds". Every route belongs to
+   one section, and a card at the foot of each page says where to go next. */
 
 import { esc } from "./app.js";
 import { icon } from "./icons.js";
 
-export const LAYERS = [
-  { depth: 1, id: "does", label: "What it does", href: "#/", routes: ["", "ask", "customers", "change"] },
-  { depth: 2, id: "could", label: "What it could do", href: "#/future", routes: ["future", "whatif"] },
-  { depth: 3, id: "how", label: "How it works", href: "#/how", routes: ["how", "map", "rules"] },
-  { depth: 4, id: "under", label: "Technical reference", href: "#/standards", routes: ["standards", "glossary", "table"] },
+export const SECTIONS = [
+  { id: "home", label: "Overview", href: "#/", routes: [""] },
+  { id: "examiners", label: "For examiners", href: "#/examiners", routes: ["examiners", "concepts", "ask"] },
+  { id: "public", label: "For the public", href: "#/public", routes: ["public", "customers"] },
+  { id: "direction", label: "For direction setting", href: "#/direction", routes: ["direction", "change", "whatif"] },
+  { id: "nerds", label: "For nerds", href: "#/nerds", routes: ["nerds", "how", "map", "rules", "standards", "glossary", "table", "about"] },
 ];
 
-/** The cross-cutting page: status, measurement, limits and the gates ahead. */
-export const ACROSS = { label: "Results and limits", href: "#/about", routes: ["about"] };
+export const sectionOf = (name) => SECTIONS.find((s) => s.routes.includes(name || "")) || SECTIONS[0];
 
-export const layerOf = (name) => LAYERS.find((l) => l.routes.includes(name || "")) || null;
+/** Which header link a route lights up: its section's. */
+export const navOwner = (name) => { const s = sectionOf(name); return s.id === "home" ? "" : s.id; };
 
-/** Which header link a route lights up. */
-const OWNER = { rules: "how", standards: "how", glossary: "how", table: "map", whatif: "future" };
-export const navOwner = (name) => (name in OWNER ? OWNER[name] : name === "about" ? null : name);
+const NERDS = ["#/nerds", "How it works, for nerds"];
 
-/** Where each page leads next: one layer deeper, with what the reader will find there. */
+/** Where each page leads next. */
 const NEXT = {
-  ask: { title: "How did it find those passages?", text: "Follow an example from the words in the question to the passages in the results.",
-    links: [["#/how", "See how it works", "primary"], ["#/map", "Explore the knowledge map"]] },
-  customers: { title: "How does the tool break down a legal rule?", text: "See who acts, which conditions must be met and which exceptions apply. Each part links to a source.",
-    links: [["#/rules", "See the rules as code", "primary"], ["#/how", "How it works"]] },
-  change: { title: "How does the tool find records to review?", text: "Each record stores a quotation and a way to detect changes to the source text. Editors can use these links to find records to review.",
-    links: [["#/how", "See how it works", "primary"], ["#/map", "Explore the knowledge map"]] },
-  future: { title: "What do the tools have in common?", text: "They use the same trade mark terms, links and sources.",
-    links: [["#/how", "See how it works", "primary"], ["#/about", "Results and limits"]] },
-  whatif: { title: "How do you find guidance for a policy review?", text: "Follow a link from a policy question to the records and source passages it might affect.",
-    links: [["#/how", "See how it works", "primary"], ["#/change", "Trace a change"]] },
-  how: { title: "Explore the technical details", text: "See how the project stores its records, browse the data tables or look up a term.",
-    links: [["#/standards", "The standards", "primary"], ["#/table", "Data tables"], ["#/glossary", "Glossary"]] },
-  rules: { title: "Explore the terms used in the rules", text: "Every idea, its kind and its connections, on one interactive map.",
-    links: [["#/map", "Explore the knowledge map", "primary"], ["#/standards", "The standards"]] },
+  examiners: { title: "Curious how it works?", text: "The technical detail is kept in one place: the knowledge map, the rules as code, the standards and the test results.",
+    links: [NERDS, ["#/public", "See what it offers the public"], ["#/direction", "See what it offers direction setting"]] },
+  concepts: { title: "Ask a question in your own words", text: "The research assistant finds the law and the guidance for a question, then writes a cited answer you can check.",
+    links: [["#/ask", "Ask a research question"], ["#/examiners", "Back to the examiners' overview"]] },
+  ask: { title: "Explore one concept in depth", text: "See everything the foundation records about one idea: what gives rise to it, what qualifies it, what overcomes it, and the sources for each.",
+    links: [["#/concepts", "Explore a legal concept"], ["#/how", "How the search works"]] },
+  public: { title: "Curious how it works?", text: "The technical detail is kept in one place: how a rule becomes structured data, the knowledge map and the standards behind it.",
+    links: [NERDS, ["#/examiners", "See what it offers examiners"], ["#/direction", "See what it offers direction setting"]] },
+  customers: { title: "How is a rule broken down?", text: "See how a section of the Act becomes structured data: who acts, which conditions must hold and which exceptions apply.",
+    links: [["#/rules", "See the rules as code"], ["#/public", "Back to the public overview"]] },
+  direction: { title: "Curious how it works?", text: "The technical detail is kept in one place: how records are linked to their sources, the knowledge map and the standards behind it.",
+    links: [NERDS, ["#/examiners", "See what it offers examiners"], ["#/public", "See what it offers the public"]] },
+  change: { title: "Try a bigger change", text: "See what an invented new right, a register of geographical indications, would touch in today's examination practice.",
+    links: [["#/whatif", "A new right: what would it touch?"], ["#/direction", "Back to direction setting"]] },
+  whatif: { title: "Trace one provision", text: "Choose any section of the Act, a regulation or a Manual page, and see what rests on it.",
+    links: [["#/change", "Trace a change"], ["#/direction", "Back to direction setting"]] },
+  nerds: { title: "Back to what it does", text: "See what the foundation offers each group, with working demonstrations.",
+    links: [["#/examiners", "For examiners"], ["#/public", "For the public"], ["#/direction", "For direction setting"]] },
+  how: { title: "Explore the knowledge map", text: "Every idea and connection on one interactive map: select one to read its card.",
+    links: [["#/map", "Open the knowledge map"], ["#/standards", "The standards"], ["#/rules", "Rules as code"]] },
+  rules: { title: "Explore the ideas the rules use", text: "Every idea, its kind and its connections, on one interactive map.",
+    links: [["#/map", "Open the knowledge map"], ["#/standards", "The standards"]] },
   standards: { title: "Look up a technical term", text: "The glossary explains each term and gives an example of how the project uses it.",
-    links: [["#/glossary", "Read the glossary", "primary"], ["#/about", "Results and limits"]] },
+    links: [["#/glossary", "Read the glossary"], ["#/about", "Results and limits"]] },
   glossary: { title: "Results and limits", text: "See the search test results, the limits of the prototype and the decisions still to make.",
-    links: [["#/about", "Results and limits", "primary"], ["#/standards", "The standards"]] },
+    links: [["#/about", "Results and limits"], ["#/standards", "The standards"]] },
   table: { title: "View these records on the map", text: "The knowledge map draws every idea and connection; select one to read its card.",
-    links: [["#/map", "Explore the knowledge map", "primary"], ["#/standards", "The standards"]] },
-  about: { title: "Try the tools", text: "Search the Manual and legislation, explore an example application or find records to review after a change.",
-    links: [["#/ask", "Research a question", "primary"], ["#/", "Overview"]] },
+    links: [["#/map", "Open the knowledge map"], ["#/standards", "The standards"]] },
+  about: { title: "Try the demonstrations", text: "See what the foundation does for examiners, for the public and for direction setting.",
+    links: [["#/examiners", "For examiners"], ["#/public", "For the public"], ["#/direction", "For direction setting"]] },
 };
 
-/** The card at the foot of a page: one layer deeper, and the way back up. */
+/** The card at the foot of a page: where to go next, and the way back to its section. */
 export function goDeeper(name) {
   const next = NEXT[name];
   if (!next) return "";
-  const here = layerOf(name);
-  const target = layerOf(next.links[0][0].replace(/^#\/?/, "").split("/")[0]);
-  const k = target?.label || "Explore another tool";
+  const here = sectionOf(name);
   return `<aside class="wrap next" aria-label="Where to go next">
     <div class="next-in">
-      <div><span class="eyebrow">${esc(k)}</span><h3>${esc(next.title)}</h3><p>${esc(next.text)}</p></div>
-      <div class="next-links">${next.links.map(([href, label, kind]) => `<a class="btn ${kind === "primary" ? "lime" : "on-dark"}" href="${href}">${esc(label)} ${icon("arrow")}</a>`).join("")}</div>
+      <div><span class="eyebrow">${esc(here.label)}</span><h3>${esc(next.title)}</h3><p>${esc(next.text)}</p></div>
+      <div class="next-links">${next.links.map(([href, label], i) => `<a class="btn ${i === 0 ? "lime" : "on-dark"}" href="${href}">${esc(label)} ${icon("arrow")}</a>`).join("")}</div>
     </div>
-    ${here && here.depth > 1 ? `<p class="next-up">Or step back to <a href="${LAYERS[here.depth - 2].href}">${esc(LAYERS[here.depth - 2].label.toLowerCase())}</a>.</p>` : ""}
   </aside>`;
 }

@@ -4,7 +4,7 @@ Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-10-20, ADR-0148 (S046).
+**As at:** 2026-11-08, ADR-0151 (S049).
 
 ## Purpose and scope
 
@@ -51,8 +51,12 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   the owner's (ADR-0136). Before searching,
   it has the model read a typed question for ideas named in other words, each checked and
   marked "read by the model"; the owner approved it and its cost per question (ADR-0133).
-- **The site leads with outcomes and discloses the ontology last** (ADR-0145): what it does,
-  what it could do, how it works, then under the hood; every standard explained in plain words.
+- **The site is organised by who it serves** (ADR-0151, replacing ADR-0145's four layers): an
+  overview, then For examiners, For the public and For direction setting, each leading with working
+  demonstrations and then possibilities marked working now, within reach or needs more data, and
+  For nerds holding how it works, the map, the standards, the tables, the results and the glossary.
+  Outcomes still come first and the ontology last; plain English on pages that stand alone, except
+  For nerds; every standard still explained in plain words.
   Redesigned on the owner's word (ADR-0148): visual, interactive where it helps, details behind a
   disclosure, desktop and laptop only, light theme; the map is a picture to explore. A redesign
   never changes the ontology or what the system may say. The customer explanation preview is on

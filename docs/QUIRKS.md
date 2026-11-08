@@ -1795,3 +1795,22 @@ pins the safeguard phrases (fictional cases, not tested with customers, practice
 Trace a change, and `test_hygiene.py` scans the site too. Before rewording a page, `grep -rn` the old
 phrase across `tests/`. A pinned phrase is a protection: move the pin to the new words that carry the
 same safeguard, never delete it (S048 found two pins an outside rewrite had missed).
+
+### Q-108: a view's class that is also a global word picks up the global style
+
+`explorer.css` has a few unprefixed classes that mean something everywhere: `.stamp` (the
+machine-written stamp, a flex box), `.next` (the card at a page's foot, `margin: 72px auto 0`),
+`.small` (font size), `.term` (a glossary button), `.manual` and `.law` (source colours). S049 lost
+time to three of them: a card with class `stamp` turned into a flex row, a journey step with class
+`next` jumped 72 pixels down, and an SVG chip with class `term` underlined its text. Q-101's prefix
+rule covers a view's own classes; it also applies to the state words added beside them. Write
+`cx-j-next`, `is-now`, `ld-tr-stamp`, not `next`, `now`, `stamp`. Before adding a short class, grep
+`explorer.css` for `^\.word\b`.
+
+### Q-109: an ADR's metadata line may wrap only after a `·`
+
+The dashboard reads `docs/DECISIONS.md` with a pattern that allows any qualifier after the
+authority word but no line break before the next `·` (`dashboard/sources.py`, `_ADR_META`). A long
+qualifier that wraps mid-phrase (`agent-proposed (the design and the` / `possibilities) · **Status**`)
+makes the ADR unreadable, and five dashboard tests fail at once, none of them naming the ADR. Break
+the line after a `·`, as every earlier ADR does, and run `test_dashboard.py` after adding an ADR.
