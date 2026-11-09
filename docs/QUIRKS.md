@@ -1846,3 +1846,15 @@ side-effect-free module first; do not import `app.js`. Second trap, met the same
 with the `hidden` attribute is still shown if its class sets `display` (the guide's typing dots,
 `display: flex`, stayed on screen under every reply). The guide's stylesheet has
 `[hidden] { display: none !important; }`; a new page needs the same.
+
+### Q-113: a guide starter must be checked against what the search returns, not against the prompt
+
+Tommy's starters (`STARTERS` in `site/guide/guide.js`) are sent to the live model as the reader's own
+words, so a starter is only as good as what `Engine.prepare` finds for it. "How does applying for a
+trade mark work?" looked like the most natural opener and failed live (S053, ADR-0156): its words
+name no concept, keyword search matched "applying" to fee pages, and even with the model's reading
+naming GC-0131 the passages did not describe the process, so Tommy said so. The Manual is written for
+examiners; broad "how does it work" questions have no passage to land on. Before adding or rewording
+a starter, run the engine under Node on `site/data/` (built by `tmk-explorer --write`) and read the
+passage headings it returns. A question that needs the journey belongs in a guided topic, which
+draws on `explain.json` and never reaches the model.

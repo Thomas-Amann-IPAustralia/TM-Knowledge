@@ -14,7 +14,7 @@ any real application or report reaching it stay the owner's decisions (`CLAUDE.m
 
 ## What belongs here
 
-- `index.html`: the page's frame (top bar, the thread, the message box, the source sheet).
+- `index.html`: the page's frame (top bar with a Back link, the thread, the message box, the source sheet).
 - `guide.css`: its own stylesheet, apart from the explorer's. It keeps the explorer's source
   colours and marks (the Manual a blue square, the Act an amber diamond, the Regulations a plum
   hexagon, ADR-0130) and its self-hosted fonts from `../vendor/`. Classes start `gd-`.

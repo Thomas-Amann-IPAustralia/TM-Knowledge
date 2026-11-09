@@ -73,6 +73,10 @@ p:last-child { margin-bottom: 0; }
 .gd-logo { width: 32px; height: 32px; border-radius: 50%; background: var(--green); display: grid; place-items: center; }
 .gd-logo svg { width: 20px; height: 20px; fill: #e8f3dc; }
 .gd-top-r { display: flex; gap: 8px; }
+.gd-top-l { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.gd-back { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px 6px 10px; font-size: 13.5px; color: var(--ink-2); }
+.gd-back svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.gd-back:hover { border-color: var(--green); color: var(--green-ink); }
 .gd-new, .gd-about-btn { white-space: nowrap; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 13.5px; color: var(--ink-2); cursor: pointer; }
 .gd-new:hover, .gd-about-btn:hover, .gd-about-btn[aria-expanded="true"] { border-color: var(--green); color: var(--green-ink); }
 .gd-about { border-top: 1px solid var(--line-2); background: var(--card); }
@@ -281,5 +285,9 @@ p:last-child { margin-bottom: 0; }
   .gd-cond { grid-template-columns: 1fr; gap: 6px; }
   .gd-me { max-width: 88%; }
   .gd-top-in { padding: 10px 16px; }
+  .gd-top-l { gap: 10px; }
+  .gd-back { padding: 7px; }
+  .gd-logo { display: none; }
+  .gd-brand small { display: table; margin: 2px 0 0; font-size: 10.5px; padding: 1px 7px; }
   .gd-thread, .gd-dock-in, .gd-about-in { padding-left: 16px; padding-right: 16px; }
 }

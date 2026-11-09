@@ -1,9 +1,8 @@
 # HANDOFF
 
-**Last updated:** 2026-11-09 · S052 · Ask a research question rebuilt for newer examiners around
-provenance, and a new conversational guide for the public on the same back end (ADR-0154); then the
-site renamed Tradecraft and the guide given the persona Tommy Tradecraft (ADR-0155), on branch
-`claude/jolly-hawking-5bcaqf`, built on `main` after PR #52 (S051, merged). Not merged.
+**Last updated:** 2026-11-09 · S053 · Tommy Tradecraft's starters cut to questions it can answer, and
+a Back link in the guide's header (ADR-0156, on the owner's word, CHAT-0105), on branch
+`claude/dazzling-cori-zwxqyi`, built on `main` after PR #53 (S052, merged). Not merged.
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
@@ -11,51 +10,33 @@ Rewritten every session, under 150 lines (ADR-0110). History is in the git log a
 ## Where things stand
 
 **The purpose is ADR-0138** (`CLAUDE.md` §0). Every package in `docs/ONTOLOGY-REVIEW-RESPONSE-2.md`
-is built; the redesign (ADR-0148) to the annotations pass (ADR-0153) are merged. Nothing was spent
-in S052: every live answer in QA came from a local stand-in for the proxy.
+is built; the redesign (ADR-0148) to the annotations pass (ADR-0153) are merged.
 
-**S052 acted on the owner's word** (CHAT-0103, `review/returned/261109-owner-chat-guide.md`): aim
-Ask a research question at newer examiners with reliability and provenance first; build a separate,
-clean, friendly chat for the public on the same back end with its own prompt, visuals and
-clarifying questions in the manner of FM-0006 (Corner Brew).
-- **Ask a research question** (`site/js/ask.js`): a lede for examiners still learning the sources;
-  before a question, a key to the labels; each statement labelled by what its *found* quotations
-  come from (Law, Practice, Law and practice, No matching quotation, About the sources), the quoted
-  words under it opening the passage highlighted; a bar and count of supported statements first,
-  with a switch to hide the quotations (remembered per browser); four checks under "Before you rely
-  on it"; the law listed before the Manual; each recognised concept's definition. The measured
-  prompt (`answer-v4`), the search and the parity with Python are unchanged.
-- **The trade marks guide** (`site/guide/`, its own page and stylesheet): one column, the message
-  box docked, four starters. A live turn is Ask's pipeline with the guide's prompt
-  (`tm_knowledge.explain.guide`, `guide-v1`, shipped in `chat.json` under `guide`): short friendly
-  paragraphs whose quotes are checked as Ask's are; at most one clarifying question with its answers
-  as buttons (cards when they lead to a rule); at most one picture from the explanation objects by
-  id (the journey from filing, the report loop, what the examiner looks at under s 41, 43, 44); up
-  to three follow-ups. One quiet stamp under every reply; "Where this comes from" opens each point's
-  quotes, what was read, the concepts, the texts and compilations, and what to keep in mind. With
-  live answers off (or an error, or the day's limit) four guided topics still work from
-  `explain.json`, including FM-0006's question with the three grounds as answers.
-- **Linked from** the public overview (a wide card above the three explanations; the "guided
-  assistant" possibility card is gone), the overview's tool list (now a working demonstration),
-  the customer preview's foot card and the site footer. Examiners' overview copy says who Ask is for.
-- **Names, on the owner's word** (CHAT-0104, ADR-0155): the site is **Tradecraft** (title, brand,
-  footer); the guide is **Tommy Tradecraft** (header, welcome, a T monogram avatar, about panel,
-  fine print, every link). The prompt is `guide-v2`: Tommy says it is an AI when asked, never claims
-  to be a person, an examiner, a lawyer or an attorney, and never speaks for IP Australia; the page
-  says the same. "The foundation" in the copy still names the linked records beneath the tools.
-- **Unchanged:** `authored/`, the graph, every record, the examiner's prompt, the proxy's code,
-  `explain.json`. `chat.json` gains `guide`.
+**S053 acted on the owner's word** (CHAT-0105, `review/returned/261109-owner-chat-starters.md`):
+the first starter could not be answered live; offer only starters Tommy can answer, and add a way
+back out.
+- **Starters** (`STARTERS`, `site/guide/guide.js`): "How does applying for a trade mark work?" is
+  replaced by "Can I get more time to respond to an examination report?" (offline: the guided topic
+  on what follows a report). Reproduced live once first: the passages found did not describe the
+  process and Tommy said so; offline, keyword search finds fee pages (Q-113). The replacement's
+  search returns Parts 15 and 16 with s 224, 31, 33; it was **not** asked of the live model (a
+  second paid run was refused by the session's permission check). The guided chip that used the old
+  words now reads "Show me the journey from filing to registration" and stays guided.
+- **Back** (`index.html`, `guide.css`, `guide.js`): an arrow link at the header's left ("Back" at
+  desktop widths). From another Tradecraft page it steps back through history (to the same route);
+  otherwise it opens `../#/public`. At phone widths the logo gives way and "Prototype" sits under
+  the name, so the header fits with New chat and About.
+- **Tests:** `test_guide.py` (+2), `test_explorer.py`, `test_hygiene.py`: 75 passed. **QA** in
+  Chromium at 1366 px and as an iPhone 13: four starters, no overflow, no script errors, Back
+  returns to `#/public` both ways. **Spend:** about US 2 cents through the proxy (one live turn).
 
-**Tests:** `test_guide.py` (new, 14), `test_explorer.py` (one new pin), `test_live_proxy.py`,
-`test_hygiene.py`, `test_dashboard.py`, `test_explain.py`: see the commit body for the run.
-**QA** in Chromium against a stand-in proxy that streams canned replies in OpenAI's format: the
-guide offline (all four topics, the clarifying cards, the source sheet with the quote highlighted)
-and live (a journey reply, the detail panel, the clarify-then-answer flow, the declined banner, the
-error fallback), at 1366 px and as an iPhone 13; Ask with a prepared and a live answer; ten touched
-routes for script errors, `undefined`/`NaN` and overflow. The assembled guide prompt was read in
-the stand-in's log (map, picture catalogue, concepts, definitions, path, conversation with the
-earlier question and options, latest message, passages). Not checked: a real model reply, a screen
-reader, 200% zoom.
+**S052 (merged, PR #53)** rebuilt Ask a research question for newer examiners around provenance,
+and built the public guide on the same back end (ADR-0154): one column, four starters, the guide's
+own prompt (`guide-v2`, `tm_knowledge.explain.guide`, in `chat.json` under `guide`), at most one
+clarifying question with its answers as buttons, at most one picture from `explain.json` by id, a
+quiet stamp under every reply and "Where this comes from" on request. With live answers off, four
+guided topics work from `explain.json` alone. The site is **Tradecraft** and the guide **Tommy
+Tradecraft**, an AI that says so (ADR-0155). See the S052 commits for the detail and its QA.
 
 **Spend.** Cap **US$13.63**, recorded **US$11.61**. The guide spends on the owner's OpenAI project
 through the proxy, not through `tm_knowledge.bulk`: about 5 US cents a turn at list prices (a
@@ -63,11 +44,11 @@ reading and a reply), within the proxy's shared allowance (30 an hour per addres
 
 ## Next actions
 
-1. **The owner's look, then a merge.** Merging to `main` publishes the guide at
-   `…/TM-Knowledge/guide/` (ADR-0112) and Render redeploys nothing (the proxy is unchanged).
-2. **Try the guide live** after the merge, before showing anyone: the objection starter should
-   ask which section the report gives; "will it be accepted?" should decline kindly. If the model
-   overuses clarifying questions or pictures, tune `guide-v1`'s wording, not the page.
+1. **The owner's look, then a merge.** Merging to `main` republishes the guide (ADR-0112); the
+   proxy is unchanged.
+2. **Ask the new first starter live** after the merge. If Tommy cannot answer it well, swap it for
+   another checked against `Engine.prepare` first (Q-113); "What can I do if my trade mark is not
+   capable of distinguishing?" also retrieves squarely (Part 22, s 41).
 3. **Measure the guide** if it is to be relied on: a handful of customer-style questions (fictional),
    judged for grounding, tone, and when it asks. Who writes and judges that is the owner's (§3a).
 4. **Raise the proxy's allowance or split it** if both pages are demonstrated at once: today a busy
@@ -80,7 +61,8 @@ reading and a reply), within the proxy's shared allowance (30 an hour per addres
 
 ## For the owner
 
-- **The guide is on the branch, not live.** Start at `guide/` on the branch build, then `#/ask`.
+- **The change is on the branch, not live.** Open `guide/` on the branch build: the first starter
+  and the Back link.
 - **What I did not do:** change the examiner's prompt (it is the measured one); split the proxy's
   allowance; ask the guide to stream its clarifying question (it appears when the reply completes).
 - **A published guide can receive real details** if someone types them, though it asks people not
@@ -94,13 +76,13 @@ reading and a reply), within the proxy's shared allowance (30 an hour per addres
 
 - **Tommy is a named persona.** The prompt and the page say Tommy is an AI; check after the merge
   that a live reply to "are you a real person?" says so, and that the name is not overused.
-- **The guide has never met the real model.** Its prompt is untested against `gpt-6.1-sol`; the
-  stand-in only proves the plumbing. Watch for a clarifying question asked when it need not be,
+- **The guide has met the real model only through the owner** and one S053 turn. Its prompt is
+  unmeasured. Watch for a clarifying question asked when it need not be,
   pictures chosen loosely, or a quote that is real but beside the point.
-- **General questions retrieve weakly.** "How does applying work?" names no concept, so keyword
-  search returns stray Manual passages (the stand-in showed indexing symbols and book titles); the
-  journey picture carries those questions. The model's reading helps only when the words map to a
-  concept.
+- **General questions retrieve weakly** (Q-113). "How does applying work?" failed live even with the
+  model's reading naming GC-0131: the Manual has no passage that walks an applicant through. A
+  reader can still type it; only the journey picture answers it well.
+- **The new first starter is unasked live.** Chosen from offline retrieval only (ADR-0156).
 - **"About the sources" is a new reading** of a statement with authority `none` and no quote: it is
   labelled grey, not with the rust warning. The count never calls it supported, but a model could
   label a substantive claim `none` and so escape the warning.
@@ -135,6 +117,7 @@ reading and a reply), within the proxy's shared allowance (30 an hour per addres
 
 ## Open items (agent-proposed, provisional)
 
+- **ADR-0156's agent parts** (the replacement starter; the Back link's history step and target).
 - **ADR-0155's agent parts** (what the persona says about itself; where the two names appear; "the
   foundation" kept for the records).
 - **ADR-0154's agent parts** (guide-v1's wording; the statement labels read from the quotations and

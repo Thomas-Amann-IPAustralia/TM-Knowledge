@@ -82,8 +82,14 @@ async function start() {
   hello();
 }
 
+/* Only questions Tommy can answer from what the search finds. "How does applying for a trade mark
+   work?" was one until the owner found it could not be answered live (2026-11-09): its words name
+   no concept, so the search returned fee pages (disputed card payments, underpayments) and Tommy
+   said its extracts did not cover the process. The journey from filing to registration is still
+   offered as a guided topic (a chip after a guided reply), which draws on `explain.json` alone.
+   Before adding a starter, check what `Engine.prepare` returns for it. */
 const STARTERS = [
-  { icon: "route", text: "How does applying for a trade mark work?", sub: "From filing to registration", topic: "journey" },
+  { icon: "clock", text: "Can I get more time to respond to an examination report?", sub: "Time limits and extensions", topic: "report" },
   { icon: "scale", text: "What does the examiner check?", sub: "The questions an application is examined against", topic: "checks" },
   { icon: "letter", text: "I got an objection saying my name is too close to what other people already use. What does that mean?", sub: "An objection, in your words", topic: "objection" },
   { icon: "flag", text: "What happens after my application is accepted?", sub: "Publication, opposition and registration", topic: "after" },
@@ -457,7 +463,7 @@ async function guided(text, topic, bot) {
     visual = requirements(r);
     objects = [r];
     say = [`Here’s how ${ruleName(r).split(" · ")[0].toLowerCase()} is set out: what the examiner looks at, which points are facts and which are for the Registrar to judge, and the ways it might not apply.`, "Tap any source to read the law’s or the guidance’s own words."];
-    next = [{ text: "What happens after an examination report?", topic: "report" }, { text: "How does applying for a trade mark work?", topic: "journey" }];
+    next = [{ text: "What happens after an examination report?", topic: "report" }, { text: "Show me the journey from filing to registration", topic: "journey" }];
   } else {
     say = [!live.enabled ? "Live answers are off on this copy of Tradecraft, so I can’t answer typed questions yet. Here’s what I can walk you through:"
       : "You’ve reached today’s limit of live questions in this browser. Here’s what I can still walk you through:"];
@@ -576,6 +582,13 @@ $(".gd-about-btn").addEventListener("click", (e) => {
   const panel = $("#gd-about");
   panel.hidden = !panel.hidden;
   e.currentTarget.setAttribute("aria-expanded", String(!panel.hidden));
+});
+// Back: to wherever on Tradecraft the reader came from (the referrer drops the route after `#`, so
+// step back through history), else to the public overview the link names.
+$(".gd-back").addEventListener("click", (e) => {
+  let from = null;
+  try { from = document.referrer ? new URL(document.referrer) : null; } catch { /* no referrer */ }
+  if (from && from.origin === location.origin && !from.pathname.includes("/guide/") && history.length > 1) { e.preventDefault(); controller?.abort(); history.back(); }
 });
 $(".gd-sheet-x").addEventListener("click", closeSource);
 veil.addEventListener("click", closeSource);

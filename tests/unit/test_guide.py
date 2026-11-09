@@ -219,3 +219,19 @@ def test_the_guide_never_reads_the_workbench_or_publishes_a_key():
         assert "Authorization" not in text and not re.search(r"\bsk-[A-Za-z0-9_-]{16,}", text), name
     live = (SITE / "js" / "live.js").read_text(encoding="utf-8")
     assert "export function guide(" in live and 'name: "guide"' in live
+
+
+def test_the_starters_are_only_questions_tommy_can_answer():
+    """The owner found "How does applying for a trade mark work?" unanswerable live (2026-11-09):
+    the search found fee pages for it. Its replacement retrieves the time limits and extensions."""
+    js = (GUIDE / "guide.js").read_text(encoding="utf-8")
+    starters = js[js.index("const STARTERS = [") : js.index("];", js.index("const STARTERS = ["))]
+    assert "How does applying for a trade mark work?" not in js
+    assert "Can I get more time to respond to an examination report?" in starters
+    assert starters.count("topic:") == 4
+
+
+def test_the_reader_can_go_back_to_tradecraft():
+    html = (GUIDE / "index.html").read_text(encoding="utf-8")
+    assert re.search(r'<a class="gd-back" href="\.\./#/public" aria-label="Back to Tradecraft">', html)
+    assert 'history.back()' in (GUIDE / "guide.js").read_text(encoding="utf-8")

@@ -1,0 +1,39 @@
+# A decision the repo owner made in a chat session. Hand-transcribed by the S053 agent;
+# no issue behind it. The artefact is `review/returned/261109-owner-chat-starters.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-11-09T00:00:00Z'
+questions_updated: '2026-11-09'
+source:
+  kind: chat
+  artefact: review/returned/261109-owner-chat-starters.md
+  author: the owner (the session's user; no name given in the chat)
+  relayed_by: S053 agent
+  title: Only offer starters Tommy can answer, and add a way back out of the guide
+applied:
+  session: S053
+  date: '2026-11-09'
+  branch: claude/dazzling-cori-zwxqyi
+  what_changed: >-
+    The first starter, "How does applying for a trade mark work?", is replaced by "Can I get more
+    time to respond to an examination report?" (offline, the guided topic on what follows a
+    report). The guided chip that offered the old wording now reads "Show me the journey from
+    filing to registration" and still opens the guided journey. The guide's header has a Back link
+    (an arrow, with "Back" at desktop widths) that steps back to the Tradecraft page the reader came
+    from, or opens the public overview (../#/public) when they arrived from elsewhere.
+answers:
+- id: CHAT-0105
+  item: the guide's starters and a way out
+  question: Which pre-written questions should Tommy offer, and how does a reader leave?
+  kind: instruction
+  value: answerable_starters_only_and_a_back_link
+  label: Offer only starters Tommy can answer, and add a back button
+  quote: >-
+    Tommy Tradecraft can't answer the first pre-written question. The other answers are excellent
+    though. Please only include pre-written questions the chatbot is equipped to answer.
+    Additionally, please add a back button or something so a user can leave the interaction more
+    easily
+  notes: >-
+    The agent reproduced the failure live once (about US 2 cents) and found the cause in the
+    search: the words name no concept, so keyword search returned fee pages. The replacement was
+    chosen from what the search returns offline; it has not been asked of the live model.
+  recorded_as: [ADR-0156]
