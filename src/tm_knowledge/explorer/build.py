@@ -22,7 +22,8 @@ Files written under `site/data/`:
     stability.json  the Manual's amendment history and what rests on each page
     tour.json       the Manual by Part, ideas named many ways, one worked example
     examples.json   the 129 prepared answers and how each search system scored
-    chat.json       the measured answer prompt, so the live chat asks the same way
+    chat.json       the measured answer prompt, so the live chat asks the same way;
+                    and the customer guide's prompt and pictures (`guide`, ADR-0154)
     live.json       whether the live chat may call the model (ADR-0118)
     explain.json    the customer explanation preview: every invented matter's
                     explanation, each test's requirements and each process walked
@@ -54,6 +55,7 @@ from tm_knowledge import config
 from tm_knowledge.config import PIN_PATH, REPO_ROOT
 from tm_knowledge.dashboard import views
 from tm_knowledge.explain import engine as explain_engine
+from tm_knowledge.explain import guide as guide_module
 from tm_knowledge.explain import matters as matters_module
 from tm_knowledge.explain import whatif as whatif_module
 from tm_knowledge.ontology import dependencies
@@ -956,7 +958,9 @@ def build(corpus: Corpus | None = None, *, generated: str | None = None,
         "stability.json": stab,
         "tour.json": tour(corpus, onto, links),
         "examples.json": examples(),
-        "chat.json": chat(ctx),
+        # The customer guide's prompt rides with the examiner's: the same model, map,
+        # definitions and reading, a different reader and tone (ADR-0154).
+        "chat.json": {**chat(ctx), "guide": guide_module.payload(explained)},
         "live.json": live_payload(endpoint),
         "explain.json": explained,
         "whatif.json": what_if,

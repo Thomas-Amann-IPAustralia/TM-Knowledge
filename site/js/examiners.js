@@ -25,7 +25,7 @@ export async function render(root, { ontology }) {
         <div>
           <span class="eyebrow">For examiners</span>
           <h1>Find relevant law and examination guidance, and see how they connect</h1>
-          <p class="lede">Examination often means checking more than one source: what the Act or the Regulations require, what the Manual says about practice, and how the legal issues relate. Here you can follow a concept to its recorded connections and source passages, or try a research answer that shows its quotations. These are working demonstrations, not an assessed replacement for an examiner’s own research or judgement.</p>
+          <p class="lede">Examination often means checking more than one source: what the Act or the Regulations require, what the Manual says about practice, and how the legal issues relate. These demonstrations are aimed first at examiners still building that knowledge: follow a concept to its recorded connections and source passages, or try a research answer that shows what each statement rests on. They are working demonstrations, not an assessed replacement for an examiner’s own research or judgement.</p>
           ${aboutLine()}
         </div>
       </div>
@@ -45,9 +45,9 @@ export async function render(root, { ontology }) {
           ${demoCard({ href: "#/concepts", art: "demo-concepts", k: "Legal concept explorer", title: "Explore a legal concept",
             text: "Start from a concept such as deceptive similarity, distinctiveness or honest concurrent use, then follow its recorded connections: what can give rise to it, what bears on it, which exceptions or other issues may be relevant, and the legal test it belongs to.",
             points: ["Each recorded connection quotes the sentence it rests on", "Other names it goes by, and names it must not be confused with", "Where the Manual discusses it, Part by Part"], go: "Explore a concept" })}
-          ${demoCard({ href: "#/ask", art: "demo-ask", k: "Research assistant", title: "Ask a research question",
-            text: `Ask in your own words. It finds provisions and Manual passages, shows a related legal test where the records hold one, and writes an answer that links each statement to a quotation from the source. The tool checks that each quotation exists in the source; it does not check that the answer is right, so open the sources and check that they support each statement. ${fmt(examples.answers.length)} example questions have saved answers.`,
-            points: ["The law and the guidance listed apart", "Statements without a matching quotation are flagged", "Never says how an application will be decided"], go: "Ask a question", state: "Answers are AI-written and unreviewed" })}
+          ${demoCard({ href: "#/ask", art: "demo-ask", k: "Research assistant for newer examiners", title: "Ask a research question",
+            text: `Ask in your own words. It finds the provisions and the Manual passages, says what each concept in the question means, shows a related legal test where the records hold one, and writes an answer that labels every statement law, practice or unsupported, with the words it quotes beneath it. The tool checks that each quotation exists in the source; it does not check that the answer is right, so open the sources and check that they support each statement. ${fmt(examples.answers.length)} example questions have saved answers.`,
+            points: ["Every statement labelled law, practice or no matching quotation", "The quoted words under each statement, one click from the passage", "Never says how an application will be decided"], go: "Ask a question", state: "Answers are AI-written and unreviewed" })}
         </div>
       </section>
 

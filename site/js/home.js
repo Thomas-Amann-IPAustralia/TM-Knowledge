@@ -216,12 +216,12 @@ const BLOCKS = [
 
 const TOOLS = [
   { id: "concepts", aud: "aud-exam", name: "Explore a legal concept", href: "#/concepts", uses: ["ideas", "links", "rules", "sources"], text: "What this version records about one idea, with a source for each part." },
-  { id: "ask", aud: "aud-exam", name: "Ask a research question", href: "#/ask", uses: ["ideas", "links", "rules", "sources", "time"], text: "The law and the guidance for a question, and a cited answer to check." },
+  { id: "ask", aud: "aud-exam", name: "Ask a research question", href: "#/ask", uses: ["ideas", "links", "rules", "sources", "time"], text: "For newer examiners: the law and the guidance for a question, and an answer that shows what each statement rests on." },
   { id: "objection", aud: "aud-pub", name: "Understand an objection", href: "#/customers/objection", uses: ["rules", "sources", "time"], text: "An objection explained step by step, on invented cases." },
   { id: "journey", aud: "aud-pub", name: "The application journey", href: "#/customers/process", uses: ["rules", "sources"], text: "Each stage from filing to registration, and what moves it on." },
+  { id: "chat", aud: "aud-pub", name: "Chat with Tommy Tradecraft", href: "guide/", uses: ["ideas", "links", "rules", "sources", "time"], text: "An AI guide for a friendly chat about requirements, the process and objections, with pictures; it asks when a fact would change the explanation, and shows its sources on request." },
   { id: "change", aud: "aud-pol", name: "Trace a change", href: "#/change", uses: ["ideas", "links", "rules", "sources"], text: "Records linked to a section of the Act or a page of the Manual: a starting list for review." },
   { id: "whatif", aud: "aud-pol", name: "A new right: what would it touch?", href: "#/whatif", uses: ["ideas", "links", "rules", "sources"], text: "A fictional register laid over today's practice, and the questions it raises. The records are not changed." },
-  { id: "chat", aud: "aud-pub", name: "A guided assistant with visuals", future: true, uses: ["ideas", "links", "rules", "sources", "time"], text: "A possible conversational guide that could explain requirements and objections, showing its sources." },
   { id: "register", aud: "aud-exam", name: "Searching the register by meaning", future: true, uses: ["ideas", "links"], text: "Finding marks and goods by what they mean, once the register is connected." },
   { id: "aitest", aud: "aud-pol", name: "Checking AI answers", future: true, uses: ["ideas", "rules", "sources"], text: "Testing whether an AI tool named the right ideas, sources and exceptions." },
   { id: "decisions", aud: "aud-pol", name: "Recording a decision’s reasons", future: true, uses: ["rules", "sources", "time"], text: "Setting out what a recorded decision rested on. Never making one." },

@@ -568,10 +568,60 @@ input:focus, textarea:focus, select:focus { outline: 2px solid color-mix(in srgb
 .rs-qcard { display: flex; flex-direction: column; gap: 8px; text-align: left; padding: 14px 16px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; cursor: pointer; font-size: 14px; line-height: 1.45; color: var(--ink); transition: border-color .15s, transform .15s, box-shadow .15s; }
 .rs-qcard span { font-size: 11px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
 .rs-qcard:hover { border-color: #b9c8b1; transform: translateY(-2px); box-shadow: var(--shadow); }
-.rs-preview { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 44px; padding-top: 34px; border-top: 1px solid var(--line); }
-.rs-pv-n { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--mint); color: var(--green); font-weight: 700; font-size: 13px; margin-bottom: 12px; }
-.rs-pv h3 { font-family: var(--serif); font-weight: 500; font-size: 21px; margin-bottom: 6px; }
-.rs-pv p { font-size: 14.5px; color: var(--ink-2); margin: 0; }
+/* How to read an answer, before a question is asked: the labels every statement carries. */
+.rs-preview { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 34px; margin-top: 44px; padding-top: 34px; border-top: 1px solid var(--line); }
+.rs-key-head h2 { font-size: 28px; margin: 6px 0 10px; }
+.rs-key-head p { font-size: 15px; color: var(--ink-2); }
+.rs-key { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.rs-key li { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 14px; align-items: start; font-size: 14.5px; color: var(--ink-2); background: var(--surface); border: 1px solid var(--line-2); border-radius: 12px; padding: 10px 14px; }
+.rs-key li > span:first-child { justify-self: start; }
+
+/* What a statement rests on: the law (the Act's diamond), the Manual's practice (its square), both,
+   no matching quotation (rust, the machine's warning colour), or a statement about coverage. */
+.rs-basis { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 650; padding: 3px 10px; border-radius: 999px; white-space: nowrap; background: var(--src-bg, var(--paper-2)); color: var(--src-ink, var(--ink-2)); }
+.rs-basis.both { background: var(--paper-2); color: var(--ink); }
+.rs-basis.both .mark { background: linear-gradient(90deg, var(--act) 50%, var(--manual) 50%); border-radius: 2px; }
+.rs-basis.none { background: var(--machine-bg); color: var(--machine); border: 1px dashed var(--machine-line); }
+.rs-basis.none svg { width: 13px; height: 13px; fill: var(--machine); }
+.rs-basis.scope { background: var(--paper-2); color: var(--ink-3); }
+
+/* The answer's provenance at a glance: one segment per statement, in reading order. */
+.rs-prov:empty { display: none; }
+.rs-prov { margin: -4px 0 20px; padding: 14px 16px; background: var(--surface-2); border: 1px solid var(--line-2); border-radius: 12px; }
+.rs-prov-bar { display: flex; gap: 3px; height: 10px; margin-bottom: 10px; }
+.rs-seg { flex: 1; border-radius: 3px; background: var(--paper-2); }
+.rs-seg.law { background: var(--act); }
+.rs-seg.manual { background: var(--manual); }
+.rs-seg.both { background: linear-gradient(90deg, var(--act) 50%, var(--manual) 50%); }
+.rs-seg.none { background: repeating-linear-gradient(135deg, var(--machine) 0 3px, var(--machine-bg) 3px 6px); }
+.rs-seg.scope { background: #c9cfc8; }
+.rs-prov-line { font-size: 13.5px; color: var(--ink-2); margin: 0 0 6px; }
+.rs-prov-line b { color: var(--ink); }
+.rs-prov-toggle { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-2); cursor: pointer; }
+.rs-prov-toggle input { accent-color: var(--green); }
+
+/* A statement: its number and basis on the left, its words and quotations on the right. */
+.answer.claims .rs-claim { display: grid; grid-template-columns: 184px minmax(0, 1fr); gap: 16px; padding: 14px 0; margin: 0; border-bottom: 0; border-top: 1px solid var(--line-2); }
+.answer.claims .rs-claim:first-child { border-top: 0; padding-top: 4px; }
+.rs-claim.unsupported { border-left: 0; padding-left: 0; }
+.rs-claim.b-none .rs-claim-main > p:first-child, .rs-claim.b-none .rs-claim-main > :first-child { color: var(--ink-2); }
+.rs-claim-side { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.rs-claim-n { font-size: 12px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.rs-qs { display: grid; gap: 6px; margin-top: 8px; }
+.rs-quotes-off .rs-qs { display: none; }
+.rs-qb { display: block; width: 100%; text-align: left; border: 0; border-left: 3px solid var(--src); background: var(--src-bg); border-radius: 0 10px 10px 0; padding: 8px 12px; cursor: pointer; font-family: var(--serif); font-size: 15px; line-height: 1.5; color: var(--ink); }
+.rs-qb:hover { filter: brightness(.98); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--src) 35%, transparent); }
+.rs-qb-src { display: flex; align-items: center; gap: 7px; font-family: var(--sans); font-size: 11.5px; font-weight: 650; letter-spacing: .02em; color: var(--src-ink); margin-bottom: 2px; }
+.rs-claim .nosupport { display: block; margin: 6px 0 0; }
+
+/* Before you rely on it: four habits for a reader still learning the sources. */
+.rs-rely { margin: 18px 0 6px; padding: 14px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.rs-rely h3 { font-size: 15px; margin-bottom: 6px; }
+.rs-rely ol { margin: 0; padding-left: 1.3em; font-size: 14px; color: var(--ink-2); display: grid; gap: 3px; }
+.rs-def { margin: 4px 0 2px 34px; font-size: 13.5px; }
+.rs-def summary { cursor: pointer; color: var(--green); font-size: 12.5px; }
+.rs-def p { margin: 6px 0 0; color: var(--ink-2); }
+.rs-src-none { margin: 0 0 10px; }
 .hop-pill { fill: var(--paper-2); stroke: var(--f-other); stroke-width: 1.2; }
 .hop-idea:hover .hop-pill, .hop-idea:focus .hop-pill { stroke-width: 2.2; }
 .hop-idea circle { stroke: none; }
@@ -1859,6 +1909,7 @@ svg.il { width: 100%; height: auto; overflow: visible; }
 .fc-demos.three .fc-demo .fc-art svg.il { max-width: 300px; margin: 0 auto; }
 .fc-card .fc-art svg.il { max-width: 300px; margin: 0 auto; }
 .fc-demos.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.fc-demos.pu-guide { margin-bottom: 22px; }
 .fc-demos.three .fc-demo h3 { font-size: 22px; }
 
 .fc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }

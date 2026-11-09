@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tommy Tradecraft | Tradecraft prototype</title>
+  <meta name="description" content="Tommy Tradecraft, a prototype AI guide on Tradecraft that explains Australian trade marks in plain language: what the examiner checks, how applying works, and what an objection means. AI-written answers with their sources a tap away.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='20' fill='%23246b5c'/%3E%3Cpath d='M12 11h16v4.4h-5.8V30h-4.4V15.4H12z' fill='%23e8f3dc'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="guide.css">
+  <script type="module" src="guide.js"></script>
+</head>
+<body>
+  <a class="gd-skip" href="#gd-box">Skip to the message box</a>
+
+  <header class="gd-top">
+    <div class="gd-top-in">
+      <a class="gd-brand" href="./" aria-label="Tommy Tradecraft: start again">
+        <span class="gd-logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.5 5.5h11v3h-4v10h-3v-10h-4z"/></svg></span>
+        <span><b>Tommy Tradecraft</b><small>Prototype</small></span>
+      </a>
+      <div class="gd-top-r">
+        <button type="button" class="gd-new" hidden>New chat</button>
+        <button type="button" class="gd-about-btn" aria-expanded="false" aria-controls="gd-about">About<span class="gd-long"> Tommy</span></button>
+      </div>
+    </div>
+    <div class="gd-about" id="gd-about" hidden>
+      <div class="gd-about-in">
+        <p><b>Tommy Tradecraft is an AI guide, and a prototype for review.</b> Tommy is not a person, and does not speak for IP Australia. The guide is part of Tradecraft, a proof of concept; it has not been tested with customers, and it is not an official service.</p>
+        <ul>
+          <li>Answers are written by AI from the Trade Marks Act 1995, the Trade Marks Regulations 1995 and IP Australia’s Trade Marks Manual. No trade marks expert has checked them.</li>
+          <li>The Act and the Regulations are the law. The Manual is IP Australia’s guidance on how examiners apply it; it is not law. Each answer keeps the two apart.</li>
+          <li>It is general information, not legal advice, and it never says how an application will be decided. Only the Registrar decides.</li>
+          <li>Tap “Where this comes from” under any answer to see the exact words it rests on.</li>
+          <li>Please don’t type personal details, application numbers or the text of a real report.</li>
+        </ul>
+        <p class="gd-about-links"><a href="../#/">About Tradecraft</a><a href="../#/public">The other demonstrations for the public</a><a href="../#/ask">The examiners’ research tool</a></p>
+      </div>
+    </div>
+  </header>
+
+  <main class="gd-main" id="gd-main">
+    <div class="gd-thread" aria-live="polite" aria-label="Conversation"></div>
+  </main>
+
+  <footer class="gd-dock">
+    <div class="gd-dock-in">
+      <div class="gd-chips" aria-label="Suggested questions"></div>
+      <form class="gd-form" autocomplete="off">
+        <label class="vh" for="gd-box">Your question</label>
+        <textarea id="gd-box" name="q" rows="1" maxlength="600" placeholder="Ask Tommy about trade marks…"></textarea>
+        <button type="submit" class="gd-send" aria-label="Send"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg></button>
+      </form>
+      <p class="gd-fine">Tommy is an AI, not checked by an expert · general information, not legal advice · never says how an application will be decided</p>
+    </div>
+  </footer>
+
+  <div class="gd-veil" hidden></div>
+  <aside class="gd-sheet" aria-hidden="true" aria-label="A source" tabindex="-1">
+    <div class="gd-sheet-head"><div class="gd-sheet-title"></div><button type="button" class="gd-sheet-x" aria-label="Close">×</button></div>
+    <div class="gd-sheet-body"></div>
+  </aside>
+  <noscript><p class="gd-noscript">Turn on JavaScript to chat with Tommy Tradecraft.</p></noscript>
+</body>
+</html>
