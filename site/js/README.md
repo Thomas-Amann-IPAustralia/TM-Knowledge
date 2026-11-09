@@ -13,7 +13,7 @@ identical to Python by `tests/explorer_parity.mjs`), `live.js` (the streamed mod
 reading of a typed question, then the answer, or the guide's reply) and `lib.js` (loads vendored
 libraries per view, ADR-0119). See `../README.md`.
 
-`engine.js`, `live.js` and `lib.js` have no side effects on import, so the trade marks guide
+`engine.js`, `live.js` and `lib.js` have no side effects on import, so Tommy Tradecraft, the guide
 (`../guide/`, ADR-0154) imports them too. Keep them that way: `app.js` starts the router when it
 loads, and anything that imports it cannot be shared with the guide (Q-112).
 

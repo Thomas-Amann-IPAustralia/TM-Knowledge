@@ -59,7 +59,7 @@ export function answer(live, chat, input, signal, onText = null) {
   }, signal, onText);
 }
 
-/** A reply from the trade marks guide (`site/guide/`, ADR-0154): the same model and proxy as
+/** A reply from Tommy Tradecraft, the guide (`site/guide/`, ADR-0154, ADR-0155): the same model and proxy as
     the answer, with the guide's own instructions and schema from `chat.json`'s `guide`, which
     `tm_knowledge.explain.guide` writes. The proxy counts it as an answer. */
 export function guide(live, chat, input, signal, onText = null) {

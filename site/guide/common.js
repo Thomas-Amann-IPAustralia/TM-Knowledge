@@ -60,6 +60,8 @@ export const clip = (text, n) => {
 };
 
 export const ICON = {
+  /** Tommy Tradecraft's mark: a T on a round tile (the tile is the CSS's). */
+  tommy: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 5.5h11v3h-4v10h-3v-10h-4z"/></svg>`,
   bubble: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-7l-4.5 3v-3H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/></svg>`,
   route: `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"/></svg>`,
   scale: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M8 20h8M5 7h14M5 7l-2.5 5.5a2.5 2.5 0 0 0 5 0zM19 7l-2.5 5.5a2.5 2.5 0 0 0 5 0z"/></svg>`,

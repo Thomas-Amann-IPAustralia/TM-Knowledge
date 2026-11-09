@@ -20,7 +20,7 @@ It answers `POST /v1/responses` from the explorer's origin, for the allowed mode
 passing on only the fields the page sends (`tools` and the like are dropped),
 with `store: false` and output capped. A live question is two requests: a short reading of
 the question against the map (`text.format.name` "reading", ADR-0132), then the answer.
-Readings are counted apart from answers, so the limits below are per question. The trade marks
+Readings are counted apart from answers, so the limits below are per question. Tommy Tradecraft, the
 guide (`site/guide/`, ADR-0154) uses the same route with its own prompt (`text.format.name`
 "guide"); its replies count as answers, so the two pages share one allowance. It streams
 OpenAI's reply back unchanged,

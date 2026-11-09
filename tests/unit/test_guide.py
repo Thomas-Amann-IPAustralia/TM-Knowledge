@@ -1,4 +1,4 @@
-"""The trade marks guide (ADR-0154): the customer conversation's prompt, schema and pictures, and
+"""Tommy Tradecraft, the guide (ADR-0154, ADR-0155): the customer conversation's prompt, schema and pictures, and
 the page's guards.
 
 The guide is unmeasured and live only, so what can be held here is what it is told and what the
@@ -95,6 +95,32 @@ def test_the_instructions_ask_only_what_changes_the_explanation():
     assert "Use only ids listed there" in text
 
 
+def test_the_persona_is_tommy_tradecraft_and_says_it_is_an_ai():
+    """ADR-0155 (CHAT-0104): the owner named the persona. A named persona must never pass for a
+    person, an expert or IP Australia, so the prompt says so and the page says so too."""
+    text = " ".join(guide.INSTRUCTIONS.split())
+    assert text.startswith("You are Tommy Tradecraft, the friendly guide on Tradecraft")
+    for rule in (
+        "say plainly that you are an AI",
+        "Never claim to be a person, an examiner, a lawyer or a trade marks attorney",
+        "never claim to speak for IP Australia or the Registrar",
+        "not in every reply",
+    ):
+        assert rule in text, rule
+    html = (GUIDE / "index.html").read_text(encoding="utf-8")
+    assert "<b>Tommy Tradecraft</b>" in html and "Tommy is an AI" in html
+    assert "Tommy is not a person, and does not speak for IP Australia" in html
+    assert "I’m an AI guide to trade marks in Australia" in (GUIDE / "guide.js").read_text(encoding="utf-8")
+
+
+def test_the_site_is_called_tradecraft():
+    html = (SITE / "index.html").read_text(encoding="utf-8")
+    assert "<title>Tradecraft | Proof of concept</title>" in html
+    assert html.count("<b>Tradecraft</b>") == 2 and "Trade mark knowledge foundation" not in html
+    for page in ("index.html", "js/public.js", "js/home.js", "js/layers.js"):
+        assert "trade marks guide" not in (SITE / page).read_text(encoding="utf-8"), page
+
+
 def test_the_tone_is_friendly_and_short():
     text = " ".join(guide.INSTRUCTIONS.split())
     assert "Warm, relaxed and clear" in text and "Keep it short" in text
@@ -115,7 +141,8 @@ def test_the_catalogue_names_every_picture_by_id():
     assert lines[-1].startswith("- choices")
     payload = guide.payload(_explained())
     assert payload["journeys"] == ["GP-9"] and payload["rules"] == ["GL-9"]
-    assert payload["prompt_version"] == "guide-v1" and payload["measured"] is False
+    assert payload["prompt_version"] == "guide-v2" and payload["measured"] is False
+    assert payload["persona"] == "Tommy Tradecraft"
     assert payload["schema"] is guide.SCHEMA and payload["instructions"] == guide.INSTRUCTIONS
 
 

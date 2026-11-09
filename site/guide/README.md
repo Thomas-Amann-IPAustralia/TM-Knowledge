@@ -1,10 +1,12 @@
-# site/guide/: the trade marks guide
+# site/guide/: Tommy Tradecraft, the guide
 
 A chat for the public about trade marks (ADR-0154, on the owner's word, CHAT-0103), published
-with the explorer at `…/TM-Knowledge/guide/`. A person asks in their own words about what the law
-asks of a trade mark, how applying works, or what an objection means, and gets a short, friendly
-reply, a picture where one helps, and at most one clarifying question with its answers as
-buttons. Where each point comes from opens only when they ask ("Where this comes from").
+with Tradecraft at `…/TM-Knowledge/guide/`. Its persona is Tommy Tradecraft (ADR-0155, CHAT-0104):
+an AI guide that says it is an AI, and never passes itself off as a person or as IP Australia. A
+person asks in their own words about what the law asks of a trade mark, how applying works, or
+what an objection means, and gets a short, friendly reply, a picture where one helps, and at most
+one clarifying question with its answers as buttons. Where each point comes from opens only when
+they ask ("Where this comes from").
 
 It is a prototype on the same footing as the customer explanation preview (ADR-0146): not tested
 with customers, not advice, never an outcome. Showing it to customers, testing it with them, and

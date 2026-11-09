@@ -22,7 +22,7 @@ the picture together (A09).
 - Each explanation also says which text of the law it quotes and what can be said of the
   text in force on the filing date (`tm_knowledge.versions`, A03): held, earlier than any
   held, after the capture, or not known because no date is given.
-- `guide.py` (S052, ADR-0154) — the trade marks guide's prompt (`guide-v1`), the JSON schema its
+- `guide.py` (S052, ADR-0154, ADR-0155) — the prompt of Tommy Tradecraft, the guide (`guide-v2`), the JSON schema its
   replies fit, and the catalogue of pictures it may name: every process walkthrough and every
   test's requirements, by id. `tmk-explorer` ships them in `site/data/chat.json` under `guide`; the
   page `site/guide/` draws the pictures from `explain.json`. Live only and unmeasured.

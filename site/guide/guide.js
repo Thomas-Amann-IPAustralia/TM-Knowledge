@@ -1,5 +1,6 @@
-/* The trade marks guide: a conversation for the public about trade marks (ADR-0154, on the
-   owner's word, CHAT-0103).
+/* Tommy Tradecraft: a conversation for the public about trade marks (ADR-0154, on the owner's
+   word, CHAT-0103; the persona's name and the site's, Tradecraft, ADR-0155, CHAT-0104). Tommy is an
+   AI and says so: in the welcome, in the fine print, and in the prompt when asked.
 
    One turn, live: the model reads the person's words against the map (the examiner page's
    reading, ADR-0132); the browser's search (`engine.js`, the same as Ask a research question's)
@@ -70,7 +71,7 @@ async function start() {
   try {
     [chat, live, explained] = await Promise.all([data("chat"), data("live").catch(() => ({ enabled: false })), data("explain")]);
   } catch (error) {
-    thread.innerHTML = `<p class="gd-err">The guide could not load its data (${esc(error.message)}).</p>`;
+    thread.innerHTML = `<p class="gd-err">Tommy Tradecraft could not load its data (${esc(error.message)}).</p>`;
     return;
   }
   wake(live);
@@ -99,8 +100,9 @@ function hello() {
     : usedToday() >= chat.daily_limit ? `<p class="gd-mode"><i></i>You’ve reached today’s limit of ${chat.daily_limit} questions in this browser. The guided topics below still work.</p>`
     : `<p class="gd-mode on"><i></i>Live answers on · ${chat.daily_limit - usedToday()} of ${chat.daily_limit} questions left today in this browser</p>`;
   thread.innerHTML = `<section class="gd-hello">
-      <h1>Hi! Let’s make sense of trade marks.</h1>
-      <p class="gd-lede">Ask me about applying for a trade mark in Australia: what the examiner checks, what happens after you apply, or what an objection in your examination report means. I’ll keep it simple, and you can always see where each answer comes from.</p>
+      <span class="gd-hello-av" aria-hidden="true">${ICON.tommy}</span>
+      <h1>Hi, I’m Tommy Tradecraft.</h1>
+      <p class="gd-lede">I’m an AI guide to trade marks in Australia. Ask me what the examiner checks, what happens after you apply, or what an objection in your examination report means. I’ll keep it simple, and you can always see where each answer comes from.</p>
       <div class="gd-starters">${STARTERS.map((s, i) => `<button type="button" class="gd-starter" data-starter="${i}">${ICON[s.icon]}<span><b>${esc(s.text)}</b><span>${esc(s.sub)}</span></span></button>`).join("")}</div>
       ${mode}
     </section>`;
@@ -123,7 +125,7 @@ function drawMe(text) {
 function drawBot() {
   const el = document.createElement("div");
   el.className = "gd-msg bot";
-  el.innerHTML = `<span class="gd-av">${ICON.bubble}</span><div class="gd-bot">
+  el.innerHTML = `<span class="gd-av" title="Tommy Tradecraft, an AI guide">${ICON.tommy}</span><div class="gd-bot">
       <div class="gd-typing"><span class="gd-dots"><i></i><i></i><i></i></span><span class="gd-status">Reading your question…</span></div>
       <div class="gd-say"></div><div class="gd-extra"></div><div class="gd-foot" hidden></div><div class="gd-why" hidden></div></div>`;
   thread.appendChild(el);
@@ -392,7 +394,7 @@ function whyPanel(r) {
     <dl class="gd-kv">
       <dt>Written by</dt><dd>AI (<code>${esc(r.model || chat.model)}</code>), from the passages above. No trade marks expert has reviewed it.</dd>
       <dt>Texts read</dt><dd>${esc(law)}</dd>
-      <dt>The guide</dt><dd>${esc(chat.guide.prompt_version)}, a prototype not yet measured against test questions</dd>
+      <dt>The guide</dt><dd>${esc(chat.guide.persona || "Tommy Tradecraft")}, an AI persona (${esc(chat.guide.prompt_version)}), a prototype not yet measured against test questions</dd>
       <dt>Time</dt><dd>${r.seconds.toFixed(0)} seconds${r.cost != null ? ` · about US${(r.cost * 100).toFixed(1)}¢` : ""}</dd>
     </dl>
     <h3>Keep in mind</h3>
@@ -457,7 +459,7 @@ async function guided(text, topic, bot) {
     say = [`Here’s how ${ruleName(r).split(" · ")[0].toLowerCase()} is set out: what the examiner looks at, which points are facts and which are for the Registrar to judge, and the ways it might not apply.`, "Tap any source to read the law’s or the guidance’s own words."];
     next = [{ text: "What happens after an examination report?", topic: "report" }, { text: "How does applying for a trade mark work?", topic: "journey" }];
   } else {
-    say = [!live.enabled ? "Live answers are off on this copy of the guide, so I can’t answer typed questions yet. Here’s what I can walk you through:"
+    say = [!live.enabled ? "Live answers are off on this copy of Tradecraft, so I can’t answer typed questions yet. Here’s what I can walk you through:"
       : "You’ve reached today’s limit of live questions in this browser. Here’s what I can still walk you through:"];
     next = STARTERS.map((s) => ({ text: s.text, topic: s.topic }));
   }
@@ -503,7 +505,7 @@ async function openSource(ref, quote = "") {
   const badge = `<span class="gd-badge ${src}">${mark(ref)}${esc(SOURCE[src].short)} · ${esc(SOURCE[src].role)}</span>`;
   if (!law && !row) {
     sheet.querySelector(".gd-sheet-title").innerHTML = `${badge}<b>${esc(refLabel(ref))}</b>`;
-    sheet.querySelector(".gd-sheet-body").innerHTML = `<p class="gd-sheet-note">This copy of the guide does not hold this passage.</p>${quote ? `“${esc(quote)}”` : ""}`;
+    sheet.querySelector(".gd-sheet-body").innerHTML = `<p class="gd-sheet-note">This copy of Tradecraft does not hold this passage.</p>${quote ? `“${esc(quote)}”` : ""}`;
     return;
   }
   const text = law ? law[3] : row[3];

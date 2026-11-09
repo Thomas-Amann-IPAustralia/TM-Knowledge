@@ -1,6 +1,6 @@
-# site/: the explorer
+# site/: Tradecraft, the explorer
 
-A static site, published to <https://thomas-amann-ipaustralia.github.io/TM-Knowledge/> from
+Tradecraft (the site's name since ADR-0155, on the owner's word). A static site, published to <https://thomas-amann-ipaustralia.github.io/TM-Knowledge/> from
 `main` (ADR-0112). Its job is to show what the knowledge foundation makes possible for each group it
 serves, with working demonstrations, and to explain how it works for those who want to know
 (ADR-0145; redesigned in ADR-0148; organised by audience on the owner's word in ADR-0151).
@@ -14,8 +14,8 @@ next:
    safeguards and the work still to do.
 2. **For examiners**: the overview (`#/examiners`) and two working demonstrations, Explore a legal
    concept (`#/concepts`) and Ask a research question (`#/ask`).
-3. **For the public**: the overview (`#/public`), the trade marks guide (`guide/`, a page of its own,
-   below) and the customer explanation preview (`#/customers`): an objection step by step, what a
+3. **For the public**: the overview (`#/public`), Tommy Tradecraft, the AI guide (`guide/`, a page
+   of its own, below) and the customer explanation preview (`#/customers`): an objection step by step, what a
    rule requires, and the application journey, on invented matters.
 4. **For direction setting**: the overview (`#/direction`), Trace a change (`#/change`) and the
    what-if, a new right laid over the ontology (`#/whatif`).
@@ -137,9 +137,9 @@ Older routes still work: `#/tour` and `#/model` open How it works, `#/circles` o
 view, and `#/future` (What's next, retired in ADR-0151) opens the public overview (`ALIASES` in
 `app.js`).
 
-## The trade marks guide (`guide/`)
+## Tommy Tradecraft, the guide (`guide/`)
 
-A chat for the public, on its own page with its own stylesheet (ADR-0154): `site/guide/README.md`
+A chat for the public with an AI persona, Tommy Tradecraft (ADR-0155), on its own page with its own stylesheet (ADR-0154): `site/guide/README.md`
 says what is in it. It shares the generated data and three side-effect-free modules (`engine.js`,
 `live.js`, `lib.js`) and nothing else: `app.js` starts this site's router when imported (Q-112). A
 live turn is Ask's pipeline with the guide's own prompt, from `chat.json`'s `guide`; its pictures

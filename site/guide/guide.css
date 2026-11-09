@@ -1,4 +1,4 @@
-/* The trade marks guide (ADR-0154): a chat for the public, clean and uncluttered.
+/* Tommy Tradecraft (ADR-0154, ADR-0155): a chat for the public, clean and uncluttered.
 
    Its own stylesheet, apart from the explorer's: one column, a message box docked at the foot,
    and nothing on screen but the conversation until the reader asks for more. It keeps two things
@@ -70,7 +70,7 @@ p:last-child { margin-bottom: 0; }
 .gd-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
 .gd-brand b { font-weight: 650; font-size: 16px; letter-spacing: -.01em; }
 .gd-brand small { margin-left: 8px; font-size: 11.5px; font-weight: 600; letter-spacing: .04em; color: var(--green-ink); background: var(--green-bg); padding: 2px 8px; border-radius: 999px; vertical-align: 2px; }
-.gd-logo { width: 32px; height: 32px; border-radius: 10px; background: var(--green); display: grid; place-items: center; }
+.gd-logo { width: 32px; height: 32px; border-radius: 50%; background: var(--green); display: grid; place-items: center; }
 .gd-logo svg { width: 20px; height: 20px; fill: #e8f3dc; }
 .gd-top-r { display: flex; gap: 8px; }
 .gd-new, .gd-about-btn { white-space: nowrap; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 13.5px; color: var(--ink-2); cursor: pointer; }
@@ -103,8 +103,10 @@ p:last-child { margin-bottom: 0; }
 @media (prefers-reduced-motion: reduce) { .gd-msg { animation: none; } }
 .gd-msg.me { justify-content: flex-end; }
 .gd-me { max-width: 80%; background: var(--me); color: #fff; padding: 10px 16px; border-radius: 18px 18px 4px 18px; white-space: pre-wrap; overflow-wrap: anywhere; }
-.gd-av { width: 30px; height: 30px; border-radius: 10px; background: var(--green-bg); display: grid; place-items: center; flex: none; margin-top: 2px; }
-.gd-av svg { width: 18px; height: 18px; fill: var(--green); }
+.gd-av { width: 30px; height: 30px; border-radius: 50%; background: var(--green); display: grid; place-items: center; flex: none; margin-top: 2px; }
+.gd-av svg { width: 18px; height: 18px; fill: #e8f3dc; }
+.gd-hello-av { width: 56px; height: 56px; border-radius: 50%; background: var(--green); display: grid; place-items: center; margin-bottom: 18px; box-shadow: 0 0 0 6px var(--green-bg); }
+.gd-hello-av svg { width: 32px; height: 32px; fill: #e8f3dc; }
 .gd-bot { flex: 1; min-width: 0; }
 .gd-say { font-size: 16px; line-height: 1.65; }
 .gd-say p { margin: 0 0 .7em; }

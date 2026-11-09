@@ -5,7 +5,7 @@
    application process and objections raised in examination, likely through a conversational
    assistant with clear visuals (ADR-0138). The demonstrations are the customer explanation preview
    (ADR-0146) on invented matters; this page says that they are not tested with customers, not
-   advice and never an outcome. Since ADR-0154 the conversational guide (`site/guide/`) leads them:
+   advice and never an outcome. Since ADR-0154 the conversational guide (`site/guide/`, Tommy Tradecraft since ADR-0155) leads them:
    the assistant ADR-0138 foresaw, built on the owner's word, a prototype on the same footing. The
    hero is words alone, and the plan for testing with customers
    left this page, on the owner's annotations (ADR-0153); the customer preview and the overview
@@ -41,10 +41,10 @@ export function render(root, { ontology }) {
 
       <section class="au-sec" aria-labelledby="pu-now">
         <div class="sec-head"><div><span class="eyebrow">Working demonstrations</span><h2 id="pu-now">A conversation, and three explanations, built from the same rules</h2></div>
-          <p>The explanations run on ${fmt(c.fictional_matters)} invented applications, built to show situations that are hard to explain. The guide answers questions in your own words.</p></div>
+          <p>The explanations run on ${fmt(c.fictional_matters)} invented applications, built to show situations that are hard to explain. Tommy Tradecraft, an AI guide, answers questions in your own words.</p></div>
         <div class="fc-demos pu-guide">
-          ${demoCard({ href: "guide/", art: "assistant", k: "Conversational guide · prototype", title: "Chat with the trade marks guide",
-            text: "Ask about requirements, the application process or an objection, in your own words. It answers in plain language with pictures of the journey and of what the examiner looks at, asks a quick question when a fact would change the explanation, and keeps its sources one tap away rather than on screen.",
+          ${demoCard({ href: "guide/", art: "assistant", k: "AI guide · prototype", title: "Chat with Tommy Tradecraft",
+            text: "Ask Tommy, an AI guide, about requirements, the application process or an objection, in your own words. Tommy answers in plain language with pictures of the journey and of what the examiner looks at, asks a quick question when a fact would change the explanation, and keeps its sources one tap away rather than on screen.",
             points: ["Asks before it guesses, as in the invented Corner Brew case", "The law and IP Australia’s guidance kept apart in every answer", "Never says how an application will be decided"], go: "Start a chat", state: "Answers are AI-written and unreviewed" })}
         </div>
         <div class="fc-demos three">

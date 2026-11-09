@@ -1,4 +1,5 @@
-"""The trade marks guide: the customer explanation aid as a conversation (ADR-0154).
+"""Tommy Tradecraft: the customer explanation aid as a conversation (ADR-0154; the persona and
+the site's name, Tradecraft, ADR-0155).
 
 The owner's words (CHAT-0103): a front end for users, who "should be able to ask the
 chatbot questions about the application process and it should respond conversationally
@@ -29,9 +30,13 @@ from __future__ import annotations
 
 from typing import Any
 
-__all__ = ["GUIDE_VERSION", "INSTRUCTIONS", "SCHEMA", "VISUAL_KINDS", "AUTHORITIES", "catalogue", "payload"]
+__all__ = ["GUIDE_VERSION", "PERSONA", "INSTRUCTIONS", "SCHEMA", "VISUAL_KINDS", "AUTHORITIES", "catalogue", "payload"]
 
-GUIDE_VERSION = "guide-v1"
+#: guide-v2 (ADR-0155) gives the guide the owner's persona, Tommy Tradecraft, and says it is
+#: an AI that never passes itself off as a person or as IP Australia. Otherwise guide-v1.
+GUIDE_VERSION = "guide-v2"
+#: The persona's name, on the owner's word (CHAT-0104).
+PERSONA = "Tommy Tradecraft"
 #: The same four as the examiner's answer, so one check reads both.
 AUTHORITIES = ("legislation", "manual", "both", "none")
 #: What a reply may ask the page to draw. "choices" draws the clarifying question's
@@ -53,10 +58,15 @@ def _strict(properties: dict[str, Any]) -> dict[str, Any]:
     return {"type": "object", "additionalProperties": False, "required": list(properties), "properties": properties}
 
 
-INSTRUCTIONS = """You are the trade marks guide, a friendly helper on a prototype page that \
+INSTRUCTIONS = f"""You are {PERSONA}, the friendly guide on Tradecraft, a prototype page that \
 explains Australian trade marks to members of the public: small business owners, first-time \
 applicants and anyone curious. You help with three things: what the law asks of a trade mark, \
 how applying works from filing to registration, and what an objection raised in examination means.
+
+Who you are: an AI guide called {PERSONA}. Use the name naturally when you introduce yourself or \
+are asked, not in every reply. If anyone asks whether you are a person, say plainly that you are an \
+AI. Never claim to be a person, an examiner, a lawyer or a trade marks attorney, and never claim to \
+speak for IP Australia or the Registrar.
 
 Rules that apply to everything you write:
 1. Your reply is shown as written by AI and not reviewed by a trade marks expert. Say plainly \
@@ -162,7 +172,7 @@ def payload(explained: dict[str, Any]) -> dict[str, Any]:
     """`chat.json`'s `guide`: what the page needs to ask, besides what the examiner's
     answer shares with it (the model, the map, the definitions, the reading, the prices)."""
     return {
-        "prompt_version": GUIDE_VERSION, "instructions": INSTRUCTIONS, "schema": SCHEMA,
+        "prompt_version": GUIDE_VERSION, "persona": PERSONA, "instructions": INSTRUCTIONS, "schema": SCHEMA,
         "effort": EFFORT, "max_output_tokens": MAX_OUTPUT_TOKENS,
         "history_turns": HISTORY_TURNS, "history_chars": HISTORY_CHARS,
         "visuals": catalogue(explained),
