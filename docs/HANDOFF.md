@@ -1,8 +1,8 @@
 # HANDOFF
 
-**Last updated:** 2026-11-09 · S050 · ChatGPT's UX review of the site acted on where it holds
-(ADR-0152), on branch `claude/practical-thompson-7l786c`, built on `main` after PR #50 (the audience
-rebuild, merged). Not merged.
+**Last updated:** 2026-11-09 · S051 · the owner's annotated screenshots, a new examiners colour and
+ChatGPT's copy brief applied to the site (ADR-0153), on branch `claude/inspiring-carson-s929va`,
+built on `main` after PR #51 (S050's UX review, merged). Not merged.
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
@@ -10,67 +10,65 @@ Rewritten every session, under 150 lines (ADR-0110). History is in the git log a
 ## Where things stand
 
 **The purpose is ADR-0138** (`CLAUDE.md` §0). Every package in `docs/ONTOLOGY-REVIEW-RESPONSE-2.md`
-is built; the redesign (ADR-0148), the what-if (ADR-0149), the copy pass (ADR-0150) and the audience
-rebuild (ADR-0151) are merged. Nothing was spent in S050.
+is built; the redesign (ADR-0148), the what-if (ADR-0149), the copy pass (ADR-0150), the audience
+rebuild (ADR-0151) and the UX review (ADR-0152) are merged. Nothing was spent in S051.
 
-**S050 worked through ChatGPT's 30-finding UX review, on the owner's word** (CHAT-0101,
-`review/returned/261109-owner-chat-ux-audit.md`; the review is
-`docs/Nov_rebuild-ref-doc/TM-Knowledge-UX-Audit-2026-11-09.html`). Sixteen done, nine in part, five
-declined; every verdict and reason is in
-`docs/feedback-inbox/2026-11-09-ux-audit-after-action-report.md`. The owner asked that the
-overview's "One rule, from words to structure" stay; it is unchanged.
-- **Claims calibrated:** a matching quotation shows where words come from, not that an answer is
-  right (home, examiners, Ask); direction setting finds what a change *might* affect, and a count is
-  a review list, not an impact.
-- **The public preview's recorded states** are document marks with words ("recorded: met"), never
-  ticks, and the board says the site restates the invented report and assesses nothing.
-- **The concept explorer** bundles several records of one connection into one entry with its count
-  (each listed when selected), shows four per group, and wraps names instead of cutting them.
-- **Less in the first screen:** the overview offers the three audiences at once; each audience page
-  shows three possibilities and folds the rest; Ask shows three examples; the objection walkthrough
-  opens on one case with "Change example"; Trace a change shows the counts first, the guess only if
-  asked; the what-if folds its premise; Results and limits leads with a one-paragraph verdict.
-- **For nerds** opens with a four-step account of the foundation; "How it works" is now "A search,
-  step by step" (`#/how`, unchanged route).
-- **Design system:** breadcrumbs on deep pages (`crumb`), `--ink-3` darkened to pass 4.5:1,
-  readiness as a dot and label, the map's in-place key (dot size is not importance).
-- **Found along the way:** the overview's in-page link went through the router and re-rendered the
-  page; `app.js` now catches same-page links (Q-110).
+**S051 refined the site on the owner's word** (CHAT-0102,
+`review/returned/261109-owner-chat-annotations.md`). The owner gave seven screenshots marked in red
+(remove) and blue (change), asked for the rose to become "a pastel orange/yellow", and attached
+ChatGPT's copy brief. Inputs are in `docs/Nov_rebuild-ref-doc/annotations/`; every verdict is in
+`docs/feedback-inbox/2026-11-09-copy-brief-after-action-report.md`.
+- **Removed, as drawn:** the overview hero's description, buttons and source note (and S050's
+  three-audience row that replaced the buttons), so the section 44 rule sits under the headline; the
+  hero cards on the three audience pages; the about line's "AI wrote most of its records ..." (the
+  owner's answer to F10; the status strip on every page still says it, now pinned); the public
+  overview's "What we may test with customers"; For nerds' "The contract, in one line".
+- **Changed, as drawn:** the examiners' tint is pastel apricot (`--aud-exam #c8751c`, ink `#8a4a0f`,
+  6:1 or better); the examiners' and the public's door pictures are redrawn as centred emblems.
+- **Copy brief:** all 13 priority-0 items; most priority-1 items. "Working demonstration" against
+  "possible future use"; no unmeasured "faster", "every" over what is recorded, "supercharging" or
+  "impact modelling"; the horizon "within reach" is "builds on current work". Where the brief and a
+  drawing disagree, the drawing won (the lede, the direction chart, the testing section).
+- **Along the way:** demo cards side by side keep their pictures one height (Q-111); the direction
+  door's subtitle has its own line.
 - **Unchanged:** `authored/`, the graph, every record, `site/data/` and its builder, the prompts and
-  the explanation objects. Nothing changes what the system may say.
+  the explanation objects, the headline, the section 44 example, the section labels and routes.
+  Nothing changes what the system may say.
 
 **Tests:** `test_explorer.py`, `test_whatif.py`, `test_dependencies.py`, `test_hygiene.py` and
-`test_dashboard.py` (see the commit body for the run); a new test pins the calibrated wording, no
-ticks on recorded states and the optional guess. **QA:** every route and old alias in Chromium at
-1366 px: no script errors, no `undefined`/`NaN`, no horizontal overflow; keyboard checks of the
-concept explorer, the guess, "Change example" and the in-page link. At 200% zoom (683 px) every page
-scrolls sideways, before and after: the layouts need about 1,040 px (ADR-0148's desktop-only).
-Not checked: a screen reader, a live answer (no proxy locally).
+`test_dashboard.py` (see the commit body for the run). `test_explorer.py` no longer pins the removed
+testing section; it pins the status strip's authorship line and the bounded wording instead.
+**QA:** 25 routes and old aliases in Chromium at 1366 px: no script errors, no `undefined`/`NaN`, no
+horizontal overflow; screenshots of the five section pages, the concept explorer and the what-if.
+Not checked: a screen reader, a live answer, 200% zoom (desktop-only, ADR-0148).
 
 **Spend.** Cap **US$13.63**, recorded **US$11.61**; the remaining US$2.02 is approved for nothing.
 
 ## Next actions
 
-1. **The owner's look, then a merge.** Merging to `main` publishes it (ADR-0112). The report's last
-   section names the two things that are the owner's: dropping any repeated safeguard (F10) and
-   reflowing at 200% zoom, which would reverse desktop-only (F28).
-2. **Small follow-ups the review left:** real micro-examples for the three thumbnails on Rules as
-   code (F23); a full icon-meaning audit (F26); the remaining state pills (F30).
-3. **Make the demonstrations measurable** (the reviews' own advice): first-time readers, fresh cases,
-   no coaching. Testing with people is the owner's to start (§3a).
-4. **Raise upstream: a second compilation of the Act** (the one before 48, and the transitional
+1. **The owner's look, then a merge.** Merging to `main` publishes it (ADR-0112). Two readings of
+   the drawings to confirm (the report's last section): drawing 01 also took the three-audience
+   row; drawing 02 was read as "redraw these two pictures".
+2. **The brief's owner questions** (§11): which measured results become claims outside the
+   repository; commissioning small task-based tests with examiners, applicants and Manual owners.
+3. **Small follow-ups:** real micro-examples for the three thumbnails on Rules as code (F23); a full
+   icon-meaning audit (F26); the remaining state pills (F30); glossary entries for "recorded link"
+   and "working demonstration" if readers stumble on them.
+4. **Make the demonstrations measurable:** first-time readers, fresh cases, no coaching. Testing
+   with people is the owner's to start (§3a).
+5. **Raise upstream: a second compilation of the Act** (the one before 48, and the transitional
    provisions), so `versions.select` can choose between texts.
-5. **Customer slice, widening** (no gate needed while fictional): more tests (s 42, s 39, s 41's
+6. **Customer slice, widening** (no gate needed while fictional): more tests (s 42, s 39, s 41's
    Part 22–26 sub-routes); an opposition template; GP-0002's left-outs.
-6. **Afterwards:** the blend (S034); the 15 undefined concepts; heading-only edges (GR-0270).
+7. **Afterwards:** the blend (S034); the 15 undefined concepts; heading-only edges (GR-0270).
 
 ## For the owner
 
-- **The site is on the branch, not live.** Start at the overview; the section 44 example is as it was.
-- **What I declined, in one line each:** the headline and the section labels are yours (subtitles
-  added instead); the safeguards are required and pinned, so which to drop is yours; the nine-step
-  walkthrough is kept and renamed; the map, rules and standards pages are For nerds, where depth is
-  allowed; the bow-tie stays the default view of a concept.
+- **The site is on the branch, not live.** Start at the overview.
+- **What the brief asked that I did not do, in one line each:** a new lede on the overview, keeping
+  the direction chart and keeping the testing section (your drawings said remove); a Manual
+  governance card and a new "why a foundation" block (no new blocks while you are removing them);
+  glossary entries (not needed yet).
 - **OQ-0030: approve or reject RULE-0003.** Nothing is blocked.
 - Showing the public demonstrations to customers, testing with them, or real case data are still
   yours; so is which measured results become claims outside the repository.
@@ -79,18 +77,16 @@ Not checked: a screen reader, a live answer (no proxy locally).
 
 ## What to distrust
 
-- **Both rebuilds are agents' designs**, not tested on a reader; the review is a heuristic review,
-  not a usability study.
-- **"recorded: met"** restates the explanation object's state; for a fact it may come from the
-  invented case's dates rather than its report, which is why the words are "recorded", not "report
-  says".
-- **The bundled connections** are grouped by predicate and other end only; two records with
-  different strengths or conditions sit in one entry and show each strength as its own badge.
-- **The concept explorer's groups are the predicates' own labels**, verbatim (Q-94); renaming one is
-  a predicate change, not copy.
-- **The guess's bins** (fewer than 10, 10 to 99, 100 or more) are a prompt to think, not a measure.
-- From S049 and earlier: the workbench copy is partly stale; "map-guided search", "knowledge map" and
-  "ontology" still name the same thing in places on the nerds pages; the what-if is one session's
+- **The drawings carry no words.** Each reading is the agent's, written down in the returned
+  artefact; drawings 01 and 02 are the two that could be read another way.
+- **The apricot sits near the Act's amber and the machine stamp's rust.** It is wayfinding only and
+  never colours a record, but nobody has checked it with a colour-blind reader.
+- **Both rebuilds and this pass are agents' designs**, not tested on a reader.
+- From S050: "recorded: met" may come from an invented case's dates rather than its report; the
+  bundled connections are grouped by predicate and other end only; the concept explorer's groups are
+  the predicates' own labels (Q-94); the guess's bins are a prompt, not a measure.
+- From S049 and earlier: the workbench copy is partly stale; "map-guided search", "knowledge map"
+  and "ontology" still name the same thing in places on the nerds pages; the what-if is one session's
   reading; the map's layout is shaped to the window on load; light theme only; RULE-0003's residue;
   GP-0002 and the s 44 diagram; the structured-test lookup is unmeasured; the legal tests are
   unreviewed; the dependency index sees only what a record names; `PITCH-PACK.md` is stale.
@@ -104,6 +100,7 @@ Not checked: a screen reader, a live answer (no proxy locally).
   `python3 -m http.server -d site 8000`; Playwright via Node as CommonJS (Q-105), Chromium in
   `/opt/pw-browsers`, a fresh page per route (Q-102); click a shape inside an SVG group (Q-106).
 - **Same-page links** (`href="#id"`) are caught by `app.js` before the router (Q-110).
+- **Cards in a grid** that stack a picture over words need `grid-template-rows: auto 1fr` (Q-111).
 - **Site CSS**: every view's classes carry its prefix (`site/README.md` lists them, Q-101), and so do
   their state words: `.stamp`, `.next`, `.small` and `.term` are global (Q-108).
 - **Site wording is pinned by tests in four files** (Q-107). `home.js` must not contain the figures
@@ -117,6 +114,8 @@ Not checked: a screen reader, a live answer (no proxy locally).
 
 ## Open items (agent-proposed, provisional)
 
+- **ADR-0153's agent parts** (the reading of each drawing; the apricot's values; the redrawn doors;
+  which brief items were done, adapted or declined; "builds on current work").
 - **ADR-0152's agent parts** (which findings were done, in part or declined; the "recorded" wording;
   bundling connections; three possibilities shown; the renamed walkthrough; `--ink-3`'s value).
 - **ADR-0151's agent parts** (the five sections and their routes; the tints; the overview's example;

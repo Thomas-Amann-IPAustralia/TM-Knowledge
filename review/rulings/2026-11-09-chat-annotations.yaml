@@ -1,0 +1,47 @@
+# A decision the repo owner made in a chat session. Hand-transcribed by the S051 agent;
+# no issue behind it. The artefact is `review/returned/261109-owner-chat-annotations.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-11-09T00:00:00Z'
+questions_updated: '2026-11-09'
+source:
+  kind: chat
+  artefact: review/returned/261109-owner-chat-annotations.md
+  author: the owner (the session's user; no name given in the chat)
+  relayed_by: S051 agent
+  title: Refine the site from annotated screenshots, replace the rose colour, and fix the language from ChatGPT's copy brief
+applied:
+  session: S051
+  date: '2026-11-09'
+  branch: claude/inspiring-carson-s929va
+  what_changed: >-
+    The site (site/) only. The examiners' tint is pastel apricot in place of rose. Removed, as the
+    drawings mark: the overview hero's description, buttons and source note (the three-audience row
+    that replaced the buttons went with them), so the section 44 rule sits under the headline; the
+    hero cards on For examiners, For the public and For direction setting; the sentence "AI wrote
+    most of its records ..." from each section's about line (the status strip on every page and
+    every record's stamp still say it); the public overview's "What we may test with customers"
+    section; For nerds' "The contract, in one line". Redrawn: the examiners' and the public's door
+    pictures. Wording from ChatGPT's copy brief where it still applied: unmeasured speed, "every",
+    "supercharging", "impact modelling" and "coming next" replaced by bounded claims and "possible
+    future uses". Every item's verdict is in
+    docs/feedback-inbox/2026-11-09-copy-brief-after-action-report.md. No record, graph, prompt or
+    explanation object changed.
+answers:
+- id: CHAT-0102
+  item: the owner's annotated screenshots, a new examiners colour, and ChatGPT's copy brief
+  question: How should the site's UI and wording be refined?
+  kind: instruction
+  value: apply_annotations_recolour_and_copy_brief
+  label: Remove what the drawings mark in red, change what they mark in blue, make the rose a pastel orange or yellow, and fix the language from the brief
+  quote: >-
+    Please further refine the UI and UX of this website. I'l like you to change the rose colour to
+    something else. Maybe a pastel orange/yellow? I've created a number of very rough drawings over
+    some screenshots indicating what I'd like removed or changed (changed = blue). I've also attached
+    a chatGPT suggestion book for fixing the language on the site.
+  notes: >-
+    The drawings and the brief are in docs/Nov_rebuild-ref-doc/annotations/. The drawings carry no
+    words; the agent's reading of each is in the returned artefact. Striking the about line's
+    authorship sentence is the owner's answer to the question S050 left open (UX review F10: which
+    repeated safeguard to drop). Removing the customer-testing section changes what the public
+    overview says about testing, not what the system may say to a customer.
+  recorded_as: [ADR-0153]

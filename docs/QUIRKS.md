@@ -1824,3 +1824,13 @@ that from S049 until S050 noticed it. Since S050 the document click listener in 
 `a[href^="#"]` that is not `#/…`, scrolls to the element with that id and focuses it, before the
 router sees anything. Give the target an `id`; do not add a per-page scroll handler. The results
 page's `data-jump` buttons predate this and still work.
+
+### Q-111: cards side by side in a grid stretch their picture row unless the rows are sized
+
+A demo card (`.fc-demo`) is a grid of two rows, picture then words. In a row of cards the grid
+stretches every card to the tallest, and with the default `grid-template-rows` that extra height is
+shared out between both rows, so the card with the shortest words got the tallest picture panel and
+the words started at three different heights across the public overview (182, 206 and 194 px
+panels for the same 141 px drawing). `grid-template-rows: auto 1fr` keeps the picture at its own
+height and gives the slack to the words. Any new card that stacks a picture over words in a grid
+needs the same.

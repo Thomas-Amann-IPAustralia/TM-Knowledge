@@ -4,7 +4,7 @@ Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-11-09, ADR-0152 (S050).
+**As at:** 2026-11-09, ADR-0153 (S051).
 
 ## Purpose and scope
 
@@ -53,7 +53,8 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   marked "read by the model"; the owner approved it and its cost per question (ADR-0133).
 - **The site is organised by who it serves** (ADR-0151, replacing ADR-0145's four layers): an
   overview, then For examiners, For the public and For direction setting, each leading with working
-  demonstrations and then possibilities marked working now, within reach or needs more data, and
+  demonstrations and then possibilities marked working demonstration, builds on current work or
+  needs more data (ADR-0153's names), and
   For nerds holding how it works, the map, the standards, the tables, the results and the glossary.
   Outcomes still come first and the ontology last; plain English on pages that stand alone, except
   For nerds; every standard still explained in plain words.
@@ -68,6 +69,11 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   report; what rests on a provision is what a change *might* affect, a review list, not an impact;
   duplicate connections are bundled with their record count, never merged. The overview's headline,
   its section 44 example and the section labels are the owner's and stay.
+- **Present and future said one way** (ADR-0153, from the owner's annotations and ChatGPT's copy
+  brief): "working demonstration" against "possible future use"; no unmeasured "faster", no "every"
+  over what the index records, no "impact modelling". Who wrote the records is said once per page,
+  by the status strip, and on every record's stamp; the section about lines no longer repeat it.
+  The examiners' tint is pastel apricot.
 - **On the site, an expert's review is marked, never featured.** Machine-written
   records keep "Machine · unreviewed" everywhere; reviewed ones say "Reviewed", grey,
   with no name; pictures draw every record alike. The Manual, the Act and the
