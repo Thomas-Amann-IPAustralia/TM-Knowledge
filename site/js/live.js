@@ -59,6 +59,17 @@ export function answer(live, chat, input, signal, onText = null) {
   }, signal, onText);
 }
 
+/** A reply from the trade marks guide (`site/guide/`, ADR-0154): the same model and proxy as
+    the answer, with the guide's own instructions and schema from `chat.json`'s `guide`, which
+    `tm_knowledge.explain.guide` writes. The proxy counts it as an answer. */
+export function guide(live, chat, input, signal, onText = null) {
+  const g = chat.guide;
+  return respond(live, {
+    model: chat.model, instructions: g.instructions, schema: g.schema, name: "guide",
+    input, max_output_tokens: g.max_output_tokens, effort: g.effort,
+  }, signal, onText);
+}
+
 /** The reading's input — `bulk.jobs.reading_input`, character for character. */
 export const readingInput = (chat, question) => `ONTOLOGY (one line per concept):\n${chat.ontology_map}\n\nQUESTION: ${question}`;
 

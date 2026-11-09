@@ -14,8 +14,9 @@ next:
    safeguards and the work still to do.
 2. **For examiners**: the overview (`#/examiners`) and two working demonstrations, Explore a legal
    concept (`#/concepts`) and Ask a research question (`#/ask`).
-3. **For the public**: the overview (`#/public`) and the customer explanation preview (`#/customers`): an objection step by step, what a rule requires, and
-   the application journey, on invented matters.
+3. **For the public**: the overview (`#/public`), the trade marks guide (`guide/`, a page of its own,
+   below) and the customer explanation preview (`#/customers`): an objection step by step, what a
+   rule requires, and the application journey, on invented matters.
 4. **For direction setting**: the overview (`#/direction`), Trace a change (`#/change`) and the
    what-if, a new right laid over the ontology (`#/whatif`).
 5. **For nerds** (`#/nerds`): how the foundation works in four steps, then a search followed step by
@@ -54,7 +55,7 @@ Generated: everything under `data/`, written by `tmk-explorer --write` from
 | `data/stability.json` | the Manual's amendment history, what rests on each page, and what rests on each provision |
 | `data/tour.json` | the Manual by Part, ideas named many ways, one worked example (the Overview's opening question) |
 | `data/examples.json` | the 129 prepared answers and each search system's score |
-| `data/chat.json` | the measured answer prompt, verbatim, for live questions; and the live-only reading prompt (ADR-0132) |
+| `data/chat.json` | the measured answer prompt, verbatim, for live questions; the live-only reading prompt (ADR-0132); and the guide's prompt, schema and picture catalogue (`guide`, ADR-0154) |
 | `data/live.json` | whether live answers are on, and the proxy they go through. No key, ever |
 | `data/whatif.json` | a what-if (ADR-0149): an invented new right laid over the ontology unchanged, each touch point's quotes, the records it lands on and what would go back to be re-read, from `tm_knowledge.explain.whatif` |
 | `data/explain.json` | the customer preview: every invented matter's explanation, each test's requirements and each process walked through, from `tm_knowledge.explain`, each with its text equivalent and stamp |
@@ -104,7 +105,7 @@ nothing (ADR-0152). Small meaningful text uses `--ink-3`, at least 4.5:1 on ever
 is for decorative strokes only. A legal test's conditions are marked **Fact** (a square with a tick) or
 **Assessment** (a scale) wherever they appear. Every picture has a text equivalent or says in words
 what its colours mean. Each view's classes carry a short prefix (`ld-` overview, `ex-` examiners,
-`ce-` concept explorer, `rs-` Ask, `pu-` public, `cx-` the public demonstrations, `dr-` direction
+`ce-` concept explorer, `rs-` Ask, `gd-` the guide (its own stylesheet), `pu-` public, `cx-` the public demonstrations, `dr-` direction
 setting, `ch-` Trace a change, `wi-` the what-if, `nd-` For nerds, `hw-` How it works, `mp-` the
 map, `rx-` rules, `sd-` standards, `gv-` glossary, `ab-` results and limits, `dg-` the shared
 diagrams, `il-` and `fc-` the drawings and cards, `au-` a section's hero), and so do their state
@@ -117,7 +118,7 @@ words (Q-101, Q-108).
 | `#/` | `home.js` | the overview: section 44 from the Act's words to structure, facts and assessments marked; a door for each group; one foundation under the tools; the safeguards, the work still to do and the measurement in both directions; the door to For nerds |
 | `#/examiners` | `examiners.js` | for examiners: the two demonstrations, a preview of one concept's connections with one of them and its sentence, and what could come next |
 | `#/concepts/GC-…` | `concepts.js` | Explore a legal concept: the connections that lead to and from one concept as a bow-tie, each with its predicate's words, strength and condition, several records of one connection bundled with their count and each listed when selected; its names and not-names; its role in a legal test (fact or assessment); where the Manual names it, Part by Part; what it rests on; a research trail |
-| `#/ask/BN-…` | `ask.js` | Ask a research question: a streamed, cited answer with the unreviewed stamp, the Act and the Regulations kept apart from the Manual, the concepts the question names and the legal test it reaches; how the sources were found (the hop diagram and keyword search beside it) folded behind "Why these sources?" |
+| `#/ask/BN-…` | `ask.js` | Ask a research question, for examiners still learning the sources (ADR-0154): a key to the labels before a question; a streamed answer read statement by statement, each labelled by what its found quotations come from (law, practice, both, no matching quotation, about the sources) with the quoted words beneath it, a count of supported statements first and four checks before relying on it; the law listed before the Manual; the concepts the question names with their definitions, and the legal test it reaches; how the sources were found (the hop diagram and keyword search beside it) folded behind "Why these sources?" |
 | `#/public/customers?` | `public.js` | for the public: the three demonstrations, a preview of one invented case, what may be tested with customers and on whose decision, and what could come next |
 | `#/customers/{objection,requirements,process}/…` | `customers.js` | the customer explanation preview, behind its banner (ADR-0146): an objection in six steps beside a picture of the case that lights the part each step explains, with two cases under one rule compared; what a rule requires; the application journey; each with its text equivalent |
 | `#/direction` | `direction.js` | for direction setting: the provisions with the most recorded links (direct and via the Manual, not importance), the two demonstrations, and what could come next |
@@ -135,6 +136,16 @@ words (Q-101, Q-108).
 Older routes still work: `#/tour` and `#/model` open How it works, `#/circles` opens the map's Kinds
 view, and `#/future` (What's next, retired in ADR-0151) opens the public overview (`ALIASES` in
 `app.js`).
+
+## The trade marks guide (`guide/`)
+
+A chat for the public, on its own page with its own stylesheet (ADR-0154): `site/guide/README.md`
+says what is in it. It shares the generated data and three side-effect-free modules (`engine.js`,
+`live.js`, `lib.js`) and nothing else: `app.js` starts this site's router when imported (Q-112). A
+live turn is Ask's pipeline with the guide's own prompt, from `chat.json`'s `guide`; its pictures
+are `explain.json`'s objects, named by id. With live answers off it walks through four guided
+topics from `explain.json` alone. The public overview, the overview's tool list and the footer link
+to it.
 
 ## The knowledge map
 

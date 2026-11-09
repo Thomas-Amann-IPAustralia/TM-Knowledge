@@ -10,8 +10,12 @@ legal test drawn as a diagram and a process as a journey, each with its text equ
 `netlayout.js` (where each idea sits, for the map and How it works), `icons.js` (line icons),
 `graph.js` (SVG helpers for Ask's diagram), `engine.js` (search and the answer prompt, kept
 identical to Python by `tests/explorer_parity.mjs`), `live.js` (the streamed model calls: the
-reading of a typed question, then the answer) and `lib.js` (loads vendored libraries per view,
-ADR-0119). See `../README.md`.
+reading of a typed question, then the answer, or the guide's reply) and `lib.js` (loads vendored
+libraries per view, ADR-0119). See `../README.md`.
+
+`engine.js`, `live.js` and `lib.js` have no side effects on import, so the trade marks guide
+(`../guide/`, ADR-0154) imports them too. Keep them that way: `app.js` starts the router when it
+loads, and anything that imports it cannot be shared with the guide (Q-112).
 
 Must not: decide which concepts or connections exist, author legal text, evaluate a condition or
 compute a date, type a figure that the data holds, load anything from outside the site (libraries

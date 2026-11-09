@@ -5,7 +5,9 @@
    application process and objections raised in examination, likely through a conversational
    assistant with clear visuals (ADR-0138). The demonstrations are the customer explanation preview
    (ADR-0146) on invented matters; this page says that they are not tested with customers, not
-   advice and never an outcome. The hero is words alone, and the plan for testing with customers
+   advice and never an outcome. Since ADR-0154 the conversational guide (`site/guide/`) leads them:
+   the assistant ADR-0138 foresaw, built on the owner's word, a prototype on the same footing. The
+   hero is words alone, and the plan for testing with customers
    left this page, on the owner's annotations (ADR-0153); the customer preview and the overview
    still say that testing, real case data and publishing to customers stay the project owner's
    decisions (CLAUDE.md §3a). Classes are prefixed `pu-`. */
@@ -38,8 +40,13 @@ export function render(root, { ontology }) {
       </div>
 
       <section class="au-sec" aria-labelledby="pu-now">
-        <div class="sec-head"><div><span class="eyebrow">Working demonstrations</span><h2 id="pu-now">Three explanations, built from the same rules</h2></div>
-          <p>Each runs on ${fmt(c.fictional_matters)} invented applications, built to show situations that are hard to explain.</p></div>
+        <div class="sec-head"><div><span class="eyebrow">Working demonstrations</span><h2 id="pu-now">A conversation, and three explanations, built from the same rules</h2></div>
+          <p>The explanations run on ${fmt(c.fictional_matters)} invented applications, built to show situations that are hard to explain. The guide answers questions in your own words.</p></div>
+        <div class="fc-demos pu-guide">
+          ${demoCard({ href: "guide/", art: "assistant", k: "Conversational guide · prototype", title: "Chat with the trade marks guide",
+            text: "Ask about requirements, the application process or an objection, in your own words. It answers in plain language with pictures of the journey and of what the examiner looks at, asks a quick question when a fact would change the explanation, and keeps its sources one tap away rather than on screen.",
+            points: ["Asks before it guesses, as in the invented Corner Brew case", "The law and IP Australia’s guidance kept apart in every answer", "Never says how an application will be decided"], go: "Start a chat", state: "Answers are AI-written and unreviewed" })}
+        </div>
         <div class="fc-demos three">
           ${demoCard({ href: "#/customers/objection", art: "demo-objection", k: "Fictional objection walkthrough", title: "Understand an objection",
             text: "Walk through an examiner’s objection on an invented application, one step at a time: what it is about, what the law looks at, what could change things, and where the application is now.",
@@ -58,9 +65,6 @@ export function render(root, { ontology }) {
           <p>Possibilities, not commitments. Each says what it would build on and what it would still need.</p></div>
         ${horizonKey()}
         ${possibilityGrid([
-          possibilityCard({ art: "assistant", horizon: "reach", title: "A guided assistant with clear visuals",
-            text: "A possible conversational guide that could explain requirements, the process and objections, drawing the same pictures as these demonstrations and showing the source for each point. It would say what it does not know rather than guess.",
-            builds: "the explanations and pictures on this site, and the cited answers examiners can already try", needs: "expert review of the records, testing with customers, operational controls, and the project owner’s approval before any customer sees it or any real application data is used" }),
           possibilityCard({ art: "prefiling", horizon: "reach", title: "Pre-filing education",
             text: "Before someone invests in a brand, explain the questions examination asks of a trade mark, such as whether it can distinguish the goods and whether it conflicts with an earlier mark.",
             builds: "the legal tests already set out for sections 41, 43 and 44", needs: "plain-language wording tested with customers, and more of the Act set out as rules" }),
