@@ -6960,3 +6960,43 @@ keep their names. Nothing else in the prompt changed; the guide is still unmeasu
 
 **Consequences.** `test_guide.py` pins the persona's rules, the page's statements that Tommy is an AI,
 and the site's name. The agent parts are provisional; named in the handoff's open items.
+
+## ADR-0156 — Tommy offers only starters the search can answer, and the guide has a back link
+
+**Date** 2026-11-09 · **Authority** human (the instruction), agent-proposed (the replacement starter and the back link's behaviour) ·
+**Status** accepted
+
+**Context.** The owner (CHAT-0105, `review/returned/261109-owner-chat-starters.md`): *"Tommy
+Tradecraft can't answer the first pre-written question. The other answers are excellent though.
+Please only include pre-written questions the chatbot is equipped to answer. Additionally, please
+add a back button or something so a user can leave the interaction more easily".* Reproduced live
+once: for "How does applying for a trade mark work?" the model's reading named "applying for a
+trade mark" (GC-0131), but the search still sent 8 Manual passages of which none described the
+process (they ran from the presumption of registrability to the titles of books), and Tommy
+said its extracts did not cover filing to registration. Without the reading, keyword search returns
+fee pages (disputed card payments, underpayments). The Manual is written for examiners and has no
+passage that walks an applicant through the process.
+
+**Decision (the owner's).** Only starters Tommy can answer; a way back out of the guide.
+
+**Decision (the agent's, inside it).**
+1. **The first starter is "Can I get more time to respond to an examination report?"** (sub-line
+   "Time limits and extensions"; offline, the guided topic on what follows a report). Its search
+   recognises extension of time (GC-0097) and examination (GC-0092) and returns Parts 15 and 16
+   (extensions; time limits for acceptance; responses to a report) with s 224, s 31 and s 33. It is
+   a customer question about the application process, which ADR-0138's customer use names. It was
+   chosen from offline retrieval and not asked of the live model in this session.
+2. **The journey stays, as a guided topic.** The chip after a guided reply that offered the old
+   wording now reads "Show me the journey from filing to registration" and always opens the
+   journey drawn from `explain.json`, so it never reaches the model.
+3. **Back.** The header starts with a Back link to `../#/public`. When the reader came from another
+   Tradecraft page, it steps back through history instead, so they land on the page and route they
+   left (the referrer drops the `#` route). At phone widths it is an arrow, and the brand's logo
+   gives way so the header fits.
+
+**What it does not decide.** Tommy's prompt, the search, and what Tommy may say are unchanged.
+Whether a starter must be measured before it is offered.
+
+**Consequences.** `test_guide.py` pins that the old question is gone, that there are four starters
+including the new one, and that the back link exists. A starter added later is checked against
+`Engine.prepare` first (Q-113). The agent parts are provisional; named in the handoff's open items.
