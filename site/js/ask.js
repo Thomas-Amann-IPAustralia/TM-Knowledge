@@ -66,7 +66,7 @@ export async function render(root, { ontology, params }) {
       <div>
         ${crumb("examiners", "Ask a research question", "Working demonstration")}
         <h1>Ask a research question</h1>
-        <p class="lede">Ask in your own words, or choose an example. You get the law (the Trade Marks Act 1995 and Regulations) and the Manual’s examination practice listed apart, a related legal test where the records contain one, and an AI-written answer with the passage behind each statement. <a href="#rs-check" class="rs-check-link">How to check an answer</a></p>
+        <p class="lede">For examiners still learning the Act, the Regulations and the Manual. Ask in your own words: you get the provisions and the Manual’s practice for your question, listed apart, the concepts it touches with what each means, and an AI-written answer in which every statement shows the words it rests on, or says that none were found. Use it to find what to read, then read it. <a href="#rs-check" class="rs-check-link">How to read an answer</a></p>
       </div>
       <div class="page-head-side">${answersOn ? `<span class="pill working">Live answers on</span>` : `<span class="pill planned">Search and example answers available</span>`}</div>
     </header>
@@ -93,11 +93,16 @@ export async function render(root, { ontology, params }) {
       </div>
     </div>
     <div class="wrap rs-result"></div>
-    <div class="wrap rs-preview">
-      <div class="rs-pv" id="rs-check" tabindex="-1"><span class="rs-pv-n">1</span><h3>Check an answer</h3><p>AI writes the answer. Each statement shows its quotation from the source, or a warning if none could be found. The tool checks that a quotation exists in the source; it does not check that the answer is right, so read the passage for its wording and context.</p></div>
-      <div class="rs-pv"><span class="rs-pv-n">2</span><h3>Read the sources</h3><p>Results are grouped into law and examination guidance. Select a passage to see the original wording.</p></div>
-      <div class="rs-pv"><span class="rs-pv-n">3</span><h3>See how it fits together</h3><p>The concepts your question names, the legal test it reaches with its facts and assessments marked, and why each source was chosen.</p></div>
-    </div>
+    <section class="wrap rs-preview" id="rs-check" tabindex="-1" aria-labelledby="rs-key-h">
+      <div class="rs-key-head"><span class="eyebrow">Before you start</span><h2 id="rs-key-h">How to read an answer</h2>
+        <p>AI writes the answer. Each statement carries a label for what it rests on, and the words it quotes are shown beneath it. The tool checks that a quotation exists in the source; it does not check that the answer is right, so read the passage for its wording and context.</p></div>
+      <ul class="rs-key">
+        <li><span class="rs-basis law act"><i class="mark" aria-hidden="true"></i>Law</span><span>The statement quotes the Trade Marks Act 1995 or the Trade Marks Regulations 1995: the law itself.</span></li>
+        <li><span class="rs-basis manual"><i class="mark" aria-hidden="true"></i>Practice</span><span>It quotes the Manual: how the Registrar examines. Practice, not law; it does not bind the Registrar’s discretion.</span></li>
+        <li><span class="rs-basis none">${stampIcon}No matching quotation</span><span>The AI gave no words for it that could be found in what it read. Treat it as unsupported until you find the source yourself.</span></li>
+        <li><span class="trust machine">AI-written · unreviewed</span><span>No trade marks expert has checked the answer, the concepts or the connections behind it.</span></li>
+      </ul>
+    </section>
   </div>`;
 
   const form = root.querySelector(".rs-form");
@@ -143,7 +148,8 @@ export async function render(root, { ontology, params }) {
       <div class="rs-qline"><span class="eyebrow muted plain">${esc(subtitle)}</span><p class="rs-q">${esc(question)}</p></div>
       <div class="rs-top">
         <article class="card rs-answer">
-          <div class="rs-card-head"><h2>Answer</h2><span class="answer-tags"></span></div>
+          <div class="rs-card-head"><h2>Answer, statement by statement</h2><span class="answer-tags"></span></div>
+          <div class="rs-prov"></div>
           <div class="answer-body"></div>
         </article>
         <aside class="card rs-sources" aria-label="Sources found for this question">
@@ -176,7 +182,7 @@ export async function render(root, { ontology, params }) {
     result.scrollIntoView({ behavior: "smooth", block: "start" });
     const view = {
       hop: result.querySelector(".hop-svg"), steps: result.querySelector(".hop-steps"), why: result.querySelector(".hop-why"),
-      compare: result.querySelector(".compare"), body: result.querySelector(".answer-body"), tags: result.querySelector(".answer-tags"),
+      compare: result.querySelector(".compare"), body: result.querySelector(".answer-body"), tags: result.querySelector(".answer-tags"), prov: result.querySelector(".rs-prov"),
       sources: result.querySelector(".rs-src-body"), count: result.querySelector(".rs-src-count"),
       tests: result.querySelector(".tests"), testsBox: result.querySelector(".rs-tests"), provisions: result.querySelector(".provisions"),
       concepts: result.querySelector(".rs-c-body"), whyBox: result.querySelector(".rs-why"), whyLine: result.querySelector(".rs-why-line"), noTest: result.querySelector(".rs-notest"),
@@ -368,12 +374,13 @@ export async function render(root, { ontology, params }) {
       <span class="rs-src-t"><b data-title="${esc(ref)}">${esc(refLabel(ref))}</b><span class="tiny">${esc(SOURCES[sourceOf(ref)].short)} · ${esc(SOURCES[sourceOf(ref)].role)}</span></span>
       ${isLaw(ref) ? "" : tag(ref)}</button></li>`;
     view.count.textContent = `${g.passages.length} passages${g.legislation.length ? `, ${g.legislation.length} provision${g.legislation.length > 1 ? "s" : ""}` : ""}`;
+    // The law first, then the practice that applies it: the order a newer examiner reads them in.
     view.sources.innerHTML = `
+      ${g.legislation.length ? `<h4 class="rs-src-h"><span class="law act"><i class="mark"></i></span>The Act and the Regulations · law</h4>
+      <ol class="rs-src-list">${g.legislation.map(row).join("")}</ol>` : `<p class="tiny rs-src-none">No provision of the Act or the Regulations was given to this answer. Look for the provision the Manual passages cite.</p>`}
       <h4 class="rs-src-h"><span class="manual"><i class="mark"></i></span>The Manual · practice</h4>
       <ol class="rs-src-list">${g.passages.map(row).join("") || `<li class="empty">None.</li>`}</ol>
-      ${g.legislation.length ? `<h4 class="rs-src-h"><span class="law act"><i class="mark"></i></span>The Act and the Regulations · law</h4>
-      <ol class="rs-src-list">${g.legislation.map(row).join("")}</ol>` : ""}
-      <p class="tiny rs-src-note">Click any one to read it. Practice and law are listed apart, as the answer must keep them.</p>`;
+      <p class="tiny rs-src-note">Click any one to read it in full, with a link to the page in IP Australia’s Manual. Practice and law are listed apart, as the answer must keep them.</p>`;
     // Titles for the passages, once the Manual's text has loaded (it is shared with the drawer).
     load("passages").then((p) => {
       const rows = new Map(p.chunks.map((c) => [c[0], c]));
@@ -403,11 +410,22 @@ export async function render(root, { ontology, params }) {
     const near = [...new Set(followed.map((p) => (recIds.has(p.s) ? p.o : p.s)).filter((id) => !recIds.has(id) && byId.has(id)))];
     const kind = (id) => ontology.kinds.find((k) => k.id === byId.get(id)?.kind)?.label || "";
     const said = (r) => (r.read ? ` · read by the model in “${esc(r.matched || "")}”` : r.matched && r.matched.toLowerCase() !== byId.get(r.id).label.toLowerCase() ? ` · from “${esc(r.matched)}”` : "");
+    // What each concept means, for a reader still learning the vocabulary: its definition record,
+    // machine-written, saying whether its words are the Act's own or written from the Manual.
+    const meaning = (id) => {
+      const d = byId.get(id)?.definition;
+      if (!d) return `<p class="tiny muted rs-def">No definition is recorded for this concept yet.</p>`;
+      const src = sourceOf(d.ref);
+      const whose = d.basis === "statutory_definition" ? `${src === "regs" ? "the Regulations’" : "the Act’s"} own definition`
+        : d.basis === "statutory_provision" ? `written from ${src === "regs" ? "the Regulations" : "the Act"}` : "written from the Manual, which describes practice, not law";
+      return `<details class="rs-def"><summary>What it means</summary><p>${esc(d.text)}</p>
+        <p class="tiny">${esc(whose)} ${refChip(d.ref)} <span class="trust machine">AI-written · unreviewed</span></p></details>`;
+    };
     view.concepts.innerHTML = rec.length ? `<ul class="rs-clist">${rec.map((r) => `<li><a class="rs-cpt" href="#/concepts/${esc(r.id)}" style="--c:${fam(r.id).colour}">
-        <i aria-hidden="true"></i><span><b>${esc(byId.get(r.id).label)}</b><span class="tiny">${esc(kind(r.id))}${said(r)}</span></span>${icon("arrow")}</a></li>`).join("")}</ul>
+        <i aria-hidden="true"></i><span><b>${esc(byId.get(r.id).label)}</b><span class="tiny">${esc(kind(r.id))}${said(r)}</span></span>${icon("arrow")}</a>${meaning(r.id)}</li>`).join("")}</ul>
       ${near.length ? `<p class="small rs-near"><span class="muted">Connected to ${fmt(near.length)} more:</span> ${near.slice(0, 8).map((id) => `<a href="#/concepts/${esc(id)}">${esc(byId.get(id).label)}</a>`).join(", ")}${near.length > 8 ? ", …" : ""}</p>` : ""}
       ${generic.length ? `<p class="tiny">Also named, but too common to steer: ${generic.map((r) => esc(byId.get(r.id).label)).join(", ")}.</p>` : ""}
-      <p class="tiny">Select a concept to explore everything recorded about it.</p>`
+      <p class="tiny">Select a concept to explore everything recorded about it: what gives rise to it, what bears on it, and where the Manual discusses it.</p>`
       : `<p class="small muted">No concept in the foundation is named in this question, so the sources come from its words alone. That is what the foundation holds, not a sign the question has no legal concepts in it.</p>`;
     const plainSet = new Set((g.plain || []).slice(0, 10));
     const beyond = g.passages.filter((ref) => !plainSet.has(ref)).length;
@@ -771,16 +789,63 @@ export async function render(root, { ontology, params }) {
 
   // ------------------------------------------------------------ the answer
 
-  /** An answer-v4 answer, claim by claim: each with the quotes that were found in what the model
-      was given, or marked as having none (A08). */
+  /** What a statement rests on, read from the quotations that were found, not from the model's
+      own label: the law, the Manual's practice, both, or nothing found. A statement the model
+      marked as about what the sources cover ("none") and that quotes nothing is said to be that,
+      not counted as unsupported. */
+  function basisOf(c) {
+    if (!c.supported) return c.authority === "none" ? "scope" : "none";
+    const law = c.quotes.some((q) => isLaw(q.ref)), manual = c.quotes.some((q) => !isLaw(q.ref));
+    return law && manual ? "both" : law ? "law" : "manual";
+  }
+  const BASIS = {
+    law: ["law act", "Law", "Quotes the Act or the Regulations"],
+    manual: ["manual", "Practice", "Quotes the Manual, which states practice, not law"],
+    both: ["both", "Law and practice", "Quotes both the legislation and the Manual"],
+    none: ["none", "No matching quotation", "The model gave no quote for this statement that could be found in what it was given."],
+    scope: ["scope", "About the sources", "Says what the sources do or do not cover; no quotation is expected"],
+  };
+  const basisTag = (b) => {
+    const [cls, word, title] = BASIS[b];
+    return `<span class="rs-basis ${cls}" title="${esc(title)}">${b === "none" ? stampIcon : b === "scope" ? "" : `<i class="mark" aria-hidden="true"></i>`}${esc(word)}</span>`;
+  };
+
+  /** The answer's provenance at a glance (newer examiners first look here): how many statements
+      have a quotation found in the source, and what those quotations come from, one segment per
+      statement in reading order. */
+  function provenance(claims) {
+    const bases = claims.map(basisOf);
+    const n = (b) => bases.filter((x) => x === b).length;
+    const checked = claims.length - n("none") - n("scope");
+    const parts = [["law", "on the law"], ["manual", "on the Manual’s practice"], ["both", "on both"], ["none", "with no matching quotation"], ["scope", "about what the sources cover"]]
+      .filter(([b]) => n(b)).map(([b, w]) => `<b>${n(b)}</b> ${w}`);
+    return `<div class="rs-prov-in">
+      <div class="rs-prov-bar" role="img" aria-label="${esc(`${claims.length} statements: ${parts.map((x) => x.replace(/<\/?b>/g, "")).join(", ")}`)}">${bases.map((b, i) => `<span class="rs-seg ${b}" title="Statement ${i + 1}: ${esc(BASIS[b][1])}"></span>`).join("")}</div>
+      <p class="rs-prov-line"><b>${checked} of ${claims.length}</b> statement${claims.length === 1 ? "" : "s"} quote${claims.length === 1 ? "s" : ""} words found in the source · ${parts.join(" · ")}</p>
+      <label class="rs-prov-toggle"><input type="checkbox" class="rs-show-quotes" checked> Show each statement’s quotations</label>
+    </div>`;
+  }
+
+  /** An answer-v4 answer, claim by claim: each with what it rests on, the quotes that were found
+      in what the model was given (shown under it, each opening its passage at the words), or
+      marked as having none (A08). */
   async function claimsBlock(claims) {
     const parts = [];
-    for (const c of claims) {
+    for (const [i, c] of claims.entries()) {
+      const b = basisOf(c);
+      const lawOnly = c.supported && c.quotes.every((q) => isLaw(q.ref));
       const misread = c.authority === "legislation" && c.supported && !c.quotes.some((q) => isLaw(q.ref));
-      parts.push(`<div class="claim${c.supported ? "" : " unsupported"}">${await renderAnswer(c.text)}
-        <div class="claim-refs">${c.supported ? c.quotes.map((q) => refChip(q.ref)).join(" ")
-          : `<span class="nosupport" title="The model gave no quote for this claim that could be found in what it was given.">No matching quotation</span>`}
-        ${misread ? `<span class="nosupport">This statement describes the law, but its quotations come only from the Manual.</span>` : ""}</div></div>`);
+      const practiceAsLaw = c.authority === "manual" && lawOnly;
+      parts.push(`<div class="claim rs-claim b-${b}${c.supported ? "" : " unsupported"}">
+        <div class="rs-claim-side"><span class="rs-claim-n">${i + 1}</span>${basisTag(b)}</div>
+        <div class="rs-claim-main">${await renderAnswer(c.text)}
+        ${c.supported ? `<div class="rs-qs">${c.quotes.map((q) => `<button type="button" class="rs-qb ${srcClass(q.ref)}" data-ref="${esc(q.ref)}" data-hl="${esc(q.quote)}" title="Open ${esc(refLabel(q.ref))} at these words">
+            <span class="rs-qb-src"><i class="mark" aria-hidden="true"></i>${esc(refLabel(q.ref))} · ${esc(SOURCES[sourceOf(q.ref)].role)}</span>“${esc(String(q.quote || "").slice(0, 320))}${String(q.quote || "").length > 320 ? "…" : ""}”</button>`).join("")}</div>` : ""}
+        ${b === "none" ? `<p class="nosupport">No matching quotation: find this in the Act or the Manual yourself before relying on it.</p>` : ""}
+        ${misread ? `<p class="nosupport">This statement describes the law, but its quotations come only from the Manual.</p>` : ""}
+        ${practiceAsLaw ? `<p class="nosupport">This statement describes the Manual’s practice, but its quotations come only from the legislation.</p>` : ""}
+        ${c.dropped?.length ? `<p class="tiny">${c.dropped.length} quotation${c.dropped.length > 1 ? "s" : ""} the model gave for this statement could not be found word for word, and ${c.dropped.length > 1 ? "were" : "was"} removed.</p>` : ""}
+        </div></div>`);
     }
     const none = claims.length && !claims.some((c) => c.supported);
     return `${none ? `<div class="stamp" style="margin-bottom:14px">${stampIcon}<span><b>No claim in this answer has a checked quote.</b> Read all of it as unsupported.</span></div>` : ""}
@@ -792,10 +857,20 @@ export async function render(root, { ontology, params }) {
     const conflated = authorityFlags(a.answer, cites.map((x) => x.ref));
     const bySource = (src) => cites.filter((x) => sourceOf(x.ref) === src).length;
     view.tags.innerHTML = `<span class="trust machine">AI-written · unreviewed</span>`;
+    view.prov.innerHTML = a.claims?.length ? provenance(a.claims) : "";
     view.body.innerHTML = `
       ${a.declined ? `<div class="stamp" style="margin-bottom:14px">${stampIcon}<span><b>Part of this question asked how an application would be decided. The answer does not cover that part: only the Registrar decides applications.</b>${a.decline_reason ? " " + esc(a.decline_reason) : ""}</span></div>` : ""}
       ${a.claims ? await claimsBlock(a.claims) : `<div class="answer">${await renderAnswer(a.answer)}</div>`}
       ${conflated.length ? `<div class="stamp" style="margin-top:14px">${stampIcon}<span><b>Practice or law?</b> ${esc(conflated[0].message)}<ul class="tiny" style="margin:6px 0 0">${conflated.map((f) => `<li>“${esc(f.sentence.slice(0, 220))}${f.sentence.length > 220 ? "…" : ""}”</li>`).join("")}</ul></span></div>` : ""}
+      <div class="rs-rely">
+        <h3>Before you rely on it</h3>
+        <ol>
+          <li>Open each quotation and read the passage around it: the words may be narrower, wider or qualified in context.</li>
+          <li>Where a statement says what the law requires, find it in the Act or the Regulations themselves, not only in the Manual.</li>
+          <li>Look for exceptions and conditions the passages here may not show. The search may have missed a requirement, exception or step.</li>
+          <li>Where practice is unclear, ask an experienced colleague; this tool does not replace their judgement or yours.</li>
+        </ol>
+      </div>
       <details class="quiet rs-cites"><summary>Citations · ${cites.length} <span class="tiny">(${bySource("manual")} Manual · ${bySource("act")} Act · ${bySource("regs")} Regulations)</span></summary>
         <div class="det-body"><p class="tiny">The tool found each quotation in the source text. Open the passage to check whether it supports the statement.</p>
         <ul class="rs-cite-list">${cites.map((x) => `<li>${srcBadge(x.ref)} ${refChip(x.ref)} <span class="muted">“${esc(String(x.quote || "").slice(0, 220))}${String(x.quote || "").length > 220 ? "…" : ""}”</span></li>`).join("")}</ul>
@@ -809,6 +884,18 @@ export async function render(root, { ontology, params }) {
       <p class="tiny rs-provenance">${a.live ? `Live answer · ${a.seconds ? a.seconds.toFixed(0) + " s" : ""}${a.cost != null ? ` · about US${(a.cost * 100).toFixed(1)}¢${a.readingCost ? `, ${(a.readingCost * 100).toFixed(1)}¢ of it reading the question` : ""}` : ""} · ${esc(chat.effort)} reasoning effort (the prepared answers used ${esc(chat.measured_effort)}) · search ran without the meaning-vectors the measured system also used${a.reading?.kept?.length ? `, and started from ${a.reading.kept.length === 1 ? "an idea" : `${a.reading.kept.length} ideas`} the model read in the question, which the measured system did not do` : ""}.`
         : `Prepared answer, written ${esc(a.when || "")} with ${esc(chat.measured_effort)} reasoning effort by the same pipeline (${esc(chat.prepared_prompt_version)}): given complete provisions with every cut marked, as a live answer is, and each claim's quotes checked against what it was given.`}
         Read against ${esc(lawLine(a.live ? chat.law : examples.law, a.live ? chat.manual : examples.manual))}.</p>`;
+    // Quotations under each statement can be hidden for a quicker read, and the choice is kept.
+    const toggle = view.prov.querySelector(".rs-show-quotes");
+    if (toggle) {
+      let hide = false;
+      try { hide = localStorage.getItem("tmk-ask-hide-quotes") === "1"; } catch { /* storage blocked */ }
+      toggle.checked = !hide;
+      view.body.classList.toggle("rs-quotes-off", hide);
+      toggle.addEventListener("change", () => {
+        view.body.classList.toggle("rs-quotes-off", !toggle.checked);
+        try { localStorage.setItem("tmk-ask-hide-quotes", toggle.checked ? "0" : "1"); } catch { /* storage blocked */ }
+      });
+    }
   }
 
   // Hover a passage or idea in the diagram for its name; click to open it.

@@ -710,3 +710,22 @@ def test_the_bulk_answer_job_records_claims_and_drops_quotes_from_outside_what_w
     assert [c["supported"] for c in row["claims"]] == [True, False] and row["prompt_version"] == "answer-v4"
     assert row["answer"].startswith("Section 44 is subject") and len(row["citations"]) == 1
     assert any("not in what was sent" in r for r in outcome.refused)
+
+
+def test_the_research_page_leads_with_provenance_for_newer_examiners():
+    """ADR-0154 (the owner's word, CHAT-0103): Ask a research question is for examiners still
+    learning the sources, and its answer is read statement by statement: each labelled by what its
+    found quotations come from (law, practice, both, none), the quoted words under it, a count of
+    the supported statements first, and the habits to check it before relying on it."""
+    ask = (SITE / "js" / "ask.js").read_text(encoding="utf-8")
+    assert "For examiners still learning the Act, the Regulations and the Manual." in ask
+    assert "How to read an answer" in ask and 'id="rs-check"' in ask
+    # The label is read from the quotations found, not the model's own word for the statement.
+    assert "function basisOf(c)" in ask and "c.quotes.some((q) => isLaw(q.ref))" in ask
+    for label in ('"Law"', '"Practice"', '"Law and practice"', '"No matching quotation"', '"About the sources"'):
+        assert label in ask, label
+    assert "statement${claims.length === 1 ? \"\" : \"s\"} quote" in ask
+    assert "Before you rely on it" in ask
+    assert "This statement describes the Manual’s practice, but its quotations come only from the legislation." in ask
+    # The law is listed before the practice that applies it.
+    assert ask.index("The Act and the Regulations · law</h4>") < ask.index("The Manual · practice</h4>")
