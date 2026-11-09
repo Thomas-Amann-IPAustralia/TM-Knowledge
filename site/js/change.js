@@ -46,7 +46,7 @@ export async function render(root, { ontology, params }) {
       <div>
         ${crumb("direction", "Trace a change", "Working demonstration")}
         <h1>Trace a change</h1>
-        <p class="lede">Choose a section of the Trade Marks Act 1995, a regulation or a page of IP Australia’s Trade Marks Manual. See every record in the knowledge foundation that rests on it: those that cite it directly, and those that rely on a Manual passage citing it. If it changed, these are what would need re-reading first.</p>
+        <p class="lede">Choose a section of the Trade Marks Act 1995, a regulation or a page of IP Australia’s Trade Marks Manual. See the records this version links to it: those that cite it directly, and those that rely on a Manual passage citing it. This is a starting list for checking what might need updating; it is not a full impact assessment.</p>
       </div>
       <div class="page-head-side"><span class="evid">${icon("info")}A working demonstration. Not measured.</span></div>
     </header>

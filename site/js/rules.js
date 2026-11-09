@@ -63,7 +63,7 @@ export async function render(root, { ontology }) {
       <div>
         ${crumb("nerds", "Rules as code")}
         <h1>How the tool represents legal rules</h1>
-        <p class="lede">A legal rule can name who acts, when they can or must act, and what follows. The tool records those parts separately and links each to its source. This approach is called ${term("rules-as-code", "rules as code")}.</p>
+        <p class="lede">A legal rule can name who acts, when they can or must act, and what follows. For the rules set out so far, the tool records those parts separately and links each to its source. This approach is called ${term("rules-as-code", "rules as code")}.</p>
       </div>
     </header>
 

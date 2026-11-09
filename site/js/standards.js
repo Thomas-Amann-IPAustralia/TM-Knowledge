@@ -42,7 +42,7 @@ export async function render(root) {
       <div>
         ${crumb("nerds", "The standards")}
         <h1>How the knowledge map stores information</h1>
-        <p class="lede">The map uses open standards so other tools can read and check the same records. Choose a standard to see what it does and an example from this project.</p>
+        <p class="lede">The map uses open standards so other tools can read and check the same records. Other systems would still need integration and governance work to reuse them. Choose a standard to see what it does and an example from this project.</p>
       </div>
     </header>
 

@@ -2,49 +2,31 @@
    next (ADR-0151).
 
    The owner's framing: helping examiners with basic information now (training: a concept explorer
-   and a research assistant), supercharging experienced examiners later. The working demonstrations
+   and a research assistant), more complex examination work later. The working demonstrations
    lead; the possibilities follow, each saying how far off it is and what it would need, never as a
-   commitment. Nothing here says how an application will be decided. Classes are prefixed `ex-`;
-   the shared cards are `fc-` and the section hero `au-`. */
+   commitment. The hero is words alone, on the owner's annotations (ADR-0153). Nothing here says how
+   an application will be decided. Classes are prefixed `ex-`; the shared cards are `fc-` and the
+   section hero `au-`. */
 
-import { esc, fmt, load, refLabel, srcBadge, trustBadge } from "./app.js";
+import { fmt, load } from "./app.js";
 import { icon } from "./icons.js";
 import { demoCard, possibilityCard, possibilityGrid, horizonKey, aboutLine } from "./illustrations.js";
-import { preview } from "./concepts.js";
 
 export async function render(root, { ontology }) {
   const examples = await load("examples");
   const c = ontology.counts;
   const concepts = c.concepts.signed + c.concepts.machine;
   const relations = c.relations.signed + c.relations.machine;
-  // One real connection of the previewed concept, at a readable size, with the sentence it rests on
-  // (UX review F12): a "must" first, else any that quotes its source.
-  const focus = ontology.concepts.find((x) => x.id === "GC-0168");
-  const links = focus ? ontology.relations.filter((r) => r.s === focus.id || r.o === focus.id) : [];
-  const sample = links.find((r) => r.o === focus?.id && r.modality === "must" && r.quote) || links.find((r) => r.quote);
-  const label = (id) => ontology.concepts.find((x) => x.id === id)?.label || refLabel(id);
-  const clip = (t, n) => (t.length > n ? `${t.slice(0, n - 1).replace(/\s+\S*$/, "")}…` : t);
 
   root.innerHTML = `
   <div class="ex">
     <section class="au-hero aud-exam">
-      <div class="wrap au-hero-in">
+      <div class="wrap au-hero-in solo">
         <div>
           <span class="eyebrow">For examiners</span>
-          <h1>Find the law and the guidance faster, and see how it fits together</h1>
-          <p class="lede">For a new examiner, the foundation is a way into the Trade Marks Act, the Regulations and the Manual: the concepts, how they connect, and where each is written down. For an experienced examiner, it is the start of tools that could find related matters, keep expert knowledge and flag what has changed.</p>
+          <h1>Find relevant law and examination guidance, and see how they connect</h1>
+          <p class="lede">Examination often means checking more than one source: what the Act or the Regulations require, what the Manual says about practice, and how the legal issues relate. Here you can follow a concept to its recorded connections and source passages, or try a research answer that shows its quotations. These are working demonstrations, not an assessed replacement for an examiner’s own research or judgement.</p>
           ${aboutLine()}
-        </div>
-        <div class="au-art ex-art">
-          <p class="ex-art-k">${icon("connect")} ${focus ? `${esc(focus.label)}: ${fmt(links.length)} recorded connections` : "One concept, every recorded connection"}</p>
-          ${preview(ontology)}
-          ${sample ? `<div class="ex-eg">
-            <p class="ex-eg-k">One of them, and the sentence it rests on</p>
-            <p class="ex-eg-line"><b>${esc(label(sample.s))}</b> <span class="ex-eg-p">${esc(ontology.predicates[sample.p]?.label || sample.p)}</span> <b>${esc(label(sample.o))}</b>${sample.modality ? ` <span class="ce-mod ${esc(sample.modality)}">${esc(sample.modality)}</span>` : ""}</p>
-            <p class="ex-eg-q">“${esc(clip(sample.quote, 170))}”</p>
-            <p class="ex-eg-src">${srcBadge(sample.ref)} ${trustBadge(sample.origin)}</p>
-          </div>` : ""}
-          <p class="tiny">From the records as they stand. <a href="#/concepts/GC-0168">Explore every connection and read the source behind each one</a>.</p>
         </div>
       </div>
     </section>
@@ -57,20 +39,20 @@ export async function render(root, { ontology }) {
       </div>
 
       <section class="au-sec" aria-labelledby="ex-now">
-        <div class="sec-head"><div><span class="eyebrow">Working now</span><h2 id="ex-now">Helping new examiners find their way</h2></div>
-          <p>Two working demonstrations. Both read the same records, and both show where every piece comes from.</p></div>
+        <div class="sec-head"><div><span class="eyebrow">Working demonstrations</span><h2 id="ex-now">Explore an issue and check the sources</h2></div>
+          <p>Start with a legal concept or a question. Both demonstrations read the same records. The value still to test is whether they make relevant material easier to find and review.</p></div>
         <div class="fc-demos two">
           ${demoCard({ href: "#/concepts", art: "demo-concepts", k: "Legal concept explorer", title: "Explore a legal concept",
-            text: "Start from a concept such as deceptive similarity, distinctiveness or honest concurrent use, then follow what can give rise to it, what bears on it, what overcomes it, and the legal test it belongs to.",
-            points: ["Every connection quotes the sentence it rests on", "Names it goes by, and names it must not be confused with", "Where the Manual discusses it, Part by Part"], go: "Explore a concept" })}
+            text: "Start from a concept such as deceptive similarity, distinctiveness or honest concurrent use, then follow its recorded connections: what can give rise to it, what bears on it, which exceptions or other issues may be relevant, and the legal test it belongs to.",
+            points: ["Each recorded connection quotes the sentence it rests on", "Other names it goes by, and names it must not be confused with", "Where the Manual discusses it, Part by Part"], go: "Explore a concept" })}
           ${demoCard({ href: "#/ask", art: "demo-ask", k: "Research assistant", title: "Ask a research question",
-            text: `Ask in your own words. It finds the relevant provisions and Manual passages, shows the legal test the question reaches, and writes an answer that links each statement to a quotation from the source. The tool checks that each quotation exists in the source; it does not check that the answer is right. ${fmt(examples.answers.length)} example questions have saved answers.`,
+            text: `Ask in your own words. It finds provisions and Manual passages, shows a related legal test where the records hold one, and writes an answer that links each statement to a quotation from the source. The tool checks that each quotation exists in the source; it does not check that the answer is right, so open the sources and check that they support each statement. ${fmt(examples.answers.length)} example questions have saved answers.`,
             points: ["The law and the guidance listed apart", "Statements without a matching quotation are flagged", "Never says how an application will be decided"], go: "Ask a question", state: "Answers are AI-written and unreviewed" })}
         </div>
       </section>
 
       <section class="au-sec" aria-labelledby="ex-next">
-        <div class="sec-head"><div><span class="eyebrow">Coming next</span><h2 id="ex-next">Supercharging experienced examiners</h2></div>
+        <div class="sec-head"><div><span class="eyebrow">Possible future uses</span><h2 id="ex-next">Possible tools for more complex examination work</h2></div>
           <p>Possibilities, not commitments. Each says what it would build on and what it would still need.</p></div>
         ${horizonKey()}
         ${possibilityGrid([
@@ -80,15 +62,15 @@ export async function render(root, { ontology }) {
           possibilityCard({ art: "change-alerts", horizon: "reach", title: "Knowledge change management",
             text: "When the law or the guidance changes, flag the training material, checklists and templates examiners use that rest on what changed.",
             builds: "the record of what rests on every provision and Manual page", needs: "regular capture of new versions of the Act and the Manual, and a list of the resources to watch" }),
-          possibilityCard({ art: "related-matters", horizon: "data", title: "Related examination matter discovery",
-            text: "Find other matters that raised the same legal issues, for similar goods or services, or on similar facts.",
-            needs: "examination records and decisions, connected to the concepts, and the project owner’s approval to use real case data" }),
-          possibilityCard({ art: "learning", horizon: "reach", title: "Personalised learning and development",
-            text: "Learning paths built from the concepts an examiner is working through, with practice cases and the points most often confused.",
-            builds: "invented practice cases, legal tests with their facts and assessments marked, and the names each concept must not be confused with", needs: "a record of what each examiner has covered, and a decision on how learning is tracked" }),
           possibilityCard({ art: "preservation", horizon: "reach", title: "Expert knowledge preservation",
             text: "Experienced examiners’ readings captured as signed records, so what they know stays when they change roles or leave.",
             builds: "a review process that records who signed what and when, always kept apart from what AI wrote", needs: "examiners’ time to review, and the project owner’s decision to begin" }),
+          possibilityCard({ art: "learning", horizon: "reach", title: "Personalised learning and development",
+            text: "Learning paths built from the concepts an examiner is working through, with practice cases and the points most often confused.",
+            builds: "invented practice cases, legal tests with their facts and assessments marked, and the names each concept must not be confused with", needs: "a record of what each examiner has covered, and a decision on how learning is tracked" }),
+          possibilityCard({ art: "related-matters", horizon: "data", title: "Related examination matter discovery",
+            text: "Find other matters that raised the same legal issues, for similar goods or services, or on similar facts.",
+            needs: "examination records and decisions, connected to the concepts, and the project owner’s approval to use real case data" }),
           possibilityCard({ art: "consistency-point", horizon: "data", title: "Examination consistency assistant",
             text: "While an examiner weighs an issue, show how similar issues were approached before and point to the relevant guidance, for the examiner to consider.",
             needs: "examination records and decisions, and the project owner’s approval to use real case data" }),

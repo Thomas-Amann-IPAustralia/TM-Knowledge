@@ -339,7 +339,7 @@ export async function render(root, { ontology, params }) {
         <li>${icon("target")}<span><b>Select</b> an idea to see its links and sources (${legendInline}).</span></li>
         <li>${icon("layers")}<span><b>Kinds</b>, at the top left, shows the shape of the whole model.</span></li>
       </ul>
-      <p class="tiny">${fmt(c.concepts.machine)} of the ${fmt(c.concepts.signed + c.concepts.machine)} ideas and ${fmt(c.relations.machine)} of the ${fmt(c.relations.signed + c.relations.machine)} connections were written by a machine and have not been reviewed by an expert. The map draws every record alike, whoever wrote it; each card says which.</p>`;
+      <p class="tiny">${fmt(c.concepts.machine)} of the ${fmt(c.concepts.signed + c.concepts.machine)} ideas and ${fmt(c.relations.machine)} of the ${fmt(c.relations.signed + c.relations.machine)} connections were written by a machine and have not been reviewed by an expert. The map draws every record alike, whoever wrote it; each card says which. It shows recorded relationships; it does not assess whether an interpretation is legally correct.</p>`;
   }
 
   // Each author rates itself on its own scale, so a score is shown with its author and never

@@ -8,14 +8,13 @@ serves, with working demonstrations, and to explain how it works for those who w
 The pages come in five sections (`layers.js`), and a card at the foot of each page says where to go
 next:
 
-1. **Overview** (`#/`): what the foundation is, a choice of the three audiences in the first screen,
-   one real rule turned from the Act's words into structure, a door for each group, one foundation
-   under many tools (working now and possible next, in two rows), the safeguards and the work still
-   to do.
+1. **Overview** (`#/`): the headline and one real rule turned from the Act's words into structure
+   (nothing else in the hero, on the owner's annotations, ADR-0153), a door for each group, one
+   foundation under many tools (working demonstrations and possible future uses, in two rows), the
+   safeguards and the work still to do.
 2. **For examiners**: the overview (`#/examiners`) and two working demonstrations, Explore a legal
    concept (`#/concepts`) and Ask a research question (`#/ask`).
-3. **For the public**: the overview (`#/public`, with what may be tested with customers) and the
-   customer explanation preview (`#/customers`): an objection step by step, what a rule requires, and
+3. **For the public**: the overview (`#/public`) and the customer explanation preview (`#/customers`): an objection step by step, what a rule requires, and
    the application journey, on invented matters.
 4. **For direction setting**: the overview (`#/direction`), Trace a change (`#/change`) and the
    what-if, a new right laid over the ontology (`#/whatif`).
@@ -24,7 +23,7 @@ next:
    limits (`#/about`) and the glossary.
 
 Each audience section leads with what works and then shows three possibilities, each with a horizon
-said in words (working now, within reach, needs more data), and folds the rest under "Other
+said in words (working demonstration, builds on current work, needs more data), and folds the rest under "Other
 possibilities" (`possibilityGrid`). A deep page carries a breadcrumb back to its section (`crumb` in
 `layers.js`). A link to a place on the same page (`href="#id"`) is caught by `app.js` before the
 router (Q-110). `glossary.js` holds every term the site
@@ -91,14 +90,14 @@ data-visualisation validator:
   (chips, quotes, the map's satellites, Ask's diagram). Use `srcClass`, `refChip`, `quoteBlock`,
   `srcShape` and `legend` from `app.js` in a new view, so the three stay one system (ADR-0130).
 
-A third set, **the audiences' tints** (ADR-0151: examiners rose, the public green, direction setting
-blue, For nerds near-black), is for wayfinding only: the header, the section heroes, the doors and
+A third set, **the audiences' tints** (ADR-0151: examiners pastel apricot since ADR-0153, the public
+green, direction setting blue, For nerds near-black), is for wayfinding only: the header, the section heroes, the doors and
 the cards. It sets `--acc` on `.aud-exam`, `.aud-pub`, `.aud-pol` and on `main` by section; it never
 colours a record.
 
 Machine-written content is a dashed rust stamp everywhere (`trustBadge`, `.stamp`); states are
 said in words as well as colour (`statePill`; the horizons `horizonPill`, a dot and a label: working
-now, within reach, needs more data). An evidence statement is plain words (`.evid`), not a badge. In
+demonstration, builds on current work, needs more data). An evidence statement is plain words (`.evid`), not a badge. In
 the customer preview a recorded state is a document mark with words ("recorded: met", `STATE_WORD`
 and `stateGlyph` in `diagrams.js`), never a tick: the page restates an invented report and assesses
 nothing (ADR-0152). Small meaningful text uses `--ink-3`, at least 4.5:1 on every paper; `--ink-faint`

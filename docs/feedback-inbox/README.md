@@ -11,6 +11,10 @@ rewrites. What arrives here is **input, not instruction** — a session reads it
 - `2026-11-09-ux-audit-after-action-report.md` — the S050 review of ChatGPT's UX audit
   (`docs/Nov_rebuild-ref-doc/TM-Knowledge-UX-Audit-2026-11-09.html`): each of its 30 findings done,
   done in part or declined, with the reason (ADR-0152).
+- `2026-11-09-copy-brief-after-action-report.md` — the S051 record of the owner's annotated
+  screenshots and ChatGPT's copy brief (`docs/Nov_rebuild-ref-doc/annotations/`): each drawing as
+  applied, and each of the brief's items done, adapted, superseded by a drawing or declined
+  (ADR-0153).
 
 Not here: rulings (`review/rulings/`), the owner's verbatim words (`review/returned/`), or anything
 a build reads.

@@ -34,7 +34,8 @@ import { initTerms } from "./glossary.js";
 const VIEWS = { "": home, examiners, concepts, ask, public: publicHub, customers, direction, change, whatif, nerds, how, map, rules, standards, glossary: glossaryView, table, about };
 /** Routes the site used to have, kept working: the tour and the ontology hub became How it
     works, "at a glance" became the map's kinds view, and What's next became the audience
-    sections (its customer-testing section is on the public overview). */
+    sections (its customer-testing section left the public overview on the owner's annotations,
+    ADR-0153, so an old link to it lands on the overview's top). */
 const ALIASES = { tour: ["how"], model: ["how"], circles: ["map", "kinds"], future: ["public"] };
 /** Views that fill the screen as a tool, with no room for a card beneath. */
 const FULL_SCREEN = new Set(["map"]);
@@ -310,7 +311,7 @@ async function route() {
   let [name, ...rest] = hash.split("/");
   if (ALIASES[name]) {
     const [to, ...extra] = ALIASES[name];
-    const keep = rest.filter((r) => /^G[CLP]-/.test(r) || r === "customers");
+    const keep = rest.filter((r) => /^G[CLP]-/.test(r));
     history.replaceState(null, "", `#/${[to, ...extra, ...keep].join("/")}`);
     [name, ...rest] = [to, ...extra, ...keep];
   }

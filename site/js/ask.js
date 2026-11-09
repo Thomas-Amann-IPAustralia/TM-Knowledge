@@ -66,7 +66,7 @@ export async function render(root, { ontology, params }) {
       <div>
         ${crumb("examiners", "Ask a research question", "Working demonstration")}
         <h1>Ask a research question</h1>
-        <p class="lede">Ask in your own words, or choose an example. You get the law (the Trade Marks Act 1995 and Regulations) and the Manual’s examination practice listed apart, the legal test your question reaches, and an AI-written answer with the passage behind each statement. <a href="#rs-check" class="rs-check-link">How to check an answer</a></p>
+        <p class="lede">Ask in your own words, or choose an example. You get the law (the Trade Marks Act 1995 and Regulations) and the Manual’s examination practice listed apart, a related legal test where the records contain one, and an AI-written answer with the passage behind each statement. <a href="#rs-check" class="rs-check-link">How to check an answer</a></p>
       </div>
       <div class="page-head-side">${answersOn ? `<span class="pill working">Live answers on</span>` : `<span class="pill planned">Search and example answers available</span>`}</div>
     </header>

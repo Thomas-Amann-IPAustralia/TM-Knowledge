@@ -504,16 +504,20 @@ def test_the_standards_page_reads_its_examples_and_checks_from_the_build(files):
 
 def test_the_first_page_leads_with_outcomes_read_from_the_data():
     """The home page states the measurement in both directions and the prototype's untested state,
-    with every figure read from the data, never typed in. What may be tested with customers, and on
-    whose decision, moved from What's next to the public overview with ADR-0151."""
+    with every figure read from the data, never typed in. The public overview's plan for testing
+    with customers left the site on the owner's annotations (ADR-0153); the public overview still
+    says its examples are untested and not advice, and the customer preview and the overview still
+    say that testing with customers is the project owner's decision."""
     home = (SITE / "js" / "home.js").read_text(encoding="utf-8")
     assert 'all["ndcg:ontology-hybrid"]' in home and 'all["ndcg:ontology-keyword"]' in home
-    assert "not formally tested with customers" in home and "Never" in home
+    assert "not formally tested with customers" in home and "the project owner’s decision" in home and "Never" in home
     for typed in ("129", "810", "729", "164", "357"):
         assert typed not in home, typed
     public = (SITE / "js" / "public.js").read_text(encoding="utf-8")
-    assert 'id="customers"' in public and "no formal testing with customers yet" in public
-    assert "until the project owner approves it" in public
+    assert "have not been formally tested with customers" in public and "not legal advice" in public
+    customers = (SITE / "js" / "customers.js").read_text(encoding="utf-8")
+    assert "The project owner decides when testing or public release can begin." in customers
+    assert "#/public/customers" not in customers, "a link to the testing section the owner struck"
 
 
 def test_every_audience_section_says_what_it_is_and_never_decides():
@@ -549,6 +553,38 @@ def test_the_site_never_claims_more_than_it_checks():
     change = (js / "change.js").read_text(encoding="utf-8")
     assert 'class="ch-main veiled"' not in change and "data-try" in change
     assert "not a measure of legal impact, risk or effort" in change
+
+
+def test_the_owners_annotations_keep_one_statement_of_authorship_on_every_page():
+    """ADR-0153: the owner struck the repeat of who wrote the records from each section's about
+    line. The status strip on every page still says it, and every record keeps its own stamp, so
+    the strip is pinned here: dropping the repeat must never drop the last one."""
+    html = (SITE / "index.html").read_text(encoding="utf-8")
+    assert "AI wrote most of the research material. Each record shows its review status." in html
+    assert "It never decides an application" in html and "Not formally tested with customers" in html
+    illustrations = (SITE / "js" / "illustrations.js").read_text(encoding="utf-8")
+    assert "AI wrote most of its records" not in illustrations
+    assert "trust machine" in (SITE / "js" / "home.js").read_text(encoding="utf-8")
+
+
+def test_the_audience_pages_claim_no_more_than_the_demonstrations_show():
+    """The copy brief of 2026-11-09 (ADR-0153): no unmeasured speed, no "every" over what the
+    index records, no impact modelling, and a future use is a possibility, not something coming."""
+    js = SITE / "js"
+    pages = {f: (js / f).read_text(encoding="utf-8") for f in ("home.js", "examiners.js", "public.js", "direction.js", "illustrations.js")}
+    banned = {
+        "home.js": ("Build it once, use it for every tool", "every tool built on them can explain itself", "can always show"),
+        "examiners.js": ("guidance faster", "Supercharging", "Coming next"),
+        "public.js": ("get the most out of", "Coming next"),
+        "direction.js": ("hold in their head", "Every dependency is traceable", "impact modelling", "See every record", "Coming next"),
+        "illustrations.js": ("Within reach",),
+    }
+    for name, phrases in banned.items():
+        for phrase in phrases:
+            assert phrase not in pages[name], (name, phrase)
+    assert "not something tested here" in pages["home.js"]
+    assert "Neither is a complete policy impact assessment." in pages["direction.js"]
+    assert "not an assessed replacement for an examiner’s own research or judgement" in pages["examiners.js"]
 
 
 # --- answer-v4: what the answer is given of each source (A06, ADR-0139) -------------

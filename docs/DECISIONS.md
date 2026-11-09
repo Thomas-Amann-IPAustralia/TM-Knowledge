@@ -6812,3 +6812,55 @@ ADR-0148's desktop-only decision), stay the owner's. Publishing is the merge to 
 2. `test_explorer.py` pins the calibrated quotation wording, the absence of ticks on recorded states
    and the optional guess.
 3. The agent parts are provisional; named in the handoff's open items.
+
+## ADR-0153 — the owner's annotations applied, the examiners' rose made pastel apricot, and ChatGPT's copy brief applied where it holds
+
+**Date** 2026-11-09 · **Authority** human (the direction, the colour and the removals), agent-proposed (the reading of each drawing, the redrawn doors and the wording) ·
+**Status** accepted
+
+**Context.** The owner (CHAT-0102, `review/returned/261109-owner-chat-annotations.md`): *"Please
+further refine the UI and UX of this website. I'l like you to change the rose colour to something
+else. Maybe a pastel orange/yellow? I've created a number of very rough drawings over some
+screenshots indicating what I'd like removed or changed (changed = blue). I've also attached a
+chatGPT suggestion book for fixing the language on the site."* Seven drawings and a 399-line brief
+are in `docs/Nov_rebuild-ref-doc/annotations/`. The brief was written against `cd0e657`; S050's
+wording (ADR-0152) had already changed some of what it quotes.
+
+**Decision (the owner's).** As quoted, with these removals drawn in red: the overview hero's
+description, buttons and source note; the hero cards of For examiners, For the public and For
+direction setting; the about line's sentence "AI wrote most of its records; each one says so until a
+trade marks expert reviews it" on all three; the public overview's "What we may test with
+customers"; For nerds' "The contract, in one line". The last two of these answer the question
+ADR-0152 left the owner (which repeated safeguard to drop, F10): the about line's repeat goes.
+
+**Decision (the agent's, inside it).**
+1. **The examiners' tint is pastel apricot**: `--aud-exam #c8751c`, ink `#8a4a0f` (6:1 or better on
+   every paper and tint), background `#fdf0d8`, line `#f8dcaa`. It is wayfinding only, as ADR-0151
+   set; it sits near the Act's amber and the machine stamp's rust, which keep their marks and words.
+2. **The drawings' readings** (each in the returned artefact): drawing 01's crossed buttons are the
+   ones S050 replaced with a row of three audience links, so that row goes too and the rule moves up
+   under the headline; the header and the doors directly beneath still offer the three audiences.
+   Drawing 02's blue circles redraw the examiners' and the public's door pictures as single centred
+   emblems like the direction door the owner left unmarked. Drawing 03's blue strokes are the rose.
+3. **One statement of authorship stays on every page**: the status strip in `index.html`, pinned by
+   a test, with every record's own stamp. The customer preview still says testing and release are
+   the project owner's decision; the overview's "What still needs work" still says so too.
+4. **The copy brief, where it still holds**: bounded claims in place of unmeasured speed, "every",
+   "supercharging", "impact modelling" and "coming next"; "working demonstration" and "possible
+   future use" as the one present and future contrast; the horizon "within reach" becomes "builds on
+   current work" ("would need further development and review"). Where the brief and a drawing
+   disagree (the brief would keep the overview's lede, the direction chart and the testing section),
+   the drawing wins. Every item's verdict is in
+   `docs/feedback-inbox/2026-11-09-copy-brief-after-action-report.md`.
+
+**What it does not decide.** No record, graph, prompt, explanation object or generated data file
+changes, so nothing changes what the system may say to an examiner or a customer (CLAUDE.md §3a).
+The overview's headline and section 44 example, and the section labels, are unchanged. Publishing is
+the merge to `main` (ADR-0112).
+
+**Consequences.**
+1. `test_explorer.py` pins the status strip's authorship line and the bounded wording, and no longer
+   pins the removed testing section; an old link to it (`#/future/customers`) lands on the public
+   overview's top.
+2. Demo cards side by side keep their pictures one height (`grid-template-rows: auto 1fr`, Q-111).
+3. The agent parts are provisional; named in the handoff's open items.

@@ -38,7 +38,7 @@ export async function render(root, { ontology }) {
         <div>
           <span class="eyebrow">For nerds</span>
           <h1>How it works, all the way down</h1>
-          <p class="lede">Fair warning: this part is mostly for the technically minded. Everything the other sections show is built from what is described here, and nothing is hidden.</p>
+          <p class="lede">Fair warning: this part is mostly for the technically minded. It describes the records and methods behind the demonstrations, along with their known limits.</p>
         </div>
         <dl class="nd-stats">
           <div><dt>${fmt(triples)}</dt><dd>${term("triple", "statements")} in the graph</dd></div>
@@ -61,7 +61,6 @@ export async function render(root, { ontology }) {
             <p class="nd-flow-go"><a href="#/examiners">Examiners</a><a href="#/public">The public</a><a href="#/direction">Policy and strategy</a></p></li>
         </ol>
       </section>
-      <p class="nd-profile">${icon("layers")}<span><b>The contract, in one line.</b> ${esc(g.profile || "")}</span></p>
       <div class="nd-grid">${DOORS.map(([href, art, title, text]) => `<a class="nd-door" href="${href}">
         <div class="nd-door-art">${drawing(art)}</div>
         <div class="nd-door-body"><h2>${esc(title)}</h2><p>${esc(text)}</p><span class="link-arrow">Open ${icon("arrow")}</span></div></a>`).join("")}</div>
