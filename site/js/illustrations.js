@@ -48,13 +48,16 @@ const svg = (body, vb = "0 0 320 150") => `<svg class="il" viewBox="${vb}" aria-
 
 const DRAWINGS = {
   // ---- the four doors on the overview
-  "door-exam": () => svg(`${doc(26, 34, 58, 76, 5)}${dot(160, 44, 11, "re")}${dot(128, 98, 9, "ex")}${dot(196, 104, 9, "pr")}${dot(232, 60, 7, "ex")}
-    ${ln("M160 44 L128 98 M160 44 L196 104 M160 44 L232 60 M128 98 L196 104")}${ln("M84 60 C110 58 128 50 149 46", "accent")}
-    ${mark(270, 40, "act", 7)}${mark(270, 74, "manual", 7)}${mark(270, 108, "regs", 7)}${ln("M171 44 C 220 30 240 38 260 40 M205 104 C230 110 246 108 262 108 M239 60 C 250 66 256 72 262 74", "faint")}
-    <g class="il-lens" transform="translate(120,70)"><circle r="20"/><path d="M14 14 l14 14"/></g>`),
-  "door-pub": () => svg(`${bubble(24, 22, 150, 42, "user", "right")}<rect class="il-txt" x="38" y="36" width="96" height="5" rx="2.5"/><rect class="il-txt" x="38" y="47" width="64" height="5" rx="2.5"/>
-    ${bubble(116, 76, 180, 56, "reply")}${tile(128, 86, 74, "fact")}${tile(208, 86, 78, "assess")}<rect class="il-txt" x="130" y="118" width="110" height="5" rx="2.5"/>
-    ${person(290, 52, 0.9, "accent")}`),
+  // Examiners: the sources on the left, a lens on one concept, the concepts it connects to on the
+  // right. The public: a question, an explanation at the current step, and the journey beneath.
+  // Redrawn as single centred emblems like the direction door, on the owner's annotations (ADR-0153).
+  "door-exam": () => svg(`${[["act", 42, 44], ["manual", 75, 36], ["regs", 108, 40]].map(([src, y, w]) => `${mark(36, y, src, 6)}<rect class="il-txt" x="48" y="${y - 2.5}" width="${w}" height="5" rx="2.5"/>${ln(`M98 ${y} C 114 ${y} 114 75 128 75`, "faint")}`).join("")}
+    ${[[256, 40, "ex"], [274, 75, "pr"], [256, 110, "ex"]].map(([x, y, f]) => `${ln(`M192 75 C 220 75 228 ${y} ${x - 9} ${y}`, "light")}${dot(x, y, 7, f)}`).join("")}
+    <g class="il-lens" transform="translate(160,75)"><circle r="31"/><path d="M22 22 l16 16"/></g>${dot(160, 75, 11, "re")}`),
+  "door-pub": () => svg(`${ln("M40 120 H280", "track")}${[40, 100, 160, 220, 280].map((x, i) => `<circle class="il-stop${i < 2 ? " done" : i === 2 ? " now" : ""}" cx="${x}" cy="120" r="${i === 2 ? 10 : 7}"/>`).join("")}
+    <g class="il-bubble"><rect x="94" y="14" width="132" height="62" rx="12"/><path d="M152 76 l8 11 8 -11z"/></g>${tile(104, 24, 54, "fact")}${tile(162, 24, 54, "assess")}
+    <rect class="il-txt" x="106" y="60" width="74" height="5" rx="2.5"/>${mark(198, 62.5, "act", 4.6)}${mark(212, 62.5, "manual", 4.2)}
+    ${person(46, 84, 0.9, "accent")}${query(70, 44, 9)}`),
   "door-pol": () => svg(`<g class="il-ripple">${[26, 46, 66].map((r) => `<circle cx="150" cy="78" r="${r}"/>`).join("")}</g>${mark(150, 78, "act", 11)}
     ${[[96, 44, "re"], [204, 46, "ex"], [92, 116, "pr"], [212, 112, "re"], [150, 14, "ex"], [72, 78, "pr"], [230, 80, "ex"]].map(([x, y, f], i) => dot(x, y, i < 4 ? 7 : 5, f)).join("")}
     ${bars(258, 128, [40, 70, 100], 10, 6, 60, "accent")}`),
@@ -158,8 +161,8 @@ export const drawing = (name) => (DRAWINGS[name] ? DRAWINGS[name]() : "");
 
 /** How far off a possibility is, said in words as well as colour. */
 export const HORIZON = {
-  now: { label: "Working now", cls: "hz-now", note: "A working demonstration on this site." },
-  reach: { label: "Within reach", cls: "hz-reach", note: "Could be built on the foundation as it stands." },
+  now: { label: "Working demonstration", cls: "hz-now", note: "A working demonstration on this site." },
+  reach: { label: "Builds on current work", cls: "hz-reach", note: "Would need further development and review." },
   data: { label: "Needs more data", cls: "hz-data", note: "Needs information the foundation does not hold yet." },
 };
 
@@ -207,5 +210,7 @@ export function possibilityGrid(cards, shown = 3) {
 /** The key to the horizons, said once above a set of possibilities. */
 export const horizonKey = (which = ["reach", "data"]) => `<div class="hz-key">${which.map((h) => `<span>${horizonPill(h)}<span>${esc(HORIZON[h].note)}</span></span>`).join("")}</div>`;
 
-/** What the site is, said on every section's first screen so a page can be read on its own. */
-export const aboutLine = (extra = "") => `<p class="au-about">${icon("info")}<span>A proof of concept built from the Trade Marks Act 1995, the Trade Marks Regulations 1995 and IP Australia’s Trade Marks Manual of Practice and Procedure. AI wrote most of its records; each one says so until a trade marks expert reviews it.${extra ? ` ${extra}` : ""}</span></p>`;
+/** What the site is, said on every section's first screen so a page can be read on its own. Who
+    wrote the records is said by the status strip on every page and by each record's own stamp; the
+    owner struck the repeat here (ADR-0153). */
+export const aboutLine = (extra = "") => `<p class="au-about">${icon("info")}<span>A proof of concept built from the Trade Marks Act 1995, the Trade Marks Regulations 1995 and IP Australia’s Trade Marks Manual of Practice and Procedure.${extra ? ` ${extra}` : ""}</span></p>`;

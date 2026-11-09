@@ -64,7 +64,7 @@ export async function render(root, { ontology, params }) {
       <div>
         ${crumb("examiners", "Explore a legal concept", "Working demonstration")}
         <h1>Explore a legal concept</h1>
-        <p class="lede">Pick a concept to see what the foundation records about it: what can give rise to it, what bears on it, what overcomes it, the legal test it belongs to, and the passages behind each part.</p>
+        <p class="lede">Pick a concept to see what the foundation records about it: what can give rise to it, what bears on it, which recorded exceptions or other issues may be relevant, the legal test it belongs to, and the passages behind each part. These are recorded links, many AI-written and unreviewed; they are not a complete checklist for an examination.</p>
       </div>
       <div class="ce-legend">
         <span><span class="ce-mod must">must</span><span class="ce-mod should">should</span><span class="ce-mod may">may</span> the strength its source states</span>
@@ -420,24 +420,4 @@ export async function render(root, { ontology, params }) {
   ro.observe(stage);
   show(focus);
   return () => ro.disconnect();
-}
-
-/** A small preview of a concept's connections, for the examiners' overview: the groups on each
-    side and their counts, from the same records. */
-export function preview(ontology, id = DEFAULT) {
-  const byId = new Map(ontology.concepts.map((c) => [c.id, c]));
-  const c = byId.get(id);
-  if (!c) return "";
-  const label = (p) => ontology.predicates[p]?.label || p;
-  const count = (side) => {
-    const m = new Map();
-    for (const r of ontology.relations) if ((side === "in" ? r.o : r.s) === id) m.set(r.p, (m.get(r.p) || 0) + 1);
-    return [...m.entries()].sort((a, b) => b[1] - a[1]).slice(0, 4);
-  };
-  const fam = FAMILIES[familyOf(ontology, c.kind)] || FAMILIES.other;
-  return `<a class="ce-prev" href="#/concepts/${esc(id)}" aria-label="Explore ${esc(c.label)}">
-    <div class="ce-prev-col">${count("in").map(([p, n]) => `<span><b>${fmt(n)}</b> ${esc(label(p))} →</span>`).join("")}</div>
-    <div class="ce-prev-mid" style="--fc:${fam.colour};--fb:${fam.bg}"><span class="ce-kind"><i style="background:${fam.colour}"></i>${esc(ontology.kinds.find((k) => k.id === c.kind)?.label || "")}</span><b>${esc(c.label)}</b></div>
-    <div class="ce-prev-col out">${count("out").map(([p, n]) => `<span>→ ${esc(label(p))} <b>${fmt(n)}</b></span>`).join("")}</div>
-  </a>`;
 }

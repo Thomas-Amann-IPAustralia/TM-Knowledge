@@ -1,14 +1,14 @@
 /* The overview: what the knowledge foundation is, what it might enable for each group it serves,
    and why it can be trusted (ADR-0151, on the owner's word).
 
-   The owner's order: a very high-level account of what it is and why it is somewhat trustworthy,
-   then a door for each group (examiners, the public, direction setting) and one for the
-   technically curious. The hero shows one real rule, section 44 as its structured record holds it,
-   turned from the Act's words into conditions: which are facts a record can settle and which are
-   assessments only a person can make. Every number is read from the data; the measurement is
+   The owner's order: one real rule first, then a door for each group (examiners, the public,
+   direction setting) and one for the technically curious, then why it is somewhat trustworthy.
+   The hero is the headline and one real rule alone (the owner's annotations, ADR-0153): section 44
+   as its structured record holds it, turned from the Act's words into conditions: which are facts
+   a record can settle and which are assessments only a person can make. Every number is read from the data; the measurement is
    said in both directions; nothing here says how an application will be decided. */
 
-import { esc, fmt, load, refChip, legend } from "./app.js";
+import { esc, fmt, load, refChip } from "./app.js";
 import { icon } from "./icons.js";
 import { drawing } from "./illustrations.js";
 
@@ -47,53 +47,38 @@ export async function render(root, { ontology }) {
   <div class="ld">
     <section class="wrap ld-hero">
       <div class="ld-copy">
-        <div>
-          <span class="eyebrow">Australian trade marks · proof of concept</span>
-          <h1 class="ld-title">Trade mark law and guidance, turned into rules and code</h1>
-        </div>
-        <div>
-          <p class="lede">A structured model of the rules, exceptions and caveats in Australia’s trade mark law and examination practice, which people and programs can read and check. It is the groundwork for future tools, capabilities and services.</p>
-          <div class="ld-built"><p class="tiny">Built from the Trade Marks Act 1995 and the Trade Marks Regulations 1995, which are the law, and IP Australia’s Trade Marks Manual of Practice and Procedure, which is examination practice.</p>${legend()}</div>
-        </div>
-      </div>
-      <div class="ld-choice">
-        <p class="ld-choose" id="ld-choose">See what it could do for you</p>
-        <div class="ld-cta" role="group" aria-labelledby="ld-choose">
-          <a class="ld-pick aud-exam" href="#/examiners"><i aria-hidden="true"></i>I’m an examiner ${icon("arrow")}</a>
-          <a class="ld-pick aud-pub" href="#/public"><i aria-hidden="true"></i>I’m applying for a trade mark ${icon("arrow")}</a>
-          <a class="ld-pick aud-pol" href="#/direction"><i aria-hidden="true"></i>I work in policy or strategy ${icon("arrow")}</a>
-        </div>
-        <p class="ld-also"><a href="#ld-doors">Compare all three ${icon("down")}</a><a href="#/nerds">How it works, for nerds ${icon("chevron")}</a></p>
+        <span class="eyebrow">Australian trade marks · proof of concept</span>
+        <h1 class="ld-title">Trade mark law and guidance, turned into rules and code</h1>
       </div>
       ${rule ? hero(rule) : ""}
     </section>
 
     <section class="ld-doors-band" id="ld-doors" tabindex="-1" aria-labelledby="ld-d">
       <div class="wrap">
-        <div class="sec-head"><div><span class="eyebrow">Discover what it might enable</span><h2 id="ld-d">One foundation, three groups it can serve today</h2></div>
-          <p>Each section shows what already works, with a demonstration you can try, and what could be built next.</p></div>
+        <div class="sec-head"><div><span class="eyebrow">See the demonstrations</span><h2 id="ld-d">Three questions, one shared foundation</h2></div>
+          <p>Each path starts with something you can try. It also shows where a similar tool might be useful later, and what would need to be checked or built first.</p></div>
         <div class="ld-doors">
-          ${door({ href: "#/examiners", cls: "aud-exam", art: "door-exam", k: "For examiners", title: "Helping examiners with the basics now, supercharging them later",
-            now: ["Explore a legal concept and everything connected to it", "Ask a research question and get a cited answer you can check"],
-            next: "Next: finding related matters, preserving expert knowledge, learning paths" })}
-          ${door({ href: "#/public", cls: "aud-pub", art: "door-pub", k: "For the public", title: "Helping customers understand the system and get the most out of it",
-            now: ["Understand an objection, one step at a time", "See what the law requires, and the application journey"],
-            next: "Next: a guided assistant with clear visuals, help choosing goods and services" })}
-          ${door({ href: "#/direction", cls: "aud-pol", art: "door-pol", k: "For direction setting", sub: "Policy and strategy", title: "Helping decision makers find what a change might affect",
-            now: ["Trace what rests on any section of the Act or page of the Manual", "See what an invented new right would touch"],
-            next: "Next: testing draft amendments, comparing policy options, monitoring change" })}
+          ${door({ href: "#/examiners", cls: "aud-exam", art: "door-exam", k: "For examiners", title: "Find and connect relevant examination material",
+            now: ["Follow a legal idea to related concepts and source passages", "Try an AI-written research answer and check its quotations"],
+            next: "Possible later: guided learning, better-managed knowledge, and tools that surface related matters" })}
+          ${door({ href: "#/public", cls: "aud-pub", art: "door-pub", k: "For the public", title: "Understand requirements, objections and next steps",
+            now: ["Walk through an objection on an invented application", "See what a rule asks, and the path an application takes"],
+            next: "Possible later: customer-tested guidance linked to an applicant’s own stage or report" })}
+          ${door({ href: "#/direction", cls: "aud-pol", art: "door-pol", k: "For direction setting", sub: "Policy and strategy", title: "See what may need review when the system changes",
+            now: ["Trace recorded links from a section of the Act or a page of the Manual", "Explore the questions a fictional new right would raise"],
+            next: "Possible later: maintenance workflows, option comparison and broader policy analysis" })}
         </div>
       </div>
     </section>
 
     <section class="wrap section ld-fdn-sec" aria-labelledby="ld-f">
-      <div class="sec-head"><div><span class="eyebrow">Why a foundation</span><h2 id="ld-f">Build it once, use it for every tool</h2></div>
-        <p>The tools on this site are not separate projects. Each one reads the same ideas, connections, rules and sources. Select a tool to see what it draws on.</p></div>
+      <div class="sec-head"><div><span class="eyebrow">Why a foundation</span><h2 id="ld-f">One foundation, several possible uses</h2></div>
+        <p>The demonstrations read the same source-linked records, so different tools can draw on the same definitions and relationships while the source and review status travel with them. Reuse across operational services is a possible next step, not something tested here. Select a tool to see what it draws on.</p></div>
       ${foundation(c, concepts, relations, provisions)}
       <div class="ld-xai">
         <span class="ld-xai-i">${icon("shield")}</span>
-        <div><h3>By making the rules explicit, every tool built on them can explain itself</h3>
-          <p>An answer, an explanation or a flag can always show which ideas and which passages of the law and the guidance it relied on, so a person can check it. That is what would let future AI tools give a traceable account of their output.</p></div>
+        <div><h3>Shared records can make a tool’s sources easier to inspect</h3>
+          <p>The demonstrations link their outputs to recorded concepts, rules and source passages. A future tool could reuse those links to help a person inspect the material behind an output. That would still need testing for accuracy and completeness.</p></div>
       </div>
     </section>
 
@@ -102,7 +87,7 @@ export async function render(root, { ontology }) {
         <div class="sec-head"><div><span class="eyebrow">Can it be trusted?</span><h2 id="ld-t">Not blindly, and it never asks you to</h2></div>
           <p>Scepticism is the right starting point. These are the safeguards built in from the start, and the work still to do.</p></div>
         <div class="ld-trust">
-          ${trust("quote", "Each statement is linked to its source", `Answers and explanations link each statement to the exact words in the Act, the Regulations or the Manual. In the prepared answers, ${fmt(quoted)} of ${fmt(claims.length)} statements carry a quotation found word for word in the source; the rest are flagged. A matching quotation shows where the words come from, not that the answer is right.`, trustSources())}
+          ${trust("quote", "Statements are linked to their sources", `Answers and explanations link each statement to the exact words in the Act, the Regulations or the Manual. In the prepared answers, ${fmt(quoted)} of ${fmt(claims.length)} statements carry a quotation found word for word in the source; the rest are flagged. A matching quotation shows where the words come from, not that the answer is right.`, trustSources())}
           ${trust("scale", "Law and practice stay apart", "The Act and the Regulations are the law. The Manual describes how the law is applied in examination; it is not law. Each source has its own mark, everywhere on this site.", trustMarks())}
           ${trust("fact", "Facts and judgements are kept apart", "Every legal test separates the facts a record can confirm, such as a date, from the assessments only a person can make, such as whether two trade marks are deceptively similar. The system never makes an assessment.", trustTiles())}
           ${trust("never", "It explains; it never decides", "Never: deciding an application, or saying how one will be decided. Only the Registrar of Trade Marks decides.", trustNever())}
@@ -210,7 +195,7 @@ function door({ href, cls, art, k, sub = "", title, now, next }) {
   return `<a class="ld-door ${cls}" href="${href}">
     <div class="ld-door-art">${drawing(art)}</div>
     <div class="ld-door-body">
-      <span class="ld-door-k">${esc(k)}${sub ? `<span class="ld-door-sub"> · ${esc(sub)}</span>` : ""}</span>
+      <span class="ld-door-k">${esc(k)}</span>${sub ? `<span class="ld-door-sub">${esc(sub)}</span>` : ""}
       <h3>${esc(title)}</h3>
       <ul>${now.map((x) => `<li>${icon("check")}<span>${esc(x)}</span></li>`).join("")}</ul>
       <p class="ld-door-next">${esc(next)}</p>
@@ -230,13 +215,13 @@ const BLOCKS = [
 ];
 
 const TOOLS = [
-  { id: "concepts", aud: "aud-exam", name: "Explore a legal concept", href: "#/concepts", uses: ["ideas", "links", "rules", "sources"], text: "Everything recorded about one idea, with a source for each part." },
+  { id: "concepts", aud: "aud-exam", name: "Explore a legal concept", href: "#/concepts", uses: ["ideas", "links", "rules", "sources"], text: "What this version records about one idea, with a source for each part." },
   { id: "ask", aud: "aud-exam", name: "Ask a research question", href: "#/ask", uses: ["ideas", "links", "rules", "sources", "time"], text: "The law and the guidance for a question, and a cited answer to check." },
   { id: "objection", aud: "aud-pub", name: "Understand an objection", href: "#/customers/objection", uses: ["rules", "sources", "time"], text: "An objection explained step by step, on invented cases." },
   { id: "journey", aud: "aud-pub", name: "The application journey", href: "#/customers/process", uses: ["rules", "sources"], text: "Each stage from filing to registration, and what moves it on." },
-  { id: "change", aud: "aud-pol", name: "Trace a change", href: "#/change", uses: ["ideas", "links", "rules", "sources"], text: "What rests on a section of the Act or a page of the Manual." },
-  { id: "whatif", aud: "aud-pol", name: "A new right: what would it touch?", href: "#/whatif", uses: ["ideas", "links", "rules", "sources"], text: "An invented register laid over today's practice, without changing it." },
-  { id: "chat", aud: "aud-pub", name: "A guided assistant with visuals", future: true, uses: ["ideas", "links", "rules", "sources", "time"], text: "A conversation that explains requirements and objections, showing its sources." },
+  { id: "change", aud: "aud-pol", name: "Trace a change", href: "#/change", uses: ["ideas", "links", "rules", "sources"], text: "Records linked to a section of the Act or a page of the Manual: a starting list for review." },
+  { id: "whatif", aud: "aud-pol", name: "A new right: what would it touch?", href: "#/whatif", uses: ["ideas", "links", "rules", "sources"], text: "A fictional register laid over today's practice, and the questions it raises. The records are not changed." },
+  { id: "chat", aud: "aud-pub", name: "A guided assistant with visuals", future: true, uses: ["ideas", "links", "rules", "sources", "time"], text: "A possible conversational guide that could explain requirements and objections, showing its sources." },
   { id: "register", aud: "aud-exam", name: "Searching the register by meaning", future: true, uses: ["ideas", "links"], text: "Finding marks and goods by what they mean, once the register is connected." },
   { id: "aitest", aud: "aud-pol", name: "Checking AI answers", future: true, uses: ["ideas", "rules", "sources"], text: "Testing whether an AI tool named the right ideas, sources and exceptions." },
   { id: "decisions", aud: "aud-pol", name: "Recording a decision’s reasons", future: true, uses: ["rules", "sources", "time"], text: "Setting out what a recorded decision rested on. Never making one." },
@@ -246,7 +231,7 @@ const TOOLS = [
 function foundation(c, concepts, relations, provisions) {
   const n = { concepts, relations, provisions };
   const tool = (t) => `<button type="button" class="ld-tool ${t.aud}${t.future ? " future" : ""}" data-tool="${t.id}" aria-pressed="false">
-    <i class="ld-tool-dot" aria-hidden="true"></i><b>${esc(t.name)}</b><span class="vh">${t.future ? "possible next" : "working now"}</span></button>`;
+    <i class="ld-tool-dot" aria-hidden="true"></i><b>${esc(t.name)}</b><span class="vh">${t.future ? "possible future use" : "working demonstration"}</span></button>`;
   return `<div class="ld-fdn card">
     <div class="ld-fdn-src">
       <span class="ld-fdn-lab">The sources</span>
@@ -263,9 +248,9 @@ function foundation(c, concepts, relations, provisions) {
     <svg class="ld-fdn-links" aria-hidden="true"></svg>
     <div class="ld-fdn-tools">
       <span class="ld-fdn-lab">The tools built on it</span>
-      <p class="ld-tools-k">Working now</p>
+      <p class="ld-tools-k">Working demonstrations</p>
       <div class="ld-tools">${TOOLS.filter((t) => !t.future).map(tool).join("")}</div>
-      <p class="ld-tools-k">Possible next <span>not built yet</span></p>
+      <p class="ld-tools-k">Possible future uses <span>not built yet</span></p>
       <div class="ld-tools">${TOOLS.filter((t) => t.future).map(tool).join("")}</div>
       <p class="ld-tool-say" aria-live="polite"></p>
     </div>

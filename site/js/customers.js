@@ -21,8 +21,8 @@ import { crumb } from "./layers.js";
 const MODES = [["objection", "Understand an objection", "chat"], ["requirements", "What the law requires", "book"], ["process", "The application journey", "route"]];
 const HEAD = {
   objection: ["Understand an objection", "After someone applies for a trade mark, an examiner at IP Australia checks the application against the law. If something stands in the way, the examiner raises an objection in a letter called an examination report. Pick an example to walk through one, a step at a time."],
-  requirements: ["See what a rule requires", "Some sections of the Trade Marks Act 1995 set out a test an application must meet. Pick one to see what it looks at, what follows if it is met, and the exceptions, in plain terms."],
-  process: ["Follow the application journey", "From filing to registration, an application passes through several stages. Select a stage to see what happens there, who acts, and what moves it on."],
+  requirements: ["See what a rule requires", "Some sections of the Trade Marks Act 1995 set out a test an application must meet. Pick one to see how it has been set out as conditions, what follows if they are met, and the possible exceptions, in plain terms. These representations are AI-written and unreviewed, and they do not decide any application."],
+  process: ["Follow the application journey", "From filing to registration, an application passes through several stages. Select a stage to see what happens there, who acts, and what moves it on. This is one general path: a real application’s path may differ, and this demonstration does not work out deadlines or predict an outcome."],
 };
 const EFFECT_WORD = { obligation: "must", discretion: "may", bar: "may not" };
 const EFFECT_SAYS = {
@@ -77,7 +77,6 @@ export async function render(root, { params }) {
         <button type="button" role="tab" data-mode="${id}" aria-selected="${id === mode}">${icon(ic)}${esc(label)}</button>`).join("")}</div>
       <div class="cx-pick" role="group" aria-label="Choose an example"></div>
       <div class="cx-body"></div>
-      <p class="small cx-more"><a class="link-arrow" href="#/public/customers">What we may test with customers ${icon("arrow")}</a></p>
     </div>
   </div>`;
 

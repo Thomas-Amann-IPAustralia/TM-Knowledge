@@ -191,7 +191,7 @@ export async function render(root, { ontology, params }) {
       `   Lands on ideas: ${p.ideas.map((id) => byId.get(id)?.label || id).join("; ")}.`,
       p.tests.length ? `   Legal tests: ${p.tests.map((id) => tests.get(id)?.title || id).join("; ")}.` : "",
       `   Provisions: ${p.provisions.map(refLabel).join(", ")}${p.no_recorded_dependency.length ? ` (no recorded dependency: ${p.no_recorded_dependency.map(refLabel).join(", ")})` : ""}.`,
-      `   Would go back to be re-read: ${p.recheck.length} records first, ${p.recheck_via.length} more through the Manual.`,
+      `   Linked records to consider re-reading: ${p.recheck.length} directly, ${p.recheck_via.length} more through Manual citations.`,
     ].filter(Boolean).join("\n")),
     `Connections already in the ontology among these ideas: ${[...new Map(w.links.map((r) => [`${r.s}|${r.p}|${r.o}`, r])).values()].map((r) => `${byId.get(r.s)?.label} ${ontology.predicates[r.p]?.label || r.p} ${byId.get(r.o)?.label}`).join("; ")}.`,
     `How applicants or examiners would behave: ${w.behavioural}`,
@@ -224,6 +224,7 @@ export async function render(root, { ontology, params }) {
       </div>
 
       <div class="card wi-stage">
+        <p class="small muted wi-hint">Select a question to see today’s related passages and the issues a policy team would have to investigate.</p>
         <div class="wi-pick" role="group" aria-label="Touch points">${points.map((p, i) => `<button type="button" class="wi-pick-b" data-pick="${esc(p.id)}" aria-pressed="${p.id === current}"><span class="wi-n">${i + 1}</span>${esc(p.title)}</button>`).join("")}</div>
         <div class="wi-pic">${picture()}</div>
         <div class="wi-key">
@@ -245,10 +246,10 @@ export async function render(root, { ontology, params }) {
           <div class="stat"><b>${fmt(t.ideas)}</b><span>of the map’s ${fmt(ontology.concepts.length)} ideas relate to this scenario</span></div>
           <div class="stat"><b>${fmt(t.tests)}</b><span>legal tests of ${fmt(tests.size)} written as structured data</span></div>
           <div class="stat"><b>${fmt(t.provisions)}</b><span>provisions of the Act</span></div>
-          <div class="stat"><b>${fmt(t.recheck)}</b><span>records to re-read first, and ${fmt(t.recheck_via)} after them</span></div>
+          <div class="stat"><b>${fmt(t.recheck)}</b><span>records linked directly to the selected sources, plus ${fmt(t.recheck_via)} linked through Manual citations</span></div>
         </div>
         <div class="wi-three">
-          <div><h3>Which guidance would need re-reading?</h3>${statePill("working", "Answered")}<p class="small">See the recorded links in <a href="#/change">Trace a change</a>.</p></div>
+          <div><h3>Which guidance might need re-reading?</h3>${statePill("working", "Answered")}<p class="small">See the recorded links in <a href="#/change">Trace a change</a>.</p></div>
           <div><h3>What should the new practice say?</h3>${statePill("planned", "Not answered")}<p class="small">The page asks the questions. Answering them is policy work for people, against the law that would create the right.</p></div>
           <div><h3>How would people respond?</h3>${statePill("planned", "Unknown")}<p class="small">${esc(w.behavioural)}</p></div>
         </div>

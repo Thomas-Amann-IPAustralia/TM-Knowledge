@@ -30,14 +30,14 @@ export async function render(root, { ontology }) {
     <header class="wrap page-head">
       <div>
         ${crumb("nerds", "Results and limits")}
-        <h1>What we tested and what we know</h1>
+        <h1>What the prototype has shown, and what it has not</h1>
         <p class="lede">See how the search performed, who wrote and reviewed the records, which sources this version uses and what still needs testing.</p>
       </div>
     </header>
     ${s.all ? `<div class="wrap"><div class="ab-verdict-box" role="note">
       <span class="eyebrow">The evidence so far, in one paragraph</span>
       <p>On ${fmt(s.all.n)} test questions, the map-guided search ranked relevant passages ${difference(s.all["ndcg:ontology-keyword"], "higher", "lower")} than keyword search, and ${difference(s.all["ndcg:ontology-hybrid"], "higher", "lower")} than search by meaning.
-      That measures how the search ranks passages. It does not show that an answer is right.</p>
+      That measures how the search ranks passages. It does not show that an answer is right, and it did not measure examiner time saved, decision quality or customer understanding.</p>
       <p class="small"><b>Not yet tested:</b> whether answers are correct, the legal tests, the procedures, the customer explanations and the change tracing. No trade marks expert has reviewed the AI-written records.</p>
     </div></div>` : ""}
     <div class="wrap ab-layout">
