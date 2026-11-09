@@ -19,6 +19,7 @@
    columns, who wrote each record, and which text each quote is from (rules 5, 8). */
 
 import { esc, fmt, el, kindColour, kindCount, refChip, refLabel, trustBadge, quoteBlock, sourceOf, SOURCES, legend, definitionBlock, hierarchyBlock, qualifiedLine, structuresBlock, structureHref } from "./app.js";
+import { crumb } from "./layers.js";
 
 const TABS = [["kinds", "Kinds"], ["ideas", "Ideas"], ["connections", "Connections"], ["tests", "Legal tests"], ["processes", "Processes"]];
 const FAMILIES = ["reasoning", "examined", "process", "other"];
@@ -43,7 +44,7 @@ export async function render(root, { ontology, params }) {
   <div class="table-page">
     <header class="wrap page-head">
       <div>
-        <span class="eyebrow">Under the hood · data tables</span>
+        ${crumb("nerds", "Data tables")}
         <h1>Browse the knowledge map as tables</h1>
         <p class="lede">Choose a table to explore categories, individual ideas, their links, legal tests or procedures. Select a reference to read the source, or download a table as a CSV file.</p>
       </div>

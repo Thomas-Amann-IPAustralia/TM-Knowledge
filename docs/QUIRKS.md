@@ -1814,3 +1814,13 @@ authority word but no line break before the next `·` (`dashboard/sources.py`, `
 qualifier that wraps mid-phrase (`agent-proposed (the design and the` / `possibilities) · **Status**`)
 makes the ADR unreadable, and five dashboard tests fail at once, none of them naming the ADR. Break
 the line after a `·`, as every earlier ADR does, and run `test_dashboard.py` after adding an ADR.
+
+### Q-110: a link to a place on the same page goes through the router unless `app.js` catches it
+
+The explorer routes on the hash (`#/concepts/GC-0168`), so a plain in-page link such as
+`href="#ld-doors"` fires `hashchange`, the router reads `ld-doors` as an unknown route, re-renders the
+overview and scrolls to the top. The overview's "Discover what it might enable" button did exactly
+that from S049 until S050 noticed it. Since S050 the document click listener in `app.js` catches any
+`a[href^="#"]` that is not `#/…`, scrolls to the element with that id and focuses it, before the
+router sees anything. Give the target an `id`; do not add a per-page scroll handler. The results
+page's `data-jump` buttons predate this and still work.

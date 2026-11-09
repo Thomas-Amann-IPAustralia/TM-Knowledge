@@ -5,6 +5,7 @@
 import { esc } from "./app.js";
 import { GLOSSARY } from "./glossary.js";
 import { icon } from "./icons.js";
+import { crumb } from "./layers.js";
 
 /** The groups the terms are shown in. A term in none of them is listed under "Other terms". */
 const GROUPS = [
@@ -24,7 +25,7 @@ export async function render(root, { params }) {
   <div class="gv">
     <header class="wrap page-head">
       <div>
-        <span class="eyebrow">Reference</span>
+        ${crumb("nerds", "Glossary")}
         <h1>Glossary</h1>
         <p class="lede">Find a term to see what it means, how this site uses it and its technical name.</p>
       </div>

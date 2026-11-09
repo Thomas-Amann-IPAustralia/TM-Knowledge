@@ -529,6 +529,28 @@ def test_every_audience_section_says_what_it_is_and_never_decides():
     assert "None of these would decide an application" in examiners
 
 
+def test_the_site_never_claims_more_than_it_checks():
+    """ADR-0152 (ChatGPT's UX review, F02 to F04 and F18): a matching quotation is provenance, not
+    correctness; a recorded state in the customer preview is restated, never drawn as a tick the
+    site could be read as endorsing; what rests on a provision is what a change might affect; and
+    the guess on Trace a change is offered, never in the way of the result."""
+    js = SITE / "js"
+    home, examiners, ask = ((js / f).read_text(encoding="utf-8") for f in ("home.js", "examiners.js", "ask.js"))
+    assert "Every statement shows its source" not in home and "not that the answer is right" in home
+    assert "every statement is checked" not in examiners
+    for page in (examiners, ask):
+        assert "it does not check that the answer is right" in page
+    direction = (js / "direction.js").read_text(encoding="utf-8")
+    assert "See the consequences" not in direction and "might affect" in direction
+    for name in ("diagrams.js", "customers.js", "public.js"):
+        assert "✓" not in (js / name).read_text(encoding="utf-8"), name
+    assert "recorded: met" in (js / "diagrams.js").read_text(encoding="utf-8")
+    assert "This site restates it; it does not assess whether it is right." in (js / "customers.js").read_text(encoding="utf-8")
+    change = (js / "change.js").read_text(encoding="utf-8")
+    assert 'class="ch-main veiled"' not in change and "data-try" in change
+    assert "not a measure of legal impact, risk or effort" in change
+
+
 # --- answer-v4: what the answer is given of each source (A06, ADR-0139) -------------
 
 

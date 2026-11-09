@@ -10,6 +10,7 @@
 
 import { esc, fmt, load } from "./app.js";
 import { term, GLOSSARY } from "./glossary.js";
+import { crumb } from "./layers.js";
 
 const GRAPH = {
   source: ["The source text", "The Manual's passages and the provisions of the Act and the Regulations, as the snapshot holds them."],
@@ -39,7 +40,7 @@ export async function render(root) {
   <div class="sd">
     <header class="wrap page-head">
       <div>
-        <span class="eyebrow">Under the hood · the standards</span>
+        ${crumb("nerds", "The standards")}
         <h1>How the knowledge map stores information</h1>
         <p class="lede">The map uses open standards so other tools can read and check the same records. Choose a standard to see what it does and an example from this project.</p>
       </div>

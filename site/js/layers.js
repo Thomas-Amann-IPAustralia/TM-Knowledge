@@ -31,7 +31,7 @@ const NEXT = {
   concepts: { title: "Ask a question in your own words", text: "The research assistant finds the law and the guidance for a question, then writes a cited answer you can check.",
     links: [["#/ask", "Ask a research question"], ["#/examiners", "Back to the examiners' overview"]] },
   ask: { title: "Explore one concept in depth", text: "See everything the foundation records about one idea: what gives rise to it, what qualifies it, what overcomes it, and the sources for each.",
-    links: [["#/concepts", "Explore a legal concept"], ["#/how", "How the search works"]] },
+    links: [["#/concepts", "Explore a legal concept"], ["#/how", "A search, step by step"]] },
   public: { title: "Curious how it works?", text: "The technical detail is kept in one place: how a rule becomes structured data, the knowledge map and the standards behind it.",
     links: [NERDS, ["#/examiners", "See what it offers examiners"], ["#/direction", "See what it offers direction setting"]] },
   customers: { title: "How is a rule broken down?", text: "See how a section of the Act becomes structured data: who acts, which conditions must hold and which exceptions apply.",
@@ -57,6 +57,13 @@ const NEXT = {
   about: { title: "Try the demonstrations", text: "See what the foundation does for examiners, for the public and for direction setting.",
     links: [["#/examiners", "For examiners"], ["#/public", "For the public"], ["#/direction", "For direction setting"]] },
 };
+
+/** A breadcrumb above a deep page's title: its section, linked back, then the page, and what kind
+    of page it is (UX review F29). It replaces the eyebrow, so the title area holds no more lines. */
+export function crumb(sectionId, here, note = "") {
+  const s = SECTIONS.find((x) => x.id === sectionId) || SECTIONS[0];
+  return `<nav class="crumb" aria-label="Breadcrumb"><a href="${s.href}">${esc(s.label)}</a><span aria-hidden="true">/</span><span aria-current="page">${esc(here)}</span>${note ? `<span class="crumb-note">${esc(note)}</span>` : ""}</nav>`;
+}
 
 /** The card at the foot of a page: where to go next, and the way back to its section. */
 export function goDeeper(name) {

@@ -13,6 +13,7 @@
 
 import { esc, fmt, load, quoteBlock, refChip, refLabel, srcShape, stampIcon, statePill, structureHref, tip, FAMILIES, familyOf } from "./app.js";
 import { icon } from "./icons.js";
+import { crumb } from "./layers.js";
 
 const W = 1120, H = 640;
 const Y = { premise: 52, point: 154, line: 226, idea: 326, idea2: 378, prov: 548 };
@@ -201,7 +202,7 @@ export async function render(root, { ontology, params }) {
   <div class="wi">
     <header class="wrap page-head">
       <div>
-        <span class="eyebrow">For direction setting · working demonstration</span>
+        ${crumb("direction", "A new right: what would it touch?", "Working demonstration")}
         <h1>A new right: what would it touch?</h1>
         <p class="wi-q">What if Australia had a register of geographical indications for all goods?</p>
         <p class="lede">A geographical indication is a sign that identifies goods as coming from a particular place, where their quality, reputation or another characteristic is essentially due to that origin (Trade Marks Act 1995, section 6). Imagine a register covering all types of goods. Which parts of trade mark examination guidance would a policy team need to review?</p>
@@ -211,14 +212,16 @@ export async function render(root, { ontology, params }) {
     <div class="wrap">
       <div class="wi-banner" role="note">
         <div class="wi-banner-head">${icon("flag")}<p><b>A fictional policy change. The existing records are not changed. Nothing here is decided.</b></p></div>
-        <ul>
-          <li>Australia has no register of geographical indications for all goods, and the example assumes no draft law. AI wrote the scenario and its questions.</li>
-          <li>The links point to existing trade mark records. Only the scenario and its questions are fictional.</li>
-          <li>Use the example to identify guidance for review. A policy team would need to decide what to change.</li>
-          <li>We have no evidence about how applicants or examiners would respond.</li>
-        </ul>
+        <details class="wi-more"><summary>What this example assumes, and what it cannot tell you</summary>
+          <p class="wi-premise-text">${esc(w.premise)}</p>
+          <ul>
+            <li>Australia has no register of geographical indications for all goods, and the example assumes no draft law. AI wrote the scenario and its questions.</li>
+            <li>The links point to existing trade mark records. Only the scenario and its questions are fictional.</li>
+            <li>Use the example to identify guidance for review. A policy team would need to decide what to change.</li>
+            <li>We have no evidence about how applicants or examiners would respond.</li>
+          </ul>
+        </details>
       </div>
-      <p class="wi-premise-text"><span class="eyebrow plain">What this example assumes</span>${esc(w.premise)}</p>
 
       <div class="card wi-stage">
         <div class="wi-pick" role="group" aria-label="Touch points">${points.map((p, i) => `<button type="button" class="wi-pick-b" data-pick="${esc(p.id)}" aria-pressed="${p.id === current}"><span class="wi-n">${i + 1}</span>${esc(p.title)}</button>`).join("")}</div>

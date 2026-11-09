@@ -13,8 +13,15 @@ export const EFFECT_WORD = { obligation: "must", discretion: "may", bar: "may no
 export const EFFECT_NAME = { obligation: "an obligation", discretion: "a discretion", bar: "a bar" };
 const LEAF = { fact: "Fact", evaluative: "Assessment" };
 const LEAF_LONG = { fact: "a fact about the application or the other trade mark", evaluative: "a judgement a person must make" };
-/** A recorded state, by a mark and a word as well as a colour. */
-export const STATE = { met: ["✓", "recorded as met"], not_met: ["✗", "recorded as not met"], open: ["?", "too little information to tell"] };
+/** A recorded state, by a mark and a word as well as a colour. The mark is a document, never a
+    tick: the state restates what the invented report or case record says, and nothing on the site
+    assesses whether it is right (UX review F04, 2026-11-09). */
+export const STATE = { met: ["doc", "recorded as met"], not_met: ["doc", "recorded as not met"], open: ["?", "too little information to tell"] };
+/** The few words a state shows beside its mark. */
+export const STATE_WORD = { met: "recorded: met", not_met: "recorded: not met", open: "not known" };
+const DOC = `<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5h4l2.5 2.5v6.5h-6.5z M7 1.5v2.5h2.5 M4.6 6.3h3 M4.6 8.2h2.2"/></svg>`;
+/** A state's mark: a small document for a recorded state, a question mark for an unknown one. */
+export const stateGlyph = (state) => (STATE[state]?.[0] === "doc" ? DOC : esc(STATE[state]?.[0] || "?"));
 
 const joinOf = (node) => (node.all ? "all" : node.any ? "any" : node.kind === "all" || node.kind === "any" ? node.kind : null);
 const childrenOf = (node) => node.all || node.any || node.children || [];
@@ -39,7 +46,7 @@ export function conditionBoxes(node, { states = false } = {}) {
     <p class="dg-ref">${refChip(node.ref)}</p></div>`;
 }
 
-export const stateMark = (state) => `<span class="dg-st dg-st-${esc(state)}" title="${esc(STATE[state]?.[1] || state)}"><span aria-hidden="true">${STATE[state]?.[0] || ""}</span><span class="vh">${esc(STATE[state]?.[1] || state)}: </span></span>`;
+export const stateMark = (state) => `<span class="dg-st dg-st-${esc(state)}" title="${esc(STATE[state]?.[1] || state)}"><span aria-hidden="true">${stateGlyph(state)}</span><span class="vh">${esc(STATE[state]?.[1] || state)}: </span></span>`;
 
 /** The condition tree in words, one line a node, indented. */
 export function conditionText(node, depth = 1, { states = false } = {}) {

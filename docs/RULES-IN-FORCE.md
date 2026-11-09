@@ -1,10 +1,10 @@
-# Rules in force — what 135 decisions add up to
+# Rules in force — what 136 decisions add up to
 
 Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-11-08, ADR-0151 (S049).
+**As at:** 2026-11-09, ADR-0152 (S050).
 
 ## Purpose and scope
 
@@ -62,6 +62,12 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   never changes the ontology or what the system may say. The customer explanation preview is on
   it, on invented matters, loudly labelled (ADR-0146); showing it to customers, testing with them
   or using real case data stays the owner's.
+- **The site claims no more than it checks** (ADR-0152, from ChatGPT's UX review): a matching
+  quotation shows where words come from, not that an answer is right; a recorded state in the
+  customer preview is "recorded: met", never a tick, and the page says it restates the invented
+  report; what rests on a provision is what a change *might* affect, a review list, not an impact;
+  duplicate connections are bundled with their record count, never merged. The overview's headline,
+  its section 44 example and the section labels are the owner's and stay.
 - **On the site, an expert's review is marked, never featured.** Machine-written
   records keep "Machine · unreviewed" everywhere; reviewed ones say "Reviewed", grey,
   with no name; pictures draw every record alike. The Manual, the Act and the

@@ -8,9 +8,10 @@ serves, with working demonstrations, and to explain how it works for those who w
 The pages come in five sections (`layers.js`), and a card at the foot of each page says where to go
 next:
 
-1. **Overview** (`#/`): what the foundation is, one real rule turned from the Act's words into
-   structure, a door for each group, one foundation under many tools, the safeguards and the work
-   still to do.
+1. **Overview** (`#/`): what the foundation is, a choice of the three audiences in the first screen,
+   one real rule turned from the Act's words into structure, a door for each group, one foundation
+   under many tools (working now and possible next, in two rows), the safeguards and the work still
+   to do.
 2. **For examiners**: the overview (`#/examiners`) and two working demonstrations, Explore a legal
    concept (`#/concepts`) and Ask a research question (`#/ask`).
 3. **For the public**: the overview (`#/public`, with what may be tested with customers) and the
@@ -18,11 +19,15 @@ next:
    the application journey, on invented matters.
 4. **For direction setting**: the overview (`#/direction`), Trace a change (`#/change`) and the
    what-if, a new right laid over the ontology (`#/whatif`).
-5. **For nerds** (`#/nerds`): How it works, the knowledge map, rules as code, the standards, the
-   data tables, results and limits (`#/about`) and the glossary.
+5. **For nerds** (`#/nerds`): how the foundation works in four steps, then a search followed step by
+   step (`#/how`), the knowledge map, rules as code, the standards, the data tables, results and
+   limits (`#/about`) and the glossary.
 
-Each audience section leads with what works and then shows possibilities, each with a horizon said
-in words: working now, within reach, needs more data. `glossary.js` holds every term the site
+Each audience section leads with what works and then shows three possibilities, each with a horizon
+said in words (working now, within reach, needs more data), and folds the rest under "Other
+possibilities" (`possibilityGrid`). A deep page carries a breadcrumb back to its section (`crumb` in
+`layers.js`). A link to a place on the same page (`href="#id"`) is caught by `app.js` before the
+router (Q-110). `glossary.js` holds every term the site
 explains, and `term(key)` explains one inline the first time a page uses it. The owner's older
 dashboard is kept at `site/workbench/` and linked from nothing here.
 
@@ -92,8 +97,12 @@ the cards. It sets `--acc` on `.aud-exam`, `.aud-pub`, `.aud-pol` and on `main` 
 colours a record.
 
 Machine-written content is a dashed rust stamp everywhere (`trustBadge`, `.stamp`); states are
-said in words as well as colour (`statePill`; the horizons `horizonPill`: working now, within reach,
-needs more data). A legal test's conditions are marked **Fact** (a square with a tick) or
+said in words as well as colour (`statePill`; the horizons `horizonPill`, a dot and a label: working
+now, within reach, needs more data). An evidence statement is plain words (`.evid`), not a badge. In
+the customer preview a recorded state is a document mark with words ("recorded: met", `STATE_WORD`
+and `stateGlyph` in `diagrams.js`), never a tick: the page restates an invented report and assesses
+nothing (ADR-0152). Small meaningful text uses `--ink-3`, at least 4.5:1 on every paper; `--ink-faint`
+is for decorative strokes only. A legal test's conditions are marked **Fact** (a square with a tick) or
 **Assessment** (a scale) wherever they appear. Every picture has a text equivalent or says in words
 what its colours mean. Each view's classes carry a short prefix (`ld-` overview, `ex-` examiners,
 `ce-` concept explorer, `rs-` Ask, `pu-` public, `cx-` the public demonstrations, `dr-` direction
@@ -107,16 +116,16 @@ words (Q-101, Q-108).
 | Route | Module | What it shows |
 |---|---|---|
 | `#/` | `home.js` | the overview: section 44 from the Act's words to structure, facts and assessments marked; a door for each group; one foundation under the tools; the safeguards, the work still to do and the measurement in both directions; the door to For nerds |
-| `#/examiners` | `examiners.js` | for examiners: the two demonstrations, a preview of one concept's connections, and what could come next |
-| `#/concepts/GC-…` | `concepts.js` | Explore a legal concept: the connections that lead to and from one concept as a bow-tie, each with its predicate's words, strength and condition; its names and not-names; its role in a legal test (fact or assessment); where the Manual names it, Part by Part; what it rests on; a research trail |
+| `#/examiners` | `examiners.js` | for examiners: the two demonstrations, a preview of one concept's connections with one of them and its sentence, and what could come next |
+| `#/concepts/GC-…` | `concepts.js` | Explore a legal concept: the connections that lead to and from one concept as a bow-tie, each with its predicate's words, strength and condition, several records of one connection bundled with their count and each listed when selected; its names and not-names; its role in a legal test (fact or assessment); where the Manual names it, Part by Part; what it rests on; a research trail |
 | `#/ask/BN-…` | `ask.js` | Ask a research question: a streamed, cited answer with the unreviewed stamp, the Act and the Regulations kept apart from the Manual, the concepts the question names and the legal test it reaches; how the sources were found (the hop diagram and keyword search beside it) folded behind "Why these sources?" |
 | `#/public/customers?` | `public.js` | for the public: the three demonstrations, a preview of one invented case, what may be tested with customers and on whose decision, and what could come next |
 | `#/customers/{objection,requirements,process}/…` | `customers.js` | the customer explanation preview, behind its banner (ADR-0146): an objection in six steps beside a picture of the case that lights the part each step explains, with two cases under one rule compared; what a rule requires; the application journey; each with its text equivalent |
-| `#/direction` | `direction.js` | for direction setting: where the guidance concentrates, the two demonstrations, and what could come next |
-| `#/change/…` | `change.js` | Trace a change: guess first, then what rests on a page or a provision, drawn as a ripple, with the amendment timeline (Plot) |
+| `#/direction` | `direction.js` | for direction setting: the provisions with the most recorded links (direct and via the Manual, not importance), the two demonstrations, and what could come next |
+| `#/change/…` | `change.js` | Trace a change: what rests on a page or a provision, the exact counts first, then drawn as a ripple, with an optional guess and the amendment timeline (Plot) |
 | `#/whatif/FW-…/point?` | `whatif.js` | a new right (geographical indications) above a dashed line, the ideas, provisions and legal tests it lands on below it, unchanged (ADR-0149) |
-| `#/nerds` | `nerds.js` | For nerds: the build in four figures, the contract in one line, and a door to each technical page |
-| `#/how` | `how.js` | How it works: nine scrolling steps over one picture, from the text to the answer and who wrote what |
+| `#/nerds` | `nerds.js` | For nerds: the build in four figures, how the foundation works in four steps, the contract in one line, and a door to each technical page |
+| `#/how` | `how.js` | A search, step by step: one research question in nine scrolling steps over one picture, from the text to the answer and who wrote what |
 | `#/map`, `#/map/ideas/GC-…`, `#/map/kinds` | `map.js` | the knowledge map (below) |
 | `#/rules` | `rules.js` | rules as code: the three forms drawn small; connections with their modality and condition; section 44 as a diagram and the process from filing as a journey (`diagrams.js`) |
 | `#/standards` | `standards.js` | the standards stacked as one clickable picture; each in plain words, with a real block of the graph, and what it is not |

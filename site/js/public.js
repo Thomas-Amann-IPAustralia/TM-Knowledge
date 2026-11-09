@@ -11,7 +11,8 @@
 
 import { esc, fmt, load } from "./app.js";
 import { icon } from "./icons.js";
-import { demoCard, possibilityCard, horizonKey, aboutLine } from "./illustrations.js";
+import { demoCard, possibilityCard, possibilityGrid, horizonKey, aboutLine } from "./illustrations.js";
+import { STATE, STATE_WORD, stateGlyph } from "./diagrams.js";
 
 export async function render(root, { ontology, params }) {
   const explain = await load("explain");
@@ -82,32 +83,32 @@ export async function render(root, { ontology, params }) {
         <div class="sec-head"><div><span class="eyebrow">Coming next</span><h2 id="pu-next">Helping customers through the whole system</h2></div>
           <p>Possibilities, not commitments. Each says what it would build on and what it would still need.</p></div>
         ${horizonKey()}
-        <div class="fc-grid">
-          ${possibilityCard({ art: "assistant", horizon: "reach", title: "A guided assistant with clear visuals",
+        ${possibilityGrid([
+          possibilityCard({ art: "assistant", horizon: "reach", title: "A guided assistant with clear visuals",
             text: "A conversation that explains requirements, the process and objections, drawing the same pictures as these demonstrations and showing the source for each point.",
-            builds: "the explanations and pictures on this site, and the checked, cited answers examiners already get", needs: "testing with customers, and the project owner’s approval before any customer sees it" })}
-          ${possibilityCard({ art: "prefiling", horizon: "reach", title: "Pre-filing education",
+            builds: "the explanations and pictures on this site, and the checked, cited answers examiners already get", needs: "testing with customers, and the project owner’s approval before any customer sees it" }),
+          possibilityCard({ art: "prefiling", horizon: "reach", title: "Pre-filing education",
             text: "Before someone invests in a brand, explain the questions examination asks of a trade mark, such as whether it can distinguish the goods and whether it conflicts with an earlier mark.",
-            builds: "the legal tests already set out for sections 41, 43 and 44", needs: "plain-language wording tested with customers, and more of the Act set out as rules" })}
-          ${possibilityCard({ art: "personal-journey", horizon: "reach", title: "A journey for your stage",
-            text: "Show only the guidance that matters where an application is now, instead of the whole website.",
-            builds: "the process from filing to registration, and what follows an examination report", needs: "a connection to an application’s status, with the project owner’s approval" })}
-          ${possibilityCard({ art: "non-use", horizon: "reach", title: "Non-use removal guide",
-            text: "Explain what is involved in asking for a registered trade mark that has not been used to be removed, and the evidence each side provides.",
-            builds: "the Act and the Manual, which the foundation already holds", needs: "the removal provisions set out as a legal test and a procedure" })}
-          ${possibilityCard({ art: "own-report", horizon: "data", title: "Explain my own report",
+            builds: "the legal tests already set out for sections 41, 43 and 44", needs: "plain-language wording tested with customers, and more of the Act set out as rules" }),
+          possibilityCard({ art: "own-report", horizon: "data", title: "Explain my own report",
             text: "Select your own examination report and get the same step-by-step explanation for your real application.",
-            needs: "a connection to examination reports, and the project owner’s approval to use real case data" })}
-          ${possibilityCard({ art: "gs-finder", horizon: "data", title: "Goods and services finder",
+            needs: "a connection to examination reports, and the project owner’s approval to use real case data" }),
+          possibilityCard({ art: "personal-journey", horizon: "reach", title: "A journey for your stage",
+            text: "Show only the guidance that matters where an application is now, instead of the whole website.",
+            builds: "the process from filing to registration, and what follows an examination report", needs: "a connection to an application’s status, with the project owner’s approval" }),
+          possibilityCard({ art: "non-use", horizon: "reach", title: "Non-use removal guide",
+            text: "Explain what is involved in asking for a registered trade mark that has not been used to be removed, and the evidence each side provides.",
+            builds: "the Act and the Manual, which the foundation already holds", needs: "the removal provisions set out as a legal test and a procedure" }),
+          possibilityCard({ art: "gs-finder", horizon: "data", title: "Goods and services finder",
             text: "Describe a business in everyday words and find the matching goods and services descriptions and their classes.",
-            needs: "IP Australia’s list of goods and services descriptions, connected to the foundation" })}
-          ${possibilityCard({ art: "spec-check", horizon: "data", title: "Specification check",
+            needs: "IP Australia’s list of goods and services descriptions, connected to the foundation" }),
+          possibilityCard({ art: "spec-check", horizon: "data", title: "Specification check",
             text: "Flag unclear, very broad or inconsistent wording in a draft list of goods and services before it is filed.",
-            needs: "the goods and services list, and the Manual’s guidance on specifications set out as rules" })}
-          ${possibilityCard({ art: "readiness", horizon: "data", title: "Readiness check before filing",
+            needs: "the goods and services list, and the Manual’s guidance on specifications set out as rules" }),
+          possibilityCard({ art: "readiness", horizon: "data", title: "Readiness check before filing",
             text: "Point out missing information, or issues worth a closer look, before an application is filed.",
-            needs: "the details an application form holds, and more of the Act set out as rules" })}
-        </div>
+            needs: "the details an application form holds, and more of the Act set out as rules" }),
+        ])}
       </section>
     </div>
   </div>`;
@@ -127,12 +128,13 @@ function miniCase(m) {
   const leavesOf = (n) => (n.children ? n.children.flatMap(leavesOf) : [n]);
   const top = issue ? (issue.test.condition.children || [issue.test.condition]).map((n) => (n.children
     ? { ...n, kind: new Set(leavesOf(n).map((l) => l.kind)).size === 1 ? leavesOf(n)[0].kind : "fact" } : n)) : [];
-  const mark = { met: "✓", not_met: "✗", open: "?" };
+  const mark = (st) => `<span class="pu-mini-st ${esc(st)}" title="${esc(STATE[st]?.[1] || st)}"><span aria-hidden="true">${stateGlyph(st)}</span>${esc(STATE_WORD[st] || st)}</span>`;
   return `<a class="pu-mini" href="#/customers/objection/${esc(m.matter)}" aria-label="Walk through the invented case ${esc(m.sign)}">
     <span class="pu-mini-k">Invented example</span>
     <span class="pu-mini-sign">${esc(m.sign)}</span>
     ${issue ? `<span class="pu-mini-t">${esc(issue.test.title)}</span>
-    <ul>${top.slice(0, 4).map((l) => `<li class="${esc(l.kind)}"><span class="pu-mini-st ${esc(l.state || "open")}" aria-hidden="true">${mark[l.state] || "?"}</span><span class="pu-mini-kind">${l.kind === "evaluative" ? "Assessment" : "Fact"}</span><span class="pu-mini-x">${esc(l.text)}</span></li>`).join("")}</ul>` : ""}
+    <ul>${top.slice(0, 4).map((l) => `<li class="${esc(l.kind)}"><span class="pu-mini-kind">${l.kind === "evaluative" ? "Assessment" : "Fact"}</span><span class="pu-mini-x">${esc(l.text)}</span>${mark(l.state || "open")}</li>`).join("")}</ul>
+    <span class="pu-mini-note">“Recorded” restates the invented examination report and case record. This site does not assess whether it is right.</span>` : ""}
     <span class="link-arrow">Walk through it ${icon("arrow")}</span>
   </a>`;
 }
