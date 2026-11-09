@@ -14,6 +14,7 @@ import { esc, fmt, load, refChip, refLabel, sourceOf, srcShape, structureHref, t
 import { namedProvisions } from "./engine.js";
 import { icon } from "./icons.js";
 import * as lib from "./lib.js";
+import { crumb } from "./layers.js";
 
 /** Kinds of record, in the order the ripple draws them, with plain names. */
 const TYPES = [
@@ -43,11 +44,11 @@ export async function render(root, { ontology, params }) {
   <div class="ch">
     <header class="wrap page-head">
       <div>
-        <span class="eyebrow">For direction setting · working demonstration</span>
+        ${crumb("direction", "Trace a change", "Working demonstration")}
         <h1>Trace a change</h1>
         <p class="lede">Choose a section of the Trade Marks Act 1995, a regulation or a page of IP Australia’s Trade Marks Manual. See every record in the knowledge foundation that rests on it: those that cite it directly, and those that rely on a Manual passage citing it. If it changed, these are what would need re-reading first.</p>
       </div>
-      <div class="page-head-side"><span class="pill working">Working · not measured</span></div>
+      <div class="page-head-side"><span class="evid">${icon("info")}A working demonstration. Not measured.</span></div>
     </header>
     <div class="wrap">
       <div class="card ch-pick">
@@ -59,14 +60,16 @@ export async function render(root, { ontology, params }) {
         <div class="ch-quick"><span class="tiny">Provisions linked to the most records</span>${top.map((ref) => `<button type="button" class="chip" data-pick="${esc(ref)}"><span class="law ${sourceOf(ref)}"><i class="mark" aria-hidden="true"></i></span>${esc(refLabel(ref))} <span class="tiny">${fmt(weight(ref))}</span></button>`).join("")}</div>
         <p class="tiny ch-or">Or pick a page of the Manual from the grid below.</p>
       </div>
-      <div class="ch-main veiled">
+      <div class="ch-sum" aria-live="polite"></div>
+      <p class="ch-try" hidden>${icon("question")}<span class="ch-try-q"></span><button type="button" class="btn small" data-try>Guess before you look</button></p>
+      <div class="ch-main">
         <div class="card ch-ripple-card"><div class="ch-ripple"></div></div>
         <aside class="card ch-side" aria-live="polite"></aside>
-        <div class="ch-guess card" role="group" aria-labelledby="ch-guess-q">
+        <div class="ch-guess card" role="group" aria-labelledby="ch-guess-q" hidden>
           <span class="eyebrow">Guess first</span>
           <p class="ch-guess-q" id="ch-guess-q"></p>
           <div class="ch-guess-opts">${[["few", "Fewer than 10"], ["some", "10 to 99"], ["many", "100 or more"]].map(([k, l]) => `<button type="button" class="btn" data-guess="${k}">${l}</button>`).join("")}</div>
-          <button type="button" class="btn ghost small" data-guess="skip">Skip, just show me</button>
+          <button type="button" class="btn ghost small" data-guess="skip">Never mind, show me</button>
         </div>
       </div>
       <p class="ch-guess-a" aria-live="polite" hidden></p>
@@ -93,6 +96,13 @@ export async function render(root, { ontology, params }) {
   const ripple = root.querySelector(".ch-ripple");
   const side = root.querySelector(".ch-side");
   const msg = root.querySelector(".ch-msg");
+  const sum = root.querySelector(".ch-sum");
+  const main = root.querySelector(".ch-main");
+  const guess = root.querySelector(".ch-guess");
+  const tryRow = root.querySelector(".ch-try");
+  const answer = root.querySelector(".ch-guess-a");
+  /** Provisions the reader has already guessed for, so the offer is not repeated. */
+  const guessed = new Set();
 
   // ---- naming a record in words, for the tooltip and the lists
   const named = (id) => {
@@ -200,12 +210,19 @@ export async function render(root, { ontology, params }) {
     const src = sourceOf(ref);
     const label = refLabel(ref);
     if (!hit) {
+      sum.innerHTML = `<p class="ch-sum-n"><b>0</b> records found with a recorded link to ${esc(label)}</p><p class="ch-sum-note">No recorded dependency is not the same as no impact: a change could still affect other guidance.</p>`;
       draw({ src, label, short: label, sub: "no recorded dependency" }, { direct: [], directLabel: "names it directly", outerLabel: "rests on a passage citing it" });
       side.innerHTML = `<span class="eyebrow">Records linked to this provision</span><h2>${esc(label)}</h2><p>${refChip(ref)}</p>
         <p class="ch-none">We found no record that cites this provision directly or through the Manual. <b>A change could still affect other guidance.</b></p>`;
       return;
     }
     const passages = hit.passages || [];
+    const total = hit.direct.length + hit.via_manual.length;
+    const pc = (n) => (total ? ((n / total) * 100).toFixed(1) : 0);
+    sum.innerHTML = `<p class="ch-sum-n"><b>${fmt(total)}</b> records may need checking if ${esc(label)} changes</p>
+      <div class="ch-sum-bar" aria-hidden="true"><i class="d" style="width:${pc(hit.direct.length)}%"></i><i class="v" style="width:${pc(hit.via_manual.length)}%"></i></div>
+      <p class="ch-sum-k"><span><i class="d"></i><b>${fmt(hit.direct.length)}</b> cite it directly</span><span><i class="v"></i><b>${fmt(hit.via_manual.length)}</b> cite Manual passages linked to it</span></p>
+      <p class="ch-sum-note">${fmt(passages.length)} Manual passage${passages.length === 1 ? "" : "s"} cite ${esc(label)}. They are the route between the two, not more records to add. A count is a starting list for review, not a measure of legal impact, risk or effort.</p>`;
     draw({ src, label, short: label, sub: src === "act" ? "the Act" : "the Regulations" },
       { direct: hit.direct, passages, outer: hit.via_manual, ambiguous: new Set(hit.ambiguous || []), directLabel: "names it directly", outerLabel: "rests on a passage citing it" });
     side.innerHTML = `<span class="eyebrow">Records linked to this provision</span><h2>${esc(label)}</h2>
@@ -224,6 +241,8 @@ export async function render(root, { ontology, params }) {
   function showPage(ref) {
     const p = byPage.get(ref);
     const records = [...p.concepts, ...p.relations, ...(p.typings || []).map((id) => (String(id).startsWith("GT-") ? id : `GT-${String(id).replace(/^GC-/, "")}`)), ...p.definitions, ...p.corrections, ...(p.structures || [])];
+    sum.innerHTML = `<p class="ch-sum-n"><b>${fmt(records.length)}</b> records quote this page and may need checking if it changes</p>
+      <p class="ch-sum-note">${fmt(p.mentioned.length)} more ideas are named on it, matched automatically by name. A count is a starting list for review, not a measure of legal impact, risk or effort.</p>`;
     draw({ src: "manual", label: p.title, short: (stability.parts[p.part] || p.part).replace(/^(Part \S+).*$/, "$1"), sub: `${fmt(p.passages)} passage${p.passages === 1 ? "" : "s"}` },
       { direct: records, outer: p.mentioned, directLabel: "quotes this page", outerLabel: "an idea named on it, re-matched automatically" });
     side.innerHTML = `<span class="eyebrow">Records linked to this page</span><h2>${esc(p.title)}</h2>
@@ -239,9 +258,11 @@ export async function render(root, { ontology, params }) {
       <p class="small muted">A change to this page can affect individual records. The map’s categories, such as legal tests and process steps, are defined separately.</p>`;
   }
 
-  function select(ref, { unveil = true } = {}) {
+  function select(ref) {
     current = ref;
-    if (unveil) { root.querySelector(".ch-main")?.classList.remove("veiled"); root.querySelector(".ch-guess")?.remove(); }
+    main.classList.remove("veiled");
+    guess.hidden = true;
+    offer();
     history.replaceState(null, "", `#/change/${ref}`);
     root.querySelectorAll("[data-pick]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.pick === ref)));
     root.querySelectorAll(".ch-pg").forEach((b) => b.classList.toggle("on", b.dataset.page === ref));
@@ -316,30 +337,40 @@ export async function render(root, { ontology, params }) {
     drawHeat();
   }));
 
-  // ---- guess first, then see (a prediction before the reveal makes the size of the answer land)
-  const main = root.querySelector(".ch-main");
-  const answer = root.querySelector(".ch-guess-a");
-  const asked = current;
-  const hit = provisions[asked];
-  if (hit && !byPage.has(asked)) {
-    root.querySelector(".ch-guess-q").innerHTML = `${esc(refLabel(asked).replace(/^Act s /, "Section ").replace(/^Regs r /, "Regulation "))} is one provision of the ${sourceOf(asked) === "regs" ? "Regulations" : "Act"}. How many records in the foundation do you think rest on it?`;
-    main.querySelector(".ch-guess").addEventListener("click", (e) => {
-      const b = e.target.closest("[data-guess]");
-      if (!b) return;
-      const n = weight(asked);
-      const bin = n < 10 ? "few" : n < 100 ? "some" : "many";
-      const said = { few: "fewer than 10", some: "10 to 99", many: "100 or more" };
-      answer.hidden = false;
-      answer.innerHTML = `${b.dataset.guess === "skip" ? "" : `<b>${b.dataset.guess === bin ? "Right." : `You guessed ${said[b.dataset.guess]}.`}</b> `}${fmt(n)} records rest on ${esc(refLabel(asked))}: ${fmt(hit.direct.length)} cite it directly, and ${fmt(hit.via_manual.length)} more rest on the ${fmt((hit.passages || []).length)} Manual passages that cite it. Most of what a change would reach, it reaches through the Manual.`;
-      select(current);
-    });
-  } else {
-    main.classList.remove("veiled");
+  // ---- guess first, if you like (a prediction before the reveal makes the size of the answer land;
+  // offered, never in the way of the result: UX review F18)
+  function offer() {
+    const hit = provisions[current];
+    const can = !!hit && !byPage.has(current) && !guessed.has(current);
+    tryRow.hidden = !can;
+    if (can) tryRow.querySelector(".ch-try-q").textContent = `Want to test your intuition? Guess how many records rest on ${refLabel(current).replace(/^Act s /, "section ").replace(/^Regs r /, "regulation ")} before you look.`;
   }
+  tryRow.querySelector("[data-try]").addEventListener("click", () => {
+    const asked = current;
+    guess.querySelector(".ch-guess-q").innerHTML = `${esc(refLabel(asked).replace(/^Act s /, "Section ").replace(/^Regs r /, "Regulation "))} is one provision of the ${sourceOf(asked) === "regs" ? "Regulations" : "Act"}. How many records in the foundation do you think rest on it?`;
+    main.classList.add("veiled");
+    guess.hidden = false;
+    tryRow.hidden = true;
+    answer.hidden = true;
+    guess.querySelector("[data-guess]").focus();
+  });
+  guess.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-guess]");
+    if (!b) return;
+    const asked = current;
+    const hit = provisions[asked];
+    const n = weight(asked);
+    const bin = n < 10 ? "few" : n < 100 ? "some" : "many";
+    const said = { few: "fewer than 10", some: "10 to 99", many: "100 or more" };
+    guessed.add(asked);
+    answer.hidden = false;
+    answer.innerHTML = `${b.dataset.guess === "skip" ? "" : `<b>${b.dataset.guess === bin ? "Right." : `You guessed ${said[b.dataset.guess]}.`}</b> `}${fmt(n)} records rest on ${esc(refLabel(asked))}: ${fmt(hit.direct.length)} cite it directly, and ${fmt(hit.via_manual.length)} more rest on the ${fmt((hit.passages || []).length)} Manual passages that cite it. Most of what a change would reach, it reaches through the Manual.`;
+    select(asked);
+  });
 
   drawTimeline();
   drawHeat();
-  select(current, { unveil: !main.classList.contains("veiled") });
+  select(current);
   let timer = null;
   const debounced = () => { clearTimeout(timer); timer = setTimeout(drawTimeline, 150); };
   window.addEventListener("resize", debounced);

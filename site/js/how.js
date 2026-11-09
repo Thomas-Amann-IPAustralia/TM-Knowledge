@@ -1,4 +1,6 @@
-/* How it works, layer 3 of 4 (ADR-0148): one real question followed through the system.
+/* A search, step by step (ADR-0148; renamed from "How it works" after the UX review of
+   2026-11-09, F01, because it follows the search, not the whole foundation; the foundation's own
+   four-step account is on For nerds): one real question followed through the system.
 
    A scrolling story with a picture that stays in view. Each step is a stage of what happens when
    someone asks a question in plain words: the text, the words, the ideas they name, the
@@ -14,13 +16,14 @@ import { layoutIdeas } from "./netlayout.js";
 import { term } from "./glossary.js";
 import { icon } from "./icons.js";
 import * as lib from "./lib.js";
+import { crumb } from "./layers.js";
 
 const COLS = 60, CELL = 7.6, PITCH = 9, GRID_Y = 186, VH = 590;
 
 export async function render(root, { ontology, params }) {
   const [tour, examples, search, build] = await Promise.all([load("tour"), load("examples"), load("search"), load("build")]);
   const ex = tour.example;
-  if (!ex) { root.innerHTML = `<div class="wrap section"><h1>How it works</h1><p class="muted">This version has no example to show.</p></div>`; return; }
+  if (!ex) { root.innerHTML = `<div class="wrap section"><h1>A search, step by step</h1><p class="muted">This version has no example to show.</p></div>`; return; }
   const c = ontology.counts;
   const byId = new Map(ontology.concepts.map((x) => [x.id, x]));
   const answer = examples.answers.find((a) => a.key === ex.key);
@@ -70,9 +73,9 @@ export async function render(root, { ontology, params }) {
   <div class="hw">
     <header class="wrap page-head">
       <div>
-        <span class="eyebrow">How it works</span>
-        <h1>How the tool finds an answer</h1>
-        <p class="lede">Follow an example question from the first keyword match to the passages used in the answer. Scroll to see what changes at each step.</p>
+        ${crumb("nerds", "A search, step by step", "Worked example")}
+        <h1>A search, step by step</h1>
+        <p class="lede">How the research assistant uses the foundation for one example question, from the first keyword match to the passages used in the answer. Search is one of several tools on the foundation; this page follows it in detail. Scroll to see what changes at each step.</p>
       </div>
       <div class="page-head-side"><a class="btn" href="#/map">${icon("connect")} Skip to the knowledge map</a></div>
     </header>

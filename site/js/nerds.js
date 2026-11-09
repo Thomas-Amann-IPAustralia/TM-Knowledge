@@ -5,13 +5,13 @@
    them. Technical words are allowed here, and each is still explained the first time it is used
    (ADR-0145). Every figure is read from the build. Classes are prefixed `nd-`. */
 
-import { esc, fmt, load } from "./app.js";
+import { esc, fmt, load, legend } from "./app.js";
 import { icon } from "./icons.js";
 import { term } from "./glossary.js";
 import { drawing } from "./illustrations.js";
 
 const DOORS = [
-  ["#/how", "n-how", "How it works", "One real question followed through the system in nine steps: from the text, to the ideas and connections, to a checked answer and who wrote what."],
+  ["#/how", "n-how", "A search, step by step", "A worked example: one research question followed through the search in nine steps, from the text, to the ideas and connections, to an answer with its quotations and who wrote what."],
   ["#/map", "n-map", "The knowledge map", "Every idea and every connection on one interactive map. Focus an idea to see its labelled connections and the passages it rests on."],
   ["#/rules", "n-rules", "Rules as code", "How a section of the Act becomes structured data: conditions joined by all and any, effects, exceptions, and a process as steps."],
   ["#/standards", "n-standards", "The standards", "What the graph is written in, each standard in plain words with a real block of this build, and why no reasoning profile is claimed."],
@@ -28,6 +28,8 @@ export async function render(root, { ontology }) {
   const shapes = Object.values(build.checks?.shapes || {}).reduce((n, x) => n + x, 0);
   const rules = (build.checks?.rules || []).length;
   const deps = build.dependencies || {};
+  const c = ontology.counts;
+  const concepts = c.concepts.signed + c.concepts.machine, relations = c.relations.signed + c.relations.machine;
 
   root.innerHTML = `
   <div class="nd">
@@ -47,6 +49,18 @@ export async function render(root, { ontology }) {
       </div>
     </section>
     <div class="wrap nd-body">
+      <section class="nd-how" aria-labelledby="nd-how-h">
+        <div class="nd-how-head"><span class="eyebrow">How the foundation works</span>
+          <h2 id="nd-how-h">From the law’s words to tools that can explain themselves</h2>
+          <p>The foundation turns legislation and examination guidance into linked records that tools can read. Each record keeps its source and its review status. Different tools can then explain, research or trace the same material.</p></div>
+        <ol class="nd-flow">
+          <li><span class="nd-fn">1</span><h3>Sources</h3><p>The Trade Marks Act 1995 and the Regulations, which are law, and the Trade Marks Manual, which is practice. Each keeps its own mark.</p>${legend()}</li>
+          <li><span class="nd-fn">2</span><h3>Ideas, connections and rules</h3><p>${fmt(concepts)} ideas, ${fmt(relations)} connections between them, and ${fmt(c.tests)} legal tests and ${fmt(c.processes)} procedures set out as conditions and steps.</p></li>
+          <li><span class="nd-fn">3</span><h3>Traceable records</h3><p>Every record quotes the words it rests on and says who wrote it. ${fmt(deps.dependencies || 0)} recorded dependencies show what rests on each passage.</p></li>
+          <li><span class="nd-fn">4</span><h3>Tools</h3><p>Research for examiners, explanations for the public and change tracing for policy, all reading the same records.</p>
+            <p class="nd-flow-go"><a href="#/examiners">Examiners</a><a href="#/public">The public</a><a href="#/direction">Policy and strategy</a></p></li>
+        </ol>
+      </section>
       <p class="nd-profile">${icon("layers")}<span><b>The contract, in one line.</b> ${esc(g.profile || "")}</span></p>
       <div class="nd-grid">${DOORS.map(([href, art, title, text]) => `<a class="nd-door" href="${href}">
         <div class="nd-door-art">${drawing(art)}</div>

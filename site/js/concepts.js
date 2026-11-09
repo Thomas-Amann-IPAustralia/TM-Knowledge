@@ -13,6 +13,7 @@
 
 import { esc, fmt, load, refChip, refLabel, quoteBlock, trustBadge, qualifiedLine, definitionBlock, sourceOf, isLaw, structureHref, FAMILIES, familyOf } from "./app.js";
 import { icon } from "./icons.js";
+import { crumb } from "./layers.js";
 
 /** Where a predicate's group sits in its column: the questions examination turns on first. */
 const ORDER = ["mayGiveRiseTo", "qualifies", "statesThresholdFor", "constrainsExaminerTo", "isAnExceptionTo", "doesNotGiveRiseTo",
@@ -20,7 +21,8 @@ const ORDER = ["mayGiveRiseTo", "qualifies", "statesThresholdFor", "constrainsEx
 /** Concepts an examiner is likely to start from; each is shown only if the data holds it. */
 const STARTERS = ["GC-0168", "GC-0154", "GC-0059", "GC-0066", "GC-0064", "GC-0007", "GC-0010", "GC-0040"];
 const DEFAULT = "GC-0168";
-const SHOW = 6;
+/** How many of a group's connections show before "Show more" (UX review F05: fewer, readable). */
+const SHOW = 4;
 const PROCEEDING = { application_and_examination: "application and examination", opposition: "opposition", registration: "registration" };
 
 /** The children of a condition group, whichever way the record joins them. */
@@ -50,6 +52,8 @@ export async function render(root, { ontology, params }) {
 
   let focus = byId.has(params[0]) ? params[0] : DEFAULT;
   let selected = null;
+  /** The entries drawn, by key: one per connected concept and predicate, holding every record. */
+  const bundles = new Map();
   const trail = [];
   const expanded = new Set();
 
@@ -58,7 +62,7 @@ export async function render(root, { ontology, params }) {
   <div class="ce">
     <header class="wrap wide ce-head">
       <div>
-        <span class="eyebrow">For examiners · working demonstration</span>
+        ${crumb("examiners", "Explore a legal concept", "Working demonstration")}
         <h1>Explore a legal concept</h1>
         <p class="lede">Pick a concept to see what the foundation records about it: what can give rise to it, what bears on it, what overcomes it, the legal test it belongs to, and the passages behind each part.</p>
       </div>
@@ -116,8 +120,19 @@ export async function render(root, { ontology, params }) {
       by.get(r.p).push(r);
     }
     const rank = (p) => { const i = ORDER.indexOf(p); return i < 0 ? ORDER.length : i; };
+    // Several records can state the same connection from different sentences. They are shown as
+    // one entry that says how many records it holds, and every record stays readable (F05).
+    const bundle = (p, list) => {
+      const ends = new Map();
+      for (const r of list) {
+        const other = side === "in" ? r.s : r.o;
+        if (!ends.has(other)) ends.set(other, { key: `${side}|${p}|${other}`, other, rows: [] });
+        ends.get(other).rows.push(r);
+      }
+      return [...ends.values()].sort((a, b) => endName(a.other).localeCompare(endName(b.other)));
+    };
     return [...by.entries()].sort((a, b) => rank(a[0]) - rank(b[0]) || predLabel(a[0]).localeCompare(predLabel(b[0])))
-      .map(([p, list]) => [p, list.sort((a, b) => endName(side === "in" ? a.s : a.o).localeCompare(endName(side === "in" ? b.s : b.o)))]);
+      .map(([p, list]) => [p, bundle(p, list)]);
   }
 
   function column(side) {
@@ -125,23 +140,27 @@ export async function render(root, { ontology, params }) {
     if (!list.length) return `<p class="ce-none">${side === "in" ? "No recorded connection leads to this concept." : "No recorded connection leads from this concept."} <span class="tiny">That is what the foundation holds, not a finding that none exist.</span></p>`;
     return list.map(([p, rows]) => {
       const key = `${side}:${p}`;
+      rows.forEach((b) => bundles.set(b.key, b));
       const shown = expanded.has(key) ? rows : rows.slice(0, SHOW);
       return `<div class="ce-group">
         <p class="ce-gh">${side === "out" ? `<span class="ce-arrow">→</span>` : ""}<b>${esc(predLabel(p))}</b>${side === "in" ? `<span class="ce-arrow">→</span>` : ""}<span class="ce-n">${fmt(rows.length)}</span></p>
-        ${shown.map((r) => pill(r, side)).join("")}
+        ${shown.map((b) => pill(b, side)).join("")}
         ${rows.length > shown.length ? `<button type="button" class="ce-more" data-more="${esc(key)}">Show ${fmt(rows.length - shown.length)} more</button>` : ""}
       </div>`;
     }).join("");
   }
 
-  function pill(r, side) {
-    const other = side === "in" ? r.s : r.o;
-    const conditional = !!(r.when || r.hedge || r.condition === "not_assessed");
-    const explore = byId.has(other) ? `<button type="button" class="ce-go" data-go="${esc(other)}" aria-label="Explore ${esc(endName(other))}" title="Explore this concept">${icon("arrow")}</button>` : "";
-    return `<div class="ce-pill${conditional ? " cond" : ""}${r.origin === "signed" || r.origin === "approved" ? " rev" : ""}${selected === r.id ? " on" : ""}" data-rel="${esc(r.id)}" data-side="${side}">
-      <button type="button" class="ce-pick" data-pick="${esc(r.id)}" aria-pressed="${selected === r.id}" title="${esc(`${endName(r.s)} ${predLabel(r.p)} ${endName(r.o)}`)}">
+  function pill(b, side) {
+    const { other, rows } = b;
+    const r = rows[0];
+    const conditional = rows.some((x) => x.when || x.hedge || x.condition === "not_assessed");
+    const mods = [...new Set(rows.map((x) => x.modality).filter(Boolean))];
+    const explore = byId.has(other) ? `<button type="button" class="ce-go" data-go="${esc(other)}" aria-label="Explore ${esc(endName(other))}" title="Explore ${esc(endName(other))}">${icon("arrow")}</button>` : "";
+    return `<div class="ce-pill${conditional ? " cond" : ""}${rows.every((x) => x.origin === "signed" || x.origin === "approved") ? " rev" : ""}${selected === b.key ? " on" : ""}" data-rel="${esc(b.key)}" data-side="${side}">
+      <button type="button" class="ce-pick" data-pick="${esc(b.key)}" aria-pressed="${selected === b.key}" aria-label="${esc(`${endName(r.s)} ${predLabel(r.p)} ${endName(r.o)}${rows.length > 1 ? `, ${rows.length} records` : ""}: read the source`)}">
         ${endDot(other)}<span class="ce-pl">${esc(endName(other))}</span>
-        ${r.modality ? `<span class="ce-mod ${esc(r.modality)}">${esc(r.modality)}</span>` : ""}${conditional ? `<span class="ce-if" title="The source states a condition or a hedge">if</span>` : ""}
+        ${rows.length > 1 ? `<span class="ce-recs">${fmt(rows.length)} records</span>` : ""}
+        ${mods.map((m) => `<span class="ce-mod ${esc(m)}">${esc(m)}</span>`).join("")}${conditional ? `<span class="ce-if" title="The source states a condition or a hedge">if</span>` : ""}
       </button>${explore}</div>`;
   }
 
@@ -174,25 +193,28 @@ export async function render(root, { ontology, params }) {
   // ---------------------------------------------------------------- the side panel: the concept, or one connection
   function sidePanel() {
     const c = byId.get(focus);
-    if (selected) {
-      const r = ontology.relations.find((x) => x.id === selected);
-      if (r) {
-        const other = r.s === focus ? r.o : r.s;
-        return `<div class="ce-side-head"><span class="eyebrow">Why the foundation says this</span><button type="button" class="ce-x" data-unpick aria-label="Close the connection">${icon("close")}</button></div>
-          <p class="ce-sent">${endDot(r.s)}<b>${esc(endName(r.s))}</b> <span class="ce-pred">${esc(predLabel(r.p))}</span> ${endDot(r.o)}<b>${esc(endName(r.o))}</b></p>
-          <p class="ce-meta">${trustBadge(r.origin)}${r.modality ? ` <span class="ce-mod ${esc(r.modality)}">${esc(r.modality)}</span> <span class="tiny">the strength the sentence states</span>` : ""}</p>
-          ${qualifiedLine(r)}
-          ${r.proceeding && PROCEEDING[r.proceeding] ? `<p class="small"><b>Applies in:</b> ${esc(PROCEEDING[r.proceeding])}</p>` : ""}
+    const b = selected && bundles.get(selected);
+    if (b) {
+      const r = b.rows[0];
+      const other = b.other;
+      const one = (x, i) => `<div class="ce-rec">
+          ${b.rows.length > 1 ? `<p class="ce-rec-n">Record ${i + 1} of ${b.rows.length}</p>` : ""}
+          <p class="ce-meta">${trustBadge(x.origin)}${x.modality ? ` <span class="ce-mod ${esc(x.modality)}">${esc(x.modality)}</span> <span class="tiny">the strength the sentence states</span>` : ""}</p>
+          ${qualifiedLine(x)}
+          ${x.proceeding && PROCEEDING[x.proceeding] ? `<p class="small"><b>Applies in:</b> ${esc(PROCEEDING[x.proceeding])}</p>` : ""}
           <h4>The sentence it rests on</h4>
-          ${quoteBlock(r.ref, r.quote || "")}
-          <p class="ce-ref">${refChip(r.ref, ` data-hl="${esc((r.quote || "").slice(0, 120))}"`)} <span class="tiny">${esc(r.id)}</span></p>
+          ${quoteBlock(x.ref, x.quote || "")}
+          <p class="ce-ref">${refChip(x.ref, ` data-hl="${esc((x.quote || "").slice(0, 120))}"`)} <span class="tiny">${esc(x.id)}</span></p></div>`;
+      return `<div class="ce-side-head"><span class="eyebrow">Why the foundation says this</span><button type="button" class="ce-x" data-unpick aria-label="Close the connection">${icon("close")}</button></div>
+          <p class="ce-sent">${endDot(r.s)}<b>${esc(endName(r.s))}</b> <span class="ce-pred">${esc(predLabel(r.p))}</span> ${endDot(r.o)}<b>${esc(endName(r.o))}</b></p>
+          ${b.rows.length > 1 ? `<p class="small">${fmt(b.rows.length)} records state this connection, each from its own sentence.</p>` : ""}
+          ${b.rows.map(one).join("")}
           ${byId.has(other) ? `<button type="button" class="btn small primary" data-go="${esc(other)}">Explore ${esc(endName(other))} ${icon("arrow")}</button>` : `<button type="button" class="btn small" data-ref="${esc(other)}">${icon("book")} Read ${esc(refLabel(other))}</button>`}`;
-      }
     }
     return `<div class="ce-side-head"><span class="eyebrow">About this concept</span></div>
       ${definitionBlock(c.definition) || `<p class="small muted">No definition is recorded: the sources do not define this concept.</p>`}
       ${c.basis?.length ? `<h4>Rests on, in the legislation</h4><p class="ce-chips">${c.basis.map((ref) => refChip(ref)).join(" ")}</p>` : ""}
-      <p class="small muted ce-hint">${icon("info")}<span>Select a connection to see the sentence it rests on, its strength and any condition. The arrow beside it makes the other concept the focus.</span></p>`;
+      <p class="small muted ce-hint">${icon("info")}<span>Select a connection to read the sentence it rests on, its strength and any condition, here. Selecting never leaves the page; the arrow beside a connection explores that concept instead.</span></p>`;
   }
 
   // ---------------------------------------------------------------- the lower panels
@@ -321,6 +343,7 @@ export async function render(root, { ontology, params }) {
   }
 
   function paint() {
+    bundles.clear();
     inCol.innerHTML = column("in");
     outCol.innerHTML = column("out");
     focusEl.innerHTML = focusCard();

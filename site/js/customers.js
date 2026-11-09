@@ -14,8 +14,9 @@
    `cx-`. */
 
 import { esc, fmt, load, refChip, srcBadge, quoteBlock } from "./app.js";
-import { STATE, layoutFlow } from "./diagrams.js";
+import { STATE, STATE_WORD, stateGlyph, layoutFlow } from "./diagrams.js";
 import { icon } from "./icons.js";
+import { crumb } from "./layers.js";
 
 const MODES = [["objection", "Understand an objection", "chat"], ["requirements", "What the law requires", "book"], ["process", "The application journey", "route"]];
 const HEAD = {
@@ -41,7 +42,7 @@ const kindIcon = (kind) => (kind === "evaluative"
   ? `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v11M5 13.5h6M3 5h10M3 5l-1.8 4a1.9 1.9 0 0 0 3.6 0zM13 5l-1.8 4a1.9 1.9 0 0 0 3.6 0z"/></svg>`
   : `<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><path d="m5 8.3 2 2 4-4.4"/></svg>`);
 const kindBadge = (kind) => `<span class="cx-kind ${esc(kind)}">${kindIcon(kind)}${kind === "evaluative" ? "Assessment" : "Fact"}</span>`;
-const mark = (state) => `<span class="cx-st ${esc(state)}" title="${esc(STATE[state]?.[1] || state)}"><span aria-hidden="true">${STATE[state]?.[0] || "?"}</span><span class="vh">${esc(STATE[state]?.[1] || state)}</span></span>`;
+const mark = (state) => `<span class="cx-st ${esc(state)}" title="${esc(STATE[state]?.[1] || state)}"><span class="cx-st-g" aria-hidden="true">${stateGlyph(state)}</span><span class="cx-st-w">${esc(STATE_WORD[state] || state)}</span></span>`;
 const shortTitle = (t) => String(t || "").replace(/\s*\([^)]*\)\s*$/, "");
 const clip = (text, n) => (String(text).length > n ? `${String(text).slice(0, n - 1).replace(/\s+\S*$/, "")}…` : String(text));
 const leavesOf = (node) => (node?.children ? node.children.flatMap(leavesOf) : node ? [node] : []);
@@ -58,7 +59,7 @@ export async function render(root, { params }) {
   root.innerHTML = `
   <div class="cx">
     <header class="wrap cx-head">
-      <span class="eyebrow">For the public · working demonstration</span>
+      ${crumb("public", "Explanations for the public", "Working demonstration")}
       <h1 class="cx-h1"></h1>
       <p class="lede cx-lede"></p>
     </header>
@@ -93,12 +94,23 @@ export async function render(root, { params }) {
   function show() {
     const [h1, lede] = HEAD[mode];
     root.querySelector(".cx-h1").textContent = h1;
+    root.querySelector('.crumb [aria-current="page"]').textContent = h1;
     root.querySelector(".cx-lede").textContent = lede;
     root.querySelectorAll("[data-mode]").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.mode === mode)));
     const list = cards[mode]();
     if (!list.some(([id]) => id === pick[mode])) pick[mode] = list[0]?.[0];
-    picker.className = `cx-pick cx-pick-${mode}`;
-    picker.innerHTML = list.map(([id, html]) => `<button type="button" class="cx-card-pick" data-pick="${esc(id)}" aria-pressed="${id === pick[mode]}">${html}</button>`).join("");
+    picker.className = `cx-pick ${mode === "objection" ? "cx-pick-one" : `cx-pick-${mode}`}`;
+    const buttons = list.map(([id, html]) => `<button type="button" class="cx-card-pick" data-pick="${esc(id)}" aria-pressed="${id === pick[mode]}">${html}</button>`).join("");
+    if (mode === "objection") {
+      // One case opens at once; the others are a choice away, not a decision to make first (UX review F14).
+      const m = data.matters.find((x) => x.matter === pick[mode]);
+      picker.innerHTML = `<div class="cx-now"><span class="cx-pk">Invented case ${fmt(list.findIndex(([id]) => id === pick[mode]) + 1)} of ${fmt(list.length)}</span>
+        <b class="cx-now-sign">${esc(m?.sign || "")}</b><span class="cx-now-t">${esc((m?.issues || []).map((i) => (i.test ? shortTitle(i.test.title) : "Described only in everyday words")).join(" · "))}</span>
+        <button type="button" class="btn small" data-change aria-expanded="false" aria-controls="cx-pick-list">Change example ${icon("down")}</button></div>
+        <div class="cx-pick-list cx-pick-objection" id="cx-pick-list" hidden>${buttons}</div>`;
+    } else {
+      picker.innerHTML = buttons;
+    }
     history.replaceState(null, "", `#/customers/${mode}/${encodeURIComponent(pick[mode] || "")}`);
     if (mode === "objection") { body.innerHTML = matterShell(data.matters.find((m) => m.matter === pick[mode])); paintMatter(); }
     if (mode === "requirements") body.innerHTML = requirementsView(data.requirements.find((r) => r.test === pick[mode]));
@@ -197,7 +209,8 @@ export async function render(root, { params }) {
         ${t.exceptions.length ? `<div class="cx-b-row" data-zone="exceptions"><span class="cx-b-lab">Unless</span><div class="cx-b-excs">${t.exceptions.map((x) => `<button type="button" class="cx-b-exc" data-goto="forward">
           <span class="cx-b-eff ${esc(x.effect.kind)}"><b>${esc(EFFECT_WORD[x.effect.kind] || x.effect.kind)}</b></span><span class="cx-b-et">${esc(clip(x.text, 74))}</span>${mark(x.state)}</button>`).join("")}</div></div>` : ""}
       </div>${journey}
-      <p class="cx-b-key tiny"><span>${kindBadge("fact")} a record can confirm it</span><span>${kindBadge("evaluative")} the examiner judges it</span><span>${mark("met")} met ${mark("open")} not known ${mark("not_met")} not met</span></p>`;
+      <p class="cx-b-key tiny"><span>${kindBadge("fact")} a record can confirm it</span><span>${kindBadge("evaluative")} the examiner judges it</span></p>
+      <p class="cx-b-note tiny">${icon("file")}<span><b>Recorded</b> means the invented report or case record says so. This site restates it; it does not assess whether it is right. Select a condition to read its exact wording.</span></p>`;
   }
 
   function tileHtml(n) {
@@ -205,10 +218,10 @@ export async function render(root, { params }) {
       const kinds = new Set(leavesOf(n).map((l) => l.kind));
       const kind = kinds.size === 1 ? [...kinds][0] : "fact";
       return `<button type="button" class="cx-tile ${esc(kind)} ${esc(n.state || "")}" data-leaf="${esc(n.id || "")}" data-asks="${leavesOf(n).some((l) => l.ask && l.state !== "met") ? 1 : 0}">
-        <span class="cx-tile-top">${kindBadge(kind)}${mark(n.state)}</span><span class="cx-tile-t">${esc(clip(n.text || "One of these", 86))}</span><span class="cx-tile-or tiny">one of ${fmt(n.children.length)}</span></button>`;
+        <span class="cx-tile-top">${kindBadge(kind)}</span><span class="cx-tile-t">${esc(clip(n.text || "One of these", 86))}</span><span class="cx-tile-or tiny">one of ${fmt(n.children.length)}</span>${n.state ? mark(n.state) : ""}</button>`;
     }
     return `<button type="button" class="cx-tile ${esc(n.kind)} ${esc(n.state || "")}" data-leaf="${esc(n.id)}" data-asks="${n.ask && n.state !== "met" ? 1 : 0}">
-      <span class="cx-tile-top">${kindBadge(n.kind)}${mark(n.state)}</span><span class="cx-tile-t">${esc(clip(n.text, 86))}</span></button>`;
+      <span class="cx-tile-top">${kindBadge(n.kind)}</span><span class="cx-tile-t">${esc(clip(n.text, 86))}</span>${n.state ? mark(n.state) : ""}</button>`;
   }
 
   // ---------------------------------------------------------------- each step's words
@@ -397,7 +410,8 @@ export async function render(root, { params }) {
     body.innerHTML = `<article class="card cx-proc">
       <div class="cx-req-head"><div><span class="eyebrow">The application journey</span><h2>${esc(shortTitle(w.title))}</h2>${w.scope ? `<p class="small muted">${esc(named(w.scope))}</p>` : ""}</div></div>
       <div class="cx-journey big">${journeySvg(w, { id: `cx-p-${w.process}`, selected: s.id, interactive: true })}</div>
-      <p class="cx-jkey tiny"><span><svg viewBox="0 0 30 10" aria-hidden="true"><path d="M1 5h28" class="cx-jl"/></svg>can come next</span><span><svg viewBox="0 0 30 10" aria-hidden="true"><path d="M1 5h28" class="cx-jl dashed"/></svg>depends on the facts of the application</span><span>Select a stage, or step through them.</span></p>
+      <p class="cx-jnote">${icon("route")}<span>One illustrative route through the process, not a prediction for any application.</span></p>
+      <p class="cx-jkey tiny"><span><svg viewBox="0 0 30 10" aria-hidden="true"><path d="M1 5h28" class="cx-jl"/></svg>may proceed to</span><span><svg viewBox="0 0 30 10" aria-hidden="true"><path d="M1 5h28" class="cx-jl dashed"/></svg>only if the application’s facts call for it</span><span>Select a stage, or step through them.</span></p>
       <div class="cx-stop" aria-live="polite">
         <div class="cx-stop-head"><span class="cx-stop-n">${i + 1}</span><div><h3>${esc(s.label)}</h3><p class="tiny">Who acts: ${esc(ACTOR[s.actor] || s.actor)}</p></div>
           <div class="cx-stop-nav"><button type="button" class="btn small" data-stop-move="-1" ${i === 0 ? "disabled" : ""}>${icon("back")} Back</button><button type="button" class="btn small primary" data-stop-move="1" ${i === w.steps.length - 1 ? "disabled" : ""}>Next ${icon("arrow")}</button></div></div>
@@ -425,7 +439,7 @@ export async function render(root, { params }) {
     const back = arcs.filter((a) => idx.get(a.to) <= idx.get(a.from));
     const top = 34 + (back.length ? 16 + 12 * back.length : 0);
     const cols = Math.max(...rank.values()) + 1;
-    const W = 30 + cols * CW, H = top + (maxL - minL) * RH + 66;
+    const W = 30 + cols * CW, H = top + (maxL - minL) * RH + 80;
     const pos = (sid) => ({ x: 30 + R + rank.get(sid) * CW, y: top + (lane.get(sid) - minL) * RH });
     const doneSet = new Set(done);
     const lit = new Set(current ? arcs.filter((a) => a.from === current).map((a) => a.to) : []);
@@ -449,7 +463,7 @@ export async function render(root, { params }) {
     steps.forEach((s, k) => {
       const { x, y } = pos(s.id);
       const cls = s.id === current ? "is-now" : doneSet.has(s.id) ? "is-done" : lit.has(s.id) ? "is-next" : s.kind === "end" ? "is-end" : "";
-      const words = wrapWords(s.label, 16);
+      const words = wrapWords(s.label, 17);
       const act = interactive ? ` data-stop="${esc(s.id)}" tabindex="0" role="button" aria-label="${esc(`${s.label}${s.id === selected ? ", selected" : ""}`)}"` : "";
       parts.push(`<g class="cx-js ${cls}${s.id === selected ? " is-sel" : ""}${interactive ? " can" : ""}"${act} transform="translate(${x},${y})">
         ${s.id === current ? `<circle r="${R + 7}" class="cx-js-halo"/><text y="${-R - 12}" text-anchor="middle" class="cx-js-now">now</text>` : ""}
@@ -468,6 +482,14 @@ export async function render(root, { params }) {
     if (b) { mode = b.dataset.mode; at.step = 0; at.issue = 0; at.leaf = null; show(); }
   });
   picker.addEventListener("click", (e) => {
+    const change = e.target.closest("[data-change]");
+    if (change) {
+      const list = picker.querySelector(".cx-pick-list");
+      list.hidden = !list.hidden;
+      change.setAttribute("aria-expanded", String(!list.hidden));
+      if (!list.hidden) list.querySelector('[aria-pressed="true"]')?.focus();
+      return;
+    }
     const b = e.target.closest("[data-pick]");
     if (b) { pick[mode] = b.dataset.pick; at.step = 0; at.issue = 0; at.leaf = null; at.stop = null; show(); }
   });
@@ -514,6 +536,6 @@ function wrapWords(text, width) {
     if ((line + " " + w).trim().length > width && line) { out.push(line); line = w; } else line = (line + " " + w).trim();
   }
   if (line) out.push(line);
-  if (out.length > 2) { out.length = 2; out[1] = `${out[1]}…`; }
+  if (out.length > 3) { out.length = 3; out[2] = `${out[2]}…`; } // three lines, so a stage's name is read whole (UX review F16)
   return out;
 }

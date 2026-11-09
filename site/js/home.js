@@ -53,12 +53,17 @@ export async function render(root, { ontology }) {
         </div>
         <div>
           <p class="lede">A structured model of the rules, exceptions and caveats in Australia’s trade mark law and examination practice, which people and programs can read and check. It is the groundwork for future tools, capabilities and services.</p>
-          <div class="ld-cta">
-            <a class="btn primary" href="#ld-doors">Discover what it might enable ${icon("down")}</a>
-            <a class="btn ghost" href="#/nerds">How it works, for nerds ${icon("chevron")}</a>
-          </div>
           <div class="ld-built"><p class="tiny">Built from the Trade Marks Act 1995 and the Trade Marks Regulations 1995, which are the law, and IP Australia’s Trade Marks Manual of Practice and Procedure, which is examination practice.</p>${legend()}</div>
         </div>
+      </div>
+      <div class="ld-choice">
+        <p class="ld-choose" id="ld-choose">See what it could do for you</p>
+        <div class="ld-cta" role="group" aria-labelledby="ld-choose">
+          <a class="ld-pick aud-exam" href="#/examiners"><i aria-hidden="true"></i>I’m an examiner ${icon("arrow")}</a>
+          <a class="ld-pick aud-pub" href="#/public"><i aria-hidden="true"></i>I’m applying for a trade mark ${icon("arrow")}</a>
+          <a class="ld-pick aud-pol" href="#/direction"><i aria-hidden="true"></i>I work in policy or strategy ${icon("arrow")}</a>
+        </div>
+        <p class="ld-also"><a href="#ld-doors">Compare all three ${icon("down")}</a><a href="#/nerds">How it works, for nerds ${icon("chevron")}</a></p>
       </div>
       ${rule ? hero(rule) : ""}
     </section>
@@ -74,7 +79,7 @@ export async function render(root, { ontology }) {
           ${door({ href: "#/public", cls: "aud-pub", art: "door-pub", k: "For the public", title: "Helping customers understand the system and get the most out of it",
             now: ["Understand an objection, one step at a time", "See what the law requires, and the application journey"],
             next: "Next: a guided assistant with clear visuals, help choosing goods and services" })}
-          ${door({ href: "#/direction", cls: "aud-pol", art: "door-pol", k: "For direction setting", title: "Helping decision makers see the consequences before they act",
+          ${door({ href: "#/direction", cls: "aud-pol", art: "door-pol", k: "For direction setting", sub: "Policy and strategy", title: "Helping decision makers find what a change might affect",
             now: ["Trace what rests on any section of the Act or page of the Manual", "See what an invented new right would touch"],
             next: "Next: testing draft amendments, comparing policy options, monitoring change" })}
         </div>
@@ -97,7 +102,7 @@ export async function render(root, { ontology }) {
         <div class="sec-head"><div><span class="eyebrow">Can it be trusted?</span><h2 id="ld-t">Not blindly, and it never asks you to</h2></div>
           <p>Scepticism is the right starting point. These are the safeguards built in from the start, and the work still to do.</p></div>
         <div class="ld-trust">
-          ${trust("quote", "Every statement shows its source", `Answers and explanations link each statement to the exact words in the Act, the Regulations or the Manual. In the prepared answers, ${fmt(quoted)} of ${fmt(claims.length)} statements carry a quotation found word for word in the source.`, trustSources())}
+          ${trust("quote", "Each statement is linked to its source", `Answers and explanations link each statement to the exact words in the Act, the Regulations or the Manual. In the prepared answers, ${fmt(quoted)} of ${fmt(claims.length)} statements carry a quotation found word for word in the source; the rest are flagged. A matching quotation shows where the words come from, not that the answer is right.`, trustSources())}
           ${trust("scale", "Law and practice stay apart", "The Act and the Regulations are the law. The Manual describes how the law is applied in examination; it is not law. Each source has its own mark, everywhere on this site.", trustMarks())}
           ${trust("fact", "Facts and judgements are kept apart", "Every legal test separates the facts a record can confirm, such as a date, from the assessments only a person can make, such as whether two trade marks are deceptively similar. The system never makes an assessment.", trustTiles())}
           ${trust("never", "It explains; it never decides", "Never: deciding an application, or saying how one will be decided. Only the Registrar of Trade Marks decides.", trustNever())}
@@ -201,11 +206,11 @@ function startHero(root) {
 
 // ------------------------------------------------------------------ the doors
 
-function door({ href, cls, art, k, title, now, next }) {
+function door({ href, cls, art, k, sub = "", title, now, next }) {
   return `<a class="ld-door ${cls}" href="${href}">
     <div class="ld-door-art">${drawing(art)}</div>
     <div class="ld-door-body">
-      <span class="ld-door-k">${esc(k)}</span>
+      <span class="ld-door-k">${esc(k)}${sub ? `<span class="ld-door-sub"> · ${esc(sub)}</span>` : ""}</span>
       <h3>${esc(title)}</h3>
       <ul>${now.map((x) => `<li>${icon("check")}<span>${esc(x)}</span></li>`).join("")}</ul>
       <p class="ld-door-next">${esc(next)}</p>
@@ -241,7 +246,7 @@ const TOOLS = [
 function foundation(c, concepts, relations, provisions) {
   const n = { concepts, relations, provisions };
   const tool = (t) => `<button type="button" class="ld-tool ${t.aud}${t.future ? " future" : ""}" data-tool="${t.id}" aria-pressed="false">
-    <i class="ld-tool-dot" aria-hidden="true"></i><b>${esc(t.name)}</b><span class="ld-tool-s">${t.future ? "Possible next" : "Working now"}</span></button>`;
+    <i class="ld-tool-dot" aria-hidden="true"></i><b>${esc(t.name)}</b><span class="vh">${t.future ? "possible next" : "working now"}</span></button>`;
   return `<div class="ld-fdn card">
     <div class="ld-fdn-src">
       <span class="ld-fdn-lab">The sources</span>
@@ -258,7 +263,10 @@ function foundation(c, concepts, relations, provisions) {
     <svg class="ld-fdn-links" aria-hidden="true"></svg>
     <div class="ld-fdn-tools">
       <span class="ld-fdn-lab">The tools built on it</span>
-      <div class="ld-tools">${TOOLS.map(tool).join("")}</div>
+      <p class="ld-tools-k">Working now</p>
+      <div class="ld-tools">${TOOLS.filter((t) => !t.future).map(tool).join("")}</div>
+      <p class="ld-tools-k">Possible next <span>not built yet</span></p>
+      <div class="ld-tools">${TOOLS.filter((t) => t.future).map(tool).join("")}</div>
       <p class="ld-tool-say" aria-live="polite"></p>
     </div>
   </div>`;

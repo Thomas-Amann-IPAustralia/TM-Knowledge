@@ -18,6 +18,7 @@ import { esc, fmt, load, kindCount, refChip, refLabel, trustBadge, legend, sourc
 import { layoutIdeas, squeezeFor } from "./netlayout.js";
 import { icon } from "./icons.js";
 import * as lib from "./lib.js";
+import { crumb } from "./layers.js";
 
 const LOOSE = new Set(["broader"]);
 const FAMS = ["examined", "reasoning", "process"];
@@ -41,7 +42,7 @@ export async function render(root, { ontology, params }) {
   <div class="mp">
     <aside class="mp-rail">
       <div class="mp-rail-head">
-        <span class="eyebrow">Knowledge map</span>
+        ${crumb("nerds", "Knowledge map")}
         <h1>Explore trade mark ideas and their connections</h1>
         <p>${fmt(c.concepts.signed + c.concepts.machine)} ideas and ${fmt(c.relations.signed + c.relations.machine)} connections, each tied to the words it comes from.</p>
       </div>
@@ -74,7 +75,7 @@ export async function render(root, { ontology, params }) {
         <button type="button" data-z="out" title="Zoom out" aria-label="Zoom out">${icon("minus")}</button>
         <button type="button" data-z="fit" title="Show the whole map" aria-label="Show the whole map">${icon("fit")}</button>
       </div>
-      <p class="mp-hint">Scroll to zoom · drag to move · click an idea to focus it</p>
+      <p class="mp-hint"><span class="mp-key"><b>Colour</b> the kind of idea · <b>Dot size</b> how often the Manual names it, not importance · <b>Shapes</b>, once an idea is selected, its sources: <span class="manual"><i class="mark" aria-hidden="true"></i></span> Manual <span class="law act"><i class="mark" aria-hidden="true"></i></span> Act <span class="law regs"><i class="mark" aria-hidden="true"></i></span> Regulations</span><span>Scroll to zoom · drag to move · click an idea to focus it</span></p>
     </div>
     <aside class="mp-card" aria-live="polite"></aside>
   </div>`;
@@ -327,7 +328,7 @@ export async function render(root, { ontology, params }) {
     card.innerHTML = `
       <span class="eyebrow">How to read it</span>
       <h2>How to read the map</h2>
-      <p>Each dot is an <b>idea</b>, such as an examination report. A line shows how two ideas relate. Select an idea to see its links and the passages they come from.</p>
+      <p>Each dot is an <b>idea</b>, such as an examination report. A line shows how two ideas relate. Select an idea to see its links and the passages they come from. A dot’s size says how often the Manual names the idea; it says nothing about how important the idea is.</p>
       <div class="mp-famcards">${["reasoning", "examined", "process"].map((f) => `
         <div class="mp-famcard"><i style="background:${FAMILIES[f].colour}"></i><div><b>${esc(FAMILIES[f].label)}</b>
         <span>${ontology.kinds.filter((k) => k.family === f).map((k) => esc(k.label.toLowerCase())).join(", ")}</span></div></div>`).join("")}</div>

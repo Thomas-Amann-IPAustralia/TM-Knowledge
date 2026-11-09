@@ -354,6 +354,18 @@ async function route() {
 }
 
 document.addEventListener("click", (event) => {
+  // A link to a place on the same page ("#ld-doors") scrolls there; the router only reads "#/…".
+  const jump = event.target.closest('a[href^="#"]:not([href^="#/"])');
+  if (jump && jump.getAttribute("href").length > 1) {
+    const target = document.getElementById(jump.getAttribute("href").slice(1));
+    event.preventDefault();
+    if (target) {
+      target.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+      if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+      target.focus({ preventScroll: true });
+    }
+    return;
+  }
   const ref = event.target.closest("[data-ref]");
   if (ref) {
     event.preventDefault();

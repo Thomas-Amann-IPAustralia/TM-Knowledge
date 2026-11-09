@@ -17,6 +17,7 @@ import { Engine, Recogniser, authorityFlags, namedProvisions, structuredTests } 
 import { answer as callModel, read as readModel, cost, partialFields, viaProxy, wake } from "./live.js";
 import { icon } from "./icons.js";
 import * as lib from "./lib.js";
+import { crumb } from "./layers.js";
 
 /** Markdown → sanitised HTML, with bracketed refs turned into passage chips. */
 async function renderAnswer(text) {
@@ -63,9 +64,9 @@ export async function render(root, { ontology, params }) {
   <div class="rs">
     <header class="wrap page-head rs-head">
       <div>
-        <span class="eyebrow">For examiners · working demonstration</span>
+        ${crumb("examiners", "Ask a research question", "Working demonstration")}
         <h1>Ask a research question</h1>
-        <p class="lede">Ask in your own words, or choose an example. It finds the relevant provisions of the Trade Marks Act 1995 and the Trade Marks Regulations 1995, which are the law, and passages of IP Australia’s Trade Marks Manual of Practice and Procedure, which is examination practice. It shows the concepts and the legal test your question reaches, and an answer whose every statement you can check against its source.</p>
+        <p class="lede">Ask in your own words, or choose an example. You get the law (the Trade Marks Act 1995 and Regulations) and the Manual’s examination practice listed apart, the legal test your question reaches, and an AI-written answer with the passage behind each statement. <a href="#rs-check" class="rs-check-link">How to check an answer</a></p>
       </div>
       <div class="page-head-side">${answersOn ? `<span class="pill working">Live answers on</span>` : `<span class="pill planned">Search and example answers available</span>`}</div>
     </header>
@@ -93,7 +94,7 @@ export async function render(root, { ontology, params }) {
     </div>
     <div class="wrap rs-result"></div>
     <div class="wrap rs-preview">
-      <div class="rs-pv"><span class="rs-pv-n">1</span><h3>Check an answer</h3><p>AI writes the answer. Each statement shows a matching quotation or a warning if the tool could not find one.</p></div>
+      <div class="rs-pv" id="rs-check" tabindex="-1"><span class="rs-pv-n">1</span><h3>Check an answer</h3><p>AI writes the answer. Each statement shows its quotation from the source, or a warning if none could be found. The tool checks that a quotation exists in the source; it does not check that the answer is right, so read the passage for its wording and context.</p></div>
       <div class="rs-pv"><span class="rs-pv-n">2</span><h3>Read the sources</h3><p>Results are grouped into law and examination guidance. Select a passage to see the original wording.</p></div>
       <div class="rs-pv"><span class="rs-pv-n">3</span><h3>See how it fits together</h3><p>The concepts your question names, the legal test it reaches with its facts and assessments marked, and why each source was chosen.</p></div>
     </div>
@@ -137,6 +138,7 @@ export async function render(root, { ontology, params }) {
 
   function frame(question, subtitle) {
     root.querySelector(".rs-preview")?.remove();
+    root.querySelector(".rs-check-link")?.remove();
     result.innerHTML = `
       <div class="rs-qline"><span class="eyebrow muted plain">${esc(subtitle)}</span><p class="rs-q">${esc(question)}</p></div>
       <div class="rs-top">
@@ -168,6 +170,7 @@ export async function render(root, { ontology, params }) {
             <details><summary>The Act and the Regulations: provisions named or matched</summary><div class="det-body provisions"></div></details>
             <details><summary>How the search ranked the passages</summary><div class="det-body hop-why"></div></details>
           </div>
+          <p class="rs-walk"><a class="link-arrow" href="#/how">Follow one question through the search, step by step ${icon("arrow")}</a></p>
         </div>
       </section>`;
     result.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -845,5 +848,5 @@ function pickFeatured(examples) {
   for (const kind of Object.keys(examples.kinds)) {
     out.push(...examples.answers.filter((a) => a.kind === kind && a.paths.length && !a.declined).slice(0, 1));
   }
-  return out.slice(0, 5);
+  return out.slice(0, 3); // three to start; the rest are a click away under "Browse all" (UX review F13)
 }

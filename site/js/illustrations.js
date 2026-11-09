@@ -195,6 +195,15 @@ export function possibilityCard({ art, title, text, horizon, needs, builds }) {
   </article>`;
 }
 
+/** A set of possibilities: the first few shown, the rest kept one click away so the working
+    demonstrations stay the page's lead (UX review F11). Nothing is dropped. */
+export function possibilityGrid(cards, shown = 3) {
+  const rest = cards.slice(shown);
+  return `<div class="fc-grid">${cards.slice(0, shown).join("")}</div>${rest.length ? `<details class="fc-more">
+    <summary>Other possibilities <span class="fc-more-n">${rest.length}</span></summary>
+    <div class="fc-grid">${rest.join("")}</div></details>` : ""}`;
+}
+
 /** The key to the horizons, said once above a set of possibilities. */
 export const horizonKey = (which = ["reach", "data"]) => `<div class="hz-key">${which.map((h) => `<span>${horizonPill(h)}<span>${esc(HORIZON[h].note)}</span></span>`).join("")}</div>`;
 

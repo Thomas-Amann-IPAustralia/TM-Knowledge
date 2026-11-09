@@ -11,6 +11,7 @@ import { esc, fmt, load, refChip, trustBadge, quoteBlock, structureHref, qualifi
 import { term } from "./glossary.js";
 import { testDiagram, testText, flowSvg, conditionKey } from "./diagrams.js";
 import { icon } from "./icons.js";
+import { crumb } from "./layers.js";
 
 const ACTOR = { registrar: "the Registrar", applicant: "the applicant", any_person: "any person", law: "the Act itself" };
 const MODAL = { must: "must", may: "may", should: "should" };
@@ -60,7 +61,7 @@ export async function render(root, { ontology }) {
   <div class="rx">
     <header class="wrap page-head">
       <div>
-        <span class="eyebrow">How it works · rules as code</span>
+        ${crumb("nerds", "Rules as code")}
         <h1>How the tool represents legal rules</h1>
         <p class="lede">A legal rule can name who acts, when they can or must act, and what follows. The tool records those parts separately and links each to its source. This approach is called ${term("rules-as-code", "rules as code")}.</p>
       </div>

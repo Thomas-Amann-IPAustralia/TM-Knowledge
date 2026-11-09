@@ -7,11 +7,15 @@
    Classes: `ab-`. */
 
 import { esc, fmt, load } from "./app.js";
+import { difference } from "./home.js";
 import { term } from "./glossary.js";
 import { icon } from "./icons.js";
+import { crumb } from "./layers.js";
 
-const SECTIONS = [["ab-measure", "How well the search works"], ["ab-gates", "Decisions for the project owner"], ["ab-records", "Authors and reviewers"],
-  ["ab-build", "Which sources this version uses"], ["ab-limits", "Limits"], ["ab-how", "How Ask the Manual works"]];
+// The verdict first, then what has not been tested, then authorship, sources and method; the
+// project owner's open decisions last (UX review F25).
+const SECTIONS = [["ab-measure", "How well the search works"], ["ab-limits", "What has not been tested"], ["ab-records", "Authors and reviewers"],
+  ["ab-build", "Which sources this version uses"], ["ab-how", "How the research search works"], ["ab-gates", "Decisions for the project owner"]];
 
 export async function render(root, { ontology }) {
   const [examples, chat, build] = await Promise.all([load("examples"), load("chat"), load("build")]);
@@ -25,11 +29,17 @@ export async function render(root, { ontology }) {
   <div class="ab">
     <header class="wrap page-head">
       <div>
-        <span class="eyebrow">Results and limits</span>
+        ${crumb("nerds", "Results and limits")}
         <h1>What we tested and what we know</h1>
         <p class="lede">See how the search performed, who wrote and reviewed the records, which sources this version uses and what still needs testing.</p>
       </div>
     </header>
+    ${s.all ? `<div class="wrap"><div class="ab-verdict-box" role="note">
+      <span class="eyebrow">The evidence so far, in one paragraph</span>
+      <p>On ${fmt(s.all.n)} test questions, the map-guided search ranked relevant passages ${difference(s.all["ndcg:ontology-keyword"], "higher", "lower")} than keyword search, and ${difference(s.all["ndcg:ontology-hybrid"], "higher", "lower")} than search by meaning.
+      That measures how the search ranks passages. It does not show that an answer is right.</p>
+      <p class="small"><b>Not yet tested:</b> whether answers are correct, the legal tests, the procedures, the customer explanations and the change tracing. No trade marks expert has reviewed the AI-written records.</p>
+    </div></div>` : ""}
     <div class="wrap ab-layout">
       <nav class="ab-nav" aria-label="On this page">${SECTIONS.map(([id, label]) => `<button type="button" data-jump="${id}">${esc(label)}</button>`).join("")}</nav>
       <div class="ab-main">
@@ -53,19 +63,21 @@ export async function render(root, { ontology }) {
             <p class="small muted">AI wrote ${fmt(examples.answers.length - (s.signed?.n || 0))} of the test questions. Another model rated the passages. A person reviewed ${fmt(s.signed?.n || 0)} questions and the passages each should find. That group was too small to establish which method performed better. The project owner decides which findings to publish externally.</p>
           </div>
         </section>
-
-        <section id="ab-gates" class="ab-sec" tabindex="-1">
-          <h2>Decisions for the project owner</h2>
-          <p class="muted">The following steps need the project owner’s approval.</p>
-          <div class="ab-gates">
-            ${gate("users", "Testing with customers", `The <a href="#/customers">customer preview</a> is on this site so examiners can see it. Showing it to a customer, testing it with one, or publishing anything to customers needs the owner's approval first.`)}
-            ${gate("file", "Real case data", "Every application in the preview is invented. Using a real application or examination report, even in a test, is the owner's decision.")}
-            ${gate("chat", "What the AI can use to answer", "A related legal test appears beside the answer. The project owner decides whether the AI can also use that test when drafting its answer.")}
-            ${gate("shield", "Expert review", "Nothing machine-written becomes approved until a named expert's decision is recorded; when, and by whom, is the owner's to arrange.")}
-            ${gate("scale", "The next measurement", "Who writes and judges the next set of test questions, and which results become claims.")}
-          </div>
-          <div class="ab-never"><span class="pill never">Never</span><p><b>Deciding an application, or saying how one will be decided,</b> is out of scope, and no decision above changes that.</p></div>
+        <section id="ab-limits" class="ab-sec" tabindex="-1">
+          <h2>What has not been tested, and other limits</h2>
+          <ul class="ab-limits">
+            <li>${icon("scale")}<span>It explains; it never decides. It does not apply the law to an application's facts and declines when asked to.</span></li>
+            <li>${icon("eye")}<span>No trade marks expert has yet reviewed the AI-written ideas, connections or answers.</span></li>
+            <li>${icon("connect")}<span>A model suggested ${fmt((c.merges?.merged || 0) + (c.merges?.kept_apart || 0))} pairs of ideas were one idea under two records.
+              On the project owner's rulings, ${fmt(c.merges?.merged || 0)} were merged (for example <i>Registrar of Trade Marks</i> into <i>Registrar</i>) and
+              ${fmt(c.merges?.kept_apart || 0)} kept apart as different ideas.</span></li>
+            <li>${icon("search")}<span>Matching words can find the wrong idea. For example, “who has to <i>sign</i>” might match a record about a <i>sign</i> used as a trade mark.</span></li>
+            <li>${icon("clock")}<span>The site uses one saved copy of the Manual. There is no process yet for updating it.
+              <a href="#/change">Trace a change</a> lists records linked to a page or provision.</span></li>
+            <li>${icon("info")}<span>The search over the Act and the Regulations, the legal tests, the process templates and the customer explanations have not been measured.</span></li>
+          </ul>
         </section>
+
 
         <section id="ab-records" class="ab-sec" tabindex="-1">
           <h2>Who wrote and reviewed the records?</h2>
@@ -100,23 +112,9 @@ export async function render(root, { ontology }) {
           </dl>
         </section>
 
-        <section id="ab-limits" class="ab-sec" tabindex="-1">
-          <h2>Limits</h2>
-          <ul class="ab-limits">
-            <li>${icon("scale")}<span>It explains; it never decides. It does not apply the law to an application's facts and declines when asked to.</span></li>
-            <li>${icon("eye")}<span>No trade marks expert has yet reviewed the AI-written ideas, connections or answers.</span></li>
-            <li>${icon("connect")}<span>A model suggested ${fmt((c.merges?.merged || 0) + (c.merges?.kept_apart || 0))} pairs of ideas were one idea under two records.
-              On the project owner's rulings, ${fmt(c.merges?.merged || 0)} were merged (for example <i>Registrar of Trade Marks</i> into <i>Registrar</i>) and
-              ${fmt(c.merges?.kept_apart || 0)} kept apart as different ideas.</span></li>
-            <li>${icon("search")}<span>Matching words can find the wrong idea. For example, “who has to <i>sign</i>” might match a record about a <i>sign</i> used as a trade mark.</span></li>
-            <li>${icon("clock")}<span>The site uses one saved copy of the Manual. There is no process yet for updating it.
-              <a href="#/change">Trace a change</a> lists records linked to a page or provision.</span></li>
-            <li>${icon("info")}<span>The search over the Act and the Regulations, the legal tests, the process templates and the customer explanations have not been measured.</span></li>
-          </ul>
-        </section>
 
         <section id="ab-how" class="ab-sec" tabindex="-1">
-          <h2>How Ask the Manual works</h2>
+          <h2>How the research search works</h2>
           <ol class="ab-steps">
             <li><b>Recognise</b><span>The question is matched against every idea's wordings, including everyday phrasings a machine wrote for search.</span></li>
             <li><b>Follow</b><span>The search follows links from matching ideas to related ones.</span></li>
@@ -130,7 +128,19 @@ export async function render(root, { ontology }) {
           (${esc(chat.prepared_prompt_version)}): each connection's modality and the condition it applies under, complete provisions with every cut marked,
           each claim with its own quotes, and the rule never to conclude that a requirement, exception or step does not exist because the passages or
           connections do not mention it. Search in your browser runs without the meaning-vectors the measured system also used.
-          <a href="#/how">Follow one question through the system</a>.</p>
+          <a href="#/how">Follow one question through the search, step by step</a>.</p>
+        </section>
+        <section id="ab-gates" class="ab-sec" tabindex="-1">
+          <h2>Decisions for the project owner</h2>
+          <p class="muted">The following steps need the project owner’s approval.</p>
+          <div class="ab-gates">
+            ${gate("users", "Testing with customers", `The <a href="#/customers">customer preview</a> is on this site so examiners can see it. Showing it to a customer, testing it with one, or publishing anything to customers needs the owner's approval first.`)}
+            ${gate("file", "Real case data", "Every application in the preview is invented. Using a real application or examination report, even in a test, is the owner's decision.")}
+            ${gate("chat", "What the AI can use to answer", "A related legal test appears beside the answer. The project owner decides whether the AI can also use that test when drafting its answer.")}
+            ${gate("shield", "Expert review", "Nothing machine-written becomes approved until a named expert's decision is recorded; when, and by whom, is the owner's to arrange.")}
+            ${gate("scale", "The next measurement", "Who writes and judges the next set of test questions, and which results become claims.")}
+          </div>
+          <div class="ab-never"><span class="pill never">Never</span><p><b>Deciding an application, or saying how one will be decided,</b> is out of scope, and no decision above changes that.</p></div>
         </section>
       </div>
     </div>
