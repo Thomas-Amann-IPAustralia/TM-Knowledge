@@ -4,7 +4,7 @@ Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-11-09, ADR-0153 (S051).
+**As at:** 2026-11-09, ADR-0154 (S052).
 
 ## Purpose and scope
 
@@ -74,6 +74,14 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   over what the index records, no "impact modelling". Who wrote the records is said once per page,
   by the status strip, and on every record's stamp; the section about lines no longer repeat it.
   The examiners' tint is pastel apricot.
+- **Two live tools, one back end** (ADR-0154, the owner's word): Ask a research question is for
+  examiners still learning the sources, and reads statement by statement, each labelled by what its
+  found quotations come from (law, practice, none), its quoted words beneath it; the measured prompt
+  is unchanged. The trade marks guide (`site/guide/`) is a chat for the public on the same proxy with
+  its own prompt (`tm_knowledge.explain.guide`, unmeasured): friendly, short, quotes checked, at most
+  one clarifying question (only for a fact that changes the explanation, never personal details),
+  pictures only from the explanation objects by id, provenance on request, every reply stamped.
+  Showing it to customers, testing with them and real case data stay the owner's.
 - **On the site, an expert's review is marked, never featured.** Machine-written
   records keep "Machine · unreviewed" everywhere; reviewed ones say "Reviewed", grey,
   with no name; pictures draw every record alike. The Manual, the Act and the

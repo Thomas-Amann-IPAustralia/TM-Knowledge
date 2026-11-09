@@ -1,0 +1,55 @@
+# A decision the repo owner made in a chat session. Hand-transcribed by the S052 agent;
+# no issue behind it. The artefact is `review/returned/261109-owner-chat-guide.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-11-09T00:00:00Z'
+questions_updated: '2026-11-09'
+source:
+  kind: chat
+  artefact: review/returned/261109-owner-chat-guide.md
+  author: the owner (the session's user; no name given in the chat)
+  relayed_by: S052 agent
+  title: Ask a research question aimed at newer examiners; a conversational guide for the public, with clarifying questions
+applied:
+  session: S052
+  date: '2026-11-09'
+  branch: claude/jolly-hawking-5bcaqf
+  what_changed: >-
+    Ask a research question (site/js/ask.js) addressed to examiners still learning the sources and
+    rebuilt around provenance: a key to the labels before a question; each statement labelled by
+    what its found quotations come from (law, practice, both, no matching quotation, about the
+    sources), the quoted words under it opening the passage at them, a count of supported
+    statements first, the law listed before the Manual, each recognised concept's definition, and
+    four checks before relying on it. The measured prompt is unchanged. A new page, site/guide/: a
+    chat for the public on the same proxy with its own prompt (tm_knowledge.explain.guide,
+    guide-v1, shipped in chat.json), short friendly replies, pictures drawn from the explanation
+    objects by id, at most one clarifying question with its answers as buttons, provenance behind
+    "Where this comes from", every reply stamped, and four guided topics when live answers are off.
+    Linked from the public overview, the overview's tool list and the footer.
+answers:
+- id: CHAT-0103
+  item: Ask a research question for newer examiners; a conversational guide for the public
+  question: Who is the research page for, and what should the public get?
+  kind: instruction
+  value: newer_examiners_and_a_public_guide
+  label: Aim the research page at newer examiners with reliability and provenance first; build a separate, friendly chat for the public on the same back end, with visuals and clarifying questions
+  quote: >-
+    I'd like you to update the "Ask a research question" to be something like more clearly targeted
+    at newer examiners. Experienced examiners will mostly have the entire Act, Manual and
+    Regulations memorized. The value is helping new examiners get up to speed faster. The UX should
+    focus on reliability and information provenance. Similarly, I'd like you to build a completely
+    different front end to be targeted towards users. They should be able to ask the chatbot
+    questions about the application process and it should respond conversationally and with
+    visuals when possible. It can use the same credentials as the "research question" thing on the
+    back-end but give it a different system prompt to be more casual and friendly. The UX should be
+    clean and uncluttered, only exposing provenance and extra detail if the user chooses to further
+    understand the reason they got a particular answer. Getting the chatbot to ask clarifying
+    questions (similar to the invented case study for the Corner Brew coffee
+    (https://thomas-amann-ipaustralia.github.io/TM-Knowledge/#/customers/objection/FM-0006)) would
+    be an excellent distinction for the customer experience, compared to the examiner experience
+    which would be more akin to conversing with the grounding information.
+  notes: >-
+    The owner's answer, for this build, to two CLAUDE.md §3a gates: what the system may say to a
+    customer (a new prompt written for them) and the use of the owner's key for a second page.
+    Showing the guide to customers, testing with them and real case data stay the owner's. The
+    examiner's measured prompt (answer-v4) is not changed.
+  recorded_as: [ADR-0154]

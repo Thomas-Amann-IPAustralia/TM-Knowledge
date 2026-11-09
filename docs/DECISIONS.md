@@ -6864,3 +6864,68 @@ the merge to `main` (ADR-0112).
    overview's top.
 2. Demo cards side by side keep their pictures one height (`grid-template-rows: auto 1fr`, Q-111).
 3. The agent parts are provisional; named in the handoff's open items.
+
+## ADR-0154 — Ask a research question aimed at newer examiners, provenance first; a conversational guide for the public on the same back end
+
+**Date** 2026-11-09 · **Authority** human (the two audiences, the separate front end, the shared back end with its own prompt, clarifying questions), agent-proposed (the prompt's wording, the layouts, the pictures and the guided topics) ·
+**Status** accepted
+
+**Context.** The owner (CHAT-0103, `review/returned/261109-owner-chat-guide.md`): *"I'd like you to
+update the "Ask a research question" to be something like more clearly targeted at newer examiners.
+… The UX should focus on reliability and information provenance."* And: *"build a completely
+different front end to be targeted towards users. … It can use the same credentials as the
+"research question" thing on the back-end but give it a different system prompt to be more casual
+and friendly. The UX should be clean and uncluttered, only exposing provenance and extra detail if
+the user chooses …"*, with clarifying questions on the pattern of the invented Corner Brew case
+(FM-0006). Before this, the research page showed each statement's sources as chips and its quotes
+folded under "Citations"; the customer preview (ADR-0146) explained invented matters but took no
+question, and ADR-0151 listed "a guided assistant with clear visuals" as a possibility.
+
+**Decision (the owner's).** As quoted. The owner's words are the answer, for this build, to two
+gates in `CLAUDE.md` §3a: a prompt written for customers changes what the system may say to them,
+and the owner's key now serves a second page.
+
+**Decision (the agent's, inside it).**
+1. **The research page reads statement by statement.** Each statement is labelled by what its found
+   quotations come from (Law, Practice, Law and practice, No matching quotation, or About the
+   sources for a statement the model marked as about coverage, which quotes nothing and is not
+   counted as unsupported), read from the evidence, not the model's own label; the model's label is
+   still checked against it both ways. The quoted words sit under each statement and open the
+   passage highlighted. A bar and a count say how many statements are supported before the reader
+   starts; a key explains the labels before the first question; "Before you rely on it" lists four
+   checks; the law is listed before the Manual; each recognised concept shows its definition. The
+   measured prompt (`answer-v4`) and the search are unchanged, so the measurement still describes
+   what the page asks.
+2. **The guide is its own page**, `site/guide/`, with its own stylesheet and no explorer chrome,
+   sharing only side-effect-free modules (`engine.js`, `live.js`, `lib.js`) and the generated data.
+   A live turn is the examiner's pipeline (the model's reading, the browser's search) with the
+   guide's prompt, `tm_knowledge.explain.guide` (`guide-v1`, shipped in `chat.json` under `guide`):
+   short friendly paragraphs, each with quotes checked as the examiner's are; at most one clarifying
+   question, asked only when the answer would change the explanation, never guessing a ground and
+   never asking for personal details, with its answers as buttons; at most one picture, named by id
+   from a catalogue of the explanation objects and drawn by the page (the journey from filing, the
+   report loop, what the examiner looks at under sections 41, 43 and 44); a few follow-ups. Every
+   reply carries one quiet stamp; "Where this comes from" opens each point's quotes, what was read,
+   the concepts recognised, the texts and compilations read, and what to keep in mind. The
+   conversation's last six turns go back to the model, shortened, and the search reads the latest
+   message with the question it answers and the person's two earlier messages.
+3. **Guided topics without the model.** With live answers off, the day's limit reached or the
+   service unreachable, four starters still work from `explain.json` alone, including FM-0006's
+   question (which section the report gives) with the three grounds as answers. The page's words
+   there say what to look at and state no law.
+4. **One allowance.** The proxy is unchanged: a guide request counts as an answer, so the two pages
+   share 30 an hour per address and 300 a day, and the OpenAI project's budget stays the real limit.
+   The guide keeps its own per-browser count (`tmk-guide-…`, the same 40 a day).
+
+**What it does not decide.** Showing the guide to customers, testing it with them, or real case data
+in it: the page asks people not to type personal details or a real report, but a published page
+cannot stop them, and whether to promote it is the owner's. The guide is unmeasured: no benchmark
+question was asked of it. Publishing is the merge to `main` (ADR-0112).
+
+**Consequences.**
+1. `tests/unit/test_guide.py` holds the guide's schema and rules, its catalogue, `chat.json`'s
+   payload and the page's guards (self-contained, stamped, no tick, no key, pictures only by a
+   listed id); `test_explorer.py` pins the research page's labels and order.
+2. The public overview leads with the guide, and "A guided assistant with clear visuals" leaves the
+   possibilities for the overview's working demonstrations.
+3. The agent parts are provisional; named in the handoff's open items.

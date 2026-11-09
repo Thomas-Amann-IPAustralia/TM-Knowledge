@@ -1834,3 +1834,15 @@ the words started at three different heights across the public overview (182, 20
 panels for the same 141 px drawing). `grid-template-rows: auto 1fr` keeps the picture at its own
 height and gives the slack to the words. Any new card that stacks a picture over words in a grid
 needs the same.
+
+### Q-112: a second page cannot import the explorer's `app.js`, and `display` beats `hidden`
+
+`site/js/app.js` starts the explorer's router when it is imported (`route()` at the foot, plus the
+document-wide click and key listeners), and `diagrams.js` imports it. The guide (`site/guide/`,
+S052) is a separate page, so it imports only modules with no side effects: `engine.js`, `live.js`
+and `lib.js`. Its own `common.js` repeats the few helpers it needs (escaping, naming a source),
+in its own words for the public. If you want another explorer helper on the guide, move it into a
+side-effect-free module first; do not import `app.js`. Second trap, met the same session: an element
+with the `hidden` attribute is still shown if its class sets `display` (the guide's typing dots,
+`display: flex`, stayed on screen under every reply). The guide's stylesheet has
+`[hidden] { display: none !important; }`; a new page needs the same.
