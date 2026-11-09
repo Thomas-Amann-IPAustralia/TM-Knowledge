@@ -6929,3 +6929,34 @@ question was asked of it. Publishing is the merge to `main` (ADR-0112).
 2. The public overview leads with the guide, and "A guided assistant with clear visuals" leaves the
    possibilities for the overview's working demonstrations.
 3. The agent parts are provisional; named in the handoff's open items.
+
+## ADR-0155 — the site is Tradecraft, and the public guide is Tommy Tradecraft, an AI that says so
+
+**Date** 2026-11-09 · **Authority** human (the two names), agent-proposed (what the persona must say about itself, and where the names appear) ·
+**Status** accepted
+
+**Context.** The owner (CHAT-0104, `review/returned/261109-owner-chat-tradecraft.md`), after
+ADR-0154's guide: *"Good please update the site to change it's name to "Tradecraft". I'd like the
+public facing chatbot to have a persona named "Tommy Tradecraft"".* The site was called "Trade mark
+knowledge foundation"; the guide was "the trade marks guide".
+
+**Decision (the owner's).** The site is Tradecraft; the public chatbot's persona is Tommy
+Tradecraft.
+
+**Decision (the agent's, inside it).**
+1. **A named persona still says it is a machine.** The guide's prompt is `guide-v2`: it names Tommy,
+   uses the name when introducing itself or when asked, says plainly it is an AI if asked, never
+   claims to be a person, an examiner, a lawyer or an attorney, and never claims to speak for IP
+   Australia or the Registrar. The page says the same in its welcome ("I'm an AI guide"), its fine
+   print ("Tommy is an AI") and its about panel. Every reply keeps its stamp. A friendly name must
+   not let an answer read as one a person gave or checked (`CLAUDE.md` rule 8).
+2. **Where the names go.** Tradecraft: the explorer's title, brand and footer, and the guide's about
+   link. Tommy Tradecraft: the guide's header, welcome, avatar (a T on a round tile), about panel and
+   fine print, and every link to it. "The foundation", where the pages use it for the linked records
+   beneath the tools, names what Tradecraft is built on and is unchanged.
+
+**What it does not decide.** The repository, the Python package, the proxy and the examiners' tools
+keep their names. Nothing else in the prompt changed; the guide is still unmeasured.
+
+**Consequences.** `test_guide.py` pins the persona's rules, the page's statements that Tommy is an AI,
+and the site's name. The agent parts are provisional; named in the handoff's open items.

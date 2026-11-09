@@ -1,8 +1,9 @@
 # HANDOFF
 
 **Last updated:** 2026-11-09 · S052 · Ask a research question rebuilt for newer examiners around
-provenance, and a new conversational guide for the public on the same back end (ADR-0154), on
-branch `claude/jolly-hawking-5bcaqf`, built on `main` after PR #52 (S051, merged). Not merged.
+provenance, and a new conversational guide for the public on the same back end (ADR-0154); then the
+site renamed Tradecraft and the guide given the persona Tommy Tradecraft (ADR-0155), on branch
+`claude/jolly-hawking-5bcaqf`, built on `main` after PR #52 (S051, merged). Not merged.
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
@@ -37,10 +38,15 @@ clarifying questions in the manner of FM-0006 (Corner Brew).
 - **Linked from** the public overview (a wide card above the three explanations; the "guided
   assistant" possibility card is gone), the overview's tool list (now a working demonstration),
   the customer preview's foot card and the site footer. Examiners' overview copy says who Ask is for.
+- **Names, on the owner's word** (CHAT-0104, ADR-0155): the site is **Tradecraft** (title, brand,
+  footer); the guide is **Tommy Tradecraft** (header, welcome, a T monogram avatar, about panel,
+  fine print, every link). The prompt is `guide-v2`: Tommy says it is an AI when asked, never claims
+  to be a person, an examiner, a lawyer or an attorney, and never speaks for IP Australia; the page
+  says the same. "The foundation" in the copy still names the linked records beneath the tools.
 - **Unchanged:** `authored/`, the graph, every record, the examiner's prompt, the proxy's code,
   `explain.json`. `chat.json` gains `guide`.
 
-**Tests:** `test_guide.py` (new, 12), `test_explorer.py` (one new pin), `test_live_proxy.py`,
+**Tests:** `test_guide.py` (new, 14), `test_explorer.py` (one new pin), `test_live_proxy.py`,
 `test_hygiene.py`, `test_dashboard.py`, `test_explain.py`: see the commit body for the run.
 **QA** in Chromium against a stand-in proxy that streams canned replies in OpenAI's format: the
 guide offline (all four topics, the clarifying cards, the source sheet with the quote highlighted)
@@ -86,6 +92,8 @@ reading and a reply), within the proxy's shared allowance (30 an hour per addres
 
 ## What to distrust
 
+- **Tommy is a named persona.** The prompt and the page say Tommy is an AI; check after the merge
+  that a live reply to "are you a real person?" says so, and that the name is not overused.
 - **The guide has never met the real model.** Its prompt is untested against `gpt-6.1-sol`; the
   stand-in only proves the plumbing. Watch for a clarifying question asked when it need not be,
   pictures chosen loosely, or a quote that is real but beside the point.
@@ -127,16 +135,15 @@ reading and a reply), within the proxy's shared allowance (30 an hour per addres
 
 ## Open items (agent-proposed, provisional)
 
+- **ADR-0155's agent parts** (what the persona says about itself; where the two names appear; "the
+  foundation" kept for the records).
 - **ADR-0154's agent parts** (guide-v1's wording; the statement labels read from the quotations and
   "About the sources"; the key and the four checks; the guide's layout, starters, pictures, guided
   topics and the six-turn history; the shared allowance).
 - **ADR-0153's agent parts** (the drawings' readings; the apricot; the redrawn doors; the brief's
   verdicts; "builds on current work").
-- **ADR-0152's agent parts**, **ADR-0151's**, **ADR-0150's**, **ADR-0149's**, **ADR-0148's**
-  (as listed in their ADRs and S051's handoff in the git log).
-- **ADR-0147** (versioning vocabulary; RULE-0003's scope; the scenario format); **ADR-0146's** and
-  **ADR-0145's** agent parts; **ADR-0144**, **ADR-0142** and their content; ADR-0141's and
-  ADR-0143's agent parts; S042's engineering.
-- From S041 and earlier: ADR-0140, Package 3's budgets and claim schema, the evidence-anchor IRIs,
-  the triage rules, the condition-state rule, ADR-0138's agent parts, ADR-0137, ADR-0134, ADR-0135
-  (but for ADR-0140), Q-96, the agent parts of ADR-0113 to ADR-0133.
+- **Earlier, unchanged:** the agent parts of ADR-0141 to ADR-0152 (as listed in each ADR and in
+  S051's handoff in the git log), ADR-0147, ADR-0144, ADR-0142 and their content, S042's
+  engineering; from S041 and earlier ADR-0140, Package 3's budgets and claim schema, the
+  evidence-anchor IRIs, the triage and condition-state rules, ADR-0134 to ADR-0138, Q-96, and the
+  agent parts of ADR-0113 to ADR-0133.

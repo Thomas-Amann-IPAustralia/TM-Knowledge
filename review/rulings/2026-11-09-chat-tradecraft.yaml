@@ -1,0 +1,37 @@
+# A decision the repo owner made in a chat session. Hand-transcribed by the S052 agent;
+# no issue behind it. The artefact is `review/returned/261109-owner-chat-tradecraft.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-11-09T00:00:00Z'
+questions_updated: '2026-11-09'
+source:
+  kind: chat
+  artefact: review/returned/261109-owner-chat-tradecraft.md
+  author: the owner (the session's user; no name given in the chat)
+  relayed_by: S052 agent
+  title: Name the site Tradecraft and give the public chatbot the persona Tommy Tradecraft
+applied:
+  session: S052
+  date: '2026-11-09'
+  branch: claude/jolly-hawking-5bcaqf
+  what_changed: >-
+    The site's title, brand and footer say Tradecraft (site/index.html). The guide (site/guide/) is
+    Tommy Tradecraft: its header, welcome ("Hi, I'm Tommy Tradecraft. I'm an AI guide ..."), a T
+    monogram avatar, its about panel and fine print, and the links to it from the public overview,
+    the overview's tool list, the customer preview's foot card and the footer. The prompt is
+    guide-v2 (tm_knowledge.explain.guide): it names the persona and says Tommy is an AI, never a
+    person, an examiner, a lawyer or an attorney, and never speaks for IP Australia.
+answers:
+- id: CHAT-0104
+  item: the site's name and the public chatbot's persona
+  question: What should the site and the public chatbot be called?
+  kind: instruction
+  value: tradecraft_and_tommy_tradecraft
+  label: Call the site Tradecraft and give the public chatbot a persona named Tommy Tradecraft
+  quote: >-
+    Good please update the site to change it's name to "Tradecraft". I'd like the public facing
+    chatbot to have a persona named "Tommy Tradecraft"
+  notes: >-
+    The agent added that Tommy says it is an AI and never passes itself off as a person or as IP
+    Australia, so a named persona cannot read as a person who checked the answer (CLAUDE.md rule
+    8). "The foundation" in the pages' copy names the linked records, not the site, and stays.
+  recorded_as: [ADR-0155]

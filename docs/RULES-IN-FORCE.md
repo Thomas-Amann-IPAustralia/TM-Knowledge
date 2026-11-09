@@ -4,7 +4,7 @@ Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-11-09, ADR-0154 (S052).
+**As at:** 2026-11-09, ADR-0155 (S052).
 
 ## Purpose and scope
 
@@ -82,6 +82,9 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   one clarifying question (only for a fact that changes the explanation, never personal details),
   pictures only from the explanation objects by id, provenance on request, every reply stamped.
   Showing it to customers, testing with them and real case data stay the owner's.
+- **The site is Tradecraft; the public guide is Tommy Tradecraft** (ADR-0155, the owner's names).
+  A named persona still says it is an AI, never a person, an expert or IP Australia, and every reply
+  keeps its stamp.
 - **On the site, an expert's review is marked, never featured.** Machine-written
   records keep "Machine · unreviewed" everywhere; reviewed ones say "Reviewed", grey,
   with no name; pictures draw every record alike. The Manual, the Act and the
