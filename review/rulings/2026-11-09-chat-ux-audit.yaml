@@ -1,0 +1,45 @@
+# A decision the repo owner made in a chat session. Hand-transcribed by the S050 agent;
+# no issue behind it. The artefact is `review/returned/261109-owner-chat-ux-audit.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-11-09T00:00:00Z'
+questions_updated: '2026-11-09'
+source:
+  kind: chat
+  artefact: review/returned/261109-owner-chat-ux-audit.md
+  author: the owner (the session's user; no name given in the chat)
+  relayed_by: S050 agent
+  title: Act on ChatGPT's UX review where it holds, record each disagreement, and keep the overview's rule example
+applied:
+  session: S050
+  date: '2026-11-09'
+  branch: claude/practical-thompson-7l786c
+  what_changed: >-
+    The site (site/) only. Wording that overclaimed was calibrated: a matching quotation shows where
+    words come from, not that an answer is right; Trace a change finds what a change might affect,
+    not its consequences. The public explainer's recorded states became neutral "recorded" marks,
+    never ticks, with a line saying the site restates the invented report and does not assess it.
+    The concept explorer bundles duplicate connections (every record still listed) and wraps names.
+    Each audience page shows three possibilities and folds the rest; the overview offers the three
+    audiences in its first screen; Ask, the objection walkthrough, Trace a change (counts first, the
+    guess optional), the what-if and Results and limits (a verdict first) were simplified; How it
+    works became "A search, step by step" under a new four-step account of the foundation on For
+    nerds; deep pages got breadcrumbs; caption text meets 4.5:1. The overview's "One rule, from words
+    to structure" is unchanged. Every finding's verdict, including the five declined, is in
+    docs/feedback-inbox/2026-11-09-ux-audit-after-action-report.md. No record, graph, prompt or
+    explanation object changed.
+answers:
+- id: CHAT-0101
+  item: ChatGPT's UX review of the audience rebuild
+  question: Which of ChatGPT's thirty UX findings should be acted on?
+  kind: instruction
+  value: act_where_agreed_record_disagreements
+  label: Make the changes the agent agrees with, record each disagreement, keep "One rule, from words to structure"
+  quote: >-
+    You do not have to make the changes if you do not agree with it's findings. Where you don't
+    agree, please record this point. [...] Where you DO agree with it's suggestions, please make the
+    changes accordingly. I quite like the explanation of how the "One rule, from words to structure"
+    on the front page so please don't remove that.
+  notes: >-
+    The review is docs/Nov_rebuild-ref-doc/TM-Knowledge-UX-Audit-2026-11-09.html. Presentation only:
+    the review itself proposes no change to the ontology or to what the system may say.
+  recorded_as: [ADR-0152]

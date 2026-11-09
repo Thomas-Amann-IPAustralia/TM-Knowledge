@@ -6763,3 +6763,52 @@ customers, testing with them and real case data stay the owner's.
    overview, and a new check that every audience section says what it is and that its possibilities
    are not commitments.
 3. The agent parts are provisional; named in the handoff's open items.
+
+## ADR-0152 — ChatGPT's UX review acted on where it holds: claims calibrated, recorded states never ticks, less in the first screen
+
+**Date** 2026-11-09 · **Authority** human (the direction), agent-proposed (which findings and how) ·
+**Status** accepted
+
+**Context.** ChatGPT reviewed the site as rebuilt in ADR-0151 and gave 30 findings
+(`docs/Nov_rebuild-ref-doc/TM-Knowledge-UX-Audit-2026-11-09.html`), presentation only. The owner
+(CHAT-0101, `review/returned/261109-owner-chat-ux-audit.md`): *"You do not have to make the changes
+if you do not agree with it's findings. Where you don't agree, please record this point. [...]
+Where you DO agree with it's suggestions, please make the changes accordingly. I quite like the
+explanation of how the "One rule, from words to structure" on the front page so please don't remove
+that."*
+
+**Decision (the owner's).** As quoted.
+
+**Decision (the agent's, inside it).** Sixteen findings done, nine in part, five declined; each with
+its reason in `docs/feedback-inbox/2026-11-09-ux-audit-after-action-report.md`. The ones that set a
+rule for later work:
+1. **A checked quotation is provenance, not correctness.** Wherever the site says statements are
+   checked, it says the check is that a quotation exists in the source, and that this does not show
+   an answer is right (F02).
+2. **A recorded state is never a tick.** In the customer preview a condition's state is a document
+   mark with words ("recorded: met", "recorded: not met", "not known"), neutral in colour, and the
+   page says the site restates the invented report or case record and assesses nothing (F04).
+3. **What rests on a provision is a review list, not an impact.** Direction setting finds what a
+   change *might* affect; a count is a starting list for review, not legal impact, risk or effort
+   (F03, F17, F19).
+4. **Duplicate connections are bundled, never merged.** The concept explorer shows connections to
+   the same concept under one predicate as one entry with its record count, and lists every record
+   with its own sentence when selected (F05).
+5. **Kept, against the review:** the overview's headline and section 44 example, and the section
+   labels "For direction setting" and "For nerds" (the owner's own words; subtitles added instead);
+   the repeated safeguards (pinned by rulings and tests; which to drop is the owner's); the nine-step
+   walkthrough, renamed "A search, step by step" under a new four-step account of the foundation;
+   the map's whole-graph start, the rules page and the standards page (For nerds may be technical).
+
+**What it does not decide.** No record, graph, prompt, explanation object or generated data file
+changes, so nothing changes what the system may say (CLAUDE.md §3a). Every pinned safeguard stays.
+Whether to drop any repeated safeguard, and whether the site should reflow at 200% zoom (reversing
+ADR-0148's desktop-only decision), stay the owner's. Publishing is the merge to `main` (ADR-0112).
+
+**Consequences.**
+1. Shared helpers for a new view: `crumb` (`layers.js`), `possibilityGrid` (`illustrations.js`),
+   `STATE_WORD` and `stateGlyph` (`diagrams.js`); `--ink-3` is `#5b6863` (at least 4.95:1 on every
+   paper the site uses), and `--ink-faint` keeps the old grey for decorative strokes.
+2. `test_explorer.py` pins the calibrated quotation wording, the absence of ticks on recorded states
+   and the optional guess.
+3. The agent parts are provisional; named in the handoff's open items.
