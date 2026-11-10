@@ -7000,3 +7000,24 @@ Whether a starter must be measured before it is offered.
 **Consequences.** `test_guide.py` pins that the old question is gone, that there are four starters
 including the new one, and that the back link exists. A starter added later is checked against
 `Engine.prepare` first (Q-113). The agent parts are provisional; named in the handoff's open items.
+
+## ADR-0157 — The home page loses its "Can it be trusted?" section
+
+**Date** 2026-11-10 · **Authority** human · **Status** accepted
+
+**Context.** The owner (CHAT-0106, `review/returned/261110-owner-chat-trust-band.md`), with a
+screenshot of the home page's band: *"Please remove this section from the website. I don't like any
+part of it and I want it gone".* The band (ADR-0151) held five safeguard cards (sources, law and
+practice, facts and assessments, never decides, AI-written) and a "What still needs work" card with
+the measurement in both directions.
+
+**Decision (the owner's).** The whole band is removed from the home page: its markup, its picture
+helpers and its styles. Nothing from it is moved elsewhere.
+
+**What it does not decide.** Any other page. The record stamps, the status strip on every page, the
+results page (which still states the measurement in both directions) and the public pages' caveats
+are unchanged. The rules behind the band (never states an outcome; law and practice kept apart;
+machine-written records stamped) are unchanged; only this statement of them on the home page goes.
+
+**Consequences.** `test_explorer.py` pins that the band is gone and checks the measurement on
+`about.js` instead of `home.js`. The home page no longer loads `examples.json`.
