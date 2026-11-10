@@ -509,8 +509,11 @@ def test_the_first_page_leads_with_outcomes_read_from_the_data():
     says its examples are untested and not advice, and the customer preview and the overview still
     say that testing with customers is the project owner's decision."""
     home = (SITE / "js" / "home.js").read_text(encoding="utf-8")
-    assert 'all["ndcg:ontology-hybrid"]' in home and 'all["ndcg:ontology-keyword"]' in home
-    assert "not formally tested with customers" in home and "the project owner’s decision" in home and "Never" in home
+    # The owner struck the "Can it be trusted?" band from the home page (2026-11-10); the
+    # measurement in both directions now lives only on the results page.
+    assert "ld-trust" not in home and "Not blindly" not in home
+    about = (SITE / "js" / "about.js").read_text(encoding="utf-8")
+    assert '"ndcg:ontology-hybrid"' in about and '"ndcg:ontology-keyword"' in about
     for typed in ("129", "810", "729", "164", "357"):
         assert typed not in home, typed
     public = (SITE / "js" / "public.js").read_text(encoding="utf-8")
@@ -540,7 +543,7 @@ def test_the_site_never_claims_more_than_it_checks():
     the guess on Trace a change is offered, never in the way of the result."""
     js = SITE / "js"
     home, examiners, ask = ((js / f).read_text(encoding="utf-8") for f in ("home.js", "examiners.js", "ask.js"))
-    assert "Every statement shows its source" not in home and "not that the answer is right" in home
+    assert "Every statement shows its source" not in home
     assert "every statement is checked" not in examiners
     for page in (examiners, ask):
         assert "it does not check that the answer is right" in page

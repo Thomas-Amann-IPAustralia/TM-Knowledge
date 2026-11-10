@@ -1,0 +1,34 @@
+# A decision the repo owner made in a chat session. Hand-transcribed by the S054 agent;
+# no issue behind it. The artefact is `review/returned/261110-owner-chat-trust-band.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-11-10T00:00:00Z'
+questions_updated: '2026-11-10'
+source:
+  kind: chat
+  artefact: review/returned/261110-owner-chat-trust-band.md
+  author: the owner (the session's user; no name given in the chat)
+  relayed_by: S054 agent
+  title: Remove the "Can it be trusted?" section from the home page
+applied:
+  session: S054
+  date: '2026-11-10'
+  branch: claude/determined-gauss-7nar42
+  what_changed: >-
+    The home page's "Can it be trusted?" band (five safeguard cards with pictures and the "What
+    still needs work" card) is removed from site/js/home.js, with its picture helpers and its
+    styles in site/explorer.css. The home page no longer loads examples.json. test_explorer.py now
+    pins that the band is gone and reads the measurement from the results page instead.
+answers:
+- id: CHAT-0106
+  item: the home page's trust section
+  question: Should the home page keep its "Can it be trusted?" section?
+  kind: instruction
+  value: remove_trust_band
+  label: Remove the section entirely
+  quote: >-
+    Please remove this section from the website. I don't like any part of it and I want it gone
+  notes: >-
+    Given with a screenshot of the band. Nothing from it was moved elsewhere; the same caveats
+    already appear on the results page, the public pages, the customer preview and every record's
+    stamp.
+  recorded_as: [ADR-0157]

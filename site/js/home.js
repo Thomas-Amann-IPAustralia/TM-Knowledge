@@ -1,8 +1,8 @@
-/* The overview: what the knowledge foundation is, what it might enable for each group it serves,
-   and why it can be trusted (ADR-0151, on the owner's word).
+/* The overview: what the knowledge foundation is and what it might enable for each group it serves
+   (ADR-0151, on the owner's word; the "Can it be trusted?" band was removed at the owner's request).
 
    The owner's order: one real rule first, then a door for each group (examiners, the public,
-   direction setting) and one for the technically curious, then why it is somewhat trustworthy.
+   direction setting) and one for the technically curious.
    The hero is the headline and one real rule alone (the owner's annotations, ADR-0153): section 44
    as its structured record holds it, turned from the Act's words into conditions: which are facts
    a record can settle and which are assessments only a person can make. Every number is read from the data; the measurement is
@@ -33,13 +33,10 @@ function kindOf(node) {
 const quotesOf = (node) => (node.children ? node.children.flatMap(quotesOf) : node.quote ? [node.quote] : []);
 
 export async function render(root, { ontology }) {
-  const [explain, examples, stability] = await Promise.all([load("explain"), load("examples"), load("stability")]);
+  const [explain, stability] = await Promise.all([load("explain"), load("stability")]);
   const c = ontology.counts;
   const concepts = c.concepts.signed + c.concepts.machine;
   const relations = c.relations.signed + c.relations.machine;
-  const claims = examples.answers.flatMap((a) => a.claims || []);
-  const quoted = claims.filter((x) => x.supported).length;
-  const all = examples.summary?.all;
   const provisions = Object.keys(stability.provisions || {}).length;
   const rule = explain.requirements.find((r) => r.provision === "TMA1995/s44") || explain.requirements[0];
 
@@ -79,30 +76,6 @@ export async function render(root, { ontology }) {
         <span class="ld-xai-i">${icon("shield")}</span>
         <div><h3>Shared records can make a tool’s sources easier to inspect</h3>
           <p>The demonstrations link their outputs to recorded concepts, rules and source passages. A future tool could reuse those links to help a person inspect the material behind an output. That would still need testing for accuracy and completeness.</p></div>
-      </div>
-    </section>
-
-    <section class="ld-trust-band" aria-labelledby="ld-t">
-      <div class="wrap">
-        <div class="sec-head"><div><span class="eyebrow">Can it be trusted?</span><h2 id="ld-t">Not blindly, and it never asks you to</h2></div>
-          <p>Scepticism is the right starting point. These are the safeguards built in from the start, and the work still to do.</p></div>
-        <div class="ld-trust">
-          ${trust("quote", "Statements are linked to their sources", `Answers and explanations link each statement to the exact words in the Act, the Regulations or the Manual. In the prepared answers, ${fmt(quoted)} of ${fmt(claims.length)} statements carry a quotation found word for word in the source; the rest are flagged. A matching quotation shows where the words come from, not that the answer is right.`, trustSources())}
-          ${trust("scale", "Law and practice stay apart", "The Act and the Regulations are the law. The Manual describes how the law is applied in examination; it is not law. Each source has its own mark, everywhere on this site.", trustMarks())}
-          ${trust("fact", "Facts and judgements are kept apart", "Every legal test separates the facts a record can confirm, such as a date, from the assessments only a person can make, such as whether two trade marks are deceptively similar. The system never makes an assessment.", trustTiles())}
-          ${trust("never", "It explains; it never decides", "Never: deciding an application, or saying how one will be decided. Only the Registrar of Trade Marks decides.", trustNever())}
-          ${trust("stamp", "AI-written until an expert signs it", `${fmt(c.concepts.machine)} of ${fmt(concepts)} ideas and ${fmt(c.relations.machine)} of ${fmt(relations)} connections were written by AI. Each one says so wherever it appears, and stays labelled until a trade marks expert reviews it.`, trustStamp())}
-        </div>
-        <div class="ld-work card">
-          <h3>${icon("flag")}What still needs work</h3>
-          <ul>
-            <li><b>Expert review.</b> Most records are machine-written and unreviewed. Reviewing them is the next big step.</li>
-            <li><b>Testing with customers.</b> The explanations for the public are not formally tested with customers yet. When and how that happens is the project owner’s decision.</li>
-            <li><b>Coverage.</b> ${fmt(c.tests)} legal tests and ${fmt(c.processes)} procedures are set out as rules so far; the rest of the Act and the Manual are to come.</li>
-            <li><b>Measurement.</b> Only the research search has been measured. ${all ? `Guided by the foundation, it ranked relevant passages ${difference(all["ndcg:ontology-keyword"], "higher", "lower")} than keyword search, and ${difference(all["ndcg:ontology-hybrid"], "higher", "lower")} than search by meaning.` : ""}</li>
-          </ul>
-          <a class="link-arrow" href="#/about">See the results and limits ${icon("arrow")}</a>
-        </div>
       </div>
     </section>
 
@@ -292,20 +265,3 @@ function startFoundation(root) {
   window.addEventListener("resize", onResize);
   choose(chosen);
 }
-
-// ------------------------------------------------------------------ the safeguards, each with a small picture
-
-function trust(key, title, text, art) {
-  return `<article class="ld-tr ld-tr-${key}"><div class="ld-tr-art" aria-hidden="true">${art}</div><h3>${esc(title)}</h3><p>${text}</p></article>`;
-}
-
-const trustSources = () => `<svg viewBox="0 0 200 90"><rect x="10" y="12" width="120" height="7" rx="3.5" class="tr-ln"/><rect x="10" y="27" width="96" height="7" rx="3.5" class="tr-ln"/>
-  <g class="tr-chip act"><rect x="10" y="48" width="58" height="20" rx="5"/><path d="M22 52 l6 6 -6 6 -6 -6z"/></g><g class="tr-chip manual"><rect x="74" y="48" width="58" height="20" rx="5"/><rect x="81" y="53" width="10" height="10" rx="1.5"/></g>
-  <path d="M150 40 l10 10 24 -26" class="tr-check"/></svg>`;
-const trustMarks = () => `<svg viewBox="0 0 200 90"><g class="tr-src act"><path d="M40 22 l14 14 -14 14 -14 -14z"/></g><g class="tr-src regs"><path d="M88 23 h14 l7 13 -7 13 h-14 l-7 -13z"/></g>
-  <path d="M128 20 v34" class="tr-div"/><g class="tr-src manual"><rect x="146" y="24" width="24" height="24" rx="3"/></g><text x="66" y="76" text-anchor="middle" class="tr-t">law</text><text x="158" y="76" text-anchor="middle" class="tr-t">practice</text></svg>`;
-const trustTiles = () => `<svg viewBox="0 0 200 90"><g class="tr-tile fact"><rect x="8" y="18" width="88" height="34" rx="8"/><rect x="18" y="29" width="12" height="12" rx="2"/><text x="38" y="40" class="tr-t">Fact</text></g>
-  <g class="tr-tile ev"><rect x="104" y="18" width="88" height="34" rx="8"/><path d="M122 27v16M116 30h12M116 30l-3 6h6zM128 30l-3 6h6z"/><text x="136" y="40" class="tr-t">Assessment</text></g>
-  <text x="52" y="74" text-anchor="middle" class="tr-s">a record settles it</text><text x="148" y="74" text-anchor="middle" class="tr-s">a person judges it</text></svg>`;
-const trustNever = () => `<svg viewBox="0 0 200 90"><g class="tr-gavel"><rect x="70" y="14" width="60" height="62" rx="10"/><path d="M84 40 h32 M84 52 h20"/></g><circle cx="100" cy="45" r="38" class="tr-no"/><path d="M73 72 L127 18" class="tr-no"/></svg>`;
-const trustStamp = () => `<svg viewBox="0 0 200 90"><g class="tr-stamp"><rect x="19" y="26" width="162" height="34" rx="17"/><circle cx="40" cy="43" r="5"/><rect x="54" y="40" width="106" height="6" rx="3"/></g></svg>`;

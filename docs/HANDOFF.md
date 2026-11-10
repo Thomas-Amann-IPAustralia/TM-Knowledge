@@ -1,8 +1,7 @@
 # HANDOFF
 
-**Last updated:** 2026-11-09 · S053 · Tommy Tradecraft's starters cut to questions it can answer, and
-a Back link in the guide's header (ADR-0156, on the owner's word, CHAT-0105), on branch
-`claude/dazzling-cori-zwxqyi`, built on `main` after PR #53 (S052, merged). Not merged.
+**Last updated:** 2026-11-10 · S054 · the home page's "Can it be trusted?" section removed (ADR-0157,
+on the owner's word, CHAT-0106), on branch `claude/determined-gauss-7nar42`. Not merged.
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
@@ -11,6 +10,14 @@ Rewritten every session, under 150 lines (ADR-0110). History is in the git log a
 
 **The purpose is ADR-0138** (`CLAUDE.md` §0). Every package in `docs/ONTOLOGY-REVIEW-RESPONSE-2.md`
 is built; the redesign (ADR-0148) to the annotations pass (ADR-0153) are merged.
+
+**S054 acted on the owner's word** (CHAT-0106, `review/returned/261110-owner-chat-trust-band.md`):
+*"I don't like any part of it and I want it gone"*. The home page's dark "Can it be trusted?" band
+(five safeguard cards and "What still needs work") is gone from `site/js/home.js` with its picture
+helpers and its styles in `site/explorer.css`; the home page no longer loads `examples.json`.
+`test_explorer.py` now pins that the band is gone and reads the measurement from `about.js`
+(19 passed). Not checked in a browser: the page data is built at deploy and needs `rdflib`, which
+the S054 container lacked. Look at the deployed home page once.
 
 **S053 acted on the owner's word** (CHAT-0105, `review/returned/261109-owner-chat-starters.md`):
 the first starter could not be answered live; offer only starters Tommy can answer, and add a way
